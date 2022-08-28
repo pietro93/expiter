@@ -309,7 +309,8 @@ row.innerHTML+='<button class="button column regionfilter" id="'+regions[i].subs
 });
 
 function newPage(name, i){
-  var opened = window.open("/"+name+"/","_self");
+  var opened = window.open("/"+name+"/","_self"); 
+  window.location.pathname = "/"+name+"/";
   opened.document.write("<html>"+
   '<head><meta charset="utf-8">'+
   '<meta name="viewport" content="width=device-width, initial-scale=1">'+
