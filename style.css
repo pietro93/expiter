@@ -51,7 +51,7 @@ body {
 }
 
 .container {
-  padding: 10px 80px;
+  padding: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -67,10 +67,33 @@ card {
   border-radius: 10px;
   background-color:rgba(23,86,33,.67);
   z-index:1;
-  min-width:200px;
-  max-width:360px;
+  min-width:180px;
+  max-width:250px;
   background-image:url('img/pinkunicorn.jpg');
 }
+
+@media only screen and (max-width: 600px) {
+  card {
+    min-width:170px;
+  }
+  .paracard > p{
+    text-transform:uppercase;
+    font-size:13px;
+  }
+  .paracard{padding:0}
+  .paracard > p > score{font: size 13px;
+  letter-spacing:-1px;
+margin-top:-5px;}
+  card:hover > p {
+    text-transform:capitalize;
+    margin-left:0px;
+  }
+
+  .container > .column:not(.is-12){
+    padding:2px;
+  }
+}
+
 card::after{
   top:0;bottom:0;left:0;right:0;
   content:"";
@@ -293,8 +316,10 @@ row{position:relative;
     }
     #sorting>label:hover{opacity:1;border:2px ridge rgba(100,100,100,.6)}
 
-p.column.is-12{padding-bottom:0;opacity:0.9;font-weight:600;margin-left:-10px;}
-.fullwidth > .column > card{
+p.column.is-12{
+  padding-bottom:0;opacity:0.9;font-weight:600;margin-left:-10px;}
+
+  .fullwidth > .column > card{
   min-width:80vw;
   min-height:100%;
 }

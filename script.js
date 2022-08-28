@@ -220,7 +220,9 @@ function appendData(data) {
     title.innerHTML="<span id='bestorworst'></span> <span id='smallorlarge'></span> Provinces in <span id='chosenArea'>Italy</span> <span id='sortBy'></span>";
     title.classList="column is-12 title";
 
+
     mainContainer.appendChild(title);
+
 
     if (selection.length==0) {title.innerHTML="Could not find any provinces based on your filters."}
     else if (region_filters.length==1) {$("#chosenArea").text(region_filters[0])}
@@ -327,4 +329,6 @@ function newPage(name, i){
   $(".title").text(name+' for Expats and Nomads');
   }
 
-
+function getInfo(name,i){
+  
+}
