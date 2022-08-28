@@ -1,0 +1,336 @@
+:root{
+  --lightest-green:#8dc897;
+  --light-green:#7cb083;
+  --medium-green:#65a379;
+  --green-going-to-cyan:#4d8d6c;
+  --green-to-cyan:#2b9d66;
+  --cyan-to-dark-green:#28915e;
+  --dark-green:#2c9267;
+  --darkest-green:#257f58;
+  --natural-yellow:#F1B24A}
+
+html, body {
+  margin: 20px 0;
+  font-family: "Raleway";
+  font-size: 16px;
+  font-weight: 500;
+  background-color:var(--darkest-green);
+  background-image: linear-gradient(var(--lightest-green),var(--lightest-green)
+  ,var(--light-green),var(--light-green),var(--light-green),var(--light-green),
+  var(--medium-green),var(--medium-green),var(--medium-green),var(--medium-green),var(--medium-green),var(--medium-green),var(--medium-green),var(--medium-green),var(--medium-green)
+  ,var(--green-going-to-cyan),var(--green-going-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan)
+  ,var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan)
+  ,var(--cyan-to-dark-green),var(--cyan-to-dark-green),var(--cyan-to-dark-green),var(--cyan-to-dark-green),
+  var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),
+  var(--darkest-green), var(--darkest-green), var(--darkest-green), var(--darkest-green), var(--darkest-green), var(--darkest-green), var(--darkest-green), var(--darkest-green),
+  var(--darkest-green));
+  background-size: 200vw 5000px;
+  background-position-x:-20vw;
+  background-repeat:no-repeat;
+  -webkit-font-smoothing: antialiased;
+  max-width:1200px;
+}
+html {
+  display: table;
+  margin: auto;
+  overflow-x:hidden;
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.title {
+  font-family: "Raleway";
+  font-size: 24px;
+  font-weight: 700;
+  color: #5D4037;
+  text-align: center;
+}
+
+.container {
+  padding: 10px 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+card {
+  position: relative;
+  flex: 0 0 240px;
+  width: 100%;
+  height: 88%;
+  padding:5px; 
+  overflow: hidden;
+  border-radius: 10px;
+  background-color:rgba(23,86,33,.67);
+  z-index:1;
+  min-width:200px;
+  max-width:360px;
+  background-image:url('img/pinkunicorn.jpg');
+}
+card::after{
+  top:0;bottom:0;left:0;right:0;
+  content:"";
+  background-repeat: round;
+  opacity:.3;
+  position:absolute;
+  z-index:-1;
+  background-color:rgba(50,149,113,1)
+}
+
+.paracard {
+  width: 100%;
+  display: block;
+  padding-top: 60px;
+  transform-style: preserve-3d;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  border: 0px;
+  background-size: 110% 110%;
+  background-position: center center;
+}
+
+.frame {
+  background: rgba(0, 0, 0, 0.2);
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.frame:after {
+  width: calc(100% - 20px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius:5px;
+  height: calc(100% - 20px);
+  content: "";
+  display: block;
+  left: 10px;
+  top: 10px;
+  position: absolute;
+  transform: translateZ(30px);
+}
+
+card > p {
+  opacity: 0.85;
+  font-weight:400;
+  letter-spacing:-.3px;
+  font-size:16px;
+  text-shadow: 0 0 3px black,
+  0 0 20px rgba(10,33,23,0.99),
+0 0 33px rgba(43,100,33,0.69);
+color:rgba(205,235,255,1);
+position:relative;
+line-height: 5px;
+margin-top:15px;
+margin-left:15px;
+text-align:left;
+padding-right:10px;
+}
+
+.opacity6{opacity:.6}
+.opacity4{opacity:.4}
+
+score{border-radius:25px;
+  border: 1px ridge rgba(22,22,22,.3);
+  font-size:15px;
+  font-weight:900;
+  position:relative;
+  padding-left:5px;
+  position:absolute;
+  padding-top:5px;padding-bottom:5px;
+  margin-top:-5px;
+  margin-left:5px;
+}
+
+.poor{
+  color:orangered;
+  background-color:rgba(100,0,0,.9);
+}
+.average{
+  color:rgb(255, 200, 0);
+  background-color:rgba(183, 100, 0, 0.9); 
+}
+.good{
+  color:yellow;
+  background-color:rgba(126, 140, 0, 0.9); 
+
+}
+.great{
+  color:rgb(190, 255, 0);
+  background-color:rgba(17, 70, 0, 0.9);
+
+}
+.excellent{
+  color:lime;
+  background-color:rgba(0,170,0,.9);
+}
+.short{
+  width:23%;
+}
+
+.medium{
+ 
+  width:35%;
+}
+.long{
+ 
+  width:40%;
+}
+.max{
+  width:44%;
+}
+
+.region{
+  font-size:18px;
+  color:rgba(140,233,193,0.99);
+  margin-top:-48px;
+  margin-right:-2px;
+  height:50px;
+  letter-spacing:-1px;
+  text-align: right;
+  font-weight:400;
+}
+.population{
+  margin-top:-5px;
+  font-size:15px;
+  text-align:center;
+  padding-bottom:10px;
+}
+
+:not(.fullwidth) > .column > card:hover > .population, :not(.fullwidth) > .column > card:hover >.region{
+  opacity:0
+}
+
+:not(.fullwidth) > .column > card:hover{height:100%;}
+:not(.fullwidth)  > .column >  card:hover .header, :not(.fullwidth) > .column >  card:hover > p{
+  text-shadow: 0 0 12px black;
+  opacity:1;
+  
+ }
+ :not(.fullwidth)  > .column >  card:hover > p,:not(.fullwidth) > .column >  card:hover > score{
+  font-size:18px;
+ }
+
+ :not(.fullwidth)  > .column >  card:hover .header{
+  font-size:20px;
+  margin-top:-2px;
+  opacity:.5;
+ }
+ :not(.fullwidth) > .column > .paracard:hover{
+  padding-top: 10px;
+  cursor:pointer;
+ }
+
+ :not(.fullwidth)  > .column >   card:hover::after{
+    opacity:0.3;
+    background-color:black;
+ }
+
+card .header {
+  font-family: "Playfair Display";
+  font-size: 28px;
+  word-wrap:break-word;
+  line-height:21px;
+  letter-spacing:-1.4px;
+  font-weight: 900;
+  margin-top:0px;
+  text-shadow: 0 0 2px black,
+  0 0 20px rgba(0,133,133,0.99),
+  0 0 33px rgba(233,193,93,0.69);
+  color:rgba(255,255,255,.9);
+  margin-top:19px;
+}
+
+.button{
+  border:2px ridge rgba(100,100,100,.2);
+  background-color:rgba(100,100,100,.5);
+  width:100%;
+  font-weight:600;
+  padding-top:0;padding-bottom:0;
+  font-size:14px;
+  opacity:0.6;
+  }
+
+.regionfilter{background:none;}
+.selected{opacity:1;background-color:rgba(104,164,40,.4)}
+.clearfilter,.allfilter,.specialfilter{padding:0;
+  font-weight:600;color:rgba(54,15,3,.92);opacity: .8}
+.button:hover{opacity:1}
+.clearfilter{background-color:rgba(194,90,20,.4);border-color:rgba(194,90,20,.4);}
+.allfilter{background-color:rgba(94,104,160,.4);border-color:rgba(104,164,40,.4)}
+.specialfilter{background-color:rgba(94,104,160,.4);border-color:rgba(104,164,40,.4)}
+
+
+#filters{width:90%;;padding-left:10%}
+
+row{position:relative;
+  padding-left:5vw;
+  padding-right:5vw;
+  }
+
+#sorting>label>input[type="radio"] {
+		display: none;}
+#sorting>label {  border:2px ridge rgba(100,100,100,.2);
+  background:none;
+  border-radius:5px;
+  font-weight:500;
+  padding:0;
+  padding-top:2px;
+  padding-bottom:2px;
+  font-size:14px;
+  min-width:15%;
+  text-align:center;
+  opacity:.8;}
+  #sorting > label> span {color:rgba(80,80,80,.9);}
+  #sorting>label>input[type="radio"]:checked + span{
+    color:rgba(50,50,50,1);
+    font-weight:900;
+    border-bottom:4px double rgba(103, 100, 100, 0.7);
+    }
+    #sorting>label:hover{opacity:1;border:2px ridge rgba(100,100,100,.6)}
+
+p.column.is-12{padding-bottom:0;opacity:0.9;font-weight:600;margin-left:-10px;}
+.fullwidth > .column > card{
+  min-width:80vw;
+  min-height:100%;
+}
+.fullwidth > .column > card:hover > *{
+  opacity:1;
+}
+.fullwidth > .column > card > *{
+  left:0;
+  text-align:left;
+  font-size:20px;
+  padding-bottom:20px;
+  opacity:1;
+}
+
+.fullwidth > .column > card > p > score {
+  position:absolute;
+  font-size:20px;
+  left:120px;
+  padding-right:10%;
+  padding-top:5px;
+  padding-bottom:5px;
+  top:-5px;
+}
+.fullwidth > .column > card:hover > .region{
+  opacity:1;
+}
+
+.fullwidth > .column > card:hover > .heading{
+ opacity:1;
+ font-size: 28px;
+  word-wrap:break-word;
+  line-height:21px;
+  letter-spacing:-1.4px;
+  font-weight: 900;
+  margin-top:0px;
+  text-shadow: 0 0 2px black,
+  0 0 20px rgba(0,133,133,0.99),
+  0 0 33px rgba(233,193,93,0.69);
+  color:rgba(255,255,255,.9);
+  margin-top:19px;
+}

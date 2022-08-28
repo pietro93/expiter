@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/json" src="dataset.json"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript" src="pageGenerator.js"></script>
+        <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <row class="columns"><h2 class="title column"></h2></row>
+      
+        <row id="filters"> </row>
+
+        <row id="sorting" class="columns is-multiline is-mobile">
+            <p class="column is-12">Sort by:</p>
+            <label class="radio column">
+                <input type="radio" name="sortBy" onClick="filterBy()"; value="Random" checked>
+            <span>Random</span>
+            </label>
+            <label class="radio column">
+                <input type="radio" name="sortBy" onClick="filterBy()" value="Name">
+                <span>A-Z</span>
+            </label>
+            <label class="radio column">
+                <input type="radio" name="sortBy" onClick="filterBy()" value="Region">
+                <span>Region</span>
+            </label>
+            <label class="radio column">
+                <input type="radio" name="sortBy" onClick="filterBy()" value="Population">
+               <span>Population</span>
+            </label>
+            <label class="radio column">
+                <input type="radio" name="sortBy" onClick="filterBy()" value="Men">
+                <span>Men %</span>
+            </label>
+            <label class="radio column">
+                <input type="radio" name="sortBy" onClick="filterBy()" value="Women">
+                <span>Women %</span>
+            </label>
+            <label class="radio column">
+                <input type="radio" name="sortBy" onClick="filterBy()" value="MonthlyIncome">
+                <span>Income</span>
+            </label>
+            <label class="radio column">
+                <input type="radio" name="sortBy" onClick="filterBy()" value="CostOfLiving">
+               <span>Cost</span>
+            </label>
+            <label class="radio column">
+                <input type="radio" name="sortBy" onClick="filterBy()" value="Healthcare">
+                <span>Healthcare</span>
+            </label>
+            <label class="radio column">
+                <input type="radio" name="sortBy" onClick="filterBy()" value="Education">
+                <span>Education</span>
+            </label>
+            <label class="radio column">
+                <input type="radio" name="sortBy" onClick="filterBy()" value="Nightlife">
+            <span>Nightlife</span>
+            </label>
+        </row>
+       
+        <row class=""><div id="app" class="container columns"></row>
+   
+        </div>
+    </body>
+</html>
