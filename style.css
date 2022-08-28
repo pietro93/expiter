@@ -34,11 +34,13 @@ html {
   display: table;
   margin: auto;
   overflow-x:hidden;
+  width: 100vw;
 }
 
 body {
   display: table-cell;
   vertical-align: middle;
+  width:90vw;
 }
 .title {
   font-family: "Raleway";
