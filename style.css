@@ -278,6 +278,32 @@ card .header {
   opacity:0.6;
   }
 
+  .more{
+    background-color:var(--natural-yellow);
+    color:rgba(100,50,0,.9);
+    padding-left:4%;
+    padding-right:4%;
+    border-radius:25px;
+    position:absolute;
+    margin-bottom:-10px;
+    opacity:.0;
+    right:-1px;
+    bottom:10px;
+    z-index:10;
+    cursor:pointer;
+  }
+
+
+  :not(.fullwidth)  > .column >   card:hover > .more{
+    opacity:.8;
+    font-weight:800;
+  }
+
+  :not(.fullwidth)  > .column >   card:hover > .more:hover{
+    opacity:1;
+    color:rgba(90,30,0,1);
+  }
+
 .regionfilter{background:none;}
 .selected{opacity:1;background-color:rgba(104,164,40,.4)}
 .clearfilter,.allfilter,.specialfilter{padding:0;
@@ -360,4 +386,29 @@ p.column.is-12{
   0 0 33px rgba(233,193,93,0.69);
   color:rgba(255,255,255,.9);
   margin-top:19px;
+}
+
+.fullwidth > .column > card > .more{display:none}
+
+@media only screen and (max-width: 600px) {
+
+  .fullwidth > .column > card{
+  min-width:96vw;
+  min-height:100%;
+  margin-left:2vw;
+}
+
+.fullwidth > .column > card > p{
+  font-size:22px;
+  letter-spacing:-.5px;
+  margin-left:-1px;
+}
+.fullwidth > .column > card > p > score {
+  position:absolute;
+  font-size: 22px;
+  left:180px;
+  padding-top:10px;
+  padding-bottom:10px;
+  top:-5px;
+}
 }
