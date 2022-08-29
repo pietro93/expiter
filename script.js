@@ -4,7 +4,7 @@ var selection = [];
 var region_filters = [];
 var additionalFilters=[];
 
-fetch('dataset.json')
+fetch('../dataset.json')
     .then(function (response) {
         return response.json();
     })
@@ -19,9 +19,9 @@ fetch('dataset.json')
 
 function populateData(data){
       for (let i = 0; i < data.length; i++) {
-        let div = document.createElement("div");
         let province = data[i];
         provinces[province["Name"]]=province;
+        provinces[province["Name"]].index=i;
       }
     }
 
@@ -280,6 +280,7 @@ regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli
            "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
 
  $(document).ready(function(){
+  if (!!document.getElementById("filters")){
   let filters = document.getElementById("filters");
 for (i=0;i<regions.length;i++){
 if (i==0){
@@ -306,7 +307,15 @@ row.innerHTML+='<button class="button column regionfilter" id="'+regions[i].subs
   row.innerHTML+='<button class="button column additionalfilter" onClick=\'filterBy("Pop1m+");$(this).toggleClass("selected")\'>'+"Population > 1m"+"</button>"; 
   filters.append(row)
   
-});
+}
+else {
+  appendData([dataset[$("index").text()]])
+}
+
+}
+
+);
+
 
 function newPage(name, i){
   var opened = window.open("/"+name+"/","_self"); 
@@ -326,6 +335,8 @@ function newPage(name, i){
   '</body></html>');
 
   appendData([dataset[i]]);
+
+  newFile(name,i)
 
   $(".title").text(name+' for Expats and Nomads');
   }

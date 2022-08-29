@@ -93,7 +93,7 @@ margin-top:-5px;}
     padding:2px;
   }
 }
-
+index{visibility: hidden;}
 card::after{
   top:0;bottom:0;left:0;right:0;
   content:"";
