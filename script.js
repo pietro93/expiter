@@ -1,8 +1,8 @@
-var dataset;
 var provinces = {};
 var selection = [];
 var region_filters = [];
 var additionalFilters=[];
+var dataset;
 
 fetch('../dataset.json')
     .then(function (response) {
@@ -10,12 +10,16 @@ fetch('../dataset.json')
     })
     .then(function (data) {
         populateData(data);
-        dataset=data;
+        dataset = data;
+        if (document.title=="Italy Expats and Nomads")
         filterDataByRegion("All")
+        else 
+        newPage()
     })
     .catch(function (err) {
         console.log('error: ' + err);
     });
+
 
 function populateData(data){
       for (let i = 0; i < data.length; i++) {
@@ -113,7 +117,11 @@ function populateData(data){
     }
   
    
-
+  function getData(province){
+    for (let i=0;i<dataset.length;i++){
+      if (dataset[i].Name==province) return dataset[i];
+    }
+  }
 
     function dynamicSort(property) {
       var sortOrder = 1;
@@ -261,7 +269,7 @@ function appendData(data) {
         card.innerHTML += '<p class="opacity4">👩For women: '+ qualityScore("FemaleFriendly",data[i]["Female-friendly"]) +'';
         card.innerHTML += '<p class="opacity4">👪For family: '+ qualityScore("FamilyFriendly",data[i]["Family-friendly"]) +'';
         card.innerHTML += '<p class="opacity4">🥗For vegans: '+ qualityScore("VegFriendly",data[i]["Veg-friendly"]) +'';
-        card.innerHTML += '<button class="opacity4" style="font-size:large;" onclick="newPage(\''+data[i].Name+'\','+i+')"> More>> </button>';
+        card.innerHTML += '<button class="opacity4" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name+'.html\';"> More>> </button>';
         col.classList = 'column';
         card.classList = 'paracard';
         let image = 'img/'+data[i].Abbreviation+'.jpg';
@@ -308,37 +316,19 @@ row.innerHTML+='<button class="button column regionfilter" id="'+regions[i].subs
   filters.append(row)
   
 }
-else {
-  appendData([dataset[$("index").text()]])
-}
 
 }
 
 );
 
 
-function newPage(name, i){
-  var opened = window.open("/"+name+"/","_self"); 
-  opened.document.pathname= "/"+name+"/";
-  opened.document.write("<html>"+
-  '<head><meta charset="utf-8">'+
-  '<meta name="viewport" content="width=device-width, initial-scale=1">'+
-  '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>'+
-  '<script type="text/json" src="dataset.json"></script>'+
-  '<script type="text/javascript" src="script.js"></script>'+
-  '<link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">'+
-  '<link rel="stylesheet" href="style.css">'+
-  "<title>"+name+"</title></head>"+
-  '<body>'+
-  '<row class=""><div id="app" class="container fullwidth columns"></row>'+
-  '<row id="info"></row>'+
-  '</body></html>');
+function newPage(){
+  let province = getData(document.title)
 
-  appendData([dataset[i]]);
+  appendData([province]);
 
-  newFile(name,i)
 
-  $(".title").text(name+' for Expats and Nomads');
+  $(".title").text(province.Name+' for Expats and Nomads');
   }
 
 function getInfo(name,i){
