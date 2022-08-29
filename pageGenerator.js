@@ -30,7 +30,7 @@ fetch('https://raw.githubusercontent.com/pietro93/italycities.github.io/main/dat
         '<script type="text/javascript" src="../script.js"></script>'+
         '<link rel="stylesheet" href="../node_modules/bulma/css/bulma.min.css">'+
         '<link rel="stylesheet" href="../style.css">'+
-        "<title>"+province.Name+"</title></head>"+
+        "<title >"+province.Name+"</title></head>"+
         '<body>'+
         '<row class=""><div id="app" class="container fullwidth columns"></row>'+
         '<row id="info"></row>'+
