@@ -4,7 +4,7 @@ var region_filters = [];
 var additionalFilters=[];
 var dataset;
 
-fetch('../dataset.json')
+fetch('https://raw.githubusercontent.com/pietro93/italycities.github.io/main/dataset.json')
     .then(function (response) {
         return response.json();
     })
