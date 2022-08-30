@@ -33,7 +33,6 @@ html, body {
 html {
   display: table;
   margin: auto;
-  overflow-x:hidden;
   width: 100vw;
 }
 
@@ -41,7 +40,25 @@ body {
   display: table-cell;
   vertical-align: middle;
   width:90vw;
+  overflow-x:hidden;
 }
+
+body::-webkit-scrollbar {
+  width: 1vw;               /* width of the entire scrollbar */
+  max-width:20px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color:var(--lightest-green)    /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--cyan-to-dark-green);    /* color of the scroll thumb */
+  border-radius: 10px;       /* roundness of the scroll thumb */
+  border: 3px solid var(--darkest-green);  /* creates padding around scroll thumb */
+
+}
+
 .title {
   font-family: "Raleway";
   font-size: 24px;
@@ -314,8 +331,6 @@ card .header {
 .specialfilter{background-color:rgba(94,104,160,.4);border-color:rgba(104,164,40,.4)}
 
 
-#filters{width:90%;;padding-left:10%}
-
 row{position:relative;
   padding-left:5vw;
   padding-right:5vw;
@@ -390,8 +405,65 @@ p.column.is-12{
 
 .fullwidth > .column > card > .more{display:none}
 
+.floatBottom
+{
+  position:fixed;
+  width:99vw;
+  min-height:30px;
+  left:0;
+  bottom:0;
+  z-index:2;
+  background-color:var(--lightest-green);
+  padding:0;
+  border:3px solid var(--darkest-green);
+  border-bottom: none;
+  overflow:hidden;
+  border-radius: 15px 15px 0 0;
+}
+
+#header{
+  width:105%;
+  left:-2%;
+  height:35px;
+  margin-bottom:0;
+  background-color: var(--darkest-green);
+  cursor:pointer;
+}
+
+.arrow {
+  border: solid var(--lightest-green);
+  border-width: 0 5px 5px 0;
+  bottom:0px;
+  padding:7px;
+  position:absolute;
+  margin-right:30px;
+  right:25px;
+}.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  bottom:5px;
+}
+
+#filters{width:50%;position:inherit;float:left;padding:0;margin-left:-2vw}
+#sorting{width:50%;position:relative;float:right;padding:0;margin-right:2vw}
+
+.toggled{
+   height:50%;
+}
+
+
+
+
+
 @media only screen and (max-width: 600px) {
 
+  .arrow{
+    right:10px;
+    margin-right:10px;
+  }
   .fullwidth > .column > card{
   min-width:96vw;
   min-height:100%;

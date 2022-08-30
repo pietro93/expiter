@@ -207,6 +207,7 @@ function qualityScore(quality,score){
 }
 
 
+
 function doesImageExist(image)
 {
 /*var http = new XMLHttpRequest();
@@ -333,4 +334,18 @@ function newPage(){
 
 function getInfo(name,i){
   
+}
+
+function resizeFilterMenu(){
+  let arrow = $("#header > .arrow");
+  if (!$(".floatBottom").hasClass("toggled")){
+    arrow.removeClass("up");
+    arrow.addClass("down");
+    $(".floatBottom").addClass("toggled")
+  }
+  else{
+    arrow.addClass("up");
+    arrow.removeClass("down");
+    $(".floatBottom").removeClass("toggled")
+  }
 }
