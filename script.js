@@ -260,18 +260,18 @@ function appendData(data) {
         card.innerHTML += '<p>💸Cost: '+ qualityScore("CostOfLiving",data[i].CostOfLiving) +'';
         card.innerHTML += '<p>☀️Climate: '+ qualityScore("Climate",data[i].Climate) +'';
         card.innerHTML += '<p>🚑Healthcare: '+ qualityScore("Healthcare",data[i].Healthcare) +'';
-        card.innerHTML += '<p>🚌Transport: '+ qualityScore("PublicTransport",data[i]["Public Transport"]) +'';
+        card.innerHTML += '<p>🚌Transport: '+ qualityScore("PublicTransport",data[i]["PublicTransport"]) +'';
         card.innerHTML += '<p>👮🏽‍♀️Safety: '+ qualityScore("Safety",data[i]["Safety"]) +'';
         card.innerHTML += '<p>📚Education: '+ qualityScore("Education",data[i]["Education"]) +'';
         card.innerHTML += '<p>🏛️Culture: '+ qualityScore("Culture",data[i].Culture) +'';
         card.innerHTML += '<p>🍸Nightlife: '+ qualityScore("Nightlife",data[i].Nightlife) +'';
         card.innerHTML += '<p class="opacity6>⚽Recreation: '+ qualityScore("Recreation",data[i]["Sports & Leisure"])+'';
-        card.innerHTML += '<p class="opacity6">🍃Air quality: '+ qualityScore("Air Quality",data[i]["Air Quality"]) +'';
-        card.innerHTML += '<p class="opacity6">🏳️‍🌈LGBTQ+: '+ qualityScore("LGBTFriendly",data[i]["LGBT-Friendly"]) +'';
+        card.innerHTML += '<p class="opacity6">🍃Air quality: '+ qualityScore("AirQuality",data[i]["Air Quality"]) +'';
+        card.innerHTML += '<p class="opacity6">🏳️‍🌈LGBTQ+: '+ qualityScore("LGBTFriendly",data[i]["LGBT-friendly"]) +'';
         card.innerHTML += '<p class="opacity4">👩For women: '+ qualityScore("FemaleFriendly",data[i]["Female-friendly"]) +'';
         card.innerHTML += '<p class="opacity4">👪For family: '+ qualityScore("FamilyFriendly",data[i]["Family-friendly"]) +'';
         card.innerHTML += '<p class="opacity4">🥗For vegans: '+ qualityScore("VegFriendly",data[i]["Veg-friendly"]) +'';
-        card.innerHTML += '<p class="opacity4">🧳For nomads: '+ qualityScore("DNFriendly",data[i]["DN-Friendly"]) +'';
+        card.innerHTML += '<p class="opacity4">🧳For nomads: '+ qualityScore("DNFriendly",data[i]["DN-friendly"]) +'';
         card.innerHTML += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name+'.html\';"> More>> </button>';
         col.classList = 'column';
         card.classList = 'paracard';
@@ -352,6 +352,7 @@ function getInfo(province){
   " The estimated cost of living is around "+province["Cost of Living (Individual)"]+"€ per month for an individual or "+province["Cost of Living (Family)"]+"€ per month for a family of 4. The cost for renting "+
   "a small apartment (1-2 bedrooms) in a main city is around "+province["Monthly Rental"]+"€ per month."
 
+  info.climate="The province of "+province.Name+" receives on average "+province.SunshineHours+"";
 
   return info;
 }
