@@ -267,7 +267,7 @@ function appendData(data) {
         card.innerHTML += '<p>🍸Nightlife: '+ qualityScore("Nightlife",data[i].Nightlife) +'';
         card.innerHTML += '<p class="opacity6>⚽Recreation: '+ qualityScore("Recreation",data[i]["Sports & Leisure"])+'';
         card.innerHTML += '<p class="opacity6">🍃Air quality: '+ qualityScore("Air Quality",data[i]["Air Quality"]) +'';
-        card.innerHTML += '<p class="opacity4">🏳️‍🌈LGBT+: '+ qualityScore("LGBTFriendly",data[i]["LGBT-Friendly"]) +'';
+        card.innerHTML += '<p class="opacity6">🏳️‍🌈LGBTQ+: '+ qualityScore("LGBTFriendly",data[i]["LGBT-Friendly"]) +'';
         card.innerHTML += '<p class="opacity4">👩For women: '+ qualityScore("FemaleFriendly",data[i]["Female-friendly"]) +'';
         card.innerHTML += '<p class="opacity4">👪For family: '+ qualityScore("FamilyFriendly",data[i]["Family-friendly"]) +'';
         card.innerHTML += '<p class="opacity4">🥗For vegans: '+ qualityScore("VegFriendly",data[i]["Veg-friendly"]) +'';
@@ -348,7 +348,9 @@ function getInfo(province){
   " The male to female ratio is "+ratio+"."
 
   info.CoL="The average monthly income in "+province.Name+" is around "+province.MonthlyIncome+"€, which is "+
-  (province.MonthlyIncome>1500&&province.MonthlyIncome<1800?"close to the average for Italy":(province.MonthlyIncome>=1800?"higher than the average for Italy":"lower than the average for Italy"))+"."
+  (province.MonthlyIncome>1500&&province.MonthlyIncome<1800?"close to the average for Italy":(province.MonthlyIncome>=1800?"higher than the average for Italy":"lower than the average for Italy"))+"."+
+  " The estimated cost of living is around "+province["Cost of Living (Individual)"]+"€ per month for an individual or "+province["Cost of Living (Family)"]+"€ per month for a family of 4. The cost for renting "+
+  "a small apartment (1-2 bedrooms) in a main city is around "+province["Monthly Rental"]+"€ per month."
 
 
   return info;
