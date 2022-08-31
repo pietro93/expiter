@@ -274,10 +274,8 @@ function appendData(data) {
         col.classList = 'column';
         card.classList = 'paracard';
         let image = 'img/'+data[i].Abbreviation+'.jpg';
-        if (doesImageExist(image)){
         card.title=data[i].Name+', '+data[i].Region;
         card.style.backgroundImage = 'url('+image+')';
-      }
         card.id = data[i].Name;
         col.innerHTML = card.outerHTML;
         mainContainer.appendChild(col);
@@ -327,15 +325,31 @@ row.innerHTML+='<button class="button column regionfilter" id="'+regions[i].subs
 
 function newPage(){
   let province = getData(document.title)
+  let info = getInfo(province)
 
   appendData([province]);
-
+ 
 
   $(".title").text(province.Name+' for Expats and Nomads');
-  }
+  $("#overview").text(info.overview+" "+info.CoL)
+ }
 
-function getInfo(name,i){
-  
+function getInfo(province){
+
+  let ratio = (province.Men/(Math.min(province.Men,province.Women))).toFixed(2)+":"+(province.Women/(Math.min(province.Men,province.Women))).toFixed(2)
+
+  let info = {}
+  info.overview=province.Name+" is a province of "+province.Population+" people in the "+province.Region+" region. "+
+  "The larger "+province.Name+" metropolitan area comprises "+province.Towns+" towns (comuni) and covers an area of "+province.Size+" km2. "
+  +"Population density is "+province.Density+" inhabitants per km2, making it "+
+  (province.Density<100?"sparcely populated.":(province.Density>500?"highly densely populated." : "somewhat densely populated."))+
+  " The male to female ratio is "+ratio+"."
+
+  info.CoL="The average monthly income in "+province.Name+" is around "+province.MonthlyIncome+"€, which is "+
+  (province.MonthlyIncome>1500&&province.MonthlyIncome<1800?"close to the average for Italy":(province.MonthlyIncome>=1800?"higher than the average for Italy":"lower than the average for Italy"))+"."
+
+
+  return info;
 }
 
 function resizeFilterMenu(){
