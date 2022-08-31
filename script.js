@@ -267,9 +267,11 @@ function appendData(data) {
         card.innerHTML += '<p>🍸Nightlife: '+ qualityScore("Nightlife",data[i].Nightlife) +'';
         card.innerHTML += '<p class="opacity6>⚽Recreation: '+ qualityScore("Recreation",data[i]["Sports & Leisure"])+'';
         card.innerHTML += '<p class="opacity6">🍃Air quality: '+ qualityScore("Air Quality",data[i]["Air Quality"]) +'';
+        card.innerHTML += '<p class="opacity4">🏳️‍🌈LGBT+: '+ qualityScore("LGBTFriendly",data[i]["LGBT-Friendly"]) +'';
         card.innerHTML += '<p class="opacity4">👩For women: '+ qualityScore("FemaleFriendly",data[i]["Female-friendly"]) +'';
         card.innerHTML += '<p class="opacity4">👪For family: '+ qualityScore("FamilyFriendly",data[i]["Family-friendly"]) +'';
         card.innerHTML += '<p class="opacity4">🥗For vegans: '+ qualityScore("VegFriendly",data[i]["Veg-friendly"]) +'';
+        card.innerHTML += '<p class="opacity4">🧳For nomads: '+ qualityScore("DNFriendly",data[i]["DN-Friendly"]) +'';
         card.innerHTML += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name+'.html\';"> More>> </button>';
         col.classList = 'column';
         card.classList = 'paracard';
