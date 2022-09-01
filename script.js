@@ -4,7 +4,7 @@ var region_filters = [];
 var additionalFilters=[];
 var dataset;
 
-fetch('http://raw.githubusercontent.com/pietro93/italycities.github.io/main/dataset.json')
+fetch('https://raw.githubusercontent.com/pietro93/italycities.github.io/main/dataset.json')
     .then(function (response) {
         return response.json();
     })
@@ -368,6 +368,7 @@ function getInfo(province){
   info.lgbtq=province.Name+" is "+(province['LGBT-friendly']>7.9?"one of the most LGBTQ-friendly provinces in Italy":(province['LGBT-friendly']>6?"somewhat LGBTQ+ friendly by Italian standards":"not particularly LGBTQ-friendly as far as Italian provinces go"))+
   ". "+(province.LGBTQAssociations>1?"There are "+province.LGBTQAssociations+" local LGBTQ+ associations (Arcigay) in this province.":(province.LGBTQAssociations==1?"There is 1 LGBTQ+ association (Arcigay) in this province":""))
 
+  info.leisure=province.Name+" has "+(province.Nightlife>7.5?"pretty great nightlife":"somewhat decent nightlife")
   return info;
 }
 
