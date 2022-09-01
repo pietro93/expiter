@@ -4,7 +4,7 @@ var region_filters = [];
 var additionalFilters=[];
 var dataset;
 
-fetch('https://raw.githubusercontent.com/pietro93/italycities.github.io/main/dataset.json')
+fetch('http://raw.githubusercontent.com/pietro93/italycities.github.io/main/dataset.json')
     .then(function (response) {
         return response.json();
     })
@@ -266,7 +266,7 @@ function appendData(data) {
         card.innerHTML += '<p>🏛️Culture: '+ qualityScore("Culture",data[i].Culture) +'';
         card.innerHTML += '<p>🍸Nightlife: '+ qualityScore("Nightlife",data[i].Nightlife) +'';
         card.innerHTML += '<p class="opacity6>⚽Recreation: '+ qualityScore("Recreation",data[i]["Sports & Leisure"])+'';
-        card.innerHTML += '<p class="opacity6">🍃Air quality: '+ qualityScore("AirQuality",data[i]["Air Quality"]) +'';
+        card.innerHTML += '<p class="opacity6">🍃Air quality: '+ qualityScore("AirQuality",data[i]["AirQuality"]) +'';
         card.innerHTML += '<p class="opacity6">🏳️‍🌈LGBTQ+: '+ qualityScore("LGBTFriendly",data[i]["LGBT-friendly"]) +'';
         card.innerHTML += '<p class="opacity4">👩For women: '+ qualityScore("FemaleFriendly",data[i]["Female-friendly"]) +'';
         card.innerHTML += '<p class="opacity4">👪For family: '+ qualityScore("FamilyFriendly",data[i]["Family-friendly"]) +'';
@@ -333,7 +333,13 @@ function newPage(){
  
 
   $(".title").text(province.Name+' for Expats and Nomads');
-  $("#overview").text(info.overview+" "+info.CoL)
+  $("#overview").text(info.overview)
+  $("#overview").append('</br></br>')
+  $("#overview").append(info.CoL)
+  $("#overview").append('</br></br>')
+  $("#overview").append(info.climate)
+  $("#overview").append('</br></br>')
+  $("#overview").append(info.lgbtq)
  }
 
 function getInfo(province){
@@ -343,16 +349,24 @@ function getInfo(province){
   let info = {}
   info.overview=province.Name+" is a province of "+province.Population+" people in the "+province.Region+" region. "+
   "The larger "+province.Name+" metropolitan area comprises "+province.Towns+" towns (comuni) and covers an area of "+province.Size+" km2. "
-  +"Population density is "+province.Density+" inhabitants per km2, making it "+
+  +"The population density is "+province.Density+" inhabitants per km2, making it "+
   (province.Density<100?"sparcely populated.":(province.Density>500?"highly densely populated." : "somewhat densely populated."))+
   " The male to female ratio is "+ratio+"."
 
   info.CoL="The average monthly income in "+province.Name+" is around "+province.MonthlyIncome+"€, which is "+
   (province.MonthlyIncome>1500&&province.MonthlyIncome<1800?"close to the average for Italy":(province.MonthlyIncome>=1800?"higher than the average for Italy":"lower than the average for Italy"))+"."+
   " The estimated cost of living is around "+province["Cost of Living (Individual)"]+"€ per month for an individual or "+province["Cost of Living (Family)"]+"€ per month for a family of 4. The cost for renting "+
-  "a small apartment (1-2 bedrooms) in a main city is around "+province["Monthly Rental"]+"€ per month."
+  "a small apartment (1-2 bedrooms) in a main city is around "+province["MonthlyRental"]+"€ per month."
 
-  info.climate="The province of "+province.Name+" receives on average "+province.SunshineHours+"";
+  info.climate="The province of "+province.Name+" receives on average "+province.SunshineHours+" hours of sunshine per month, or "+province.SunshineHours/30+" hours of sunshine per day."+
+  " This is "+(province.SunshineHours>236?(province.SunshineHours/236*100-100).toFixed(2)+"% more than the average for Italy":(100-(province.SunshineHours/236)*100).toFixed(2)+"% less than the average for Italy")+"."
+  info.climate+=" Throughout the year, it rains on average "+province.RainyDays+" days per month, which is "+
+  (province.RainyDays>8?"well above average":(province.RainyDays<7?"below average":"an ordinary amount of precipitation"))+" for an Italian province."+
+  " Throughout the autumn and winter season, there are usually "+province.FoggyDays+" days per month with fog and "+province.ColdDays+" cold days per month with perceived temperatures below 3°C. "+
+  " In the summer, there are on average "+province.HotDays+" hot days per month with perceived temperatures above 30°C."
+  
+  info.lgbtq=province.Name+" is "+(province['LGBT-friendly']>7.9?"one of the most LGBTQ-friendly provinces in Italy":(province['LGBT-friendly']>6?"somewhat LGBTQ+ friendly by Italian standards":"not particularly LGBTQ-friendly as far as Italian provinces go"))+
+  ". "+(province.LGBTQAssociations>1?"There are "+province.LGBTQAssociations+" local LGBTQ+ associations (Arcigay) in this province.":(province.LGBTQAssociations==1?"There is 1 LGBTQ+ association (Arcigay) in this province":""))
 
   return info;
 }
