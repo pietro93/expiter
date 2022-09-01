@@ -7,7 +7,19 @@
   --cyan-to-dark-green:#28915e;
   --dark-green:#2c9267;
   --darkest-green:#257f58;
-  --natural-yellow:#F1B24A}
+  --natural-yellow:#F1B24A
+}
+:root{
+  --lightest-green:rgb(213,243,254);
+  --light-green:rgb(183,213,234);
+  --medium-green:rgb(160, 193, 222);
+  --green-going-to-cyan:rgb(100, 163, 220);
+  --green-to-cyan:rgb(60, 143, 200);
+  --cyan-to-dark-green:rgb(40, 123, 190);
+  --dark-green:rgb(30, 103, 170);
+  --darkest-green:rgb(20, 93, 160);
+  --natural-yellow:#F1B24A;
+}
 
 html, body {
   margin: 20px 0;
@@ -29,13 +41,14 @@ html, body {
   background-repeat:no-repeat;
   -webkit-font-smoothing: antialiased;
   max-width:1200px;
+  color:rgba(0,0,0,.77);
 }
 html {
   display: table;
   margin: auto;
   width: 100vw;
 }
-
+b,h2,h3,h1{color:black}
 body {
   display: table-cell;
   vertical-align: middle;
@@ -119,7 +132,7 @@ card::after{
   opacity:.3;
   position:absolute;
   z-index:-1;
-  background-color:rgba(50,149,113,1)
+  background-color:var(--green-going-to-cyan)
 }
 
 .paracard {
@@ -187,6 +200,8 @@ score{border-radius:25px;
   margin-left:5px;
 }
 
+b.red{color:darkred;}
+b.green{color:darkgreen}
 .poor{
   color:orangered;
   background-color:rgba(100,0,0,.9);
@@ -227,16 +242,16 @@ score{border-radius:25px;
 
 .region{
   font-size:18px;
-  color:rgba(140,233,193,0.99);
-  margin-top:-48px;
-  margin-right:-2px;
+  color:rgba(180,233,253,0.99);
+  margin-top:-53px;
+  margin-right:-10px;
   height:50px;
   letter-spacing:-1px;
   text-align: right;
   font-weight:400;
 }
 .population{
-  margin-top:-5px;
+  margin-top:-2px;
   font-size:15px;
   text-align:center;
   padding-bottom:10px;
@@ -324,13 +339,13 @@ card .header {
   }
 
 .regionfilter{background:none;}
-.selected{opacity:1;background-color:rgba(104,164,40,.4)}
+.selected{opacity:1;background-color:rgba(104,140,194,.4)}
 .clearfilter,.allfilter,.specialfilter{padding:0;
   font-weight:600;color:rgba(54,15,3,.92);opacity: .8}
 .button:hover{opacity:1}
-.clearfilter{background-color:rgba(194,90,20,.4);border-color:rgba(194,90,20,.4);}
-.allfilter{background-color:rgba(94,104,160,.4);border-color:rgba(104,164,40,.4)}
-.specialfilter{background-color:rgba(94,104,160,.4);border-color:rgba(104,164,40,.4)}
+.clearfilter{background-color:rgba(194,90,20,.6);border-color:rgba(194,90,20,.8);}
+.allfilter{background-color:rgba(124,210,124,.6);border-color:rgba(124,210,124,.8)}
+.specialfilter{background-color:rgba(214,164,80,.6);border-color:rgba(214,164,80,.8)}
 
 
 row{position:relative;

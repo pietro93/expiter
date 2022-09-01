@@ -224,7 +224,7 @@ function appendData(data) {
     clearData();
     let mainContainer = document.getElementById("app");
  
-    let title = document.createElement("h2");
+    let title = document.createElement("h1");
         
     title.innerHTML="<span id='bestorworst'></span> <span id='smallorlarge'></span> Provinces in <span id='chosenArea'>Italy</span> <span id='sortBy'></span>";
     title.classList="column is-12 title";
@@ -333,13 +333,23 @@ function newPage(){
  
 
   $(".title").text(province.Name+' for Expats and Nomads');
-  $("#overview").text(info.overview)
+  $("#overview").append(info.overview)
   $("#overview").append('</br></br>')
   $("#overview").append(info.CoL)
   $("#overview").append('</br></br>')
   $("#overview").append(info.climate)
   $("#overview").append('</br></br>')
   $("#overview").append(info.lgbtq)
+  $("#overview").append('</br></br>')
+  $("#overview").append(info.leisure)
+  $("#overview").append('</br></br>')
+  $("#overview").append(info.healthcare)
+  $("#overview").append('</br></br>')
+  $("#overview").append(info.crimeandsafety)
+  $("#overview").append('</br></br>')
+  $("#overview").append(info.education)
+  $("#overview").append('</br></br>')
+  $("#overview").append(info.transport)
  }
 
 function getInfo(province){
@@ -347,28 +357,46 @@ function getInfo(province){
   let ratio = (province.Men/(Math.min(province.Men,province.Women))).toFixed(2)+":"+(province.Women/(Math.min(province.Men,province.Women))).toFixed(2)
 
   let info = {}
-  info.overview=province.Name+" is a province of "+province.Population+" people in the "+province.Region+" region. "+
-  "The larger "+province.Name+" metropolitan area comprises "+province.Towns+" towns (comuni) and covers an area of "+province.Size+" km2. "
-  +"The population density is "+province.Density+" inhabitants per km2, making it "+
+  info.overview="The province of "+province.Name+" is the <b>"+province.SizeByPopulation+(province.SizeByPopulation%10==1?"st":(province.SizeByPopulation%10==2?"nd":province.SizeByPopulation%10==3?"rd":"th"))+" Italian province by population</b> with <b>"+province.Population.toLocaleString()+" people</b>, located in the <b>"+province.Region+"</b> region. "+
+  "</br></br>"+
+  "The larger "+province.Name+" metropolitan area comprises <b>"+province.Towns+" towns</b> (comuni) and covers an area of "+province.Size.toLocaleString()+" km<sup>2</sup>. "
+  +"The <b>population density is "+province.Density+" inhabitants per km<sup>2</sup></b>, making it "+
   (province.Density<100?"sparcely populated.":(province.Density>500?"highly densely populated." : "somewhat densely populated."))+
   " The male to female ratio is "+ratio+"."
 
-  info.CoL="The average monthly income in "+province.Name+" is around "+province.MonthlyIncome+"€, which is "+
-  (province.MonthlyIncome>1500&&province.MonthlyIncome<1800?"close to the average for Italy":(province.MonthlyIncome>=1800?"higher than the average for Italy":"lower than the average for Italy"))+"."+
+  info.CoL="The <b>average monthly income in "+province.Name+" is around "+province.MonthlyIncome+"€</b>, which is "+
+  (province.MonthlyIncome>1500&&province.MonthlyIncome<1800?"close to the average for Italy":(province.MonthlyIncome>=1800?"<b class='green'>higher than the average</b> for Italy":"<b class='red'>lower than the average</b> for Italy"))+"."+
   " The estimated cost of living is around "+province["Cost of Living (Individual)"]+"€ per month for an individual or "+province["Cost of Living (Family)"]+"€ per month for a family of 4. The cost for renting "+
-  "a small apartment (1-2 bedrooms) in a main city is around "+province["MonthlyRental"]+"€ per month."
+  "a small apartment (2-3 bedrooms) in a main city area is around "+province["MonthlyRental"]+"€ per month. "+
+  "Overall, "+(province["Cost of Living (Individual)"]>1329.24?"<b class='red'>"+province.Name+" is expensive":(province["Cost of Living (Individual)"]<1150?"<b class='green'>"+province.Name+" is cheap":"<b class='green'>"+province.Name+" is affordable"))+"</b> compared to other Italian provinces."
 
-  info.climate="The province of "+province.Name+" receives on average "+province.SunshineHours+" hours of sunshine per month, or "+province.SunshineHours/30+" hours of sunshine per day."+
-  " This is "+(province.SunshineHours>236?(province.SunshineHours/236*100-100).toFixed(2)+"% more than the average for Italy":(100-(province.SunshineHours/236)*100).toFixed(2)+"% less than the average for Italy")+"."
-  info.climate+=" Throughout the year, it rains on average "+province.RainyDays+" days per month, which is "+
-  (province.RainyDays>8?"well above average":(province.RainyDays<7?"below average":"an ordinary amount of precipitation"))+" for an Italian province."+
-  " Throughout the autumn and winter season, there are usually "+province.FoggyDays+" days per month with fog and "+province.ColdDays+" cold days per month with perceived temperatures below 3°C. "+
-  " In the summer, there are on average "+province.HotDays+" hot days per month with perceived temperatures above 30°C."
+  info.climate="The province of "+province.Name+" receives on average <b>"+province.SunshineHours+" hours of sunshine</b> per month, or "+province.SunshineHours/30+" hours of sunshine per day."+
+  " This is "+(province.SunshineHours>236?"<b class='green'>"+(province.SunshineHours/236*100-100).toFixed(2)+"% more</b> than the average for Italy":"<b class='red'>"+(100-(province.SunshineHours/236)*100).toFixed(2)+"% less</b> than the average for Italy")+"."+
+  "</br></br>"
+  info.climate+=" Throughout the year, <b>it rains on average "+province.RainyDays+" days per month</b>, which is "+
+  (province.RainyDays>8?"<b class='red'>well above average":(province.RainyDays<7?"<b class='green'>below average</b>":"<b>an ordinary amount of precipitation"))+"</b> for an Italian province."+
+  "</br></br>"+
+  "Throughout the autumn and winter season, there are usually "+(province.FoggyDays>5?"<b class='red'>":"<b class='green'>")+province.FoggyDays+" days per month with fog</b> and <b>"+province.ColdDays+" cold days per month</b> with perceived temperatures below 3°C. "+
+  " In the summer, there are on average <b>"+province.HotDays+" hot days per month</b> with perceived temperatures above 30°C."
   
-  info.lgbtq=province.Name+" is "+(province['LGBT-friendly']>7.9?"one of the most LGBTQ-friendly provinces in Italy":(province['LGBT-friendly']>6?"somewhat LGBTQ+ friendly by Italian standards":"not particularly LGBTQ-friendly as far as Italian provinces go"))+
-  ". "+(province.LGBTQAssociations>1?"There are "+province.LGBTQAssociations+" local LGBTQ+ associations (Arcigay) in this province.":(province.LGBTQAssociations==1?"There is 1 LGBTQ+ association (Arcigay) in this province":""))
+  info.lgbtq="<b>"+province.Name+" is "+(province['LGBT-friendly']>7.9?"one of the most LGBTQ-friendly provinces in Italy":(province['LGBT-friendly']>6?"somewhat LGBTQ+ friendly by Italian standards":"not particularly LGBTQ-friendly as far as Italian provinces go"))+
+  ".</b> "+(province.LGBTQAssociations>1?"There are "+province.LGBTQAssociations+" local LGBTQ+ associations (Arcigay) in this province.":(province.LGBTQAssociations==1?"There is 1 LGBTQ+ association (Arcigay) in this province.":""))
 
-  info.leisure=province.Name+" has "+(province.Nightlife>7.5?"pretty great nightlife":"somewhat decent nightlife")
+  info.leisure=province.Name+" has <b>"+(province.Nightlife>7.5?"pretty good nightlife":"somewhat decent nightlife")+"</b> with "+
+  province.Bars+" bars and "+province.Restaurants+" restaurants per 10k inhabitants. "
+ 
+  info.healthcare="Healthcare in "+province.Name+" is "+(province.Healthcare>6.74?"above average":"below average")+". "+
+  "There are "+(province.Pharmacies<3?"only "+province.Pharmacies:province.Pharmacies)+" pharmacies, "+province.GeneralPractitioners+" general practitioners and "+province.SpecializedDoctors+" specialized doctors per 10k inhabitants. "+
+  "Average life expectancy in "+province.Name+" is "+(province.LifeExpectancy>82.05?" very high at ":"")+province.LifeExpectancy+" years of age."
+  
+  info.crimeandsafety="The province of "+province.Name+" is overall "+(province.Safety>7.33?"very safe for expats":(province.Safety>6?"moderately safe for expats":"less safe than other Italian provinces for expats"))+". "+
+(province.CarTheft>70.53?"Car theft is reportedly <b class='red'>"+(((province.CarTheft/70.53)*100)-100).toFixed(2)+"% higher</b> than average with "+province.CarTheft+" cases per 100k inhabitants.":"Car theft is reportedly <b class='green'>"+((100-(province.CarTheft/70.53)*100)).toFixed(2)+"% lower</b> than average with only "+province.CarTheft+" cases per 100k inhabitants.")+" "+
+(province.HouseTheft>175.02?"Reports of house robberies are <b class='red'>"+(((province.HouseTheft/175.02)*100)-100).toFixed(2)+"% higher</b> than average with "+province.HouseTheft+" cases per 100k inhabitants.":"Reports of house robberies are <b class='green'>"+((100-(province.HouseTheft/175.02)*100)).toFixed(2)+"% lower</b> than average with "+province.HouseTheft+" cases per 100k inhabitants.")
+
+  info.education=""
+
+  info.transport=""
+  
   return info;
 }
 
