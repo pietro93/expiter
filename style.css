@@ -366,10 +366,8 @@ row{position:relative;
   padding-top:2px;
   padding-bottom:2px;
   font-size:14px;
-  min-width:6%;
   text-align:center;
   opacity:.8;
-  word-break:break-all;
   }
   #sorting > label> span {color:rgba(80,80,80,.9);}
   #sorting>label>input[type="radio"]:checked + span{
