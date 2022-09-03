@@ -1,4 +1,5 @@
 var provinces = {};
+var facts={};
 var selection = [];
 var region_filters = [];
 var additionalFilters=[];
@@ -27,6 +28,7 @@ function populateData(data){
         let province = data[i];
         provinces[province["Name"]]=province;
         provinces[province["Name"]].index=i;
+        facts[province["Name"]]={}; //initialize "facts" dictionary with each province
       }
       avg=data[107];
     }
@@ -54,7 +56,7 @@ function populateData(data){
 
       selection=[];
       if (filter == "All") {
-        selection=dataset;region_filters=regions;
+        selection=dataset.slice(0, 107); ;region_filters=regions;
         $(".regionfilter:not(.selected)").toggleClass("selected");
         sortData(selection);
         return("")}
@@ -291,6 +293,7 @@ regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli
            "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
 
  $(document).ready(function(){
+  setNavBar();
   if (!!document.getElementById("filters")){
   let filters = document.getElementById("filters");
 for (i=0;i<regions.length;i++){
@@ -336,30 +339,28 @@ function newPage(){
 
   $(".title").text(province.Name+' for Expats and Nomads');
   $("#overview").append(info.overview)
-  $("#overview").append('</br></br>')
-  $("#overview").append(info.CoL)
-  $("#overview").append('</br></br>')
-  $("#overview").append(info.climate)
-  $("#overview").append('</br></br>')
-  $("#overview").append(info.lgbtq)
-  $("#overview").append('</br></br>')
-  $("#overview").append(info.leisure)
-  $("#overview").append('</br></br>')
-  $("#overview").append(info.healthcare)
-  $("#overview").append('</br></br>')
-  $("#overview").append(info.crimeandsafety)
-  $("#overview").append('</br></br>')
-  $("#overview").append(info.education)
-  $("#overview").append('</br></br>')
-  $("#overview").append(info.transport)
+  $("#CoL").append(info.CoL)
+  $("#climate").append(info.climate)
+  $("#lgbtq").append(info.lgbtq)
+  $("#leisure").append(info.leisure)
+  $("#healthcare").append(info.healthcare)
+  $("#crimeandsafety").append(info.crimeandsafety)
+  $("#education").append(info.education)
+  $("#transport").append(info.transport)
  }
+ 
 
+ 
 function getInfo(province){
 
+  populateFacts();
+
   let ratio = (province.Men/(Math.min(province.Men,province.Women))).toFixed(2)+":"+(province.Women/(Math.min(province.Men,province.Women))).toFixed(2)
+  let name=province.Name;
 
   let info = {}
-  info.overview="The province of "+province.Name+" is the <b>"+province.SizeByPopulation+(province.SizeByPopulation%10==1?"st":(province.SizeByPopulation%10==2?"nd":province.SizeByPopulation%10==3?"rd":"th"))+" Italian province by population</b> with <b>"+province.Population.toLocaleString()+" people</b>, located in the <b>"+province.Region+"</b> region. "+
+  info.overview="The province of "+province.Name+" is the <b>"+province.SizeByPopulation+(province.SizeByPopulation%10==1?"st":(province.SizeByPopulation%10==2?"nd":province.SizeByPopulation%10==3?"rd":"th"))+" largest Italian province by population</b> with <b>"+province.Population.toLocaleString()+" people</b>, located in the <b>"+province.Region+"</b> region. "+
+  (facts[name].overview?facts[name].overview:"")+
   "</br></br>"+
   "The larger "+province.Name+" metropolitan area comprises <b>"+province.Towns+" towns</b> (comuni) and covers an area of "+province.Size.toLocaleString()+" km<sup>2</sup>. "
   +"The <b>population density is "+province.Density+" inhabitants per km<sup>2</sup></b>, making it "+
@@ -368,10 +369,12 @@ function getInfo(province){
 
   info.CoL="The <b>average monthly income in "+province.Name+" is around "+province.MonthlyIncome+"€</b>, which is "+
   (province.MonthlyIncome>1500&&province.MonthlyIncome<1800?"close to the average for Italy":(province.MonthlyIncome>=1800?"<b class='green'>higher than the average</b> for Italy":"<b class='red'>lower than the average</b> for Italy"))+"."+
-  +"<br><br>"+"The estimated cost of living is around "+province["Cost of Living (Individual)"]+"€ per month for an individual or "+province["Cost of Living (Family)"]+"€ per month for a family of 4. The cost for renting "+
-  "a small apartment (2-3 bedrooms) in a main city area is around "+province["MonthlyRental"]+"€ per month. "+
-  +"<br><br>"+"Overall, "+(province["Cost of Living (Individual)"]>1329.24?"<b class='red'>"+province.Name+" is expensive":(province["Cost of Living (Individual)"]<1150?"<b class='green'>"+province.Name+" is cheap":"<b class='green'>"+province.Name+" is affordable"))+"</b> compared to other Italian provinces."
-  +"Specifically, "+province.Name+" is "+(province['Cost of Living (Individual)']>1329.24?"":"")
+  "</br></br>"+
+  "The estimated cost of living is around "+province["Cost of Living (Individual)"]+"€ per month for an individual or "+province["Cost of Living (Family)"]+"€ per month for a family of 4. The cost for renting "+
+  "a small apartment (2-3 bedrooms) in a main city area is around "+province["MonthlyRental"]+"€ per month."+"</br></br>"+
+  "Overall, "+(province["Cost of Living (Individual)"]>avg["Cost of Living (Individual)"]?"<b class='red'>"+province.Name+" is expensive":(province["Cost of Living (Individual)"]<1150?"<b class='green'>"+province.Name+" is cheap":"<b class='green'>"+province.Name+" is affordable"))+"</b> compared to other Italian provinces."
+  +" Living in "+province.Name+" is around "+(province['Cost of Living (Individual)']>avg["Cost of Living (Individual)"]?"<b class='red'>"+(province['Cost of Living (Individual)']/avg["Cost of Living (Individual)"]*100-100).toFixed(2)+"% more expensive than the average</b> of all Italian provinces":"<b class='green'>"+(100-province['Cost of Living (Individual)']/avg["Cost of Living (Individual)"]*100).toFixed(2)+"% cheaper than the average</b> of all Italian provinces")
+  +"."
 
   info.climate="The province of "+province.Name+" receives on average <b>"+province.SunshineHours+" hours of sunshine</b> per month, or "+province.SunshineHours/30+" hours of sunshine per day."+
   " This is "+(province.SunshineHours>236?"<b class='green'>"+(province.SunshineHours/236*100-100).toFixed(2)+"% more</b> than the average for Italy":"<b class='red'>"+(100-(province.SunshineHours/236)*100).toFixed(2)+"% less</b> than the average for Italy")+"."+
@@ -388,9 +391,9 @@ function getInfo(province){
   info.leisure=province.Name+" has <b>"+(province.Nightlife>7.5?"pretty good nightlife":"somewhat decent nightlife")+"</b> with "+
   province.Bars+" bars and "+province.Restaurants+" restaurants per 10k inhabitants. "
  
-  info.healthcare="Healthcare in "+province.Name+" is "+(province.Healthcare>6.74?"<b class='green'>above average":"<b class='red'>below average")+"</b>. "+
-  "There are "+(province.Pharmacies<3?"only "+province.Pharmacies:province.Pharmacies)+" pharmacies, "+province.GeneralPractitioners+" general practitioners and "+province.SpecializedDoctors+" specialized doctors per 10k inhabitants. "+
-  "Average life expectancy in "+province.Name+" is "+(province.LifeExpectancy>82.05?" very high at ":"")+province.LifeExpectancy+" years of age."
+  info.healthcare="<b>Healthcare in "+province.Name+" is "+(province.Healthcare>6.74?"<b class='green'>above average":"<b class='red'>below average")+"</b></b>. "+
+  "For every 10k inhabitants, there are around "+province.pharmacies+" pharmacies, "+province.GeneralPractitioners+" general practitioners and "+province.SpecializedDoctors+" specialized doctors per 10k inhabitants. "+
+  "<b>Average life expectancy in "+province.Name+" is "+(province.LifeExpectancy>82.05?" very high at ":"")+province.LifeExpectancy+" years of age.</b>"
   
   info.crimeandsafety="The province of "+province.Name+" is overall "+(province.Safety>7.33?"<b class='green'>very safe for expats":(province.Safety>6?"<b class='green'>moderately safe for expats":"<b class='red'>less safe than other Italian provinces for expats"))+"</b>. "+
   "As of 2021, there are an average of <b>"+province.ReportedCrimes+" reported crimes per 100k inhabitants</b>. This is "+(province.ReportedCrimes>2835.76?"<b class='red'>"+(((province.ReportedCrimes/2835.76)*100)-100).toFixed(2)+"% higher than the national average</b>":"<b class='green'>"+((100-(province.ReportedCrimes/2835.76)*100).toFixed(2))+"% lower than the national average</b>")+"."+
@@ -403,9 +406,15 @@ function getInfo(province){
 (province.HouseTheft>175.02?"Reports of house thefts are <b class='red'>"+(((province.HouseTheft/175.02)*100)-100).toFixed(2)+"% higher than average</b> with "+province.HouseTheft+" cases per 100k inhabitants.":"Reports of house thefts are <b class='green'>"+((100-(province.HouseTheft/175.02)*100)).toFixed(2)+"% lower</b> than average with "+province.HouseTheft+" cases per 100k inhabitants.")+" "+
 (province.Robberies>22.14?"Cases of robbery are not totally uncommon, around <b class='red'>"+(((province.Robberies/22.14)*100)-100).toFixed(2)+"% higher than average</b> with "+province.Robberies+" reports per 100k inhabitants":"Cases of robbery are uncommon with "+province.HouseTheft+" reported cases per 100k inhabitants, about <b class='green'>"+((100-(province.Robberies/22.14)*100)).toFixed(2)+"% less the national average</b>")+". "
 
-  info.education=""
+  info.education=province.Name+" has a "+(province.HighSchoolGraduates>avg.HighSchoolGraduates?"<b class='green'>higher-than-average percentage of high school graduates":"<b class='red'>lower-than-average percentage of high school graduates")+"</b>, around "+province.HighSchoolGraduates+"%; and a "+(province.UniversityGraduates>avg.UniversityGraduates?"<b class='green'>higher-than-average percentage of university graduates":"<b class='red'>lower-than-average percentage of university graduates")+"</b>, around "+province.UniversityGraduates+"%."+
+  " The average number of completed <b>years of schooling</b> for people over 25 is "+province.YearsOfEducation+", which is "+(province.YearsOfEducation>avg.YearsOfEducation*1.05?"<b class='green'>above the national average</b>":(province.YearsOfEducation<avg.YearsOfEducation*.95?"<b class='red'>lower than the national average</b>":"not far from the national average"))+" of "+avg.YearsOfEducation+". "+
+  (province.Universities>1?" There are <b>"+province.Universities+" universities</b> within the province":(province.Universities==1?" There is <b>one university</b> in the province":" There are <b>no universities</b> in this province"))+"."
 
-  info.transport=""
+  info.transport="<b>Public transport in "+name+"</b> is "+(province.PublicTransport<avg.PublicTransport*.9?"<b class='red'>lacking":(province.PublicTransport>avg.PublicTransport*1.1?"<b class='green'>quite good":"<b class='green'>fairly decent"))+"</b>, and "+
+  (province.Traffic<avg.Traffic*.85?"<b class='green'>traffic is low":(province.Traffic<avg.Traffic?"<b class='green'>traffic is below average":(province.Traffic>avg.Traffic*1.1?"<b class='red'>traffic is very high":"<b class='red'>traffic is somewhat high")))+"</b>. "+
+  "There are on average "+province.VehiclesPerPerson+" active vehicles per person, against a national average of "+avg.VehiclesPerPerson+". "+(province.Subway>0?"The city of "+name+" is one of the very few places in Italy with an urban metro system, the <b>Metropolitana di "+name+"</b>. ":"")+
+  "<br><br>"+
+  "Around "+province.CyclingLanes/10+"km per 10k inhabitants of the main city in "+name+" consist of bicycle lanes. This makes "+name+" "+(province.CyclingLanes>avg.CyclingLanes*.8?"<b class='green'>somewhat bike-friendly by Italian standards":(province.CyclingLanes>avg.CyclingLanes*1.2?"<b class='green'>very bike-friendly by Italian standards":"<b class='red'>not very bike-friendly"))+"</b>. "
   
   return info;
 }
@@ -422,4 +431,30 @@ function resizeFilterMenu(){
     arrow.removeClass("down");
     $(".floatBottom").removeClass("toggled")
   }
+}
+
+
+function populateFacts(){
+  
+facts.Roma.overview="The <b>city of Rome</b>, with 2.761.632 residents, is the most popolous city and <b>capital of Italy</b>."
+facts.Milano.overview="The <b>city of Milan</b>, with 1,371,498 residents, is the second-most popolous city and <b>industrial, commercial and financial capital of Italy</b>."
+
+}
+
+function setNavBar(){
+  let navbar = document.getElementsByClassName("navbar")[0];
+  navbar.innerHTML=
+  '<div class="navbar-container">'+
+  '<input type="checkbox" name="navbar" id="navbar">'+
+  '<div class="hamburger-lines">'+
+      '<span class="line line1"></span>'+
+      '<span class="line line2"></span>'+
+      '<span class="line line3"></span>'+
+  '</div>'+
+  '<ul class="menu-items">'+
+      '<li><a href="/index.html">Home</a></li>'+
+      '<li><a href="#">About</a></li>'+
+  '</ul>'+
+ '<a href="/index.html"><h1 class="logo">Italy Expats & Nomads</h1></a>'+
+'</div>'
 }
