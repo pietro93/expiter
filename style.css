@@ -551,7 +551,7 @@ h3{
 }
 .logo{
     order: 1;
-    font-size: 1.8rem;
+    font-size: 24px;
     padding-left:12px;
     color:white;
     text-shadow: 2px -1px 1px var(--green-to-cyan);
@@ -624,7 +624,7 @@ h3{
         height: 4px;
         width: 100%;
         border-radius: 10px;
-        background: #333;
+        background: var(--lightest-green);
     }
     
     .navbar-container .hamburger-lines .line1{
@@ -643,9 +643,9 @@ h3{
 
     .navbar .menu-items{
         padding-top: 100px;
-        background: #fff;
+        background: var(--dark-green);
         height: 100vh;
-        max-width: 300px;
+        max-width:106%;
         transform: translate(-150%);
         display: flex;
         flex-direction: column;
@@ -658,7 +658,7 @@ h3{
 
     .navbar .menu-items li{
         margin-bottom: 1.8rem;
-        font-size: 1.1rem;
+        font-size: 24px;
         font-weight: 500;
     }
 
@@ -666,7 +666,11 @@ h3{
         position: absolute;
         top: 10px;
         right: 15px;
-        font-size: 2.5rem;
+          font-size: 30px;
+          margin-right:2px;
+          font-weight:400;
+          letter-spacing:-1px;
+        }
     }
 
     .navbar-container input[type="checkbox"]:checked ~ .menu-items{
@@ -721,5 +725,7 @@ h3{
   padding-bottom:10px;
   top:-5px;
 }
+
+
 }
 
