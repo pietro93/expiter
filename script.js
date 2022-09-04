@@ -449,7 +449,7 @@ function setNavBar(){
       '<span class="line line3"></span>'+
   '</div>'+
   '<ul class="menu-items">'+
-      '<li><a href="/index.html">Home</a></li>'+
+      '<li><a href="https://pietro93.github.io/italycities.github.io/">Home</a></li>'+
       '<li><a href="#">About</a></li>'+
   '</ul>'+
  '<a href="/index.html"><h1 class="logo">Italy Expats & Nomads</h1></a>'+
