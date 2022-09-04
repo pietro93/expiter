@@ -227,14 +227,11 @@ function clearData(){
 function appendData(data) {
     clearData();
     let mainContainer = document.getElementById("app");
- 
-    let title = document.createElement("h1");
+
+    let title = document.getElementById("title")
         
     title.innerHTML="<span id='bestorworst'></span> <span id='smallorlarge'></span> Provinces in <span id='chosenArea'>Italy</span> <span id='sortBy'></span>";
-    title.classList="column is-12 title";
 
-
-    mainContainer.appendChild(title);
 
 
     if (selection.length==0) {title.innerHTML="Could not find any provinces based on your filters."}

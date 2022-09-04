@@ -1,23 +1,12 @@
 :root{
-  --lightest-green:#8dc897;
-  --light-green:#7cb083;
-  --medium-green:#65a379;
-  --green-going-to-cyan:#4d8d6c;
-  --green-to-cyan:#2b9d66;
-  --cyan-to-dark-green:#28915e;
-  --dark-green:#2c9267;
-  --darkest-green:#257f58;
-  --natural-yellow:#F1B24A
-}
-:root{
-  --lightest-green:rgb(213,243,254);
-  --light-green:rgb(183,213,234);
-  --medium-green:rgb(160, 193, 222);
-  --green-going-to-cyan:rgb(100, 163, 220);
-  --green-to-cyan:rgb(60, 143, 200);
-  --cyan-to-dark-green:rgb(40, 123, 190);
-  --dark-green:rgb(30, 103, 170);
-  --darkest-green:rgb(20, 93, 160);
+  --lightest-blue:rgb(213,243,254);
+  --light-blue:rgb(183,213,234);
+  --medium-blue:rgb(160, 193, 222);
+  --blue-going-to-cyan:rgb(100, 163, 220);
+  --blue-to-cyan:rgb(60, 143, 200);
+  --cyan-to-dark-blue:rgb(40, 123, 190);
+  --dark-blue:rgb(30, 103, 170);
+  --darkest-blue:rgb(20, 93, 160);
   --natural-yellow:#F1B24A;
 }
 
@@ -26,16 +15,16 @@ html, body {
   font-family: "Raleway";
   font-size: 16px;
   font-weight: 500;
-  background-color:var(--darkest-green);
-  background-image: linear-gradient(var(--lightest-green),var(--lightest-green)
-  ,var(--light-green),var(--light-green),var(--light-green),var(--light-green),
-  var(--medium-green),var(--medium-green),var(--medium-green),var(--medium-green),var(--medium-green),var(--medium-green),var(--medium-green),var(--medium-green),var(--medium-green)
-  ,var(--green-going-to-cyan),var(--green-going-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan)
-  ,var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan),var(--green-to-cyan)
-  ,var(--cyan-to-dark-green),var(--cyan-to-dark-green),var(--cyan-to-dark-green),var(--cyan-to-dark-green),
-  var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),var(--dark-green),
-  var(--darkest-green), var(--darkest-green), var(--darkest-green), var(--darkest-green), var(--darkest-green), var(--darkest-green), var(--darkest-green), var(--darkest-green),
-  var(--darkest-green));
+  background-color:var(--darkest-blue);
+  background-image: linear-gradient(var(--lightest-blue),var(--lightest-blue)
+  ,var(--light-blue),var(--light-blue),var(--light-blue),var(--light-blue),
+  var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue)
+  ,var(--blue-going-to-cyan),var(--blue-going-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
+  ,var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
+  ,var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),
+  var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),
+  var(--darkest-blue), var(--darkest-blue), var(--darkest-blue), var(--darkest-blue), var(--darkest-blue), var(--darkest-blue), var(--darkest-blue), var(--darkest-blue),
+  var(--darkest-blue));
   background-size: 200vw 5000px;
   background-position-x:-20vw;
   background-repeat:no-repeat;
@@ -62,13 +51,13 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background-color:var(--lightest-green)    /* color of the tracking area */
+  background-color:var(--lightest-blue)    /* color of the tracking area */
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: var(--cyan-to-dark-green);    /* color of the scroll thumb */
+  background-color: var(--cyan-to-dark-blue);    /* color of the scroll thumb */
   border-radius: 10px;       /* roundness of the scroll thumb */
-  border: 3px solid var(--darkest-green);  /* creates padding around scroll thumb */
+  border: 3px solid var(--darkest-blue);  /* creates padding around scroll thumb */
 
 }
 
@@ -78,6 +67,7 @@ body::-webkit-scrollbar-thumb {
   font-weight: 700;
   color: #5D4037;
   text-align: center;
+  margin-top:100px;
 }
 
 .container {
@@ -96,7 +86,7 @@ card {
   padding:5px; 
   overflow: hidden;
   border-radius: 10px;
-  background-color:var(--green-going-to-cyan);
+  background-color:var(--blue-going-to-cyan);
   z-index:1;
   min-width:180px;
   max-width:250px;
@@ -135,7 +125,7 @@ card::after{
   opacity:.5;
   position:absolute;
   z-index:-1;
-  background-color:var(--green-going-to-cyan);
+  background-color:var(--blue-going-to-cyan);
 }
 
 .paracard {
@@ -435,9 +425,9 @@ p.column.is-12{
   left:0;
   bottom:0;
   z-index:2;
-  background-color:var(--lightest-green);
+  background-color:var(--lightest-blue);
   padding:0;
-  border:1px ridge var(--cyan-to-dark-green);
+  border:1px ridge var(--cyan-to-dark-blue);
   border-bottom: none;
   overflow:hidden;
   border-radius: 15px 15px 0 0;
@@ -448,14 +438,14 @@ p.column.is-12{
   left:-2%;
   height:35px;
   margin-bottom:3px;
-  background-color: var(--darkest-green);
+  background-color: var(--darkest-blue);
   cursor:pointer;
   opacity:.8;
   z-index:3
 }
 #header:hover{opacity:.9}#header:hover>.arrow{border-color:white}
 .arrow {
-  border: solid var(--lightest-green);
+  border: solid var(--lightest-blue);
   border-width: 0 5px 5px 0;
   bottom:0px;
   padding:7px;
@@ -502,7 +492,7 @@ h3{
 }
 
 #info > h2{
-  background-color:var(--darkest-green);
+  background-color:var(--darkest-blue);
   color:white;
   text-transform: uppercase;
 }
@@ -523,11 +513,11 @@ h3{
 }
 
 .navbar{
-    box-shadow: 0px 5px 10px 0px var(--green-going-to-cyan);
+    box-shadow: 0px 5px 10px 0px var(--blue-going-to-cyan);
     position: fixed;
     width: 100%;
-    background: var(--cyan-to-dark-green);
-    color: var(--lightest-green);
+    background: var(--cyan-to-dark-blue);
+    color: var(--lightest-blue);
     opacity: 0.85;
     z-index: 100;
     left:0;
@@ -552,9 +542,9 @@ h3{
     font-size: 24px;
     padding-left:12px;
     color:white;
-    text-shadow: 2px -1px 1px var(--green-to-cyan);
-    text-shadow: -2px 1px 1px var(--green-going-to-cyan);
-    text-shadow: 1px 2px 1px var(--cyan-to-dark-green);
+    text-shadow: 2px -1px 1px var(--blue-to-cyan);
+    text-shadow: -2px 1px 1px var(--blue-going-to-cyan);
+    text-shadow: 1px 2px 1px var(--cyan-to-dark-blue);
 }
 
 .menu-items li{
@@ -564,7 +554,7 @@ h3{
 }
 
 .navbar a{
-    color: var(--lightest-green);
+    color: var(--lightest-blue);
     opacity:.9;
     text-decoration: none;
     font-weight: 500;
@@ -622,7 +612,7 @@ h3{
         height: 4px;
         width: 100%;
         border-radius: 10px;
-        background: var(--lightest-green);
+        background: var(--lightest-blue);
     }
     
     .navbar-container .hamburger-lines .line1{
@@ -641,7 +631,7 @@ h3{
 
     .navbar .menu-items{
         padding-top: 100px;
-        background: var(--dark-green);
+        background: var(--dark-blue);
         height: 100vh;
         max-width:106%;
         transform: translate(-150%);
