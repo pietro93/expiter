@@ -236,12 +236,13 @@ b.green{color:darkgreen}
 .region{
   font-size:18px;
   color:rgba(180,233,253,0.99);
-  margin-top:-53px;
-  margin-right:-10px;
   height:50px;
   letter-spacing:-1px;
   text-align: right;
   font-weight:400;
+  position:fixed;
+  right:-9px;
+  top:-9px;
 }
 .population{
   margin-top:-2px;
@@ -676,7 +677,7 @@ h3{
     .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3{
         transform: rotate(-45deg);
     }
-    
+
 @media (max-width: 500px){
     .navbar-container input[type="checkbox"]:checked ~ .logo{
         display: none;

@@ -209,11 +209,11 @@ function populateData(data){
   
 function qualityScore(quality,score){
   if (quality=="CostOfLiving"){
-    if (score<4){return "<score class='excellent short'>cheap</score>"}
-    else if (score>=4&&score<6){return "<score class='great medium'>affordable</score>"}
-    else if (score>=6&&score<7){return "<score class='good medium'>average</score>"}
-    else if (score>=7&&score<8.5){return "<score class='average long'>high</score>"}
-    else if (score>=8.5){return "<score class='poor max'>expensive</score>"}
+    if (score<avg.CostOfLiving*.8){return "<score class='excellent short'>cheap</score>"}
+    else if (score>=avg.CostOfLiving*.8&&score<avg.CostOfLiving*.95){return "<score class='great medium'>affordable</score>"}
+    else if (score>=avg.CostOfLiving*.95&&score<avg.CostOfLiving*1.05){return "<score class='good medium'>average</score>"}
+    else if (score>=avg.CostOfLiving*1.05&&score<avg.CostOfLiving*1.2){return "<score class='average long'>high</score>"}
+    else if (score>=avg.CostOfLiving*1.2){return "<score class='poor max'>expensive</score>"}
   }
   else if (quality=="Cost of Living"){
     if (score<avg['Cost of Living (Individual)']*.8){return "<score class='excellent short'>"+score+"€/m</score>"}
@@ -278,8 +278,8 @@ function appendData(data) {
         else card.innerHTML = '<div class="frame"><center><h3 class="header">' + data[i].Name + '</h3> ';
         card.innerHTML += '<p class="region">' + data[i]["Region"];
         card.innerHTML += '<p class="population">👥Population: <b style="color:white">'+data[i].Population.toLocaleString('en', {useGrouping:true}) +'</b>';
-        card.innerHTML += '<p>💰Cost of Living: '+ qualityScore("Cost of Living",data[i]["Cost of Living (Individual)"])+'';
         card.innerHTML += '<p>💸Cost: '+ qualityScore("CostOfLiving",data[i].CostOfLiving) +'';
+        card.innerHTML += '<p>💰Expenses: '+ qualityScore("Cost of Living",data[i]["Cost of Living (Individual)"])+'';
         card.innerHTML += '<p>☀️Climate: '+ qualityScore("Climate",data[i].Climate) +'';
         card.innerHTML += '<p>🚑Healthcare: '+ qualityScore("Healthcare",data[i].Healthcare) +'';
         card.innerHTML += '<p>🚌Transport: '+ qualityScore("PublicTransport",data[i]["PublicTransport"]) +'';
