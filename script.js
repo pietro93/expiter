@@ -5,6 +5,7 @@ var region_filters = [];
 var additionalFilters=[];
 var dataset;
 var avg;
+var regions ={};
 
 fetch('https://raw.githubusercontent.com/pietro93/italycities.github.io/main/dataset.json')
     .then(function (response) {
@@ -31,6 +32,12 @@ function populateData(data){
         facts[province["Name"]]={}; //initialize "facts" dictionary with each province
       }
       avg=data[107];
+      for (let i = 108; i < data.length; i++) {
+        let region = data[i];
+        provinces[region["Name"]]=province;
+        provinces[region["Name"]].index=i;
+        facts[region["Name"]]={}; //initialize "facts" dictionary with each region
+      }
     }
 
     function addToSelection(filter){
@@ -411,7 +418,7 @@ function getInfo(province){
   (province.Traffic<avg.Traffic*.85?"<b class='green'>traffic is low":(province.Traffic<avg.Traffic?"<b class='green'>traffic is below average":(province.Traffic>avg.Traffic*1.1?"<b class='red'>traffic is very high":"<b class='red'>traffic is somewhat high")))+"</b>. "+
   "There are on average "+province.VehiclesPerPerson+" active vehicles per person, against a national average of "+avg.VehiclesPerPerson+". "+(province.Subway>0?"The city of "+name+" is one of the very few places in Italy with an urban metro system, the <b>Metropolitana di "+name+"</b>. ":"")+
   "<br><br>"+
-  "Around "+province.CyclingLanes/10+"km per 10k inhabitants of the main city in "+name+" consist of bicycle lanes. This makes "+name+" "+(province.CyclingLanes>avg.CyclingLanes*.8?"<b class='green'>somewhat bike-friendly by Italian standards":(province.CyclingLanes>avg.CyclingLanes*1.2?"<b class='green'>very bike-friendly by Italian standards":"<b class='red'>not very bike-friendly"))+"</b>. "
+  "Around "+(province.CyclingLanes/10).toFixed(2)+"km per 10k inhabitants of the main city in "+name+" consist of bicycle lanes. This makes "+name+" "+(province.CyclingLanes>avg.CyclingLanes*.8?"<b class='green'>somewhat bike-friendly by Italian standards":(province.CyclingLanes>avg.CyclingLanes*1.2?"<b class='green'>very bike-friendly by Italian standards":"<b class='red'>not very bike-friendly"))+"</b>. "
   
   return info;
 }
@@ -455,3 +462,46 @@ function setNavBar(){
  '<a href="/index.html"><h1 class="logo">Italy Expats & Nomads</h1></a>'+
 '</div>'
 }
+
+
+var tabNav     = $('.tab-nav'),
+    tabContent = $('.tab-content');
+
+// Reorder Tabs
+var addOrder = function(item){
+  var itemNum = 1;
+  item.each(function() {
+    $(this).css('order', itemNum);
+    return itemNum++;
+  });
+};
+
+// Change Tab
+var changeTab = function(tabs) {
+  tabs.on('click', '.tab-nav', function(){
+    var el   = $(this),
+        elId = el.attr('href');
+    
+    tabs.find('.tab-nav').removeClass('active');
+    tabs.find('.tab-content').removeClass('active');
+    
+    el.addClass('active');
+    $(elId).addClass('active');
+  });
+};
+changeTab($('#thisTab'));
+
+// Check Page Width
+var checkWidth = function() {
+  if($(window).width() < 767) {
+    addOrder(tabNav);
+    addOrder(tabContent);
+  } else {
+    tabNav.css('order', '');
+    tabNav.css('order', '');
+  }
+};
+
+$(window).on('resize', function(){
+  checkWidth();
+});

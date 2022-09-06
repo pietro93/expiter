@@ -676,9 +676,7 @@ h3{
     .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3{
         transform: rotate(-45deg);
     }
-
-}
-
+    
 @media (max-width: 500px){
     .navbar-container input[type="checkbox"]:checked ~ .logo{
         display: none;
@@ -717,3 +715,73 @@ h3{
 
 }
 
+
+* {
+  box-sizing: border-box;
+}
+.tab-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  background: #dbdbdb;
+}
+.tab-nav {
+  flex-grow: 1;
+  padding: 1em;
+  background: #424242;
+  border-right: 2px solid #3299bb;
+  color: #8f8f8f;
+  font-size: 20px;
+  font-family: Helvetica, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+.tab-nav.active {
+  color: #fff;
+}
+.tab-nav:last-of-type {
+  border-right: 0;
+}
+.tab-content {
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  display: block;
+  padding-left: 2em;
+  padding-right: 2em;
+  border-bottom: 0;
+  opacity: 0;
+}
+.tab-content.active {
+  max-height: 2000px;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  border-bottom: 2px solid #3299bb;
+  opacity: 1;
+  transition: opacity 0.1s ease-in, border 0.1s ease-in;
+}
+@media (max-width: 767px) {
+  .tab-nav {
+    width: 100%;
+    border-right: 0;
+    border-bottom: 2px solid #3299bb;
+ }
+  .tab-content {
+    overflow: hidden;
+    max-height: 0;
+    display: block;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+    transition: all 0.15s ease-out;
+ }
+  .tab-content.active {
+    max-height: 1000px;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    border-bottom: 2px solid #3299bb;
+    transition: all 0.15s ease-in;
+ }
+}
