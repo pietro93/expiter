@@ -34,8 +34,8 @@ function populateData(data){
       avg=data[107];
       for (let i = 108; i < data.length; i++) {
         let region = data[i];
-        provinces[region["Name"]]=province;
-        provinces[region["Name"]].index=i;
+        regions[region["Name"]]=region;
+        regions[region["Name"]].index=i;
         facts[region["Name"]]={}; //initialize "facts" dictionary with each region
       }
     }
@@ -57,13 +57,15 @@ function populateData(data){
   }
 
     function filterDataByRegion(filter){
+      let regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
+      "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
       let north=["Lombardia","Valle d'Aosta","Piemonte","Liguria","Trentino-Alto Adige", "Friuli-Venezia Giulia","Veneto","Emilia-Romagna"];
       let center=["Lazio","Toscana","Marche","Umbria"];
       let south=["Abruzzo","Molise","Campania","Puglia","Basilicata","Calabria","Sicilia","Sardegna"]
 
       selection=[];
       if (filter == "All") {
-        selection=dataset.slice(0, 107); ;region_filters=regions;
+        selection=dataset.slice(0, 107); ;region_filters=north.concat(center).concat(south);
         $(".regionfilter:not(.selected)").toggleClass("selected");
         sortData(selection);
         return("")}
@@ -179,14 +181,26 @@ function populateData(data){
         }
         else if (sortBy == "MonthlyIncome"){
           $("#sortBy").text("by Average Income");
-          $("#bestorworst").text("")
+          $("#bestorworst").text("");
         }
-        else if (sortBy == "Men" || sortBy == "Women"){
-          $("#sortBy").text("by Higher Percentage of "+ sortBy);
-          $("#bestorworst").text("")
+        else if (sortBy == 'Expat-friendly' || sortBy == 'LGBT-friendly'){
+          $("#sortBy").text("");
+          $("#bestorworst").text("Most "+sortBy);
+        }
+        else if (sortBy == 'DN-friendly' || sortBy == 'Female-friendly'){
+          $("#sortBy").text((sortBy=='DN-friendly'?"for Digital Nomads":"for Women"));
+          $("#bestorworst").text("Best");
+        }
+        else if (sortBy == 'SunshineHours'){
+          $("#sortBy").text("");
+          $("#bestorworst").text("Sunniest");
+        }
+        else if (sortBy == 'HotDays'||sortBy=='ColdDays'){
+          $("#sortBy").text("");
+          $("#bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
         }
         else $("#sortBy").text("for "+sortBy);
-        if (sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
+        if (sortBy == "Climate" || sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
           $("#bestorworst").text("Best")
         }
 
@@ -293,13 +307,12 @@ function appendData(data) {
     
 }
 
-regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
-           "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
-
  $(document).ready(function(){
   setNavBar();
   if (!!document.getElementById("filters")){
   let filters = document.getElementById("filters");
+  let regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
+  "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
 for (i=0;i<regions.length;i++){
 if (i==0){
   row = document.createElement("row");
@@ -327,6 +340,14 @@ row.innerHTML+='<button class="button column regionfilter" id="'+regions[i].subs
   row.id="additionalfilters"
   filters.append(row)
   
+  createSorting("Expat-friendly");
+  createSorting("A-Z","Name");
+  createSorting("Random");createSorting("Region");createSorting("Population");createSorting("Climate");
+  createSorting("Cost","CostOfLiving");createSorting("Nightlife");createSorting("Education");
+  createSorting("Sunshine","SunshineHours");createSorting("Hot","HotDays");createSorting("Cold","ColdDays");
+  createSorting("Nomad-friendly","DN-friendly");createSorting("LGBTQ friendly","LGBT-friendly");createSorting("Women-friendly","Female-friendly");
+
+  filterBy();
 }
 
 }
@@ -505,3 +526,13 @@ var checkWidth = function() {
 $(window).on('resize', function(){
   checkWidth();
 });
+
+function createSorting(label, value){
+  if (value==undefined)value=label;
+  let sortings = $("#sorting")
+  let sorting = '<label class="button radio column">'+
+    '<input type="radio" name="sortBy" onClick="filterBy()" value='+value+(value=="Expat-friendly"?" checked":"")+'>'+
+    '<span>'+label+'</span>'+
+    '</label>'
+  sortings.append(sorting)
+}
