@@ -216,7 +216,7 @@ function qualityScore(quality,score){
     else if (score>=8.5){return "<score class='poor max'>expensive</score>"}
   }
   else if (quality=="Cost of Living"){
-    if (score<avg.CoL*.8){return "<score class='excellent short'>"+score+"€/m</score>"}
+    if (score<avg['Cost of Living (Individual)']*.8){return "<score class='excellent short'>"+score+"€/m</score>"}
     else if (score>=avg['Cost of Living (Individual)']*0.8&&score<avg['Cost of Living (Individual)']*0.95){return "<score class='great medium'>"+score+"€/m</score>"}
     else if (score>=avg['Cost of Living (Individual)']*0.95&&score<avg['Cost of Living (Individual)']*1.05){return "<score class='good medium'>"+score+"€/m</score>"}
     else if (score>=avg['Cost of Living (Individual)']*1.05&&score<avg['Cost of Living (Individual)']*1.2){return "<score class='average long'>"+score+"€/m</score>"}
@@ -382,6 +382,7 @@ function getInfo(province){
 
   let ratio = (province.Men/(Math.min(province.Men,province.Women))).toFixed(2)+":"+(province.Women/(Math.min(province.Men,province.Women))).toFixed(2)
   let name=province.Name;
+  let region=regions[province.Region];
 
   let info = {}
   info.overview="The province of "+province.Name+" is the <b>"+province.SizeByPopulation+(province.SizeByPopulation%10==1?"st":(province.SizeByPopulation%10==2?"nd":province.SizeByPopulation%10==3?"rd":"th"))+" largest Italian province by population</b> with <b>"+province.Population.toLocaleString()+" people</b>, located in the <b>"+province.Region+"</b> region. "+
@@ -402,7 +403,8 @@ function getInfo(province){
   +"."
 
   info.climate="The province of "+province.Name+" receives on average <b>"+province.SunshineHours+" hours of sunshine</b> per month, or "+province.SunshineHours/30+" hours of sunshine per day."+
-  " This is "+(province.SunshineHours>236?"<b class='green'>"+(province.SunshineHours/236*100-100).toFixed(2)+"% more</b> than the average for Italy":"<b class='red'>"+(100-(province.SunshineHours/236)*100).toFixed(2)+"% less</b> than the average for Italy")+"."+
+  " This is "+(province.SunshineHours>236?"<b class='green'>"+(province.SunshineHours/236*100-100).toFixed(2)+"% more</b> than the average for Italy":"<b class='red'>"+(100-(province.SunshineHours/236)*100).toFixed(2)+"% less</b> than the average for Italy")+" and "+
+  (province.SunshineHours>region.SunshineHours?"<b class='green'>"+(province.SunshineHours/region.SunshineHours*100-100).toFixed(2)+"% more</b> than the average for the region of ":"<b class='red'>"+(100-(province.SunshineHours/region.SunshineHours)*100).toFixed(2)+"% less</b> than the average for the region of ")+province.Region+"."+
   "</br></br>"
   info.climate+=" Throughout the year, <b>it rains on average "+province.RainyDays+" days per month</b>, which is "+
   (province.RainyDays>8?"<b class='red'>well above average":(province.RainyDays<7?"<b class='green'>below average</b>":"<b>an ordinary amount of precipitation"))+"</b> for an Italian province."+
