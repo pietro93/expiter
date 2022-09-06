@@ -156,7 +156,7 @@ function populateData(data){
         if (sortBy=="Random"){
           data = selection.sort(() => Math.random() - 0.5);     
         }
-        if (sortBy=="Name"||sortBy=="Region"||sortBy=="CostOfLiving"){ //ascending order
+        if (sortBy=="Name"||sortBy=="Region"||sortBy=="CostOfLiving"||sortBy=="Crime"){ //ascending order
           data = selection.sort(dynamicSort(sortBy))    
         }
         else {                                                        //descending order
@@ -198,6 +198,14 @@ function populateData(data){
         else if (sortBy == 'HotDays'||sortBy=='ColdDays'){
           $("#sortBy").text("");
           $("#bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
+        }
+        else if (sortBy == 'Safety'){
+          $("#sortBy").text("");
+          $("#bestorworst").text("Safest");
+        }
+        else if (sortBy == 'Crime'){
+          $("#sortBy").text("by Lowest Amounts of Crime");
+          $("#bestorworst").text("");
         }
         else $("#sortBy").text("for "+sortBy);
         if (sortBy == "Climate" || sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
@@ -343,10 +351,10 @@ row.innerHTML+='<button class="button column regionfilter" id="'+regions[i].subs
   createSorting("Expat-friendly");
   createSorting("A-Z","Name");
   createSorting("Random");createSorting("Region");createSorting("Population");createSorting("Climate");
-  createSorting("Cost","CostOfLiving");createSorting("Nightlife");createSorting("Education");
+  createSorting("Cost","CostOfLiving");createSorting("Safety");createSorting("Lack of Crime","Crime");createSorting("Nightlife");createSorting("Education");
   createSorting("Sunshine","SunshineHours");createSorting("Hot","HotDays");createSorting("Cold","ColdDays");
-  createSorting("Nomad-friendly","DN-friendly");createSorting("LGBTQ friendly","LGBT-friendly");createSorting("Women-friendly","Female-friendly");
-
+  createSorting("Nomad-friendly","DN-friendly");createSorting("LGBTQ+-friendly","LGBT-friendly");createSorting("Women-friendly","Female-friendly");
+  createSorting("Family-friendly");createSorting("Vegan-friendly","Veg-friendly");createSorting("Pop. Density","Density");
   filterBy();
 }
 
