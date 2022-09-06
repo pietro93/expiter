@@ -215,12 +215,12 @@ function qualityScore(quality,score){
     else if (score>=7&&score<8.5){return "<score class='average long'>high</score>"}
     else if (score>=8.5){return "<score class='poor max'>expensive</score>"}
   }
-  else if (quality=="Monthly Income"){
-    if (score<1200){return "<score class='poor short'>"+score+"€/m</score>"}
-    else if (score>=1200&&score<1600){return "<score class='average medium'>"+score+"€/m</score>"}
-    else if (score>=1600&&score<2000){return "<score class='good medium'>"+score+"€/m</score>"}
-    else if (score>=2000&&score<2500){return "<score class='great long'>"+score+"€/m</score>"}
-    else if (score>=2500){return "<score class='great long'>"+score+"€/m</score>"}
+  else if (quality=="Cost of Living"){
+    if (score<avg.CoL*.8){return "<score class='excellent short'>"+score+"€/m</score>"}
+    else if (score>=avg['Cost of Living (Individual)']*0.8&&score<avg['Cost of Living (Individual)']*0.95){return "<score class='great medium'>"+score+"€/m</score>"}
+    else if (score>=avg['Cost of Living (Individual)']*0.95&&score<avg['Cost of Living (Individual)']*1.05){return "<score class='good medium'>"+score+"€/m</score>"}
+    else if (score>=avg['Cost of Living (Individual)']*1.05&&score<avg['Cost of Living (Individual)']*1.2){return "<score class='average long'>"+score+"€/m</score>"}
+    else if (score>=avg['Cost of Living (Individual)']*1.2){return "<score class='poor long'>"+score+"€/m</score>"}
   }
   else{
     if (score<4){return "<score class='poor short'>poor</score>"}
@@ -278,7 +278,7 @@ function appendData(data) {
         else card.innerHTML = '<div class="frame"><center><h3 class="header">' + data[i].Name + '</h3> ';
         card.innerHTML += '<p class="region">' + data[i]["Region"];
         card.innerHTML += '<p class="population">👥Population: <b style="color:white">'+data[i].Population.toLocaleString('en', {useGrouping:true}) +'</b>';
-        card.innerHTML += '<p>💰Income: '+ qualityScore("Monthly Income",data[i]["MonthlyIncome"])+'';
+        card.innerHTML += '<p>💰Cost of Living: '+ qualityScore("Cost of Living",data[i]["Cost of Living (Individual)"])+'';
         card.innerHTML += '<p>💸Cost: '+ qualityScore("CostOfLiving",data[i].CostOfLiving) +'';
         card.innerHTML += '<p>☀️Climate: '+ qualityScore("Climate",data[i].Climate) +'';
         card.innerHTML += '<p>🚑Healthcare: '+ qualityScore("Healthcare",data[i].Healthcare) +'';
