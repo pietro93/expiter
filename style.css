@@ -260,9 +260,9 @@ card.Calabria::after{
   opacity:.33;
 }card.Calabria>.region{color:greenyellow}
 card.Lombardia::after{
-  background-color:darkcyan;
+  background-color:cyan;
   opacity:.33;
-} card.Lombardia>.region{color:lightcyan}
+} card.Lombardia>.region{color:cyan}
 card.Lazio::after{
   background-color:orangered;
   opacity:.33;
@@ -314,7 +314,7 @@ card.Puglia::after{
 card.Piemonte::after{
   background-color:darkslateblue;
   opacity:.33;
-}card.Piemonte>.region{color:ligthslategrey}
+}card.Piemonte>.region{color:lightcyan}
 card.Basilicata::after{
   background-color:brown;
   opacity:.33;
@@ -358,7 +358,7 @@ card.Campania::after{
  }
 
  :not(.fullwidth)  > .column >   card:hover::after{
-    opacity:0.2;
+    opacity:0.53;
     background-color:black;
  }
 
