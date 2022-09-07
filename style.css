@@ -86,11 +86,11 @@ card {
   padding:5px; 
   overflow: hidden;
   border-radius: 10px;
-  background-color:var(--blue-going-to-cyan);
   z-index:1;
   min-width:180px;
   max-width:250px;
 }
+
 .fullwidth  > .column > .paracard > p> score{
   text-transform:uppercase;
   top:1px;
@@ -235,7 +235,7 @@ b.green{color:darkgreen}
 
 .region{
   font-size:18px;
-  color:rgba(180,233,253,0.99);
+  
   height:50px;
   letter-spacing:-1px;
   text-align: right;
@@ -250,6 +250,88 @@ b.green{color:darkgreen}
   text-align:center;
   padding-bottom:10px;
 }
+
+card.Abruzzo::after{
+  background-color:skyblue;
+  opacity:.33;
+}card.Abruzzo>.region{color:skyblue}
+card.Calabria::after{
+  background-color:orange;
+  opacity:.33;
+}card.Calabria>.region{color:greenyellow}
+card.Lombardia::after{
+  background-color:darkcyan;
+  opacity:.33;
+} card.Lombardia>.region{color:lightcyan}
+card.Lazio::after{
+  background-color:orangered;
+  opacity:.33;
+}card.Lazio>.region{color:orange}
+card.Emilia-Romagna::after{
+  background-color:royalblue;
+  opacity:.33;
+}card.Emilia-Romagna>.region{color:lightskyblue}
+card.Valle::after{
+  background-color:whitesmoke;
+  opacity:.33;
+}card.Valle>.region{color:whitesmoke}
+card.Trentino-Alto::after{
+  background-color:darkolivegreen;
+  opacity:.33;
+}card.Trentino-Alto>.region{color:lightgreen}
+card.Friuli-Venezia::after{
+  background-color:purple;
+  opacity:.33;
+}card.Friuli-Venezia>.region{color:violet}
+card.Umbria::after{
+  background-color:darkslategray;
+  opacity:.33;
+}card.Umbria>.region{color:lightsteelblue}
+card.Sardegna::after{
+  background-color:orangered;
+  opacity:.33;
+}card.Sardegna>.region{color:sandybrown}
+card.Sicilia::after{
+  background-color:goldenrod;
+  opacity:.33;
+}card.Sicilia>.region{color:yellow}
+card.Toscana::after{
+  background-color:forestgreen;
+  opacity:.33;
+}card.Toscana>.region{color:lawngreen}
+card.Molise::after{
+  background-color:brown;
+  opacity:.33;
+}card.Molise>.region{color:lightpink}
+card.Marche::after{
+  background-color:darkgoldenrod;
+  opacity:.33;
+}card.Marche>.region{color:burlywood}
+card.Puglia::after{
+  background-color:salmon;
+  opacity:.33;
+}card.Puglia>.region{color:darksalmon}
+card.Piemonte::after{
+  background-color:darkslateblue;
+  opacity:.33;
+}card.Piemonte>.region{color:ligthslategrey}
+card.Basilicata::after{
+  background-color:brown;
+  opacity:.33;
+}card.Basilicata>.region{color:gold}
+card.Liguria::after{
+  background-color:seagreen;
+  opacity:.33;
+}card.Liguria>.region{color:springgreen}
+card.Veneto::after{
+  background-color:cadetblue;
+  opacity:.33;
+}card.Veneto>.region{color:azure}
+card.Campania::after{
+  background-color:palevioletred;
+  opacity:.33;
+}card.Campania>.region{color:gold}
+
 
 :not(.fullwidth) > .column > card:hover > .population, :not(.fullwidth) > .column > card:hover >.region{
   opacity:0
@@ -276,7 +358,7 @@ b.green{color:darkgreen}
  }
 
  :not(.fullwidth)  > .column >   card:hover::after{
-    opacity:0.3;
+    opacity:0.2;
     background-color:black;
  }
 
@@ -482,6 +564,7 @@ h2{
   width:100%;
   text-align:center;
   margin-bottom:14px;
+  margin-left:0;
 }
 h3{
   font-size:21px;

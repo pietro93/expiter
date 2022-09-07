@@ -304,7 +304,7 @@ function appendData(data) {
         card.innerHTML += '<p class="opacity4">🧳For nomads: '+ qualityScore("DNFriendly",data[i]["DN-friendly"]) +'';
         card.innerHTML += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name+'.html\';"> More>> </button>';
         col.classList = 'column';
-        card.classList = 'paracard';
+        card.classList = data[i].Region + ' paracard ';
         let image = 'img/'+data[i].Abbreviation+'.jpg';
         card.title=data[i].Name+', '+data[i].Region;
         card.style.backgroundImage = 'url('+image+')';
