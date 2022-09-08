@@ -931,7 +931,7 @@ h3{
 }
 
 section>div.column{
-  max-width:50%;
+  min-width:50%;
   position:relative;
   float:left;
 }
@@ -1039,6 +1039,12 @@ section>div.column{
   .tabs > input:checked + span,
 .tabs > input:hover + span{
   font-size:1.2em;
+}
+
+section>div.column{
+  width:100%;
+  position:relative;
+  margin-top:-22px;
 }
 
 }

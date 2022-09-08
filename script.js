@@ -233,30 +233,30 @@ function qualityScore(quality,score){
   else if (quality=="HotDays"||quality=="ColdDays"){ // high score = bad; low score = good
     if (score<avg[quality]*.8){return "<score class='excellent short'>not "+(quality=="HotDays"?"hot":"cold")+"</score>"}
     else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>not very "+(quality=="HotDays"?"hot":"cold")+"</score>"}
-    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>somewhat "+(quality=="HotDays"?"hot":"cold")+"</score>"}
+    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>a bit "+(quality=="HotDays"?"hot":"cold")+"</score>"}
     else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>"+(quality=="HotDays"?"hot":"cold")+"</score>"}
     else if (score>=avg[quality]*1.2){return "<score class='poor max'>very "+(quality=="HotDays"?"hot":"cold")+"</score>"}
   }
   else if (quality=="RainyDays"){ // high score = bad; low score = good
-    if (score<avg[quality]*.8){return "<score class='excellent short'>very little rain</score>"}
-    else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>little rain</score>"}
-    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>slightly rainy</score>"}
+    if (score<avg[quality]*.8){return "<score class='excellent short'>very little</score>"}
+    else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>little</score>"}
+    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>average</score>"}
     else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>rainy</score>"}
-    else if (score>=avg[quality]*1.2){return "<score class='poor max'>very rainy</score>"}
+    else if (score>=avg[quality]*1.2){return "<score class='poor max'>a lot</score>"}
   }
   else if (quality=="FoggyDays"){ // high score = bad; low score = good
     if (score<avg[quality]*.265){return "<score class='excellent short'>no fog</score>"}
-    else if (score>=avg[quality]*.265&&score<avg[quality]*.6){return "<score class='great medium'>little fog</score>"}
-    else if (score>=avg[quality]*.6&&score<avg[quality]*1.00){return "<score class='good medium'>slightly foggy</score>"}
+    else if (score>=avg[quality]*.265&&score<avg[quality]*.6){return "<score class='great medium'>little</score>"}
+    else if (score>=avg[quality]*.6&&score<avg[quality]*1.00){return "<score class='good medium'>average</score>"}
     else if (score>=avg[quality]*1.05&&score<avg[quality]*3){return "<score class='average long'>foggy</score>"}
-    else if (score>=avg[quality]*3){return "<score class='poor max'>very foggy</score>"}
+    else if (score>=avg[quality]*3){return "<score class='poor max'>a lot</score>"}
   }
   else if (quality=="Crime"||quality=="Traffic"){ // high score = bad; low score = good
     if (score<avg[quality]*.8){return "<score class='excellent short'>very low</score>"}
     else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>low</score>"}
     else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>average</score>"}
-    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>somewhat high</score>"}
-    else if (score>=avg[quality]*1.2){return "<score class='poor max'>high</score>"}
+    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>high</score>"}
+    else if (score>=avg[quality]*1.2){return "<score class='poor max'>too much</score>"}
   }
   else{ // high score = good; low score = bad
     if (score<avg[quality]*.8){return "<score class='poor short'>poor</score>"}
@@ -541,7 +541,7 @@ function appendProvinceData(province){
   tab1[0].innerHTML+=('<p>🚑Healthcare: '+ qualityScore("Healthcare",province.Healthcare));
   tab1[0].innerHTML+=('<p>📚Education: '+ qualityScore("Education",province.Education));
   tab1[0].innerHTML+=('<p>👮🏽‍♀️Safety: '+ qualityScore("Safety",province.Safety));
-  tab1[0].innerHTML+=('<p>🚨Lack of Crime: '+ qualityScore("Crime",province.Crime));
+  tab1[0].innerHTML+=('<p>🚨Crime: '+ qualityScore("Crime",province.Crime));
   
   tab1[0].innerHTML+=('<p>🚌Transport: '+ qualityScore("PublicTransport",province["PublicTransport"]));
   tab1[0].innerHTML+=('<p>🚥Traffic: '+ qualityScore("Traffic",province["Traffic"]));
