@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 :root{
   --lightest-blue:rgb(213,243,254);
   --light-blue:rgb(183,213,234);
@@ -11,8 +13,8 @@
 }
 
 html, body {
+  font-family:"Raleway";
   margin: 20px 0;
-  font-family: "Raleway";
   font-size: 16px;
   font-weight: 500;
   background-color:var(--darkest-blue);
@@ -37,7 +39,7 @@ html {
   margin: auto;
   width: 100vw;
 }
-b,h2,h3,h1{color:black}
+b,h2,h3,h1{ font-family: "Open Sans", sans-serif;color:black}
 body {
   display: table-cell;
   vertical-align: middle;
@@ -62,7 +64,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .title {
-  font-family: "Raleway";
   font-size: 24px;
   font-weight: 700;
   color: #5D4037;
@@ -97,10 +98,10 @@ card {
 }
 
 @media only screen and (max-width: 700px) {
-  *{width:100vw}
-  html{width:100vw}
-  body{width:100vw;padding-left:5vw;padding-right:1vw}
-
+  html{width:100vw;}
+  body{width:100vw;padding-left:2vw;padding-right:2vw;
+    overflow-x:hidden}
+#info>span{padding-left:8px;padding-right:5px;font-size:19px}
   card {
     min-width:170px;
   }
@@ -558,6 +559,7 @@ p.column.is-12{
 
 #info{
   font-size:18px;
+  font-family: "Open Sans", sans-serif;
 }
 
 h2{
@@ -1036,16 +1038,15 @@ section>div.column{
     max-width:100%;
   }
   .tabs > input + span {
-    font-size:1em;
-    letter-spacing:-0.5px;
-    margin-left:0.1em;
+    font-size:1em+1px;
+    letter-spacing:-1px;
     overflow-wrap:break-word;
   }
-  .tabs > input:checked + span,
-.tabs > input:hover + span{
-  font-size:1em+1px;
-  
-}
+  .tabs > input:checked + span {
+    font-size:1em+1px;
+    letter-spacing:-0.8px;
+    overflow-wrap:break-word;
+  }
 
 section>div.column{
   width:100%;
