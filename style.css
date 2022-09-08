@@ -838,7 +838,6 @@ h3{
 
 .tabs > :not(.disabled)span {
 	text-align: center;
-	overflow: hidden;
 }
 #tab-3+span{
   background-color:var(--light-blue);
@@ -908,6 +907,7 @@ h3{
 	padding: 80px 10px 10px;
 	width: 100%;
 	min-height: 300px;
+  height:100%;
   background-color:var(--lightest-blue);
   border: 4px ridge var(--blue-going-to-cyan);
   border-radius: 25px;
@@ -1034,7 +1034,7 @@ section>div.column{
   .tabs > input + span {
     font-size:1em;
     letter-spacing:-0.5px;
-    margin-left:0.5em;
+    margin-left:0.1em;
     overflow-wrap:break-word;
   }
   .tabs > input:checked + span,
