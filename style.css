@@ -993,7 +993,7 @@ section>div.column{
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   #tab-1, #tab-1 + span {
     left: 0%;
   }
