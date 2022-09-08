@@ -536,6 +536,7 @@ function createSorting(label, value){
 }
 
 function appendProvinceData(province){
+  
   let tab1=$("#tab-item-1 > .column");
   let tab2=$("#tab-item-2 > .column"); 
   let tab3=$("#tab-item-3 > .column"); 
