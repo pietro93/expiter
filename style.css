@@ -905,9 +905,9 @@ h3{
 
 
 .tab-content {
-	padding: 80px 20px 20px;
+	padding: 80px 10px 10px;
 	width: 100%;
-	min-height: 340px;
+	min-height: 300px;
   background-color:var(--lightest-blue);
   border: 4px ridge var(--blue-going-to-cyan);
   border-radius: 25px;
@@ -932,11 +932,11 @@ h3{
 
 section>div.column{
   max-width:50%;
-  padding-right:100px;
   position:relative;
+  float:left;
 }
 
-#tab-1:checked ~ .tab-content > #tab-item-1 > .column {
+#tab-1:checked ~ .tab-content > #tab-item-1,#tab-1:checked ~ .tab-content > #tab-item-1 > .column {
 	display: block;
 }
 
