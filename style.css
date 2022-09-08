@@ -1033,19 +1033,19 @@ section>div.column{
   }
   .tabs > input + span {
     font-size:1em;
-    letter-spacing:-1px;
-    margin-left:10px;
+    letter-spacing:-0.5px;
+    margin-left:0.5em;
+    overflow-wrap:break-word;
   }
   .tabs > input:checked + span,
 .tabs > input:hover + span{
-  font-size:1.1em;
+  font-size:1em+1px;
   
 }
 
 section>div.column{
   width:100%;
   position:relative;
-  margin-top:-22px;
 }
 
 }
