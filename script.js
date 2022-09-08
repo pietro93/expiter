@@ -216,21 +216,23 @@ function populateData(data){
 
   
 function qualityScore(quality,score){
-  let expenses=["Cost of Living (Individual)","Cost of Living (Family)", "StudioRental", "BilocaleRent"]
+  let expenses=["Cost of Living (Individual)","Cost of Living (Family)","Cost of Living (Nomad)", 
+  "StudioRental", "BilocaleRent", "TrilocaleRent", "MonthlyIncome", 
+  "StudioSale","BilocaleSale","TrilocaleSale"]
 
-  if (quality=="CostOfLiving"){
-    if (score<avg.CostOfLiving*.8){return "<score class='excellent short'>cheap</score>"}
-    else if (score>=avg.CostOfLiving*.8&&score<avg.CostOfLiving*.95){return "<score class='great medium'>affordable</score>"}
-    else if (score>=avg.CostOfLiving*.95&&score<avg.CostOfLiving*1.05){return "<score class='good medium'>average</score>"}
-    else if (score>=avg.CostOfLiving*1.05&&score<avg.CostOfLiving*1.2){return "<score class='average long'>high</score>"}
-    else if (score>=avg.CostOfLiving*1.2){return "<score class='poor max'>expensive</score>"}
+  if (quality=="CostOfLiving"||quality=="HousingCost"){
+    if (score<avg[quality]*.8){return "<score class='excellent short'>cheap</score>"}
+    else if (score>=avg[quality]*.8&&score[quality]*.95){return "<score class='great medium'>affordable</score>"}
+    else if (score>=avg[quality]*.95&&score[quality]*1.05){return "<score class='good medium'>average</score>"}
+    else if (score>=avg[quality]*1.05&&score[quality]*1.2){return "<score class='average long'>high</score>"}
+    else if (score>=avg[quality]*1.2){return "<score class='poor max'>expensive</score>"}
   }
   else if (expenses.includes(quality)){
-    if (score<avg[quality]*.8){return "<score class='excellent short'>"+score+"€/m</score>"}
-    else if (score>=avg[quality]*0.8&&score<avg[quality]*0.95){return "<score class='great medium'>"+score+"€/m</score>"}
-    else if (score>=avg[quality]*0.95&&score<avg[quality]*1.05){return "<score class='good medium'>"+score+"€/m</score>"}
-    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>"+score+"€/m</score>"}
-    else if (score>=avg[quality]*1.2){return "<score class='poor long'>"+score+"€/m</score>"}
+    if (score<avg[quality]*.8){return "<score class='green'>"+score+"€/m</score>"}
+    else if (score>=avg[quality]*0.8&&score<avg[quality]*0.95){return "<score class='green'>"+score+"€/m</score>"}
+    else if (score>=avg[quality]*0.95&&score<avg[quality]*1.05){return "<score class='orange'>"+score+"€/m</score>"}
+    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='red'>"+score+"€/m</score>"}
+    else if (score>=avg[quality]*1.2){return "<score class='red'>"+score+"€/m</score>"}
   }
   else if (quality=="HotDays"||quality=="ColdDays"){ // high score = bad; low score = good
     if (score<avg[quality]*.8){return "<score class='excellent short'>not "+(quality=="HotDays"?"hot":"cold")+"</score>"}
@@ -566,9 +568,18 @@ function appendProvinceData(province){
   tab1[1].innerHTML+=('<p>🥗For vegans: '+ qualityScore("Veg-friendly",province["Veg-friendly"]));
   
 
-  tab2[0].innerHTML+=('<p>💰Expenses (single person): '+ qualityScore("Cost of Living (Individual)",province["Cost of Living (Individual)"]))
-  tab2[0].innerHTML+=('<p>💰Expenses (small family): '+ qualityScore("Cost of Living (Family)",province["Cost of Living (Family)"]))
+  tab2[0].innerHTML+=('<p>📈Cost of Living: '+ qualityScore("CostOfLiving",province["CostOfLiving"]));
+  tab2[0].innerHTML+=('<p>🧑🏻Expenses (single person): '+ qualityScore("Cost of Living (Individual)",province["Cost of Living (Individual)"]))
+  tab2[0].innerHTML+=('<p>👩🏽‍🏫Expenses (digital nomad): '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
+  tab2[0].innerHTML+=('<p>🏠Rental (studio apt.): '+ qualityScore("StudioRental",province["StudioRental"]))
+  tab2[0].innerHTML+=('<p>🏘️Rental (2-room apt.): '+ qualityScore("BilocaleRent",province["BilocaleRent"]))
+  tab2[0].innerHTML+=('<p>🏰Rental (3-room apt.): '+ qualityScore("TrilocaleRent",province["TrilocaleRent"]))
 
-  tab2[1].innerHTML+=('<p>💰Rental (studio apt.): '+ qualityScore("StudioRental",province["StudioRental"]))
-  tab2[1].innerHTML+=('<p>💰Rental (2-room apt.): '+ qualityScore("BilocaleRent",province["BilocaleRent"]))
+  tab2[1].innerHTML+=('<p>🏙️Housing Cost: '+ qualityScore("HousingCost",province["HousingCost"]));
+  tab2[1].innerHTML+=('<p>💵Local Income: '+ qualityScore("MonthlyIncome",province["MonthlyIncome"]));
+  tab2[1].innerHTML+=('<p>👪Expenses (small family): '+ qualityScore("Cost of Living (Family)",province["Cost of Living (Family)"]))
+  tab2[1].innerHTML+=('<p>🏠Sale (studio apt.): '+ qualityScore("StudioSale",province["StudioSale"]))
+  tab2[1].innerHTML+=('<p>🏘️Sale (2-room apt.): '+ qualityScore("BilocaleSale",province["BilocaleSale"]))
+  tab2[1].innerHTML+=('<p>🏰Sale (3-room apt.): '+ qualityScore("TrilocaleSale",province["TrilocaleSale"]))
+ 
 }

@@ -198,8 +198,12 @@ score{border-radius:25px;
   margin-left:5px;
 }
 
-b.red{color:darkred;}
-b.green{color:darkgreen}
+score{padding-right:1%;
+  background-color:var(--light-blue);
+}
+.red{color:darkred;border-color:darkred}
+.green{color:darkgreen;border-color:darkgreen}
+.orange{color:orangered;border-color:orangered}
 .poor{
   color:orangered;
   background-color:rgba(100,0,0,.9);
