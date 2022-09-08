@@ -230,12 +230,43 @@ function qualityScore(quality,score){
     else if (score>=avg['Cost of Living (Individual)']*1.05&&score<avg['Cost of Living (Individual)']*1.2){return "<score class='average long'>"+score+"€/m</score>"}
     else if (score>=avg['Cost of Living (Individual)']*1.2){return "<score class='poor long'>"+score+"€/m</score>"}
   }
-  else{
-    if (score<4){return "<score class='poor short'>poor</score>"}
-    else if (score>=4&&score<6){return "<score class='average medium'>okay</score>"}
-    else if (score>=6&&score<7){return "<score class='good medium'>good</score>"}
-    else if (score>=7&&score<8.5){return "<score class='great long'>great</score>"}
-    else if (score>=8.5){return "<score class='excellent max'>excellent</score>"}
+  else if (quality=="HotDays"||quality=="ColdDays"){ // high score = bad; low score = good
+    console.log("this province "+quality+": "+score + " avg: "+avg.quality)
+    if (score<avg[quality]*.8){return "<score class='excellent short'>not "+(quality=="HotDays"?"hot":"cold")+"</score>"}
+    else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>not very "+(quality=="HotDays"?"hot":"cold")+"</score>"}
+    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>somewhat "+(quality=="HotDays"?"hot":"cold")+"</score>"}
+    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>"+(quality=="HotDays"?"hot":"cold")+"</score>"}
+    else if (score>=avg[quality]*1.2){return "<score class='poor max'>very "+(quality=="HotDays"?"hot":"cold")+"</score>"}
+  }
+  else if (quality=="RainyDays"){ // high score = bad; low score = good
+    if (score<avg[quality]*.8){return "<score class='excellent short'>very little rain</score>"}
+    else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>little rain</score>"}
+    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>slightly rainy</score>"}
+    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>rainy</score>"}
+    else if (score>=avg[quality]*1.2){return "<score class='poor max'>very rainy</score>"}
+  }
+  else if (quality=="FoggyDays"){ // high score = bad; low score = good
+    if (score<avg[quality]*.265){return "<score class='excellent short'>no fog</score>"}
+    else if (score>=avg[quality]*.265&&score<avg[quality]*.6){return "<score class='great medium'>little fog</score>"}
+    else if (score>=avg[quality]*.6&&score<avg[quality]*1.00){return "<score class='good medium'>slightly foggy</score>"}
+    else if (score>=avg[quality]*1.05&&score<avg[quality]*3){return "<score class='average long'>foggy</score>"}
+    else if (score>=avg[quality]*3){return "<score class='poor max'>very foggy</score>"}
+  }
+  else if (quality=="Crime"||quality=="Traffic"){ // high score = bad; low score = good
+    if (score<avg[quality]*.8){return "<score class='excellent short'>very low</score>"}
+    else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>low</score>"}
+    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>average</score>"}
+    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>somewhat high</score>"}
+    else if (score>=avg[quality]*1.2){return "<score class='poor max'>high</score>"}
+  }
+  else{ // high score = good; low score = bad
+    console.log(quality)
+    console.log("avg "+quality+": "+avg[quality])
+    if (score<avg[quality]*.8){return "<score class='poor short'>poor</score>"}
+    else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='average medium'>okay</score>"}
+    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>good</score>"}
+    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='great long'>great</score>"}
+    else if (score>=avg[quality]*1.2){return "<score class='excellent max'>excellent</score>"}
   }
 }
 
@@ -295,13 +326,13 @@ function appendData(data) {
         card.innerHTML += '<p>📚Education: '+ qualityScore("Education",data[i]["Education"]) +'';
         card.innerHTML += '<p>🏛️Culture: '+ qualityScore("Culture",data[i].Culture) +'';
         card.innerHTML += '<p>🍸Nightlife: '+ qualityScore("Nightlife",data[i].Nightlife) +'';
-        card.innerHTML += '<p class="opacity6>⚽Recreation: '+ qualityScore("Recreation",data[i]["Sports & Leisure"])+'';
+        card.innerHTML += '<p class="opacity6">⚽Recreation: '+ qualityScore("Sports & Leisure",data[i]["Sports & Leisure"])+'';
         card.innerHTML += '<p class="opacity6">🍃Air quality: '+ qualityScore("AirQuality",data[i]["AirQuality"]) +'';
-        card.innerHTML += '<p class="opacity6">🏳️‍🌈LGBTQ+: '+ qualityScore("LGBTFriendly",data[i]["LGBT-friendly"]) +'';
-        card.innerHTML += '<p class="opacity4">👩For women: '+ qualityScore("FemaleFriendly",data[i]["Female-friendly"]) +'';
-        card.innerHTML += '<p class="opacity4">👪For family: '+ qualityScore("FamilyFriendly",data[i]["Family-friendly"]) +'';
-        card.innerHTML += '<p class="opacity4">🥗For vegans: '+ qualityScore("VegFriendly",data[i]["Veg-friendly"]) +'';
-        card.innerHTML += '<p class="opacity4">🧳For nomads: '+ qualityScore("DNFriendly",data[i]["DN-friendly"]) +'';
+        card.innerHTML += '<p class="opacity6">🏳️‍🌈LGBTQ+: '+ qualityScore("LGBT-friendly",data[i]["LGBT-friendly"]) +'';
+        card.innerHTML += '<p class="opacity4">👩For women: '+ qualityScore("Female-friendly",data[i]["Female-friendly"]) +'';
+        card.innerHTML += '<p class="opacity4">👪For family: '+ qualityScore("Family-friendly",data[i]["Family-friendly"]) +'';
+        card.innerHTML += '<p class="opacity4">🥗For vegans: '+ qualityScore("Veg-friendly",data[i]["Veg-friendly"]) +'';
+        card.innerHTML += '<p class="opacity4">🧳For nomads: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'';
         card.innerHTML += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name+'.html\';"> More>> </button>';
         col.classList = 'column';
         card.classList = data[i].Region + ' paracard ';
@@ -367,7 +398,7 @@ function newPage(){
   let province = getData(document.title.split(" - ")[0])
   let info = getInfo(province)
 
-  appendData([province]);
+  appendProvinceData(province);
  
 
   $(".title").text(province.Name+' for Expats and Nomads');
@@ -494,49 +525,6 @@ function setNavBar(){
 '</div>'
 }
 
-
-var tabNav     = $('.tab-nav'),
-    tabContent = $('.tab-content');
-
-// Reorder Tabs
-var addOrder = function(item){
-  var itemNum = 1;
-  item.each(function() {
-    $(this).css('order', itemNum);
-    return itemNum++;
-  });
-};
-
-// Change Tab
-var changeTab = function(tabs) {
-  tabs.on('click', '.tab-nav', function(){
-    var el   = $(this),
-        elId = el.attr('href');
-    
-    tabs.find('.tab-nav').removeClass('active');
-    tabs.find('.tab-content').removeClass('active');
-    
-    el.addClass('active');
-    $(elId).addClass('active');
-  });
-};
-changeTab($('#thisTab'));
-
-// Check Page Width
-var checkWidth = function() {
-  if($(window).width() < 767) {
-    addOrder(tabNav);
-    addOrder(tabContent);
-  } else {
-    tabNav.css('order', '');
-    tabNav.css('order', '');
-  }
-};
-
-$(window).on('resize', function(){
-  checkWidth();
-});
-
 function createSorting(label, value){
   if (value==undefined)value=label;
   let sortings = $("#sorting")
@@ -545,4 +533,41 @@ function createSorting(label, value){
     '<span>'+label+'</span>'+
     '</label>'
   sortings.append(sorting)
+}
+
+function appendProvinceData(province){
+  let tab1=$("#tab-item-1 > .column");
+  let tab2=$("#tab-item-2 > .column"); 
+  let tab3=$("#tab-item-3 > .column"); 
+  tab1[0].innerHTML+=('<p>👥Population: <b>'+province.Population.toLocaleString('en', {useGrouping:true}) +'</b>');
+  tab1[0].innerHTML+=('<p>🚑Healthcare: '+ qualityScore("Healthcare",province.Healthcare));
+  tab1[0].innerHTML+=('<p>📚Education: '+ qualityScore("Education",province.Education));
+  tab1[0].innerHTML+=('<p>👮🏽‍♀️Safety: '+ qualityScore("Safety",province.Safety));
+  tab1[0].innerHTML+=('<p>🚨Lack of Crime: '+ qualityScore("Crime",province.Crime));
+  
+  tab1[0].innerHTML+=('<p>🚌Transport: '+ qualityScore("PublicTransport",province["PublicTransport"]));
+  tab1[0].innerHTML+=('<p>🚥Traffic: '+ qualityScore("Traffic",province["Traffic"]));
+  tab1[0].innerHTML+=('<p>🚴‍♂️Cyclable: '+ qualityScore('CyclingLanes',province['CyclingLanes']));
+  tab1[0].innerHTML+=('<p>🏛️Culture: '+ qualityScore("Culture",province.Culture));
+  tab1[0].innerHTML+=('<p>🍸Nightlife: '+ qualityScore("Nightlife",province.Nightlife));
+  tab1[0].innerHTML+=('<p>⚽Recreation: '+ qualityScore("Sports & Leisure",province["Sports & Leisure"]));
+
+  tab1[1].innerHTML+=('<p>🌦️Climate: '+ qualityScore("Climate",province.Climate));
+  tab1[1].innerHTML+=('<p>☀️Sunshine: '+ qualityScore("SunshineHours",province.SunshineHours));
+  tab1[1].innerHTML+=('<p>🥵Heat: '+ qualityScore("HotDays",province.HotDays));
+  tab1[1].innerHTML+=('<p>🥶Cold: '+ qualityScore("ColdDays",province.ColdDays));
+  tab1[1].innerHTML+=('<p>🌧️Rain: '+ qualityScore("RainyDays",province.RainyDays));
+  tab1[1].innerHTML+=('<p>🌫️Fog: '+ qualityScore("FoggyDays",province.FoggyDays));
+  tab1[1].innerHTML+=('<p>🍃Air quality: '+ qualityScore("AirQuality",province["AirQuality"]));
+
+  tab1[1].innerHTML+=('<p>👪For family: '+ qualityScore("Family-friendly",province["Family-friendly"]));
+  tab1[1].innerHTML+=('<p>👩For women: '+ qualityScore("Female-friendly",province["Female-friendly"]));
+  tab1[1].innerHTML+=('<p>🏳️‍🌈LGBTQ+: '+ qualityScore("LGBT-friendly",province["LGBT-friendly"]));
+  tab1[1].innerHTML+=('<p>🥗For vegans: '+ qualityScore("Veg-friendly",province["Veg-friendly"]));
+  
+
+
+
+  tab2[0].innerHTML+=('<p>💰Expenses (individual): '+ qualityScore("Cost of Living",province["Cost of Living (Individual)"]))
+  tab2[1].innerHTML+=('<p>💰Expenses (individual): '+ qualityScore("Cost of Living",province["Cost of Living (Individual)"]))
 }
