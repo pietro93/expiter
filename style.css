@@ -1040,16 +1040,14 @@ section>div.column{
     max-width:100%;
   }
   .tabs > input + span {
-    font-size:1.1em;
+    font-size:1em;
     letter-spacing:-1px;
-    overflow-wrap:break-word;
     padding-left:0;
     padding-right:0;
   }
   .tabs > input:checked + span {
-    font-size:1.1em+0.2px;
+    font-size:1em;
     letter-spacing:-0.8px;
-    overflow-wrap:break-word;
     padding-left:0;
     padding-right:0;
   }
