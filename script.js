@@ -231,7 +231,6 @@ function qualityScore(quality,score){
     else if (score>=avg['Cost of Living (Individual)']*1.2){return "<score class='poor long'>"+score+"€/m</score>"}
   }
   else if (quality=="HotDays"||quality=="ColdDays"){ // high score = bad; low score = good
-    console.log("this province "+quality+": "+score + " avg: "+avg.quality)
     if (score<avg[quality]*.8){return "<score class='excellent short'>not "+(quality=="HotDays"?"hot":"cold")+"</score>"}
     else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>not very "+(quality=="HotDays"?"hot":"cold")+"</score>"}
     else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>somewhat "+(quality=="HotDays"?"hot":"cold")+"</score>"}
@@ -260,8 +259,6 @@ function qualityScore(quality,score){
     else if (score>=avg[quality]*1.2){return "<score class='poor max'>high</score>"}
   }
   else{ // high score = good; low score = bad
-    console.log(quality)
-    console.log("avg "+quality+": "+avg[quality])
     if (score<avg[quality]*.8){return "<score class='poor short'>poor</score>"}
     else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='average medium'>okay</score>"}
     else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>good</score>"}

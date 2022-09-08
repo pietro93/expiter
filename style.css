@@ -936,15 +936,15 @@ section>div.column{
   position:relative;
 }
 
-#tab-1:checked ~ .tab-content #tab-item-1 > * {
+#tab-1:checked ~ .tab-content > #tab-item-1 > .column {
 	display: block;
 }
 
-#tab-2:checked ~ .tab-content #tab-item-2 > * {
+#tab-2:checked ~ .tab-content > #tab-item-2 > .column {
 	display: block;
 }
 
-#tab-3:checked ~ .tab-content #tab-item-3 > * {
+#tab-3:checked ~ .tab-content > #tab-item-3 > .column  {
 	display: block;
 }
 
