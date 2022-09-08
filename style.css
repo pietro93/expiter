@@ -96,7 +96,11 @@ card {
   top:1px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
+  *{width:100vw}
+  html{width:100vw}
+  body{width:100vw;padding-left:5vw;padding-right:1vw}
+
   card {
     min-width:170px;
   }
