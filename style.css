@@ -945,11 +945,11 @@ section>div.column{
 	display: block;
 }
 
-#tab-2:checked ~ .tab-content > #tab-item-2 > .column {
+#tab-2:checked ~ .tab-content , #tab-2:checked ~ .tab-content > #tab-item-2 > .column {
 	display: block;
 }
 
-#tab-3:checked ~ .tab-content > #tab-item-3 > .column  {
+#tab-3:checked ~ .tab-content, #tab-3:checked ~ .tab-content > #tab-item-3 > .column  {
 	display: block;
 }
 
@@ -1052,15 +1052,12 @@ section>div.column{
     padding-right:0;
   }
 
-section>div.column{
-  width:100%;
-  position:relative;
-  height:100%;
+.tab-content > section > .column{
+  min-width:100%;
 }
 
 .tab-content,.tab-content>section{
   min-height:100%;
   height:100%;
-  overflow:hidden;
 }
 }

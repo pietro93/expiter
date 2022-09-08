@@ -216,6 +216,8 @@ function populateData(data){
 
   
 function qualityScore(quality,score){
+  let expenses=["Cost of Living (Individual)","Cost of Living (Family)", "StudioRental", "BilocaleRent"]
+
   if (quality=="CostOfLiving"){
     if (score<avg.CostOfLiving*.8){return "<score class='excellent short'>cheap</score>"}
     else if (score>=avg.CostOfLiving*.8&&score<avg.CostOfLiving*.95){return "<score class='great medium'>affordable</score>"}
@@ -223,12 +225,12 @@ function qualityScore(quality,score){
     else if (score>=avg.CostOfLiving*1.05&&score<avg.CostOfLiving*1.2){return "<score class='average long'>high</score>"}
     else if (score>=avg.CostOfLiving*1.2){return "<score class='poor max'>expensive</score>"}
   }
-  else if (quality=="Cost of Living"){
-    if (score<avg['Cost of Living (Individual)']*.8){return "<score class='excellent short'>"+score+"€/m</score>"}
-    else if (score>=avg['Cost of Living (Individual)']*0.8&&score<avg['Cost of Living (Individual)']*0.95){return "<score class='great medium'>"+score+"€/m</score>"}
-    else if (score>=avg['Cost of Living (Individual)']*0.95&&score<avg['Cost of Living (Individual)']*1.05){return "<score class='good medium'>"+score+"€/m</score>"}
-    else if (score>=avg['Cost of Living (Individual)']*1.05&&score<avg['Cost of Living (Individual)']*1.2){return "<score class='average long'>"+score+"€/m</score>"}
-    else if (score>=avg['Cost of Living (Individual)']*1.2){return "<score class='poor long'>"+score+"€/m</score>"}
+  else if (expenses.includes(quality)){
+    if (score<avg[quality]*.8){return "<score class='excellent short'>"+score+"€/m</score>"}
+    else if (score>=avg[quality]*0.8&&score<avg[quality]*0.95){return "<score class='great medium'>"+score+"€/m</score>"}
+    else if (score>=avg[quality]*0.95&&score<avg[quality]*1.05){return "<score class='good medium'>"+score+"€/m</score>"}
+    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>"+score+"€/m</score>"}
+    else if (score>=avg[quality]*1.2){return "<score class='poor long'>"+score+"€/m</score>"}
   }
   else if (quality=="HotDays"||quality=="ColdDays"){ // high score = bad; low score = good
     if (score<avg[quality]*.8){return "<score class='excellent short'>not "+(quality=="HotDays"?"hot":"cold")+"</score>"}
@@ -315,7 +317,7 @@ function appendData(data) {
         card.innerHTML += '<p class="region">' + data[i]["Region"];
         card.innerHTML += '<p class="population">👥Population: <b style="color:white">'+data[i].Population.toLocaleString('en', {useGrouping:true}) +'</b>';
         card.innerHTML += '<p>💸Cost: '+ qualityScore("CostOfLiving",data[i].CostOfLiving) +'';
-        card.innerHTML += '<p>💰Expenses: '+ qualityScore("Cost of Living",data[i]["Cost of Living (Individual)"])+'';
+        card.innerHTML += '<p>💰Expenses: '+ qualityScore("Cost of Living (Individual)",data[i]["Cost of Living (Individual)"])+'';
         card.innerHTML += '<p>☀️Climate: '+ qualityScore("Climate",data[i].Climate) +'';
         card.innerHTML += '<p>🚑Healthcare: '+ qualityScore("Healthcare",data[i].Healthcare) +'';
         card.innerHTML += '<p>🚌Transport: '+ qualityScore("PublicTransport",data[i]["PublicTransport"]) +'';
@@ -564,8 +566,9 @@ function appendProvinceData(province){
   tab1[1].innerHTML+=('<p>🥗For vegans: '+ qualityScore("Veg-friendly",province["Veg-friendly"]));
   
 
+  tab2[0].innerHTML+=('<p>💰Expenses (single person): '+ qualityScore("Cost of Living (Individual)",province["Cost of Living (Individual)"]))
+  tab2[0].innerHTML+=('<p>💰Expenses (small family): '+ qualityScore("Cost of Living (Family)",province["Cost of Living (Family)"]))
 
-
-  tab2[0].innerHTML+=('<p>💰Expenses (individual): '+ qualityScore("Cost of Living",province["Cost of Living (Individual)"]))
-  tab2[1].innerHTML+=('<p>💰Expenses (individual): '+ qualityScore("Cost of Living",province["Cost of Living (Individual)"]))
+  tab2[1].innerHTML+=('<p>💰Rental (studio apt.): '+ qualityScore("StudioRental",province["StudioRental"]))
+  tab2[1].innerHTML+=('<p>💰Rental (2-room apt.): '+ qualityScore("BilocaleRent",province["BilocaleRent"]))
 }
