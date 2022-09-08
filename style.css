@@ -1032,13 +1032,14 @@ section>div.column{
     max-width:100%;
   }
   .tabs > input + span {
-    font-size:1.1em;
-    letter-spacing:-.5px;
+    font-size:1em;
+    letter-spacing:-1px;
     margin-left:10px;
   }
   .tabs > input:checked + span,
 .tabs > input:hover + span{
-  font-size:1.2em;
+  font-size:1.1em;
+  
 }
 
 section>div.column{
