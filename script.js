@@ -219,12 +219,12 @@ function qualityScore(quality,score){
   let expenses=["Cost of Living (Individual)","Cost of Living (Family)","Cost of Living (Nomad)", 
   "StudioRental", "BilocaleRent", "TrilocaleRent", "MonthlyIncome", 
   "StudioSale","BilocaleSale","TrilocaleSale"]
-
+  console.log("checking "+quality+": for province is "+score+" for avg is "+avg[quality])
   if (quality=="CostOfLiving"||quality=="HousingCost"){
     if (score<avg[quality]*.8){return "<score class='excellent short'>cheap</score>"}
-    else if (score>=avg[quality]*.8&&score[quality]*.95){return "<score class='great medium'>affordable</score>"}
-    else if (score>=avg[quality]*.95&&score[quality]*1.05){return "<score class='good medium'>average</score>"}
-    else if (score>=avg[quality]*1.05&&score[quality]*1.2){return "<score class='average long'>high</score>"}
+    else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>affordable</score>"}
+    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>average</score>"}
+    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>high</score>"}
     else if (score>=avg[quality]*1.2){return "<score class='poor max'>expensive</score>"}
   }
   else if (expenses.includes(quality)){
@@ -556,8 +556,8 @@ function appendProvinceData(province){
 
   tab1[1].innerHTML+=('<p>🌦️Climate: '+ qualityScore("Climate",province.Climate));
   tab1[1].innerHTML+=('<p>☀️Sunshine: '+ qualityScore("SunshineHours",province.SunshineHours));
-  tab1[1].innerHTML+=('<p>🥵Heat: '+ qualityScore("HotDays",province.HotDays));
-  tab1[1].innerHTML+=('<p>🥶Cold: '+ qualityScore("ColdDays",province.ColdDays));
+  tab1[1].innerHTML+=('<p>🥵Summers: '+ qualityScore("HotDays",province.HotDays));
+  tab1[1].innerHTML+=('<p>🥶Winters: '+ qualityScore("ColdDays",province.ColdDays));
   tab1[1].innerHTML+=('<p>🌧️Rain: '+ qualityScore("RainyDays",province.RainyDays));
   tab1[1].innerHTML+=('<p>🌫️Fog: '+ qualityScore("FoggyDays",province.FoggyDays));
   tab1[1].innerHTML+=('<p>🍃Air quality: '+ qualityScore("AirQuality",province["AirQuality"]));
@@ -570,7 +570,7 @@ function appendProvinceData(province){
 
   tab2[0].innerHTML+=('<p>📈Cost of Living: '+ qualityScore("CostOfLiving",province["CostOfLiving"]));
   tab2[0].innerHTML+=('<p>🧑🏻Expenses (single person): '+ qualityScore("Cost of Living (Individual)",province["Cost of Living (Individual)"]))
-  tab2[0].innerHTML+=('<p>👩🏽‍🏫Expenses (digital nomad): '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
+  tab2[0].innerHTML+=('<p>👩🏽‍🏫Expenses (tourist): '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
   tab2[0].innerHTML+=('<p>🏠Rental (studio apt.): '+ qualityScore("StudioRental",province["StudioRental"]))
   tab2[0].innerHTML+=('<p>🏘️Rental (2-room apt.): '+ qualityScore("BilocaleRent",province["BilocaleRent"]))
   tab2[0].innerHTML+=('<p>🏰Rental (3-room apt.): '+ qualityScore("TrilocaleRent",province["TrilocaleRent"]))
@@ -582,4 +582,15 @@ function appendProvinceData(province){
   tab2[1].innerHTML+=('<p>🏘️Sale (2-room apt.): '+ qualityScore("BilocaleSale",province["BilocaleSale"]))
   tab2[1].innerHTML+=('<p>🏰Sale (3-room apt.): '+ qualityScore("TrilocaleSale",province["TrilocaleSale"]))
  
+  tab3[0].innerHTML+=('<p>👩‍💻Nomad-friendly: '+qualityScore("DN-friendly",province["DN-friendly"]))
+  tab3[0].innerHTML+=('<p>💃Fun: '+qualityScore("Fun",province["Fun"]));
+  tab3[0].innerHTML+=('<p>🤗Friendliness: '+qualityScore("Friendliness",province["Friendliness"]));
+  tab3[0].innerHTML+=('<p>🤐English-speakers: '+qualityScore("English-speakers",province["English-speakers"]));
+  tab3[0].innerHTML+=('<p>😊Happiness: '+qualityScore("Antidepressants",province["Antidepressants"]));
+ 
+  tab3[1].innerHTML+=('<p>💸Nomad cost: '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
+  tab3[1].innerHTML+=('<p>📡High-speed Internet: '+qualityScore("HighSpeedInternetCoverage",province["HighSpeedInternetCoverage"]));
+  tab3[1].innerHTML+=('<p>📈Innovation: '+qualityScore("Innovation",province["Innovation"]));
+  tab3[1].innerHTML+=('<p>🏖️Beach: '+qualityScore("Beach",province["Beach"]));
+  tab3[1].innerHTML+=('<p>⛰️Hiking: '+qualityScore("Hiking",province["Hiking"]));
 }
