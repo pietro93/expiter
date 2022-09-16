@@ -337,7 +337,7 @@ function appendData(data) {
         card.innerHTML += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name+'.html\';"> More>> </button>';
         col.classList = 'column';
         card.classList = data[i].Region + ' paracard ';
-        let image = 'img/'+data[i].Abbreviation+'.jpg';
+        let image = 'img/'+data[i].Abbreviation+'.webp';
         card.title=data[i].Name+', '+data[i].Region;
         card.style.backgroundImage = 'url('+image+')';
         card.id = data[i].Name;
@@ -520,7 +520,7 @@ function setNavBar(){
   '</div>'+
   '<ul class="menu-items">'+
       '<li><a href="https://pietro93.github.io/italycities.github.io/">Home</a></li>'+
-      '<li><a href="#">About</a></li>'+
+      '<li><a href="/about.html">About</a></li>'+
   '</ul>'+
  '<a href="https://pietro93.github.io/italycities.github.io/"><h1 class="logo">Italy Expats & Nomads</h1></a>'+
 '</div>'
