@@ -1104,9 +1104,13 @@ section>div.column{
 
 .hero ~ h1{
   z-index: 1;
+  opacity:1;
   color:black;
   padding-bottom:10vh;
   font-size:32px;
   padding-top:10vh;
   font-weight:800;
+  text-shadow: 0 0 1px var(--cyan-to-dark-blue),
+  0 0 200px rgba(10,133,223,0.99),
+0 0 303px rgba(43,100,233,0.69);
 }
