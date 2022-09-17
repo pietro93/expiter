@@ -799,7 +799,7 @@ h3{
 
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   
   .arrow{
     right:10px;
@@ -1203,9 +1203,15 @@ font-size:0px;
   opacity:.8;
   padding-right:4px;
   letter-spacing:-.5px;
+  border: 1px dotted var(--medium-blue);
+  background-color:var(--blue-to-cyan);
+  border-radius:10px;
 }
 .map b:hover{
   opacity:1;
+  background-color:var(--blue-going-to-cyan);
+  color:var(--lightest-blue);
+  border: 1px dotted var(--lightest-blue);
 }
 #disclaimer {
   font-size:12px;
