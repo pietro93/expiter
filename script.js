@@ -399,20 +399,29 @@ row.innerHTML+='<button class="button column regionfilter" id="'+regions[i].subs
 function newPage(){
   let province = getData(document.title.split(" - ")[0])
   let info = getInfo(province)
+  let separator='<span class="separator"></span>'
 
   appendProvinceData(province);
  
 
   $(".title").text(province.Name+' for Expats and Nomads');
   $("#overview").append(info.overview)
+  $("#overview").append(info.disclaimer)
+  $("#overview").append(info.map)
   $("#CoL").append(info.CoL)
   $("#climate").append(info.climate)
   $("#lgbtq").append(info.lgbtq)
   $("#leisure").append(info.leisure)
+  $("#leisure").append(separator)
   $("#healthcare").append(info.healthcare)
+  $("#healthcare").append(separator)
   $("#crimeandsafety").append(info.crimeandsafety)
+  $("#crimeandsafety").append(separator)
   $("#education").append(info.education)
+  $("#education").append(separator)
   $("#transport").append(info.transport)
+  $("#transport").append(separator)
+  
  }
  
 
@@ -423,7 +432,7 @@ function getInfo(province){
   let ratio = (province.Men/(Math.min(province.Men,province.Women))).toFixed(2)+":"+(province.Women/(Math.min(province.Men,province.Women))).toFixed(2)
   let name=province.Name;
   let region=regions[province.Region];
-
+  
   let info = {}
   info.overview="The province of "+province.Name+" is the <b>"+province.SizeByPopulation+(province.SizeByPopulation%10==1?"st":(province.SizeByPopulation%10==2?"nd":province.SizeByPopulation%10==3?"rd":"th"))+" largest Italian province by population</b> with <b>"+province.Population.toLocaleString()+" people</b>, located in the <b>"+province.Region+"</b> region. "+
   (facts[name].overview?facts[name].overview:"")+
@@ -483,6 +492,19 @@ function getInfo(province){
   "<br><br>"+
   "Around "+(province.CyclingLanes/10).toFixed(2)+"km per 10k inhabitants of the main city in "+name+" consist of bicycle lanes. This makes "+name+" "+(province.CyclingLanes>avg.CyclingLanes*.8?"<b class='green'>somewhat bike-friendly by Italian standards":(province.CyclingLanes>avg.CyclingLanes*1.2?"<b class='green'>very bike-friendly by Italian standards":"<b class='red'>not very bike-friendly"))+"</b>. "
   
+  info.disclaimer='</br></br><center><span id="disclaimer">As part of the Amazon Associates programme, we may earn a commission on qualified purchases.</span></center>'
+  
+  info.map='</br><center class="map"><iframe src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Province%20Of%20'+name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" ></iframe></br></br>'+
+  'Search for: '+
+  '<a href="https://www.amazon.it/ulp/view?&linkCode=ll2&tag=expiter-21&linkId=5824e12643c8300394b6ebdd10b7ba3c&language=it_IT&ref_=as_li_ss_tl" target="_blank"><b>📦Amazon Pickup Locations</b></a> '+
+  '<a href="https://www.google.com/maps/search/Province+Of+'+name+'+Attractions/" target="_blank"><b>🎭Attractions</b></a> '+
+  '<a href="https://www.google.com/maps/search/Province+Of+'+name+'+Museums/" target="_blank"><b>🏺Museums</b></a> '+
+  '<a href="https://www.google.com/maps/search/Province+Of+'+name+'+Restaurants/" target="_blank"><b>🍕Restaurants</b></a> '+
+  '<a href="https://www.google.com/maps/search/Province+Of+'+name+'+Beaches/" target="_blank"><b>🏖️Beach</b></a> '+
+  '<a href="https://www.google.com/maps/search/Province+Of+'+name+'+Hiking/" target="_blank"><b>⛰️Hiking</b></a> '+
+  '</center>'
+
+
   return info;
 }
 

@@ -1195,3 +1195,28 @@ font-size:0px;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
+
+.map{  font-size:16px;}
+.map b{
+  opacity:.8;
+  padding-right:4px;
+  letter-spacing:-.5px;
+}
+.map b:hover{
+  opacity:1;
+}
+#disclaimer {
+  font-size:12px;
+  font-style:italic;
+  opacity:.9
+}
+
+.separator{
+  width:80vw;
+  margin-left:5vw;
+  border-bottom: 2px double var(--cyan-to-dark-blue);
+  height:25px;
+  position:relative;
+  display:inline-block;
+  margin-top:0;
+}
