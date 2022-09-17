@@ -1165,7 +1165,7 @@ nav[data-toggle=toc] .nav .nav>li>a:hover{
   height:auto;
   padding-bottom:1vh;
   padding-left:20px;
-  padding-right:30px;
+  padding-right:35px;
   bottom:1%;
   z-index:4;
   border-radius:5px 25px 25px 5px;
@@ -1174,7 +1174,7 @@ nav[data-toggle=toc] .nav .nav>li>a:hover{
 
 .toc>.arrow{
   position:absolute;
-  margin-right:-30px;
+  margin-right:-25px;
   margin-bottom:55px;
   border-color:white;
   cursor:pointer;
@@ -1182,14 +1182,16 @@ nav[data-toggle=toc] .nav .nav>li>a:hover{
 .collapsed{
   width:30px;
   height:60px;
+  padding-left:25px;
+  padding-right:15px;
 }
 .collapsed > * > * > nav[data-toggle=toc] .nav .nav >li>a{
 font-size:0px;
 }
 .collapsed>.arrow{
   position:absolute;
-  bottom:-4vh;
-  right:5vw;
+  bottom:-37px;
+  margin-right:-5px;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
