@@ -520,8 +520,9 @@ function setNavBar(){
   '</div>'+
   '<ul class="menu-items">'+
       '<li><a href="https://pietro93.github.io/italycities.github.io/">Home</a></li>'+
-      '<li><a href="/about.html">About</a></li>'+
-  '</ul>'+
+      '<li><a href="https://pietro93.github.io/italycities.github.io/about.html">About</a></li>'+
+      '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Contribute</a></li>'+
+      '</ul>'+
  '<a href="https://pietro93.github.io/italycities.github.io/"><h1 class="logo">Italy Expats & Nomads</h1></a>'+
 '</div>'
 }
