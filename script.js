@@ -20,7 +20,8 @@ fetch('https://raw.githubusercontent.com/pietro93/italycities.github.io/main/dat
         newPage()
     })
     .catch(function (err) {
-        console.log('error: ' + err);
+        console.log('error: ' + err);  
+        location.reload();
     });
 
 
@@ -419,7 +420,6 @@ function newPage(){
 function getInfo(province){
 
   populateFacts();
-
   let ratio = (province.Men/(Math.min(province.Men,province.Women))).toFixed(2)+":"+(province.Women/(Math.min(province.Men,province.Women))).toFixed(2)
   let name=province.Name;
   let region=regions[province.Region];
