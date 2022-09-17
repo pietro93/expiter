@@ -1212,8 +1212,8 @@ font-size:0px;
 }
 
 .separator{
-  width:80vw;
-  margin-left:5vw;
+  width:80%;
+  margin-left:10%;
   border-bottom: 2px double var(--cyan-to-dark-blue);
   height:25px;
   position:relative;
