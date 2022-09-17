@@ -92,7 +92,10 @@
         "TrilocaleSale": 60900,
         "TrilocaleRent": 399,
         "HousingCost": 3.02,
-        "Cost of Living (Nomad)": 1694.95
+        "Cost of Living (Nomad)": 1694.95,
+        "Tourists": 602034,
+        "WeatherWidget": "37d3113d59/agrigento/",
+        "Viator": "Agrigento/d27852-ttd"
     },
     {
         "Name": "Alessandria",
@@ -187,7 +190,10 @@
         "TrilocaleSale": 56770,
         "TrilocaleRent": 403.2,
         "HousingCost": 3.05,
-        "Cost of Living (Nomad)": 2513.78
+        "Cost of Living (Nomad)": 2513.78,
+        "Tourists": 91406,
+        "WeatherWidget": "44d918d61/alessandria",
+        "Viator": ""
     },
     {
         "Name": "Ancona",
@@ -273,16 +279,19 @@
         "Hiking": 6.16,
         "Friendliness": 7.57,
         "Beach": 6.23,
-        "SalePrice": 147,
+        "SalePrice": 1470,
         "RentalPrice": 8.03,
-        "StudioSale": 4410,
+        "StudioSale": 44100,
         "StudioRental": 281.05,
-        "BilocaleSale": 7350,
+        "BilocaleSale": 73500,
         "BilocaleRent": 401.5,
-        "TrilocaleSale": 10290,
+        "TrilocaleSale": 102900,
         "TrilocaleRent": 562.1,
         "HousingCost": 4.26,
-        "Cost of Living (Nomad)": 2510.37
+        "Cost of Living (Nomad)": 2510.37,
+        "Tourists": 2954206,
+        "WeatherWidget": "45d737d31/aosta",
+        "Viator": "Aosta/d28022-ttd"
     },
     {
         "Name": "Aosta",
@@ -377,7 +386,10 @@
         "TrilocaleSale": 139370,
         "TrilocaleRent": 588,
         "HousingCost": 4.45,
-        "Cost of Living (Nomad)": 2390.2
+        "Cost of Living (Nomad)": 2390.2,
+        "Tourists": 3599402,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Arezzo",
@@ -472,7 +484,10 @@
         "TrilocaleSale": 103320,
         "TrilocaleRent": 531.3,
         "HousingCost": 4.02,
-        "Cost of Living (Nomad)": 2445.05
+        "Cost of Living (Nomad)": 2445.05,
+        "Tourists": 883046,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Ascoli Piceno",
@@ -567,7 +582,10 @@
         "TrilocaleSale": 112980,
         "TrilocaleRent": 748.3,
         "HousingCost": 5.67,
-        "Cost of Living (Nomad)": 2444.82
+        "Cost of Living (Nomad)": 2444.82,
+        "Tourists": 618075,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Asti",
@@ -662,7 +680,10 @@
         "TrilocaleSale": 59640,
         "TrilocaleRent": 424.9,
         "HousingCost": 3.22,
-        "Cost of Living (Nomad)": 2478.38
+        "Cost of Living (Nomad)": 2478.38,
+        "Tourists": 84940,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Avellino",
@@ -757,7 +778,10 @@
         "TrilocaleSale": 65520,
         "TrilocaleRent": 422.1,
         "HousingCost": 3.2,
-        "Cost of Living (Nomad)": 1861.81
+        "Cost of Living (Nomad)": 1861.81,
+        "Tourists": 456307,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Bari",
@@ -852,7 +876,10 @@
         "TrilocaleSale": 108780,
         "TrilocaleRent": 611.8,
         "HousingCost": 4.63,
-        "Cost of Living (Nomad)": 2181.13
+        "Cost of Living (Nomad)": 2181.13,
+        "Tourists": 917291,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Barletta-Andria-Trani",
@@ -947,7 +974,10 @@
         "TrilocaleSale": 95760,
         "TrilocaleRent": 618.1,
         "HousingCost": 4.68,
-        "Cost of Living (Nomad)": 2169.27
+        "Cost of Living (Nomad)": 2169.27,
+        "Tourists": 707213,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Belluno",
@@ -1042,7 +1072,10 @@
         "TrilocaleSale": 181370,
         "TrilocaleRent": 1291.5,
         "HousingCost": 9.78,
-        "Cost of Living (Nomad)": 3408.62
+        "Cost of Living (Nomad)": 3408.62,
+        "Tourists": 3806806,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Benevento",
@@ -1137,7 +1170,10 @@
         "TrilocaleSale": 61950,
         "TrilocaleRent": 395.5,
         "HousingCost": 2.99,
-        "Cost of Living (Nomad)": 1707.85
+        "Cost of Living (Nomad)": 1707.85,
+        "Tourists": 434216,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Bergamo",
@@ -1232,7 +1268,10 @@
         "TrilocaleSale": 101780,
         "TrilocaleRent": 631.4,
         "HousingCost": 4.78,
-        "Cost of Living (Nomad)": 2879.97
+        "Cost of Living (Nomad)": 2879.97,
+        "Tourists": 1147724,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Biella",
@@ -1272,9 +1311,9 @@
         "Robberies": 17.78,
         "RealEstatePrice": 1350,
         "Average Monthly Salary": 93.09249128,
-        "Cost of Living (Family)": 2539.36,
+        "Cost of Living (Family)": 2568.76,
         "MonthlyRental": 768.41,
-        "Cost of Living (Individual)": 1674.8,
+        "Cost of Living (Individual)": 1695.8,
         "Universities": "",
         "Subway": "",
         "VeganRestaurants": 2.5,
@@ -1303,13 +1342,13 @@
         "Family-friendly": 9.55,
         "MonthlyIncome": 1918.93,
         "Remuneration": 7.53,
-        "CostOfLiving": 4.12,
+        "CostOfLiving": 4.28,
         "Traffic": 9.98,
         "AirQuality": 6.61,
         "Veg-friendly": 3.86,
-        "Overall Score": 7.23,
-        "DN-friendly": 6.68,
-        "Expat-friendly": 7.15,
+        "Overall Score": 7.22,
+        "DN-friendly": 6.64,
+        "Expat-friendly": 7.14,
         "RacialTolerance": 6.61,
         "English-speakers": 6.62,
         "Fun": 5.82,
@@ -1318,16 +1357,19 @@
         "Hiking": 5.72,
         "Friendliness": 7.01,
         "Beach": 5.7,
-        "SalePrice": 587,
-        "RentalPrice": 5.38,
-        "StudioSale": 17610,
-        "StudioRental": 188.3,
-        "BilocaleSale": 29350,
-        "BilocaleRent": 269,
-        "TrilocaleSale": 41090,
-        "TrilocaleRent": 376.6,
-        "HousingCost": 2.85,
-        "Cost of Living (Nomad)": 2512.19
+        "SalePrice": 700,
+        "RentalPrice": 5.8,
+        "StudioSale": 21000,
+        "StudioRental": 203,
+        "BilocaleSale": 35000,
+        "BilocaleRent": 290,
+        "TrilocaleSale": 49000,
+        "TrilocaleRent": 406,
+        "HousingCost": 3.07,
+        "Cost of Living (Nomad)": 2543.69,
+        "Tourists": 83780,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Bologna",
@@ -1413,16 +1455,19 @@
         "Hiking": 7.58,
         "Friendliness": 8.87,
         "Beach": 7.5,
-        "SalePrice": 234,
+        "SalePrice": 2340,
         "RentalPrice": 14.31,
-        "StudioSale": 7020,
+        "StudioSale": 70200,
         "StudioRental": 500.85,
-        "BilocaleSale": 11700,
+        "BilocaleSale": 117000,
         "BilocaleRent": 715.5,
-        "TrilocaleSale": 16380,
+        "TrilocaleSale": 163800,
         "TrilocaleRent": 1001.7,
         "HousingCost": 7.58,
-        "Cost of Living (Nomad)": 3406.32
+        "Cost of Living (Nomad)": 3406.32,
+        "Tourists": 4607456,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Bolzano",
@@ -1517,7 +1562,10 @@
         "TrilocaleSale": 302610,
         "TrilocaleRent": 1026.2,
         "HousingCost": 7.77,
-        "Cost of Living (Nomad)": 3261.09
+        "Cost of Living (Nomad)": 3261.09,
+        "Tourists": 32400662,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Brescia",
@@ -1612,7 +1660,10 @@
         "TrilocaleSale": 136010,
         "TrilocaleRent": 717.5,
         "HousingCost": 5.43,
-        "Cost of Living (Nomad)": 2849.24
+        "Cost of Living (Nomad)": 2849.24,
+        "Tourists": 10463688,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Brindisi",
@@ -1707,7 +1758,10 @@
         "TrilocaleSale": 97510,
         "TrilocaleRent": 701.4,
         "HousingCost": 5.31,
-        "Cost of Living (Nomad)": 2197.63
+        "Cost of Living (Nomad)": 2197.63,
+        "Tourists": 707939,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Cagliari",
@@ -1802,7 +1856,10 @@
         "TrilocaleSale": 135030,
         "TrilocaleRent": 673.4,
         "HousingCost": 5.1,
-        "Cost of Living (Nomad)": 2317.45
+        "Cost of Living (Nomad)": 2317.45,
+        "Tourists": 745528,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Caltanissetta",
@@ -1897,7 +1954,10 @@
         "TrilocaleSale": 47670,
         "TrilocaleRent": 278.6,
         "HousingCost": 2.11,
-        "Cost of Living (Nomad)": 1730.41
+        "Cost of Living (Nomad)": 1730.41,
+        "Tourists": 566666,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Campobasso",
@@ -1983,16 +2043,19 @@
         "Hiking": 6.16,
         "Friendliness": 6.46,
         "Beach": 6.23,
-        "SalePrice": 104,
+        "SalePrice": 1048,
         "RentalPrice": 8.05,
-        "StudioSale": 3120,
+        "StudioSale": 31440,
         "StudioRental": 281.75,
-        "BilocaleSale": 5200,
+        "BilocaleSale": 52400,
         "BilocaleRent": 402.5,
-        "TrilocaleSale": 7280,
+        "TrilocaleSale": 73360,
         "TrilocaleRent": 563.5,
         "HousingCost": 4.27,
-        "Cost of Living (Nomad)": 2141.86
+        "Cost of Living (Nomad)": 2141.86,
+        "Tourists": 18533,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Caserta",
@@ -2087,7 +2150,10 @@
         "TrilocaleSale": 84210,
         "TrilocaleRent": 422.8,
         "HousingCost": 3.2,
-        "Cost of Living (Nomad)": 1780.89
+        "Cost of Living (Nomad)": 1780.89,
+        "Tourists": 535216,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Catania",
@@ -2182,7 +2248,10 @@
         "TrilocaleSale": 79170,
         "TrilocaleRent": 507.5,
         "HousingCost": 3.84,
-        "Cost of Living (Nomad)": 2039.56
+        "Cost of Living (Nomad)": 2039.56,
+        "Tourists": 739276,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Catanzaro",
@@ -2277,7 +2346,10 @@
         "TrilocaleSale": 65800,
         "TrilocaleRent": 597.1,
         "HousingCost": 4.52,
-        "Cost of Living (Nomad)": 1989.46
+        "Cost of Living (Nomad)": 1989.46,
+        "Tourists": 738637,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Chieti",
@@ -2372,7 +2444,10 @@
         "TrilocaleSale": 79310,
         "TrilocaleRent": 463.4,
         "HousingCost": 3.51,
-        "Cost of Living (Nomad)": 2262.3
+        "Cost of Living (Nomad)": 2262.3,
+        "Tourists": 440818,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Como",
@@ -2458,16 +2533,19 @@
         "Hiking": 6.91,
         "Friendliness": 7.37,
         "Beach": 6.63,
-        "SalePrice": 202,
+        "SalePrice": 2020,
         "RentalPrice": 10.58,
-        "StudioSale": 6060,
+        "StudioSale": 60600,
         "StudioRental": 370.3,
-        "BilocaleSale": 10100,
+        "BilocaleSale": 101000,
         "BilocaleRent": 529,
-        "TrilocaleSale": 14140,
+        "TrilocaleSale": 141400,
         "TrilocaleRent": 740.6,
         "HousingCost": 5.61,
-        "Cost of Living (Nomad)": 2898.31
+        "Cost of Living (Nomad)": 2898.31,
+        "Tourists": 3088807,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Cosenza",
@@ -2562,7 +2640,10 @@
         "TrilocaleSale": 64260,
         "TrilocaleRent": 462.7,
         "HousingCost": 3.5,
-        "Cost of Living (Nomad)": 1714.62
+        "Cost of Living (Nomad)": 1714.62,
+        "Tourists": 3290418,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Cremona",
@@ -2657,7 +2738,10 @@
         "TrilocaleSale": 78540,
         "TrilocaleRent": 501.2,
         "HousingCost": 3.79,
-        "Cost of Living (Nomad)": 2650.31
+        "Cost of Living (Nomad)": 2650.31,
+        "Tourists": 907791,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Crotone",
@@ -2752,7 +2836,10 @@
         "TrilocaleSale": 63490,
         "TrilocaleRent": 648.2,
         "HousingCost": 4.91,
-        "Cost of Living (Nomad)": 1917.56
+        "Cost of Living (Nomad)": 1917.56,
+        "Tourists": 691260,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Cuneo",
@@ -2847,7 +2934,10 @@
         "TrilocaleSale": 82880,
         "TrilocaleRent": 475.3,
         "HousingCost": 3.6,
-        "Cost of Living (Nomad)": 2565.67
+        "Cost of Living (Nomad)": 2565.67,
+        "Tourists": 96594,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Enna",
@@ -2942,7 +3032,10 @@
         "TrilocaleSale": 52640,
         "TrilocaleRent": 296.8,
         "HousingCost": 2.25,
-        "Cost of Living (Nomad)": 1643.34
+        "Cost of Living (Nomad)": 1643.34,
+        "Tourists": 546631,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Fermo",
@@ -3037,7 +3130,10 @@
         "TrilocaleSale": 91420,
         "TrilocaleRent": 792.4,
         "HousingCost": 6,
-        "Cost of Living (Nomad)": 2501.62
+        "Cost of Living (Nomad)": 2501.62,
+        "Tourists": 610454,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Ferrara",
@@ -3132,7 +3228,10 @@
         "TrilocaleSale": 91770,
         "TrilocaleRent": 609,
         "HousingCost": 4.61,
-        "Cost of Living (Nomad)": 2554.8
+        "Cost of Living (Nomad)": 2554.8,
+        "Tourists": 3020136,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Firenze",
@@ -3227,7 +3326,10 @@
         "TrilocaleSale": 215110,
         "TrilocaleRent": 1062.6,
         "HousingCost": 8.04,
-        "Cost of Living (Nomad)": 3208.19
+        "Cost of Living (Nomad)": 3208.19,
+        "Tourists": 14716466,
+        "WeatherWidget": "",
+        "Viator": "Florence/d519-ttd"
     },
     {
         "Name": "Foggia",
@@ -3313,16 +3415,19 @@
         "Hiking": 6.42,
         "Friendliness": 6.87,
         "Beach": 6.51,
-        "SalePrice": 11,
+        "SalePrice": 1100,
         "RentalPrice": 6.61,
-        "StudioSale": 330,
+        "StudioSale": 33000,
         "StudioRental": 231.35,
-        "BilocaleSale": 550,
+        "BilocaleSale": 55000,
         "BilocaleRent": 330.5,
-        "TrilocaleSale": 770,
+        "TrilocaleSale": 77000,
         "TrilocaleRent": 462.7,
         "HousingCost": 3.5,
-        "Cost of Living (Nomad)": 1830.63
+        "Cost of Living (Nomad)": 1830.63,
+        "Tourists": 4503604,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Forlì-Cesena",
@@ -3417,7 +3522,10 @@
         "TrilocaleSale": 122640,
         "TrilocaleRent": 809.2,
         "HousingCost": 6.13,
-        "Cost of Living (Nomad)": 2754.28
+        "Cost of Living (Nomad)": 2754.28,
+        "Tourists": 5357398,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Frosinone",
@@ -3512,7 +3620,10 @@
         "TrilocaleSale": 59710,
         "TrilocaleRent": 436.8,
         "HousingCost": 3.31,
-        "Cost of Living (Nomad)": 2136.2
+        "Cost of Living (Nomad)": 2136.2,
+        "Tourists": 1142190,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Genova",
@@ -3607,7 +3718,10 @@
         "TrilocaleSale": 146230,
         "TrilocaleRent": 644,
         "HousingCost": 4.88,
-        "Cost of Living (Nomad)": 2801.83
+        "Cost of Living (Nomad)": 2801.83,
+        "Tourists": 4082817,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Gorizia",
@@ -3702,7 +3816,10 @@
         "TrilocaleSale": 89250,
         "TrilocaleRent": 538.3,
         "HousingCost": 4.08,
-        "Cost of Living (Nomad)": 2482.4
+        "Cost of Living (Nomad)": 2482.4,
+        "Tourists": 538357,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Grosseto",
@@ -3797,7 +3914,10 @@
         "TrilocaleSale": 187250,
         "TrilocaleRent": 1246.7,
         "HousingCost": 9.44,
-        "Cost of Living (Nomad)": 2824.02
+        "Cost of Living (Nomad)": 2824.02,
+        "Tourists": 5714546,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Imperia",
@@ -3892,7 +4012,10 @@
         "TrilocaleSale": 196280,
         "TrilocaleRent": 866.6,
         "HousingCost": 6.56,
-        "Cost of Living (Nomad)": 2436.03
+        "Cost of Living (Nomad)": 2436.03,
+        "Tourists": 3202619,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Isernia",
@@ -3987,7 +4110,10 @@
         "TrilocaleSale": 53130,
         "TrilocaleRent": 360.5,
         "HousingCost": 2.73,
-        "Cost of Living (Nomad)": 1788.03
+        "Cost of Living (Nomad)": 1788.03,
+        "Tourists": 12431,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "L'Aquila",
@@ -4073,16 +4199,19 @@
         "Hiking": 6.84,
         "Friendliness": 7.22,
         "Beach": 6.98,
-        "SalePrice": 122,
+        "SalePrice": 1220,
         "RentalPrice": 7.62,
-        "StudioSale": 3660,
+        "StudioSale": 36600,
         "StudioRental": 266.7,
-        "BilocaleSale": 6100,
+        "BilocaleSale": 61000,
         "BilocaleRent": 381,
-        "TrilocaleSale": 8540,
+        "TrilocaleSale": 85400,
         "TrilocaleRent": 533.4,
         "HousingCost": 4.04,
-        "Cost of Living (Nomad)": 2173.47
+        "Cost of Living (Nomad)": 2173.47,
+        "Tourists": 427595,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "La Spezia",
@@ -4177,7 +4306,10 @@
         "TrilocaleSale": 153300,
         "TrilocaleRent": 650.3,
         "HousingCost": 4.92,
-        "Cost of Living (Nomad)": 2521.5
+        "Cost of Living (Nomad)": 2521.5,
+        "Tourists": 468285,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Latina",
@@ -4272,7 +4404,10 @@
         "TrilocaleSale": 136570,
         "TrilocaleRent": 1066.8,
         "HousingCost": 8.08,
-        "Cost of Living (Nomad)": 2739.11
+        "Cost of Living (Nomad)": 2739.11,
+        "Tourists": 1175118,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Lecce",
@@ -4367,7 +4502,10 @@
         "TrilocaleSale": 79380,
         "TrilocaleRent": 546.7,
         "HousingCost": 4.14,
-        "Cost of Living (Nomad)": 1847.49
+        "Cost of Living (Nomad)": 1847.49,
+        "Tourists": 5048739,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Lecco",
@@ -4462,7 +4600,10 @@
         "TrilocaleSale": 109480,
         "TrilocaleRent": 613.2,
         "HousingCost": 4.64,
-        "Cost of Living (Nomad)": 2947.91
+        "Cost of Living (Nomad)": 2947.91,
+        "Tourists": 900940,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Livorno",
@@ -4557,7 +4698,10 @@
         "TrilocaleSale": 155960,
         "TrilocaleRent": 719.6,
         "HousingCost": 5.45,
-        "Cost of Living (Nomad)": 2537.9
+        "Cost of Living (Nomad)": 2537.9,
+        "Tourists": 8663572,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Lodi",
@@ -4652,7 +4796,10 @@
         "TrilocaleSale": 90440,
         "TrilocaleRent": 564.9,
         "HousingCost": 4.28,
-        "Cost of Living (Nomad)": 2808.39
+        "Cost of Living (Nomad)": 2808.39,
+        "Tourists": 866907,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Lucca",
@@ -4747,7 +4894,10 @@
         "TrilocaleSale": 222040,
         "TrilocaleRent": 1148,
         "HousingCost": 8.69,
-        "Cost of Living (Nomad)": 3141.28
+        "Cost of Living (Nomad)": 3141.28,
+        "Tourists": 3546044,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Macerata",
@@ -4842,7 +4992,10 @@
         "TrilocaleSale": 90580,
         "TrilocaleRent": 739.2,
         "HousingCost": 5.6,
-        "Cost of Living (Nomad)": 2484.98
+        "Cost of Living (Nomad)": 2484.98,
+        "Tourists": 642504,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Mantova",
@@ -4928,16 +5081,19 @@
         "Hiking": 6.16,
         "Friendliness": 7.4,
         "Beach": 5.91,
-        "SalePrice": 11,
+        "SalePrice": 1100,
         "RentalPrice": 7.53,
-        "StudioSale": 330,
+        "StudioSale": 33000,
         "StudioRental": 263.55,
-        "BilocaleSale": 550,
+        "BilocaleSale": 55000,
         "BilocaleRent": 376.5,
-        "TrilocaleSale": 770,
+        "TrilocaleSale": 77000,
         "TrilocaleRent": 527.1,
         "HousingCost": 3.99,
-        "Cost of Living (Nomad)": 2624.42
+        "Cost of Living (Nomad)": 2624.42,
+        "Tourists": 924727,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Massa-Carrara",
@@ -5032,7 +5188,10 @@
         "TrilocaleSale": 148890,
         "TrilocaleRent": 1117.2,
         "HousingCost": 8.46,
-        "Cost of Living (Nomad)": 2964.03
+        "Cost of Living (Nomad)": 2964.03,
+        "Tourists": 837140,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Matera",
@@ -5127,7 +5286,10 @@
         "TrilocaleSale": 107520,
         "TrilocaleRent": 566.3,
         "HousingCost": 4.29,
-        "Cost of Living (Nomad)": 1980.74
+        "Cost of Living (Nomad)": 1980.74,
+        "Tourists": 612987,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Messina",
@@ -5222,7 +5384,10 @@
         "TrilocaleSale": 86030,
         "TrilocaleRent": 529.9,
         "HousingCost": 4.01,
-        "Cost of Living (Nomad)": 1859.23
+        "Cost of Living (Nomad)": 1859.23,
+        "Tourists": 3493859,
+        "WeatherWidget": "",
+        "Viator": "Messina/d4814-ttd"
     },
     {
         "Name": "Milano",
@@ -5317,7 +5482,10 @@
         "TrilocaleSale": 239330,
         "TrilocaleRent": 1320.9,
         "HousingCost": 10,
-        "Cost of Living (Nomad)": 4112.8
+        "Cost of Living (Nomad)": 4112.8,
+        "Tourists": 15468199,
+        "WeatherWidget": "",
+        "Viator": "Milan/d512-ttd"
     },
     {
         "Name": "Modena",
@@ -5412,7 +5580,10 @@
         "TrilocaleSale": 113890,
         "TrilocaleRent": 712.6,
         "HousingCost": 5.39,
-        "Cost of Living (Nomad)": 3106.15
+        "Cost of Living (Nomad)": 3106.15,
+        "Tourists": 665514,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Monza e Brianza",
@@ -5507,7 +5678,10 @@
         "TrilocaleSale": 133980,
         "TrilocaleRent": 743.4,
         "HousingCost": 5.63,
-        "Cost of Living (Nomad)": 3522.81
+        "Cost of Living (Nomad)": 3522.81,
+        "Tourists": 1071310,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Napoli",
@@ -5593,16 +5767,19 @@
         "Hiking": 5.11,
         "Friendliness": 6.72,
         "Beach": 6.99,
-        "SalePrice": 227,
+        "SalePrice": 2270,
         "RentalPrice": 10.09,
-        "StudioSale": 6810,
+        "StudioSale": 68100,
         "StudioRental": 353.15,
-        "BilocaleSale": 11350,
+        "BilocaleSale": 113500,
         "BilocaleRent": 504.5,
-        "TrilocaleSale": 15890,
+        "TrilocaleSale": 158900,
         "TrilocaleRent": 706.3,
         "HousingCost": 5.35,
-        "Cost of Living (Nomad)": 2272.75
+        "Cost of Living (Nomad)": 2272.75,
+        "Tourists": 13161395,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Novara",
@@ -5697,7 +5874,10 @@
         "TrilocaleSale": 88340,
         "TrilocaleRent": 581,
         "HousingCost": 4.4,
-        "Cost of Living (Nomad)": 2797.19
+        "Cost of Living (Nomad)": 2797.19,
+        "Tourists": 89770,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Nuoro",
@@ -5792,7 +5972,10 @@
         "TrilocaleSale": 97860,
         "TrilocaleRent": 449.4,
         "HousingCost": 3.4,
-        "Cost of Living (Nomad)": 1713.37
+        "Cost of Living (Nomad)": 1713.37,
+        "Tourists": 689094,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Oristano",
@@ -5887,7 +6070,10 @@
         "TrilocaleSale": 76160,
         "TrilocaleRent": 494.2,
         "HousingCost": 3.74,
-        "Cost of Living (Nomad)": 1922.86
+        "Cost of Living (Nomad)": 1922.86,
+        "Tourists": 676159,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Padova",
@@ -5982,7 +6168,10 @@
         "TrilocaleSale": 112350,
         "TrilocaleRent": 688.1,
         "HousingCost": 5.21,
-        "Cost of Living (Nomad)": 2891.55
+        "Cost of Living (Nomad)": 2891.55,
+        "Tourists": 5479110,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Palermo",
@@ -6077,7 +6266,10 @@
         "TrilocaleSale": 86450,
         "TrilocaleRent": 520.8,
         "HousingCost": 3.94,
-        "Cost of Living (Nomad)": 2063.2
+        "Cost of Living (Nomad)": 2063.2,
+        "Tourists": 2981947,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Parma",
@@ -6172,7 +6364,10 @@
         "TrilocaleSale": 106750,
         "TrilocaleRent": 698.6,
         "HousingCost": 5.29,
-        "Cost of Living (Nomad)": 3074.38
+        "Cost of Living (Nomad)": 3074.38,
+        "Tourists": 612827,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Pavia",
@@ -6267,7 +6462,10 @@
         "TrilocaleSale": 78750,
         "TrilocaleRent": 572.6,
         "HousingCost": 4.33,
-        "Cost of Living (Nomad)": 2593.17
+        "Cost of Living (Nomad)": 2593.17,
+        "Tourists": 967147,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Perugia",
@@ -6362,7 +6560,10 @@
         "TrilocaleSale": 79380,
         "TrilocaleRent": 508.9,
         "HousingCost": 3.85,
-        "Cost of Living (Nomad)": 2336.25
+        "Cost of Living (Nomad)": 2336.25,
+        "Tourists": 4689356,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Pesaro e Urbino",
@@ -6457,7 +6658,10 @@
         "TrilocaleSale": 119560,
         "TrilocaleRent": 767.9,
         "HousingCost": 5.81,
-        "Cost of Living (Nomad)": 2666.21
+        "Cost of Living (Nomad)": 2666.21,
+        "Tourists": 3295759,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Pescara",
@@ -6552,7 +6756,10 @@
         "TrilocaleSale": 100310,
         "TrilocaleRent": 593.6,
         "HousingCost": 4.49,
-        "Cost of Living (Nomad)": 2257.4
+        "Cost of Living (Nomad)": 2257.4,
+        "Tourists": 430632,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Piacenza",
@@ -6647,7 +6854,10 @@
         "TrilocaleSale": 88690,
         "TrilocaleRent": 551.6,
         "HousingCost": 4.18,
-        "Cost of Living (Nomad)": 2635.45
+        "Cost of Living (Nomad)": 2635.45,
+        "Tourists": 578786,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Pisa",
@@ -6742,7 +6952,10 @@
         "TrilocaleSale": 129080,
         "TrilocaleRent": 711.9,
         "HousingCost": 5.39,
-        "Cost of Living (Nomad)": 2757.04
+        "Cost of Living (Nomad)": 2757.04,
+        "Tourists": 3032756,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Pistoia",
@@ -6837,7 +7050,10 @@
         "TrilocaleSale": 103040,
         "TrilocaleRent": 553,
         "HousingCost": 4.19,
-        "Cost of Living (Nomad)": 2396.17
+        "Cost of Living (Nomad)": 2396.17,
+        "Tourists": 867457,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Pordenone",
@@ -6932,7 +7148,10 @@
         "TrilocaleSale": 81690,
         "TrilocaleRent": 567,
         "HousingCost": 4.29,
-        "Cost of Living (Nomad)": 2715.36
+        "Cost of Living (Nomad)": 2715.36,
+        "Tourists": 573671,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Potenza",
@@ -7027,7 +7246,10 @@
         "TrilocaleSale": 80080,
         "TrilocaleRent": 424.9,
         "HousingCost": 3.22,
-        "Cost of Living (Nomad)": 1999.98
+        "Cost of Living (Nomad)": 1999.98,
+        "Tourists": 650942,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Prato",
@@ -7122,7 +7344,10 @@
         "TrilocaleSale": 143850,
         "TrilocaleRent": 732.2,
         "HousingCost": 5.54,
-        "Cost of Living (Nomad)": 2503.03
+        "Cost of Living (Nomad)": 2503.03,
+        "Tourists": 856660,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Ragusa",
@@ -7217,7 +7442,10 @@
         "TrilocaleSale": 69580,
         "TrilocaleRent": 673.4,
         "HousingCost": 5.1,
-        "Cost of Living (Nomad)": 1975.18
+        "Cost of Living (Nomad)": 1975.18,
+        "Tourists": 578653,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Ravenna",
@@ -7303,16 +7531,19 @@
         "Hiking": 6.05,
         "Friendliness": 7.98,
         "Beach": 5.86,
-        "SalePrice": 207,
+        "SalePrice": 2070,
         "RentalPrice": 16.09,
-        "StudioSale": 6210,
+        "StudioSale": 62100,
         "StudioRental": 563.15,
-        "BilocaleSale": 10350,
+        "BilocaleSale": 103500,
         "BilocaleRent": 804.5,
-        "TrilocaleSale": 14490,
+        "TrilocaleSale": 144900,
         "TrilocaleRent": 1126.3,
         "HousingCost": 8.53,
-        "Cost of Living (Nomad)": 3164.79
+        "Cost of Living (Nomad)": 3164.79,
+        "Tourists": 6698702,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Reggio Calabria",
@@ -7407,7 +7638,10 @@
         "TrilocaleSale": 56840,
         "TrilocaleRent": 357.7,
         "HousingCost": 2.71,
-        "Cost of Living (Nomad)": 1748.1
+        "Cost of Living (Nomad)": 1748.1,
+        "Tourists": 916040,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Reggio Emilia",
@@ -7502,7 +7736,10 @@
         "TrilocaleSale": 105280,
         "TrilocaleRent": 590.8,
         "HousingCost": 4.47,
-        "Cost of Living (Nomad)": 2934.66
+        "Cost of Living (Nomad)": 2934.66,
+        "Tourists": 629491,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Rieti",
@@ -7597,7 +7834,10 @@
         "TrilocaleSale": 59640,
         "TrilocaleRent": 532,
         "HousingCost": 4.03,
-        "Cost of Living (Nomad)": 2053.42
+        "Cost of Living (Nomad)": 2053.42,
+        "Tourists": 1014722,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Rimini",
@@ -7692,7 +7932,10 @@
         "TrilocaleSale": 180880,
         "TrilocaleRent": 1265.6,
         "HousingCost": 9.58,
-        "Cost of Living (Nomad)": 2859.3
+        "Cost of Living (Nomad)": 2859.3,
+        "Tourists": 15967490,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Roma",
@@ -7787,7 +8030,10 @@
         "TrilocaleSale": 192010,
         "TrilocaleRent": 969.5,
         "HousingCost": 7.34,
-        "Cost of Living (Nomad)": 3114.56
+        "Cost of Living (Nomad)": 3114.56,
+        "Tourists": 29833225,
+        "WeatherWidget": "",
+        "Viator": "Rome/d511-tt"
     },
     {
         "Name": "Rovigo",
@@ -7882,7 +8128,10 @@
         "TrilocaleSale": 68180,
         "TrilocaleRent": 518,
         "HousingCost": 3.92,
-        "Cost of Living (Nomad)": 2388.31
+        "Cost of Living (Nomad)": 2388.31,
+        "Tourists": 2595924,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Salerno",
@@ -7977,7 +8226,10 @@
         "TrilocaleSale": 127120,
         "TrilocaleRent": 637,
         "HousingCost": 4.82,
-        "Cost of Living (Nomad)": 1962.08
+        "Cost of Living (Nomad)": 1962.08,
+        "Tourists": 6029649,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Sassari",
@@ -8072,7 +8324,10 @@
         "TrilocaleSale": 192220,
         "TrilocaleRent": 1180.2,
         "HousingCost": 8.93,
-        "Cost of Living (Nomad)": 2611.35
+        "Cost of Living (Nomad)": 2611.35,
+        "Tourists": 7492538,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Savona",
@@ -8167,7 +8422,10 @@
         "TrilocaleSale": 237160,
         "TrilocaleRent": 1031.8,
         "HousingCost": 7.81,
-        "Cost of Living (Nomad)": 2836.39
+        "Cost of Living (Nomad)": 2836.39,
+        "Tourists": 5717487,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Siena",
@@ -8253,16 +8511,19 @@
         "Hiking": 6.24,
         "Friendliness": 7.88,
         "Beach": 6.51,
-        "SalePrice": 202,
+        "SalePrice": 2020,
         "RentalPrice": 10.17,
-        "StudioSale": 6060,
+        "StudioSale": 60600,
         "StudioRental": 355.95,
-        "BilocaleSale": 10100,
+        "BilocaleSale": 101000,
         "BilocaleRent": 508.5,
-        "TrilocaleSale": 14140,
+        "TrilocaleSale": 141400,
         "TrilocaleRent": 711.9,
         "HousingCost": 5.39,
-        "Cost of Living (Nomad)": 2754.43
+        "Cost of Living (Nomad)": 2754.43,
+        "Tourists": 4928092,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Siracusa",
@@ -8357,7 +8618,10 @@
         "TrilocaleSale": 78050,
         "TrilocaleRent": 661.5,
         "HousingCost": 5.01,
-        "Cost of Living (Nomad)": 2240.6
+        "Cost of Living (Nomad)": 2240.6,
+        "Tourists": 594721,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Sondrio",
@@ -8452,7 +8716,10 @@
         "TrilocaleSale": 115920,
         "TrilocaleRent": 526.4,
         "HousingCost": 3.99,
-        "Cost of Living (Nomad)": 2423.56
+        "Cost of Living (Nomad)": 2423.56,
+        "Tourists": 851316,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Sud Sardegna",
@@ -8547,7 +8814,10 @@
         "TrilocaleSale": 106610,
         "TrilocaleRent": 704.2,
         "HousingCost": 5.33,
-        "Cost of Living (Nomad)": 2325.59
+        "Cost of Living (Nomad)": 2325.59,
+        "Tourists": 725265,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Taranto",
@@ -8642,7 +8912,10 @@
         "TrilocaleSale": 72240,
         "TrilocaleRent": 522.2,
         "HousingCost": 3.95,
-        "Cost of Living (Nomad)": 2099.17
+        "Cost of Living (Nomad)": 2099.17,
+        "Tourists": 752912,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Teramo",
@@ -8737,7 +9010,10 @@
         "TrilocaleSale": 96880,
         "TrilocaleRent": 738.5,
         "HousingCost": 5.59,
-        "Cost of Living (Nomad)": 2308.8
+        "Cost of Living (Nomad)": 2308.8,
+        "Tourists": 3419387,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Terni",
@@ -8832,7 +9108,10 @@
         "TrilocaleSale": 75110,
         "TrilocaleRent": 410.2,
         "HousingCost": 3.11,
-        "Cost of Living (Nomad)": 2236.5
+        "Cost of Living (Nomad)": 2236.5,
+        "Tourists": 543577,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Torino",
@@ -8927,7 +9206,10 @@
         "TrilocaleSale": 109270,
         "TrilocaleRent": 618.8,
         "HousingCost": 4.68,
-        "Cost of Living (Nomad)": 2872.07
+        "Cost of Living (Nomad)": 2872.07,
+        "Tourists": 7046219,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Trapani",
@@ -9022,7 +9304,10 @@
         "TrilocaleSale": 73150,
         "TrilocaleRent": 403.2,
         "HousingCost": 3.05,
-        "Cost of Living (Nomad)": 1667.32
+        "Cost of Living (Nomad)": 1667.32,
+        "Tourists": 601135,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Trento",
@@ -9117,7 +9402,10 @@
         "TrilocaleSale": 157220,
         "TrilocaleRent": 776.3,
         "HousingCost": 5.88,
-        "Cost of Living (Nomad)": 2774.41
+        "Cost of Living (Nomad)": 2774.41,
+        "Tourists": 17776030,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Treviso",
@@ -9212,7 +9500,10 @@
         "TrilocaleSale": 109270,
         "TrilocaleRent": 650.3,
         "HousingCost": 4.92,
-        "Cost of Living (Nomad)": 2839.94
+        "Cost of Living (Nomad)": 2839.94,
+        "Tourists": 3215608,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Trieste",
@@ -9307,7 +9598,10 @@
         "TrilocaleSale": 145810,
         "TrilocaleRent": 667.1,
         "HousingCost": 5.05,
-        "Cost of Living (Nomad)": 2923.87
+        "Cost of Living (Nomad)": 2923.87,
+        "Tourists": 557753,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Udine",
@@ -9402,7 +9696,10 @@
         "TrilocaleSale": 93450,
         "TrilocaleRent": 576.8,
         "HousingCost": 4.37,
-        "Cost of Living (Nomad)": 2642.84
+        "Cost of Living (Nomad)": 2642.84,
+        "Tourists": 5371339,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Varese",
@@ -9497,7 +9794,10 @@
         "TrilocaleSale": 103040,
         "TrilocaleRent": 625.1,
         "HousingCost": 4.73,
-        "Cost of Living (Nomad)": 2934.52
+        "Cost of Living (Nomad)": 2934.52,
+        "Tourists": 1076655,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Venezia",
@@ -9592,7 +9892,10 @@
         "TrilocaleSale": 163590,
         "TrilocaleRent": 916.3,
         "HousingCost": 6.94,
-        "Cost of Living (Nomad)": 2897.95
+        "Cost of Living (Nomad)": 2897.95,
+        "Tourists": 37042454,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Verbano-Cusio-Ossola",
@@ -9687,7 +9990,10 @@
         "TrilocaleSale": 125090,
         "TrilocaleRent": 700.7,
         "HousingCost": 5.3,
-        "Cost of Living (Nomad)": 2572.27
+        "Cost of Living (Nomad)": 2572.27,
+        "Tourists": 83163,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Vercelli",
@@ -9782,7 +10088,10 @@
         "TrilocaleSale": 54740,
         "TrilocaleRent": 416.5,
         "HousingCost": 3.15,
-        "Cost of Living (Nomad)": 2537.01
+        "Cost of Living (Nomad)": 2537.01,
+        "Tourists": 83572,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Verona",
@@ -9877,7 +10186,10 @@
         "TrilocaleSale": 135520,
         "TrilocaleRent": 704.9,
         "HousingCost": 5.34,
-        "Cost of Living (Nomad)": 2826.4
+        "Cost of Living (Nomad)": 2826.4,
+        "Tourists": 17293792,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Vibo Valentia",
@@ -9972,7 +10284,10 @@
         "TrilocaleSale": 82810,
         "TrilocaleRent": 341.6,
         "HousingCost": 2.59,
-        "Cost of Living (Nomad)": 1461.69
+        "Cost of Living (Nomad)": 1461.69,
+        "Tourists": 687408,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Vicenza",
@@ -10067,7 +10382,10 @@
         "TrilocaleSale": 89810,
         "TrilocaleRent": 606.2,
         "HousingCost": 4.59,
-        "Cost of Living (Nomad)": 2842.32
+        "Cost of Living (Nomad)": 2842.32,
+        "Tourists": 3191511,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Viterbo",
@@ -10162,7 +10480,10 @@
         "TrilocaleSale": 76020,
         "TrilocaleRent": 581.7,
         "HousingCost": 4.4,
-        "Cost of Living (Nomad)": 2133.26
+        "Cost of Living (Nomad)": 2133.26,
+        "Tourists": 1076445,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "AVG",
@@ -10202,9 +10523,9 @@
         "Robberies": 22.05,
         "RealEstatePrice": 1743.93,
         "Average Monthly Salary": 75.03,
-        "Cost of Living (Family)": 2473.76,
+        "Cost of Living (Family)": 2474.03,
         "MonthlyRental": 941.68,
-        "Cost of Living (Individual)": 1649.92,
+        "Cost of Living (Individual)": 1650.12,
         "Universities": 1.55,
         "Subway": 1,
         "VeganRestaurants": 4.66,
@@ -10248,16 +10569,19 @@
         "Hiking": 6.16,
         "Friendliness": 7.23,
         "Beach": 6.23,
-        "SalePrice": 1429.38,
+        "SalePrice": 1572.41,
         "RentalPrice": 9.33,
-        "StudioSale": 42881.5,
-        "StudioRental": 326.52,
-        "BilocaleSale": 71469.16,
-        "BilocaleRent": 466.45,
-        "TrilocaleSale": 100056.82,
-        "TrilocaleRent": 653.03,
-        "HousingCost": 4.94,
-        "Cost of Living (Nomad)": 2474.88
+        "StudioSale": 47172.34,
+        "StudioRental": 326.65,
+        "BilocaleSale": 78620.56,
+        "BilocaleRent": 466.65,
+        "TrilocaleSale": 110068.79,
+        "TrilocaleRent": 653.31,
+        "HousingCost": 4.95,
+        "Cost of Living (Nomad)": 2475.18,
+        "Tourists": 3632828,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Abruzzo",
@@ -10343,16 +10667,19 @@
         "Hiking": 6.84,
         "Friendliness": 7.23,
         "Beach": 6.98,
-        "SalePrice": 1018,
+        "SalePrice": 1292.5,
         "RentalPrice": 8.32,
-        "StudioSale": 30540,
+        "StudioSale": 38775,
         "StudioRental": 291.11,
-        "BilocaleSale": 50900,
+        "BilocaleSale": 64625,
         "BilocaleRent": 415.88,
-        "TrilocaleSale": 71260,
+        "TrilocaleSale": 90475,
         "TrilocaleRent": 582.23,
         "HousingCost": 4.41,
-        "Cost of Living (Nomad)": 2250.49
+        "Cost of Living (Nomad)": 2250.49,
+        "Tourists": 1179608,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Basilicata",
@@ -10447,7 +10774,10 @@
         "TrilocaleSale": 93800,
         "TrilocaleRent": 495.6,
         "HousingCost": 3.75,
-        "Cost of Living (Nomad)": 1990.36
+        "Cost of Living (Nomad)": 1990.36,
+        "Tourists": 631964,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Calabria",
@@ -10542,7 +10872,10 @@
         "TrilocaleSale": 66640,
         "TrilocaleRent": 481.46,
         "HousingCost": 3.64,
-        "Cost of Living (Nomad)": 1766.28
+        "Cost of Living (Nomad)": 1766.28,
+        "Tourists": 1264753,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Campania",
@@ -10628,16 +10961,19 @@
         "Hiking": 5.26,
         "Friendliness": 6.37,
         "Beach": 5.83,
-        "SalePrice": 1013.4,
+        "SalePrice": 1422,
         "RentalPrice": 7.38,
-        "StudioSale": 30402,
+        "StudioSale": 42660,
         "StudioRental": 258.37,
-        "BilocaleSale": 50670,
+        "BilocaleSale": 71100,
         "BilocaleRent": 369.1,
-        "TrilocaleSale": 70938,
+        "TrilocaleSale": 99540,
         "TrilocaleRent": 516.74,
         "HousingCost": 3.91,
-        "Cost of Living (Nomad)": 1917.08
+        "Cost of Living (Nomad)": 1917.08,
+        "Tourists": 4123357,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Emilia-Romagna",
@@ -10723,16 +11059,19 @@
         "Hiking": 6.83,
         "Friendliness": 8.08,
         "Beach": 6.68,
-        "SalePrice": 1334.56,
+        "SalePrice": 1775.56,
         "RentalPrice": 11.69,
-        "StudioSale": 40036.67,
+        "StudioSale": 53266.67,
         "StudioRental": 409.19,
-        "BilocaleSale": 66727.78,
+        "BilocaleSale": 88777.78,
         "BilocaleRent": 584.56,
-        "TrilocaleSale": 93418.89,
+        "TrilocaleSale": 124288.89,
         "TrilocaleRent": 818.38,
         "HousingCost": 6.2,
-        "Cost of Living (Nomad)": 2943.35
+        "Cost of Living (Nomad)": 2943.35,
+        "Tourists": 4237533,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Friuli-Venezia Giulia",
@@ -10827,7 +11166,10 @@
         "TrilocaleSale": 102550,
         "TrilocaleRent": 587.3,
         "HousingCost": 4.45,
-        "Cost of Living (Nomad)": 2691.12
+        "Cost of Living (Nomad)": 2691.12,
+        "Tourists": 1760280,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Lazio",
@@ -10922,7 +11264,10 @@
         "TrilocaleSale": 104790,
         "TrilocaleRent": 717.36,
         "HousingCost": 5.43,
-        "Cost of Living (Nomad)": 2435.31
+        "Cost of Living (Nomad)": 2435.31,
+        "Tourists": 6848340,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Liguria",
@@ -11017,7 +11362,10 @@
         "TrilocaleSale": 183242.5,
         "TrilocaleRent": 798.18,
         "HousingCost": 6.04,
-        "Cost of Living (Nomad)": 2648.94
+        "Cost of Living (Nomad)": 2648.94,
+        "Tourists": 3367802,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Lombardia",
@@ -11103,16 +11451,19 @@
         "Hiking": 6.02,
         "Friendliness": 7.47,
         "Beach": 5.92,
-        "SalePrice": 1431.17,
+        "SalePrice": 1673.42,
         "RentalPrice": 9.62,
-        "StudioSale": 42935,
+        "StudioSale": 50202.5,
         "StudioRental": 336.85,
-        "BilocaleSale": 71558.33,
+        "BilocaleSale": 83670.83,
         "BilocaleRent": 481.21,
-        "TrilocaleSale": 100181.67,
+        "TrilocaleSale": 117139.17,
         "TrilocaleRent": 673.69,
         "HousingCost": 5.1,
-        "Cost of Living (Nomad)": 2937.12
+        "Cost of Living (Nomad)": 2937.12,
+        "Tourists": 3144601,
+        "WeatherWidget": "",
+        "Viator": "Lombardy/d25822"
     },
     {
         "Name": "Marche",
@@ -11198,16 +11549,19 @@
         "Hiking": 6.16,
         "Friendliness": 7.24,
         "Beach": 6.23,
-        "SalePrice": 1213.8,
+        "SalePrice": 1478.4,
         "RentalPrice": 10.31,
-        "StudioSale": 36414,
+        "StudioSale": 44352,
         "StudioRental": 360.99,
-        "BilocaleSale": 60690,
+        "BilocaleSale": 73920,
         "BilocaleRent": 515.7,
-        "TrilocaleSale": 84966,
+        "TrilocaleSale": 103488,
         "TrilocaleRent": 721.98,
         "HousingCost": 5.47,
-        "Cost of Living (Nomad)": 2521.6
+        "Cost of Living (Nomad)": 2521.6,
+        "Tourists": 1624199,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Molise",
@@ -11293,16 +11647,19 @@
         "Hiking": 6.16,
         "Friendliness": 6.58,
         "Beach": 6.23,
-        "SalePrice": 431.5,
+        "SalePrice": 903.5,
         "RentalPrice": 6.6,
-        "StudioSale": 12945,
+        "StudioSale": 27105,
         "StudioRental": 231,
-        "BilocaleSale": 21575,
+        "BilocaleSale": 45175,
         "BilocaleRent": 330,
-        "TrilocaleSale": 30205,
+        "TrilocaleSale": 63245,
         "TrilocaleRent": 462,
         "HousingCost": 3.5,
-        "Cost of Living (Nomad)": 1964.95
+        "Cost of Living (Nomad)": 1964.95,
+        "Tourists": 15482,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Piemonte",
@@ -11342,9 +11699,9 @@
         "Robberies": 18.32,
         "RealEstatePrice": 1643.75,
         "Average Monthly Salary": 87.27,
-        "Cost of Living (Family)": 2623.48,
+        "Cost of Living (Family)": 2627.16,
         "MonthlyRental": 796.1,
-        "Cost of Living (Individual)": 1737.38,
+        "Cost of Living (Individual)": 1740.01,
         "Universities": 1.2,
         "Subway": 1,
         "VeganRestaurants": 3.45,
@@ -11373,31 +11730,34 @@
         "Family-friendly": 8.36,
         "MonthlyIncome": 1898.41,
         "Remuneration": 7.45,
-        "CostOfLiving": 4.81,
+        "CostOfLiving": 4.83,
         "Traffic": 9.04,
         "AirQuality": 7.39,
         "Veg-friendly": 4.82,
-        "Overall Score": 7.79,
-        "DN-friendly": 7.27,
-        "Expat-friendly": 7.68,
+        "Overall Score": 7.78,
+        "DN-friendly": 7.26,
+        "Expat-friendly": 7.67,
         "RacialTolerance": 6.56,
         "English-speakers": 6.7,
         "Fun": 5.82,
         "Clean": 6.51,
         "Chaotic": 5.55,
         "Hiking": 5.72,
-        "Friendliness": 7.31,
+        "Friendliness": 7.3,
         "Beach": 5.7,
-        "SalePrice": 1103.25,
-        "RentalPrice": 7.14,
-        "StudioSale": 33097.5,
-        "StudioRental": 249.81,
-        "BilocaleSale": 55162.5,
-        "BilocaleRent": 356.88,
-        "TrilocaleSale": 77227.5,
-        "TrilocaleRent": 499.63,
-        "HousingCost": 3.78,
-        "Cost of Living (Nomad)": 2606.07
+        "SalePrice": 1117.38,
+        "RentalPrice": 7.19,
+        "StudioSale": 33521.25,
+        "StudioRental": 251.65,
+        "BilocaleSale": 55868.75,
+        "BilocaleRent": 359.5,
+        "TrilocaleSale": 78216.25,
+        "TrilocaleRent": 503.3,
+        "HousingCost": 3.81,
+        "Cost of Living (Nomad)": 2610.01,
+        "Tourists": 957430,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Puglia",
@@ -11483,16 +11843,19 @@
         "Hiking": 6.42,
         "Friendliness": 6.83,
         "Beach": 6.51,
-        "SalePrice": 1082,
+        "SalePrice": 1263.5,
         "RentalPrice": 8.25,
-        "StudioSale": 32460,
+        "StudioSale": 37905,
         "StudioRental": 288.58,
-        "BilocaleSale": 54100,
+        "BilocaleSale": 63175,
         "BilocaleRent": 412.25,
-        "TrilocaleSale": 75740,
+        "TrilocaleSale": 88445,
         "TrilocaleRent": 577.15,
         "HousingCost": 4.37,
-        "Cost of Living (Nomad)": 2054.22
+        "Cost of Living (Nomad)": 2054.22,
+        "Tourists": 2106283,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Sardegna",
@@ -11587,7 +11950,10 @@
         "TrilocaleSale": 121576,
         "TrilocaleRent": 700.28,
         "HousingCost": 5.3,
-        "Cost of Living (Nomad)": 2178.12
+        "Cost of Living (Nomad)": 2178.12,
+        "Tourists": 2065717,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Sicilia",
@@ -11682,7 +12048,10 @@
         "TrilocaleSale": 70404.44,
         "TrilocaleRent": 474.52,
         "HousingCost": 3.59,
-        "Cost of Living (Nomad)": 1879.31
+        "Cost of Living (Nomad)": 1879.31,
+        "Tourists": 1189436,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Toscana",
@@ -11768,16 +12137,19 @@
         "Hiking": 6.24,
         "Friendliness": 7.55,
         "Beach": 6.51,
-        "SalePrice": 2032.4,
+        "SalePrice": 2214.2,
         "RentalPrice": 12.19,
-        "StudioSale": 60972,
+        "StudioSale": 66426,
         "StudioRental": 426.72,
-        "BilocaleSale": 101620,
+        "BilocaleSale": 110710,
         "BilocaleRent": 609.6,
-        "TrilocaleSale": 142268,
+        "TrilocaleSale": 154994,
         "TrilocaleRent": 853.44,
         "HousingCost": 6.46,
-        "Cost of Living (Nomad)": 2753.11
+        "Cost of Living (Nomad)": 2753.11,
+        "Tourists": 4404578,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Trentino-Alto Adige",
@@ -11872,7 +12244,10 @@
         "TrilocaleSale": 229915,
         "TrilocaleRent": 901.25,
         "HousingCost": 6.82,
-        "Cost of Living (Nomad)": 3017.75
+        "Cost of Living (Nomad)": 3017.75,
+        "Tourists": 25088346,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Umbria",
@@ -11967,7 +12342,10 @@
         "TrilocaleSale": 77245,
         "TrilocaleRent": 459.55,
         "HousingCost": 3.48,
-        "Cost of Living (Nomad)": 2286.38
+        "Cost of Living (Nomad)": 2286.38,
+        "Tourists": 2616466,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Valle d'Aosta",
@@ -12062,7 +12440,10 @@
         "TrilocaleSale": 139370,
         "TrilocaleRent": 588,
         "HousingCost": 4.45,
-        "Cost of Living (Nomad)": 2390.2
+        "Cost of Living (Nomad)": 2390.2,
+        "Tourists": 3599402,
+        "WeatherWidget": "",
+        "Viator": ""
     },
     {
         "Name": "Veneto",
@@ -12157,6 +12538,7 @@
         "TrilocaleSale": 122870,
         "TrilocaleRent": 767.9,
         "HousingCost": 5.81,
-        "Cost of Living (Nomad)": 2870.73
+        "Cost of Living (Nomad)": 2870.73,
+        "Tourists": 10375029
     }
 ]
