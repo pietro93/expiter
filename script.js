@@ -399,7 +399,7 @@ row.innerHTML+='<button class="button column regionfilter" id="'+regions[i].subs
 function newPage(){
   let province = getData(document.title.split(" - ")[0])
   let info = getInfo(province)
-  let separator='<span class="separator"></span>'
+  let separator='</br><span class="separator"></span></br>'
 
   appendProvinceData(province);
  
@@ -410,6 +410,8 @@ function newPage(){
   $("#overview").append(info.map)
   $("#CoL").append(info.CoL)
   $("#climate").append(info.climate)
+  $("#climate").append(separator)
+  $("#climate").append(info.weather)
   $("#lgbtq").append(info.lgbtq)
   $("#leisure").append(info.leisure)
   $("#leisure").append(separator)
@@ -421,7 +423,7 @@ function newPage(){
   $("#education").append(separator)
   $("#transport").append(info.transport)
   $("#transport").append(separator)
-  
+  $("#transport").append(info.viator)
  }
  
 
@@ -504,6 +506,16 @@ function getInfo(province){
   '<a href="https://www.google.com/maps/search/Province+Of+'+name+'+Hiking/" target="_blank"><b>⛰️Hiking</b></a> '+
   '</center>'
 
+  info.weather=(province.WeatherWidget?'<center><h3>Weather Now</h3><a class="weatherwidget-io" href="https://forecast7.com/en/'+province.WeatherWidget+'" data-label_1="'+name+'" data-label_2="'+region.Name+'"'+
+  'data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="clear"  data-basecolor="rgba(155, 205, 245, 0.59)" data-textcolor="#000441" >name Region.Name</a>'+
+  '<script>'+
+  "!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');"+
+  '</script>':"")
+
+  info.viator='<center><h3>Recommended Tours in '+(province.Viator?name:region.Name)+'</h3></center>'+
+  '<div data-vi-partner-id=P00045447 data-vi-language=en data-vi-currency=USD data-vi-partner-type="AFFILIATE" data-vi-url="'+(region.Name='Molise'?'':'https://www.viator.com/')+(province.Viator?province.Viator:region.Viator)+'" data-vi-total-products=6 data-vi-campaign="'+name+'" ></div>'+
+  '<script async src="https://www.viator.com/orion/partner/widget.js"></script>'
+  console.log("!"+region.Viator)
 
   return info;
 }
@@ -511,6 +523,7 @@ function getInfo(province){
 function resizeFilterMenu(){
   let arrow = $("#header > .arrow");
   if (!$(".floatBottom").hasClass("toggled")){
+
     arrow.removeClass("up");
     arrow.addClass("down");
     $(".floatBottom").addClass("toggled")

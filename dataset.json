@@ -487,7 +487,7 @@
         "Cost of Living (Nomad)": 2445.05,
         "Tourists": 883046,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Aosta/d28022-ttd"
     },
     {
         "Name": "Ascoli Piceno",
@@ -5779,7 +5779,7 @@
         "Cost of Living (Nomad)": 2272.75,
         "Tourists": 13161395,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Naples/d508-ttd"
     },
     {
         "Name": "Novara",
@@ -6269,7 +6269,7 @@
         "Cost of Living (Nomad)": 2063.2,
         "Tourists": 2981947,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Palermo/d4815-ttd"
     },
     {
         "Name": "Parma",
@@ -6955,7 +6955,7 @@
         "Cost of Living (Nomad)": 2757.04,
         "Tourists": 3032756,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Pisa/d520-ttd"
     },
     {
         "Name": "Pistoia",
@@ -8620,7 +8620,7 @@
         "HousingCost": 5.01,
         "Cost of Living (Nomad)": 2240.6,
         "Tourists": 594721,
-        "WeatherWidget": "",
+        "WeatherWidget": "37d0815d29/syracuse/",
         "Viator": ""
     },
     {
@@ -8816,7 +8816,7 @@
         "HousingCost": 5.33,
         "Cost of Living (Nomad)": 2325.59,
         "Tourists": 725265,
-        "WeatherWidget": "",
+        "WeatherWidget": "39d568d92/south-sardinia",
         "Viator": ""
     },
     {
@@ -9208,7 +9208,7 @@
         "HousingCost": 4.68,
         "Cost of Living (Nomad)": 2872.07,
         "Tourists": 7046219,
-        "WeatherWidget": "",
+        "WeatherWidget": "45d077d69/turin/",
         "Viator": ""
     },
     {
@@ -9600,7 +9600,7 @@
         "HousingCost": 5.05,
         "Cost of Living (Nomad)": 2923.87,
         "Tourists": 557753,
-        "WeatherWidget": "",
+        "WeatherWidget": "45d6513d78/trieste/",
         "Viator": ""
     },
     {
@@ -9894,8 +9894,8 @@
         "HousingCost": 6.94,
         "Cost of Living (Nomad)": 2897.95,
         "Tourists": 37042454,
-        "WeatherWidget": "",
-        "Viator": ""
+        "WeatherWidget": "45d4412d32/venice/",
+        "Viator": "Venice/d522-ttd"
     },
     {
         "Name": "Verbano-Cusio-Ossola",
@@ -10679,7 +10679,7 @@
         "Cost of Living (Nomad)": 2250.49,
         "Tourists": 1179608,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Abruzzo/d23411-ttd"
     },
     {
         "Name": "Basilicata",
@@ -10777,7 +10777,7 @@
         "Cost of Living (Nomad)": 1990.36,
         "Tourists": 631964,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Basilicata/d28881-ttd"
     },
     {
         "Name": "Calabria",
@@ -10875,7 +10875,7 @@
         "Cost of Living (Nomad)": 1766.28,
         "Tourists": 1264753,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Calabria/d26226-ttd"
     },
     {
         "Name": "Campania",
@@ -10973,7 +10973,7 @@
         "Cost of Living (Nomad)": 1917.08,
         "Tourists": 4123357,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Campania/d28880-ttd"
     },
     {
         "Name": "Emilia-Romagna",
@@ -11071,7 +11071,7 @@
         "Cost of Living (Nomad)": 2943.35,
         "Tourists": 4237533,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Emilia-Romagna/d25817-ttd"
     },
     {
         "Name": "Friuli-Venezia Giulia",
@@ -11169,7 +11169,7 @@
         "Cost of Living (Nomad)": 2691.12,
         "Tourists": 1760280,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Friuli-Venezia-Giulia/d29857-ttd"
     },
     {
         "Name": "Lazio",
@@ -11267,7 +11267,7 @@
         "Cost of Living (Nomad)": 2435.31,
         "Tourists": 6848340,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Lazio/d27405-ttd"
     },
     {
         "Name": "Liguria",
@@ -11365,7 +11365,7 @@
         "Cost of Living (Nomad)": 2648.94,
         "Tourists": 3367802,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Piedmont-and-Liguria/d775-ttd"
     },
     {
         "Name": "Lombardia",
@@ -11561,7 +11561,7 @@
         "Cost of Living (Nomad)": 2521.6,
         "Tourists": 1624199,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Marche/d24161-ttd"
     },
     {
         "Name": "Molise",
@@ -11659,7 +11659,7 @@
         "Cost of Living (Nomad)": 1964.95,
         "Tourists": 15482,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "273317P1,6868P25,317627P1"
     },
     {
         "Name": "Piemonte",
@@ -11757,7 +11757,7 @@
         "Cost of Living (Nomad)": 2610.01,
         "Tourists": 957430,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Piedmont-and-Liguria/d775-ttd"
     },
     {
         "Name": "Puglia",
@@ -11855,7 +11855,7 @@
         "Cost of Living (Nomad)": 2054.22,
         "Tourists": 2106283,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Puglia/d5538-ttd"
     },
     {
         "Name": "Sardegna",
@@ -11953,7 +11953,7 @@
         "Cost of Living (Nomad)": 2178.12,
         "Tourists": 2065717,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Sardinia/d24293-ttd"
     },
     {
         "Name": "Sicilia",
@@ -12051,7 +12051,7 @@
         "Cost of Living (Nomad)": 1879.31,
         "Tourists": 1189436,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Sicily/d205-ttd"
     },
     {
         "Name": "Toscana",
@@ -12149,7 +12149,7 @@
         "Cost of Living (Nomad)": 2753.11,
         "Tourists": 4404578,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Tuscany/d206-ttd"
     },
     {
         "Name": "Trentino-Alto Adige",
@@ -12247,7 +12247,7 @@
         "Cost of Living (Nomad)": 3017.75,
         "Tourists": 25088346,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Trentino-Alto-Adige/d28838-ttd"
     },
     {
         "Name": "Umbria",
@@ -12345,7 +12345,7 @@
         "Cost of Living (Nomad)": 2286.38,
         "Tourists": 2616466,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Umbria/d22033-ttd"
     },
     {
         "Name": "Valle d'Aosta",
@@ -12443,7 +12443,7 @@
         "Cost of Living (Nomad)": 2390.2,
         "Tourists": 3599402,
         "WeatherWidget": "",
-        "Viator": ""
+        "Viator": "Valle-dAosta/d27407-ttd"
     },
     {
         "Name": "Veneto",
@@ -12539,6 +12539,8 @@
         "TrilocaleRent": 767.9,
         "HousingCost": 5.81,
         "Cost of Living (Nomad)": 2870.73,
-        "Tourists": 10375029
+        "Tourists": 10375029,
+        "WeatherWidget": "",
+        "Viator": "Veneto/d23520-ttd"
     }
 ]
