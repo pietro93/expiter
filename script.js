@@ -220,7 +220,7 @@ function qualityScore(quality,score){
   let expenses=["Cost of Living (Individual)","Cost of Living (Family)","Cost of Living (Nomad)", 
   "StudioRental", "BilocaleRent", "TrilocaleRent", "MonthlyIncome", 
   "StudioSale","BilocaleSale","TrilocaleSale"]
-  console.log("checking "+quality+": for province is "+score+" for avg is "+avg[quality])
+  
   if (quality=="CostOfLiving"||quality=="HousingCost"){
     if (score<avg[quality]*.8){return "<score class='excellent short'>cheap</score>"}
     else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>affordable</score>"}
