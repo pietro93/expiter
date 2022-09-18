@@ -3230,7 +3230,7 @@
         "HousingCost": 4.61,
         "Cost of Living (Nomad)": 2554.8,
         "Tourists": 3020136,
-        "WeatherWidget": "",
+        "WeatherWidget": "44d8411d62/ferrara/",
         "Viator": "Ferrara/d27187-ttd"
     },
     {
@@ -3426,7 +3426,7 @@
         "HousingCost": 3.5,
         "Cost of Living (Nomad)": 1830.63,
         "Tourists": 4503604,
-        "WeatherWidget": "",
+        "WeatherWidget": "41d4615d54/foggia/",
         "Viator": ""
     },
     {
@@ -4406,7 +4406,7 @@
         "HousingCost": 8.08,
         "Cost of Living (Nomad)": 2739.11,
         "Tourists": 1175118,
-        "WeatherWidget": "",
+        "WeatherWidget": "41d4712d90/latina/",
         "Viator": ""
     },
     {
@@ -4504,7 +4504,7 @@
         "HousingCost": 4.14,
         "Cost of Living (Nomad)": 1847.49,
         "Tourists": 5048739,
-        "WeatherWidget": "",
+        "WeatherWidget": "40d3518d18/lecce/",
         "Viator": "Lecce/d22769-ttd"
     },
     {
@@ -5288,7 +5288,7 @@
         "HousingCost": 4.29,
         "Cost of Living (Nomad)": 1980.74,
         "Tourists": 612987,
-        "WeatherWidget": "",
+        "WeatherWidget": "40d6716d60/matera/",
         "Viator": "Matera/d22632-ttd"
     },
     {
@@ -5386,7 +5386,7 @@
         "HousingCost": 4.01,
         "Cost of Living (Nomad)": 1859.23,
         "Tourists": 3493859,
-        "WeatherWidget": "",
+        "WeatherWidget": "38d1915d55/messina",
         "Viator": "Messina/d4814-ttd"
     },
     {
@@ -5582,7 +5582,7 @@
         "HousingCost": 5.39,
         "Cost of Living (Nomad)": 3106.15,
         "Tourists": 665514,
-        "WeatherWidget": "",
+        "WeatherWidget": "44d6510d93/modena/",
         "Viator": "Modena/d25818-ttd"
     },
     {
@@ -5680,7 +5680,7 @@
         "HousingCost": 5.63,
         "Cost of Living (Nomad)": 3522.81,
         "Tourists": 1071310,
-        "WeatherWidget": "",
+        "WeatherWidget": "45d629d26/province-of-monza-and-brianza",
         "Viator": ""
     },
     {
@@ -8326,7 +8326,7 @@
         "HousingCost": 8.93,
         "Cost of Living (Nomad)": 2611.35,
         "Tourists": 7492538,
-        "WeatherWidget": "",
+        "WeatherWidget": "40d738d56/sassari/",
         "Viator": ""
     },
     {
@@ -8424,7 +8424,7 @@
         "HousingCost": 7.81,
         "Cost of Living (Nomad)": 2836.39,
         "Tourists": 5717487,
-        "WeatherWidget": "",
+        "WeatherWidget": "44d298d27/province-of-savona",
         "Viator": ""
     },
     {
