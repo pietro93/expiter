@@ -399,7 +399,7 @@ function newPage(){
   let province = getData(document.title.split(" - ")[0])
   let info = getInfo(province)
   let separator='</br><span class="separator"></span></br>'
-
+  
   appendProvinceData(province);
  
 
