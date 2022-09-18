@@ -21,7 +21,6 @@ fetch('https://raw.githubusercontent.com/pietro93/italycities.github.io/main/dat
     })
     .catch(function (err) {
         console.log('error: ' + err);  
-        location.reload();
     });
 
 
@@ -348,7 +347,7 @@ function appendData(data) {
     
 }
 
- $(document).ready(function(){
+ $(document).ready(setTimeout(function(){
   setNavBar();
   if (!!document.getElementById("filters")){
   let filters = document.getElementById("filters");
@@ -391,7 +390,7 @@ row.innerHTML+='<button class="button column regionfilter" id="'+regions[i].subs
   filterBy();
 }
 
-}
+},500)
 
 );
 
@@ -554,6 +553,7 @@ function setNavBar(){
   '</div>'+
   '<ul class="menu-items">'+
       '<li><a href="https://pietro93.github.io/italycities.github.io/">Home</a></li>'+
+      '<li><a href="https://pietro93.github.io/italycities.github.io/resources.html">Resources</a></li>'+
       '<li><a href="https://pietro93.github.io/italycities.github.io/about.html">About</a></li>'+
       '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Contribute</a></li>'+
       '</ul>'+

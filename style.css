@@ -20,13 +20,33 @@ html, body {
   background-color:var(--darkest-blue);
   background-image: linear-gradient(var(--lightest-blue),var(--lightest-blue)
   ,var(--light-blue),var(--light-blue),var(--light-blue),var(--light-blue),
+  var(--light-blue),var(--light-blue),var(--light-blue),var(--light-blue),
+  var(--light-blue),var(--light-blue),var(--light-blue),var(--light-blue),
+  var(--light-blue),var(--light-blue),var(--light-blue),var(--light-blue),
   var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue)
-  ,var(--blue-going-to-cyan),var(--blue-going-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
-  ,var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
-  ,var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),
-  var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),
-  var(--darkest-blue), var(--darkest-blue), var(--darkest-blue), var(--darkest-blue), var(--darkest-blue), var(--darkest-blue), var(--darkest-blue), var(--darkest-blue),
-  var(--darkest-blue));
+  ,  var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue)
+  ,  var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue)
+  ,var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue)
+  ,var(--blue-going-to-cyan),var(--blue-going-to-cyan),var(--blue-going-to-cyan)
+  ,var(--blue-going-to-cyan),var(--blue-going-to-cyan),var(--blue-going-to-cyan)
+  ,var(--blue-going-to-cyan),var(--blue-going-to-cyan),var(--blue-going-to-cyan)
+  ,var(--blue-going-to-cyan),var(--blue-going-to-cyan),var(--blue-going-to-cyan)
+  ,var(--blue-going-to-cyan),var(--blue-going-to-cyan),var(--blue-going-to-cyan)
+  ,var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
+  ,var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
+  ,var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
+  ,var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
+  ,var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
+  ,var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue)
+  ,var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue)
+  ,var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue)
+  ,var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue)
+  ,var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue)
+  ,var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue)
+  ,var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue)
+  ,var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue)
+  ,var(--darkest-blue),var(--darkest-blue),var(--darkest-blue),var(--darkest-blue),var(--darkest-blue)
+  );
   background-size: 200vw 5000px;
   background-position-x:-20vw;
   background-repeat:no-repeat;
@@ -1146,23 +1166,39 @@ overflow-y: scroll;
 }
 
 nav[data-toggle=toc] .nav>li>a {
-	display:none;
-	
-}
-nav[data-toggle=toc] .nav .nav>li>a {
-	font-size: 16px;
+	font-size: 14px;
   display:block;
   border-bottom: 2px solid #eee;
   color:var(--cyan-to-dark-blue);
+  padding-left:0;
+  width:200px;
+  transition: font-size 0.3s ease-in-out;
 }
-nav[data-toggle=toc] .nav .nav>li>a:hover{
-  color:var(--lightest-blue);
+nav[data-toggle=toc] .nav .nav>li>a {
+  height:16px;
+  overflow:hidden;
+  top:0;
+	font-size: 14px;
+  color:var(--cyan-to-dark-blue);
+  padding-left:10px;
+  line-height:16px;
+  width:inherit;
+  transition: font-size 0.3s ease-in-out;
 }
+nav[data-toggle=toc] .nav>li>a:hover ,
+nav[data-toggle=toc] .nav .nav>li>a:hover {
+  font-size:16px;
+  overflow:visible;
+  height:auto;
+  background-color:var(--lightest-blue);
+  padding-left:5px;
+}
+
 
 .toc{
   position:fixed;
   left:0;
-  width:auto;
+  width:250px;
   background-color:rgba(203,239,255,.79);
   height:auto;
   padding-bottom:1vh;
@@ -1177,25 +1213,33 @@ nav[data-toggle=toc] .nav .nav>li>a:hover{
 .toc>.arrow{
   position:absolute;
   margin-right:-25px;
-  margin-bottom:55px;
+  margin-bottom:50%;
   border-color:white;
   cursor:pointer;
+  transition: transform 0.3s ease-in-out;
 }
 .collapsed{
   width:30px;
   height:60px;
   padding-left:25px;
   padding-right:15px;
+  
 }
+
+.collapsed > * > * > nav[data-toggle=toc] .nav >li>a,
 .collapsed > * > * > nav[data-toggle=toc] .nav .nav >li>a{
 font-size:0px;
+transition: font-size 0s ease-in-out;
+visibility:hidden;
 }
 .collapsed>.arrow{
   position:absolute;
-  bottom:-37px;
+  bottom:-2px;
+  left:4px;
   margin-right:-5px;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
+  transition: transform 0.6s ease-in-out;
 }
 
 .map{  font-size:16px;}
@@ -1232,4 +1276,22 @@ font-size:0px;
   border-radius:25px;
   margin-top:5px;
   opacity:.8;
+}
+
+/* small screens */
+@media (max-width: 768px) {
+   .toc{
+    max-width:60vw;
+   }
+  /* PICK ONE */
+  /* don't expand nested items, which pushes down the rest of the page when navigating */
+  nav[data-toggle="toc"] .nav .active .nav {
+    display: none;
+  }
+  /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
+  
+  /*nav[data-toggle='toc'] .nav .nav {
+    display: block;
+  }
+  */
 }
