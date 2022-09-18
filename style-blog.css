@@ -85,13 +85,14 @@
 .res > div {
   max-width:78%;
   padding-bottom:28px;
-  padding-left:2%;
+  padding-right:2%;
 }
 .res > a {
   max-width:19%;
   margin-top:0;
   height:max-content;
   padding-bottom:14px;
+  float:right;
 }
 
 .res > div > h3{
