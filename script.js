@@ -14,9 +14,10 @@ fetch('https://raw.githubusercontent.com/pietro93/italycities.github.io/main/dat
     .then(function (data) {
         populateData(data);
         dataset = data;
+        setTimeout(function(){
         if (document.title=="Italy Expats and Nomads")
         filterDataByRegion("All")
-        else if (location.href.includes("/province/")) setTimeout(newPage(),500)
+        else if (location.href.includes("/province/")) newPage()},100)
     })
     .catch(function (err) {
         console.log('error: ' + err);  
