@@ -17,7 +17,7 @@ html, body {
   margin: 20px 0;
   font-size: 16px;
   font-weight: 500;
-  background-color:var(--darkest-blue);
+  background-color:var(--medium-blue);
   background-image: linear-gradient(var(--lightest-blue),var(--lightest-blue)
   ,var(--light-blue),var(--light-blue),var(--light-blue),var(--light-blue),
   var(--light-blue),var(--light-blue),var(--light-blue),var(--light-blue),
@@ -27,25 +27,6 @@ html, body {
   ,  var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue)
   ,  var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue)
   ,var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue),var(--medium-blue)
-  ,var(--blue-going-to-cyan),var(--blue-going-to-cyan),var(--blue-going-to-cyan)
-  ,var(--blue-going-to-cyan),var(--blue-going-to-cyan),var(--blue-going-to-cyan)
-  ,var(--blue-going-to-cyan),var(--blue-going-to-cyan),var(--blue-going-to-cyan)
-  ,var(--blue-going-to-cyan),var(--blue-going-to-cyan),var(--blue-going-to-cyan)
-  ,var(--blue-going-to-cyan),var(--blue-going-to-cyan),var(--blue-going-to-cyan)
-  ,var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
-  ,var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
-  ,var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
-  ,var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
-  ,var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan),var(--blue-to-cyan)
-  ,var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue)
-  ,var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue)
-  ,var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue)
-  ,var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue)
-  ,var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue),var(--cyan-to-dark-blue)
-  ,var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue)
-  ,var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue)
-  ,var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue),var(--dark-blue)
-  ,var(--darkest-blue),var(--darkest-blue),var(--darkest-blue),var(--darkest-blue),var(--darkest-blue)
   );
   background-size: 200vw 5000px;
   background-position-x:-20vw;
@@ -118,7 +99,7 @@ card {
   top:1px;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
   html{width:100vw;}
   body{width:100vw;padding-left:2vw;padding-right:2vw;
     overflow-x:hidden}
@@ -819,8 +800,8 @@ h3{
 
 
 
-@media only screen and (max-width: 700px) {
-  
+@media only screen and (max-width: 768px) {
+ 
   .arrow{
     right:10px;
     margin-right:10px;
@@ -1044,6 +1025,46 @@ section>div.column{
 }
 
 
+.hero{
+  position:absolute;
+  opacity:.33;
+  image-rendering: crisp-edges;
+  background-blend-mode:hard-light;
+  width:100vw;
+  height:100vh;
+  background-size: cover;
+  z-index:0;
+  background-position-y:-33vh;
+  background-size:cover;
+  background-repeat:no-repeat;  
+  left:0;
+}
+.hero::after{
+  content:"";
+  margin:42vh 0 0 0;
+  padding:30vh;
+  width:100vw;
+  background-color:var(--light-blue);
+  opacity:.9758;
+  background-blend-mode:normal;
+  position:absolute;
+}
+
+.hero ~ h1{
+  z-index: 1;
+  opacity:1;
+  color:black;
+  padding-bottom:10vh;
+  font-size:32px;
+  padding-top:10vh;
+  font-weight:800;
+  text-shadow: 0 0 1px var(--cyan-to-dark-blue),
+  0 0 200px rgba(10,133,223,0.99),
+0 0 303px rgba(43,100,233,0.69);
+}
+
+
+
 @media only screen and (max-width: 700px) {
   .tabs > input, .tabs > span{
     width:33.3%;
@@ -1106,45 +1127,25 @@ section>div.column{
   min-height:100%;
   height:100%;
 }
+.tabs{
+  margin-top:-7vh;
 
-}
-
-.hero{
-  position:absolute;
-  opacity:.33;
-  image-rendering: crisp-edges;
-  background-blend-mode:hard-light;
-  width:100vw;
-  height:100vh;
-  background-size: cover;
-  z-index:0;
-  background-position-y:-33vh;
-  left:0;
 }
 .hero::after{
-  content:"";
-  margin:40vh 0 0 0;
+  margin:42vh 0 0 0;
   padding:30vh;
   width:100vw;
   background-color:var(--light-blue);
-  opacity:.9758;
+  opacity:.7758;
   background-blend-mode:normal;
   position:absolute;
-}
+  }
 
-.hero ~ h1{
-  z-index: 1;
-  opacity:1;
-  color:black;
-  padding-bottom:10vh;
-  font-size:32px;
-  padding-top:10vh;
-  font-weight:800;
-  text-shadow: 0 0 1px var(--cyan-to-dark-blue),
-  0 0 200px rgba(10,133,223,0.99),
-0 0 303px rgba(43,100,233,0.69);
-}
+  .hero ~ h1{
+    margin-top:7vh;
+  }
 
+}
 
 /* small screens */
 @media (max-width: 768px) {
