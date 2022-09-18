@@ -494,7 +494,7 @@ function getInfo(province){
   "<br><br>"+
   "Around "+(province.CyclingLanes/10).toFixed(2)+"km per 10k inhabitants of the main city in "+name+" consist of bicycle lanes. This makes "+name+" "+(province.CyclingLanes>avg.CyclingLanes*.8?"<b class='green'>somewhat bike-friendly by Italian standards":(province.CyclingLanes>avg.CyclingLanes*1.2?"<b class='green'>very bike-friendly by Italian standards":"<b class='red'>not very bike-friendly"))+"</b>. "
   
-  info.disclaimer='</br></br><center><span id="disclaimer">As part of the Amazon Associates programme, we may earn a commission on qualified purchases.</span></center>'
+  info.disclaimer='</br></br><center><span id="disclaimer">This page contains affiliate links. As part of the Amazon Associates programme, we may earn a commission on qualified purchases.</span></center>'
   
   info.map='</br><center class="map"><iframe src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Province%20Of%20'+name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" ></iframe></br></br>'+
   'Search for: '+
@@ -556,7 +556,7 @@ function setNavBar(){
       '<li><a href="https://pietro93.github.io/italycities.github.io/">Home</a></li>'+
       '<li><a href="https://pietro93.github.io/italycities.github.io/resources.html">Resources</a></li>'+
       '<li><a href="https://pietro93.github.io/italycities.github.io/about.html">About</a></li>'+
-      '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Contribute</a></li>'+
+      '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
       '</ul>'+
  '<a href="https://pietro93.github.io/italycities.github.io/"><h1 class="logo">Italy Expats & Nomads</h1></a>'+
 '</div>'

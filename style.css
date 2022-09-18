@@ -1263,6 +1263,7 @@ visibility:hidden;
   border: 1px dotted var(--medium-blue);
   background-color:var(--blue-to-cyan);
   border-radius:10px;
+  white-space: nowrap;
 }
 .map b:hover{
   opacity:1;
