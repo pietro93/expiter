@@ -315,7 +315,7 @@ function appendData(data) {
 
         
         if (data[i].Name.length>14){card.innerHTML = '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + data[i].Name + '</h3> '}
-        else card.innerHTML = '<div class="frame"><center><h3 class="header">' + data[i].Name + '</h3> ';
+        else card.innerHTML = '<div class="frame" ><center><h3 class="header">' + data[i].Name + '</h3> ';
         card.innerHTML += '<p class="region">' + data[i]["Region"];
         card.innerHTML += '<p class="population">👥Population: <b style="color:white">'+data[i].Population.toLocaleString('en', {useGrouping:true}) +'</b>';
         card.innerHTML += '<p>💸Cost: '+ qualityScore("CostOfLiving",data[i].CostOfLiving) +'';
@@ -341,7 +341,8 @@ function appendData(data) {
         card.title=data[i].Name+', '+data[i].Region;
         card.style.backgroundImage = 'url('+image+')';
         card.id = data[i].Name;
-        col.innerHTML = card.outerHTML;
+        col.innerHTML = "<a href='./province/"+data[i].Name+".html\''>"+card.outerHTML+"</a>";
+        
         mainContainer.appendChild(col);
     }
     

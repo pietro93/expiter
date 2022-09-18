@@ -115,7 +115,7 @@ card {
   .paracard > p > score{font: size 13px;
   letter-spacing:-1px;
 margin-top:-5px;}
-  card:hover > p {
+  a>card:hover > p {
     text-transform:capitalize;
     margin-left:0px;
   }
@@ -344,31 +344,31 @@ card.Campania::after{
 }card.Campania>.region{color:gold}
 
 
-:not(.fullwidth) > .column > card:hover > .population, :not(.fullwidth) > .column > card:hover >.region{
+:not(.fullwidth) > .column > a > card:hover > .population, :not(.fullwidth) > .column > a >  card:hover >.region{
   opacity:0
 }
 
-:not(.fullwidth) > .column > card:hover{height:100%;}
-:not(.fullwidth)  > .column >  card:hover .header, :not(.fullwidth) > .column >  card:hover > p{
+:not(.fullwidth) > .column > a > card:hover{height:100%;}
+:not(.fullwidth)  > .column > a >  card:hover .header, :not(.fullwidth) > .column > a >  card:hover > p{
   text-shadow: 0 0 12px black;
   opacity:1;
   
  }
- :not(.fullwidth)  > .column >  card:hover > p,:not(.fullwidth) > .column >  card:hover > score{
+ :not(.fullwidth)  > .column > a >  card:hover > p,:not(.fullwidth) > .column > a >  card:hover > score{
   font-size:18px;
  }
 
- :not(.fullwidth)  > .column >  card:hover .header{
+ :not(.fullwidth)  > .column > a >  card:hover .header{
   font-size:20px;
   margin-top:-2px;
   opacity:.5;
  }
- :not(.fullwidth) > .column > .paracard:hover{
+ :not(.fullwidth) > .column > a >  .paracard:hover{
   padding-top: 10px;
   cursor:pointer;
  }
 
- :not(.fullwidth)  > .column >   card:hover::after{
+ :not(.fullwidth)  > .column > a >   card:hover::after{
     opacity:0.53;
     background-color:black;
  }
@@ -415,12 +415,12 @@ card .header {
   }
 
 
-  :not(.fullwidth)  > .column >   card:hover > .more{
+  :not(.fullwidth)  > .column >  a >  card:hover > .more{
     opacity:.8;
     font-weight:800;
   }
 
-  :not(.fullwidth)  > .column >   card:hover > .more:hover{
+  :not(.fullwidth)  > .column >  a >  card:hover > .more:hover{
     opacity:1;
     color:rgba(90,30,0,1);
   }
