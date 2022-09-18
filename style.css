@@ -1272,9 +1272,10 @@ visibility:hidden;
   border: 1px dotted var(--lightest-blue);
 }
 #disclaimer {
-  font-size:12px;
+  font-size:13px;
   font-style:italic;
-  opacity:.9
+  opacity:.68;
+  letter-spacing:-.5px;
 }
 
 .separator{
@@ -1294,6 +1295,10 @@ visibility:hidden;
 
 /* small screens */
 @media (max-width: 768px) {
+
+  #disclaimer {
+    font-size:15px;
+  }
    .toc{
     max-width:60vw;
    }
