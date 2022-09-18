@@ -84,21 +84,33 @@ body::-webkit-scrollbar-thumb {
 card {
   position: relative;
   flex: 0 0 240px;
-  width: 100%;
+  width: auto;
   height: 88%;
   padding:5px; 
   overflow: hidden;
   border-radius: 10px;
   z-index:1;
   min-width:180px;
-  max-width:250px;
+  max-width:200px;
 }
 
 .fullwidth  > .column > .paracard > p> score{
   text-transform:uppercase;
   top:1px;
 }
-
+@media only screen and (min-width: 1268px) {
+  #app{
+    left:-10%;
+    width:100vw;
+  }
+  #app>.column{
+    padding-left:0;
+    padding-right:0;
+  }
+    card {
+    min-width:210px;
+  }
+}
 @media only screen and (max-width: 768px) {
   html{width:100vw;}
   body{width:100vw;padding-left:2vw;padding-right:2vw;
