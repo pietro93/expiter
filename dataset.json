@@ -3132,7 +3132,7 @@
         "HousingCost": 6,
         "Cost of Living (Nomad)": 2501.62,
         "Tourists": 610454,
-        "WeatherWidget": "",
+        "WeatherWidget": "43d1613d72/fermo",
         "Viator": ""
     },
     {
@@ -3818,7 +3818,7 @@
         "HousingCost": 4.08,
         "Cost of Living (Nomad)": 2482.4,
         "Tourists": 538357,
-        "WeatherWidget": "",
+        "WeatherWidget": "45d9413d62/gorizia",
         "Viator": ""
     },
     {
@@ -4014,7 +4014,7 @@
         "HousingCost": 6.56,
         "Cost of Living (Nomad)": 2436.03,
         "Tourists": 3202619,
-        "WeatherWidget": "",
+        "WeatherWidget": "43d898d04/imperia/",
         "Viator": ""
     },
     {
@@ -4602,7 +4602,7 @@
         "HousingCost": 4.64,
         "Cost of Living (Nomad)": 2947.91,
         "Tourists": 900940,
-        "WeatherWidget": "",
+        "WeatherWidget": "45d869d40/lecco/",
         "Viator": ""
     },
     {
@@ -4994,7 +4994,7 @@
         "HousingCost": 5.6,
         "Cost of Living (Nomad)": 2484.98,
         "Tourists": 642504,
-        "WeatherWidget": "",
+        "WeatherWidget": "43d3013d45/macerata",
         "Viator": ""
     },
     {
@@ -8718,7 +8718,7 @@
         "HousingCost": 3.99,
         "Cost of Living (Nomad)": 2423.56,
         "Tourists": 851316,
-        "WeatherWidget": "",
+        "WeatherWidget": "46d179d88/sondrio",
         "Viator": ""
     },
     {
