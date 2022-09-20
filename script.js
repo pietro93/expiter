@@ -630,3 +630,32 @@ function appendProvinceData(province){
   tab3[1].innerHTML+=('<p>🏖️Beach: '+qualityScore("Beach",province["Beach"]));
   tab3[1].innerHTML+=('<p>⛰️Hiking: '+qualityScore("Hiking",province["Hiking"]));
 }
+
+
+// add trackers to <head>
+$(document).ready(function(){
+let adSense = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0087385699618984" crossorigin="anonymous"></script>'
+let analytics = '<!-- Google tag (gtag.js) -->'+
+'<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEX5VTPVLL"></script>'+
+'<script>'+
+'  window.dataLayer = window.dataLayer || [];'+
+'  function gtag(){dataLayer.push(arguments);}'+
+"  gtag('js', new Date());"+
+  
+"  gtag('config', 'G-ZEX5VTPVLL');"+
+'</script>'
+let hotJar = '<!-- Hotjar Tracking Code for https://expiter.com -->'+
+"<script>"+
+"    (function(h,o,t,j,a,r){"+
+"        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};"+
+"        h._hjSettings={hjid:3165131,hjsv:6};"+
+"        a=o.getElementsByTagName('head')[0];"+
+"        r=o.createElement('script');r.async=1;"+
+"        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;"+
+"        a.appendChild(r);"+
+"    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');"+
+'</script>'
+
+$('head').append(adSense+analytics+hotJar)
+}
+)
