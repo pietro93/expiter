@@ -7,7 +7,7 @@ var dataset;
 var avg;
 var regions ={};
 
-fetch('https://raw.githubusercontent.com/pietro93/italycities.github.io/main/dataset.json')
+fetch('/dataset.json', {method:"Get"})
     .then(function (response) {
         return response.json();
     })
@@ -553,12 +553,12 @@ function setNavBar(){
       '<span class="line line3"></span>'+
   '</div>'+
   '<ul class="menu-items">'+
-      '<li><a href="https://pietro93.github.io/italycities.github.io/">Home</a></li>'+
-      '<li><a href="https://pietro93.github.io/italycities.github.io/resources.html">Resources</a></li>'+
-      '<li><a href="https://pietro93.github.io/italycities.github.io/about.html">About</a></li>'+
+      '<li><a href="/index.html">Home</a></li>'+
+      '<li><a href="/resources.html">Resources</a></li>'+
+      '<li><a href="/about.html">About</a></li>'+
       '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
       '</ul>'+
- '<a href="https://pietro93.github.io/italycities.github.io/"><h1 class="logo">Italy Expats & Nomads</h1></a>'+
+ '<a href="/index.html"><h1 class="logo">Italy Expats & Nomads</h1></a>'+
 '</div>'
 }
 
