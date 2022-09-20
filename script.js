@@ -337,7 +337,12 @@ function appendData(data) {
         card.innerHTML += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name+'.html\';"> More>> </button>';
         col.classList = 'column';
         card.classList = data[i].Region + ' paracard ';
-        let image = 'img/'+data[i].Abbreviation+'.webp';
+        
+        let image;
+        if ($(window).width() > 960) {
+        image = 'img/'+data[i].Abbreviation+'.webp';
+        }else image = ""
+        
         card.title=data[i].Name+', '+data[i].Region;
         card.style.backgroundImage = 'url('+image+')';
         card.id = data[i].Name;
