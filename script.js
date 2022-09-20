@@ -655,7 +655,7 @@ let hotJar = '<!-- Hotjar Tracking Code for https://expiter.com -->'+
 "        a.appendChild(r);"+
 "    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');"+
 '</script>'
-
-$('head').append(adSense+analytics+hotJar)
+let GSC = '<meta name="google-site-verification" content="4sOxlmGkQBkLLrrnRU2a4dAKUnhKxU3-VzFaRrfvGwk" />'
+$('head').append(adSense+analytics+hotJar+GSC)
 }
 )
