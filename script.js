@@ -17,7 +17,8 @@ fetch('../dataset.json', {method:"Get"})
         setTimeout(function(){
         if (document.title=="Italy Expats and Nomads")
         filterDataByRegion("All")
-        else if (location.href.includes("/province/")) newPage()},100)
+        else if (location.href.includes("/province/")) //newPage()
+      },100)
     })
     .catch(function (err) {
         console.log('error: ' + err);  
