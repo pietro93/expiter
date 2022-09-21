@@ -1049,8 +1049,6 @@ section>div.column{
 .hero{
   position:absolute;
   opacity:.33;
-  image-rendering: crisp-edges;
-  background-blend-mode:hard-light;
   width:100vw;
   height:100vh;
   background-size: cover;
@@ -1084,7 +1082,13 @@ section>div.column{
 0 0 303px rgba(43,100,233,0.69);
 }
 
-
+@media (min-width: 868px) {
+  .hero{
+   width:80vw;
+   margin-left:10vw;
+   background-position-y: -33vh;
+  }
+}
 
 @media only screen and (max-width: 700px) {
   .tabs > input, .tabs > span{
