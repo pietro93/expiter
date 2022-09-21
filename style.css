@@ -672,7 +672,7 @@ h3{
     text-shadow: 2px -1px 1px var(--blue-to-cyan);
     text-shadow: -2px 1px 1px var(--blue-going-to-cyan);
     text-shadow: 1px 2px 1px var(--cyan-to-dark-blue);
-    background-image:url("img/expiter.png");
+    background-image:url("img/expiter.webp");
     background-size:contain;
     background-repeat:no-repeat;
     text-overflow:hidden;
