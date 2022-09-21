@@ -314,8 +314,13 @@ function appendData(data) {
         let card = document.createElement("card");
         let col = document.createElement("div");
 
+        if ($(window).width() > 765) {
         card.innerHTML ='<img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-200,h-360,c-at_least" alt="'+data[i].Name+'"></img>'
-        
+        }
+        else{
+          card.innerHTML ='<img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-200,h-360,c-at_least,q-1,bl-1" alt="'+data[i].Name+'"></img>'
+        }
+
         if (data[i].Name.length>14){card.innerHTML += '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + data[i].Name + '</h3> '}
         else card.innerHTML += '<div class="frame" ><center><h3 class="header">' + data[i].Name + '</h3> ';
         card.innerHTML += '<p class="region">' + data[i]["Region"];
