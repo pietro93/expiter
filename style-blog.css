@@ -44,7 +44,7 @@
 .plus {
   position: absolute;
   margin-left: 10px;
-  z-index: 1;
+  z-index: 5;
   font-size: 1.8em;
   line-height: 100%;
   -webkit-user-select: none;    
