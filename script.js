@@ -7,7 +7,7 @@ var dataset;
 var avg;
 var regions ={};
 
-fetch('/dataset.json', {method:"Get"})
+fetch('../dataset.json', {method:"Get"})
     .then(function (response) {
         return response.json();
     })
@@ -444,7 +444,7 @@ function newPage(){
 function getInfo(province){
 
   populateFacts();
-  let ratio = (province.Men/(Math.min(province.Men,province.Women))).toFixed(2)+":"+(province.Women/(Math.min(province.Men,province.Women))).toFixed(2)
+  let ratio = (province.Men/(Math.min(province.Men,province.Women))).toFixed(2)+":"+(province.Women/(Math.min(province.Men,province.Women))).toFixed(2);
   let name=province.Name;
   let region=regions[province.Region];
   
