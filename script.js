@@ -556,10 +556,10 @@ facts.Milano.overview="The <b>city of Milan</b>, with 1,371,498 residents, is th
 }
 
 function setNavBar(){
-  let navbar = document.getElementsByClassName("navbar")[0];
+  let navbar = document.getElementById("navbar");
   navbar.innerHTML=
   '<div class="navbar-container">'+
-  '<input type="checkbox" name="navbar" id="navbar">'+
+  '<input type="checkbox" name="navbar" id="nbar">'+
   '<div class="hamburger-lines">'+
       '<span class="line line1"></span>'+
       '<span class="line line2"></span>'+

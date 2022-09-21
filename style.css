@@ -43,7 +43,9 @@ html {
   width: 100vw;
 }
 b,h2,h3,h1,p{ font-family: "Open Sans", sans-serif;color:black}
-ej{font-family: "Noto Color Emoji"}
+ej{font-family: "Noto Color Emoji";
+font-size:15px;
+padding-right:2px;}
 
 
 body {
@@ -631,12 +633,12 @@ h3{
 }
 
 
-.navbar input[type="checkbox"],
-.navbar .hamburger-lines{
+#navbar input[type="checkbox"],
+#navbar .hamburger-lines{
     display: none;
 }
 
-.navbar{
+#navbar{
     box-shadow: 0px 5px 10px 0px var(--blue-going-to-cyan);
     position: fixed;
     width: 100vw;
@@ -686,7 +688,7 @@ h3{
     font-size: 1.3rem;
 }
 
-.navbar a{
+#navbar a{
     color: var(--lightest-blue);
     opacity:.9;
     text-decoration: none;
@@ -694,13 +696,13 @@ h3{
     transition: color 0.3s ease-in-out;
 }
 
-.navbar a:hover{
+#navbar a:hover{
     color: white;
     opacity:1;
 }
 
 @media (max-width: 768px){
-    .navbar{
+  #navbar{
         opacity: 0.95;
     }
 
@@ -762,7 +764,7 @@ h3{
         transition: transform 0.3s ease-in-out;
     }
 
-    .navbar .menu-items{
+    #navbar .menu-items{
         padding-top: 100px;
         background: var(--dark-blue);
         height: 100vh;
@@ -777,7 +779,7 @@ h3{
         overflow: scroll;
     }
 
-    .navbar .menu-items li{
+    #navbar .menu-items li{
         margin-bottom: 1.8rem;
         font-size: 24px;
         font-weight: 500;
@@ -1191,7 +1193,7 @@ nav[data-toggle=toc] .nav>li>a {
   border-bottom: 2px solid #eee;
   color:var(--cyan-to-dark-blue);
   padding-left:0;
-  width:200px;
+  width:180px;
   transition: font-size 0.3s ease-in-out;
 }
 nav[data-toggle=toc] .nav .nav>li>a {
@@ -1202,7 +1204,7 @@ nav[data-toggle=toc] .nav .nav>li>a {
   color:var(--cyan-to-dark-blue);
   padding-left:10px;
   line-height:16px;
-  width:inherit;
+  width:auto;
   transition: font-size 0.3s ease-in-out;
 }
 nav[data-toggle=toc] .nav>li>a:hover ,
@@ -1309,6 +1311,11 @@ visibility:hidden;
    .toc{
     max-width:60vw;
    }
+
+   .toc.container{
+    padding-left:6.3%;
+   }
+   
   /* PICK ONE */
   /* don't expand nested items, which pushes down the rest of the page when navigating */
   nav[data-toggle="toc"] .nav .active .nav {
