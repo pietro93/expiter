@@ -17,7 +17,7 @@ fetch('../dataset.json', {method:"Get"})
         setTimeout(function(){
         if (document.title=="Italy Expats and Nomads")
         filterDataByRegion("All")
-        else if (location.href.includes("/province/")) //newPage()
+        //else if (location.href.includes("/province/")) //newPage()
       },100)
     })
     .catch(function (err) {
@@ -409,7 +409,7 @@ row.innerHTML+='<button class="button column regionfilter" id="'+regions[i].subs
 
 );
 
-
+/*
 function newPage(){
   let province = getData(document.title.split(" - ")[0])
   let info = getInfo(province)
@@ -532,7 +532,7 @@ function getInfo(province){
 
   return info;
 }
-
+*/
 function resizeFilterMenu(){
   let arrow = $("#header > .arrow");
   if (!$(".floatBottom").hasClass("toggled")){
@@ -548,14 +548,14 @@ function resizeFilterMenu(){
   }
 }
 
-
+/*
 function populateFacts(){
   
 facts.Roma.overview="The <b>city of Rome</b>, with 2.761.632 residents, is the most popolous city and <b>capital of Italy</b>."
 facts.Milano.overview="The <b>city of Milan</b>, with 1,371,498 residents, is the second-most popolous city and <b>industrial, commercial and financial capital of Italy</b>."
 
 }
-
+*/
 function setNavBar(){
   let navbar = document.getElementById("navbar");
   navbar.innerHTML=
@@ -586,7 +586,7 @@ function createSorting(label, value){
   sortings.append(sorting)
   
 }
-
+/*
 function appendProvinceData(province){
   
   let tab1=$("#tab-item-1 > .column");
@@ -645,7 +645,7 @@ function appendProvinceData(province){
   tab3[1].innerHTML+=('<p><ej>🏖️</ej>Beach: '+qualityScore("Beach",province["Beach"]));
   tab3[1].innerHTML+=('<p><ej>⛰️</ej>Hiking: '+qualityScore("Hiking",province["Hiking"]));
 }
-
+*/
 
 // add trackers to <head>
 $(document).ready(function(){
