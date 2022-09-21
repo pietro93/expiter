@@ -631,12 +631,12 @@ h3{
 }
 
 
-.navbar input[type="checkbox"],
-.navbar .hamburger-lines{
+#navbar input[type="checkbox"],
+#navbar .hamburger-lines{
     display: none;
 }
 
-.navbar{
+#navbar{
     box-shadow: 0px 5px 10px 0px var(--blue-going-to-cyan);
     position: fixed;
     width: 100vw;
@@ -686,7 +686,7 @@ h3{
     font-size: 1.3rem;
 }
 
-.navbar a{
+#navbar a{
     color: var(--lightest-blue);
     opacity:.9;
     text-decoration: none;
@@ -694,13 +694,13 @@ h3{
     transition: color 0.3s ease-in-out;
 }
 
-.navbar a:hover{
+#navbar a:hover{
     color: white;
     opacity:1;
 }
 
 @media (max-width: 768px){
-    .navbar{
+  #navbar{
         opacity: 0.95;
     }
 
@@ -762,7 +762,7 @@ h3{
         transition: transform 0.3s ease-in-out;
     }
 
-    .navbar .menu-items{
+    #navbar .menu-items{
         padding-top: 100px;
         background: var(--dark-blue);
         height: 100vh;
@@ -777,7 +777,7 @@ h3{
         overflow: scroll;
     }
 
-    .navbar .menu-items li{
+    #navbar .menu-items li{
         margin-bottom: 1.8rem;
         font-size: 24px;
         font-weight: 500;
@@ -1047,8 +1047,6 @@ section>div.column{
 .hero{
   position:absolute;
   opacity:.33;
-  image-rendering: crisp-edges;
-  background-blend-mode:hard-light;
   width:100vw;
   height:100vh;
   background-size: cover;
@@ -1165,6 +1163,15 @@ section>div.column{
   }
 
 }
+
+@media (min-width: 868px) {
+   .hero{
+    width:80vw;
+    margin-left:10vw;
+    background-position-y: -33vh;
+  }
+}
+
 
 /* small screens */
 @media (max-width: 768px) {
