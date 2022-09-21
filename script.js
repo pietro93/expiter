@@ -503,7 +503,7 @@ function getInfo(province){
   
   info.disclaimer='</br></br><center><span id="disclaimer">This page contains affiliate links. As part of the Amazon Associates programme, we may earn a commission on qualified purchases.</span></center>'
   
-  info.map='</br><center class="map"><iframe src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Province%20Of%20'+name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" ></iframe></br></br>'+
+  info.map='</br><center class="map"><iframe src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Province%20Of%20'+name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
   'Search for: '+
   '<a href="https://www.amazon.it/ulp/view?&linkCode=ll2&tag=expiter-21&linkId=5824e12643c8300394b6ebdd10b7ba3c&language=it_IT&ref_=as_li_ss_tl" target="_blank"><b>📦Amazon Pickup Locations</b></a> '+
   '<a href="https://www.google.com/maps/search/Province+Of+'+name+'+Attractions/" target="_blank"><b>🎭Attractions</b></a> '+
@@ -562,7 +562,7 @@ function setNavBar(){
   '<ul class="menu-items">'+
       '<li><a href="/index.html">Home</a></li>'+
       '<li><a href="/resources.html">Resources</a></li>'+
-      '<li><a href="/about.html">About</a></li>'+
+      '<li><a href="#About">About</a></li>'+
       '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
       '</ul>'+
  '<a href="/index.html"><h1 class="logo">Italy Expats & Nomads</h1></a>'+
@@ -577,6 +577,7 @@ function createSorting(label, value){
     '<span>'+label+'</span>'+
     '</label>'
   sortings.append(sorting)
+  $("#sorting > p").text("Sort by:")
 }
 
 function appendProvinceData(province){

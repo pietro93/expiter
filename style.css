@@ -79,7 +79,6 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-bottom:55px;
 }
 
 card {
