@@ -313,9 +313,10 @@ function appendData(data) {
         let card = document.createElement("card");
         let col = document.createElement("div");
 
+        card.innerHTML ='<img loading="lazy" src="img/'+data[i].Abbreviation+'.webp" alt="'+data[i].Name+'"></img>'
         
-        if (data[i].Name.length>14){card.innerHTML = '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + data[i].Name + '</h3> '}
-        else card.innerHTML = '<div class="frame" ><center><h3 class="header">' + data[i].Name + '</h3> ';
+        if (data[i].Name.length>14){card.innerHTML += '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + data[i].Name + '</h3> '}
+        else card.innerHTML += '<div class="frame" ><center><h3 class="header">' + data[i].Name + '</h3> ';
         card.innerHTML += '<p class="region">' + data[i]["Region"];
         card.innerHTML += '<p class="population">👥Population: <b style="color:white">'+data[i].Population.toLocaleString('en', {useGrouping:true}) +'</b>';
         card.innerHTML += '<p>💸Cost: '+ qualityScore("CostOfLiving",data[i].CostOfLiving) +'';
@@ -336,19 +337,19 @@ function appendData(data) {
         card.innerHTML += '<p class="opacity4">🧳For nomads: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'';
         card.innerHTML += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name+'.html\';"> More>> </button>';
         col.classList = 'column';
-        card.classList = data[i].Region + ' paracard ';
+
+        //let image = 'img/'+data[i].Abbreviation+'.webp';
+        card.classList = data[i].Region + ' paracard';
         
-        let image;
-        if ($(window).width() > 960) {
-        image = 'img/'+data[i].Abbreviation+'.webp';
-        }else image = ""
+        
         
         card.title=data[i].Name+', '+data[i].Region;
-        card.style.backgroundImage = 'url('+image+')';
+        //card.style.backgroundImage = 'url('+image+')';
         card.id = data[i].Name;
         col.innerHTML = "<a href='./province/"+data[i].Name+".html\''>"+card.outerHTML+"</a>";
         
         mainContainer.appendChild(col);
+        
     }
     
 }
@@ -395,6 +396,7 @@ row.innerHTML+='<button class="button column regionfilter" id="'+regions[i].subs
   createSorting("Family-friendly");createSorting("Vegan-friendly","Veg-friendly");createSorting("Pop. Density","Density");
   filterBy();
 }
+
 
 },500)
 
@@ -640,7 +642,7 @@ function appendProvinceData(province){
 // add trackers to <head>
 $(document).ready(function(){
 let adSense = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0087385699618984" crossorigin="anonymous"></script>'
-let analytics = '<!-- Google tag (gtag.js) -->'+
+/*let analytics = '<!-- Google tag (gtag.js) -->'+
 '<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEX5VTPVLL"></script>'+
 '<script>'+
 '  window.dataLayer = window.dataLayer || [];'+
@@ -648,7 +650,7 @@ let analytics = '<!-- Google tag (gtag.js) -->'+
 "  gtag('js', new Date());"+
   
 "  gtag('config', 'G-ZEX5VTPVLL');"+
-'</script>'
+'</script>'*/
 let hotJar = '<!-- Hotjar Tracking Code for https://expiter.com -->'+
 "<script>"+
 "    (function(h,o,t,j,a,r){"+
@@ -662,6 +664,6 @@ let hotJar = '<!-- Hotjar Tracking Code for https://expiter.com -->'+
 '</script>'
 let GSC = '<!-- Google Search Console Tracker -->'+
 '<meta name="google-site-verification" content="4sOxlmGkQBkLLrrnRU2a4dAKUnhKxU3-VzFaRrfvGwk" />'
-$('head').append(GSC+adSense+analytics+hotJar)
+$('head').append(GSC+adSense+hotJar)
 }
 )
