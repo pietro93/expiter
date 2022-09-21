@@ -578,7 +578,6 @@ function setNavBar(){
 function createSorting(label, value){
   if (value==undefined)value=label;
   let sortings = $("#sorting")
-  $("#sorting > p").text("Sort by:")
   let sorting = '<label class="button radio column">'+
     '<input type="radio" name="sortBy" onClick="filterBy()" value='+value+(value=="Expat-friendly"?" checked":"")+'>'+
     '<span>'+label+'</span>'+
