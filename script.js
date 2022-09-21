@@ -319,23 +319,23 @@ function appendData(data) {
         if (data[i].Name.length>14){card.innerHTML += '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + data[i].Name + '</h3> '}
         else card.innerHTML += '<div class="frame" ><center><h3 class="header">' + data[i].Name + '</h3> ';
         card.innerHTML += '<p class="region">' + data[i]["Region"];
-        card.innerHTML += '<p class="population">👥Population: <b style="color:white">'+data[i].Population.toLocaleString('en', {useGrouping:true}) +'</b>';
+        card.innerHTML += '<p class="population"><ej>👥</ej>Population: <b style="color:white">'+data[i].Population.toLocaleString('en', {useGrouping:true}) +'</b>';
         card.innerHTML += '<p>&#128184Cost: '+ qualityScore("CostOfLiving",data[i].CostOfLiving) +'';
-        card.innerHTML += '<p>💰Expenses: '+ qualityScore("Cost of Living (Individual)",data[i]["Cost of Living (Individual)"])+'';
-        card.innerHTML += '<p>☀️Climate: '+ qualityScore("Climate",data[i].Climate) +'';
-        card.innerHTML += '<p>🚑Healthcare: '+ qualityScore("Healthcare",data[i].Healthcare) +'';
-        card.innerHTML += '<p>🚌Transport: '+ qualityScore("PublicTransport",data[i]["PublicTransport"]) +'';
-        card.innerHTML += '<p>👮🏽‍♀️Safety: '+ qualityScore("Safety",data[i]["Safety"]) +'';
-        card.innerHTML += '<p>📚Education: '+ qualityScore("Education",data[i]["Education"]) +'';
-        card.innerHTML += '<p>🏛️Culture: '+ qualityScore("Culture",data[i].Culture) +'';
-        card.innerHTML += '<p>🍸Nightlife: '+ qualityScore("Nightlife",data[i].Nightlife) +'';
-        card.innerHTML += '<p class="opacity6">⚽Recreation: '+ qualityScore("Sports & Leisure",data[i]["Sports & Leisure"])+'';
-        card.innerHTML += '<p class="opacity6">🍃Air quality: '+ qualityScore("AirQuality",data[i]["AirQuality"]) +'';
-        card.innerHTML += '<p class="opacity6">🏳️‍🌈LGBTQ+: '+ qualityScore("LGBT-friendly",data[i]["LGBT-friendly"]) +'';
-        card.innerHTML += '<p class="opacity4">👩For women: '+ qualityScore("Female-friendly",data[i]["Female-friendly"]) +'';
-        card.innerHTML += '<p class="opacity4">👪For family: '+ qualityScore("Family-friendly",data[i]["Family-friendly"]) +'';
-        card.innerHTML += '<p class="opacity4">🥗For vegans: '+ qualityScore("Veg-friendly",data[i]["Veg-friendly"]) +'';
-        card.innerHTML += '<p class="opacity4">🧳For nomads: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'';
+        card.innerHTML += '<p><ej>💰</ej>Expenses: '+ qualityScore("Cost of Living (Individual)",data[i]["Cost of Living (Individual)"])+'';
+        card.innerHTML += '<p><ej>☀️</ej>Climate: '+ qualityScore("Climate",data[i].Climate) +'';
+        card.innerHTML += '<p><ej>🚑</ej>Healthcare: '+ qualityScore("Healthcare",data[i].Healthcare) +'';
+        card.innerHTML += '<p><ej>🚌</ej>Transport: '+ qualityScore("PublicTransport",data[i]["PublicTransport"]) +'';
+        card.innerHTML += '<p><ej>👮🏽‍♀️</ej>Safety: '+ qualityScore("Safety",data[i]["Safety"]) +'';
+        card.innerHTML += '<p><ej>📚</ej>Education: '+ qualityScore("Education",data[i]["Education"]) +'';
+        card.innerHTML += '<p><ej>🏛️</ej>Culture: '+ qualityScore("Culture",data[i].Culture) +'';
+        card.innerHTML += '<p><ej>🍸</ej>Nightlife: '+ qualityScore("Nightlife",data[i].Nightlife) +'';
+        card.innerHTML += '<p class="opacity6"><ej>⚽</ej>Recreation: '+ qualityScore("Sports & Leisure",data[i]["Sports & Leisure"])+'';
+        card.innerHTML += '<p class="opacity6"><ej>🍃</ej>Air quality: '+ qualityScore("AirQuality",data[i]["AirQuality"]) +'';
+        card.innerHTML += '<p class="opacity6"><ej>🏳️‍🌈</ej>LGBTQ+: '+ qualityScore("LGBT-friendly",data[i]["LGBT-friendly"]) +'';
+        card.innerHTML += '<p class="opacity4"><ej>👩</ej>For women: '+ qualityScore("Female-friendly",data[i]["Female-friendly"]) +'';
+        card.innerHTML += '<p class="opacity4"><ej>👪</ej>For family: '+ qualityScore("Family-friendly",data[i]["Family-friendly"]) +'';
+        card.innerHTML += '<p class="opacity4"><ej>🥗</ej>For vegans: '+ qualityScore("Veg-friendly",data[i]["Veg-friendly"]) +'';
+        card.innerHTML += '<p class="opacity4"><ej>🧳</ej>For nomads: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'';
         card.innerHTML += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name+'.html\';"> More>> </button>';
         col.classList = 'column';
 
@@ -587,58 +587,58 @@ function appendProvinceData(province){
   let tab1=$("#tab-item-1 > .column");
   let tab2=$("#tab-item-2 > .column"); 
   let tab3=$("#tab-item-3 > .column"); 
-  tab1[0].innerHTML+=('<p>👥Population: <b>'+province.Population.toLocaleString('en', {useGrouping:true}) +'</b>');
-  tab1[0].innerHTML+=('<p>🚑Healthcare: '+ qualityScore("Healthcare",province.Healthcare));
-  tab1[0].innerHTML+=('<p>📚Education: '+ qualityScore("Education",province.Education));
-  tab1[0].innerHTML+=('<p>👮🏽‍♀️Safety: '+ qualityScore("Safety",province.Safety));
-  tab1[0].innerHTML+=('<p>🚨Crime: '+ qualityScore("Crime",province.Crime));
+  tab1[0].innerHTML+=('<p><ej>👥</ej>Population: <b>'+province.Population.toLocaleString('en', {useGrouping:true}) +'</b>');
+  tab1[0].innerHTML+=('<p><ej>🚑</ej>Healthcare: '+ qualityScore("Healthcare",province.Healthcare));
+  tab1[0].innerHTML+=('<p><ej>📚</ej>Education: '+ qualityScore("Education",province.Education));
+  tab1[0].innerHTML+=('<p><ej>👮🏽‍♀️</ej>Safety: '+ qualityScore("Safety",province.Safety));
+  tab1[0].innerHTML+=('<p><ej>🚨</ej>Crime: '+ qualityScore("Crime",province.Crime));
   
-  tab1[0].innerHTML+=('<p>🚌Transport: '+ qualityScore("PublicTransport",province["PublicTransport"]));
-  tab1[0].innerHTML+=('<p>🚥Traffic: '+ qualityScore("Traffic",province["Traffic"]));
-  tab1[0].innerHTML+=('<p>🚴‍♂️Cyclable: '+ qualityScore('CyclingLanes',province['CyclingLanes']));
-  tab1[0].innerHTML+=('<p>🏛️Culture: '+ qualityScore("Culture",province.Culture));
-  tab1[0].innerHTML+=('<p>🍸Nightlife: '+ qualityScore("Nightlife",province.Nightlife));
-  tab1[0].innerHTML+=('<p>⚽Recreation: '+ qualityScore("Sports & Leisure",province["Sports & Leisure"]));
+  tab1[0].innerHTML+=('<p><ej>🚌</ej>Transport: '+ qualityScore("PublicTransport",province["PublicTransport"]));
+  tab1[0].innerHTML+=('<p><ej>🚥</ej>Traffic: '+ qualityScore("Traffic",province["Traffic"]));
+  tab1[0].innerHTML+=('<p><ej>🚴‍♂️</ej>Cyclable: '+ qualityScore('CyclingLanes',province['CyclingLanes']));
+  tab1[0].innerHTML+=('<p><ej>🏛️</ej>Culture: '+ qualityScore("Culture",province.Culture));
+  tab1[0].innerHTML+=('<p><ej>🍸</ej>Nightlife: '+ qualityScore("Nightlife",province.Nightlife));
+  tab1[0].innerHTML+=('<p><ej>⚽</ej>Recreation: '+ qualityScore("Sports & Leisure",province["Sports & Leisure"]));
 
-  tab1[1].innerHTML+=('<p>🌦️Climate: '+ qualityScore("Climate",province.Climate));
-  tab1[1].innerHTML+=('<p>☀️Sunshine: '+ qualityScore("SunshineHours",province.SunshineHours));
-  tab1[1].innerHTML+=('<p>🥵Summers: '+ qualityScore("HotDays",province.HotDays));
-  tab1[1].innerHTML+=('<p>🥶Winters: '+ qualityScore("ColdDays",province.ColdDays));
-  tab1[1].innerHTML+=('<p>🌧️Rain: '+ qualityScore("RainyDays",province.RainyDays));
-  tab1[1].innerHTML+=('<p>🌫️Fog: '+ qualityScore("FoggyDays",province.FoggyDays));
-  tab1[1].innerHTML+=('<p>🍃Air quality: '+ qualityScore("AirQuality",province["AirQuality"]));
+  tab1[1].innerHTML+=('<p><ej>🌦️</ej>Climate: '+ qualityScore("Climate",province.Climate));
+  tab1[1].innerHTML+=('<p><ej>☀️</ej>Sunshine: '+ qualityScore("SunshineHours",province.SunshineHours));
+  tab1[1].innerHTML+=('<p><ej>🥵</ej>Summers: '+ qualityScore("HotDays",province.HotDays));
+  tab1[1].innerHTML+=('<p><ej>🥶</ej>Winters: '+ qualityScore("ColdDays",province.ColdDays));
+  tab1[1].innerHTML+=('<p><ej>🌧️</ej>Rain: '+ qualityScore("RainyDays",province.RainyDays));
+  tab1[1].innerHTML+=('<p><ej>🌫️</ej>Fog: '+ qualityScore("FoggyDays",province.FoggyDays));
+  tab1[1].innerHTML+=('<p><ej>🍃</ej>Air quality: '+ qualityScore("AirQuality",province["AirQuality"]));
 
-  tab1[1].innerHTML+=('<p>👪For family: '+ qualityScore("Family-friendly",province["Family-friendly"]));
-  tab1[1].innerHTML+=('<p>👩For women: '+ qualityScore("Female-friendly",province["Female-friendly"]));
-  tab1[1].innerHTML+=('<p>🏳️‍🌈LGBTQ+: '+ qualityScore("LGBT-friendly",province["LGBT-friendly"]));
-  tab1[1].innerHTML+=('<p>🥗For vegans: '+ qualityScore("Veg-friendly",province["Veg-friendly"]));
+  tab1[1].innerHTML+=('<p><ej>👪</ej>For family: '+ qualityScore("Family-friendly",province["Family-friendly"]));
+  tab1[1].innerHTML+=('<p><ej>👩</ej>For women: '+ qualityScore("Female-friendly",province["Female-friendly"]));
+  tab1[1].innerHTML+=('<p><ej>🏳️‍🌈</ej>LGBTQ+: '+ qualityScore("LGBT-friendly",province["LGBT-friendly"]));
+  tab1[1].innerHTML+=('<p><ej>🥗</ej>For vegans: '+ qualityScore("Veg-friendly",province["Veg-friendly"]));
   
 
-  tab2[0].innerHTML+=('<p>📈Cost of Living: '+ qualityScore("CostOfLiving",province["CostOfLiving"]));
-  tab2[0].innerHTML+=('<p>🧑🏻Expenses (single person): '+ qualityScore("Cost of Living (Individual)",province["Cost of Living (Individual)"]))
-  tab2[0].innerHTML+=('<p>👩🏽‍🏫Expenses (tourist): '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
-  tab2[0].innerHTML+=('<p>🏠Rental (studio apt.): '+ qualityScore("StudioRental",province["StudioRental"]))
-  tab2[0].innerHTML+=('<p>🏘️Rental (2-room apt.): '+ qualityScore("BilocaleRent",province["BilocaleRent"]))
-  tab2[0].innerHTML+=('<p>🏰Rental (3-room apt.): '+ qualityScore("TrilocaleRent",province["TrilocaleRent"]))
+  tab2[0].innerHTML+=('<p><ej>📈</ej>Cost of Living: '+ qualityScore("CostOfLiving",province["CostOfLiving"]));
+  tab2[0].innerHTML+=('<p><ej>🧑🏻</ej>Expenses (single person): '+ qualityScore("Cost of Living (Individual)",province["Cost of Living (Individual)"]))
+  tab2[0].innerHTML+=('<p><ej>👩🏽‍🏫</ej>Expenses (tourist): '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
+  tab2[0].innerHTML+=('<p><ej>🏠</ej>Rental (studio apt.): '+ qualityScore("StudioRental",province["StudioRental"]))
+  tab2[0].innerHTML+=('<p><ej>🏘️</ej>Rental (2-room apt.): '+ qualityScore("BilocaleRent",province["BilocaleRent"]))
+  tab2[0].innerHTML+=('<p><ej>🏰</ej>Rental (3-room apt.): '+ qualityScore("TrilocaleRent",province["TrilocaleRent"]))
 
-  tab2[1].innerHTML+=('<p>🏙️Housing Cost: '+ qualityScore("HousingCost",province["HousingCost"]));
-  tab2[1].innerHTML+=('<p>💵Local Income: '+ qualityScore("MonthlyIncome",province["MonthlyIncome"]));
-  tab2[1].innerHTML+=('<p>👪Expenses (small family): '+ qualityScore("Cost of Living (Family)",province["Cost of Living (Family)"]))
-  tab2[1].innerHTML+=('<p>🏠Sale (studio apt.): '+ qualityScore("StudioSale",province["StudioSale"]))
-  tab2[1].innerHTML+=('<p>🏘️Sale (2-room apt.): '+ qualityScore("BilocaleSale",province["BilocaleSale"]))
-  tab2[1].innerHTML+=('<p>🏰Sale (3-room apt.): '+ qualityScore("TrilocaleSale",province["TrilocaleSale"]))
+  tab2[1].innerHTML+=('<p><ej>🏙️</ej>Housing Cost: '+ qualityScore("HousingCost",province["HousingCost"]));
+  tab2[1].innerHTML+=('<p><ej>💵</ej>Local Income: '+ qualityScore("MonthlyIncome",province["MonthlyIncome"]));
+  tab2[1].innerHTML+=('<p><ej>👪</ej>Expenses (small family): '+ qualityScore("Cost of Living (Family)",province["Cost of Living (Family)"]))
+  tab2[1].innerHTML+=('<p><ej>🏠</ej>Sale (studio apt.): '+ qualityScore("StudioSale",province["StudioSale"]))
+  tab2[1].innerHTML+=('<p><ej>🏘️</ej>Sale (2-room apt.): '+ qualityScore("BilocaleSale",province["BilocaleSale"]))
+  tab2[1].innerHTML+=('<p><ej>🏰</ej>Sale (3-room apt.): '+ qualityScore("TrilocaleSale",province["TrilocaleSale"]))
  
-  tab3[0].innerHTML+=('<p>👩‍💻Nomad-friendly: '+qualityScore("DN-friendly",province["DN-friendly"]))
-  tab3[0].innerHTML+=('<p>💃Fun: '+qualityScore("Fun",province["Fun"]));
-  tab3[0].innerHTML+=('<p>🤗Friendliness: '+qualityScore("Friendliness",province["Friendliness"]));
-  tab3[0].innerHTML+=('<p>🤐English-speakers: '+qualityScore("English-speakers",province["English-speakers"]));
-  tab3[0].innerHTML+=('<p>😊Happiness: '+qualityScore("Antidepressants",province["Antidepressants"]));
+  tab3[0].innerHTML+=('<p><ej>👩‍💻</ej>Nomad-friendly: '+qualityScore("DN-friendly",province["DN-friendly"]))
+  tab3[0].innerHTML+=('<p><ej>💃</ej>Fun: '+qualityScore("Fun",province["Fun"]));
+  tab3[0].innerHTML+=('<p><ej>🤗</ej>Friendliness: '+qualityScore("Friendliness",province["Friendliness"]));
+  tab3[0].innerHTML+=('<p><ej>🤐</ej>English-speakers: '+qualityScore("English-speakers",province["English-speakers"]));
+  tab3[0].innerHTML+=('<p><ej>😊</ej>Happiness: '+qualityScore("Antidepressants",province["Antidepressants"]));
  
-  tab3[1].innerHTML+=('<p>💸Nomad cost: '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
-  tab3[1].innerHTML+=('<p>📡High-speed Internet: '+qualityScore("HighSpeedInternetCoverage",province["HighSpeedInternetCoverage"]));
-  tab3[1].innerHTML+=('<p>📈Innovation: '+qualityScore("Innovation",province["Innovation"]));
-  tab3[1].innerHTML+=('<p>🏖️Beach: '+qualityScore("Beach",province["Beach"]));
-  tab3[1].innerHTML+=('<p>⛰️Hiking: '+qualityScore("Hiking",province["Hiking"]));
+  tab3[1].innerHTML+=('<p><ej>💸</ej>Nomad cost: '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
+  tab3[1].innerHTML+=('<p><ej>📡</ej>High-speed Internet: '+qualityScore("HighSpeedInternetCoverage",province["HighSpeedInternetCoverage"]));
+  tab3[1].innerHTML+=('<p><ej>📈</ej>Innovation: '+qualityScore("Innovation",province["Innovation"]));
+  tab3[1].innerHTML+=('<p><ej>🏖️</ej>Beach: '+qualityScore("Beach",province["Beach"]));
+  tab3[1].innerHTML+=('<p><ej>⛰️</ej>Hiking: '+qualityScore("Hiking",province["Hiking"]));
 }
 
 
