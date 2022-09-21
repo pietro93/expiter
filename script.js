@@ -405,7 +405,7 @@ row.innerHTML+='<button class="button column regionfilter" id="'+regions[i].subs
 }
 
 
-},100)
+},500)
 
 );
 
