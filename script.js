@@ -63,6 +63,7 @@ function populateData(data){
       let center=["Lazio","Toscana","Marche","Umbria"];
       let south=["Abruzzo","Molise","Campania","Puglia","Basilicata","Calabria","Sicilia","Sardegna"]
 
+
       selection=[];
       if (filter == "All") {
         selection=dataset.slice(0, 107); ;region_filters=north.concat(center).concat(south);
@@ -572,12 +573,13 @@ function setNavBar(){
 function createSorting(label, value){
   if (value==undefined)value=label;
   let sortings = $("#sorting")
+  $("#sorting > p").text("Sort by:")
   let sorting = '<label class="button radio column">'+
     '<input type="radio" name="sortBy" onClick="filterBy()" value='+value+(value=="Expat-friendly"?" checked":"")+'>'+
     '<span>'+label+'</span>'+
     '</label>'
   sortings.append(sorting)
-  $("#sorting > p").text("Sort by:")
+  
 }
 
 function appendProvinceData(province){
