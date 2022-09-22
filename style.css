@@ -278,10 +278,12 @@ score{padding-right:1%;
 }
 .population{
   margin-top:-2px;
-  font-size:15px;
+  padding-bottom:4px;
+  margin-left:0;
+  letter-spacing:-1px;
+  line-height:12px;
   text-align:center;
-  padding-bottom:10px;
-}
+}.population ej{font-size:13px}
 
 card.Abruzzo::after{
   background-color:skyblue;
