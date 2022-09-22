@@ -454,7 +454,7 @@ function setNavBar($){
         '<li><a href="/index.html#About">About</a></li>'+
         '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
         '</ul>'+
-   '<a href="/index.html"><span class="logo">Italy Expats & Nomads</span></a>'+
+   '<a href="/index.html"><h1 class="logo">Italy Expats & Nomads</h1></a>'+
   '</div>')
   }
   
