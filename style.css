@@ -594,9 +594,10 @@ p.column.is-12{
   height:inherit;
 }
 
-#info{
+#info,#info>*{
   font-size:18px;
   font-family: "Open Sans", sans-serif;
+  width:100%;
 }
 
 h2{

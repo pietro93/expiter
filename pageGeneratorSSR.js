@@ -105,6 +105,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<h3>Leisure</h3><span id="leisure"></span>'+
             '<h3>Crime and Safety</h3><span id="crimeandsafety"></span>'+
             '<h3>Transport</h3><span id="transport"></span>'+
+            '<h2>Discover</h2><span id="promo"></span>'+
             '</div>'+
             '</body></html>'
                     )
@@ -149,7 +150,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#education").append(separator)
         $("#transport").append(info.transport)
         $("#transport").append(separator)
-        $("#transport").append(info.viator)
+        $("#promo").append(info.viator)
+        $("#promo").append(separator)
        }
        
       
