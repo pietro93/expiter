@@ -669,7 +669,6 @@ h3{
 .logo{
     order: 1;
     font-size: 24px;
-    padding-left:12px;
     color:white;
     text-shadow: 2px -1px 1px var(--blue-to-cyan);
     text-shadow: -2px 1px 1px var(--blue-going-to-cyan);
@@ -681,7 +680,7 @@ h3{
     height:40px;
     width:200px;
     font-size:0;
-    margin-left:4vw;
+    margin-left:-10vw;
 }
 
 .menu-items li{
@@ -707,7 +706,7 @@ h3{
   .population{
     font-size:14px;
     margin-top:-2px;
-    padding-bottom:0px;
+    padding-bottom:4px;
     letter-spacing:-1px;
     line-height:14px;
     text-align:left;
