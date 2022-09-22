@@ -34,7 +34,6 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             
             var fileName = './province/'+province.Name+'.html';
             
-            
             const dom = new jsdom.JSDOM(
                         "<html lang='en'>"+
             '<head><meta charset="utf-8f">'+

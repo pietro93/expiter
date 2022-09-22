@@ -1,7 +1,8 @@
 var provinces = {};
 var facts={};
 var selection = [];
-var region_filters = [];
+var region_filters = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
+"Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
 var additionalFilters=[];
 var dataset;
 var avg;
@@ -14,11 +15,12 @@ fetch('../dataset.json', {method:"Get"})
     .then(function (data) {
         populateData(data);
         dataset = data;
-        setTimeout(function(){
-        if (document.title=="Italy Expats and Nomads")
-        filterDataByRegion("All")
+        selection=dataset.slice(0, 107);
+        //setTimeout(function(){
+        //if (document.title=="Italy Expats and Nomads")
+        //filterDataByRegion("All")
         //else if (location.href.includes("/province/")) //newPage()
-      },100)
+      //},100)
     })
     .catch(function (err) {
         console.log('error: ' + err);  
@@ -273,16 +275,6 @@ function qualityScore(quality,score){
   }
 }
 
-
-
-function doesImageExist(image)
-{
-/*var http = new XMLHttpRequest();
-http.open('HEAD',image,false);
-http.send();
-return http.status!=404;*/return(true)
-}
-
 function clearData(){
   document.getElementById("app").innerHTML="";
 }
@@ -294,8 +286,6 @@ function appendData(data) {
     let title = document.getElementById("title")
         
     title.innerHTML="<span id='bestorworst'></span> <span id='smallorlarge'></span> Provinces in <span id='chosenArea'>Italy</span> <span id='sortBy'></span>";
-
-
 
     if (selection.length==0) {title.innerHTML="Could not find any provinces based on your filters."}
     else if (region_filters.length==1) {$("#chosenArea").text(region_filters[0])}
@@ -361,7 +351,7 @@ function appendData(data) {
     
 }
 
- $(document).ready(setTimeout(function(){
+ /*$(document).ready(setTimeout(function(){
   setNavBar();
   if (!!document.getElementById("filters")){
   let filters = document.getElementById("filters");
@@ -408,7 +398,7 @@ row.innerHTML+='<button class="button column regionfilter" id="'+regions[i].subs
 },100)
 
 );
-
+/*
 /*
 function newPage(){
   let province = getData(document.title.split(" - ")[0])
