@@ -129,7 +129,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let separator='</br><span class="separator"></span></br>'
         
         appendProvinceData(province, $);
-       
+        setNavBar($);
+        
         $(".title").text(province.Name+' for Expats and Nomads');
         $("#overview").append(info.overview)
         $("#overview").append(info.disclaimer)
@@ -261,9 +262,8 @@ function populateFacts(){
     }
 
 
-    function setNavBar(){
-        let navbar = document.getElementById("navbar");
-        navbar.innerHTML=
+    function setNavBar($){
+        $("#navbar").append(
         '<div class="navbar-container">'+
         '<input type="checkbox" name="navbar" id="nbar">'+
         '<div class="hamburger-lines">'+
@@ -277,8 +277,8 @@ function populateFacts(){
             '<li><a href="/index.html#About">About</a></li>'+
             '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
             '</ul>'+
-       '<a href="/index.html"><h1 class="logo">Italy Expats & Nomads</h1></a>'+
-      '</div>'
+       '<a href="/index.html"><span class="logo">Italy Expats & Nomads</span></a>'+
+      '</div>')
       }
       
       
