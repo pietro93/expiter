@@ -278,7 +278,7 @@ function populateFacts(){
             '<li><a href="/index.html#About">About</a></li>'+
             '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
             '</ul>'+
-       '<a href="/index.html"><span class="logo">Italy Expats & Nomads</span></a>'+
+       '<a href="/index.html"><div class="logo">Italy Expats & Nomads</div></a>'+
       '</div>')
       }
       
