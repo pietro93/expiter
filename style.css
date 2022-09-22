@@ -305,10 +305,10 @@ card.Emilia-Romagna::after{
   background-color:royalblue;
   opacity:.33;
 }card.Emilia-Romagna>.region{color:lightskyblue}
-card.Valle::after{
+card.Aosta ::after{
   background-color:whitesmoke;
   opacity:.33;
-}card.Valle>.region{color:whitesmoke}
+}card.Aosta>.region{color:whitesmoke}
 card.Trentino-Alto::after{
   background-color:darkolivegreen;
   opacity:.33;
