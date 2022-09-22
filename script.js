@@ -16,6 +16,7 @@ fetch('../dataset.json', {method:"Get"})
         populateData(data);
         dataset = data;
         selection=dataset.slice(0, 107);
+        if (!document.getElementById("navbar").innerHTML) setNavBar();
         //setTimeout(function(){
         //if (document.title=="Italy Expats and Nomads")
         //filterDataByRegion("All")
