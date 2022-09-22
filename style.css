@@ -633,8 +633,8 @@ h3{
 }
 
 
-#navbar input[type="checkbox"],
-#navbar .hamburger-lines{
+#nbar,
+#nbar .hamburger-lines{
     display: none;
 }
 
@@ -706,9 +706,9 @@ h3{
         opacity: 0.95;
     }
 
-    .navbar-container input[type="checkbox"],
+    #nbar,
     .navbar-container .hamburger-lines{
-        display: block
+        display: block;
     }
 
     .navbar-container{
@@ -763,7 +763,7 @@ h3{
         transition: transform 0.3s ease-in-out;
     }
 
-    #navbar .menu-items{
+    .navbar-container .menu-items{
         padding-top: 100px;
         background: var(--dark-blue);
         height: 100vh;
@@ -778,10 +778,11 @@ h3{
         overflow: scroll;
     }
 
-    #navbar .menu-items li{
+    .navbar-container .menu-items li{
         margin-bottom: 1.8rem;
-        font-size: 24px;
+        font-size: 26px;
         font-weight: 500;
+        text-transform:uppercase
     }
 
     .logo{
