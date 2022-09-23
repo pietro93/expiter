@@ -414,7 +414,7 @@ function appendData($,data) {
         //card +='<img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-190,h-250,c-at_least" alt="'+data[i].Name+'"></img>'
        // }
       //  else{
-          card +='<img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-180,h-240,c-at_least,q-1,bl-1" alt="'+data[i].Name+'"></img>'
+          card +='<img '+ (i>6?'loading="lazy"':"") +' src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-180,h-240,c-at_least,q-1,bl-1" alt="'+data[i].Name+'"></img>'
       //  }
 
         if (data[i].Name.length>14){card += '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + data[i].Name + '</h3></center></div>'}
