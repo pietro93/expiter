@@ -437,7 +437,7 @@ function appendData($,data) {
         card += '<p class="opacity4"><ej>👪</ej>For family: '+ qualityScore("Family-friendly",data[i]["Family-friendly"]) +'</p>';
         card += '<p class="opacity4"><ej>🥗</ej>For vegans: '+ qualityScore("Veg-friendly",data[i]["Veg-friendly"]) +'</p>';
         card += '<p class="opacity4"><ej>🧳</ej>For nomads: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'</p>';
-        card += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name+'.html\';"> More>> </button>';
+        card += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name.replace(/\s+/g, '-').toLowerCase()+'/\';"> More>> </button>';
         card += '</card>'
 
         col += "<a href='./province/"+data[i].Name+".html\''>"+card+"</a></col>";

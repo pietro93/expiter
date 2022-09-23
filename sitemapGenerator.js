@@ -10,7 +10,7 @@ var siteMap= '<?xml version="1.0" encoding="UTF-8"?>'+
 '   <priority>1</priority>'+
 '   </url>'+
 '   <url>'+
-'   <loc>https://expiter.com/index.html</loc>'+
+'   <loc>https://expiter.com/app.html</loc>'+
 '   <priority>1</priority>'+
 '   </url>'+
 '   <url>'+
@@ -35,9 +35,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         dataset=data;  
         for (let i = 0; i < 107; i++){
             let province = dataset[i];
-            console.log("adding /province/" + dataset[i].Name +".html to sitemap")
+            console.log("adding /province/" + dataset[i].Name.replace(/\s+/g, '-').toLowerCase() +"/ to sitemap")
             siteMap=siteMap.concat('<url>'+
-            '<loc>https://expiter.com/province/'+dataset[i].Name+'.html</loc>'+
+            '<loc>https://expiter.com/province/'+dataset[i].Name.replace(/\s+/g, '-').toLowerCase()+'/</loc>'+
             '<priority>.8</priority>'+
             '</url>')
         }
