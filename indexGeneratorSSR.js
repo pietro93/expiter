@@ -440,7 +440,7 @@ function appendData($,data) {
         card += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name.replace(/\s+/g, '-').toLowerCase()+'/\';"> More>> </button>';
         card += '</card>'
 
-        col += "<a href='./province/"+data[i].Name+".html\''>"+card+"</a></col>";
+        col += "<a href='./province/"+data[i].Name.replace(/\s+/g, '-').toLowerCase()+"\''>"+card+"</a></col>";
         
         mainContainer.append(col);
         

@@ -370,7 +370,7 @@ function appendData(data) {
         card.title=data[i].Name+', '+data[i].Region;
         //card.style.backgroundImage = 'url('+image+')';
         card.id = data[i].Name;
-        col.innerHTML = "<a href='./province/"+data[i].Name+".html\''>"+card.outerHTML+"</a>";
+        col.innerHTML = "<a href='./province/"+data[i].Name.replace(/\s+/g, '-').toLowerCase()+"\''>"+card.outerHTML+"</a>";
         
         mainContainer.appendChild(col);
         
