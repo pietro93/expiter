@@ -34,9 +34,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         init($)
         
         let newHtml = dom.window.document.documentElement.outerHTML;
-         fs.writeFile('./index.html', newHtml, function (err, file) {
+         fs.writeFile('./app.html', newHtml, function (err, file) {
             if (err) throw err;
-            else console.log('index.html'+' Saved!');
+            else console.log('app.html'+' Saved!');
         });
         
     })
@@ -458,12 +458,12 @@ function setNavBar($){
         '<span class="line line3"></span>'+
     '</div>'+
     '<ul class="menu-items">'+
-        '<li><a href="/index.html">Home</a></li>'+
+        '<li><a href="/">Home</a></li>'+
         '<li><a href="/resources.html">Resources</a></li>'+
-        '<li><a href="/index.html#About">About</a></li>'+
+        '<li><a href="/app#About">About</a></li>'+
         '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
         '</ul>'+
-   '<a href="/index.html"><h1 class="logo">Italy Expats & Nomads</h1></a>'+
+   '<a href="/"><h1 class="logo">Italy Expats & Nomads</h1></a>'+
   '</div>')
   }
   
