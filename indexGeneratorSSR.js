@@ -404,9 +404,9 @@ function appendData($,data) {
      
 
     for (let i = 0; i < data.length; i++) {
-        let card = "<card id='"+data[i].Name+"'class='"+(data[i].Name=="Aosta"?"Aosta Valley":data[i].Region)+" paracard' "+
-         "title='"+data[i].Name+", "+(data[i].Name=="Aosta"?"Aosta Valley":data[i].Region)+"'"+
-         ">";
+        let card = '<card id="'+data[i].Name+'"class="'+(data[i].Name=="Aosta"?"Aosta Valley":data[i].Region)+' paracard" '+
+         'title="'+data[i].Name+', '+(data[i].Name=="Aosta"?"Aosta Valley":data[i].Region)+'"'+
+         '>';
          
         let col = "<div class='column'>";
 
