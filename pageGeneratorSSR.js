@@ -273,12 +273,12 @@ function populateFacts(){
             '<span class="line line3"></span>'+
         '</div>'+
         '<ul class="menu-items">'+
-            '<li><a href="/index.html">Home</a></li>'+
+            '<li><a href="/">Home</a></li>'+
             '<li><a href="/resources.html">Resources</a></li>'+
-            '<li><a href="/index.html#About">About</a></li>'+
+            '<li><a href="/app#About">About</a></li>'+
             '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
             '</ul>'+
-       '<a href="/index.html"><div class="logo">Italy Expats & Nomads</div></a>'+
+       '<a href="/"><div class="logo">Italy Expats & Nomads</div></a>'+
       '</div>')
       }
       
