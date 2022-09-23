@@ -118,15 +118,28 @@ function populateData(data){
       }
 
       if (additionalFilters.length!=0){
-      let filtered_selection =[];
+      let filtered_selection = selection;
+      let filter_by_population=[]
+      let filter_by_climate=[]
+      let filter_by_cost=[]
       for (filter in additionalFilters.sort()){
-        
-        if (additionalFilters[filter]=="Pop300k-")  filtered_selection=filtered_selection.concat(selection.filter((item) => (item.Population < 300000)))
-        else if (additionalFilters[filter]=="Pop300k+") filtered_selection=filtered_selection.concat(selection.filter((item) => (item.Population >= 300000 && item.Population < 500000)))
-        else if (additionalFilters[filter]=="Pop500k+")  filtered_selection=filtered_selection.concat(selection.filter((item) => (item.Population >= 500000 && item.Population < 1000000)))
-        else if (additionalFilters[filter]=="Pop1m+")  filtered_selection=filtered_selection.concat(selection.filter((item) => (item.Population >= 1000000)))
-        }
-  
+        if (additionalFilters[filter]=="Pop300k-")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population < 300000)))
+        else if (additionalFilters[filter]=="Pop300k+") filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 300000 && item.Population < 500000)))
+        else if (additionalFilters[filter]=="Pop500k+")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 500000 && item.Population < 1000000)))
+        else if (additionalFilters[filter]=="Pop1m+")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 1000000)))
+        else if (additionalFilters[filter]=="Hot")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.HotDays >= avg.HotDays)))
+        else if (additionalFilters[filter]=="Cold")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.ColdDays >= avg.ColdDays)))
+        else if (additionalFilters[filter]=="Temperate")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.HotDays < avg.HotDays && item.ColdDays < avg.ColdDays)))
+        else if (additionalFilters[filter]=="Low-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving < avg.CostOfLiving*.9)))
+        else if (additionalFilters[filter]=="Mid-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving > avg.CostOfLiving*.9 && item.CostOfLiving < avg.CostOfLiving*1.1)))
+        else if (additionalFilters[filter]=="High-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving > avg.CostOfLiving*1.1)))
+      }
+      if(filter_by_population.length==0&&filter_by_climate.length!=0)filtered_selection=filter_by_climate
+      else if(filter_by_climate.length==0&&filter_by_population.length!=0)filtered_selection=filter_by_population;
+      else if (filter_by_climate.length!=0&&filter_by_population.length!=0)filtered_selection = filter_by_population.filter(value => filter_by_climate.includes(value))
+      if (filter_by_cost.length)filtered_selection = filtered_selection.filter(value => filter_by_cost.includes(value))
+      if (additionalFilters.includes("HasUni"))  filtered_selection=(filtered_selection.filter((item) => (item.Universities > 0)))
+      if (additionalFilters.includes("HasMetro"))  filtered_selection=(filtered_selection.filter((item) => (item.Subway > 0)))
       selection = filtered_selection;
     }
       
@@ -286,7 +299,7 @@ function appendData(data) {
 
     let title = document.getElementById("title")
         
-    title.innerHTML="<span id='bestorworst'></span> <span id='smallorlarge'></span> Provinces in <span id='chosenArea'>Italy</span> <span id='sortBy'></span>";
+    title.innerHTML="<span id='bestorworst'></span> <span id='smallorlarge'></span> <span id='hotorcold'></span> <span id='costofliving'></span> Provinces in <span id='chosenArea'>Italy</span> <span id='withthings'></span> <span id='sortBy'></span>";
 
     if (selection.length==0) {title.innerHTML="Could not find any provinces based on your filters."}
     else if (region_filters.length==1) {$("#chosenArea").text(region_filters[0])}
@@ -297,10 +310,23 @@ function appendData(data) {
     else if (region_filters.sort().toString() == "Emilia-Romagna,Friuli-Venezia Giulia,Liguria,Lombardia,Piemonte,Trentino-Alto Adige,Valle d'Aosta,Veneto") {$("#chosenArea").text("Northern Italy")}
     else if (region_filters.length>3) {$("#chosenArea").text("Italy")}
 
-    if (additionalFilters.sort().toString()=="Pop1m+"||additionalFilters.sort().toString()=="Pop1m+,Pop500k+") $("#smallorlarge").text("Large");
-    else if (additionalFilters.sort().toString()=="Pop300k+"||additionalFilters.sort().toString()=="Pop500k+"||additionalFilters.sort().toString()=="Pop300k+,Pop500k+") $("#smallorlarge").text("Medium-sized");
-    else if (additionalFilters.sort().toString()=="Pop300k-"||additionalFilters.sort().toString()=="Pop300k+,Pop300k-") $("#smallorlarge").text("Small");
-     
+    let popFilters=additionalFilters.filter((item) => (item.substring(0,3) == "Pop")).sort()
+    if (popFilters=="Pop1m+"||popFilters=="Pop1m+,Pop500k+") $("#smallorlarge").text("Large");
+    else if (popFilters=="Pop300k+"||popFilters=="Pop500k+"||popFilters=="Pop300k+,Pop500k+") $("#smallorlarge").text("Medium-sized");
+    else if (popFilters=="Pop300k-"||popFilters=="Pop300k+,Pop300k-") $("#smallorlarge").text("Small");
+    let climFilters=additionalFilters.filter((item) => (["Cold","Hot","Temperate"].includes(item))).sort()
+    if (climFilters=="Hot") $("#hotorcold").text("Warm")
+    else if (climFilters=="Cold") $("#hotorcold").text("Chill")
+    else if (climFilters=="Temperate") $("#hotorcold").text("Temperate")
+    else if (climFilters=="Cold,Hot") $("#hotorcold").text("Warm or Chill")
+    if (additionalFilters.includes("HasUni")&&additionalFilters.includes("HasMetro")) $("#withthings").text("with a University and Subway System")
+    else if (additionalFilters.includes("HasUni")) $("#withthings").text("with a University")
+    else if (additionalFilters.includes("HasMetro")) $("#withthings").text("with a Subway System")
+    let colFilters=additionalFilters.filter((item) => (item.substring(item.length-4) == "cost")).sort()
+    console.log("colFilters"+colFilters)
+    if (colFilters=="Low-cost") $("#costofliving").text("Low CoL")
+    else if (colFilters=="Mid-cost") $("#costofliving").text("Medium CoL")
+    else if (colFilters=="High-cost") $("#costofliving").text("High CoL")
 
     for (let i = 0; i < data.length; i++) {
         let card = document.createElement("card");

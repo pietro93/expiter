@@ -96,10 +96,19 @@ function init($){
   
     row = "<row id='additionalfilters' class='columns is-multiline is-mobile'>";
     row+='<p class="column is-12">Additional filters:</p>';
-    row+='<button class="button column additionalfilter" onClick=\'filterBy("Pop300k-");$(this).toggleClass("selected")\'>'+"Population < 300k"+"</button>";
-    row+='<button class="button column additionalfilter" onClick=\'filterBy("Pop300k+");$(this).toggleClass("selected")\'>'+"Population 300k-500k"+"</button>";
-    row+='<button class="button column additionalfilter" onClick=\'filterBy("Pop500k+");$(this).toggleClass("selected")\'>'+"Population 500k-1m"+"</button>";
-    row+='<button class="button column additionalfilter" onClick=\'filterBy("Pop1m+");$(this).toggleClass("selected")\'>'+"Population > 1m"+"</button>"; 
+    row+='<button class="button column additionalfilter pop" onClick=\'filterBy("Pop300k-");$(this).toggleClass("selected")\'>'+"Pop.<300k"+"</button>";
+    row+='<button class="button column additionalfilter pop" onClick=\'filterBy("Pop300k+");$(this).toggleClass("selected")\'>'+"Pop.300k-500k"+"</button>";
+    row+='<button class="button column additionalfilter pop" onClick=\'filterBy("Pop500k+");$(this).toggleClass("selected")\'>'+"Pop.500k-1m"+"</button>";
+    row+='<button class="button column additionalfilter pop" onClick=\'filterBy("Pop1m+");$(this).toggleClass("selected")\'>'+"Pop.>1m"+"</button>";
+    row+='<button class="button column additionalfilter col" onClick=\'filterBy("Low-cost");$(this).toggleClass("selected")\'>'+"€ LowCoL"+"</button>";
+    row+='<button class="button column additionalfilter col" onClick=\'filterBy("Mid-cost");$(this).toggleClass("selected")\'>'+"€€ MidCoL"+"</button>";
+    row+='<button class="button column additionalfilter col" onClick=\'filterBy("High-cost");$(this).toggleClass("selected")\'>'+"€€€ HighCoL"+"</button>";
+    row+='<p class="column is-12"></p>';
+    row+='<button class="button column additionalfilter clim" onClick=\'filterBy("Hot");$(this).toggleClass("selected")\'>'+"Hot"+"</button>";
+    row+='<button class="button column additionalfilter clim" onClick=\'filterBy("Cold");$(this).toggleClass("selected")\'>'+"Cold"+"</button>";
+    row+='<button class="button column additionalfilter clim" onClick=\'filterBy("Temperate");$(this).toggleClass("selected")\'>'+"Temperate"+"</button>";
+    row+='<button class="button column additionalfilter has" onClick=\'filterBy("HasUni");$(this).toggleClass("selected")\'>'+"Has University"+"</button>";
+    row+='<button class="button column additionalfilter has" onClick=\'filterBy("HasMetro");$(this).toggleClass("selected")\'>'+"Has Metro"+"</button>";
     row+='</row>' 
     filters.append(row)
     
