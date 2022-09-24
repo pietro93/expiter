@@ -35,16 +35,19 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             var fileName = './province/'+province.Name.replace(/\s+/g, '-').toLowerCase()+'/';
             
             const dom = new jsdom.JSDOM(
-                        "<html lang='en'>"+
+            "<html lang='en'>"+
             '<head><meta charset="utf-8f">'+
+            '<base href="https://expiter.com/">'+
+            '<link rel="canonical" href="https://expiter.com/'+fileName+'/"/>'+
             '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
-            '<script type="text/javascript" src="../jquery3.6.0.js"></script>'+
+            '<script type="text/javascript" src="../jquery3.6.0.js" defer></script>'+
             '<script type="text/json" src="../dataset.json"></script>'+
-            '<script type="text/javascript" src="../script.js"></script>'+
+            '<script type="text/javascript" src="../script.js" defer></script>'+
             '<script src="../bootstrap-toc.js"></script>'+
-            '<link rel="stylesheet" href="../fonts.css"></link>'+
+            '<link rel="stylesheet" href="../fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="../bulma.min.css">'+
             '<link rel="stylesheet" href="../style.css">'+
+            
             '<meta name="description" content="Information about living in '+province.Name+', Italy for expats and digital nomads. '+province.Name+' quality of life, cost of living, safety and more." />'+
 	        '<meta name="keywords" content="'+province.Name+' italy, '+province.Name+' expat,'+province.Name+' life,'+province.Name+' digital nomad" />'+
             "<title>"+province.Name+" - Quality of Life and Info Sheet for Expats </title>"+
