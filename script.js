@@ -677,7 +677,7 @@ let adSense = '<script async src="https://pagead2.googlesyndication.com/pagead/j
 "  gtag('config', 'G-ZEX5VTPVLL');"+
 '</script>'*/
 let hotJar = '<!-- Hotjar Tracking Code for https://expiter.com -->'+
-"<script>"+
+"<script defer>"+
 "    (function(h,o,t,j,a,r){"+
 "        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};"+
 "        h._hjSettings={hjid:3165131,hjsv:6};"+
@@ -690,5 +690,7 @@ let hotJar = '<!-- Hotjar Tracking Code for https://expiter.com -->'+
 let GSC = '<!-- Google Search Console Tracker -->'+
 '<meta name="google-site-verification" content="4sOxlmGkQBkLLrrnRU2a4dAKUnhKxU3-VzFaRrfvGwk" />'
 $('head').append(GSC+adSense+hotJar)
+
 }
 )
+

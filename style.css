@@ -98,6 +98,7 @@ card {
   z-index:1;
   min-width:180px;
   max-width:200px;
+  max-height:460px;
 }
 
 .fullwidth  > .column > .paracard > p> score{
@@ -371,7 +372,9 @@ card.Campania::after{
   opacity:0
 }
 
-:not(.fullwidth) > .column > a > card:hover{height:100%;}
+:not(.fullwidth) > .column > a > card:hover{
+  opacity:1
+}
 :not(.fullwidth)  > .column > a >  card:hover .header, :not(.fullwidth) > .column > a >  card:hover > p{
   text-shadow: 0 0 12px black;
   opacity:1;
