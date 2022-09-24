@@ -87,6 +87,10 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
 }
 
+#app > row > .column {
+  max-height:460px;
+  padding: 0 .5px 0 .5px;
+}
 card {
   position: relative;
   flex: 0 0 240px;
@@ -108,7 +112,7 @@ card {
 
 @media only screen and (min-width: 1268px) {
   #app{
-    left:-10%;
+    left:-10vw;
     width:100vw;
   }
   #app>.column{
@@ -118,6 +122,7 @@ card {
     card {
     min-width:210px;
   }
+  
 }
 
 
@@ -147,6 +152,18 @@ margin-top:-5px;}
   }
 }
 index{visibility: hidden;}
+
+#app > row > .column{
+  background-color:pink;
+  border:2px ridge blue;
+  max-height:410px;
+  padding-bottom:5px;
+}
+
+#app > row > .column > a > card {
+  height:100%;
+}
+
 card::after{
   top:0;bottom:0;left:0;right:0;
   content:"";
