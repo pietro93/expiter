@@ -116,9 +116,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
          newPage(province, $)
         
          let html = dom.window.document.documentElement.outerHTML;
-         fs.writeFile(fileName, html, function (err, file) {
+         fs.writeFile(fileName+".html", html, function (err, file) {
             if (err) throw err;
-            else console.log(fileName+' Saved!');
+            else console.log(fileName+".html"+' Saved!');
         });
         
         }
