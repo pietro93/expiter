@@ -20,6 +20,9 @@ var siteMap= '<?xml version="1.0" encoding="UTF-8"?>'+
 '   <url>'+
 '   <loc>https://expiter.com/resources.html</loc>'+
 '   <priority>.5</priority>'+
+'   </url>'+
+'   <loc>https://expiter.com/provinces.html</loc>'+
+'   <priority>.5</priority>'+
 '   </url>'
 
 createServer(function (req, res) {
