@@ -10,18 +10,18 @@ var siteMap= '<?xml version="1.0" encoding="UTF-8"?>'+
 '   <priority>1</priority>'+
 '   </url>'+
 '   <url>'+
-'   <loc>https://expiter.com/app.html</loc>'+
+'   <loc>https://expiter.com/app/</loc>'+
 '   <priority>1</priority>'+
 '   </url>'+
 '   <url>'+
-'   <loc>https://expiter.com/about.html</loc>'+
+'   <loc>https://expiter.com/about/</loc>'+
 '   <priority>.5</priority>'+
 '   </url>'+
 '   <url>'+
-'   <loc>https://expiter.com/resources.html</loc>'+
+'   <loc>https://expiter.com/resources/</loc>'+
 '   <priority>.5</priority>'+
 '   </url>'+
-'   <loc>https://expiter.com/provinces.html</loc>'+
+'   <loc>https://expiter.com/provinces/</loc>'+
 '   <priority>.5</priority>'+
 '   </url>'
 
