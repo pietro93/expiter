@@ -154,8 +154,6 @@ margin-top:-5px;}
 index{visibility: hidden;}
 
 #app > row > .column{
-  background-color:pink;
-  border:2px ridge blue;
   max-height:410px;
   padding-bottom:5px;
 }
