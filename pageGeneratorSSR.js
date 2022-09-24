@@ -41,7 +41,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<script type="text/javascript" src="../jquery3.6.0.js"></script>'+
             '<script type="text/json" src="../dataset.json"></script>'+
             '<script type="text/javascript" src="../script.js"></script>'+
-            '<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>'+
+            '<script src="../bootstrap-toc.js"></script>'+
             '<link rel="stylesheet" href="../fonts.css"></link>'+
             '<link rel="stylesheet" href="../bulma.min.css">'+
             '<link rel="stylesheet" href="../style.css">'+
