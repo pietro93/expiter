@@ -1,1 +1,7 @@
 pageGenerator.js
+pageGeneratorSSR.js
+sitemapGenerator.js
+provinceseneratorSSR.js
+indexGeneratorSSR.js
+provincesTemplate.html
+indexTemplate.html
