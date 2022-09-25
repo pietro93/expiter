@@ -15,8 +15,7 @@ RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^([^/]+)/$ $1.html 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d 
-RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
-RewriteRule (.*)$ /$1/ [R=301,L]
+RewriteRule ^(.*)$ /$1/ [L,R=301]
 </IfModule>
 # BEGIN WordPress
 # The directives (lines) between "BEGIN WordPress" and "END WordPress" are
