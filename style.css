@@ -619,7 +619,7 @@ p.column.is-12{
   height:inherit;
 }
 
-#info,#info>*{
+#info,#info>*,#info>span{
   font-size:18px;
   font-family: "Open Sans", sans-serif;
   width:100%;
