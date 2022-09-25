@@ -32,13 +32,13 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         for (let i = 0; i < 107; i++){
             let province = dataset[i];
             
-            var fileName = './province/'+province.Name.replace(/\s+/g, '-').toLowerCase();
+            var fileName = './province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             
             const dom = new jsdom.JSDOM(
             "<html lang='en'>"+
             '<head><meta charset="utf-8f">'+
             '<base href="https://expiter.com/">'+
-            '<link rel="canonical" href="https://expiter.com/province/'+province.Name.replace(/\s+/g, '-').toLowerCase()+'/"/>'+
+            '<link rel="canonical" href="https://expiter.com/province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/"/>'+
             '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
             '<script type="text/javascript" src="../jquery3.6.0.js" defer></script>'+
             '<script type="text/json" src="../dataset.json"></script>'+
@@ -118,7 +118,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
          let html = dom.window.document.documentElement.outerHTML;
          fs.writeFile(fileName+".html", html, function (err, file) {
             if (err) throw err;
-            else console.log(fileName+".html"+' Saved!');
+            console.log(dataset[i].Name+".html"+' Saved!');
         });
         
         }

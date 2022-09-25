@@ -93,10 +93,10 @@ function setProvinces($){
         card += '<p class="opacity4"><ej>👪</ej>For family: '+ qualityScore($,"Family-friendly",data[i]["Family-friendly"]) +'</p>';
         card += '<p class="opacity4"><ej>🥗</ej>For vegans: '+ qualityScore($,"Veg-friendly",data[i]["Veg-friendly"]) +'</p>';
         card += '<p class="opacity4"><ej>🧳</ej>For nomads: '+ qualityScore($,"DN-friendly",data[i]["DN-friendly"]) +'</p>';
-        card += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name.replace(/\s+/g, '-').toLowerCase()+'/\';"> More>> </button>';
+        card += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/\';"> More>> </button>';
         card += '</card>'
 
-        col += "<a href='./province/"+data[i].Name.replace(/\s+/g, '-').toLowerCase()+"\''>"+card+"</a></div>";
+        col += "<a href='./province/"+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"\''>"+card+"</a></div>";
    
         $("#"+data[i].Region.split(" ")[0]).append(col)
         }
