@@ -38,7 +38,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             "<html lang='en'>"+
             '<head><meta charset="utf-8f">'+
             '<base href="https://expiter.com/">'+
-            '<link rel="canonical" href="https://expiter.com/'+fileName+'/"/>'+
+            '<link rel="canonical" href="https://expiter.com/province/'+province.Name.replace(/\s+/g, '-').toLowerCase()+'/"/>'+
             '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
             '<script type="text/javascript" src="../jquery3.6.0.js" defer></script>'+
             '<script type="text/json" src="../dataset.json"></script>'+
