@@ -250,7 +250,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '</script>':"")
       
         info.viator='<center><h3>Recommended Tours in '+(province.Viator?name:region.Name)+'</h3></center>'+
-        '<div data-vi-partner-id=P00045447 data-vi-language=en data-vi-currency=USD data-vi-partner-type="AFFILIATE" data-vi-url="'+(region.Name=='Molise'?'':'https://www.viator.com/')+(province.Viator?province.Viator:region.Viator)+'" data-vi-total-products=6 data-vi-campaign="'+name+'" ></div>'+
+        '<div data-vi-partner-id=P00045447 data-vi-language=en data-vi-currency=USD data-vi-partner-type="AFFILIATE" data-vi-url="'+(region.Name=='Molise'?'':'https://www.viator.com/')+(province.Viator?province.Viator:region.Viator)+'"'+
+        (province.Viator.includes(",")?"":' data-vi-total-products=6 ')+
+        ' data-vi-campaign="'+name+'" ></div>'+
         '<script async src="https://www.viator.com/orion/partner/widget.js"></script>'
       
         return info;
