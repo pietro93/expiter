@@ -5,7 +5,6 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const jsdom = require('jsdom')
 
-
 createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/html'});
   res.end('Hello World!');
@@ -112,6 +111,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '</div>'+
             '</body></html>'
                     )
+
+
+         let parsedData = fs.readFileSync('temp/parsedDataAbout'+province.Name+'.html','utf8');
+         facts[province.Name]["parsedData"]=parsedData;
+         console.log(facts[province.Name])
          const $ = require('jquery')(dom.window)
          newPage(province, $)
         
@@ -173,13 +177,17 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let region=regions[province.Region];
         
         let info = {}
+  
         info.overview="The province of "+province.Name+" is the <b>"+province.SizeByPopulation+(province.SizeByPopulation%10==1?"st":(province.SizeByPopulation%10==2?"nd":province.SizeByPopulation%10==3?"rd":"th"))+" largest Italian province by population</b> with <b>"+province.Population.toLocaleString()+" people</b>, located in the <b>"+province.Region+"</b> region. "+
         (facts[name].overview?facts[name].overview:"")+
         "</br></br>"+
         "The larger "+province.Name+" metropolitan area comprises <b>"+province.Towns+" towns</b> (comuni) and covers an area of "+province.Size.toLocaleString()+" km<sup>2</sup>. "
         +"The <b>population density is "+province.Density+" inhabitants per km<sup>2</sup></b>, making it "+
         (province.Density<100?"sparcely populated.":(province.Density>500?"highly densely populated." : "somewhat densely populated."))+
-        " The male to female ratio is "+ratio+"."
+        " The male to female ratio is "+ratio+".";
+        
+        (facts[name]["parsedData"]!=""?(info.overview+='</br></br>'+facts[name]["parsedData"])
+        :"")//Parsed data
       
         info.CoL="The <b>average monthly income in "+province.Name+" is around "+province.MonthlyIncome+"€</b>, which is "+
         (province.MonthlyIncome>1500&&province.MonthlyIncome<1800?"close to the average for Italy":(province.MonthlyIncome>=1800?"<b class='green'>higher than the average</b> for Italy":"<b class='red'>lower than the average</b> for Italy"))+"."+
@@ -188,7 +196,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         "a small apartment (2-3 bedrooms) in a main city area is around "+province["MonthlyRental"]+"€ per month."+"</br></br>"+
         "Overall, "+(province["Cost of Living (Individual)"]>avg["Cost of Living (Individual)"]?"<b class='red'>"+province.Name+" is expensive":(province["Cost of Living (Individual)"]<1150?"<b class='green'>"+province.Name+" is cheap":"<b class='green'>"+province.Name+" is affordable"))+"</b> compared to other Italian provinces."
         +" Living in "+province.Name+" is around "+(province['Cost of Living (Individual)']>avg["Cost of Living (Individual)"]?"<b class='red'>"+(province['Cost of Living (Individual)']/avg["Cost of Living (Individual)"]*100-100).toFixed(2)+"% more expensive than the average</b> of all Italian provinces":"<b class='green'>"+(100-province['Cost of Living (Individual)']/avg["Cost of Living (Individual)"]*100).toFixed(2)+"% cheaper than the average</b> of all Italian provinces")
-        +"."
+        +".";
       
         info.climate="The province of "+province.Name+" receives on average <b>"+province.SunshineHours+" hours of sunshine</b> per month, or "+province.SunshineHours/30+" hours of sunshine per day."+
         " This is "+(province.SunshineHours>236?"<b class='green'>"+(province.SunshineHours/236*100-100).toFixed(2)+"% more</b> than the average for Italy":"<b class='red'>"+(100-(province.SunshineHours/236)*100).toFixed(2)+"% less</b> than the average for Italy")+" and "+
