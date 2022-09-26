@@ -647,6 +647,7 @@ h3{
 h4{
   font-size:18px;
   font-weight:400;
+  display:inline-block;
   margin-top:18px;
   padding-bottom:14px;
 }
@@ -657,6 +658,17 @@ h4{
   text-transform: uppercase;
 }
 
+#info > h3{
+  padding-left:10%;
+}
+
+#info > span > h4{
+  font-size:18px;
+  font-weight:400;
+  display:inline-block;
+  margin-top:18px;
+  padding-bottom:14px;
+}
 
 *,
 *::after,

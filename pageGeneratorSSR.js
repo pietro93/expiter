@@ -35,14 +35,14 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             
             const dom = new jsdom.JSDOM(
             "<html lang='en'>"+
-            '<head><meta charset="utf-8f">'+
+            '<head><meta charset="utf-8">'+
             '<base href="https://expiter.com/">'+
             '<link rel="canonical" href="https://expiter.com/province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/"/>'+
             '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
             '<script type="text/javascript" src="../jquery3.6.0.js" defer></script>'+
             '<script type="text/json" src="../dataset.json"></script>'+
             '<script type="text/javascript" src="../script.js" defer></script>'+
-            '<script src="../bootstrap-toc.js"></script>'+
+            '<script type="text/javascript" src="../bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="../fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="../bulma.min.css">'+
             '<link rel="stylesheet" href="../style.css">'+
@@ -52,13 +52,21 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             "<title>"+province.Name+" - Quality of Life and Info Sheet for Expats </title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="../img/expiter-favicon.ico"></link>'+
             "</head>"+
+
             '<body data-spy="scroll" data-target="#toc">'+
-            '<div class="toc container collapsed"><i class="arrow left" onclick="$(\'.toc\').toggleClass(\'collapsed\')"></i>'+
-			'<div class="row"><div class="col-sm-3">'+
-				'<nav id="toc" data-spy="affix" data-toggle="toc"></nav>'+
-			  '</div></div></div>'+
+
+            '<div class="toc container collapsed" >'+
+			'<i class="arrow left" onclick="$(\'.toc\').toggleClass(\'collapsed\')"></i>'+
+			'<div class="row">'+
+			  '<div class="col-sm-3">'+
+				'<nav id="toc" data-toggle="toc"></nav>'+
+                '<div class="col-sm-9"></div>'+
+			  '</div>'+
+			'</div>'+
+		'</div>'+
+
+        '<nav id="navbar"></nav>'+
             '<div class="hero" style="background-image:url(\'../img/'+province.Abbreviation+'.webp\')" '+'title="'+province.Name+' Province"'+'></div>'+
-            '<nav id="navbar"></nav>'+
             '<h1 data-toc-skip id="title" class="title column is-12">  </h1></row>'+
             '<div class="tabs effect-3">'+
 			'<input type="radio" id="tab-1" name="tab-effect-3" checked="checked">'+
@@ -162,6 +170,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#transport").append(separator)
         $("#promo").append(info.viator)
         $("#promo").append(separator)
+
+
        }
        
       
