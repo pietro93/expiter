@@ -579,7 +579,8 @@ p.column.is-12{
   opacity:.8;
   z-index:3
 }
-#header:hover{opacity:.9}#header:hover>.arrow{border-color:white}
+#floatBottom>#header:hover{opacity:.9}
+#floatBottom>#header:hover>.arrow{border-color:white}
 i.arrow {
   border: solid var(--lightest-blue);
   border-width: 0 5px 5px 0;
