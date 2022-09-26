@@ -466,14 +466,16 @@ card .header {
     color:rgba(90,30,0,1);
   }
 
-.regionfilter{background:none;}
-.selected{opacity:1;background-color:rgba(104,140,194,.4)}
-.clearfilter,.allfilter,.specialfilter{padding:0;
+#floatBottom>#filters>#regionfilters>.regionfilter{background:none;}
+button.selected{opacity:1;background-color:rgba(104,140,194,.4)}
+#floatBottom>#filters .clearfilter,
+#floatBottom>#filters .allfilter,
+#floatBottom>#filters .specialfilter{padding:0;
   font-weight:600;color:rgba(54,15,3,.92);opacity: .8}
 .button:hover{opacity:1}
-.clearfilter{background-color:rgba(194,90,20,.6);border-color:rgba(194,90,20,.8);}
-.allfilter{background-color:rgba(124,210,124,.6);border-color:rgba(124,210,124,.8)}
-.specialfilter{background-color:rgba(214,164,80,.6);border-color:rgba(214,164,80,.8)}
+#floatBottom>#filters .clearfilter{background-color:rgba(194,90,20,.6);border-color:rgba(194,90,20,.8);}
+#floatBottom>#filters .allfilter{background-color:rgba(124,210,124,.6);border-color:rgba(124,210,124,.8)}
+#floatBottom>#filters .specialfilter{background-color:rgba(214,164,80,.6);border-color:rgba(214,164,80,.8)}
 
 
 row{position:relative;
