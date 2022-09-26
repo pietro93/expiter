@@ -552,16 +552,16 @@ function getInfo(province){
 */
 function resizeFilterMenu(){
   let arrow = $("#header > .arrow");
-  if (!$(".floatBottom").hasClass("toggled")){
+  if (!$("#floatBottom").hasClass("toggled")){
 
     arrow.removeClass("up");
     arrow.addClass("down");
-    $(".floatBottom").addClass("toggled")
+    $("#floatBottom").addClass("toggled")
   }
   else{
     arrow.addClass("up");
     arrow.removeClass("down");
-    $(".floatBottom").removeClass("toggled")
+    $("#floatBottom").removeClass("toggled")
   }
 }
 
