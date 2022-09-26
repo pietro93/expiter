@@ -708,7 +708,7 @@ body>#navbar>.navbar-container{
   align-items: center;
 }
 
-body>#navbar>.navbar-container>.menu-items{
+body>#navbar>.navbar-container .menu-items{
     order: 2;
     display: flex;
     margin-right:4vw;
@@ -730,13 +730,13 @@ body>#navbar>.navbar-container>a>.logo{
     margin-left:-10vw;
 }
 
-body>#navbar>.navbar-container>.menu-items>li{
+body>#navbar>.navbar-container .menu-items>li{
     list-style: none;
     margin-left: 1.5rem;
     font-size: 1.3rem;
 }
 
-body>#navbar>.navbar-container>.menu-items>li>a{
+body>#navbar>.navbar-container .menu-items>li>a{
     color: var(--lightest-blue);
     opacity:.9;
     text-decoration: none;
@@ -744,7 +744,7 @@ body>#navbar>.navbar-container>.menu-items>li>a{
     transition: color 0.3s ease-in-out;
 }
 
-body>#navbar>.navbar-container>.menu-items>li>a:hover{
+body>#navbar>.navbar-container .menu-items>li>a:hover{
     color: white;
     opacity:1;
 }
