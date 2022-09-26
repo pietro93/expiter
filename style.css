@@ -670,6 +670,10 @@ h4{
   padding-bottom:14px;
 }
 
+#info > #overview > img {
+  float:left
+}
+
 *,
 *::after,
 *::before{
@@ -850,7 +854,7 @@ h4{
         height:80%;
         right:-15px;
         }
-    }
+ }
 
     .navbar-container input[type="checkbox"]:checked ~ .menu-items{
         transform: translateX(0);
@@ -868,6 +872,7 @@ h4{
         transform: rotate(-45deg);
     }
 
+  
 @media (max-width: 500px){
     .navbar-container input[type="checkbox"]:checked ~ .logo{
         display: none;
@@ -878,6 +883,11 @@ h4{
 
 
 @media only screen and (max-width: 768px) {
+
+  #info > #overview > img {
+    float:center;
+    width:100%;
+  }
  
   .arrow{
     right:10px;

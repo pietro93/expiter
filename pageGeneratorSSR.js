@@ -145,11 +145,18 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
     function newPage(province, $){
         let info = getInfo(province)
         let separator='</br><span class="separator"></span></br>'
+
+        let map =
+        '<img alt="Map of the '+province.Name+' province in '+province.Region+'"'+
+        'src="https://ik.imagekit.io/cfkgj4ulo/map/'+province["Region"].replace(" ","-").replace("'","-")+'-provinces.webp?tr=w-250'+
+        'load="lazy">'
+        '</img>'
         
         appendProvinceData(province, $);
         setNavBar($);
         
         $(".title").text(province.Name+' for Expats and Nomads');
+        $("#overview").append(map)
         $("#overview").append(info.overview)
         $("#overview").append(info.disclaimer)
         $("#overview").append(info.map)
