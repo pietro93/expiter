@@ -23,8 +23,11 @@ fetch('../dataset.json', {method:"Get"})
         //else if (location.href.includes("/province/")) //newPage()
       //},100)
     })
-    .catch(function (err) {
-        console.log('error: ' + err);  
+    .catch(function (err,data) {
+        console.log('error: ' + err);
+        console.log("Could not fetch dataset") 
+        console.log("Returning data:")
+        console.log(data) 
     });
 
 
