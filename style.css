@@ -551,7 +551,7 @@ p.column.is-12{
 
 .fullwidth > .column > card > .more{display:none}
 
-.floatBottom
+#floatBottom
 {
   position:fixed;
   width:99vw;
@@ -659,7 +659,7 @@ h4{
 }
 
 #info > h3{
-  padding-left:10px;
+  padding-left:2px;
 }
 
 #info > span > h4{
