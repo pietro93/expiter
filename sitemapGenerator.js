@@ -43,9 +43,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         dataset=data;  
         for (let i = 0; i < 107; i++){
             let province = dataset[i];
-            console.log("adding /province/" + dataset[i].Name.replace(/\s+/g, '-').toLowerCase() +"/ to sitemap")
+            console.log("adding /province/" + dataset[i].Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase() +"/ to sitemap")
             siteMap=siteMap.concat('<url>'+
-            '<loc>https://expiter.com/province/'+dataset[i].Name.replace(/\s+/g, '-').toLowerCase()+'/</loc>'+
+            '<loc>https://expiter.com/province/'+dataset[i].Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/</loc>'+
             '<priority>.8</priority>'+
             '</url>')
         }
