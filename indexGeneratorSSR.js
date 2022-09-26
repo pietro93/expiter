@@ -252,7 +252,7 @@ function createSorting($,label, value){
       let sortBy = $('input[name="sortBy"]:checked')[0].value;
       let data;
       console.log("sort by: "+sortBy)
-      console.log("selection: "+selection)
+      //console.log("selection: "+selection)
         if (sortBy=="Random"){
           data = selection.sort(() => Math.random() - 0.5);     
         }
@@ -261,7 +261,7 @@ function createSorting($,label, value){
         }
         else {                                                        //descending order
           data = selection.sort(dynamicSort("-"+sortBy))
-          console.log("sorted data: "+data)
+          //console.log("sorted data: "+data)
         }
         console.log("appending data")
         appendData($,data);

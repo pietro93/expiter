@@ -323,7 +323,6 @@ function appendData(data) {
     else if (additionalFilters.includes("HasUni")) $("#withthings").text("with a University")
     else if (additionalFilters.includes("HasMetro")) $("#withthings").text("with a Subway System")
     let colFilters=additionalFilters.filter((item) => (item.substring(item.length-4) == "cost")).sort()
-    console.log("colFilters"+colFilters)
     if (colFilters=="Low-cost") $("#costofliving").text("Low CoL")
     else if (colFilters=="Mid-cost") $("#costofliving").text("Medium CoL")
     else if (colFilters=="High-cost") $("#costofliving").text("High CoL")
@@ -552,16 +551,16 @@ function getInfo(province){
 */
 function resizeFilterMenu(){
   let arrow = $("#header > .arrow");
-  if (!$(".floatBottom").hasClass("toggled")){
+  if (!$("#floatBottom").hasClass("toggled")){
 
     arrow.removeClass("up");
     arrow.addClass("down");
-    $(".floatBottom").addClass("toggled")
+    $("#floatBottom").addClass("toggled")
   }
   else{
     arrow.addClass("up");
     arrow.removeClass("down");
-    $(".floatBottom").removeClass("toggled")
+    $("#floatBottom").removeClass("toggled")
   }
 }
 
