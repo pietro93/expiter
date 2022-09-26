@@ -671,7 +671,7 @@ h4{
 }
 
 #info > #overview > img {
-  float:left
+  float:left;
 }
 
 *,
