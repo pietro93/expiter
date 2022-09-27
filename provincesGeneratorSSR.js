@@ -96,7 +96,7 @@ function setProvinces($){
         card += '<button class="more" style="font-size:large;" onclick="location.href=\'https://expiter.com/province/'+data[i].Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/\';"> More>> </button>';
         card += '</card>'
 
-        col += "<a href='https://expiter.com/province/"+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"\''>"+card+"</a></div>";
+        col += "<a href='https://expiter.com/province/"+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"/\''>"+card+"</a></div>";
    
         $("#"+data[i].Region.split(" ")[0]).append(col)
         }

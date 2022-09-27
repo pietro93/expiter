@@ -49,7 +49,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<meta name="description" content="Information about living in '+province.Name+', Italy for expats and digital nomads. '+province.Name+' quality of life, cost of living, safety and more." />'+
 	        '<meta name="keywords" content="'+province.Name+' italy, '+province.Name+' expat,'+province.Name+' life,'+province.Name+' digital nomad" />'+
             "<title>"+province.Name+" - Quality of Life and Info Sheet for Expats </title>"+
-            '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="../img/expiter-favicon.ico"></link>'+
+            '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
             "</head>"+
 
             '<body data-spy="scroll" data-target="#toc">'+
@@ -65,7 +65,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 		'</div>'+
 
         '<nav id="navbar"></nav>'+
-            '<div class="hero" style="background-image:url(\'../img/'+province.Abbreviation+'.webp\')" '+'title="'+province.Name+' Province"'+'></div>'+
+            '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="'+province.Name+' Province"'+'></div>'+
             '<h1 data-toc-skip id="title" class="title column is-12">  </h1></row>'+
             '<div class="tabs effect-3">'+
 			'<input type="radio" id="tab-1" name="tab-effect-3" checked="checked">'+
