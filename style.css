@@ -1414,6 +1414,6 @@ visibility:hidden;
   z-index:-1;
 }
 
-floatBottom.toggled{
+#floatBottom.toggled{
   height:inherit;
 }
