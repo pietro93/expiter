@@ -615,9 +615,7 @@ p.column.is-12{
     background-color:rgba(180,120,50,.6)}
 #additionalfilters > button.has{
     background-color:rgba(184,190,194,.6)}
-.toggled{
-  height:inherit;
-}
+    
 
 #info,#info>*,#info>span{
   font-size:18px;
@@ -1414,4 +1412,8 @@ visibility:hidden;
   opacity:.9;
   position:absolute;
   z-index:-1;
+}
+
+floatBottom.toggled{
+  height:inherit;
 }
