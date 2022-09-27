@@ -105,16 +105,16 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 			'</div>'+
 		'</div></div>'+
             '<div id="info" class="columns is-multiline is-mobile">'+
-            '<h2>Overview</h2><span id="overview"></span>'+
-            '<h2>Climate</h2><span id="climate"></span>'+
-            '<h2>Cost of Living</h2><span id="CoL"></span>'+
-            '<h2>Quality of Life</h2>'+
-            '<h3>Healthcare</h3><span id="healthcare"></span>'+
-            '<h3>Education</h3><span id="education"></span>'+
-            '<h3>Leisure</h3><span id="leisure"></span>'+
-            '<h3>Crime and Safety</h3><span id="crimeandsafety"></span>'+
-            '<h3>Transport</h3><span id="transport"></span>'+
-            '<h2>Discover</h2><span id="promo"></span>'+
+            '<section id="Overview"><h2>Overview</h2><span id="overview"></span></section>'+
+            '<section id="Climate"><h2>Climate</h2><span id="climate"></span></section>'+
+            '<section id="Cost of Living"><h2>Cost of Living</h2><span id="CoL"></span></section>'+
+            '<section id="Quality of Life"><h2>Quality of Life</h2>'+
+            '<section id="Healthcare"><h3>Healthcare</h3><span id="healthcare"></span></section>'+
+            '<section id="Education"><h3>Education</h3><span id="education"></span></section>'+
+            '<section id="Leisure"><h3>Leisure</h3><span id="leisure"></span></section>'+
+            '<section id="Crime and Safety"><h3>Crime and Safety</h3><span id="crimeandsafety"></span></section>'+
+            '<section id="Transport"><h3>Transport</h3><span id="transport"></span></section></section>'+
+            '<section id="Discover"><h2>Discover</h2><span id="promo"></span></section>'+
             '</div>'+
             '</body></html>'
                     )
