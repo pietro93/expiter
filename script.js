@@ -667,7 +667,7 @@ function appendProvinceData(province){
 // add trackers to <head>
 $(document).ready(function(){
 let adSense = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0087385699618984" crossorigin="anonymous"></script>'
-/*let analytics = '<!-- Google tag (gtag.js) -->'+
+let analytics = '<!-- Google tag (gtag.js) -->'+
 '<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEX5VTPVLL"></script>'+
 '<script>'+
 '  window.dataLayer = window.dataLayer || [];'+
@@ -675,7 +675,7 @@ let adSense = '<script async src="https://pagead2.googlesyndication.com/pagead/j
 "  gtag('js', new Date());"+
   
 "  gtag('config', 'G-ZEX5VTPVLL');"+
-'</script>'*/
+'</script>'
 let hotJar = '<!-- Hotjar Tracking Code for https://expiter.com -->'+
 "<script defer>"+
 "    (function(h,o,t,j,a,r){"+
