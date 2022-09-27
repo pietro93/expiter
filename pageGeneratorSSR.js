@@ -36,7 +36,6 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             const dom = new jsdom.JSDOM(
             "<html lang='en'>"+
             '<head><meta charset="utf-8">'+
-            '<base href="https://expiter.com/">'+
             '<link rel="canonical" href="https://expiter.com/province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/"/>'+
             '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
             '<script type="text/javascript" src="../jquery3.6.0.js" defer></script>'+

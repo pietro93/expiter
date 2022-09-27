@@ -281,139 +281,6 @@ score{padding-right:1%;
   width:44%;
 }
 
-.region{
-  font-size:18px;
-  
-  height:50px;
-  letter-spacing:-1px;
-  text-align: right;
-  font-weight:400;
-  position:fixed;
-  right:-9px;
-  top:-9px;
-}
-.population{
-  margin-top:-2px;
-  padding-bottom:4px;
-  margin-left:0;
-  letter-spacing:-1px;
-  line-height:12px;
-  text-align:center;
-}.population ej{font-size:13px}
-
-card.Abruzzo::after{
-  background-color:skyblue;
-  opacity:.33;
-}card.Abruzzo>.region{color:skyblue}
-card.Calabria::after{
-  background-color:orange;
-  opacity:.33;
-}card.Calabria>.region{color:greenyellow}
-card.Lombardia::after{
-  background-color:cyan;
-  opacity:.33;
-} card.Lombardia>.region{color:cyan}
-card.Lazio::after{
-  background-color:orangered;
-  opacity:.33;
-}card.Lazio>.region{color:orange}
-card.Emilia-Romagna::after{
-  background-color:royalblue;
-  opacity:.33;
-}card.Emilia-Romagna>.region{color:lightskyblue}
-card.Aosta ::after{
-  background-color:whitesmoke;
-  opacity:.33;
-}card.Aosta>.region{color:whitesmoke}
-card.Trentino-Alto::after{
-  background-color:darkolivegreen;
-  opacity:.33;
-}card.Trentino-Alto>.region{color:lightgreen}
-card.Friuli-Venezia::after{
-  background-color:purple;
-  opacity:.33;
-}card.Friuli-Venezia>.region{color:violet}
-card.Umbria::after{
-  background-color:darkslategray;
-  opacity:.33;
-}card.Umbria>.region{color:lightsteelblue}
-card.Sardegna::after{
-  background-color:orangered;
-  opacity:.33;
-}card.Sardegna>.region{color:sandybrown}
-card.Sicilia::after{
-  background-color:goldenrod;
-  opacity:.33;
-}card.Sicilia>.region{color:yellow}
-card.Toscana::after{
-  background-color:forestgreen;
-  opacity:.33;
-}card.Toscana>.region{color:lawngreen}
-card.Molise::after{
-  background-color:brown;
-  opacity:.33;
-}card.Molise>.region{color:lightpink}
-card.Marche::after{
-  background-color:darkgoldenrod;
-  opacity:.33;
-}card.Marche>.region{color:burlywood}
-card.Puglia::after{
-  background-color:salmon;
-  opacity:.33;
-}card.Puglia>.region{color:darksalmon}
-card.Piemonte::after{
-  background-color:darkslateblue;
-  opacity:.33;
-}card.Piemonte>.region{color:lightcyan}
-card.Basilicata::after{
-  background-color:brown;
-  opacity:.33;
-}card.Basilicata>.region{color:gold}
-card.Liguria::after{
-  background-color:seagreen;
-  opacity:.33;
-}card.Liguria>.region{color:springgreen}
-card.Veneto::after{
-  background-color:cadetblue;
-  opacity:.33;
-}card.Veneto>.region{color:azure}
-card.Campania::after{
-  background-color:palevioletred;
-  opacity:.33;
-}card.Campania>.region{color:gold}
-
-
-:not(.fullwidth) > .column > a > card:hover > .population, :not(.fullwidth) > .column > a >  card:hover >.region{
-  opacity:0
-}
-
-:not(.fullwidth) > .column > a > card:hover{
-  opacity:1
-}
-:not(.fullwidth)  > .column > a >  card:hover .header, :not(.fullwidth) > .column > a >  card:hover > p{
-  text-shadow: 0 0 12px black;
-  opacity:1;
-  
- }
- :not(.fullwidth)  > .column > a >  card:hover > p,:not(.fullwidth) > .column > a >  card:hover > score{
-  font-size:18px;
- }
-
- :not(.fullwidth)  > .column > a >  card:hover .header{
-  font-size:20px;
-  margin-top:-2px;
-  opacity:.5;
- }
- :not(.fullwidth) > .column > a >  .paracard:hover{
-  padding-top: 10px;
-  cursor:pointer;
- }
-
- :not(.fullwidth)  > .column > a >   card:hover::after{
-    opacity:0.53;
-    background-color:black;
- }
-
 card .header {
   font-family: "Playfair Display";
   font-size: 28px;
@@ -481,200 +348,6 @@ row{position:relative;
   padding-right:5vw;
   }
 
-#sorting>label>input[type="radio"] {
-		display: none;}
-#sorting>label {  border:2px ridge rgba(100,100,100,.2);
-  background:none;
-  border-radius:5px;
-  font-weight:500;
-  padding:0;
-  padding-top:2px;
-  padding-bottom:2px;
-  font-size:14px;
-  text-align:center;
-  opacity:.8;
-  }
-  #sorting > label> span {color:rgba(80,80,80,.9);}
-  #sorting>label>input[type="radio"]:checked + span{
-    color:rgba(50,50,50,1);
-    font-weight:900;
-    border-bottom:4px double rgba(103, 100, 100, 0.7);
-    }
-    #sorting>label:hover{opacity:1;border:2px ridge rgba(100,100,100,.6)}
-
-p.column.is-12{
-  padding-bottom:0;opacity:0.9;font-weight:600;margin-left:-10px;}
-
-  .fullwidth > .column > card{
-  min-width:90vw;
-  min-height:100%;
-  left:2vw;
-}
-.fullwidth > .column > card:hover > *{
-  opacity:1;
-}
-.fullwidth > .column > card > *{
-  left:0;
-  text-align:left;
-  font-size:20px;
-  padding-bottom:20px;
-  opacity:1;
-}
-
-.fullwidth > .column > card > p > score {
-  position:absolute;
-  font-size:20px;
-  left:120px;
-  padding-right:10%;
-  padding-top:5px;
-  padding-bottom:5px;
-  top:-5px;
-}
-.fullwidth > .column > card:hover > .region{
-  opacity:1;
-}
-
-.fullwidth > .column > card:hover > .heading{
- opacity:1;
- font-size: 28px;
-  word-wrap:break-word;
-  line-height:21px;
-  letter-spacing:-1.4px;
-  font-weight: 900;
-  margin-top:0px;
-  text-shadow: 0 0 2px black,
-  0 0 20px rgba(0,133,133,0.99),
-  0 0 33px rgba(233,193,93,0.69);
-  color:rgba(255,255,255,.9);
-  margin-top:19px;
-}
-
-.fullwidth > .column > card > .more{display:none}
-
-#floatBottom
-{
-  position:fixed;
-  width:99vw;
-  min-height:88px;
-  height:10%;
-  left:0;
-  bottom:0;
-  z-index:2;
-  background-color:var(--lightest-blue);
-  padding:0;
-  border:1px ridge var(--cyan-to-dark-blue);
-  border-bottom: none;
-  overflow:hidden;
-  border-radius: 15px 15px 0 0;
-}
-
-
-#header{
-  width:105%;
-  left:-2%;
-  height:35px;
-  margin-bottom:3px;
-  background-color: var(--darkest-blue);
-  cursor:pointer;
-  opacity:.8;
-  z-index:3
-}
-#header:hover{opacity:.9}#header:hover>.arrow{border-color:white}
-.arrow {
-  border: solid var(--lightest-blue);
-  border-width: 0 5px 5px 0;
-  bottom:0px;
-  padding:7px;
-  position:absolute;
-  margin-right:30px;
-  right:25px;
-}.up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-}.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  bottom:5px;
-}
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
-
-#regionfilters{width:49%;position:inherit;float:left;padding:0;margin-left:1vw;}
-#additionalfilters{width:48%;position:inherit;float:right;padding:0;margin-right:1vw;}
-#additionalfilters > button.pop{
-  background-color:rgba(104,140,164,.6)}
-#additionalfilters > button.col{
-  background-color:rgba(164,165,80,.6)}
-#additionalfilters > button.clim{
-    background-color:rgba(180,120,50,.6)}
-#additionalfilters > button.has{
-    background-color:rgba(184,190,194,.6)}
-.toggled{
-  height:inherit;
-}
-
-#info,#info>*,#info>span{
-  font-size:18px;
-  font-family: "Open Sans", sans-serif;
-  width:100%;
-}
-
-h2{
-  font-size:23px;
-  font-weight:600;
-  display:inline-block;
-  margin-top:31px;
-  padding-bottom:5px;padding-top:5px;
-  width:100%;
-  text-align:center;
-  margin-bottom:14px;
-  margin-left:0;
-}
-h3{
-  font-size:21px;
-  font-weight:600;
-  display:inline-block;
-  margin-top:21px;
-  width:100%;
-  padding-bottom:14px;
-}
-h4{
-  font-size:18px;
-  font-weight:400;
-  display:inline-block;
-  margin-top:18px;
-  padding-bottom:14px;
-}
-
-#info > h2{
-  background-color:var(--darkest-blue);
-  color:white;
-  text-transform: uppercase;
-}
-
-#info > h3{
-  padding-left:2px;
-}
-
-#info > span > h4{
-  font-size:18px;
-  font-weight:400;
-  display:inline-block;
-  margin-top:18px;
-  padding-bottom:14px;
-}
-#info > span > p{
-  margin-bottom:18px
-}
-#info > #overview > img {
-  float:right;
-}
 
 *,
 *::after,
@@ -723,7 +396,7 @@ h4{
     text-shadow: 2px -1px 1px var(--blue-to-cyan);
     text-shadow: -2px 1px 1px var(--blue-going-to-cyan);
     text-shadow: 1px 2px 1px var(--cyan-to-dark-blue);
-    background-image:url("img/expiter.webp");
+    background-image:url("../img/expiter.webp");
     background-size:contain;
     background-repeat:no-repeat;
     text-overflow:hidden;
@@ -737,12 +410,6 @@ h4{
     list-style: none;
     margin-left: 1.5rem;
     font-size: 1.3rem;
-}
-.menu-items > li > li{
-  list-style: none;
-  color:pink;
-  margin-left: 1.5rem;
-  font-size: 1.3rem;
 }
 
 #navbar a{
@@ -1373,11 +1040,6 @@ visibility:hidden;
   margin-top:0;
 }
 
-.weatherwidget-io{
-  border-radius:25px;
-  margin-top:5px;
-  opacity:.8;
-}
 
 /* small screens */
 @media (max-width: 768px) {
@@ -1406,12 +1068,36 @@ visibility:hidden;
   */
 }
 
-.paracard img{
-  width: 100%;
-  height: 100%;
-  top:0;
-  object-fit:cover;
-  opacity:.9;
-  position:absolute;
-  z-index:-1;
+.form-row>div>label{
+  font-size:18px;
+  color:var(--darkest-blue);
+  margin-left:2px;
+  float:left;
+  margin-bottom:0;
+  font-weight:600
+}
+
+h2.title{
+  padding-bottom:10px;
+  margin-top:21px;
+  color:var(--darkest-blue)
+}
+
+
+.button{
+  padding:5px;
+  padding-right:8px;
+  background-color:var(--blue-going-to-cyan);
+  border-radius:8px;
+  text-transform:uppercase;
+  opacity:0.85;
+  font-size:15px;
+  letter-spacing:.5px
+}
+
+@media only screen and (min-width: 768px){
+  .button,.codice{max-width:300px;}
+}
+@media only screen and (max-width: 768px){
+  label > br{display:none}
 }

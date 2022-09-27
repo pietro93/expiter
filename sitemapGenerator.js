@@ -28,6 +28,11 @@ var siteMap= '<?xml version="1.0" encoding="UTF-8"?>'+
     '<url>'+
 '   <loc>https://expiter.com/provinces/</loc>'+
 '   <priority>.5</priority>'+
+'   </url>'+
+
+    '<url>'+
+'   <loc>https://expiter.com/resources/codice-fiscale-generator/</loc>'+
+'   <priority>.9</priority>'+
 '   </url>'
 
 createServer(function (req, res) {
