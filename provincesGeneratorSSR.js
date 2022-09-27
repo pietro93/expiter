@@ -116,6 +116,7 @@ function setProvinces($){
     '<ul class="menu-items">'+
         '<li><a href="/">Home</a></li>'+
         '<li><a href="/resources">Resources</a></li>'+
+        '<li><a href="/tools/codice-fiscale-generator/">Tools</a></li>'+
         '<li><a href="/app#About">About</a></li>'+
         '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
         '</ul>'+
