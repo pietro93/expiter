@@ -36,7 +36,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             const dom = new jsdom.JSDOM(
             "<html lang='en'>"+
             '<head><meta charset="utf-8">'+
-            '<base href="https://expiter.com/">'+
+            '<base href="https://expiter.com/province/">'+
             '<link rel="canonical" href="https://expiter.com/province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/"/>'+
             '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
             '<script type="text/javascript" src="../jquery3.6.0.js" defer></script>'+
@@ -310,9 +310,9 @@ function populateFacts(){
         '</div>'+
         '<ul class="menu-items">'+
             '<li><a href="/">Home</a></li>'+
-            '<li><a href="/resources/">Resources</a></li>'+
-            '<li><a href="/tools/codice-fiscale-generator/">Tools</a></li>'+
-            '<li><a href="/app/#About">About</a></li>'+
+            '<li><a href="../resources/">Resources</a></li>'+
+            '<li><a href="../tools/codice-fiscale-generator/">Tools</a></li>'+
+            '<li><a href="../app/#About">About</a></li>'+
             '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
             '</ul>'+
        '<a href="/"><div class="logo">Italy Expats & Nomads</div></a>'+
