@@ -80,13 +80,6 @@ body::-webkit-scrollbar-thumb {
   margin-top:100px;
 }
 
-.container {
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 #app > row > .column {
   max-height:460px;
   padding: 0 .5px 0 .5px;
@@ -1100,4 +1093,9 @@ h2.title{
 }
 @media only screen and (max-width: 768px){
   label > br{display:none}
+}
+.subtitle{
+  font-size:18px;
+  text-align:center;
+  width:100%;
 }
