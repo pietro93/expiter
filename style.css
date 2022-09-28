@@ -392,7 +392,6 @@ card.Campania::after{
   opacity:1
 }
 :not(.fullwidth)  > .column > a >  card:hover .header, :not(.fullwidth) > .column > a >  card:hover > p{
-  text-shadow: 0 0 12px black;
   opacity:1;
   
  }
