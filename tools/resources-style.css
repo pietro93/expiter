@@ -1,17 +1,21 @@
 
 .form-row>div>label{
   font-size:18px;
-  color:var(--darkest);
+  color:var(--medium-2);
   margin-left:2px;
   float:left;
   margin-bottom:0;
   font-weight:600
 }
 
-h2.title{
-  padding-bottom:10px;
+h1.title{color:var(--darkest);
+margin-bottom:3px}
+h2,h2.title{
+  padding-bottom:0px;
+  padding-top:5px;
   margin-top:21px;
-  color:var(--darkest)
+  color:var(--dark);
+  font-size:20px;
 }
 
 
@@ -48,4 +52,19 @@ h2.title{
 .quicklink:hover{
   border-color:var(--darkest);
   color:var(--darkest);
+}
+
+#navbar .menu-items{
+  margin-top:2vh;
+}
+
+div.container.card {
+  padding-top:15px;
+  padding-bottom:15px;
+  background-color:white;
+  
+}
+
+div.container.card,div.container.card *{
+  border-radius:10px;
 }
