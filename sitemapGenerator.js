@@ -54,6 +54,22 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<priority>.8</priority>'+
             '</url>')
         }
+        for (let i = 0; i < 107; i++){
+            let province = dataset[i];
+            console.log("adding /img/" +dataset[i].Abbreviation+ ".webp to sitemap")
+            siteMap=siteMap.concat('<url>'+
+            '<loc>https://expiter.com/img/'+dataset[i].Abbreviation+'.webp</loc>'+
+            '<priority>0</priority>'+
+            '</url>')
+        }
+        for (let i = 108; i < 128; i++){
+            let region = dataset[i];
+            console.log("adding /img/map/" + dataset[i].Name.replace(/'/g, '-').replace(/\s+/g, '-') +"-provinces.webp to sitemap")
+            siteMap=siteMap.concat('<url>'+
+            '<loc>https://expiter.com/img/map/'+dataset[i].Name.replace(/'/g, '-').replace(/\s+/g, '-') +"-provinces.webp</loc>"+
+            '<priority>0</priority>'+
+            '</url>')
+        }
 
         siteMap=siteMap.concat('</urlset>')
         
