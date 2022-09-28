@@ -37,3 +37,15 @@ h2.title{
   text-align:center;
   width:100%;
 }
+
+.quicklink{
+  color:var(--medium-1);
+  border-bottom: 3px dashed var(--medium-1);
+  padding:0;
+  border-left: 6px solid var(--medium-1);
+  border-top:none;border-right:none;
+}
+.quicklink:hover{
+  border-color:var(--darkest);
+  color:var(--darkest);
+}

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="tools/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="tools/resources-style.css">
+    <link rel="stylesheet" href="../style-blog.css">
     <link rel="stylesheet" href="../fonts.css" media="print" onload="this.media='all'">
     <title>Codice Fiscale Generator</title>
     <script src="../jquery3.6.0.js" defer></script>
@@ -63,8 +64,8 @@
             <p class="subtitle">Calculate your Italian Tax Code online. </p>
         </div>
         <div>
-            <a href="tools/codice-fiscale-generator/#Codice Fiscale Calculator"><div class="col-md-4 btn">Calculate Codice Fiscale</div></a>
-          <a href="tools/codice-fiscale-generator/#Reverse Codice Fiscale"><div class="col-md-4 btn">Reverse Codice Fiscale</div>
+            <a href="tools/codice-fiscale-generator/#Codice Fiscale Calculator"><div class="btn quicklink">Calculate Codice Fiscale</div></a>
+          <a href="tools/codice-fiscale-generator/#Reverse Codice Fiscale"><div class=" btn quicklink">Reverse Codice Fiscale</div>
          </div></a>
         
         </center>  
@@ -197,8 +198,64 @@
     </section>
 
         <hr>
+
+        <section id="FAQs"> 
+            </p> 
+            <h2>FAQs</h2>
+            <div>
+            <input type="checkbox" id="question1" name="q"  class="questions">
+            <div class="plus">+</div>
+            <label for="question1" class="question">
+              <h3>What is the Codice Fiscale (Italian Tax Code)?</h3>
+            </label>
+            <div class="answers">
+              The Codice Fiscale is a unique tax ID assigned to anyone who lives in Italy for fiscal reasons and needed for a variety of purposes from opening a bank account to purchasing a car or house.
+            </div>
+          </div>
+          
+          <div>
+            <input type="checkbox" id="question2" name="q" class="questions">
+            <div class="plus">+</div>
+            <label for="question2" class="question">
+              <h3>How do I apply for Codice Fiscale?</h3>
+            </label>
+            <div class="answers">
+                Italian citizens are automatically assigned a fiscal code at birth. Those moving to Italy from abroad need to apply for one either from the <b>Italian ambassy in their country of origin</b> or from the </b>Italian Revenue Agency</b> (<i>Agenzia delle Entrate</i>) in their new place of residence in Italy.
+
+                It is also possible to have a professional representative apply on your behalf.
+            </div>
+          </div>
+            
+          <div>
+            <input type="checkbox" id="question3" name="q" class="questions">
+            <div class="plus">+</div>
+            <label for="question3" class="question">
+                <h3>How is the Codice Fiscale generated?</h3>
+            </label>
+            <div class="answers">
+                The tax code can be "calculated" from your demographic data, since it's a combination of your Name, Surname, date of birth, and place of birth. It is also possible to "reverse engineer" a codice fiscale to track down personal information about its owner.
+            </div>
+
+            <div>
+                <input type="checkbox" id="question4" name="q" class="questions">
+                <div class="plus">+</div>
+                <label for="question4" class="question">
+                    <h3>How can I check if a Codice Fiscale is valid?</h3>
+                </label>
+                <div class="answers">
+                    The tool hereby provided is an <i>unofficial</i> Italian tax code generator and may not be 100% accurate. In order to check if a codice fiscale is valid online, it is best to use the official tool provided by <a href="https://telematici.agenziaentrate.gov.it/VerificaCF/" target="_blank">Agenzia delle Entrate</a>.
+                </div>
+
+           
+
+          </div>
+
+     </div>
+    </div>
+    </div>
        
     </div>
+</div>
 
     <script>
         $(function(){

@@ -1,29 +1,28 @@
-.faq {
+#FAQs {
     width: 90%;
     margin: 0 auto;
     padding-bottom:20%;
   }
 
-.question {
+  #FAQs .question {
 
   font-weight: normal;
   position: relative;
-  background: var(--cyan-to-dark-blue);
+  background: var(--dark);
   margin: 0 auto;
   opacity: .9;
   padding: 10px 10px 10px 50px;
   display: block;
   cursor: pointer;
-  text-shadow:-1px 1px 0px #4892c7, -2px 2px 0px #2a4163;
 }
-.question h3{
-    color:#fff;
+#FAQs .question h3{
+    color:var(--invert-color);
     font-size:16px;
     margin: 0 auto;
     padding: 0;
 
 }
-.answers {
+#FAQs .answers {
   overflow:hidden;
   height:0;
   opacity:0;
@@ -31,19 +30,22 @@
   -moz-transition: .7s ease;
   -o-transition: .7s ease;
   transition: .7s ease;
-  background-color:var(--light-blue)
+  background-color:var(--invert-color);
 }
 
-.questions:checked ~ .answers{
+#FAQs .questions:checked ~ .answers{
   height: auto;
   display:block;
   opacity: 1;
   padding: 15px;
+  padding-bottom:30px;
 }
 
-.plus {
+#FAQs div.plus {
   position: absolute;
+  color:var(--lightest);
   margin-left: 10px;
+  margin-top:2px;
   z-index: 1;
   font-size: 1.8em;
   line-height: 100%;
@@ -58,24 +60,25 @@
   transition: .3s ease;
 }
 
-.questions:checked ~ .plus {
+#FAQs .questions:checked ~ div.plus {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
+  font-size:2.2em;
 }
 
-.questions {
+#FAQs .questions {
   display: none;
 }
 
-.answers b{
+#FAQs .answers b{
     font-size:14px;
 }
 
 .res{
   width:100%;
-  border-bottom: 2px double var(--cyan-to-dark-blue);
+  border-bottom: 2px double var(--medium-2);
   display:flex;
   flex-flow:wrap;
   justify-content: center;
@@ -124,8 +127,9 @@
   color:rgba(0,0,0,0.8);
   border-color:var(--natural-yellow)
 }
+
 @media (max-width: 768px){
-    .faq {
+    #FAQs {
         width: 96%;
         margin: 0 auto;
       }
