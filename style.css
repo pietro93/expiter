@@ -649,7 +649,6 @@ p.column.is-12{
 #info,#info>*,#info>section>span{
   font-size:18px;
   font-family: "Open Sans", sans-serif;
-  width:100vw;
   color:var(--text-color);
   margin-left:0px;
   z-index:2
@@ -1474,7 +1473,7 @@ visibility:hidden;
   height:inherit;
 }
 
-html[data-theme='dark']{
+[data-theme='dark']{
   --lightest:rgba(29,29,64,1);
   --light:rgba(63,43,94,1);
   --medium-light:rgba(93,83,164,1);

@@ -8,11 +8,6 @@ var dataset;
 var avg;
 var regions ={};
 
-$(document).ready(function(){
-  let theme = localStorage.getItem('data-theme'); // Retrieve saved them from local storage
-          if (theme ==='dark') changeThemeToDark()
-  })
-
 fetch('../dataset.json', {method:"Get"})
     .then(function (response) {
         return response.json();
