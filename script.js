@@ -18,7 +18,7 @@ fetch('../dataset.json', {method:"Get"})
         selection=dataset.slice(0, 107);
         if (!document.getElementById("navbar").innerHTML) setNavBar();
         let theme = localStorage.getItem('data-theme'); // Retrieve saved them from local storage
-        if (theme ==='dark') changeThemeToLight()
+        if (theme ==='dark') changeThemeToDark()
         //setTimeout(function(){
         //if (document.title=="Italy Expats and Nomads")
         //filterDataByRegion("All")
