@@ -723,7 +723,7 @@ h4{
     width: 100vw;
     background: var(--medium-dark);
     color: var(--lightest);
-    opacity: 0.85;
+    opacity: 0.99;
     z-index: 100;
     left:0;
 }
@@ -757,7 +757,7 @@ h4{
     height:40px;
     width:200px;
     font-size:0;
-    margin-left:-10vw;
+    margin-left:0;
 }
 
 .menu-items li{
@@ -792,7 +792,7 @@ h4{
   .population b{font-size:14px}
 
   #navbar{
-        opacity: 0.95;
+        opacity: 0.99;
     }
 
     #nbar,
@@ -874,7 +874,7 @@ h4{
         text-transform:uppercase
     }
 
-    .logo{
+    #navbar .logo{
         position: absolute;
         top: 7px;
         font-size: 0px;
@@ -883,6 +883,12 @@ h4{
         height:80%;
         right:-15px;
         }
+
+    #navbar label#switch{
+        position:absolute;
+        bottom:15px;
+        right:200px;
+    }
  }
 
     .navbar-container input[type="checkbox"]:checked ~ .menu-items{
@@ -1450,11 +1456,11 @@ visibility:hidden;
 }
 
 html[data-theme='dark']{
-  --lightest:rgba(29,29,64,.7);
-  --light:rgba(63,43,94,.8);
-  --medium-light:rgba(93,83,164,.8);
-  --medium-1:rgba(113,113,194,.8);
-  --medium-2:rgba(163,163,194,.8);
+  --lightest:rgba(29,29,64,1);
+  --light:rgba(63,43,94,1);
+  --medium-light:rgba(93,83,164,1);
+  --medium-1:rgba(113,113,194,1);
+  --medium-2:rgba(163,163,194,1);
   --medium-dark:rgba(193,183,214,1);
   --dark:rgba(203,203,234,1);
   --darkest:rgba(213,203,244,1);
@@ -1465,4 +1471,61 @@ html[data-theme='dark']{
   --bg1:rgba(29,14,54,85);
   --text-color:white;
   --invert-color:black;
+}
+
+#navbar #switch {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 30px;
+}
+
+#navbar #switch input {
+  display:none
+}
+
+#navbar #switch span.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+#navbar #switch span.slider:before {
+  position: absolute;
+  content: "";
+  height: 23px;
+  width: 23px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+#navbar #switch input:checked + .slider {
+  background-color: #7f7ff1;
+}
+
+#navbar #switch input:focus + .slider {
+  box-shadow: 0 0 1px #7f7ff1;
+}
+
+#navbar #switch input:checked + .slider:before {
+  -webkit-transform: translateX(23px);
+  -ms-transform: translateX(23px);
+  transform: translateX(23px);
+}
+
+#navbar .slider.round {
+  border-radius: 34px;
+}
+
+#navbar .slider.round:before {
+  border-radius: 50%;
 }
