@@ -239,11 +239,11 @@ score{border-radius:25px;
 }
 
 score{padding-right:1%;
-  background-color:var(--light);
+  background-color:var(--medium-2);
 }
-.red{color:darkred;border-color:darkred}
-.green{color:darkgreen;border-color:darkgreen}
-.orange{color:orangered;border-color:orangered}
+.red{color:darkred;border-color:darkred;background-color:orangered}
+.green{color:darkgreen;border-color:darkgreen;background-color:greenyellow}
+.orange{color:orangered;border-color:orangered;background-color:gold}
 .poor{
   color:orangered;
   background-color:rgba(100,0,0,.9);
@@ -650,8 +650,10 @@ p.column.is-12{
 #info,#info>*,#info>section>span{
   font-size:18px;
   font-family: "Open Sans", sans-serif;
-  width:100%;
-  color:var(--text-color)
+  width:100vw;
+  color:var(--text-color);
+  margin-left:0px;
+  z-index:2
 }
 
 h2{
@@ -920,6 +922,11 @@ h4{
 
 
 @media only screen and (max-width: 768px) {
+
+  #info{
+    width:102vw;
+    margin-left:-2vw;
+  }
 
   #info > #overview > img {
     float:center;
@@ -1284,6 +1291,17 @@ section>div.column{
 
 /* small screens */
 @media (max-width: 768px) {
+
+  #info > section{
+    max-width:95vw;
+    margin-left:2vw;
+    text-align:justify;
+  }
+  #info > section > h2{
+    width:105vw;
+    margin-left:-2.5vw;
+  }
+  
   /* override the Affix plugin so that the navigation isn't sticky */
   nav.affix[data-toggle='toc'] {
     position: static;
