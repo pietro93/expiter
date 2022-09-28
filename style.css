@@ -93,49 +93,37 @@ body::-webkit-scrollbar-thumb {
   margin-top:100px;
 }
 
-.container {
-  padding: 10px;
+#app.container {
+  width:100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  left:2px;
 }
 
 #app > row > .column {
   max-height:460px;
   padding: 0 .5px 0 .5px;
 }
+
 card {
   position: relative;
   flex: 0 0 240px;
   width: auto;
-  height: 88%;
+  height: 94%;
   padding:5px; 
   overflow: hidden;
   border-radius: 10px;
   z-index:1;
   min-width:180px;
   max-width:200px;
-  max-height:460px;
+  max-height:420px;
+  margin:0;
 }
 
 .fullwidth  > .column > .paracard > p> score{
   text-transform:uppercase;
   top:1px;
-}
-
-@media only screen and (min-width: 1268px) {
-  #app{
-    left:-10vw;
-    width:100vw;
-  }
-  #app>.column{
-    padding-left:0;
-    padding-right:0;
-  }
-    card {
-    min-width:210px;
-  }
-  
 }
 
 
@@ -413,8 +401,8 @@ card.Campania::after{
  }
 
  :not(.fullwidth)  > .column > a >  card:hover .header{
-  font-size:20px;
-  margin-top:-2px;
+  font-size:32px;
+  margin-top:6px;
   opacity:.5;
  }
  :not(.fullwidth) > .column > a >  .paracard:hover{
@@ -644,6 +632,20 @@ p.column.is-12{
 #additionalfilters > button.has{
     background-color:rgba(184,190,194,.9)}
     
+    
+@media only screen and (min-width: 768px) {
+      #app.container{
+        width:inherit;
+      }
+      #app>.column{
+        padding-left:0;
+        padding-right:0;
+      }
+        card {
+        min-width:210px;
+      }
+      
+    }
 
 #info,#info>*,#info>section>span{
   font-size:18px;
