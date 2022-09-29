@@ -31,6 +31,7 @@
   -o-transition: .7s ease;
   transition: .7s ease;
   background-color:var(--invert-color);
+  color:var(--text-color);
 }
 
 #FAQs .questions:checked ~ .answers{
