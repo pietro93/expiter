@@ -76,13 +76,13 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         var fileName = './autositemap.xml';
 
         
-        var appSiteMap='<?xml version="1.0" encoding="UTF-8"?>'+
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        var appSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n'
         const regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
             "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
         var region_filters = ["All","North","South","Center"].concat(regions)
         region_filters = region_filters.concat(
-            combine(regions,2)//.concat(combine(regions,3)).concat(combine(regions,4))
+            combine(regions,2).concat(combine(regions,3))//.concat(combine(regions,4))
         )
         console.log(region_filters)
 
@@ -99,24 +99,25 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         item => (!item.includes("Pop300k-","Pop300k+","Pop500k+","Pop1m+")))
         .filter(item => (!item.includes("Cold","Hot","Temperate")))
         console.log(filter_filters)
- 
+        
+
         let noFilters="";
         let withFilters1="";
         let withFilters2="";
         for (var s=0; s<sortings.length; s++){
-            appSiteMap=appSiteMap.concat(
+            noFilters= noFilters.concat(
                 '<url>'+
-                '   <loc>https://expiter.com/app/?sort='+sortings[s]+'</loc>'+
-                '   <priority>2</priority>'+
-                '   </url>'
+                '<loc>https://expiter.com/app/?sort='+sortings[s]+'</loc>'+
+                '<priority>2</priority>'+
+                '</url> '+'\n'
                     );
             for (var r=0; r<region_filters.length; r++){
                 
                     noFilters = noFilters.concat(
                     '<url>'+
-                    '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&amp;sort='+sortings[s]+'</loc>'+
-                    '   <priority>1</priority>'+
-                    '   </url>'
+                    '<loc>https://expiter.com/app/?region='+region_filters[r]+'&amp;sort='+sortings[s]+'</loc>'+
+                    '<priority>1</priority>'+
+                    '</url> '+'\n'
                         );
                     console.log('adding ?region='+region_filters[r]+'&sort='+sortings[s]+' to sitemap')
 
@@ -124,16 +125,16 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                         if (f%2==0){
                         withFilters1=withFilters1.concat(
                         '<url>'+
-                        '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
-                        '   <priority>0</priority>'+
-                        '   </url>'
+                        '<loc>https://expiter.com/app/?region='+region_filters[r]+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                        '<priority>0</priority>'+
+                        '</url> '+'\n'
                             );
                         } else {
                             withFilters2=withFilters2.concat(
                                 '<url>'+
                                 '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '   <priority>0</priority>'+
-                                '   </url>'
+                                '   </url>'+'\n'
                                     );
                         }
                         console.log('adding ?region='+region_filters[r]+'&sort='+sortings[s]+'&filter='+filter_filters[f]+' to sitemap')
@@ -143,24 +144,33 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         console.log("generating appSiteMap")
 
-        appSiteMap+=noFilters+withFilters1+withFilters2+'</urlset>';
+        var appSiteMap1=appSiteMap+noFilters+'</urlset>';
+        var appSiteMap2=appSiteMap+withFilters1+'</urlset>';
+        var appSiteMap3=appSiteMap+withFilters2+'</urlset>';
         
                 
         var fileName2 = './app-sitemap.xml';
             
-            fs.writeFile(fileName, siteMap, function (err, file) {
-                if (err) throw err;
-                else console.log(fileName+' Saved!');
-            });
-            fs.writeFile(fileName2, appSiteMap, function (err, file) {
-                        if (err) throw err;
-                        else console.log(fileName2+' Saved!');
-                    });
-                })
-        
-    .catch(function (err) {
-        console.log('error: ' + err);
-    });
+        fs.writeFile(fileName, siteMap, function (err, file) {
+            if (err) throw err;
+            else console.log(fileName+' Saved!');
+        });
+        fs.writeFile('./app-sitemap.xml', appSiteMap1, function (err, file) {
+            if (err) throw err;
+            else console.log(fileName2+' Saved!');
+        });
+        fs.writeFile('./app-sitemap-2.xml', appSiteMap2, function (err, file) {
+            if (err) throw err;
+            else console.log(fileName2+' Saved!');
+        });
+        fs.writeFile('./app-sitemap-3.xml', appSiteMap3, function (err, file) {
+            if (err) throw err;
+            else console.log(fileName2+' Saved!');
+        });
+    
+    });         
+
+
 
 function combine(arr, k, prefix=[]) {
         if (k == 0) return [prefix];
@@ -171,4 +181,3 @@ function combine(arr, k, prefix=[]) {
     });;
     }
 
-function printFuck(){console.log("Fuck!")}
