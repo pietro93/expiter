@@ -339,11 +339,35 @@ function appendData(data) {
         let card = document.createElement("card");
         let col = document.createElement("div");
 
+        let img;
+        switch(data[i].Region){
+          case "Abruzzo": img="AQ"; break;
+          case "Basilicata": img="MT"; break;
+          case "Calabria": img="RC"; break;
+          case "Campania": img="NA"; break;
+          case "Emilia-Romagna": img="BO"; break;
+          case "Friuli-Venezia Giulia": img="TS"; break;
+          case "Lazio": img="ROMA"; break;
+          case "Liguria": img="GE"; break;
+          case "Lombardia": img="MI";break;
+          case "Marche": img="AN"; break;
+          case "Molise": img="CB"; break;
+          case "Piemonte": img="TO"; break;
+          case "Puglia": img="BA"; break;
+          case "Sardegna": img="CA"; break;
+          case "Sicilia": img="PA"; break;
+          case "Toscana": img="FI"; break;
+          case "Trentino-Alto Adige": img="TR"; break;
+          case "Umbria": img="PE"; break;
+          case "Valle d'Aosta": img="AO"; break;
+          case "Veneto": img="VE"; break;
+        }
+
         if ($(window).width() > 765) {
-        card.innerHTML ='<img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-190,h-250,c-at_least" alt="'+data[i].Name+'"></img>'
+        card.innerHTML ='<img '+(i>4?'loading="lazy"':"")+' src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-190,h-250,c-at_least" alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'
         }
         else{
-          card.innerHTML ='<img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-180,h-240,c-at_least,q-1,bl-1" alt="'+data[i].Name+'"></img>'
+          card.innerHTML ='<img '+(i>2?'loading="lazy"':"")+' src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+img+'.webp?tr=w-180,h-240,c-at_least,q-1,bl-1" alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'
         }
 
         if (data[i].Name.length>14){card.innerHTML += '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + data[i].Name + '</h3> '}
