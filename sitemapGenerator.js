@@ -82,7 +82,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
         var region_filters = ["All","North","South","Center"].concat(regions)
         region_filters = region_filters.concat(
-            combine(regions,2).concat(combine(regions,3))//.concat(combine(regions,4))
+            combine(regions,2)//.concat(combine(regions,3)).concat(combine(regions,4))
         )
         console.log(region_filters)
 
@@ -91,7 +91,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         "Name","CostOfLiving","Population","Veg-friendly","Family-friendly","Density","Climate","Safety","Nightlife","Education","Crime"].sort()
 
         var filter_filters=filters.concat(
-            combine(filters,2)//.concat(combine(filters,3)).concat(combine(filters,4))
+            combine(filters,2)//.concat(combine(filters,3))//.concat(combine(filters,4))
             //.concat(combine(filters,5)).concat(combine(filters,6)).concat(combine(filters,7))
             //.concat(combine(filters,8)).concat(combine(filters,9))
         )
@@ -144,9 +144,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         console.log("generating appSiteMap")
 
-        var appSiteMap1=appSiteMap+noFilters+'</urlset>';
-        var appSiteMap2=appSiteMap+withFilters1+'</urlset>';
-        var appSiteMap3=appSiteMap+withFilters2+'</urlset>';
+        var appSiteMap1=appSiteMap.concat(noFilters).concat('</urlset>');
+        var appSiteMap2=appSiteMap.concat(withFilters1).concat('</urlset>');
+        var appSiteMap3=appSiteMap.concat(withFilters2).concat('</urlset>');
+
+        console.log(appSiteMap1)
         
                 
         var fileName2 = './app-sitemap.xml';
