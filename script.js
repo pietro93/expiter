@@ -364,10 +364,10 @@ function appendData(data) {
         }
 
         if ($(window).width() > 765) {
-        card.innerHTML ='<img '+(i>4?'loading="lazy"':"")+' src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-190,h-250,c-at_least" alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'
+        card.innerHTML ='<img title="'+data[i].Name+'" '+(i>4?'loading="lazy"':"")+' src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-190,h-250,c-at_least" alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'
         }
         else{
-          card.innerHTML ='<img '+(i>2?'loading="lazy"':"")+' src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+img+'.webp?tr=w-180,h-240,c-at_least,q-1,bl-1" alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'
+          card.innerHTML ='<img title="'+data[i].Name+'" '+(i>2?'loading="lazy"':"")+' src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+img+'.webp?tr=w-180,h-240,c-at_least,q-1,bl-1" alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'
         }
 
         if (data[i].Name.length>14){card.innerHTML += '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + data[i].Name + '</h3> '}
