@@ -82,7 +82,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
         var region_filters = ["All","North","South","Center"].concat(regions)
         region_filters = region_filters.concat(
-            combine(regions,2)//.concat(combine(regions,3)).concat(combine(regions,4))
+            combine(regions,2).concat(combine(regions,3))//.concat(combine(regions,4))
         )
         console.log(region_filters)
 
@@ -91,7 +91,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         "Name","CostOfLiving","Population","Veg-friendly","Family-friendly","Density","Climate","Safety","Nightlife","Education","Crime"].sort()
 
         var filter_filters=filters.concat(
-            combine(filters,2)//.concat(combine(filters,3))//.concat(combine(filters,4))
+            combine(filters,2).concat(combine(filters,3))//.concat(combine(filters,4))
             //.concat(combine(filters,5)).concat(combine(filters,6)).concat(combine(filters,7))
             //.concat(combine(filters,8)).concat(combine(filters,9))
         )
@@ -104,6 +104,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let noFilters="";
         let withFilters1="";
         let withFilters2="";
+        let withFilters3="";
         for (var s=0; s<sortings.length; s++){
             noFilters= noFilters.concat(
                 '<url>'+
@@ -129,8 +130,16 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                         '<priority>0</priority>'+
                         '</url> '+'\n'
                             );
-                        } else {
+                        } else if (f%2!=0&&f<(filter_filters.length)*.5) {
                             withFilters2=withFilters2.concat(
+                                '<url>'+
+                                '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                                '   <priority>0</priority>'+
+                                '   </url>'+'\n'
+                                    );
+                        }
+                        else {
+                            withFilters3=withFilters3.concat(
                                 '<url>'+
                                 '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '   <priority>0</priority>'+
@@ -147,6 +156,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         var appSiteMap1=appSiteMap.concat(noFilters).concat('</urlset>');
         var appSiteMap2=appSiteMap.concat(withFilters1).concat('</urlset>');
         var appSiteMap3=appSiteMap.concat(withFilters2).concat('</urlset>');
+        var appSiteMap4=appSiteMap.concat(withFilters3).concat('</urlset>');
 
         console.log(appSiteMap1)
         
@@ -169,7 +179,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             if (err) throw err;
             else console.log(fileName2+' Saved!');
         });
-    
+        fs.writeFile('./app-sitemap-4.xml', appSiteMap4, function (err, file) {
+            if (err) throw err;
+            else console.log(fileName2+' Saved!');
+        });
     });         
 
 
