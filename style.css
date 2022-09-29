@@ -1546,3 +1546,7 @@ visibility:hidden;
 #navbar .slider.round:before {
   border-radius: 50%;
 }
+
+figcaption{text-align:center;
+font-size:12px;
+opacity:.8}
