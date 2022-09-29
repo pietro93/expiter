@@ -1,7 +1,8 @@
 var provinces = {};
 var facts={};
 var selection = [];
-var region_filters = [];
+var region_filters = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
+"Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d'Aosta","Veneto"];
 const regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
       "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d'Aosta","Veneto"];
 var additionalFilters=[];
@@ -19,7 +20,7 @@ fetch('../dataset.json', {method:"Get"})
         selection=dataset.slice(0, 107);
         if (!document.getElementById("navbar").innerHTML) setNavBar();
         if (location.search!=""){
-          searchParams()
+          searchParams();
         }
         //setTimeout(function(){
         //if (document.title=="Italy Expats and Nomads")
@@ -728,6 +729,7 @@ checkbox.addEventListener('change', () => {
 
 function searchParams(){
     const URLSearchParams = location.search.substring(1).split('&');
+    region_filters=[];
     var filterParams=[];
     var regionParams=[];
     var sortParams=[];
