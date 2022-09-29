@@ -1,12 +1,13 @@
 var provinces = {};
 var facts={};
 var selection = [];
-var region_filters = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
-"Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
+var region_filters = [];
+const regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
+      "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
 var additionalFilters=[];
 var dataset;
 var avg;
-var regions ={};
+
 
 fetch('../dataset.json', {method:"Get"})
     .then(function (response) {
@@ -17,6 +18,9 @@ fetch('../dataset.json', {method:"Get"})
         dataset = data;
         selection=dataset.slice(0, 107);
         if (!document.getElementById("navbar").innerHTML) setNavBar();
+        if (location.search!=""){
+          searchParams()
+        }
         //setTimeout(function(){
         //if (document.title=="Italy Expats and Nomads")
         //filterDataByRegion("All")
@@ -61,8 +65,6 @@ function populateData(data){
   }
 
     function filterDataByRegion(filter){
-      let regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
-      "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
       let north=["Lombardia","Valle d'Aosta","Piemonte","Liguria","Trentino-Alto Adige", "Friuli-Venezia Giulia","Veneto","Emilia-Romagna"];
       let center=["Lazio","Toscana","Marche","Umbria"];
       let south=["Abruzzo","Molise","Campania","Puglia","Basilicata","Calabria","Sicilia","Sardegna"]
@@ -114,7 +116,7 @@ function populateData(data){
 
       for (let i=0; i<region_filters.length; i++){
         addToSelection(region_filters[i]);
-        $("#"+region_filters[i].substr(0,3)).addClass("selected")
+        $("#"+region_filters[i].substring(0,3)).addClass("selected")
       }
 
       if (additionalFilters.length!=0){
@@ -608,6 +610,7 @@ function createSorting(label, value){
   sortings.append(sorting)
   
 }
+
 /*
 function appendProvinceData(province){
   
@@ -722,3 +725,57 @@ checkbox.addEventListener('change', () => {
     }   
 });
 
+function searchParams(){
+    const URLSearchParams = location.search.substring(1).split('&');
+    var filterParams=[];
+    var regionParams=[];
+    var sortParams=[];
+    for (var i=0;i<URLSearchParams.length;i++){
+      let param = URLSearchParams[i].split(/[=,]/);
+      switch (param[0]){
+      case ("filter"):
+        filterParams=param.slice(1);
+        for (filter in filterParams){
+          $("button[value='"+filterParams[filter]+"']").toggleClass("selected");
+          additionalFilters.push(filterParams[filter])
+        }
+        console.log("added filters: "+additionalFilters)
+        break;
+      case ("region"):
+        $(".regionfilter.selected").toggleClass("selected");
+ 
+        if (param.includes("All")){
+          regionParams=["All"];
+          filterDataByRegion("All");
+        }
+        else if (param.includes("North")){
+          regionParams=["North"];
+          filterDataByRegion("North");
+        }
+        else if (param.includes("Center")){
+          regionParams=["Center"];
+          filterDataByRegion("Center");
+        }
+        else if (param.includes("South")){
+          regionParams=["South"];
+          filterDataByRegion("South");
+        }
+        else {
+        regionParams=param.slice(1)
+        for (region in regionParams){
+          if (regions.includes(regionParams[region])) region_filters.push(regionParams[region]);
+          console.log(regionParams[region])}
+        }
+        break;
+      case ("sort"):
+        sortParams=param[1]
+        $("input[name='sortBy']:checked").attr('checked',false)
+        $("input[name='sortBy'][value="+param[1]+"]").attr('checked', true);
+        break;
+      }
+      filterDataByRegion();
+    }
+    console.log("Filters: "+filterParams)
+    console.log("Regions: "+regionParams)
+    console.log("Sort by: "+sortParams)
+  }

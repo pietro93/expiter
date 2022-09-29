@@ -74,12 +74,101 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         siteMap=siteMap.concat('</urlset>')
         
         var fileName = './autositemap.xml';
+
+        
+        var appSiteMap='<?xml version="1.0" encoding="UTF-8"?>'+
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        const regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
+            "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
+        var region_filters = ["All","North","South","Center"].concat(regions)
+        region_filters = region_filters.concat(
+            combine(regions,2).concat(combine(regions,3)).concat(combine(regions,4))
+        )
+        console.log(region_filters)
+
+        const filters = ["Pop300k-","Pop300k+","Pop500k+","Pop1m+","Cold","Hot","Temperate","HasMetro","HasUni"];
+        const sortings = ["Expat-friendly","DN-friendly","LGBT-friendly","Female-friendly","ColdDays","SunshineHours","HotDays",
+        "Name","CostOfLiving","Population","Veg-friendly","Family-friendly","Density","Climate","Safety","Nightlife","Education","Crime"].sort()
+
+        var filter_filters=filters.concat(
+            combine(filters,2).concat(combine(filters,3)).concat(combine(filters,4))
+            //.concat(combine(filters,5)).concat(combine(filters,6)).concat(combine(filters,7))
+            //.concat(combine(filters,8)).concat(combine(filters,9))
+        )
+        filter_filters= filter_filters.filter(
+        item => (!item.includes("Pop300k-","Pop300k+","Pop500k+","Pop1m+")))
+        .filter(item => (!item.includes("Cold","Hot","Temperate")))
+        console.log(filter_filters)
+ 
+        let noFilters="";
+        let withFilters1="";
+        let withFilters2="";
+        for (var s=0; s<sortings.length; s++){
+            appSiteMap=appSiteMap.concat(
+                '<url>'+
+                '   <loc>https://expiter.com/app/?&sort='+sortings[s]+'</loc>'+
+                '   <priority>2</priority>'+
+                '   </url>'
+                    );
+            for (var r=0; r<region_filters.length; r++){
+                
+                    noFilters = noFilters.concat(
+                    '<url>'+
+                    '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&sort='+sortings[s]+'</loc>'+
+                    '   <priority>1</priority>'+
+                    '   </url>'
+                        );
+                    console.log('adding ?region='+region_filters[r]+'&sort='+sortings[s]+' to sitemap')
+
+                    for (var f=0; f<filter_filters.length; f++){
+                        if (f%2==0){
+                        withFilters1=withFilters1.concat(
+                        '<url>'+
+                        '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&sort='+sortings[s]+'&filter='+filter_filters[f]+'</loc>'+
+                        '   <priority>0</priority>'+
+                        '   </url>'
+                            );
+                        } else {
+                            withFilters2=withFilters2.concat(
+                                '<url>'+
+                                '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&sort='+sortings[s]+'&filter='+filter_filters[f]+'</loc>'+
+                                '   <priority>0</priority>'+
+                                '   </url>'
+                                    );
+                        }
+                        console.log('adding ?region='+region_filters[r]+'&sort='+sortings[s]+'&filter='+filter_filters[f]+' to sitemap')
+                }
+            }
+        }
+
+        console.log("generating appSiteMap")
+
+        appSiteMap+=noFilters+withFilters1+withFilters2+'</urlset>';
+        
+                
+        var fileName2 = './app-sitemap.xml';
             
             fs.writeFile(fileName, siteMap, function (err, file) {
                 if (err) throw err;
                 else console.log(fileName+' Saved!');
             });
-        })
+            fs.writeFile(fileName2, appSiteMap, function (err, file) {
+                        if (err) throw err;
+                        else console.log(fileName2+' Saved!');
+                    });
+                })
+        
     .catch(function (err) {
         console.log('error: ' + err);
     });
+
+function combine(arr, k, prefix=[]) {
+        if (k == 0) return [prefix];
+        return arr.flatMap((v, i) =>
+            combine(arr.slice(i+1), k-1, [...prefix, v])
+        ).map(num => {
+      return String(num);
+    });;
+    }
+
+function printFuck(){console.log("Fuck!")}
