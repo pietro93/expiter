@@ -3,7 +3,7 @@ var facts={};
 var selection = [];
 var region_filters = [];
 const regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
-      "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
+      "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d'Aosta","Veneto"];
 var additionalFilters=[];
 var dataset;
 var avg;
@@ -72,7 +72,8 @@ function populateData(data){
 
       selection=[];
       if (filter == "All") {
-        selection=dataset.slice(0, 107); ;region_filters=north.concat(center).concat(south);
+        selection=dataset.slice(0, 107);
+        region_filters=north.concat(center).concat(south);
         $(".regionfilter:not(.selected)").toggleClass("selected");
         sortData(selection);
         return("")}
