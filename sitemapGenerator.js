@@ -78,8 +78,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         
         var appSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n'
-        const regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
-            "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d&#39;Aosta","Veneto"];
+        const regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia-Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
+            "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto-Adige","Umbria","Valle-d-Aosta","Veneto"];
         var region_filters = ["All","North","South","Center"].concat(regions)
         region_filters = region_filters.concat(
             combine(regions,2).concat(combine(regions,3))//.concat(combine(regions,4))
@@ -182,7 +182,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         });
         fs.writeFile('./app-sitemap-2.xml', appSiteMap2, function (err, file) {
             if (err) throw err;
-            else console.log(fileName2+' Saved!');
+            else console.log('./app-sitemap-2.xml'+' Saved!');
         });
         fs.writeFile('./app-sitemap-3.xml', appSiteMap3, function (err, file) {
             if (err) throw err;
