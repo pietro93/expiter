@@ -123,14 +123,14 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                     console.log('adding ?region='+region_filters[r]+'&sort='+sortings[s]+' to sitemap')
 
                     for (var f=0; f<filter_filters.length; f++){
-                        if (f%2==0){
+                        if (f%2==0&&f<(filter_filters.length)*.7){
                         withFilters1=withFilters1.concat(
                         '<url>'+
                         '<loc>https://expiter.com/app/?region='+region_filters[r]+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
                         '<priority>0</priority>'+
                         '</url> '+'\n'
                             );
-                        } else if (f%2!=0&&f<(filter_filters.length)*.5) {
+                        } else if (f%2!=0&&f<(filter_filters.length)*.7) {
                             withFilters2=withFilters2.concat(
                                 '<url>'+
                                 '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
