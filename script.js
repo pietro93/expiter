@@ -763,6 +763,9 @@ function searchParams(){
         else {
         regionParams=param.slice(1)
         for (region in regionParams){
+          if (regionParams[region]=="Valle-d-Aosta") regionParams[region]="Valle d&#39;Aosta";
+          else if (regionParams[region]=="Trentino-Alto-Adige") regionParams[region]="Trentino-Alto Adige";
+          else if (regionParams[region]=="Friuli-Venezia-Giulia") regionParams[region]="Friuli-Venezia Giulia";
           if (regions.includes(regionParams[region])) region_filters.push(regionParams[region]);
           console.log(regionParams[region])}
         }
