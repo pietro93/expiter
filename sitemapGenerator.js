@@ -117,7 +117,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                 
                     noFilters = noFilters.concat(
                     '<url>'+
-                    '<loc>https://expiter.com/app/?region='+region_filters[r].replace("d&#39;","-").replace(" ","-")+'&amp;sort='+sortings[s]+'</loc>'+
+                    '<loc>https://expiter.com/app/?region='+region_filters[r].replace("&#39;","-").replace(" ","-")+'&amp;sort='+sortings[s]+'</loc>'+
                     '</url> '+'\n'
                         );
                     console.log('adding ?region='+region_filters[r]+'&sort='+sortings[s]+' to sitemap')
@@ -126,34 +126,34 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                         if (f<(filter_filters.length)*.19){
                         withFilters1=withFilters1.concat(
                         '<url>'+
-                        '<loc>https://expiter.com/app/?region='+region_filters[r].replace("d&#39;","-").replace(" ","-")+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                        '<loc>https://expiter.com/app/?region='+region_filters[r].replace("&#39;","-").replace(" ","-")+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
                         '</url> '+'\n'
                             );
                         } else if (f>=(filter_filters.length)*.19&&f<(filter_filters.length)*.40) {
                             withFilters2=withFilters2.concat(
                                 '<url>'+
-                                '<loc>https://expiter.com/app/?region='+region_filters[r].replace("d&#39;","-").replace(" ","-")+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                                '<loc>https://expiter.com/app/?region='+region_filters[r].replace("&#39;","-").replace(" ","-")+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
                         else if (f>=(filter_filters.length)*.40&&f<(filter_filters.length)*.60) {
                             withFilters3=withFilters3.concat(
                                 '<url>'+
-                                '<loc>https://expiter.com/app/?region='+region_filters[r].replace("d&#39;","-").replace(" ","-")+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                                '<loc>https://expiter.com/app/?region='+region_filters[r].replace("&#39;","-").replace(" ","-")+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
                         else if (f>=(filter_filters.length)*.60&&f<(filter_filters.length)*.80) {
                             withFilters4=withFilters4.concat(
                                 '<url>'+
-                                '<loc>https://expiter.com/app/?region='+region_filters[r].replace("d&#39;","-").replace(" ","-")+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                                '<loc>https://expiter.com/app/?region='+region_filters[r].replace("&#39;","-").replace(" ","-")+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
                         else {
                             withFilters5=withFilters5.concat(
                                 '<url>'+
-                                '<loc>https://expiter.com/app/?region='+region_filters[r].replace("d&#39;","-").replace(" ","-")+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                                '<loc>https://expiter.com/app/?region='+region_filters[r].replace("&#39;","-").replace(" ","-")+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
