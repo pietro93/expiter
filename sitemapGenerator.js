@@ -114,7 +114,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                 
                     noFilters = noFilters.concat(
                     '<url>'+
-                    '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&ampsort='+sortings[s]+'</loc>'+
+                    '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&amp;sort='+sortings[s]+'</loc>'+
                     '   <priority>1</priority>'+
                     '   </url>'
                         );
@@ -124,14 +124,14 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                         if (f%2==0){
                         withFilters1=withFilters1.concat(
                         '<url>'+
-                        '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&ampsort='+sortings[s]+'&ampfilter='+filter_filters[f]+'</loc>'+
+                        '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
                         '   <priority>0</priority>'+
                         '   </url>'
                             );
                         } else {
                             withFilters2=withFilters2.concat(
                                 '<url>'+
-                                '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&ampsort='+sortings[s]+'&ampfilter='+filter_filters[f]+'</loc>'+
+                                '   <loc>https://expiter.com/app/?region='+region_filters[r]+'&amp;sort='+sortings[s]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '   <priority>0</priority>'+
                                 '   </url>'
                                     );
