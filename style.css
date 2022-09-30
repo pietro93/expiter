@@ -653,6 +653,9 @@ p.column.is-12{
   margin-left:0px;
   z-index:2
 }
+#info>section{
+  width:100%
+}
 
 h2{
   font-size:23px;
