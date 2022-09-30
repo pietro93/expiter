@@ -803,7 +803,7 @@ function searchParams(){
         break;
       }
       if (!URLSearchParams.toString().split(/[=,]/).includes("region")){filterDataByRegion("All")}
-      else filterDataByRegion();
+      filterDataByRegion();
     }
     console.log("Filters: "+filterParams)
     console.log("Regions: "+regionParams)
