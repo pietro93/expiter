@@ -805,5 +805,5 @@ function searchParams(){
       
     }
     if (!URLSearchParams.toString().split(/[=,]/).includes("region")){filterDataByRegion("All")}
-    else filterDataByRegion();
+    filterDataByRegion();
   }
