@@ -1,6 +1,7 @@
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
+const {gzip, ungzip} = require('node-gzip');
 
 var dataset;
 var siteMap= '<?xml version="1.0" encoding="UTF-8"?>'+
