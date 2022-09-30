@@ -1319,16 +1319,13 @@ section>div.column{
  max-height: 90%;
 overflow-y: scroll;
 }
-nav[data-toggle=toc]{
-color:var(--dark);
-background-color:var(--lightest);
-}
+
 nav[data-toggle=toc] .nav>li>a {
 	font-size: 14px;
   display:block;
-  border-bottom: 2px solid #eee;
+  border-bottom: 0.2px dashed rgba(255,255,255,.5);
   padding-left:0;
-  width:180px;
+  width:100%;
   transition: font-size 0.3s ease-in-out;
 }
 nav[data-toggle=toc] .nav .nav>li>a {
@@ -1346,8 +1343,9 @@ nav[data-toggle=toc] .nav .nav>li>a:hover {
   font-size:16px;
   overflow:visible;
   height:auto;
-  background-color:var(--lightest);
+  background-color:var(--medium-1);
   padding-left:5px;
+  color:white
 }
 
 
@@ -1355,7 +1353,9 @@ nav[data-toggle=toc] .nav .nav>li>a:hover {
   position:fixed;
   left:0;
   width:250px;
-  background-color:rgba(203,239,255,.79);
+  background-color:var(--medium-2);
+  color:var(--text-color);
+  font-weight:600;
   height:auto;
   padding-bottom:1vh;
   padding-left:20px;
@@ -1364,6 +1364,10 @@ nav[data-toggle=toc] .nav .nav>li>a:hover {
   z-index:4;
   border-radius:5px 25px 25px 5px;
   border: 2px ridge var(--light);
+}
+
+nav[data-toggle=toc] .nav>li>a{
+  color:var(--lightest)
 }
 
 .toc>.arrow{
