@@ -756,6 +756,7 @@ function searchParams(){
     var filterParams=[];
     var regionParams=[];
     var sortParams=[];
+    if (!URLSearchParams.toString().split(/[=,]/).includes("region")){filterDataByRegion("All")}
     for (var i=0;i<URLSearchParams.length;i++){
       let param = URLSearchParams[i].split(/[=,]/);
       switch (param[0]){
@@ -804,6 +805,5 @@ function searchParams(){
       }
       
     }
-    if (!URLSearchParams.toString().split(/[=,]/).includes("region")){filterDataByRegion("All")}
     filterDataByRegion();
   }
