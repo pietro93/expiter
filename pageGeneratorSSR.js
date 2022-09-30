@@ -121,8 +121,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
 
          let parsedData = fs.readFileSync('temp/parsedDataAbout'+province.Name+'.txt','utf8');
-         let provinceData = parsedData.split("%%%")[0]
-         let transportData = parsedData.split("%%%")[1]
+         let provinceData = parsedData.split("%%%")[0]; (provinceData==undefined?provinceData="":"")
+         let transportData = parsedData.split("%%%")[1]; (transportData==undefined?transportData="":"")
          facts[province.Name]["provinceData"]=provinceData;
          facts[province.Name]["transportData"]=transportData;
          console.log(facts[province.Name])
@@ -146,10 +146,12 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let separator='</br><span class="separator"></span></br>'
 
         let map =
+        '<figure>'+
         '<img alt="Map of the '+province.Name+' province in '+province.Region+'"'+
         'src="https://ik.imagekit.io/cfkgj4ulo/map/'+province["Region"].replace(" ","-").replace("'","-")+'-provinces.webp?tr=w-250'+
-        'load="lazy">'
-        '</img>'
+        'load="lazy"></img>'+
+        '<figcaption>Map of the provinces of '+province.Region+' including '+province.Name+'</figcaption>'+
+        '</figure>'
         
         appendProvinceData(province, $);
         setNavBar($);
@@ -261,7 +263,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         (facts[name]["transportData"]!=""?(info.transport+='</br></br>'+facts[name]["transportData"])
         :"")
 
-        info.disclaimer='</br></br><center><span id="disclaimer">This page contains affiliate links. As part of the Amazon Associates programme, we may earn a commission on qualified purchases.</span></center>'
+        info.disclaimer='</br></br><center><span id="disclaimer">This page contains affiliate links. As part of the Amazon Associates and Viator Partner programmes, we may earn a commission on qualified purchases.</span></center>'
         
         info.map='</br><center class="map"><iframe src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Province%20Of%20'+name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
         'Search for: '+
