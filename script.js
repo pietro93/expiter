@@ -722,7 +722,8 @@ let hotJar = '<!-- Hotjar Tracking Code for https://expiter.com -->'+
 '</script>'
 let GSC = '<!-- Google Search Console Tracker -->'+
 '<meta name="google-site-verification" content="4sOxlmGkQBkLLrrnRU2a4dAKUnhKxU3-VzFaRrfvGwk" />'
-$('head').append(GSC+analytics+adSense+hotJar)
+let yandex='<meta name="yandex-verification" content="816d073a1c743ecd" />'
+$('head').append(GSC+analytics+adSense+hotJar+yandex)
 
 }
 )
