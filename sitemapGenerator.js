@@ -128,13 +128,13 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                     console.log('adding ?sort='+sortings[s]+'&amp;region='+region_filters[r]+' to sitemap')
 
                     for (var f=0; f<filter_filters.length; f++){
-                        if (f<(filter_filters.length)*.1){
+                        if (f<(filter_filters.length)*.09){
                         withFilters1=withFilters1.concat(
                         '<url>'+
                         '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                         '</url> '+'\n'
                             );
-                        } else if (f>=(filter_filters.length)*.1&&f<(filter_filters.length)*.2) {
+                        } else if (f>=(filter_filters.length)*.09&&f<(filter_filters.length)*.2) {
                             withFilters2=withFilters2.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
@@ -227,7 +227,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         });
         fs.writeFile('sitemap/app-sitemap-2.xml', appSiteMap2, function (err, file) {
             if (err) throw err;
-            else console.log('sitemap/app-sitemap-2.xml'+' Saved!');
+            else console.log('./sitemap/app-sitemap-2.xml'+' Saved!');
         });
         fs.writeFile('sitemap/app-sitemap-3.xml', appSiteMap3, function (err, file) {
             if (err) throw err;
