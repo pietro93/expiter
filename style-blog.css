@@ -134,6 +134,7 @@ section#footer {
   opacity:.7;
   line-height:15px;
   letter-spacing:-0.6px;
+  padding-bottom:200px;
 }
 
 @media (max-width: 768px){
