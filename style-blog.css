@@ -1,7 +1,6 @@
 #FAQs {
     width: 90%;
     margin: 0 auto;
-    padding-bottom:20%;
   }
 
   #FAQs .question {
@@ -130,11 +129,12 @@
 }
 
 section#footer {
+  width:100%;
   font-size:12px;
   opacity:.7;
   line-height:15px;
   letter-spacing:-0.6px;
-  padding-bottom:200px;
+  padding-bottom:20%;
 }
 
 @media (max-width: 768px){
