@@ -178,7 +178,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#transport").append(separator)
         $("#promo").append(info.viator)
         $("#promo").append(separator)
-
+        $("#promo").append(info.related)
 
        }
        
@@ -287,7 +287,46 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         (province.Viator.includes(",")||region.Name=='Molise'?"":' data-vi-total-products=6 ')+
         ' data-vi-campaign="'+name+'" ></div>'+
         '<script async src="https://www.viator.com/orion/partner/widget.js"></script>'
-      
+
+        let target, related1, related2, related3, related4;
+       
+        (region.Name=="Valle d'Aosta"?target=facts[region.Name]["provinces"].concat(facts["Piemonte"]["provinces"]):
+        (region.Name=="Trentino-Alto Adige"?target=facts[region.Name]["provinces"].concat(facts["Veneto"]["provinces"]).concat(["Brescia","Sondrio"]):
+        (region.Name=="Molise"?target=facts[region.Name]["provinces"].concat(facts["Abruzzo"]["provinces"]):
+        (region.Name=="Abruzzo"?target=facts[region.Name]["provinces"].concat(facts["Molise"]["provinces"]):
+        (region.Name=="Emilia-Romagna"?target=facts[region.Name]["provinces"].concat(["Prato","Mantova","Cremona","Rovigo","Massa-Carrara","Lucca","Pistoia","Pesaro e Urbino","Arezzo"]):
+        (region.Name=="Liguria"?target=facts[region.Name]["provinces"].concat(facts["Piemonte"]["provinces"]):
+        (region.Name=="Piemonte"?target=facts[region.Name]["provinces"].concat(facts["Lombardia"]["provinces"]):
+        (region.Name=="Lombardia"?target=facts[region.Name]["provinces"].concat(facts["Piemonte"]["provinces"]):
+        (region.Name=="Friuli-Venezia Giulia"?target=facts[region.Name]["provinces"].concat(facts["Veneto"]["provinces"]):
+        (region.Name=="Basilicata"?target=facts[region.Name]["provinces"].concat(facts["Campania"]["provinces"]).concat(facts["Puglia"]["provinces"]).concat(["Cosenza"]):
+        (region.Name=="Puglia"?target=facts[region.Name]["provinces"].concat(facts["Basilicata"]["provinces"]).concat(["Campobasso","Benevento","Avellino"]):
+        (region.Name=="Umbria"?target=facts[region.Name]["provinces"].concat(facts["Marche"]["provinces"]).concat(["Arezzo","Siena","Viterbo","Rieti"]):
+        target=facts[region.Name]["provinces"]))))))))))));
+        (province.Name=="Reggio Calabria"?target.concat(["Messina"]):
+        (province.Name=="Messina"?target.concat(["Reggio Calabria"]):
+        (province.Name=="Torino"?target.concat(["Aosta"]):
+        (province.Name=="Cosenza"?target.concat(facts["Basilicata"]["provinces"]):
+        (province.Name=="Salerno"?target.concat(facts["Basilicata"]["provinces"]):
+        ""
+        )))));
+        
+        target=target.filter(item => item !== name)
+        related1=target[Math.floor(Math.random()*target.length)]
+        target=target.filter(item => item !== related1)
+        related2=target[Math.floor(Math.random()*target.length)]
+        target=target.filter(item => item !== related2)
+        related3=target[Math.floor(Math.random()*target.length)]
+        target=target.filter(item => item !== related3)
+        related4=target[Math.floor(Math.random()*target.length)]
+
+        info.related='<h2>Provinces Nearby</h2> '+
+        '<row class="columns is-multiline is-mobile"> '+        
+        facts[related1].snippet+
+        facts[related2].snippet+
+        facts[related3].snippet+
+        facts[related4].snippet+'</row>'
+        console.log(info.related)
         return info;
       }
 
@@ -327,19 +366,29 @@ function populateFacts(){
       
       
 function populateData(data){
-    for (let i = 0; i < 107; i++) {
-      let province = data[i];
-      provinces[province["Name"]]=province;
-      provinces[province["Name"]].index=i;
-      facts[province["Name"]]={}; //initialize "facts" dictionary with each province
-    }
-    avg=data[107];
-    for (let i = 108; i < data.length; i++) {
+     for (let i = 108; i < data.length; i++) {
       let region = data[i];
       regions[region["Name"]]=region;
       regions[region["Name"]].index=i;
       facts[region["Name"]]={}; //initialize "facts" dictionary with each region
+      facts[region["Name"]].provinces=[];
+     }
+    for (let i = 0; i < 107; i++) {
+      let province = data[i];
+      provinces[province["Name"]]=province;
+      provinces[province["Name"]].index=i;
+      facts[province["Region"]].provinces.push(province.Name) //add province to region dictionary
+      console.log(facts[province["Region"]].provinces)
+      facts[province["Name"]]={}; //initialize "facts" dictionary with each province
+      facts[province["Name"]].snippet=
+      '<figure class="column is-3 related"><a href="https://expiter.com/province/'+province.Name+'/">'+
+      '<img title="'+province.Name+'" load="lazy" src="'+
+      'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation.replace(" ","-").replace("'","-")+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
+      'alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'+
+      '<figcaption>'+province.Name+", "+province.Region+"</figcaption></a></figure>";
     }
+    avg=data[107];
+    
   }
 
   function appendProvinceData(province, $){

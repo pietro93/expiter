@@ -1602,6 +1602,32 @@ font-size:15px;
 opacity:.7;
 margin-top:-2px}
 
+figure.related img{
+  background-color:burlywood;
+  width:100%;
+  height:70%;
+  max-height:140px;
+  border-radius:15px
+}
+figure.related a{font-weight:600}
+
 @media (max-width: 768px) {
-  #switch{display:none}
+  #switch{
+    visibility:hidden;
+    opacity:0;
+    width:0;
+  }
+  figure.related{
+    min-width:49%;
+    display:inline-block;
+    padding-left:3px;
+    padding-right:3px;
+  }
+  figcaption{
+    font-size:14px;
+  }
+  figure.related figcaption{
+    letter-spacing:-1px;
+    overflow:hidden;
+  }
 }
