@@ -125,7 +125,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
          let transportData = parsedData.split("%%%")[1]; (transportData.toString()=="undefined"?transportData="":"")
          facts[province.Name]["provinceData"]=provinceData;
          facts[province.Name]["transportData"]=transportData;
-       //  console.log(facts[province.Name])
+         console.log(facts[province.Name])
          const $ = require('jquery')(dom.window)
          newPage(province, $)
         
@@ -303,11 +303,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         (region.Name=="Puglia"?target=facts[region.Name]["provinces"].concat(facts["Basilicata"]["provinces"]).concat(["Campobasso","Benevento","Avellino"]):
         (region.Name=="Umbria"?target=facts[region.Name]["provinces"].concat(facts["Marche"]["provinces"]).concat(["Arezzo","Siena","Viterbo","Rieti"]):
         target=facts[region.Name]["provinces"]))))))))))));
-        (province.Name=="Reggio Calabria"?target.concat(["Messina"]):
-        (province.Name=="Messina"?target.concat(["Reggio Calabria"]):
-        (province.Name=="Torino"?target.concat(["Aosta"]):
-        (province.Name=="Cosenza"?target.concat(facts["Basilicata"]["provinces"]):
-        (province.Name=="Salerno"?target.concat(facts["Basilicata"]["provinces"]):
+        (province.Name=="Reggio Calabria"?target=target.concat(["Messina"]):
+        (province.Name=="Messina"?target=target.concat(["Reggio Calabria"]):
+        (province.Name=="Torino"?target=target.concat(["Aosta"]):
+        (province.Name=="Cosenza"?target=target.concat(facts["Basilicata"]["provinces"]):
+        (province.Name=="Salerno"?target=target.concat(facts["Basilicata"]["provinces"]):
         ""
         )))));
         
