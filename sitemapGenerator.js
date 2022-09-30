@@ -107,6 +107,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let withFilters3="";
         let withFilters4="";
         let withFilters5="";
+        let withFilters6="";
+        let withFilters7="";
+        let withFilters8="";
+        let withFilters9="";
+        let withFilters10="";
         for (var s=0; s<sortings.length; s++){
             noFilters= noFilters.concat(
                 '<url>'+
@@ -123,35 +128,70 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                     console.log('adding ?sort='+sortings[s]+'&amp;region='+region_filters[r]+' to sitemap')
 
                     for (var f=0; f<filter_filters.length; f++){
-                        if (f<(filter_filters.length)*.19){
+                        if (f<(filter_filters.length)*.1){
                         withFilters1=withFilters1.concat(
                         '<url>'+
                         '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                         '</url> '+'\n'
                             );
-                        } else if (f>=(filter_filters.length)*.19&&f<(filter_filters.length)*.40) {
+                        } else if (f>=(filter_filters.length)*.1&&f<(filter_filters.length)*.2) {
                             withFilters2=withFilters2.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.40&&f<(filter_filters.length)*.60) {
+                        else if (f>=(filter_filters.length)*.2&&f<(filter_filters.length)*.3) {
                             withFilters3=withFilters3.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.60&&f<(filter_filters.length)*.80) {
+                        else if (f>=(filter_filters.length)*.3&&f<(filter_filters.length)*.4) {
                             withFilters4=withFilters4.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else {
+                        else if (f>=(filter_filters.length)*.4&&f<(filter_filters.length)*.5) {
                             withFilters5=withFilters5.concat(
+                                '<url>'+
+                                '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                                '</url>'+'\n'
+                                    );
+                        }
+                        else if (f>=(filter_filters.length)*.5&&f<(filter_filters.length)*.6) {
+                            withFilters6=withFilters6.concat(
+                                '<url>'+
+                                '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                                '</url>'+'\n'
+                                    );
+                        }
+                        else if (f>=(filter_filters.length)*.6&&f<(filter_filters.length)*.7) {
+                            withFilters7=withFilters7.concat(
+                                '<url>'+
+                                '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                                '</url>'+'\n'
+                                    );
+                        }
+                        else if (f>=(filter_filters.length)*.7&&f<(filter_filters.length)*.8) {
+                            withFilters8=withFilters8.concat(
+                                '<url>'+
+                                '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                                '</url>'+'\n'
+                                    );
+                        }
+                        else if (f>=(filter_filters.length)*.8&f<(filter_filters.length)*.9) {
+                            withFilters9=withFilters9.concat(
+                                '<url>'+
+                                '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                                '</url>'+'\n'
+                                    );
+                        }
+                        else {
+                            withFilters10=withFilters10.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
@@ -165,14 +205,15 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         console.log("generating appSiteMap")
 
         var appSiteMap1=appSiteMap.concat(noFilters).concat(withFilters1).concat('</urlset>');
-        var appSiteMap2=('<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n').concat(withFilters2).concat('</urlset>');
-        var appSiteMap3=('<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n').concat(withFilters3).concat('</urlset>');
-        var appSiteMap4=('<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n').concat(withFilters4).concat('</urlset>');
-        var appSiteMap5=('<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n').concat(withFilters5).concat('</urlset>');
+        var appSiteMap2=appSiteMap.concat(withFilters2).concat('</urlset>');
+        var appSiteMap3=appSiteMap.concat(withFilters3).concat('</urlset>');
+        var appSiteMap4=appSiteMap.concat(withFilters4).concat('</urlset>');
+        var appSiteMap5=appSiteMap.concat(withFilters5).concat('</urlset>');
+        var appSiteMap6=appSiteMap.concat(withFilters6).concat('</urlset>');
+        var appSiteMap7=appSiteMap.concat(withFilters7).concat('</urlset>');
+        var appSiteMap8=appSiteMap.concat(withFilters8).concat('</urlset>');
+        var appSiteMap9=appSiteMap.concat(withFilters9).concat('</urlset>');
+        var appSiteMap10=appSiteMap.concat(withFilters10).concat('</urlset>');
                 
         var fileName2 = './app-sitemap.xml';
             
@@ -180,25 +221,45 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             if (err) throw err;
             else console.log(fileName+' Saved!');
         });
-        fs.writeFile('./app-sitemap.xml', appSiteMap1, function (err, file) {
+        fs.writeFile('sitemap/app-sitemap.xml', appSiteMap1, function (err, file) {
             if (err) throw err;
             else console.log('./app-sitemap.xml'+' Saved!');
         });
-        fs.writeFile('./app-sitemap-2.xml', appSiteMap2, function (err, file) {
+        fs.writeFile('sitemap/app-sitemap-2.xml', appSiteMap2, function (err, file) {
             if (err) throw err;
-            else console.log('./app-sitemap-2.xml'+' Saved!');
+            else console.log('sitemap/app-sitemap-2.xml'+' Saved!');
         });
-        fs.writeFile('./app-sitemap-3.xml', appSiteMap3, function (err, file) {
+        fs.writeFile('sitemap/app-sitemap-3.xml', appSiteMap3, function (err, file) {
             if (err) throw err;
             else console.log('./app-sitemap-3.xml'+' Saved!');
         });
-        fs.writeFile('./app-sitemap-4.xml', appSiteMap4, function (err, file) {
+        fs.writeFile('sitemap/app-sitemap-4.xml', appSiteMap4, function (err, file) {
             if (err) throw err;
             else console.log('./app-sitemap-4.xml'+' Saved!');
         });
-        fs.writeFile('./app-sitemap-5.xml', appSiteMap5, function (err, file) {
+        fs.writeFile('sitemap/app-sitemap-5.xml', appSiteMap5, function (err, file) {
             if (err) throw err;
             else console.log('./app-sitemap-5.xml'+' Saved!');
+        });
+        fs.writeFile('sitemap/app-sitemap-6.xml', appSiteMap5, function (err, file) {
+            if (err) throw err;
+            else console.log('./app-sitemap-6.xml'+' Saved!');
+        });
+        fs.writeFile('sitemap/app-sitemap-7.xml', appSiteMap5, function (err, file) {
+            if (err) throw err;
+            else console.log('./app-sitemap-7.xml'+' Saved!');
+        });
+        fs.writeFile('sitemap/app-sitemap-8.xml', appSiteMap5, function (err, file) {
+            if (err) throw err;
+            else console.log('./app-sitemap-8.xml'+' Saved!');
+        });
+        fs.writeFile('sitemap/app-sitemap-9.xml', appSiteMap5, function (err, file) {
+            if (err) throw err;
+            else console.log('./app-sitemap-9.xml'+' Saved!');
+        });
+        fs.writeFile('sitemap/app-sitemap-10.xml', appSiteMap5, function (err, file) {
+            if (err) throw err;
+            else console.log('./app-sitemap-10.xml'+' Saved!');
         });
     });         
 
