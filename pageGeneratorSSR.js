@@ -125,7 +125,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
          let transportData = parsedData.split("%%%")[1]; (transportData==undefined?transportData="":"")
          facts[province.Name]["provinceData"]=provinceData;
          facts[province.Name]["transportData"]=transportData;
-         console.log(facts[province.Name])
+       //  console.log(facts[province.Name])
          const $ = require('jquery')(dom.window)
          newPage(province, $)
         
@@ -326,7 +326,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         facts[related2].snippet+
         facts[related3].snippet+
         facts[related4].snippet+'</row>'
-        console.log(info.related)
+       
         return info;
       }
 
@@ -378,12 +378,12 @@ function populateData(data){
       provinces[province["Name"]]=province;
       provinces[province["Name"]].index=i;
       facts[province["Region"]].provinces.push(province.Name) //add province to region dictionary
-      console.log(facts[province["Region"]].provinces)
+     
       facts[province["Name"]]={}; //initialize "facts" dictionary with each province
       facts[province["Name"]].snippet=
-      '<figure class="column is-3 related"><a href="https://expiter.com/province/'+province.Name+'/">'+
+      '<figure class="column is-3 related"><a href="https://expiter.com/province/'+province.Name.replace(" ","-").replace("'","-").toLowerCase()+'/">'+
       '<img title="'+province.Name+'" load="lazy" src="'+
-      'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation.replace(" ","-").replace("'","-")+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
+      'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
       'alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'+
       '<figcaption>'+province.Name+", "+province.Region+"</figcaption></a></figure>";
     }
