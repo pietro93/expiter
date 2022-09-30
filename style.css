@@ -1319,12 +1319,14 @@ section>div.column{
  max-height: 90%;
 overflow-y: scroll;
 }
-
+nav[data-toggle=toc]{
+color:var(--dark);
+background-color:var(--lightest);
+}
 nav[data-toggle=toc] .nav>li>a {
 	font-size: 14px;
   display:block;
   border-bottom: 2px solid #eee;
-  color:var(--medium-dark);
   padding-left:0;
   width:180px;
   transition: font-size 0.3s ease-in-out;
@@ -1334,7 +1336,6 @@ nav[data-toggle=toc] .nav .nav>li>a {
   overflow:hidden;
   top:0;
 	font-size: 14px;
-  color:var(--medium-dark);
   padding-left:10px;
   line-height:16px;
   width:auto;
