@@ -769,7 +769,7 @@ function searchParams(){
         break;
       case ("region"):
         $(".regionfilter.selected").toggleClass("selected");
- 
+    
         if (param.includes("All")){
           regionParams=["All"];
           filterDataByRegion("All");
@@ -802,7 +802,8 @@ function searchParams(){
         $("input[name='sortBy'][value="+param[1]+"]").attr('checked', true);
         break;
       }
-      filterDataByRegion();
+      if (!URLSearchParams.toString().split(/[=,]/).includes("region")){filterDataByRegion("All")}
+      else filterDataByRegion();
     }
     console.log("Filters: "+filterParams)
     console.log("Regions: "+regionParams)
