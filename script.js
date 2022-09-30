@@ -802,10 +802,8 @@ function searchParams(){
         $("input[name='sortBy'][value="+param[1]+"]").attr('checked', true);
         break;
       }
-      if (!URLSearchParams.toString().split(/[=,]/).includes("region")){filterDataByRegion("All")}
-      filterDataByRegion();
+      
     }
-    console.log("Filters: "+filterParams)
-    console.log("Regions: "+regionParams)
-    console.log("Sort by: "+sortParams)
+    if (!URLSearchParams.toString().split(/[=,]/).includes("region")){filterDataByRegion("All")}
+    filterDataByRegion();
   }
