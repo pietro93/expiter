@@ -36,6 +36,7 @@
   --bg2:rgba(229,249,254,89);
   --bg1:rgba(219,246,254,85);
 }
+}
 @media (prefers-color-scheme: dark){
   :root{
   --lightest:rgba(29,29,64,1);
@@ -741,7 +742,7 @@ h4{
 #info > section > span > p{
   margin-bottom:18px
 }
-#info > section > #overview > figure {
+#info > section > span > figure {
   float:right;
 }
 

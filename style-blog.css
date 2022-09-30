@@ -129,6 +129,13 @@
   border-color:var(--natural-yellow)
 }
 
+section#footer {
+  font-size:12px;
+  opacity:.7;
+  line-height:15px;
+  letter-spacing:-0.6px;
+}
+
 @media (max-width: 768px){
     #FAQs {
         width: 96%;
