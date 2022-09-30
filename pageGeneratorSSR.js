@@ -148,7 +148,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let map =
         '<figure>'+
         '<img alt="Map of the '+province.Name+' province in '+province.Region+'"'+
-        'src="https://ik.imagekit.io/cfkgj4ulo/map/'+province["Region"].replace(" ","-").replace("'","-")+'-provinces.webp?tr=w-250'+
+        'src="https://ik.imagekit.io/cfkgj4ulo/map/'+province["Region"].replace(/\s+/g,"-").replace("'","-")+'-provinces.webp?tr=w-250'+
         'load="lazy"></img>'+
         '<figcaption>Map of the provinces of '+province.Region+' including '+province.Name+'</figcaption>'+
         '</figure>'
@@ -381,7 +381,7 @@ function populateData(data){
      
       facts[province["Name"]]={}; //initialize "facts" dictionary with each province
       facts[province["Name"]].snippet=
-      '<figure class="column is-3 related"><a href="https://expiter.com/province/'+province.Name.replace(" ","-").replace("'","-").toLowerCase()+'/">'+
+      '<figure class="column is-3 related"><a href="https://expiter.com/province/'+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
       '<img title="'+province.Name+'" load="lazy" src="'+
       'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
       'alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'+
