@@ -155,7 +155,7 @@ card {
   z-index:1;
   min-width:180px;
   max-width:200px;
-  max-height:420px;
+  max-height:220px;
   margin:0;
 }
 
@@ -680,6 +680,7 @@ p.column.is-12{
       }
         card {
         min-width:210px;
+        max-height:420px;
       }
       
     }
