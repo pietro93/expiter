@@ -287,10 +287,10 @@ function populateData(data){
       $("span#score2").text("and has a population of "+selection[1][sortParams[0]].toLocaleString()+" with "+selection[1]["Towns"]+" towns");
       $("span#score3").text("with "+selection[2][sortParams[0]].toLocaleString()+" people and "+selection[2]["Towns"]+" towns");
       }
-      else {
-      $("span#score1").text(selection[0][sortParams[0]]+"/10")
-      $("span#score2").text(selection[1][sortParams[0]]+"/10")
-      $("span#score3").text(selection[2][sortParams[0]]+"/10")
+      else {let score = [selection[0][sortParams[0]],selection[1][sortParams[0]],selection[2][sortParams[0]]]
+      $("span#score1").text("a score of "+(score[0]>10?10:score[0])+"/10")
+      $("span#score2").text("a score of "+(score[1]>10?10:score[1])+"/10")
+      $("span#score3").text("a score of "+(score[2]>10?10:score[2])+"/10")
     }
 
       history.pushState(null, $("#title"), newHref);
