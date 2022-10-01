@@ -266,52 +266,52 @@ function createSorting($,label, value){
         console.log("appending data")
         appendData($,data);
         if (sortBy == "Name"){
-          $("#sortBy").text("by Alphabetical Order");
+          $(".sortBy").text("by Alphabetical Order");
         }
         else if (sortBy == "Random"){
-          $("#sortBy").text("by Random Order");
+          $(".sortBy").text("by Random Order");
         }
         else if (sortBy == "Region"){
-          $("#sortBy").text("by Region");
+          $(".sortBy").text("by Region");
         }
         else if (sortBy == "CostOfLiving"){
-          $("#sortBy").text("");
-          $("#bestorworst").text("Cheapest")
+          $(".sortBy").text("");
+          $(".bestorworst").text("Cheapest")
         }
         else if (sortBy == "Population"){
-          $("#sortBy").text("by Population");
+          $(".sortBy").text("by Population");
         }
         else if (sortBy == "MonthlyIncome"){
-          $("#sortBy").text("by Average Income");
-          $("#bestorworst").text("");
+          $(".sortBy").text("by Average Income");
+          $(".bestorworst").text("");
         }
         else if (sortBy == 'Expat-friendly' || sortBy == 'LGBT-friendly'){
-          $("#sortBy").text("");
-          $("#bestorworst").text("Most "+sortBy);
+          $(".sortBy").text("");
+          $(".bestorworst").text("Most "+sortBy);
         }
         else if (sortBy == 'DN-friendly' || sortBy == 'Female-friendly'){
-          $("#sortBy").text((sortBy=='DN-friendly'?"for Digital Nomads":"for Women"));
-          $("#bestorworst").text("Best");
+          $(".sortBy").text((sortBy=='DN-friendly'?"for Digital Nomads":"for Women"));
+          $(".bestorworst").text("Best");
         }
         else if (sortBy == 'SunshineHours'){
-          $("#sortBy").text("");
-          $("#bestorworst").text("Sunniest");
+          $(".sortBy").text("");
+          $(".bestorworst").text("Sunniest");
         }
         else if (sortBy == 'HotDays'||sortBy=='ColdDays'){
-          $("#sortBy").text("");
-          $("#bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
+          $(".sortBy").text("");
+          $(".bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
         }
         else if (sortBy == 'Safety'){
-          $("#sortBy").text("");
-          $("#bestorworst").text("Safest");
+          $(".sortBy").text("");
+          $(".bestorworst").text("Safest");
         }
         else if (sortBy == 'Crime'){
-          $("#sortBy").text("by Lowest Amounts of Crime");
-          $("#bestorworst").text("");
+          $(".sortBy").text("by Lowest Amounts of Crime");
+          $(".bestorworst").text("");
         }
-        else $("#sortBy").text("for "+sortBy);
+        else $(".sortBy").text("for "+sortBy);
         if (sortBy == "Climate" || sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
-          $("#bestorworst").text("Best")
+          $(".bestorworst").text("Best")
         }
 
     }
@@ -385,22 +385,23 @@ function appendData($,data) {
 
     let title = $("#title")
         
-    title.append("<span id='bestorworst'></span> <span id='smallorlarge'></span> Provinces in <span id='chosenArea'>Italy</span> <span id='sortBy'></span>");
+    title.append("<span class='bestorworst'></span> <span class='smallorlarge'></span> Provinces in "+
+    "<span class='chosenArea'>Italy</span> <span class='sortBy'></span>");
 
 
 
     if (selection.length==0) {title.innerHTML="Could not find any provinces based on your filters."}
-    else if (region_filters.length==1) {$("#chosenArea").text(region_filters[0])}
-    else if (region_filters.length==2) {$("#chosenArea").text(region_filters[0]+" and "+region_filters[1])}
-    else if (region_filters.length==3) {$("#chosenArea").text(region_filters[0]+", "+region_filters[1]+" and "+region_filters[2])}
-    else if (region_filters.sort().toString() == "Lazio,Marche,Toscana,Umbria") {$("#chosenArea").text("Central Italy")}
-    else if (region_filters.sort().toString() == "Abruzzo,Basilicata,Calabria,Campania,Molise,Puglia,Sardegna,Sicilia") {$("#chosenArea").text("Southern Italy")}
-    else if (region_filters.sort().toString() == "Emilia-Romagna,Friuli-Venezia Giulia,Liguria,Lombardia,Piemonte,Trentino-Alto Adige,Valle d'Aosta,Veneto") {$("#chosenArea").text("Northern Italy")}
-    else if (region_filters.length>3) {$("#chosenArea").text("Italy")}
+    else if (region_filters.length==1) {$(".chosenArea").text(region_filters[0])}
+    else if (region_filters.length==2) {$(".chosenArea").text(region_filters[0]+" and "+region_filters[1])}
+    else if (region_filters.length==3) {$(".chosenArea").text(region_filters[0]+", "+region_filters[1]+" and "+region_filters[2])}
+    else if (region_filters.sort().toString() == "Lazio,Marche,Toscana,Umbria") {$(".chosenArea").text("Central Italy")}
+    else if (region_filters.sort().toString() == "Abruzzo,Basilicata,Calabria,Campania,Molise,Puglia,Sardegna,Sicilia") {$(".chosenArea").text("Southern Italy")}
+    else if (region_filters.sort().toString() == "Emilia-Romagna,Friuli-Venezia Giulia,Liguria,Lombardia,Piemonte,Trentino-Alto Adige,Valle d'Aosta,Veneto") {$(".chosenArea").text("Northern Italy")}
+    else if (region_filters.length>3) {$(".chosenArea").text("Italy")}
 
-    if (additionalFilters.sort().toString()=="Pop1m+"||additionalFilters.sort().toString()=="Pop1m+,Pop500k+") $("#smallorlarge").text("Large");
-    else if (additionalFilters.sort().toString()=="Pop300k+"||additionalFilters.sort().toString()=="Pop500k+"||additionalFilters.sort().toString()=="Pop300k+,Pop500k+") $("#smallorlarge").text("Medium-sized");
-    else if (additionalFilters.sort().toString()=="Pop300k-"||additionalFilters.sort().toString()=="Pop300k+,Pop300k-") $("#smallorlarge").text("Small");
+    if (additionalFilters.sort().toString()=="Pop1m+"||additionalFilters.sort().toString()=="Pop1m+,Pop500k+") $(".smallorlarge").text("Large");
+    else if (additionalFilters.sort().toString()=="Pop300k+"||additionalFilters.sort().toString()=="Pop500k+"||additionalFilters.sort().toString()=="Pop300k+,Pop500k+") $(".smallorlarge").text("Medium-sized");
+    else if (additionalFilters.sort().toString()=="Pop300k-"||additionalFilters.sort().toString()=="Pop300k+,Pop300k-") $(".smallorlarge").text("Small");
      
 
     for (let i = 0; i < data.length; i++) {

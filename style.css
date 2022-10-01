@@ -1612,12 +1612,14 @@ figure.related img{
 }
 figure.related a{font-weight:600}
 
+#switch{
+  visibility:hidden;
+  opacity:0;
+  width:0;
+}
+
 @media (max-width: 768px) {
-  #switch{
-    visibility:hidden;
-    opacity:0;
-    width:0;
-  }
+
   figure.related{
     min-width:49%;
     display:inline-block;

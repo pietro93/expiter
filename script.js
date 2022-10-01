@@ -8,6 +8,9 @@ const regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","
 var additionalFilters=[];
 var dataset;
 var avg;
+var filterParams=[];
+var regionParams=["All"];
+var sortParams=["Expat-friendly"];
 
 
 fetch('../dataset.json', {method:"Get"})
@@ -69,41 +72,43 @@ function populateData(data){
       let center=["Lazio","Toscana","Marche","Umbria"];
       let south=["Abruzzo","Molise","Campania","Puglia","Basilicata","Calabria","Sicilia","Sardegna"]
 
-
+      regionParams=[]
       selection=[];
       if (filter == "All") {
         selection=dataset.slice(0, 107);
         region_filters=north.concat(center).concat(south);
         $(".regionfilter:not(.selected)").toggleClass("selected");
+        
         sortData(selection);
         return("")}
       else if (filter == "Clear"){
         $(".regionfilter.selected").toggleClass("selected");
         region_filters =[];
+        regionParams=[]
       }
       else if (filter=="North"){
         $(".regionfilter.selected").toggleClass("selected");
         region_filters =[];
         for (region in north){
             region_filters.push(north[region]);
-     
         }
+        
       }
       else if (filter=="Center"){
           $(".regionfilter.selected").toggleClass("selected");
           region_filters =[];
           for (region in center){
               region_filters.push(center[region]);
-             
           }
+        
         }
       else if (filter=="South"){
             $(".regionfilter.selected").toggleClass("selected");
             region_filters =[];
             for (region in south){
                 region_filters.push(south[region]);
-          
             }
+        
       }
       else if (!region_filters.includes(filter)&&(filter!=undefined)){
         region_filters.push(filter);
@@ -112,31 +117,45 @@ function populateData(data){
       else if (region_filters.includes(filter)){
           region_filters.splice(region_filters.indexOf(filter),1);
           $("#"+filter.substring(0,3)).toggleClass("selected");
-          
       }
 
       for (let i=0; i<region_filters.length; i++){
         addToSelection(region_filters[i]);
-        $("#"+region_filters[i].substring(0,3)).addClass("selected")
+        $("#"+region_filters[i].substring(0,3)).addClass("selected");
       }
 
-      if (additionalFilters.length!=0){
-      let filtered_selection = selection;
-      let filter_by_population=[]
-      let filter_by_climate=[]
-      let filter_by_cost=[]
-      for (filter in additionalFilters.sort()){
-        if (additionalFilters[filter]=="Pop300k-")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population < 300000)))
-        else if (additionalFilters[filter]=="Pop300k+") filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 300000 && item.Population < 500000)))
-        else if (additionalFilters[filter]=="Pop500k+")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 500000 && item.Population < 1000000)))
-        else if (additionalFilters[filter]=="Pop1m+")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 1000000)))
-        else if (additionalFilters[filter]=="Hot")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.HotDays >= avg.HotDays)))
-        else if (additionalFilters[filter]=="Cold")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.ColdDays >= avg.ColdDays)))
-        else if (additionalFilters[filter]=="Temperate")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.HotDays < avg.HotDays && item.ColdDays < avg.ColdDays)))
-        else if (additionalFilters[filter]=="Low-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving < avg.CostOfLiving*.9)))
-        else if (additionalFilters[filter]=="Mid-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving > avg.CostOfLiving*.9 && item.CostOfLiving < avg.CostOfLiving*1.1)))
-        else if (additionalFilters[filter]=="High-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving > avg.CostOfLiving*1.1)))
+      if (region_filters.length==20) regionParams=["All"]
+      else if (region_filters==south) regionParams=["South"]
+      else if (region_filters==center) regionParams=["Center"]
+      else if (region_filters==north) regionParams=["North"]
+      else
+      {
+        for (let i=0; i<region_filters.length; i++){
+          regionParams.push(region_filters[i].replace(" ","-").replace("'","-"))
+        }
       }
+
+      filterParams=[]
+      if (additionalFilters.length!=0){
+        let filtered_selection = selection;
+        
+        let filter_by_population=[]
+        let filter_by_climate=[]
+        let filter_by_cost=[]
+
+        for (filter in additionalFilters.sort()){
+          if (additionalFilters[filter]=="Pop300k-")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population < 300000)))
+          else if (additionalFilters[filter]=="Pop300k+") filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 300000 && item.Population < 500000)))
+          else if (additionalFilters[filter]=="Pop500k+")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 500000 && item.Population < 1000000)))
+          else if (additionalFilters[filter]=="Pop1m+")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 1000000)))
+          else if (additionalFilters[filter]=="Hot")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.HotDays >= avg.HotDays)))
+          else if (additionalFilters[filter]=="Cold")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.ColdDays >= avg.ColdDays)))
+          else if (additionalFilters[filter]=="Temperate")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.HotDays < avg.HotDays && item.ColdDays < avg.ColdDays)))
+          else if (additionalFilters[filter]=="Low-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving < avg.CostOfLiving*.9)))
+          else if (additionalFilters[filter]=="Mid-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving > avg.CostOfLiving*.9 && item.CostOfLiving < avg.CostOfLiving*1.1)))
+          else if (additionalFilters[filter]=="High-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving > avg.CostOfLiving*1.1)))
+        filterParams.push(additionalFilters[filter])
+        }
       if(filter_by_population.length==0&&filter_by_climate.length!=0)filtered_selection=filter_by_climate
       else if(filter_by_climate.length==0&&filter_by_population.length!=0)filtered_selection=filter_by_population;
       else if (filter_by_climate.length!=0&&filter_by_population.length!=0)filtered_selection = filter_by_population.filter(value => filter_by_climate.includes(value))
@@ -144,10 +163,11 @@ function populateData(data){
       if (additionalFilters.includes("HasUni"))  filtered_selection=(filtered_selection.filter((item) => (item.Universities > 0)))
       if (additionalFilters.includes("HasMetro"))  filtered_selection=(filtered_selection.filter((item) => (item.Subway > 0)))
       selection = filtered_selection;
-    }
-      
+    };
+
       sortData(selection);
 
+    
     }
   
    
@@ -159,7 +179,7 @@ function populateData(data){
 
   function dynamicSort(property) {
       var sortOrder = 1;
-      if(property[0] === "-") {
+      if(property[0] == "-") {
           sortOrder = -1;
           property = property.substr(1);
       }
@@ -174,6 +194,7 @@ function populateData(data){
 
     function sortData(selection){
       let sortBy = document.querySelector('input[name="sortBy"]:checked').value;
+      
         if (sortBy=="Random"){
           data = selection.sort(() => Math.random() - 0.5);     
         }
@@ -184,58 +205,82 @@ function populateData(data){
           data = selection.sort(dynamicSort("-"+sortBy))
         }
         appendData(data);
+      
         if (sortBy == "Name"){
-          $("#sortBy").text("by Alphabetical Order");
+          $(".sortBy").text("by Alphabetical Order");
         }
         else if (sortBy == "Random"){
-          $("#sortBy").text("by Random Order");
+          $(".sortBy").text("by Random Order");
         }
         else if (sortBy == "Region"){
-          $("#sortBy").text("by Region");
+          $(".sortBy").text("by Region");
         }
         else if (sortBy == "CostOfLiving"){
-          $("#sortBy").text("");
-          $("#bestorworst").text("Cheapest")
+          $(".sortBy").text("");
+          $(".bestorworst").text("Cheapest")
         }
         else if (sortBy == "Population"){
-          $("#sortBy").text("by Population");
+          $(".sortBy").text("by Population");
         }
         else if (sortBy == "MonthlyIncome"){
-          $("#sortBy").text("by Average Income");
-          $("#bestorworst").text("");
+          $(".sortBy").text("by Average Income");
+          $(".bestorworst").text("");
         }
         else if (sortBy == 'Expat-friendly' || sortBy == 'LGBT-friendly'){
-          $("#sortBy").text("");
-          $("#bestorworst").text("Most "+sortBy);
+          $(".sortBy").text("");
+          $(".bestorworst").text("Most "+sortBy);
         }
         else if (sortBy == 'DN-friendly' || sortBy == 'Female-friendly'){
-          $("#sortBy").text((sortBy=='DN-friendly'?"for Digital Nomads":"for Women"));
-          $("#bestorworst").text("Best");
+          $(".sortBy").text((sortBy=='DN-friendly'?"for Digital Nomads":"for Women"));
+          $(".bestorworst").text("Best");
         }
         else if (sortBy == 'SunshineHours'){
-          $("#sortBy").text("");
-          $("#bestorworst").text("Sunniest");
+          $(".sortBy").text("");
+          $(".bestorworst").text("Sunniest");
         }
         else if (sortBy == 'HotDays'||sortBy=='ColdDays'){
-          $("#sortBy").text("");
-          $("#bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
+          $(".sortBy").text("");
+          $(".bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
         }
         else if (sortBy == 'Safety'){
-          $("#sortBy").text("");
-          $("#bestorworst").text("Safest");
+          $(".sortBy").text("");
+          $(".bestorworst").text("Safest");
         }
         else if (sortBy == 'Crime'){
-          $("#sortBy").text("by Lowest Amounts of Crime");
-          $("#bestorworst").text("");
+          $(".sortBy").text("by Lowest Amounts of Crime");
+          $(".bestorworst").text("");
         }
-        else $("#sortBy").text("for "+sortBy);
+        else $(".sortBy").text("for "+sortBy);
         if (sortBy == "Climate" || sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
-          $("#bestorworst").text("Best")
+          $(".bestorworst").text("Best")
         }
 
         let updatedTitle=$("#title").text().replace(/ +(?= )/g,'')
         if (updatedTitle.charAt(0)==" ") updatedTitle=updatedTitle.substring(1)
         $($("section")[0]).attr("id", updatedTitle);
+       
+        if(selection.length!=0){
+        let province1st=selection[0]
+        $("a.province1st").text(province1st.Name)
+        $("a.province1st").attr("href","https://expiter.com/province/"+province1st.Name.replace(/\s/g,"-")
+        .replace("'","-").toLowerCase()+"/")
+      }
+
+      (filterParams.includes('Pop1m+', 'Pop300k+', 'Pop300k-', 'Pop500k+')?
+      filterParams=filterParams.filter(el => !['Pop1m+', 'Pop300k+', 'Pop300k-', 'Pop500k+'].includes(el)):"");
+      (filterParams.includes("Hot","Cold","Temperate")?
+      filterParams=filterParams.filter(el => !['Hot',"Cold","Temperate"].includes(el)):"");
+      (filterParams.includes("Low-cost","Mid-cost","High-cost")?
+      filterParams=filterParams.filter(el => !["Low-cost","Mid-cost","High-cost"].includes(el)):"");
+      
+      sortParams=[sortBy]
+      console.log("appending searchParams...")
+      let newHref="https://expiter.com/app/"+
+      "?sort="+sortParams[0]+
+      (regionParams.length==0?"":"&region="+regionParams)+
+      (filterParams.length==0?"":"&filter="+filterParams);
+
+      //document.location.href=newHref;
         
     }
 
@@ -306,33 +351,33 @@ function appendData(data) {
 
     let title = document.getElementById("title")
         
-    title.innerHTML="<span id='bestorworst'></span> <span id='smallorlarge'></span> <span id='hotorcold'></span> <span id='costofliving'></span> Provinces in <span id='chosenArea'>Italy</span> <span id='withthings'></span> <span id='sortBy'></span>";
+    title.innerHTML="<span class='bestorworst'></span> <span class='smallorlarge'></span> <span class='hotorcold'></span> <span class='costofliving'></span> Provinces in <span class='largest'>Italy</span> <span class='withthings'></span> <span class='sortBy'></span>";
 
     if (selection.length==0) {title.innerHTML="Could not find any provinces based on your filters."}
-    else if (region_filters.length==1) {$("#chosenArea").text(region_filters[0])}
-    else if (region_filters.length==2) {$("#chosenArea").text(region_filters[0]+" and "+region_filters[1])}
-    else if (region_filters.length==3) {$("#chosenArea").text(region_filters[0]+", "+region_filters[1]+" and "+region_filters[2])}
-    else if (region_filters.sort().toString() == "Lazio,Marche,Toscana,Umbria") {$("#chosenArea").text("Central Italy")}
-    else if (region_filters.sort().toString() == "Abruzzo,Basilicata,Calabria,Campania,Molise,Puglia,Sardegna,Sicilia") {$("#chosenArea").text("Southern Italy")}
-    else if (region_filters.sort().toString() == "Emilia-Romagna,Friuli-Venezia Giulia,Liguria,Lombardia,Piemonte,Trentino-Alto Adige,Valle d'Aosta,Veneto") {$("#chosenArea").text("Northern Italy")}
-    else if (region_filters.length>3) {$("#chosenArea").text("Italy")}
+    else if (region_filters.length==1) {$(".chosenArea").text(region_filters[0])}
+    else if (region_filters.length==2) {$(".chosenArea").text(region_filters[0]+" and "+region_filters[1])}
+    else if (region_filters.length==3) {$(".chosenArea").text(region_filters[0]+", "+region_filters[1]+" and "+region_filters[2])}
+    else if (region_filters.sort().toString() == "Lazio,Marche,Toscana,Umbria") {$(".chosenArea").text("Central Italy")}
+    else if (region_filters.sort().toString() == "Abruzzo,Basilicata,Calabria,Campania,Molise,Puglia,Sardegna,Sicilia") {$(".chosenArea").text("Southern Italy")}
+    else if (region_filters.sort().toString() == "Emilia-Romagna,Friuli-Venezia Giulia,Liguria,Lombardia,Piemonte,Trentino-Alto Adige,Valle d'Aosta,Veneto") {$(".chosenArea").text("Northern Italy")}
+    else if (region_filters.length>3) {$(".chosenArea").text("Italy")}
 
     let popFilters=additionalFilters.filter((item) => (item.substring(0,3) == "Pop")).sort()
-    if (popFilters=="Pop1m+"||popFilters=="Pop1m+,Pop500k+") $("#smallorlarge").text("Large");
-    else if (popFilters=="Pop300k+"||popFilters=="Pop500k+"||popFilters=="Pop300k+,Pop500k+") $("#smallorlarge").text("Medium-sized");
-    else if (popFilters=="Pop300k-"||popFilters=="Pop300k+,Pop300k-") $("#smallorlarge").text("Small");
+    if (popFilters=="Pop1m+"||popFilters=="Pop1m+,Pop500k+") $(".smallorlarge").text("Large");
+    else if (popFilters=="Pop300k+"||popFilters=="Pop500k+"||popFilters=="Pop300k+,Pop500k+") $(".smallorlarge").text("Medium-sized");
+    else if (popFilters=="Pop300k-"||popFilters=="Pop300k+,Pop300k-") $(".smallorlarge").text("Small");
     let climFilters=additionalFilters.filter((item) => (["Cold","Hot","Temperate"].includes(item))).sort()
-    if (climFilters=="Hot") $("#hotorcold").text("Warm")
-    else if (climFilters=="Cold") $("#hotorcold").text("Chill")
-    else if (climFilters=="Temperate") $("#hotorcold").text("Temperate")
-    else if (climFilters=="Cold,Hot") $("#hotorcold").text("Warm or Chill")
-    if (additionalFilters.includes("HasUni")&&additionalFilters.includes("HasMetro")) $("#withthings").text("with a University and Subway System")
-    else if (additionalFilters.includes("HasUni")) $("#withthings").text("with a University")
-    else if (additionalFilters.includes("HasMetro")) $("#withthings").text("with a Subway System")
+    if (climFilters=="Hot") $(".hotorcold").text("Warm")
+    else if (climFilters=="Cold") $(".hotorcold").text("Chill")
+    else if (climFilters=="Temperate") $(".hotorcold").text("Temperate")
+    else if (climFilters=="Cold,Hot") $(".hotorcold").text("Warm or Chill")
+    if (additionalFilters.includes("HasUni")&&additionalFilters.includes("HasMetro")) $(".withthings").text("with a University and Subway System")
+    else if (additionalFilters.includes("HasUni")) $(".withthings").text("with a University")
+    else if (additionalFilters.includes("HasMetro")) $(".withthings").text("with a Subway System")
     let colFilters=additionalFilters.filter((item) => (item.substring(item.length-4) == "cost")).sort()
-    if (colFilters=="Low-cost") $("#costofliving").text("Low CoL")
-    else if (colFilters=="Mid-cost") $("#costofliving").text("Medium CoL")
-    else if (colFilters=="High-cost") $("#costofliving").text("High CoL")
+    if (colFilters=="Low-cost") $(".costofliving").text("Low Cost-of-Living")
+    else if (colFilters=="Mid-cost") $(".costofliving").text("Medium Cost-of-Living")
+    else if (colFilters=="High-cost") $(".costofliving").text("High Cost-of-Living")
 
     for (let i = 0; i < data.length; i++) {
         let card = document.createElement("card");
@@ -727,6 +772,7 @@ $('head').append(GSC+analytics+adSense+hotJar)
 }
 )
 
+/*
 let theme = localStorage.getItem('data-theme');
 const changeThemeToDark = () => {
     document.documentElement.setAttribute("data-theme", "dark") // set theme to dark
@@ -738,24 +784,25 @@ const changeThemeToLight = () => {
     localStorage.setItem("data-theme", 'light') // save theme to local storage
 }
 
+
 // Get the element based on ID
 const checkbox = document.getElementById("switch");
 // Apply retrived them to the website
 checkbox.addEventListener('change', () => {
     let theme = localStorage.getItem('data-theme'); // Retrieve saved them from local storage
-    if (theme ==='dark'){
+    if (theme =='dark'){
         changeThemeToLight()
     }else{
         changeThemeToDark()
     }   
-});
+});*/
 
 function searchParams(){
     const URLSearchParams = location.search.substring(1).split('&');
     region_filters=[];
-    var filterParams=[];
-    var regionParams=[];
-    var sortParams=[];
+    filterParams=[];
+    regionParams=[];
+    sortParams=[];
     if (!URLSearchParams.toString().split(/[=,]/).includes("region")){filterDataByRegion("All")}
     for (var i=0;i<URLSearchParams.length;i++){
       let param = URLSearchParams[i].split(/[=,]/);
@@ -806,4 +853,9 @@ function searchParams(){
       
     }
     filterDataByRegion();
+    console.log("making url more human-friendly...");
+    let newHref="http://expiter.com/app/"+
+    $("#title").text().replace(/\s+/g,"-").toLowerCase()
+    $('link[rel="canonical"]').attr('href', newHref);
+    //document.location.href=newHref
   }
