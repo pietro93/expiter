@@ -311,15 +311,13 @@ function createSorting($,label, value){
         }
         else $(".sortBy").text("for "+sortBy);
         if (sortBy == "Climate" || sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
-          $(".bestorworst").text("Best")
-
-          sortParams=[sortBy]
-
-          $("span#score1").text(selection[0][sortParams[0]])
-          $("span#score2").text(selection[1][sortParams[0]])
-          $("span#score3").text(selection[2][sortParams[0]])
+          $(".bestorworst").text("Best")          
         }
+        let sortParams=[sortBy]
 
+        $("span#score1").text(selection[0][sortParams[0]])
+        $("span#score2").text(selection[1][sortParams[0]])
+        $("span#score3").text(selection[2][sortParams[0]])
     }
 
   

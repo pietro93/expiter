@@ -283,9 +283,9 @@ function populateData(data){
       else if (sortParams[0]=="Random") $("#output").html("<center><p>Displaying carefully selected provinces based on Algorithmic Sorcery (i.e. at random).</br>"+
       "The algorithm thinks you should check out: <span class='province1st'></span></p></center>")
       else if (sortParams[0]=="Population"){
-      $("span#score1").text("a total population of "+selection[0][sortParams[0]]+" across its "+selection[0]["Towns"].toLocaleString()+" towns (comuni)");
-      $("span#score2").text("and has a population of "+selection[1][sortParams[0]]+" with "+selection[1]["Towns"].toLocaleString()+" towns");
-      $("span#score3").text("with "+selection[2][sortParams[0]]+" people and "+selection[2]["Towns"].toLocaleString()+" towns");
+      $("span#score1").text("a total population of "+selection[0][sortParams[0]].toLocaleString()+" across its "+selection[0]["Towns"]+" towns (comuni)");
+      $("span#score2").text("and has a population of "+selection[1][sortParams[0]].toLocaleString()+" with "+selection[1]["Towns"]+" towns");
+      $("span#score3").text("with "+selection[2][sortParams[0]].toLocaleString()+" people and "+selection[2]["Towns"]+" towns");
       }
       else {
       $("span#score1").text(selection[0][sortParams[0]]+"/10")
