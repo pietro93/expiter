@@ -275,14 +275,15 @@ function populateData(data){
       console.log("appending searchParams...")
       let newHref="https://expiter.com/app/"+
       "?sort="+sortParams[0]+
-      (regionParams.length==0?"":"&region="+regionParams)+
-      (filterParams.length==0?"":"&filter="+filterParams);
+      (regionParams.length===0?"":"&region="+regionParams)+
+      (filterParams.length===0?"":"&filter="+filterParams);
       
       if (selection.length===0);
-      else if (sortParams[0]=="Name") $("#output").html("<center><p>Displaying selected provinces by Alphabetical Order</p></br></center>")
-      else if (sortParams[0]=="Random") $("#output").html("<center><p>Displaying carefully selected provinces based on Algorithmic Sorcery (i.e. at random).</br>"+
+      else if (sortParams[0]==="Region") $("#output").html("<center><p>Displaying selected provinces alphabetically by region</p></br></center>")
+      else if (sortParams[0]==="Name") $("#output").html("<center><p>Displaying selected provinces by alphabetical order</p></br></center>")
+      else if (sortParams[0]==="Random") $("#output").html("<center><p>Displaying carefully selected provinces based on Algorithmic Sorcery (i.e. at random).</br>"+
       "The algorithm thinks you should check out: <span class='province1st'></span></p></center>")
-      else if (sortParams[0]=="Population"){
+      else if (sortParams[0]==="Population"){
       $("span#score1").text("a total population of "+selection[0][sortParams[0]].toLocaleString()+" across its "+selection[0]["Towns"]+" towns (comuni)");
       $("span#score2").text("and has a population of "+selection[1][sortParams[0]].toLocaleString()+" with "+selection[1]["Towns"]+" towns");
       $("span#score3").text("with "+selection[2][sortParams[0]].toLocaleString()+" people and "+selection[2]["Towns"]+" towns");
@@ -291,6 +292,23 @@ function populateData(data){
       $("span#score1").text("a score of "+(score[0]>10?10:score[0])+"/10")
       $("span#score2").text("a score of "+(score[1]>10?10:score[1])+"/10")
       $("span#score3").text("a score of "+(score[2]>10?10:score[2])+"/10")
+
+      let extra="";
+      if (selection.length===0);
+      else if (sortParams[0]==="Education"){
+        let mostUni = selection.sort((a, b) => b.Universities - a.Universities).filter(a => a.Universities>0);
+        
+        if (mostUni.length===0) extra+="None of the provinces selected have a university."
+        else if (mostUni[0].Universities>1)
+        extra+=linkTo(mostUni[0]) + " has the most universities, with a total of "+spellout(mostUni[0].Universities)+" within the province."
+        else if (mostUni[0].Universities===1){
+          for (i in mostUni){
+          extra+=(i>0?", ":"")+linkTo(mostUni[i])
+          }
+          extra+=" "+(mostUni.length===1?"has":"have")+" a university."
+        }
+      }
+      $("#extra").html('<p>'+extra+'</p>')
     }
 
       history.pushState(null, $("#title"), newHref);
@@ -393,7 +411,7 @@ function appendData(data) {
           "<b><a class='province"+i+"'></a></b> ranks "+(i===2?"2nd ":"3rd ")+
           "with <span id='score"+i+"'></span>"
         }output+="."
-      }output+="</p>"
+      }output+="</p><span id='extra'></span>"
 
       $("#output").html("<center>"+output+"</center>")
       
@@ -502,7 +520,7 @@ function appendData(data) {
         card.title=data[i].Name+', '+data[i].Region;
         //card.style.backgroundImage = 'url('+image+')';
         card.id = data[i].Name;
-        col.innerHTML = "<a href='./province/"+data[i].Name.replace(/\s+/g, '-').toLowerCase()+"\''>"+card.outerHTML+"</a>";
+        col.innerHTML = "<a href='./province/"+data[i].Name.replace(/\s+/g, '-').replace("'","-").toLowerCase()+"\''>"+card.outerHTML+"</a>";
         
         mainContainer.appendChild(col);
         
@@ -916,3 +934,17 @@ function searchParams(){
     $('link[rel="canonical"]').attr('href', newHref);
     //document.location.href=newHref
   }
+
+  function spellout(number){
+    switch (number){
+      case 0: return "zero";case 1: return "one";case 2: return "two";case 3: return "three";
+      case 4: return "four";case 5: return "five";case 6: return "six";case 7: return "seven";
+      case 8: return "eight";case 9: return "nine";case 10: return "ten";
+    }
+  }
+
+  function linkTo(province){
+    return '<b><a href="https://expiter.com/province/'+province.Name.replace("'","").replace(/\s+/g,"-").toLowerCase()+
+    '"/>'+province.Name+'</a></b>'
+  }
+  
