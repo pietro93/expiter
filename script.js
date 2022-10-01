@@ -194,6 +194,8 @@ function populateData(data){
   }
 
     function sortData(selection){
+
+
       let sortBy = document.querySelector('input[name="sortBy"]:checked').value;
       
         if (sortBy=="Random"){
@@ -251,21 +253,16 @@ function populateData(data){
           $(".sortBy").text("by Lowest Amounts of Crime");
           $(".bestorworst").text("");
         }
-        else $(".sortBy").text("for "+sortBy);
-        if (sortBy == "Climate" || sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
+        else {$(".sortBy").text("for "+sortBy);
+        $(".bestorworst").text("Best")}
+        /*if (sortBy == "Climate" || sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
           $(".bestorworst").text("Best")
-        }
+        }*/
 
         let updatedTitle=$("#title").text().replace(/ +(?= )/g,'')
         if (updatedTitle.charAt(0)==" ") updatedTitle=updatedTitle.substring(1)
         $($("section")[0]).attr("id", updatedTitle);
        
-        if(selection.length!=0){
-        let province1st=selection[0]
-        $("a.province1st").text(province1st.Name)
-        $("a.province1st").attr("href","https://expiter.com/province/"+province1st.Name.replace(/\s/g,"-")
-        .replace("'","-").toLowerCase()+"/")
-      }
 
       (filterParams.includes('Pop1m+', 'Pop300k+', 'Pop300k-', 'Pop500k+')?
       filterParams=filterParams.filter(el => !['Pop1m+', 'Pop300k+', 'Pop300k-', 'Pop500k+'].includes(el)):"");
@@ -353,10 +350,32 @@ function appendData(data) {
 
     let title = document.getElementById("title")
         
-    title.innerHTML="<span class='bestorworst'></span> <span class='smallorlarge'></span> <span class='hotorcold'></span> <span class='costofliving'></span> Provinces in <span class='largest'></span> <span class='chosenArea'></span> <span class='withthings'></span> <span class='sortBy'></span>";
+    title.innerHTML="<span class='bestorworst'></span> <span class='smallorlarge'></span> "+
+    "<span class='hotorcold'></span> <span class='costofliving'></span> Provinces in <span class='largest'></span> <span class='chosenArea'></span> <span class='withthings'></span> <span class='sortBy'></span>";
 
-    if (selection.length==0) {title.innerHTML="Could not find any provinces based on your filters."}
-    else if (region_filters.length==1) {$(".chosenArea").text(region_filters[0])}
+    if (selection.length==0) {
+      title.innerHTML="Could not find any provinces based on your filters."
+    
+      $("#output").html("<p>Based on our data, there are no <span class='smallorlarge'></span> <span class='hotorcold'></span> <span class='costofliving'> "+
+      "provinces in <span class='chosenArea'>Italy</span> "+ 
+        "<span class='withthings'></span></p>.")
+      
+    }
+    else{
+      $("#output").html("<p>"+
+      "Based on our data, the <span class='bestorworst'></span> <span class='smallorlarge'></span> "+
+      "<span class='hotorcold'></span> <span class='costofliving'></span> "+
+      "province in <span class='chosenArea'>Italy</span> "+
+      "<span class='withthings'></span> <span class='sortBy'></span> is "+
+      "<b><a class='province1st'></a></b>."+
+      "</p>")
+      let province1st=selection[0]
+      $("a.province1st").text(province1st.Name)
+      $("a.province1st").attr("href","https://expiter.com/province/"+province1st.Name.replace(/\s/g,"-")
+      .replace("'","-").toLowerCase()+"/")}
+    
+    
+    if (region_filters.length==1) {$(".chosenArea").text(region_filters[0])}
     else if (region_filters.length==2) {$(".chosenArea").text(region_filters[0]+" and "+region_filters[1])}
     else if (region_filters.length==3) {$(".chosenArea").text(region_filters[0]+", "+region_filters[1]+" and "+region_filters[2])}
     else if (region_filters.sort().toString() == "Lazio,Marche,Toscana,Umbria") {$(".chosenArea").text("Central Italy")}
