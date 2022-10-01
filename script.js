@@ -356,9 +356,12 @@ function appendData(data) {
     if (selection.length==0) {
       title.innerHTML="Could not find any provinces based on your filters."
     
-      $("#output").html("<p>Based on our data, there are no <span class='smallorlarge'></span> <span class='hotorcold'></span> <span class='costofliving'> "+
-      "provinces in <span class='chosenArea'>Italy</span> "+ 
-        "<span class='withthings'></span></p>.")
+      $("#output").html(
+        "<p>Based on our data, there are no "+
+        "<span class='smallorlarge'></span> <span class='hotorcold'></span> "+
+        "<span class='costofliving'></span> provinces in <span class='chosenArea'></span> "+
+        "<span class='withthings'></span></p>."
+        )
       
     }
     else{
@@ -372,7 +375,7 @@ function appendData(data) {
       let province1st=selection[0]
       $("a.province1st").text(province1st.Name)
       $("a.province1st").attr("href","https://expiter.com/province/"+province1st.Name.replace(/\s/g,"-")
-      .replace("'","-").toLowerCase()+"/")}
+       .replace("'","-").toLowerCase()+"/")}
     
     
     if (region_filters.length==1) {$(".chosenArea").text(region_filters[0])}

@@ -390,8 +390,30 @@ function appendData($,data) {
 
 
 
-    if (selection.length==0) {title.innerHTML="Could not find any provinces based on your filters."}
-    else if (region_filters.length==1) {$(".chosenArea").text(region_filters[0])}
+    if (selection.length==0) {title.innerHTML="Could not find any provinces based on your filters."
+  
+    $("#output").html(
+      "<p>Based on our data, there are no "+
+      "<span class='smallorlarge'></span> <span class='hotorcold'></span> "+
+      "<span class='costofliving'></span> provinces in <span class='chosenArea'></span> "+
+      "<span class='withthings'></span></p>."
+      )
+    
+  }
+  else{
+    $("#output").html("<p>"+
+    "Based on our data, the <span class='bestorworst'></span> <span class='smallorlarge'></span> "+
+    "<span class='hotorcold'></span> <span class='costofliving'></span> "+
+    "province in <span class='chosenArea'>Italy</span> "+
+    "<span class='withthings'></span> <span class='sortBy'></span> is "+
+    "<b><a class='province1st'></a></b>."+
+    "</p>")
+    let province1st=selection[0]
+    $("a.province1st").text(province1st.Name)
+    $("a.province1st").attr("href","https://expiter.com/province/"+province1st.Name.replace(/\s/g,"-")
+     .replace("'","-").toLowerCase()+"/")}
+
+    if (region_filters.length==1) {$(".chosenArea").text(region_filters[0])}
     else if (region_filters.length==2) {$(".chosenArea").text(region_filters[0]+" and "+region_filters[1])}
     else if (region_filters.length==3) {$(".chosenArea").text(region_filters[0]+", "+region_filters[1]+" and "+region_filters[2])}
     else if (region_filters.sort().toString() == "Lazio,Marche,Toscana,Umbria") {$(".chosenArea").text("Central Italy")}
