@@ -278,14 +278,20 @@ function populateData(data){
       (regionParams.length==0?"":"&region="+regionParams)+
       (filterParams.length==0?"":"&filter="+filterParams);
       
-      
-      if (sortParams[0]=="Name"&&selection.length!=0) $("#output").html("<center><p>Displaying selected provinces by Alphabetical Order</p></br></center>")
-      if (sortParams[0]=="Random"&&selection.length!=0) $("#output").html("<center><p>Displaying carefully selected provinces based on Algorithmic Sorcery (i.e. at random).</br>"+
+      if (selection.length===0);
+      else if (sortParams[0]=="Name") $("#output").html("<center><p>Displaying selected provinces by Alphabetical Order</p></br></center>")
+      else if (sortParams[0]=="Random") $("#output").html("<center><p>Displaying carefully selected provinces based on Algorithmic Sorcery (i.e. at random).</br>"+
       "The algorithm thinks you should check out: <span class='province1st'></span></p></center>")
-      else if (selection.length!=0)
-      $("span#score1").text(selection[0][sortParams[0]])
-      $("span#score2").text(selection[1][sortParams[0]])
-      $("span#score3").text(selection[2][sortParams[0]])
+      else if (sortParams[0]=="Population"){
+      $("span#score1").text("a total population of "+selection[0][sortParams[0]]+" across its "+selection[0]["Towns"].toLocaleString()+" towns (comuni)");
+      $("span#score2").text("and has a population of "+selection[1][sortParams[0]]+" with "+selection[1]["Towns"].toLocaleString()+" towns");
+      $("span#score3").text("with "+selection[2][sortParams[0]]+" people and "+selection[2]["Towns"].toLocaleString()+" towns");
+      }
+      else {
+      $("span#score1").text(selection[0][sortParams[0]]+"/10")
+      $("span#score2").text(selection[1][sortParams[0]]+"/10")
+      $("span#score3").text(selection[2][sortParams[0]]+"/10")
+    }
 
       history.pushState(null, $("#title"), newHref);
       //document.location.href=newHref;
@@ -380,12 +386,12 @@ function appendData(data) {
       "<span class='hotorcold'></span> <span class='costofliving'></span> "+
       "province in <span class='chosenArea'>Italy</span> "+
       "<span class='withthings'></span> <span class='sortBy'></span> is "+
-      "<b><a class='province1st'></a></b>, with a score of <span id='score1'></span>/10.";
+      "<b><a class='province1st'></a></b>, with <span id='score1'></span>.";
       if (selection.length>1){
         for (var i=2;i<=3&i<selection.length;i++){
           output+=(i===3?" and ":"</br>")+
           "<b><a class='province"+i+"'></a></b> ranks "+(i===2?"2nd ":"3rd ")+
-          "with a score of <span id='score"+i+"'></span>/10"
+          "with <span id='score"+i+"'></span>"
         }output+="."
       }output+="</p>"
 
