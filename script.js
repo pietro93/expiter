@@ -280,6 +280,7 @@ function populateData(data){
       (regionParams.length==0?"":"&region="+regionParams)+
       (filterParams.length==0?"":"&filter="+filterParams);
 
+      history.pushState(null, $("#title"), newHref);
       //document.location.href=newHref;
         
     }

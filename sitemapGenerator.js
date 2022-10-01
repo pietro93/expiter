@@ -81,12 +81,12 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         const regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia-Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
             "Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto-Adige","Umbria","Valle-d-Aosta","Veneto"];
         var region_filters = ["All","North","South","Center"].concat(regions)
-        region_filters = region_filters.concat(
+        /*region_filters = region_filters.concat(
             combine(regions,2)//.concat(combine(regions,3))//.concat(combine(regions,4))
-        )
+        )*/
         console.log(region_filters)
 
-        const filters = ["Pop300k-","Pop300k+","Pop500k+","Pop1m+","Cold","Hot","Temperate","HasMetro","HasUni"];
+        const filters = ["Pop300k-","Pop300k+","Pop500k+","Pop1m+","Cold","Hot","Temperate","HasMetro","HasUni"].sort();
         const sortings = ["Expat-friendly","DN-friendly","LGBT-friendly","Female-friendly","ColdDays","SunshineHours","HotDays",
         "Name","CostOfLiving","Population","Veg-friendly","Family-friendly","Density","Climate","Safety","Nightlife","Education","Crime"].sort()
 
