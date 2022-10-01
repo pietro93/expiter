@@ -312,6 +312,12 @@ function createSorting($,label, value){
         else $(".sortBy").text("for "+sortBy);
         if (sortBy == "Climate" || sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
           $(".bestorworst").text("Best")
+
+          sortParams=[sortBy]
+
+          $("span#score1").text(selection[0][sortParams[0]])
+          $("span#score2").text(selection[1][sortParams[0]])
+          $("span#score3").text(selection[2][sortParams[0]])
         }
 
     }
@@ -401,17 +407,35 @@ function appendData($,data) {
     
   }
   else{
-    $("#output").html("<p>"+
+    let province1st=selection[0];
+    let output="<p>"+
     "Based on our data, the <span class='bestorworst'></span> <span class='smallorlarge'></span> "+
     "<span class='hotorcold'></span> <span class='costofliving'></span> "+
     "province in <span class='chosenArea'>Italy</span> "+
     "<span class='withthings'></span> <span class='sortBy'></span> is "+
-    "<b><a class='province1st'></a></b>."+
-    "</p>")
-    let province1st=selection[0]
+    "<b><a class='province1st'></a></b>, with a score of <span id='score1'></span>/10.";
+    if (selection.length>1){
+      for (var i=2;i<=3&i<selection.length;i++){
+        output+=(i===3?" and ":"</br>")+
+        "<b><a class='province"+i+"'></a></b> ranks "+(i===2?"2nd ":"3rd ")+
+        "with a score of <span id='score"+i+"'></span>/10"
+      }output+="."
+    }output+="</p>"
+
+    $("#output").html("<center>"+output+"</center>")
+    
     $("a.province1st").text(province1st.Name)
     $("a.province1st").attr("href","https://expiter.com/province/"+province1st.Name.replace(/\s/g,"-")
+     .replace("'","-").toLowerCase()+"/")
+    if (selection.length>1){ let province2=selection[1]
+    $("a.province2").text(province2.Name)
+    $("a.province2").attr("href","https://expiter.com/province/"+province2.Name.replace(/\s/g,"-")
      .replace("'","-").toLowerCase()+"/")}
+     if (selection.length>2){ let province3=selection[2]
+    $("a.province3").text(province3.Name)
+    $("a.province3").attr("href","https://expiter.com/province/"+province3.Name.replace(/\s/g,"-")
+     .replace("'","-").toLowerCase()+"/")}
+    }
 
     if (region_filters.length==1) {$(".chosenArea").text(region_filters[0])}
     else if (region_filters.length==2) {$(".chosenArea").text(region_filters[0]+" and "+region_filters[1])}
