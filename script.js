@@ -279,9 +279,9 @@ function populateData(data){
       (filterParams.length==0?"":"&filter="+filterParams);
       
       
-      if (sortParams[0]=="Name"&&selection.length!=0) $("#output p").html("<p>Displaying selected provinces by Alphabetical Order</p></br>")
-      if (sortParams[0]=="Random"&&selection.length!=0) $("#output p").html("<p>Displaying carefully selected provinces based on Algorithmic Sorcery (i.e. at random).</br>"+
-      "The algorithm thinks you should check out: <span class='province1st'></span></p>")
+      if (sortParams[0]=="Name"&&selection.length!=0) $("#output").html("<center><p>Displaying selected provinces by Alphabetical Order</p></br></center>")
+      if (sortParams[0]=="Random"&&selection.length!=0) $("#output").html("<center><p>Displaying carefully selected provinces based on Algorithmic Sorcery (i.e. at random).</br>"+
+      "The algorithm thinks you should check out: <span class='province1st'></span></p></center>")
       else if (selection.length!=0)
       $("span#score1").text(selection[0][sortParams[0]])
       $("span#score2").text(selection[1][sortParams[0]])
