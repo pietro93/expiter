@@ -353,7 +353,7 @@ function appendData(data) {
 
     let title = document.getElementById("title")
         
-    title.innerHTML="<span class='bestorworst'></span> <span class='smallorlarge'></span> <span class='hotorcold'></span> <span class='costofliving'></span> Provinces in <span class='largest'>Italy</span> <span class='withthings'></span> <span class='sortBy'></span>";
+    title.innerHTML="<span class='bestorworst'></span> <span class='smallorlarge'></span> <span class='hotorcold'></span> <span class='costofliving'></span> Provinces in <span class='largest'></span> <span class='chosenArea'></span> <span class='withthings'></span> <span class='sortBy'></span>";
 
     if (selection.length==0) {title.innerHTML="Could not find any provinces based on your filters."}
     else if (region_filters.length==1) {$(".chosenArea").text(region_filters[0])}
