@@ -125,9 +125,10 @@ function populateData(data){
       }
 
       if (region_filters.length==20) regionParams=["All"]
-      else if (region_filters==south) regionParams=["South"]
-      else if (region_filters==center) regionParams=["Center"]
-      else if (region_filters==north) regionParams=["North"]
+      
+      else if (region_filters.every(item => south.includes(item)) && south.every(item => region_filters.includes(item))) regionParams=["South"]
+      else if (region_filters.every(item => center.includes(item)) && center.every(item => region_filters.includes(item))) regionParams=["Center"]
+      else if (region_filters.every(item => north.includes(item)) && north.every(item => region_filters.includes(item))) regionParams=["North"]
       else
       {
         for (let i=0; i<region_filters.length; i++){
