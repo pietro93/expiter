@@ -96,33 +96,50 @@ function init($){
   
     row = "<row id='additionalfilters' class='columns is-multiline is-mobile'>";
     row+='<p class="column is-12">Additional filters:</p>';
-    row+='<button value="Pop300k-" class="button column additionalfilter pop" onClick=\'$(this).toggleClass("selected");filterBy("Pop300k-");\'>'+"Pop.<300k"+"</button>";
-    row+='<button value="Pop300k+" class="button column additionalfilter pop" onClick=\'$(this).toggleClass("selected");filterBy("Pop300k+")\'>'+"Pop.300k-500k"+"</button>";
-    row+='<button value="Pop500k+" class="button column additionalfilter pop" onClick=\'$(this).toggleClass("selected");filterBy("Pop500k+")\'>'+"Pop.500k-1m"+"</button>";
-    row+='<button value="Pop1m+" class="button column additionalfilter pop" onClick=\'$(this).toggleClass("selected");filterBy("Pop1m+")\'>'+"Pop.>1m"+"</button>";
-    row+='<button value="Low-cost" class="button column additionalfilter col" onClick=\'$(this).toggleClass("selected");filterBy("Low-cost")\'>'+"€ LowCoL"+"</button>";
-    row+='<button value="Mid-cost" class="button column additionalfilter col" onClick=\'$(this).toggleClass("selected");filterBy("Mid-cost")\'>'+"€€ MidCoL"+"</button>";
-    row+='<button value="High-cost" class="button column additionalfilter col" onClick=\'$(this).toggleClass("selected");filterBy("High-cost")\'>'+"€€€ HighCoL"+"</button>";
+    row+='<button value="Pop300k-" class="button column additionalfilter pop" onClick=\'$(this).toggleClass("selected");filterBy("Pop300k-");\'>'+"👤Pop.<300k"+"</button>";
+    row+='<button value="Pop300k+" class="button column additionalfilter pop" onClick=\'$(this).toggleClass("selected");filterBy("Pop300k+")\'>'+"👤👤Pop.300k-500k"+"</button>";
+    row+='<button value="Pop500k+" class="button column additionalfilter pop" onClick=\'$(this).toggleClass("selected");filterBy("Pop500k+")\'>'+"👤👤👤Pop.500k-1m"+"</button>";
+    row+='<button value="Pop1m+" class="button column additionalfilter pop" onClick=\'$(this).toggleClass("selected");filterBy("Pop1m+")\'>'+"👥👥Pop.>1m"+"</button>";
     row+='<p class="column is-12"></p>';
-    row+='<button value="Hot" class="button column additionalfilter clim" onClick=\'$(this).toggleClass("selected");filterBy("Hot")\'>'+"Hot"+"</button>";
-    row+='<button value="Cold" class="button column additionalfilter clim" onClick=\'$(this).toggleClass("selected");filterBy("Cold")\'>'+"Cold"+"</button>";
-    row+='<button value="Temperate" class="button column additionalfilter clim" onClick=\'$(this).toggleClass("selected");filterBy("Temperate")\'>'+"Temperate"+"</button>";
-    row+='<button value="HasUni" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasBeach")\'>'+"Beach"+"</button>";
-    row+='<button value="HasUni" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasSkiing")\'>'+"Winter Sports"+"</button>";
-    row+='<button value="HasUni" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasUni")\'>'+"University"+"</button>";
-    row+='<button value="HasMetro" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasMetro")\'>'+"Metro"+"</button>";
+    row+='<button value="Low-cost" class="button column additionalfilter col" onClick=\'$(this).toggleClass("selected");filterBy("Low-cost")\'>'+"💰 LowCoL"+"</button>";
+    row+='<button value="Mid-cost" class="button column additionalfilter col" onClick=\'$(this).toggleClass("selected");filterBy("Mid-cost")\'>'+"💰💰 MidCoL"+"</button>";
+    row+='<button value="High-cost" class="button column additionalfilter col" onClick=\'$(this).toggleClass("selected");filterBy("High-cost")\'>'+"💰💰💰 HighCoL"+"</button>";
+    row+='<p class="column is-12"></p>';
+    row+='<button value="Hot" class="button column additionalfilter clim" onClick=\'$(this).toggleClass("selected");filterBy("Hot")\'>'+"🥵Hot"+"</button>";
+    row+='<button value="Cold" class="button column additionalfilter clim" onClick=\'$(this).toggleClass("selected");filterBy("Cold")\'>'+"🥶Cold"+"</button>";
+    row+='<button value="Temperate" class="button column additionalfilter clim" onClick=\'$(this).toggleClass("selected");filterBy("Temperate")\'>'+"😎Temperate"+"</button>";
+    row+='<p class="column is-12"></p>';
+    row+='<button value="HasBeach" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasBeach")\'>'+"⛱️Beach"+"</button>";
+    row+='<button value="HasSkiing" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasSkiing")\'>'+"🏂🏻Winter Sports"+"</button>";
+    row+='<button value="HasUni" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasUni")\'>'+"👩‍🎓University"+"</button>";
+    row+='<button value="HasMetro" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasMetro")\'>'+"🚇Metro"+"</button>";
     row+='</row>' 
     filters.append(row)
     
     console.log("creating sortings")
-    createSorting($,"Expat-friendly");
-    createSorting($,"A-Z","Name");
-    createSorting($,"Random");createSorting($,"Region");createSorting($,"Population");createSorting($,"Climate");
-    createSorting($,"Cost","CostOfLiving");createSorting($,"Safety");createSorting($,"Lack of Crime","Crime");createSorting($,"Nightlife");createSorting($,"Education");
-    createSorting($,"Sunshine","SunshineHours");createSorting($,"Hot","HotDays");createSorting($,"Cold","ColdDays");
-    createSorting($,"Nomad-friendly","DN-friendly");createSorting($,"LGBTQ+-friendly","LGBT-friendly");createSorting($,"Women-friendly","Female-friendly");
-    createSorting($,"Family-friendly");createSorting($,"Vegan-friendly","Veg-friendly");createSorting($,"Pop. Density","Density");
-    createSorting($,"Best Beaches","Beach");createSorting($,"Best Hikes","Hiking");createSorting($,"Best Skiing","WinterSports")
+    createSorting($,"<ej>👩🏿‍❤️</ej>Expat-friendly","Expat-friendly");
+    createSorting($,"<ej>🔠</ej>A-Z","Name");
+    createSorting($,"<ej>🔀</ej>Random","Ranodm");
+    createSorting($,"<ej>🌍</ej>Region","Region");
+    createSorting($,"<ej>👥</ej>Population","Population");
+    createSorting($,"<ej>🌦️</ej>Climate","Climate");
+    createSorting($,"<ej>🤑</ej>Cost","CostOfLiving");
+    createSorting($,"<ej>👮</ej>Safety","Safety");
+    createSorting($,"<ej>🚨</ej>Lack of Crime","Crime");
+    createSorting($,"<ej>🍸</ej>Nightlife","Nightlife");
+    createSorting($,"<ej>📚</ej>Education","Education");
+    createSorting($,"<ej>☀️</ej>Sunshine","SunshineHours");
+    createSorting($,"<ej>♨️</ej>Hot","HotDays");
+    createSorting($,"<ej>❄️</ej>Cold","ColdDays");
+    createSorting($,"<ej>🧳</ej>Nomad-friendly","DN-friendly");
+    createSorting($,"<ej>🏳️‍🌈</ej>LGBTQ+-friendly","LGBT-friendly");
+    createSorting($,"<ej>👩</ej>Women-friendly","Female-friendly");
+    createSorting($,"<ej>👩‍👦</ej>Family-friendly","Family-friendly");
+    createSorting($,"<ej>🥙</ej>Vegan-friendly","Veg-friendly");
+    createSorting($,"<ej>🌆</ej>Pop. Density","Density");
+    createSorting($,"<ej>🏖️</ej>Best Beaches","Beach");
+    createSorting($,"<ej>⛰️</ej>Best Hikes","Hiking");
+    createSorting($,"<ej>⛷️</ej>Best Skiing","WinterSports")
     
     console.log("filtering by")
     filterBy($);
