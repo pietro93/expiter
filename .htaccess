@@ -39,3 +39,6 @@ RewriteRule ^(.*)$ /$1/ [L,R=301]
 </Files>
 
 # END MalCare WAF
+
+RedirectMatch 301 ^/$ https://expiter.com/app
+RedirectMatch 302 ^/$ https://expiter.com/app
