@@ -345,7 +345,7 @@ card.Abruzzo::after{
   opacity:.33;
 }card.Abruzzo>.region{color:skyblue}
 card.Calabria::after{
-  background-color:orange;
+  background-color:sandybrown;
   opacity:.33;
 }card.Calabria>.region{color:greenyellow}
 card.Lombardia::after{

@@ -86,7 +86,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         )*/
         console.log(region_filters)
 
-        const filters = ["Pop300k-","Pop300k+","Pop500k+","Pop1m+","Cold","Hot","Temperate","HasMetro","HasUni","HasBeach","HasSkiing"].sort();
+        const filters = ["Pop300k-","Pop300k+","Pop500k+","Pop1m+","Cold","Hot",/*"Temperate"*/,"HasMetro","HasUni","HasBeach","HasSkiing"].sort();
         const sortings = ["Expat-friendly","DN-friendly","LGBT-friendly","Female-friendly","ColdDays","SunshineHours","HotDays",
         /*"Name",*/"CostOfLiving","Population","Veg-friendly","Family-friendly",/*"Density"*/,"Climate","Safety","Nightlife","Education"/*,"Crime"*/
         ,"Beach","WinterSports","Hiking"].sort()
@@ -116,6 +116,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let withFilters11="";
         let withFilters12="";
         let withFilters13="";
+        let withFilters14="";
+        let withFilters15="";
+        let withFilters16="";
         for (var s=0; s<sortings.length; s++){
             noFilters= noFilters.concat(
                 '<url>'+
@@ -138,85 +141,106 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                         '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                         '</url> '+'\n'
                             );
-                        } else if (f>=(filter_filters.length)*.065&f<(filter_filters.length)*.15) {
+                        } else if (f>=(filter_filters.length)*.065&f<(filter_filters.length)*.12) {
                             withFilters2=withFilters2.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.15&&f<(filter_filters.length)*.23) {
+                        else if (f>=(filter_filters.length)*.12&&f<(filter_filters.length)*.18) {
                             withFilters3=withFilters3.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.23&&f<(filter_filters.length)*.31) {
+                        else if (f>=(filter_filters.length)*.18&&f<(filter_filters.length)*.24) {
                             withFilters4=withFilters4.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.31&&f<(filter_filters.length)*.39) {
+                        else if (f>=(filter_filters.length)*.24&&f<(filter_filters.length)*.3) {
                             withFilters5=withFilters5.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.39&&f<(filter_filters.length)*.46) {
+                        else if (f>=(filter_filters.length)*.3&&f<(filter_filters.length)*.36) {
                             withFilters6=withFilters6.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.46&&f<(filter_filters.length)*.53) {
+                        else if (f>=(filter_filters.length)*.36&&f<(filter_filters.length)*.43) {
                             withFilters7=withFilters7.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.53&&f<(filter_filters.length)*.61) {
+                        else if (f>=(filter_filters.length)*.43&&f<(filter_filters.length)*.5) {
                             withFilters8=withFilters8.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.61&f<(filter_filters.length)*.68) {
+                        else if (f>=(filter_filters.length)*.5&f<(filter_filters.length)*.57) {
                             withFilters9=withFilters9.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.68&f<(filter_filters.length)*.75) {
+                        else if (f>=(filter_filters.length)*.57&f<(filter_filters.length)*.64) {
                             withFilters10=withFilters10.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.75&f<(filter_filters.length)*.82) {
+                        else if (f>=(filter_filters.length)*.64&f<(filter_filters.length)*.7) {
                             withFilters11=withFilters11.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.82&f<(filter_filters.length)*.91) {
+                        else if (f>=(filter_filters.length)*.72&f<(filter_filters.length)*.79) {
                             withFilters12=withFilters12.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else {
+                        else if (f>=(filter_filters.length)*.79&f<(filter_filters.length)*.85) {
                             withFilters13=withFilters13.concat(
+                                '<url>'+
+                                '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                                '</url>'+'\n'
+                                    );
+                        }
+                        else if (f>=(filter_filters.length)*.85&f<(filter_filters.length)*.93) {
+                            withFilters14=withFilters14.concat(
+                                '<url>'+
+                                '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                                '</url>'+'\n'
+                                    );
+                        }
+                        else if (f>=(filter_filters.length)*.93&f<(filter_filters.length)*.98) {
+                            withFilters15=withFilters15.concat(
+                                '<url>'+
+                                '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
+                                '</url>'+'\n'
+                                    );
+                        }
+                        else {
+                            withFilters16=withFilters16.concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
@@ -242,6 +266,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         var appSiteMap11=appSiteMap.concat(withFilters11).concat('</urlset>');
         var appSiteMap12=appSiteMap.concat(withFilters12).concat('</urlset>');
         var appSiteMap13=appSiteMap.concat(withFilters13).concat('</urlset>');
+        var appSiteMap14=appSiteMap.concat(withFilters14).concat('</urlset>');
+        var appSiteMap15=appSiteMap.concat(withFilters15).concat('</urlset>');
+        var appSiteMap16=appSiteMap.concat(withFilters16).concat('</urlset>');
                 
         var fileName2 = './app-sitemap.xml';
             
@@ -300,6 +327,18 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         fs.writeFile('sitemap/app-sitemap-13.xml', appSiteMap13, function (err, file) {
             if (err) throw err;
             else console.log('./app-sitemap-13.xml'+' Saved!'+" Urls submitted: "+(appSiteMap13.split("<url>").length - 1));
+        });
+        fs.writeFile('sitemap/app-sitemap-14.xml', appSiteMap14, function (err, file) {
+            if (err) throw err;
+            else console.log('./app-sitemap-14.xml'+' Saved!'+" Urls submitted: "+(appSiteMap14.split("<url>").length - 1));
+        });
+        fs.writeFile('sitemap/app-sitemap-15.xml', appSiteMap15, function (err, file) {
+            if (err) throw err;
+            else console.log('./app-sitemap-15.xml'+' Saved!'+" Urls submitted: "+(appSiteMap15.split("<url>").length - 1));
+        });
+        fs.writeFile('sitemap/app-sitemap-16.xml', appSiteMap16, function (err, file) {
+            if (err) throw err;
+            else console.log('./app-sitemap-16.xml'+' Saved!'+" Urls submitted: "+(appSiteMap16.split("<url>").length - 1));
         });
     });         
 
