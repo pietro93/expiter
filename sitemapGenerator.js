@@ -88,12 +88,12 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         const filters = ["Pop300k-","Pop300k+","Pop500k+","Pop1m+","Cold","Hot","Temperate","HasMetro","HasUni"].sort();
         const sortings = ["Expat-friendly","DN-friendly","LGBT-friendly","Female-friendly","ColdDays","SunshineHours","HotDays",
-        "Name","CostOfLiving","Population","Veg-friendly","Family-friendly","Density","Climate","Safety","Nightlife","Education","Crime"].sort()
+        /*"Name",*/"CostOfLiving","Population","Veg-friendly","Family-friendly",/*"Density"*/,"Climate","Safety","Nightlife","Education"/*,"Crime"*/].sort()
 
         var filter_filters=filters.concat(
             combine(filters,2).concat(combine(filters,3)).concat(combine(filters,4))
-            .concat(combine(filters,5)).concat(combine(filters,6)).concat(combine(filters,7))
-            .concat(combine(filters,8)).concat(combine(filters,9))
+            //.concat(combine(filters,5)).concat(combine(filters,6)).concat(combine(filters,7))
+            //.concat(combine(filters,8)).concat(combine(filters,9))
         )
         filter_filters= filter_filters.filter(
         item => (!item.includes("Pop300k-","Pop300k+","Pop500k","Pop1m+")))
