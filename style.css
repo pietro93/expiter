@@ -660,7 +660,10 @@ p.column.is-12{
   position:inherit;
   float:right;
   padding:0;
-  margin-right:1vw;}
+  margin-right:1vw;
+}#additionalfilters button{
+  max-width:150px;
+}
 #additionalfilters > button.pop{
   background-color:rgba(134,160,194,.9)}
 #additionalfilters > button.col{

@@ -104,7 +104,6 @@ function init($){
     row+='<button value="Low-cost" class="button column additionalfilter col" onClick=\'$(this).toggleClass("selected");filterBy("Low-cost")\'>'+"💰 LowCoL"+"</button>";
     row+='<button value="Mid-cost" class="button column additionalfilter col" onClick=\'$(this).toggleClass("selected");filterBy("Mid-cost")\'>'+"💰💰 MidCoL"+"</button>";
     row+='<button value="High-cost" class="button column additionalfilter col" onClick=\'$(this).toggleClass("selected");filterBy("High-cost")\'>'+"💰💰💰 HighCoL"+"</button>";
-    row+='<p class="column is-12"></p>';
     row+='<button value="Hot" class="button column additionalfilter clim" onClick=\'$(this).toggleClass("selected");filterBy("Hot")\'>'+"🥵Hot"+"</button>";
     row+='<button value="Cold" class="button column additionalfilter clim" onClick=\'$(this).toggleClass("selected");filterBy("Cold")\'>'+"🥶Cold"+"</button>";
     row+='<button value="Temperate" class="button column additionalfilter clim" onClick=\'$(this).toggleClass("selected");filterBy("Temperate")\'>'+"😎Temperate"+"</button>";
