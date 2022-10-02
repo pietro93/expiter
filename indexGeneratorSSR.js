@@ -112,6 +112,7 @@ function init($){
     row+='<button value="HasSkiing" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasSkiing")\'>'+"🏂🏻Winter Sports"+"</button>";
     row+='<button value="HasUni" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasUni")\'>'+"👩‍🎓University"+"</button>";
     row+='<button value="HasMetro" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasMetro")\'>'+"🚇Metro"+"</button>";
+    row+='<p class="column is-12"></p>';row+='<p class="column is-12"></p>';row+='<p class="column is-12"></p>';
     row+='</row>' 
     filters.append(row)
     
