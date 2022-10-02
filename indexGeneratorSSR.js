@@ -107,8 +107,10 @@ function init($){
     row+='<button value="Hot" class="button column additionalfilter clim" onClick=\'$(this).toggleClass("selected");filterBy("Hot")\'>'+"Hot"+"</button>";
     row+='<button value="Cold" class="button column additionalfilter clim" onClick=\'$(this).toggleClass("selected");filterBy("Cold")\'>'+"Cold"+"</button>";
     row+='<button value="Temperate" class="button column additionalfilter clim" onClick=\'$(this).toggleClass("selected");filterBy("Temperate")\'>'+"Temperate"+"</button>";
-    row+='<button value="HasUni" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasUni")\'>'+"Has University"+"</button>";
-    row+='<button value="HasMetro" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasMetro")\'>'+"Has Metro"+"</button>";
+    row+='<button value="HasUni" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasBeach")\'>'+"Beach"+"</button>";
+    row+='<button value="HasUni" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasSkiing")\'>'+"Winter Sports"+"</button>";
+    row+='<button value="HasUni" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasUni")\'>'+"University"+"</button>";
+    row+='<button value="HasMetro" class="button column additionalfilter has" onClick=\'$(this).toggleClass("selected");filterBy("HasMetro")\'>'+"Metro"+"</button>";
     row+='</row>' 
     filters.append(row)
     
@@ -120,6 +122,7 @@ function init($){
     createSorting($,"Sunshine","SunshineHours");createSorting($,"Hot","HotDays");createSorting($,"Cold","ColdDays");
     createSorting($,"Nomad-friendly","DN-friendly");createSorting($,"LGBTQ+-friendly","LGBT-friendly");createSorting($,"Women-friendly","Female-friendly");
     createSorting($,"Family-friendly");createSorting($,"Vegan-friendly","Veg-friendly");createSorting($,"Pop. Density","Density");
+    createSorting($,"Best Beaches","Beach");createSorting($,"Best Hikes","Hiking");createSorting($,"Best Skiing","WinterSports")
     
     console.log("filtering by")
     filterBy($);

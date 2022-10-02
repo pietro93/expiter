@@ -161,6 +161,8 @@ function populateData(data){
       else if(filter_by_climate.length==0&&filter_by_population.length!=0)filtered_selection=filter_by_population;
       else if (filter_by_climate.length!=0&&filter_by_population.length!=0)filtered_selection = filter_by_population.filter(value => filter_by_climate.includes(value))
       if (filter_by_cost.length)filtered_selection = filtered_selection.filter(value => filter_by_cost.includes(value))
+      if (additionalFilters.includes("HasBeach"))  filtered_selection=(filtered_selection.filter((item) => (item.isBeachDestination)))
+      if (additionalFilters.includes("HasSkiing"))  filtered_selection=(filtered_selection.filter((item) => (item.isSkiDestination)))
       if (additionalFilters.includes("HasUni"))  filtered_selection=(filtered_selection.filter((item) => (item.Universities > 0)))
       if (additionalFilters.includes("HasMetro"))  filtered_selection=(filtered_selection.filter((item) => (item.Subway > 0)))
       selection = filtered_selection;
@@ -278,20 +280,32 @@ function populateData(data){
       (regionParams.length===0?"":"&region="+regionParams)+
       (filterParams.length===0?"":"&filter="+filterParams);
       
+      
+      let score1=0,score2=0,score3=0,towns1=0,towns2=0,towns3=0;
+      if (selection.length>0)
+      {score1=selection[0][sortParams[0]];towns1=selection[0].Towns}
+      
+      if(selection.length>1)
+      {score2=selection[1][sortParams[0]];towns2=selection[1].Towns}
+
+      if(selection.length>2)
+      {score3=selection[2][sortParams[0]];towns3=selection[2].Towns}
+
       if (selection.length===0);
       else if (sortParams[0]==="Region") $("#output").html("<center><p>Displaying selected provinces alphabetically by region</p></br></center>")
       else if (sortParams[0]==="Name") $("#output").html("<center><p>Displaying selected provinces by alphabetical order</p></br></center>")
       else if (sortParams[0]==="Random") $("#output").html("<center><p>Displaying carefully selected provinces based on Algorithmic Sorcery (i.e. at random).</br>"+
       "The algorithm thinks you should check out: <span class='province1st'></span></p></center>")
       else if (sortParams[0]==="Population"){
-      $("span#score1").text("a total population of "+selection[0][sortParams[0]].toLocaleString()+" across its "+selection[0]["Towns"]+" towns (comuni)");
-      $("span#score2").text("and has a population of "+selection[1][sortParams[0]].toLocaleString()+" with "+selection[1]["Towns"]+" towns");
-      $("span#score3").text("with "+selection[2][sortParams[0]].toLocaleString()+" people and "+selection[2]["Towns"]+" towns");
+      $("span#score1").text("a total population of "+score1.toLocaleString()+" across its "+towns1+" towns (comuni)");
+      $("span#score2").text("and has a population of "+score2.toLocaleString()+" with "+towns2+" towns");
+      $("span#score3").text("with "+score3.toLocaleString()+" people and "+towns3+" towns");
       }
-      else {let score = [selection[0][sortParams[0]],selection[1][sortParams[0]],selection[2][sortParams[0]]]
-      $("span#score1").text("a score of "+(score[0]>10?10:score[0])+"/10")
-      $("span#score2").text("a score of "+(score[1]>10?10:score[1])+"/10")
-      $("span#score3").text("a score of "+(score[2]>10?10:score[2])+"/10")
+      else {
+      
+      $("span#score1").text("a score of "+(score1>10?10:score1)+"/10")
+      $("span#score2").text("a score of "+(score2>10?10:score2)+"/10")
+      $("span#score3").text("a score of "+(score3>10?10:score3)+"/10")
 
       let extra="";
       if (selection.length===0);
@@ -446,9 +460,19 @@ function appendData(data) {
     else if (climFilters=="Cold") $(".hotorcold").text("Chill")
     else if (climFilters=="Temperate") $(".hotorcold").text("Temperate")
     else if (climFilters=="Cold,Hot") $(".hotorcold").text("Warm or Chill")
-    if (additionalFilters.includes("HasUni")&&additionalFilters.includes("HasMetro")) $(".withthings").text("with a University and Subway System")
-    else if (additionalFilters.includes("HasUni")) $(".withthings").text("with a University")
-    else if (additionalFilters.includes("HasMetro")) $(".withthings").text("with a Subway System")
+    
+    let withThings="";
+    if (additionalFilters.includes("HasUni")&&additionalFilters.includes("HasMetro")) withThings="a University and Subway System";
+    else if (additionalFilters.includes("HasUni")) withThings="a University";
+    else if (additionalFilters.includes("HasMetro")) withThings="a Subway System";
+    if ((additionalFilters.includes("HasUni")||additionalFilters.includes("HasMetro"))
+    && (additionalFilters.includes("HasBeach")||additionalFilters.includes("HasSkiing"))) withThings+=", "
+    if (additionalFilters.includes("HasBeach")&&additionalFilters.includes("HasSkiing")) withThings+="a Beach and Winter Sports facilities"
+    else if (additionalFilters.includes("HasBeach")) withThings+="a Beach";
+    else if (additionalFilters.includes("HasSkiing")) withThings+="Winter Sports Facilities"
+
+    if (withThings) $(".withthings").text("with "+withThings)
+    
     let colFilters=additionalFilters.filter((item) => (item.substring(item.length-4) == "cost")).sort()
     if (colFilters=="Low-cost") $(".costofliving").text("Low Cost-of-Living")
     else if (colFilters=="Mid-cost") $(".costofliving").text("Medium Cost-of-Living")
