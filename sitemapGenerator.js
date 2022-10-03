@@ -132,14 +132,14 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                         '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                         '</url> '+'\n'
                             );
-                        } else if (f>=(filter_filters.length)*.044&f<(filter_filters.length)*.08) {
+                        } else if (f>=(filter_filters.length)*.044&f<(filter_filters.length)*.095) {
                             sm[2]=sm[2].concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.08&&f<(filter_filters.length)*.125) {
+                        else if (f>=(filter_filters.length)*.095&&f<(filter_filters.length)*.15) {
                             sm[3]=sm[3].concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
@@ -209,14 +209,14 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.6&f<(filter_filters.length)*.66) {
+                        else if (f>=(filter_filters.length)*.6&f<(filter_filters.length)*.65) {
                             sm[13]=sm[13].concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
                                 '</url>'+'\n'
                                     );
                         }
-                        else if (f>=(filter_filters.length)*.66&f<(filter_filters.length)*.7) {
+                        else if (f>=(filter_filters.length)*.65&f<(filter_filters.length)*.7) {
                             sm[14]=sm[14].concat(
                                 '<url>'+
                                 '<loc>https://expiter.com/app/?sort='+sortings[s]+'&amp;region='+region_filters[r]+'&amp;filter='+filter_filters[f]+'</loc>'+
