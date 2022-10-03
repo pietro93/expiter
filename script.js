@@ -236,8 +236,11 @@ function populateData(data){
           $(".sortBy").text("");
           $(".bestorworst").text("Most "+sortBy);
           break;
-        case 'DN-friendly':case'Female-friendly':
-          $(".sortBy").text((sortBy=='DN-friendly'?"for Digital Nomads":"for Women"));
+        case 'DN-friendly':case'Female-friendly'
+        :case 'Family-friendly':case 'Veg-friendly':
+          $(".sortBy").text((sortBy==='DN-friendly'?"for Digital Nomads":"for Women"));
+          (sortBy==='Family-friendly'?$(".sortBy").text("for Families"):
+          (sortBy==='Veg-friendly'?$(".sortBy").text("for Vegans"):""));
           $(".bestorworst").text("Best");
           break;
         case 'SunshineHours':
