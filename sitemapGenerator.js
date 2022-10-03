@@ -87,10 +87,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         console.log(region_filters)
 
         const filters = ["Pop300k-","Pop300k+","Pop500k+","Pop1m+","Cold","Hot","Temperate","HasMetro","HasUni","HasBeach","HasSkiing"].sort();
-        const sortings = ["Expat-friendly","DN-friendly","LGBT-friendly","Female-friendly","ColdDays","SunshineHours","HotDays",
-        "Name","CostOfLiving","Population","Veg-friendly","Family-friendly","Density","Climate","Safety","Nightlife",
-        "Education","Crime"
-        ,"Beach","WinterSports","Hiking"].sort()
+        const sortings = ["Expat-friendly","DN-friendly","LGBT-friendly","Female-friendly",
+        "Veg-friendly","Family-friendly","ColdDays","SunshineHours","HotDays",
+        "CostOfLiving","Population","Climate","Safety","Nightlife",
+        "Education","Crime","Beach","WinterSports","Hiking"].sort()
         
 
         var filter_filters=//filters.concat(
