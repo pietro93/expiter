@@ -117,9 +117,9 @@ function init($){
     filters.append(row)
     
     console.log("creating sortings")
-    createSorting($,"<ej>👩🏿‍❤️</ej>Expat-friendly","Expat-friendly");
+    createSorting($,"<ej>👍</ej>Expat-friendly","Expat-friendly");
     createSorting($,"<ej>🔠</ej>A-Z","Name");
-    createSorting($,"<ej>🔀</ej>Random","Ranodm");
+    createSorting($,"<ej>🔀</ej>Random","Random");
     createSorting($,"<ej>🌍</ej>Region","Region");
     createSorting($,"<ej>👥</ej>Population","Population");
     createSorting($,"<ej>🌦️</ej>Climate","Climate");
