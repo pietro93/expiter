@@ -232,11 +232,11 @@ function populateData(data){
           $(".sortBy").text("by Average Income");
           $(".bestorworst").text("");
           break;
-        case 'Expat-friendly', 'LGBT-friendly':
+        case 'Expat-friendly':case'LGBT-friendly':
           $(".sortBy").text("");
           $(".bestorworst").text("Most "+sortBy);
           break;
-        case 'DN-friendly', 'Female-friendly':
+        case 'DN-friendly':case'Female-friendly':
           $(".sortBy").text((sortBy=='DN-friendly'?"for Digital Nomads":"for Women"));
           $(".bestorworst").text("Best");
           break;
