@@ -213,6 +213,10 @@ function populateData(data){
 
         $(".provinces").text("Provinces");
         switch(sortBy){ 
+        case "Expat-friendly":
+          $("span.sortBy").text("for Expats");
+          $("span.bestorworst").text("Best")
+          break;
         case "Name":
           $("span.sortBy").text("by Alphabetical Order");
           break;

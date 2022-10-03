@@ -285,54 +285,77 @@ function createSorting($,label, value){
         }
         console.log("appending data")
         appendData($,data);
-        if (sortBy == "Name"){
-          $(".sortBy").text("by Alphabetical Order");
+        $(".provinces").text("Provinces");
+        switch(sortBy){ 
+        case "Expat-friendly":
+          $("span.sortBy").text("for Expats");
+          $("span.bestorworst").text("Best")
+          break;
+        case "Name":
+          $("span.sortBy").text("by Alphabetical Order");
+          break;
+        case "Random":
+          $("span.sortBy").text("by Random Order");
+          break;
+        case "Region":
+          $("span.sortBy").text("by Region");
+          break;
+        case "CostOfLiving":
+          $("span.sortBy").text("");
+          $("span.bestorworst").text("Cheapest")
+          break;
+        case "Population":
+          $("span.sortBy").text("by Population");
+          break;
+        case "MonthlyIncome":
+          $("span.sortBy").text("by Average Income");
+          $("span.bestorworst").text("");
+          break;
+        case 'Expat-friendly':case'LGBT-friendly':
+          $("span.sortBy").text("");
+          $("span.bestorworst").text("Most "+sortBy);
+          break;
+        case 'DN-friendly':case'Female-friendly'
+        :case 'Family-friendly':case 'Veg-friendly':
+          $("span.sortBy").text((sortBy==='DN-friendly'?"for Digital Nomads":"for Women"));
+          (sortBy==='Family-friendly'?$("span.sortBy").text("for Families"):
+          (sortBy==='Veg-friendly'?$("span.sortBy").text("for Vegans"):""));
+          $("span.bestorworst").text("Best");
+          break;
+        case 'SunshineHours':
+          $("span.sortBy").text("");
+          $("span.bestorworst").text("Sunniest");
+          break;
+        case sortBy == 'HotDays',sortBy=='ColdDays':
+          $("span.sortBy").text("");
+          $("span.bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
+          break;
+        case 'Safety':
+          $("span.sortBy").text("");
+          $("span.bestorworst").text("Safest");
+          break;
+        case 'Crime':
+          $("span.sortBy").text("by Lowest Amount of Crime");
+          $("span.bestorworst").text("");
+          break;
+        case 'Beach':
+          $("span.sortBy").text("");
+          $("span.bestorworst").text("Best");
+          $("span.provinces").text("Beach Destinations")
+          break;
+          case 'WinterSports':
+          $("span.sortBy").text("");
+          $("span.bestorworst").text("Best");
+          $("span.provinces").text("Skiing Destinations")
+          break;
+        default:
+        $("span.sortBy").text("for "+sortBy);
+        $("span.bestorworst").text("Best");
         }
-        else if (sortBy == "Random"){
-          $(".sortBy").text("by Random Order");
-        }
-        else if (sortBy == "Region"){
-          $(".sortBy").text("by Region");
-        }
-        else if (sortBy == "CostOfLiving"){
-          $(".sortBy").text("");
-          $(".bestorworst").text("Cheapest")
-        }
-        else if (sortBy == "Population"){
-          $(".sortBy").text("by Population");
-        }
-        else if (sortBy == "MonthlyIncome"){
-          $(".sortBy").text("by Average Income");
-          $(".bestorworst").text("");
-        }
-        else if (sortBy == 'Expat-friendly' || sortBy == 'LGBT-friendly'){
-          $(".sortBy").text("");
-          $(".bestorworst").text("Most "+sortBy);
-        }
-        else if (sortBy == 'DN-friendly' || sortBy == 'Female-friendly'){
-          $(".sortBy").text((sortBy=='DN-friendly'?"for Digital Nomads":"for Women"));
-          $(".bestorworst").text("Best");
-        }
-        else if (sortBy == 'SunshineHours'){
-          $(".sortBy").text("");
-          $(".bestorworst").text("Sunniest");
-        }
-        else if (sortBy == 'HotDays'||sortBy=='ColdDays'){
-          $(".sortBy").text("");
-          $(".bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
-        }
-        else if (sortBy == 'Safety'){
-          $(".sortBy").text("");
-          $(".bestorworst").text("Safest");
-        }
-        else if (sortBy == 'Crime'){
-          $(".sortBy").text("by Lowest Amounts of Crime");
-          $(".bestorworst").text("");
-        }
-        else $(".sortBy").text("for "+sortBy);
-        if (sortBy == "Climate" || sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
-          $(".bestorworst").text("Best")          
-        }
+        /*if (sortBy == "Climate" || sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
+          $("span.bestorworst").text("Best")
+        }*/
+
         let sortParams=[sortBy]
 
         $("span#score1").text(selection[0][sortParams[0]].toFixed(1))
