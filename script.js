@@ -210,60 +210,71 @@ function populateData(data){
           data = selection.sort(dynamicSort("-"+sortBy))
         }
         appendData(data);
-      
-        switch(sortBy){
+
+        $(".provinces").text("Provinces");
+        switch(sortBy){ 
         case "Name":
-          $(".sortBy").text("by Alphabetical Order");
+          $("span.sortBy").text("by Alphabetical Order");
           break;
         case "Random":
-          $(".sortBy").text("by Random Order");
+          $("span.sortBy").text("by Random Order");
           break;
         case "Region":
-          $(".sortBy").text("by Region");
+          $("span.sortBy").text("by Region");
           break;
         case "CostOfLiving":
-          $(".sortBy").text("");
-          $(".bestorworst").text("Cheapest")
+          $("span.sortBy").text("");
+          $("span.bestorworst").text("Cheapest")
           break;
         case "Population":
-          $(".sortBy").text("by Population");
+          $("span.sortBy").text("by Population");
           break;
         case "MonthlyIncome":
-          $(".sortBy").text("by Average Income");
-          $(".bestorworst").text("");
+          $("span.sortBy").text("by Average Income");
+          $("span.bestorworst").text("");
           break;
         case 'Expat-friendly':case'LGBT-friendly':
-          $(".sortBy").text("");
-          $(".bestorworst").text("Most "+sortBy);
+          $("span.sortBy").text("");
+          $("span.bestorworst").text("Most "+sortBy);
           break;
         case 'DN-friendly':case'Female-friendly'
         :case 'Family-friendly':case 'Veg-friendly':
-          $(".sortBy").text((sortBy==='DN-friendly'?"for Digital Nomads":"for Women"));
-          (sortBy==='Family-friendly'?$(".sortBy").text("for Families"):
-          (sortBy==='Veg-friendly'?$(".sortBy").text("for Vegans"):""));
-          $(".bestorworst").text("Best");
+          $("span.sortBy").text((sortBy==='DN-friendly'?"for Digital Nomads":"for Women"));
+          (sortBy==='Family-friendly'?$("span.sortBy").text("for Families"):
+          (sortBy==='Veg-friendly'?$("span.sortBy").text("for Vegans"):""));
+          $("span.bestorworst").text("Best");
           break;
         case 'SunshineHours':
-          $(".sortBy").text("");
-          $(".bestorworst").text("Sunniest");
+          $("span.sortBy").text("");
+          $("span.bestorworst").text("Sunniest");
           break;
         case sortBy == 'HotDays',sortBy=='ColdDays':
-          $(".sortBy").text("");
-          $(".bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
+          $("span.sortBy").text("");
+          $("span.bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
           break;
         case 'Safety':
-          $(".sortBy").text("");
-          $(".bestorworst").text("Safest");
+          $("span.sortBy").text("");
+          $("span.bestorworst").text("Safest");
           break;
         case 'Crime':
-          $(".sortBy").text("by Lowest Amount of Crime");
-          $(".bestorworst").text("");
+          $("span.sortBy").text("by Lowest Amount of Crime");
+          $("span.bestorworst").text("");
+          break;
+        case 'Beach':
+          $("span.sortBy").text("");
+          $("span.bestorworst").text("Best");
+          $("span.provinces").text("Beach Destinations")
+          break;
+          case 'WinterSports':
+          $("span.sortBy").text("");
+          $("span.bestorworst").text("Best");
+          $("span.provinces").text("Skiing Destinations")
           break;
         default:
-        $(".sortBy").text("for "+sortBy);
-        $(".bestorworst").text("Best");
+        $("span.sortBy").text("for "+sortBy);
+        $("span.bestorworst").text("Best");
         /*if (sortBy == "Climate" || sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
-          $(".bestorworst").text("Best")
+          $("span.bestorworst").text("Best")
         }*/
 
       }
@@ -413,7 +424,7 @@ function appendData(data) {
     let title = document.getElementById("title")
         
     title.innerHTML="<span class='bestorworst'></span> <span class='smallorlarge'></span> "+
-    "<span class='hotorcold'></span> <span class='costofliving'></span> Provinces in <span class='largest'></span> <span class='chosenArea'></span> <span class='withthings'></span> <span class='sortBy'></span>";
+    "<span class='hotorcold'></span> <span class='costofliving'></span> <span class='provinces'>Provinces</span> in <span class='largest'></span> <span class='chosenArea'></span> <span class='withthings'></span> <span class='sortBy'></span>";
 
     if (selection.length==0) {
       title.innerHTML="Could not find any provinces based on your filters."
