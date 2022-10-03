@@ -265,6 +265,7 @@ function populateData(data){
 
       }
 
+        $('meta[property="og:title"]').setAttribute("content", $("#title").text())
         let updatedTitle=$("#title").text().replace(/ +(?= )/g,'')
         if (updatedTitle.charAt(0)==" ") updatedTitle=updatedTitle.substring(1)
         $($("section")[0]).attr("id", updatedTitle);
