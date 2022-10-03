@@ -7,3 +7,4 @@ indexTemplate.html
 temp/
 temp/*
 parseWikitravel.js
+sitemap/rawlist.txt
