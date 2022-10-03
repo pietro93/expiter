@@ -317,8 +317,8 @@ function populateData(data){
       }
 
       if (selection.length===0);
-      else if (sortParams[0]==="Region") $("#output").html("<center><p>Displaying selected provinces alphabetically by region</p></br></center>")
-      else if (sortParams[0]==="Name") $("#output").html("<center><p>Displaying selected provinces by alphabetical order</p></br></center>")
+      else if (sortParams[0]==="Region") $("#output").html("<center><p>Displaying selected provinces alphabetically by region. </br> Showing first 30 provinces based on your filters.</p></br></center>")
+      else if (sortParams[0]==="Name") $("#output").html("<center><p>Displaying selected provinces by alphabetical order. </br> Showing first 30 provinces based on your filters.</p></br></center>")
       else if (sortParams[0]==="Random") $("#output").html("<center><p>Displaying carefully selected provinces based on Algorithmic Sorcery (i.e. at random).</br>"+
       "The algorithm thinks you should check out: <span class='province1st'></span></p></center>")
       else if (sortParams[0]==="Population"){
@@ -327,16 +327,27 @@ function populateData(data){
       $("span#score3").text("with "+score3.toLocaleString()+" people and "+towns3+" towns");
       }
       else if ((sortParams[0]==="HotDays")||(sortParams[0]==="ColdDays")||(sortParams[0]==="RainyDays")){  
-        score1=selection[0][sortParams[0]]
+        /*score1=selection[0][sortParams[0]]
         if(selection.length>1)score2=selection[1][sortParams[0]];
-        if(selection.length>2)score3=selection[2][sortParams[0]];
+        if(selection.length>2)score3=selection[2][sortParams[0]];*/
         let weather=(sortParams[0]==="HotDays"?"hot":(sortParams[0]==="ColdDays"?"cold":"rainy"));
           $("span#score1").text("an average of "+score1+" "+weather+" days per month");
           $("span#score2").text("with "+score2+" average "+weather+" days per month");
           $("span#score3").text("with "+score3+" average "+weather+" days per month")
       }
-      else {
-      
+      else if (sortParams[0]==="SunshineHours"){
+        $("span#score1").text("an average of "+(score1*.033).toFixed(2)+" hours of sunshine per day");
+        $("span#score2").text("with "+(score2*.033).toFixed(2)+" average daily sunshine hours");
+        $("span#score3").text("with "+(score3*.033).toFixed(2)+" average daily sunshine hours")
+
+        if (selection.length>3)
+        $("span#extra").html(
+        linkTo(selection[selection.length-1])+" is the least sunny province with "+
+        (selection[selection.length-1].SunshineHours*.033).toFixed(2)+ " daily hours of sunshine."
+        )
+      }
+
+      else {     
       $("span#score1").text("a score of "+(score1>10?10:score1.toFixed(1))+"/10")
       $("span#score2").text("with a score of "+(score2>10?10:score2.toFixed(1))+"/10")
       $("span#score3").text("with a score of "+(score3>10?10:score3.toFixed(1))+"/10")
@@ -344,18 +355,17 @@ function populateData(data){
       let extra="";
       if (selection.length===0);
       else if (sortParams[0]==="Education"){
-        let mostUni = selection.sort((a, b) => b.Universities - a.Universities).filter(a => a.Universities>0);
+        let mostUni = selection.slice(0,30).sort((a, b) => b.Universities - a.Universities).filter(a => a.Universities>0);
         
         if (mostUni.length===0) extra+="None of the provinces selected have a university."
         else if (mostUni[0].Universities>1)
-        extra+=linkTo(mostUni[0]) + " has the most universities, with a total of "+spellout(mostUni[0].Universities)+" within the province."
-        else if (mostUni[0].Universities===1){
-          for (i in mostUni){
+        extra+=linkTo(mostUni[0]) + " has the most universities, with a total of "+spellout(mostUni[0].Universities)+" within the province. "
+        for (i in mostUni){
           extra+=(i>0?", ":"")+linkTo(mostUni[i])
           }
-          extra+=" "+(mostUni.length===1?"has":"have")+" a university."
+          extra+=" "+(mostUni.length===1?"has":"have")+" universities."
         }
-      }
+      
       $("#extra").html('<p>'+extra+'</p>')
     }
 
@@ -435,15 +445,17 @@ function appendData(data) {
     "<span class='hotorcold'></span> <span class='costofliving'></span> <span class='provinces'>Provinces</span> in <span class='largest'></span> <span class='chosenArea'></span> <span class='withthings'></span> <span class='sortBy'></span>";
 
     if (selection.length==0) {
-      title.innerHTML="Could not find any provinces based on your filters."
-    
+      title.innerHTML="Could not find any provinces based on your filters.";
+      
+      if (region_filters.length>0)
       $("#output").html(
-        "<p>Based on our data, there are no "+
+        "<center><p>Based on our data, there are no "+
         "<span class='smallorlarge'></span> <span class='hotorcold'></span> "+
         "<span class='costofliving'></span> provinces in <span class='chosenArea'></span> "+
-        "<span class='withthings'></span></p>."
+        "<span class='withthings'></span></p>.</br>Try being a bit less selective perhaps?</center>"
         )
-      
+      else
+      $("#output").html("<center>Please select at least one region to display data below.</center>")
     }
     else{
       let province1st=selection[0];
