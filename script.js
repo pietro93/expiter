@@ -252,9 +252,10 @@ function populateData(data){
           $("span.sortBy").text("");
           $("span.bestorworst").text("Sunniest");
           break;
-        case 'HotDays':case 'ColdDays':
+        case 'HotDays':case 'ColdDays':case "RainyDays":
           $("span.sortBy").text("");
           $("span.bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
+          (sortBy=='RainyDays'? $("span.bestorworst").text("Wettest"):"");
           break;
         case 'Safety':
           $("span.sortBy").text("");
@@ -325,15 +326,14 @@ function populateData(data){
       $("span#score2").text("and has a population of "+score2.toLocaleString()+" with "+towns2+" towns");
       $("span#score3").text("with "+score3.toLocaleString()+" people and "+towns3+" towns");
       }
-      else if ((sortParams[0]==="HotDays")||(sortParams[0]==="ColdDays")){  
+      else if ((sortParams[0]==="HotDays")||(sortParams[0]==="ColdDays")||(sortParams[0]==="RainyDays")){  
         score1=selection[0][sortParams[0]]
         if(selection.length>1)score2=selection[1][sortParams[0]];
         if(selection.length>2)score3=selection[2][sortParams[0]];
-          $("span#score1").text("an average of "+score1+" "+(sortParams[0]==="HotDays"?"hot":"cold")+" days per month");
-          $("span#score2").text("with "+score2+" average "+(sortParams[0]==="HotDays"?"hot":"cold")+" days per month");
-          $("span#score3").text("with "+score3+" average "+(sortParams[0]==="HotDays"?"hot":"cold")+" days per month")
-          ///////////////
-          //////////////////
+        let weather=(sortParams[0]==="HotDays"?"hot":(sortParams[0]==="ColdDays"?"cold":"rainy"));
+          $("span#score1").text("an average of "+score1+" "+weather+" days per month");
+          $("span#score2").text("with "+score2+" average "+weather+" days per month");
+          $("span#score3").text("with "+score3+" average "+weather+" days per month")
       }
       else {
       

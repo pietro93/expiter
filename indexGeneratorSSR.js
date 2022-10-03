@@ -129,8 +129,9 @@ function init($){
     createSorting($,"<ej>🍸</ej>Nightlife","Nightlife");
     createSorting($,"<ej>📚</ej>Education","Education");
     createSorting($,"<ej>☀️</ej>Sunshine","SunshineHours");
-    createSorting($,"<ej>♨️</ej>Hot","HotDays");
-    createSorting($,"<ej>❄️</ej>Cold","ColdDays");
+    createSorting($,"<ej>♨️</ej>Hottest","HotDays");
+    createSorting($,"<ej>❄️</ej>Coldest","ColdDays");
+    createSorting($,"<ej>☔</ej>Wettest","RainyDays");
     createSorting($,"<ej>🧳</ej>Nomad-friendly","DN-friendly");
     createSorting($,"<ej>🏳️‍🌈</ej>LGBTQ+-friendly","LGBT-friendly");
     createSorting($,"<ej>👩</ej>Women-friendly","Female-friendly");
