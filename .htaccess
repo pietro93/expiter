@@ -18,6 +18,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteCond %{REQUEST_URI} !\.xml$
 RewriteCond %{REQUEST_URI} !\.webp$
+RewriteCond %{REQUEST_URI} !\.txt$
 RewriteRule ^(.*)$ /$1/ [L,R=301]
 </IfModule>
 # BEGIN WordPress
@@ -41,4 +42,3 @@ RewriteRule ^(.*)$ /$1/ [L,R=301]
 # END MalCare WAF
 
 RedirectMatch 301 ^/$ https://expiter.com/app
-RedirectMatch 302 ^/$ https://expiter.com/app

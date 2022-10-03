@@ -335,9 +335,9 @@ function createSorting($,label, value){
         }
         let sortParams=[sortBy]
 
-        $("span#score1").text(selection[0][sortParams[0]])
-        $("span#score2").text(selection[1][sortParams[0]])
-        $("span#score3").text(selection[2][sortParams[0]])
+        $("span#score1").text(selection[0][sortParams[0]].toFixed(1))
+        $("span#score2").text(selection[1][sortParams[0]].toFixed(1))
+        $("span#score3").text(selection[2][sortParams[0]].toFixed(1))
     }
 
   

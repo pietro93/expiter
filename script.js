@@ -211,55 +211,59 @@ function populateData(data){
         }
         appendData(data);
       
-        if (sortBy == "Name"){
+        switch(sortBy){
+        case "Name":
           $(".sortBy").text("by Alphabetical Order");
-        }
-        else if (sortBy == "Random"){
+          break;
+        case "Random":
           $(".sortBy").text("by Random Order");
-        }
-        else if (sortBy == "Region"){
+          break;
+        case "Region":
           $(".sortBy").text("by Region");
-        }
-        else if (sortBy == "CostOfLiving"){
+          break;
+        case "CostOfLiving":
           $(".sortBy").text("");
           $(".bestorworst").text("Cheapest")
-        }
-        else if (sortBy == "Population"){
+          break;
+        case "Population":
           $(".sortBy").text("by Population");
-        }
-        else if (sortBy == "MonthlyIncome"){
+          break;
+        case "MonthlyIncome":
           $(".sortBy").text("by Average Income");
           $(".bestorworst").text("");
-        }
-        else if (sortBy == 'Expat-friendly' || sortBy == 'LGBT-friendly'){
+          break;
+        case 'Expat-friendly', 'LGBT-friendly':
           $(".sortBy").text("");
           $(".bestorworst").text("Most "+sortBy);
-        }
-        else if (sortBy == 'DN-friendly' || sortBy == 'Female-friendly'){
+          break;
+        case 'DN-friendly', 'Female-friendly':
           $(".sortBy").text((sortBy=='DN-friendly'?"for Digital Nomads":"for Women"));
           $(".bestorworst").text("Best");
-        }
-        else if (sortBy == 'SunshineHours'){
+          break;
+        case 'SunshineHours':
           $(".sortBy").text("");
           $(".bestorworst").text("Sunniest");
-        }
-        else if (sortBy == 'HotDays'||sortBy=='ColdDays'){
+          break;
+        case sortBy == 'HotDays',sortBy=='ColdDays':
           $(".sortBy").text("");
           $(".bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
-        }
-        else if (sortBy == 'Safety'){
+          break;
+        case 'Safety':
           $(".sortBy").text("");
           $(".bestorworst").text("Safest");
-        }
-        else if (sortBy == 'Crime'){
-          $(".sortBy").text("by Lowest Amounts of Crime");
+          break;
+        case 'Crime':
+          $(".sortBy").text("by Lowest Amount of Crime");
           $(".bestorworst").text("");
-        }
-        else {$(".sortBy").text("for "+sortBy);
-        $(".bestorworst").text("Best")}
+          break;
+        default:
+        $(".sortBy").text("for "+sortBy);
+        $(".bestorworst").text("Best");
         /*if (sortBy == "Climate" || sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
           $(".bestorworst").text("Best")
         }*/
+
+      }
 
         let updatedTitle=$("#title").text().replace(/ +(?= )/g,'')
         if (updatedTitle.charAt(0)==" ") updatedTitle=updatedTitle.substring(1)
@@ -282,14 +286,15 @@ function populateData(data){
       
       
       let score1=0,score2=0,score3=0,towns1=0,towns2=0,towns3=0;
-      if (selection.length>0)
-      {score1=selection[0][sortParams[0]];towns1=selection[0].Towns}
+      if (selection.length>0&&Number(selection[0][sortParams[0]]))
+      {score1=selection[0][sortParams[0]];towns1=selection[0].Towns
       
       if(selection.length>1)
       {score2=selection[1][sortParams[0]];towns2=selection[1].Towns}
 
       if(selection.length>2)
       {score3=selection[2][sortParams[0]];towns3=selection[2].Towns}
+      }
 
       if (selection.length===0);
       else if (sortParams[0]==="Region") $("#output").html("<center><p>Displaying selected provinces alphabetically by region</p></br></center>")
@@ -309,9 +314,9 @@ function populateData(data){
       }
       else {
       
-      $("span#score1").text("a score of "+(score1>10?10:score1)+"/10")
-      $("span#score2").text("with a score of "+(score2>10?10:score2)+"/10")
-      $("span#score3").text("with a score of "+(score3>10?10:score3)+"/10")
+      $("span#score1").text("a score of "+(score1>10?10:score1.toFixed(1))+"/10")
+      $("span#score2").text("with a score of "+(score2>10?10:score2.toFixed(1))+"/10")
+      $("span#score3").text("with a score of "+(score3>10?10:score3.toFixed(1))+"/10")
 
       let extra="";
       if (selection.length===0);
