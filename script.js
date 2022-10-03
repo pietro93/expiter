@@ -301,11 +301,17 @@ function populateData(data){
       $("span#score2").text("and has a population of "+score2.toLocaleString()+" with "+towns2+" towns");
       $("span#score3").text("with "+score3.toLocaleString()+" people and "+towns3+" towns");
       }
+      else if ((sortParams[0]==="HotDays")||(sortParams[0]==="ColdDays")){
+          (sortParams[0]==="HotDays"?"hot":"cold")
+          /////////////////////
+          ///////////////
+          //////////////////
+      }
       else {
       
       $("span#score1").text("a score of "+(score1>10?10:score1)+"/10")
-      $("span#score2").text("a score of "+(score2>10?10:score2)+"/10")
-      $("span#score3").text("a score of "+(score3>10?10:score3)+"/10")
+      $("span#score2").text("with a score of "+(score2>10?10:score2)+"/10")
+      $("span#score3").text("with a score of "+(score3>10?10:score3)+"/10")
 
       let extra="";
       if (selection.length===0);
@@ -423,7 +429,7 @@ function appendData(data) {
         for (var i=2;i<=3&i<selection.length;i++){
           output+=(i===3?" and ":"</br>")+
           "<b><a class='province"+i+"'></a></b> ranks "+(i===2?"2nd ":"3rd ")+
-          "with <span id='score"+i+"'></span>"
+          "<span id='score"+i+"'></span>"
         }output+="."
       }output+="</p><span id='extra'></span>"
 
@@ -478,7 +484,7 @@ function appendData(data) {
     else if (colFilters=="Mid-cost") $(".costofliving").text("Medium Cost-of-Living")
     else if (colFilters=="High-cost") $(".costofliving").text("High Cost-of-Living")
 
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < Math.min(data.length,30); i++) {
         let card = document.createElement("card");
         let col = document.createElement("div");
 

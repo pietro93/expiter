@@ -468,7 +468,7 @@ function appendData($,data) {
     else if (additionalFilters.sort().toString()=="Pop300k-"||additionalFilters.sort().toString()=="Pop300k+,Pop300k-") $(".smallorlarge").text("Small");
      
 
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < Math.min(data.length,30); i++) {
         let card = '<card id="'+data[i].Name+'"class="'+(data[i].Name=="Aosta"?"Aosta Valley":data[i].Region)+' paracard" '+
          'title="'+data[i].Name+', '+(data[i].Name=="Aosta"?"Aosta Valley":data[i].Region)+'"'+
          '>';
