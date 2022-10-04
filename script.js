@@ -307,13 +307,25 @@ function populateData(data){
       
       let score1=0,score2=0,score3=0,towns1=0,towns2=0,towns3=0;
       if (selection.length>0&&Number(selection[0][sortParams[0]]))
-      {score1=selection[0][sortParams[0]];towns1=selection[0].Towns
+      { score1=selection[0][sortParams[0]];
+        towns1=selection[0].Towns
+      }
       
       if(selection.length>1)
-      {score2=selection[1][sortParams[0]];towns2=selection[1].Towns}
+      {score2=selection[1][sortParams[0]]
+        ;towns2=selection[1].Towns}
 
       if(selection.length>2)
-      {score3=selection[2][sortParams[0]];towns3=selection[2].Towns}
+      {score3=selection[2][sortParams[0]]
+        ;towns3=selection[2].Towns}
+      
+      if(selection.length>3)
+      {scoreLast=selection[selection.length-1][sortParams[0]]
+        ;townsLast=selection[selection.length-1].Towns}
+      
+
+      if (["CostOfLiving","Crime"].includes(sortParams[0])) {
+        score1=10-score1;score2=10-score2;score3=10-score3;scoreLast=10-scoreLast;
       }
 
       if (selection.length===0);
@@ -343,7 +355,7 @@ function populateData(data){
         if (selection.length>3)
         $("span#extra").html(
         linkTo(selection[selection.length-1])+" is the least sunny province with "+
-        (selection[selection.length-1].SunshineHours*.033).toFixed(2)+ " daily hours of sunshine."
+        (scoreLast*.033).toFixed(2)+ " daily hours of sunshine."
         )
       }
 
@@ -365,7 +377,20 @@ function populateData(data){
           }
           extra+=" "+(mostUni.length===1?"has":"have")+" universities."
         }
-      
+      else if (sortParams[0]==="WinterSports"){
+          let hasSkiing = selection.slice(0,30).sort((a, b) => b.WinterSports - a.WinterSports).filter(a => a.isSkiDestination);
+          
+          if (hasSkiing.length===0) extra+="None of the provinces selected have Winter Sports Facilities."
+          for (i in hasSkiing){
+            extra+=(i>0?", ":"")+linkTo(hasSkiing[i])
+            }
+            extra+=" "+(hasSkiing.length===1?"has":"have")+" dedicated ski facilities."
+          }
+      else if (["Beach","Hiking","DN-friendly"].includes(sortParams[0])) "";
+      else if (selection.length>3)
+      extra=linkTo(selection[selection.length-1])+" ranks last with "+
+      (scoreLast).toFixed(2)+ "."
+      console.log(extra)
       $("#extra").html('<p>'+extra+'</p>')
     }
 
