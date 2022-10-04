@@ -1,14 +1,4 @@
-pageGeneratorSSR.js
-sitemapGenerator.js
-provinceseneratorSSR.js
-indexGeneratorSSR.js
-provincesTemplate.html
-indexTemplate.html
+
 temp/
 temp/*
-parseWikitravel.js
 sitemap/rawlist.txt
-pageGeneratorSSRItaly.js
-provincesGeneratorSSR.js
-pageGeneratorSSR.js
-parseWikitravelitaly.js
