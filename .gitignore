@@ -8,3 +8,7 @@ temp/
 temp/*
 parseWikitravel.js
 sitemap/rawlist.txt
+pageGeneratorSSRItaly.js
+provincesGeneratorSSR.js
+pageGeneratorSSR.js
+parseWikitravelitaly.js
