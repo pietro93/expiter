@@ -53,7 +53,7 @@ function populateData(data){
 
     function addToSelection(filter){
       for (province in provinces){
-        if (provinces[province]["Region"]==filter)
+        if (provinces[province]["Region"]===filter)
         selection.push(provinces[province])
     }
   }
@@ -74,19 +74,19 @@ function populateData(data){
 
       regionParams=[]
       selection=[];
-      if (filter == "All") {
+      if (filter === "All") {
         selection=dataset.slice(0, 107);
         region_filters=north.concat(center).concat(south);
         $(".regionfilter:not(.selected)").toggleClass("selected");
         
         sortData(selection);
         return("")}
-      else if (filter == "Clear"){
+      else if (filter === "Clear"){
         $(".regionfilter.selected").toggleClass("selected");
         region_filters =[];
         regionParams=[]
       }
-      else if (filter=="North"){
+      else if (filter==="North"){
         $(".regionfilter.selected").toggleClass("selected");
         region_filters =[];
         for (region in north){
@@ -94,7 +94,7 @@ function populateData(data){
         }
         
       }
-      else if (filter=="Center"){
+      else if (filter==="Center"){
           $(".regionfilter.selected").toggleClass("selected");
           region_filters =[];
           for (region in center){
@@ -102,7 +102,7 @@ function populateData(data){
           }
         
         }
-      else if (filter=="South"){
+      else if (filter==="South"){
             $(".regionfilter.selected").toggleClass("selected");
             region_filters =[];
             for (region in south){
@@ -124,7 +124,7 @@ function populateData(data){
         $("#"+region_filters[i].substring(0,3)).addClass("selected");
       }
 
-      if (region_filters.length==20) regionParams=["All"]
+      if (region_filters.length===20) regionParams=["All"]
       
       else if (region_filters.every(item => south.includes(item)) && south.every(item => region_filters.includes(item))) regionParams=["South"]
       else if (region_filters.every(item => center.includes(item)) && center.every(item => region_filters.includes(item))) regionParams=["Center"]
@@ -145,20 +145,20 @@ function populateData(data){
         let filter_by_cost=[]
 
         for (filter in additionalFilters.sort()){
-          if (additionalFilters[filter]=="Pop300k-")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population < 300000)))
-          else if (additionalFilters[filter]=="Pop300k+") filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 300000 && item.Population < 500000)))
-          else if (additionalFilters[filter]=="Pop500k+")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 500000 && item.Population < 1000000)))
-          else if (additionalFilters[filter]=="Pop1m+")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 1000000)))
-          else if (additionalFilters[filter]=="Hot")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.HotDays >= avg.HotDays)))
-          else if (additionalFilters[filter]=="Cold")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.ColdDays >= avg.ColdDays)))
-          else if (additionalFilters[filter]=="Temperate")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.HotDays < avg.HotDays && item.ColdDays < avg.ColdDays)))
-          else if (additionalFilters[filter]=="Low-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving < avg.CostOfLiving*.9)))
-          else if (additionalFilters[filter]=="Mid-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving > avg.CostOfLiving*.9 && item.CostOfLiving < avg.CostOfLiving*1.1)))
-          else if (additionalFilters[filter]=="High-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving > avg.CostOfLiving*1.1)))
+          if (additionalFilters[filter]==="Pop300k-")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population < 300000)))
+          else if (additionalFilters[filter]==="Pop300k+") filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 300000 && item.Population < 500000)))
+          else if (additionalFilters[filter]==="Pop500k+")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 500000 && item.Population < 1000000)))
+          else if (additionalFilters[filter]==="Pop1m+")  filter_by_population=filter_by_population.concat(selection.filter((item) => (item.Population >= 1000000)))
+          else if (additionalFilters[filter]==="Hot")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.HotDays >= avg.HotDays)))
+          else if (additionalFilters[filter]==="Cold")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.ColdDays >= avg.ColdDays)))
+          else if (additionalFilters[filter]==="Temperate")  filter_by_climate=filter_by_climate.concat(selection.filter((item) => (item.HotDays < avg.HotDays && item.ColdDays < avg.ColdDays)))
+          else if (additionalFilters[filter]==="Low-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving < avg.CostOfLiving*.9)))
+          else if (additionalFilters[filter]==="Mid-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving > avg.CostOfLiving*.9 && item.CostOfLiving < avg.CostOfLiving*1.1)))
+          else if (additionalFilters[filter]==="High-cost")  filter_by_cost=filter_by_cost.concat(selection.filter((item) => (item.CostOfLiving > avg.CostOfLiving*1.1)))
         filterParams.push(additionalFilters[filter])
         }
-      if(filter_by_population.length==0&&filter_by_climate.length!=0)filtered_selection=filter_by_climate
-      else if(filter_by_climate.length==0&&filter_by_population.length!=0)filtered_selection=filter_by_population;
+      if(filter_by_population.length===0&&filter_by_climate.length!=0)filtered_selection=filter_by_climate
+      else if(filter_by_climate.length===0&&filter_by_population.length!=0)filtered_selection=filter_by_population;
       else if (filter_by_climate.length!=0&&filter_by_population.length!=0)filtered_selection = filter_by_population.filter(value => filter_by_climate.includes(value))
       if (filter_by_cost.length)filtered_selection = filtered_selection.filter(value => filter_by_cost.includes(value))
       if (additionalFilters.includes("HasBeach"))  filtered_selection=(filtered_selection.filter((item) => (item.isBeachDestination)))
@@ -176,13 +176,13 @@ function populateData(data){
    
   function getData(province){
     for (let i=0;i<dataset.length;i++){
-      if (dataset[i].Name==province) return dataset[i];
+      if (dataset[i].Name===province) return dataset[i];
     }
   }
 
   function dynamicSort(property) {
       var sortOrder = 1;
-      if(property[0] == "-") {
+      if(property[0] === "-") {
           sortOrder = -1;
           property = property.substr(1);
       }
@@ -200,10 +200,10 @@ function populateData(data){
 
       let sortBy = document.querySelector('input[name="sortBy"]:checked').value;
       
-        if (sortBy=="Random"){
+        if (sortBy==="Random"){
           data = selection.sort(() => Math.random() - 0.5);     
         }
-        if (sortBy=="Name"||sortBy=="Region"||sortBy=="CostOfLiving"||sortBy=="Crime"){ //ascending order
+        if (sortBy==="Name"||sortBy==="Region"||sortBy==="CostOfLiving"||sortBy==="Crime"){ //ascending order
           data = selection.sort(dynamicSort(sortBy))    
         }
         else {                                                        //descending order
@@ -254,8 +254,8 @@ function populateData(data){
           break;
         case 'HotDays':case 'ColdDays':case "RainyDays":
           $("span.sortBy").text("");
-          $("span.bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
-          (sortBy=='RainyDays'? $("span.bestorworst").text("Wettest"):"");
+          $("span.bestorworst").text((sortBy==='HotDays'?"Hottest":"Coldest"));
+          (sortBy==='RainyDays'? $("span.bestorworst").text("Wettest"):"");
           break;
         case 'Safety':
           $("span.sortBy").text("");
@@ -284,7 +284,7 @@ function populateData(data){
 
       }
         let updatedTitle=$("#title").text().replace(/\  /g," ").replace(/\  /g," ")
-        if (updatedTitle.charAt(0)==" ") updatedTitle=updatedTitle.substring(1)
+        if (updatedTitle.charAt(0)===" ") updatedTitle=updatedTitle.substring(1)
         $('meta[property="og:title"]').attr("content", updatedTitle)
         updatedTitle=updatedTitle.replace(/ +(?= )/g,'')
         $($("section")[0]).attr("id", updatedTitle);
@@ -405,7 +405,7 @@ function qualityScore(quality,score){
   "StudioRental", "BilocaleRent", "TrilocaleRent", "MonthlyIncome", 
   "StudioSale","BilocaleSale","TrilocaleSale"]
   
-  if (quality=="CostOfLiving"||quality=="HousingCost"){
+  if (quality==="CostOfLiving"||quality==="HousingCost"){
     if (score<avg[quality]*.8){return "<score class='excellent short'>cheap</score>"}
     else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>affordable</score>"}
     else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>average</score>"}
@@ -419,28 +419,28 @@ function qualityScore(quality,score){
     else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='red'>"+score+"€/m</score>"}
     else if (score>=avg[quality]*1.2){return "<score class='red'>"+score+"€/m</score>"}
   }
-  else if (quality=="HotDays"||quality=="ColdDays"){ // high score = bad; low score = good
-    if (score<avg[quality]*.8){return "<score class='excellent short'>not "+(quality=="HotDays"?"hot":"cold")+"</score>"}
-    else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>not very "+(quality=="HotDays"?"hot":"cold")+"</score>"}
-    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>a bit "+(quality=="HotDays"?"hot":"cold")+"</score>"}
-    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>"+(quality=="HotDays"?"hot":"cold")+"</score>"}
-    else if (score>=avg[quality]*1.2){return "<score class='poor max'>very "+(quality=="HotDays"?"hot":"cold")+"</score>"}
+  else if (quality==="HotDays"||quality==="ColdDays"){ // high score = bad; low score = good
+    if (score<avg[quality]*.8){return "<score class='excellent short'>not "+(quality==="HotDays"?"hot":"cold")+"</score>"}
+    else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>not very "+(quality==="HotDays"?"hot":"cold")+"</score>"}
+    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>a bit "+(quality==="HotDays"?"hot":"cold")+"</score>"}
+    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>"+(quality==="HotDays"?"hot":"cold")+"</score>"}
+    else if (score>=avg[quality]*1.2){return "<score class='poor max'>very "+(quality==="HotDays"?"hot":"cold")+"</score>"}
   }
-  else if (quality=="RainyDays"){ // high score = bad; low score = good
+  else if (quality==="RainyDays"){ // high score = bad; low score = good
     if (score<avg[quality]*.8){return "<score class='excellent short'>very little</score>"}
     else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>little</score>"}
     else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>average</score>"}
     else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>rainy</score>"}
     else if (score>=avg[quality]*1.2){return "<score class='poor max'>a lot</score>"}
   }
-  else if (quality=="FoggyDays"){ // high score = bad; low score = good
+  else if (quality==="FoggyDays"){ // high score = bad; low score = good
     if (score<avg[quality]*.265){return "<score class='excellent short'>no fog</score>"}
     else if (score>=avg[quality]*.265&&score<avg[quality]*.6){return "<score class='great medium'>little</score>"}
     else if (score>=avg[quality]*.6&&score<avg[quality]*1.00){return "<score class='good medium'>average</score>"}
     else if (score>=avg[quality]*1.05&&score<avg[quality]*3){return "<score class='average long'>foggy</score>"}
     else if (score>=avg[quality]*3){return "<score class='poor max'>a lot</score>"}
   }
-  else if (quality=="Crime"||quality=="Traffic"){ // high score = bad; low score = good
+  else if (quality==="Crime"||quality==="Traffic"){ // high score = bad; low score = good
     if (score<avg[quality]*.8){return "<score class='excellent short'>very low</score>"}
     else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>low</score>"}
     else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>average</score>"}
@@ -469,7 +469,7 @@ function appendData(data) {
     title.innerHTML="<span class='bestorworst'></span> <span class='smallorlarge'></span> "+
     "<span class='hotorcold'></span> <span class='costofliving'></span> <span class='provinces'>Provinces</span> in <span class='largest'></span> <span class='chosenArea'></span> <span class='withthings'></span> <span class='sortBy'></span>";
 
-    if (selection.length==0) {
+    if (selection.length===0) {
       title.innerHTML="Could not find any provinces based on your filters.";
       
       if (region_filters.length>0)
@@ -514,15 +514,15 @@ function appendData(data) {
       }
     
     
-    if (region_filters.length==1) {$(".chosenArea").text(region_filters[0])}
-    else if (region_filters.length==2) {$(".chosenArea").text(region_filters[0]+" and "+region_filters[1])}
-    else if (region_filters.length==3) {$(".chosenArea").text(region_filters[0]+", "+region_filters[1]+" and "+region_filters[2])}
-    else if (region_filters.sort().toString() == "Lazio,Marche,Toscana,Umbria") {$(".chosenArea").text("Central Italy")}
-    else if (region_filters.sort().toString() == "Abruzzo,Basilicata,Calabria,Campania,Molise,Puglia,Sardegna,Sicilia") {$(".chosenArea").text("Southern Italy")}
-    else if (region_filters.sort().toString() == "Emilia-Romagna,Friuli-Venezia Giulia,Liguria,Lombardia,Piemonte,Trentino-Alto Adige,Valle d'Aosta,Veneto") {$(".chosenArea").text("Northern Italy")}
+    if (region_filters.length===1) {$(".chosenArea").text(region_filters[0])}
+    else if (region_filters.length===2) {$(".chosenArea").text(region_filters[0]+" and "+region_filters[1])}
+    else if (region_filters.length===3) {$(".chosenArea").text(region_filters[0]+", "+region_filters[1]+" and "+region_filters[2])}
+    else if (region_filters.sort().toString() === "Lazio,Marche,Toscana,Umbria") {$(".chosenArea").text("Central Italy")}
+    else if (region_filters.sort().toString() === "Abruzzo,Basilicata,Calabria,Campania,Molise,Puglia,Sardegna,Sicilia") {$(".chosenArea").text("Southern Italy")}
+    else if (region_filters.sort().toString() === "Emilia-Romagna,Friuli-Venezia Giulia,Liguria,Lombardia,Piemonte,Trentino-Alto Adige,Valle d'Aosta,Veneto") {$(".chosenArea").text("Northern Italy")}
     else if (region_filters.length>3) {$(".chosenArea").text("Italy")}
 
-    let popFilters=additionalFilters.filter((item) => (item.substring(0,3) == "Pop")).sort()
+    let popFilters=additionalFilters.filter((item) => (item.substring(0,3) === "Pop")).sort()
     if (popFilters=="Pop1m+"||popFilters=="Pop1m+,Pop500k+") $(".smallorlarge").text("Large");
     else if (popFilters=="Pop300k+"||popFilters=="Pop500k+"||popFilters=="Pop300k+,Pop500k+") $(".smallorlarge").text("Medium-sized");
     else if (popFilters=="Pop300k-"||popFilters=="Pop300k+,Pop300k-") $(".smallorlarge").text("Small");
@@ -669,7 +669,7 @@ function createSorting(label, value){
   if (value==undefined)value=label;
   let sortings = $("#sorting")
   let sorting = '<label class="button radio column">'+
-    '<input type="radio" name="sortBy" onClick="filterBy()" value='+value+(value=="Expat-friendly"?" checked":"")+'>'+
+    '<input type="radio" name="sortBy" onClick="filterBy()" value='+value+(value==="Expat-friendly"?" checked":"")+'>'+
     '<span>'+label+'</span>'+
     '</label>'
   sortings.append(sorting)
@@ -832,9 +832,9 @@ function searchParams(){
         else {
         regionParams=param.slice(1)
         for (region in regionParams){
-          if (regionParams[region]=="Valle-d-Aosta") regionParams[region]="Valle d'Aosta";
-          else if (regionParams[region]=="Trentino-Alto-Adige") regionParams[region]="Trentino-Alto Adige";
-          else if (regionParams[region]=="Friuli-Venezia-Giulia") regionParams[region]="Friuli-Venezia Giulia";
+          if (regionParams[region]==="Valle-d-Aosta") regionParams[region]="Valle d'Aosta";
+          else if (regionParams[region]==="Trentino-Alto-Adige") regionParams[region]="Trentino-Alto Adige";
+          else if (regionParams[region]==="Friuli-Venezia-Giulia") regionParams[region]="Friuli-Venezia Giulia";
           if (regions.includes(regionParams[region])) region_filters.push(regionParams[region]);
           console.log(regionParams[region])}
         }
