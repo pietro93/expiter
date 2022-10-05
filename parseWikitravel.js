@@ -153,7 +153,7 @@ function parseData(province){
     
 
     //facts[province]["parsedData"]=provinceData
-    let parsedData = provinceData+"%%%"+getAround
+    let parsedData = provinceData+"%%%"+(getAround.length<500?getAround:"")
     fs.writeFile('temp/parsedDataAbout'+province+'.txt', parsedData, function (err, file) {
      if (err) throw err;})
 
