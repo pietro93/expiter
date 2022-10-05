@@ -7,7 +7,6 @@
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteRule ^it/?$ "https://expiter.it" [R=301,L]
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
@@ -43,3 +42,4 @@ RewriteRule ^(.*)$ /$1/ [L,R=301]
 # END MalCare WAF
 
 RedirectMatch 301 ^/$ https://expiter.com/app
+RedirectMatch 301 .it/$ https://expiter.it/app
