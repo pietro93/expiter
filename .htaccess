@@ -19,6 +19,8 @@ RewriteRule ^(/)?$ it/app.html [L]
 # End - Multilanguage Setup
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
+RewriteCond %{HTTP_HOST} ^(www.)?expiter.it$
+RewriteRule ^(?!domainone/)(.*)$ /it/$1
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
