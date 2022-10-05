@@ -32,6 +32,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !\.xml$
 RewriteCond %{REQUEST_URI} !\.webp$
 RewriteCond %{REQUEST_URI} !\.txt$
+RewriteCond %{REQUEST_URI} !\/$
 RewriteRule ^(.*)$ /$1/ [L,R=301]
 </IfModule>
 # BEGIN WordPress
