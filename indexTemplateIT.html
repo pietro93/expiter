@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://expiter.it/app/"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">
+    <script type="text/javascript" src="../jquery3.6.0.js"></script>
+        <script type="text/json" src="../dataset.json"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <link rel="stylesheet" href="../bulma.min.css">
+        <link rel="stylesheet" href="../fonts.css" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../style-blog.css" media="print" onload="this.media='all'">
+        <base href="/">
+        <title>Italy Expats and Nomads</title>
+        <link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="/img/expiter-favicon.ico"></link>
+        <meta name="description" content="Best Italian Cities to Live as an Expat or Digital Nomad. Provinces in Italy ranked by quality of life, cost of living, safety and more." />
+	<meta name="keywords" content="italy, italian cities, best city in italy, italy digital nomad, italy expat" />
+   
+    <meta property="og:title" content="Expiter - Italy Expats and Nomads">
+    
+    <meta property="og:description" content="Italy Expat Resources - Best Italian Cities to Live as an Expat or Digital Nomad. Provinces in Italy ranked by quality of life, cost of living, safety and more.">
+    <meta property="og:image" content="https://expiter.com/img/expiter-italy-expats-and-nomads.webp" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://expiter.com/app/" />
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+    <body>
+        <nav id="navbar"></nav>
+        <row class="whitespace columns"></row>
+        <row class="columns is-multiline is-mobile">
+
+        <section id="Most Expat-friendly Provinces in Italy">
+        
+        <h1 id="title" class="title column is-12"></h1></row>
+
+        <row id="sorting" class="columns is-multiline is-mobile">
+            <p class="column is-12"></p>
+        </row>
+
+        <section id="output">
+            <center><p>
+            Based on our data, the <span class='bestorworst'></span> <span class='smallorlarge'></span> province in <span class='chosenArea'>Italy</span> 
+            <span class='withthings'></span> <span class='sortBy'></span> is 
+            <b><a class='province1st'></a></b>.
+            </p></center>
+        </section>
+      
+        <row><div id="app" class="container columns is-multiline is-mobile"></div></row>
+        
+          <div id="floatBottom">
+            <row id="header" class="columns is-12 is-multiline is-mobile" onclick="resizeFilterMenu()">  <i class="arrow up"></i></p></row>
+            <row id="filters"> </row>
+        </div>
+    </br>
+    
+    </br>
+    
+    </section>
+    
+    </br><span class="separator"></span></br>
+
+        <row class="columns is-multiline is-mobile">
+                <h2 class="column is-12" id="About">About Expiter</h2>
+        
+        
+        <section id="FAQs">
+                <p>Expiter is a data visualization tool for researching and comparing different quality of life factors in Italian cities and provinces.
+                   The tool is mainly aimed at expats, exchange students, full-time travellers, remote workers and digital nomads who are living in (or planning to move to) Italy. 
+                </br>
+                   
+                </p> 
+                <h2>FAQs</h2>
+                <div>
+                <input type="checkbox" id="question1" name="q"  class="questions">
+                <div class="plus">+</div>
+                <label for="question1" class="question">
+                  <h3>What is expiter?</h3>
+                </label>
+                <div class="answers">
+                  Expiter is a tool aimed at helping those who live or are planning to move to Italy make more informed decisions. <b>We help expats and travellers access and digest information 
+                  about the "best" places to live in Italy</b>. </br></br>
+                  We collect and display data about different Italian cities and provinces, including but not limited to: climate data, cost of living, healthcare, transport, safety, nightlife and so on; 
+                  with a special attention to feedback from expats, exchange students, and digital nomads. 
+                </div>
+              </div>
+              
+              <div>
+                <input type="checkbox" id="question2" name="q" class="questions">
+                <div class="plus">+</div>
+                <label for="question2" class="question">
+                  <h3>Where does your data come from?</h3>
+                </label>
+                <div class="answers">
+                  We collect and combine data from different sources, such as the open-source yearly <a href='https://lab24.ilsole24ore.com/qualita-della-vita/'>Quality of Life Rankings from IlSole24Ore</a>, 
+                  housing price indexes from <a href="https://www.immobiliare.it/">Immobiliare.it</a>, user reviews from <a href="https://www.tripadvisor.com/">TripAdvisor</a>, as well as our own surveys and feedback 
+                  collected directly from expats and nomads in Italy.</br></br>
+                  When creating our city rankings for Expiter, we weight our data in order to make feedback from expats and those who moved to Italy from other countries have a higher impact on our scores compared to data sourced from people who were born and raised in Italy. 
+                </br></br>This means that our data more closely reflects the experience and feedback of expats in Italy compared to that of locals, and our results may be substantially different from those of the sources we partially rely on.
+                </div>
+              </div>
+                
+              <div>
+                <input type="checkbox" id="question3" name="q" class="questions">
+                <div class="plus">+</div>
+                <label for="question3" class="question">
+                    <h3>How accurate is your data?</h3>
+                </label>
+                <div class="answers">
+                    The information displayed on this website is sourced from different databases, research studies, surveys and user-generated (often subjective) content. Because of the nature of 
+                    this data, <b>you should not deem it as 100% accurate</b>. The tool is updated regurarly as new data is collected, so that the information stays more up-to-date and increasingly accurate.
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="question4" name="q" class="questions">
+                    <div class="plus">+</div>
+                    <label for="question4" class="question">
+                        <h3>Why do you show data for Provinces and not Cities?</h3>
+                    </label>
+                    <div class="answers">
+                        Italy is divided in 107 provinces (large metropolitan areas), which are generally named their largest city (<i>comune</i>). For instance: the province of Milano includes the city of Milan (the capital or "<i>capoluogo</i>" of the Province) 
+                        as well as 133 smaller <i>comuni</i> nearby. Because of their proximity, these towns tend to share similar climate, economy, infrastructure and culture - although cost of living is often 
+                        much lower the farther you are from the Province's capital.
+                    </br></br>
+                        For simplicity, we collect and display data about the province as a whole, which includes both its <i>capoluogo</i> and <i>comuni</i> nearby. In the future, we aim at providing more specific information about the most popular cities for both expats and nomads 
+                        based on feedback from our community.
+                    </div>
+    
+                <div>
+                        <input type="checkbox" id="question5" name="q" class="questions">
+                        <div class="plus">+</div>
+                        <label for="question5" class="question">
+                            <h3>Is expiter free? How do you make money?</h3>
+                        </label>
+                        <div class="answers">
+                            At present, expiter is 100% free to browse. We do not have a paid subscription plan and we do not charge for any product or service. We may earn from partnerships, display advertisement or affiliate commissions for 
+                            external products and services offered by third parties. This is however at no additional cost to you as a user.
+                        </br></br>
+                            We currently have no plans to implement paid features in the near future. If you want to help expiter grow, please consider sharing it with your network and talk about it on social media.
+                        </div>
+    
+                 <div>
+                        <input type="checkbox" id="question6" name="q" class="questions">
+                        <div class="plus">+</div>
+                        <label for="question6" class="question">
+                            <h3>I want to partner up / advertise my product / give you moneys</h3>
+                        </label>
+                        <div class="answers">
+                            Please only get in touch if you have a product or service aimed at expit's target audience (expats or digital nomads in Italy).
+                        </br></br>
+                            I only accept communication via email. Write your proposal to <b>contact@expiter.com</b> and cut the formalities if possible :)
+                        </div>
+    
+              </div>
+
+         </div>
+        </div>
+    </section>
+
+</br><span class="separator"></span></br>
+
+  <section id="footer">
+<div class="columns is-multiline is-mobile">
+<div class="column is-4">
+    <b>Discover</b></br>
+    <a href="https://expiter.com/app/?sort=Expat-friendly&filter=Pop500k+,Pop1m+">
+    Best Large Cities in Italy for Expats
+    </a></br>
+    <a href="https://expiter.com/app/?sort=CostOfLiving">
+    Cheapest Places to Live in Italy
+    </a></br>
+    <a href="https://expiter.com/app/?sort=DN-friendly">
+    Best Cities in Italy for Digital Nomads
+    </a></br>
+    <a href="https://expiter.com/app/?sort=Family-friendly">
+    Most family-friendly Italian provinces
+    </a></br>
+    <a href="https://expiter.com/app/?sort=Beach&region=South">
+        Best Beach Destinations in Southern Italy
+    </a></br>
+    <a href="https://expiter.com/app/?sort=WinterSports&region=North">
+        Best Winter Destinations in Northern Italy
+    </a></br>
+    <a href="https://expiter.com/app/?sort=Hiking&region=Center">
+        Best Hiking Destinations in Central Italy
+    </a></br>
+</div> 
+<div class="column is-4">
+    <b>Inspire</b></br>
+    <a href="https://expiter.com/app/?sort=Expat-friendly&region=South">
+        Expat-friendly cities in Southern Italy
+    </a></br>
+    <a href="https://expiter.com/app/?sort=Expat-friendly&region=North">
+        Sunniest cities in Northern Italy
+    </a></br>
+    <a href="https://expiter.com/app/?sort=Name&filter=Pop300k+,Pop500k+,HasUni">
+        Mid-sized Italian provinces with a university
+   </a></br>
+    <a href="https://expiter.com/app/?sort=Name&filter=HasMetro">
+        All Italian cities with a subway system
+    </a></br>
+    <a href="https://expiter.com/app/?sort=Region&filter=HasBeach,HasSkiing">
+        Italian cities with both a beach and winter sports facilities
+    </a></br>
+    <a href="https://expiter.com/app/?sort=WinterSports&region=South&filter=HasSkiing">
+        Southern Italian provinces where you can ski
+    </a></br>
+</div>
+<div class="column is-4">   
+<b>Expiter</b> © Copyright 2022 </br>
+<a href="https://expiter.com/resources/">
+    Expat Recommendations
+</a></br>
+<a href="https://expiter.com/tools/codice-fiscale-generator/">
+    Codice Fiscale Generator
+</a></br>
+<a href="https://expiter.com/privacy-policy/">
+    Privacy Policy
+</a></br>
+</div>
+ 
+</div>
+  </section>
+
+</br></br>
+
+
+<span style="height:150px"></span>
+</body>
+</html>
