@@ -3,14 +3,24 @@
   "version": "1.0.0",
   "main": "pageGenerator.js",
   "dependencies": {
+    "bufferutil": "^4.0.6",
     "bulma": "^0.9.4",
+    "canvas": "^2.10.1",
+    "encoding": "^0.1.13",
+    "esm": "^3.2.25",
+    "import": "0.0.6",
     "jquery": "^3.6.1",
     "jsdom": "^20.0.0",
+    "live-server": "^1.2.2",
     "node-fetch": "^3.2.10",
-    "nodejs": "^0.0.0"
+    "nodejs": "^0.0.0",
+    "utf-8-validate": "^5.0.9"
   },
   "type": "module",
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

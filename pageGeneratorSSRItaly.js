@@ -232,47 +232,50 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         info.lgbtq="<b>"+province.Name+" is "+(province['LGBT-friendly']>7.9?"one of the most LGBTQ-friendly provinces in Italy":(province['LGBT-friendly']>6?"somewhat LGBTQ+ friendly by Italian standards":"not particularly LGBTQ-friendly as far as Italian provinces go"))+
         ".</b> "+(province.LGBTQAssociations>1?"There are "+province.LGBTQAssociations+" local LGBTQ+ associations (Arcigay) in this province.":(province.LGBTQAssociations==1?"There is 1 LGBTQ+ association (Arcigay) in this province.":""))
       
-        info.leisure=province.Name+" has <b>"+(province.Nightlife>7.5?"pretty good nightlife":"somewhat decent nightlife")+"</b> with "+
-        province.Bars+" bars and "+province.Restaurants+" restaurants per 10k inhabitants. "
+        info.leisure=province.Name+" ha <b>"+(province.Nightlife>7.5?"un'ottima vita notturna'":"una vita notturna abbastanza movimentata")+"</b> con "+
+        province.Bars+" bar e "+province.Restaurants+" ristoranti per ogni diecimila abitanti. "
        
-        info.healthcare="<b>Healthcare in "+province.Name+" is "+(province.Healthcare>6.74?"<b class='green'>above average":"<b class='red'>below average")+"</b></b>. "+
-        "Per ogni diecimila abitanti, there are around "+province.pharmacies+" pharmacies, "+province.GeneralPractitioners+" general practitioners and "+province.SpecializedDoctors+" specialized doctors per 10k inhabitants. "+
-        "<b>Average life expectancy in "+province.Name+" is "+(province.LifeExpectancy>82.05?" very high at ":"")+province.LifeExpectancy+" years of age.</b>"
+        info.healthcare="<b>La sanità a "+province.Name+" è "+(province.Healthcare>6.74?"<b class='green'>al di sopra della media":"<b class='red'>sotto la media")+"</b></b>. "+
+        "Per ogni diecimila abitanti, ci sono circa "+province.pharmacies+" farmacie, "+province.GeneralPractitioners+" medici generali e "+province.SpecializedDoctors+" medici specializzati. "+
+        "<b>L'aspettativa di vita media a "+province.Name+" è "+(province.LifeExpectancy>82.05?" molto alta con ":"di ")+province.LifeExpectancy+" anni di età.</b>"
         
-        info.crimeandsafety="La provincia di "+province.Name+" is overall "+(province.Safety>7.33?"<b class='green'>very safe for expats":(province.Safety>6?"<b class='green'>moderately safe for expats":"<b class='red'>less safe than other Italian provinces for expats"))+"</b>. "+
-        "As of 2021, there are an average of <b>"+province.ReportedCrimes+" reported crimes per 100k inhabitants</b>. This is "+(province.ReportedCrimes>2835.76?"<b class='red'>"+(((province.ReportedCrimes/2835.76)*100)-100).toFixed(2)+"% higher than the national average</b>":"<b class='green'>"+((100-(province.ReportedCrimes/2835.76)*100).toFixed(2))+"% lower than the national average</b>")+"."+
+        info.crimeandsafety="La provincia di "+province.Name+" è generalmente "+(province.Safety>7.33?"<b class='green'>molto sicura":(province.Safety>6?"<b class='green'>moderatamente sicura":"<b class='red'>meno sicura rispetto ad altre province italiane"))+"</b>. "+
+        "Nel 2021, vi sono stati <b>"+province.ReportedCrimes+" denunce per crimini ogni centomila abitanti</b>. Si tratta del "+(province.ReportedCrimes>2835.76?"<b class='red'>"+(((province.ReportedCrimes/2835.76)*100)-100).toFixed(2)+"% in più della media nazionale</b>":"<b class='green'>"+((100-(province.ReportedCrimes/2835.76)*100).toFixed(2))+"% in meno rispetto alla media nazionale</b>")+"."+
         "<br><br>"+
-        "There have been around <b>"+province.RoadFatalities+" deadly road accidents</b> and <b>"+province.WorkAccidents+" serious work-related injuries</b> per 10k people in "+province.Name+". This is respectively "+
-        (province.RoadFatalities>0.54?"<b class='red'>"+(((province.RoadFatalities/0.54)*100-100).toFixed(2))+"% more driving accidents than average":"<b class='green'>"+(((100-(province.RoadFatalities/0.54)*100).toFixed(2))+"% less driving accidents than average"))+"</b> and "+
-        (province.RoadFatalities>12.90?"<b class='red'>"+(((province.WorkAccidents/12.90)*100-100).toFixed(2))+"% more work accidents than average":"<b class='green'>"+(((100-(province.WorkAccidents/12.90)*100).toFixed(2))+"% less work accidents than average"))+"</b>."+
+        "Vi sono stati all'incirca <b>"+province.RoadFatalities+" fatalità dovute a incidenti stradali</b> e <b>"+province.WorkAccidents+" incidenti gravi sul lavoro</b> per ogni diecimila persone a "+province.Name+". Si tratta rispettivamente del "+
+        (province.RoadFatalities>0.54?"<b class='red'>"+(((province.RoadFatalities/0.54)*100-100).toFixed(2))+"% di incidenti stradali in più rispetto alla media":"<b class='green'>"+(((100-(province.RoadFatalities/0.54)*100).toFixed(2))+"% di incidenti stradali in meno rispetto alla media"))+"</b> e del "+
+        (province.RoadFatalities>12.90?"<b class='red'>"+(((province.WorkAccidents/12.90)*100-100).toFixed(2))+"% di incidenti sul lavoro in più rispetto alla media":"<b class='green'>"+(((100-(province.WorkAccidents/12.90)*100).toFixed(2))+"% di incidenti sul lavoro in meno rispetto alla media"))+"</b>."+
         "<br><br>"
-        info.crimeandsafety+=(province.CarTheft>70.53?"Car theft is reportedly <b class='red'>"+(((province.CarTheft/70.53)*100)-100).toFixed(2)+"% higher than average</b> with "+province.CarTheft+" cases per 100k inhabitants.":"Car theft is reportedly <b class='green'>"+((100-(province.CarTheft/70.53)*100)).toFixed(2)+"% lower than average</b> with only "+province.CarTheft+" cases per 100k inhabitants.")+" "+
-      (province.HouseTheft>175.02?"Reports of house thefts are <b class='red'>"+(((province.HouseTheft/175.02)*100)-100).toFixed(2)+"% higher than average</b> with "+province.HouseTheft+" cases per 100k inhabitants.":"Reports of house thefts are <b class='green'>"+((100-(province.HouseTheft/175.02)*100)).toFixed(2)+"% lower</b> than average with "+province.HouseTheft+" cases per 100k inhabitants.")+" "+
-      (province.Robberies>22.14?"Cases of robbery are not totally uncommon, around <b class='red'>"+(((province.Robberies/22.14)*100)-100).toFixed(2)+"% higher than average</b> with "+province.Robberies+" reports per 100k inhabitants":"Cases of robbery are uncommon with "+province.HouseTheft+" reported cases per 100k inhabitants, about <b class='green'>"+((100-(province.Robberies/22.14)*100)).toFixed(2)+"% less the national average</b>")+". "
+        info.crimeandsafety+=(province.CarTheft>70.53?"Il furto di automobili è stimato essere il <b class='red'>"+(((province.CarTheft/70.53)*100)-100).toFixed(2)+"% in più rispetto alla media</b> con "+province.CarTheft+" casi per centomila abitanti.":"I furti di automobili sono riportati essere il <b class='green'>"+((100-(province.CarTheft/70.53)*100)).toFixed(2)+"% in meno rispetto alla media</b> with only "+province.CarTheft+" casi riportati per centomila abitanti.")+" "+
+      (province.HouseTheft>175.02?"I casi riportati di furti nelle abitazioni è del <b class='red'>"+(((province.HouseTheft/175.02)*100)-100).toFixed(2)+"% più alto della media</b> con "+province.HouseTheft+" denunce per centomila abitanti.":"I casi di furti nelle abitazioni sono riportati al <b class='green'>"+((100-(province.HouseTheft/175.02)*100)).toFixed(2)+"% in meno</b> della media con "+province.HouseTheft+" casi per centomila abitanti.")+" "+
+      (province.Robberies>22.14?"Gli eventi di rapina non sono del tutto inusuali, vi sono il <b class='red'>"+(((province.Robberies/22.14)*100)-100).toFixed(2)+"% in più di casi riportati rispetto alla media nazionale</b> con "+province.Robberies+" denunce per centomila abitanti":"Le rapine non sono molto comuni con "+province.HouseTheft+" casi riportati per centomila abitanti, all'incirca il <b class='green'>"+((100-(province.Robberies/22.14)*100)).toFixed(2)+"% in meno della media nazionale</b>")+". "
       
-        info.education=province.Name+" has a "+(province.HighSchoolGraduates>avg.HighSchoolGraduates?"<b class='green'>higher-than-average percentage of high school graduates":"<b class='red'>lower-than-average percentage of high school graduates")+"</b>, around "+province.HighSchoolGraduates+"%; and a "+(province.UniversityGraduates>avg.UniversityGraduates?"<b class='green'>higher-than-average percentage of university graduates":"<b class='red'>lower-than-average percentage of university graduates")+"</b>, around "+province.UniversityGraduates+"%."+
+        info.education=province.Name+" ha "+(province.HighSchoolGraduates>avg.HighSchoolGraduates?"<b class='green'>un numero di diplomati più alto della media":"<b class='red'>un tasso di diplomati più basso della media")+"</b>, circa "+province.HighSchoolGraduates+"%; e "+(province.UniversityGraduates>avg.UniversityGraduates?"<b class='green'>un tasso di laureati più alto della media":"<b class='red'>una percentuale di laureati più bassa della media")+"</b>, circa "+province.UniversityGraduates+"%."+
         " The average number of completed <b>years of schooling</b> for people over 25 is "+province.YearsOfIstruzione+", which is "+(province.YearsOfIstruzione>avg.YearsOfIstruzione*1.05?"<b class='green'>above the national average</b>":(province.YearsOfIstruzione<avg.YearsOfIstruzione*.95?"<b class='red'>lower than the national average</b>":"not far from the national average"))+" of "+avg.YearsOfIstruzione+". "+
-        (province.Universities>1?" There are <b>"+province.Universities+" universities</b> within the province":(province.Universities==1?" There is <b>one university</b> in the province":" There are <b>no universities</b> in this province"))+"."
+        +"<h3>Quante università ci sono a "+province.Name+"?</h3>";
+        (province.Universities>1?" Ci sono <b>"+province.Universities+" università</b> in provincia di":(province.Universities==1?" C'è <b>una sola università</b> in provincia di":" <b>Non ci sono università</b> in provincia di "))+province.Name+"."
       
-        info.transport="<b>Public transport in "+name+"</b> is "+(province.PublicTransport<avg.PublicTransport*.9?"<b class='red'>lacking":(province.PublicTransport>avg.PublicTransport*1.1?"<b class='green'>quite good":"<b class='green'>fairly decent"))+"</b>, and "+
-        (province.Traffic<avg.Traffic*.85?"<b class='green'>traffic is low":(province.Traffic<avg.Traffic?"<b class='green'>traffic is below average":(province.Traffic>avg.Traffic*1.1?"<b class='red'>traffic is very high":"<b class='red'>traffic is somewhat high")))+"</b>. "+
-        "There are on average "+province.VehiclesPerPerson+" active vehicles per person, against a national average of "+avg.VehiclesPerPerson+". "+(province.Subway>0?"The city of "+name+" is one of the very few places in Italy with an urban metro system, the <b>Metropolitana di "+name+"</b>. ":"")+
+        info.transport="<b>L'offerta del trasporto pubblico a "+name+"</b> è "+(province.PublicTransport<avg.PublicTransport*.9?"<b class='red'>carente":(province.PublicTransport>avg.PublicTransport*1.1?"<b class='green'>abbastanza buona":"<b class='green'>più che soddisfacente"))+"</b>, e "+
+        (province.Traffic<avg.Traffic*.85?"<b class='green'>il traffico è basso":(province.Traffic<avg.Traffic?"<b class='green'>il traffico è al di sotto della media":(province.Traffic>avg.Traffic*1.1?"<b class='red'>c'è molto traffico di autoveicoli":"<b class='red'>vi sono livelli di traffico abbastanza alto")))+"</b>. "+
+        "Ci sono in media "+province.VehiclesPerPerson+" veicoli per persona, rispetto alla media nazionale di "+avg.VehiclesPerPerson+". "+(province.Subway>0?"La città di "+name+" è uno dei pochi centri urbani in Italia dotati di un sistema di trasporto metropolitano, la <b>Metropolitana di "+name+"</b>. ":"")+
         "<br><br>"+
-        "Around "+(province.CyclingLanes/10).toFixed(2)+"km per 10k inhabitants of the main city in "+name+" consist of bicycle lanes. This makes "+name+" "+(province.CyclingLanes>avg.CyclingLanes*.8?"<b class='green'>somewhat bike-friendly by Italian standards":(province.CyclingLanes>avg.CyclingLanes*1.2?"<b class='green'>very bike-friendly by Italian standards":"<b class='red'>not very bike-friendly"))+"</b>. ";
+        "Circa "+(province.CyclingLanes/10).toFixed(2)+"km per diecimila abitanti nel comune principale di "+name+" sono coperti da piste ciclabili. Ciò rende "+name+" "+(province.CyclingLanes>avg.CyclingLanes*.8?"<b class='green'>abbastanza ciclabile per gli standard italiani":(province.CyclingLanes>avg.CyclingLanes*1.2?"<b class='green'>molto ciclabile e \"bike-friendly\" per gli standard del paese.":"<b class='red'>non particolarmente ciclabile o \"bike-friendly\""))+"</b>. ";
         
         (facts[name]["transportData"]!=""?(info.transport+='</br></br>'+facts[name]["transportData"])
         :"")
 
-        info.disclaimer='</br></br><center><span id="disclaimer">This page contains affiliate links. As part of the Amazon Associates and Viator Partner programmes, we may earn a commission on qualified purchases.</span></center>'
+        info.disclaimer='</br></br><center><span id="disclaimer">Questa pagina contiene link di affiliazione. In quanto partner di Amazon e Viator, potremmo guadagnare commissioni su acquisti idonei.</span></center>'
         
-        info.map='</br><center class="map"><iframe src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Province%20Of%20'+name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
+        info.map='</br><center class="map"><iframe id="ggmap" src="https://maps.google.it/maps?f=q&source=s_q&hl=en&geocode=&q=Province%20Of%20'+name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
         'Search for: '+
-        '<a href="https://www.amazon.it/ulp/view?&linkCode=ll2&tag=expiter-21&linkId=5824e12643c8300394b6ebdd10b7ba3c&language=it_IT&ref_=as_li_ss_tl" target="_blank"><b>📦Amazon Pickup Locations</b></a> '+
-        '<a href="https://www.google.com/maps/search/Province+Of+'+name+'+Attractions/" target="_blank"><b>🎭Attractions</b></a> '+
-        '<a href="https://www.google.com/maps/search/Province+Of+'+name+'+Museums/" target="_blank"><b>🏺Museums</b></a> '+
-        '<a href="https://www.google.com/maps/search/Province+Of+'+name+'+Restaurants/" target="_blank"><b>🍕Restaurants</b></a> '+
-        '<a href="https://www.google.com/maps/search/Province+Of+'+name+'+Beaches/" target="_blank"><b>🏖️Beach</b></a> '+
-        '<a href="https://www.google.com/maps/search/Province+Of+'+name+'+Hiking/" target="_blank"><b>⛰️Hiking</b></a> '+
+        '<a href="https://www.amazon.it/ulp/view?&linkCode=ll2&tag=expiter-21&linkId=5824e12643c8300394b6ebdd10b7ba3c&language=it_IT&ref_=as_li_ss_tl" target="_blank"><b>📦Punti Amazon Pickup</b></a> '+
+        '<a href="https://www.google.it/maps/search/Provincia+di+'+name+'+Cose+da+fare/" target="_blank"><b><ej>🎭</ej>Attrazioni</b></a> '+
+        '<a href="https://www.google.it/maps/search/Provincia+di+'+name+'+Musei/" target="_blank"><b><ej>🏺</ej>Musei</b></a> '+
+        '<a href="https://www.google.it/maps/search/Provincia+di+'+name+'+Ristoranti/" target="_blank"><b><ej>🍕</ej>Ristoranti</b></a> '+
+        '<a href="https://www.google.it/maps/search/Provincia+di+'+name+'+Bar/" target="_blank"><b><ej>🍺</ej>Bar</b></a> '+
+        '<a href="https://www.google.it/maps/search/Provincia+di+'+name+'+Spiaggie/" target="_blank"><b><ej>🏖️</ej>Spiaggie</b></a> '+
+        '<a href="https://www.google.it/maps/search/Provincia+di+'+name+'+Area+per+passeggiate/" target="_blank"><b><ej>⛰️</ej>Escursioni</b></a> '+
+        '<a onclick=\'$("#ggmap").attr("src","https:\/\/www.google.it\/maps\/search\/Provincia+di+'+name+'+Area+per+passeggiate&output=embed")\' target="_blank"><b><ej>⛰️</ej>Escursioni</b></a> '+
         '</center>'
       
         info.weather=(province.WeatherWidget?'<center><h3>Weather Now</h3><a class="weatherwidget-io" href="https://forecast7.com/en/'+province.WeatherWidget+'" data-label_1="'+name+'" data-label_2="'+region.Name+'"'+
@@ -457,11 +460,11 @@ function populateData(data){
     "StudioSale","BilocaleSale","TrilocaleSale"]
     
     if (quality=="CostOfLiving"||quality=="HousingCost"){
-      if (score<avg[quality]*.8){return "<score class='excellent short'>cheap</score>"}
-      else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>affordable</score>"}
-      else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>average</score>"}
-      else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>high</score>"}
-      else if (score>=avg[quality]*1.2){return "<score class='poor max'>expensive</score>"}
+      if (score<avg[quality]*.8){return "<score class='excellent short'>molto basso</score>"}
+      else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>basso</score>"}
+      else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>nella media</score>"}
+      else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>alto</score>"}
+      else if (score>=avg[quality]*1.2){return "<score class='poor max'>molto alto</score>"}
     }
     else if (expenses.includes(quality)){
       if (score<avg[quality]*.8){return "<score class='green'>"+score+"€/m</score>"}
@@ -471,39 +474,39 @@ function populateData(data){
       else if (score>=avg[quality]*1.2){return "<score class='red'>"+score+"€/m</score>"}
     }
     else if (quality=="HotDays"||quality=="ColdDays"){ // high score = bad; low score = good
-      if (score<avg[quality]*.8){return "<score class='excellent short'>not "+(quality=="HotDays"?"hot":"cold")+"</score>"}
-      else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>not very "+(quality=="HotDays"?"hot":"cold")+"</score>"}
-      else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>a bit "+(quality=="HotDays"?"hot":"cold")+"</score>"}
-      else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>"+(quality=="HotDays"?"hot":"cold")+"</score>"}
-      else if (score>=avg[quality]*1.2){return "<score class='poor max'>very "+(quality=="HotDays"?"hot":"cold")+"</score>"}
+      if (score<avg[quality]*.8){return "<score class='excellent short'>non "+(quality=="HotDays"?"caldo":"freddo")+"</score>"}
+      else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>non molto "+(quality=="HotDays"?"caldo":"freddo")+"</score>"}
+      else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>un po' "+(quality=="HotDays"?"caldo":"freddo")+"</score>"}
+      else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>"+(quality=="HotDays"?"caldo":"freddo")+"</score>"}
+      else if (score>=avg[quality]*1.2){return "<score class='poor max'>molto "+(quality=="HotDays"?"caldo":"freddo")+"</score>"}
     }
     else if (quality=="RainyDays"){ // high score = bad; low score = good
-      if (score<avg[quality]*.8){return "<score class='excellent short'>very little</score>"}
-      else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>little</score>"}
-      else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>average</score>"}
-      else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>rainy</score>"}
-      else if (score>=avg[quality]*1.2){return "<score class='poor max'>a lot</score>"}
+      if (score<avg[quality]*.8){return "<score class='excellent short'>molto poca</score>"}
+      else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>poca</score>"}
+      else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>nella media</score>"}
+      else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>piovoso</score>"}
+      else if (score>=avg[quality]*1.2){return "<score class='poor max'>molto piovoso</score>"}
     }
     else if (quality=="FoggyDays"){ // high score = bad; low score = good
-      if (score<avg[quality]*.265){return "<score class='excellent short'>no fog</score>"}
-      else if (score>=avg[quality]*.265&&score<avg[quality]*.6){return "<score class='great medium'>little</score>"}
-      else if (score>=avg[quality]*.6&&score<avg[quality]*1.00){return "<score class='good medium'>average</score>"}
-      else if (score>=avg[quality]*1.05&&score<avg[quality]*3){return "<score class='average long'>foggy</score>"}
-      else if (score>=avg[quality]*3){return "<score class='poor max'>a lot</score>"}
+      if (score<avg[quality]*.265){return "<score class='excellent short'>niente nebbia</score>"}
+      else if (score>=avg[quality]*.265&&score<avg[quality]*.6){return "<score class='great medium'>poca</score>"}
+      else if (score>=avg[quality]*.6&&score<avg[quality]*1.00){return "<score class='good medium'>nella media</score>"}
+      else if (score>=avg[quality]*1.05&&score<avg[quality]*3){return "<score class='average long'>nebbioso</score>"}
+      else if (score>=avg[quality]*3){return "<score class='poor max'>molto nebbioso</score>"}
     }
     else if (quality=="Crime"||quality=="Traffic"){ // high score = bad; low score = good
-      if (score<avg[quality]*.8){return "<score class='excellent short'>very low</score>"}
-      else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>low</score>"}
-      else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>average</score>"}
-      else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>high</score>"}
-      else if (score>=avg[quality]*1.2){return "<score class='poor max'>too much</score>"}
+      if (score<avg[quality]*.8){return "<score class='excellent short'>molto basso</score>"}
+      else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>basso</score>"}
+      else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>nella media</score>"}
+      else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>alto</score>"}
+      else if (score>=avg[quality]*1.2){return "<score class='poor max'>molto alto</score>"}
     }
     else{ // high score = good; low score = bad
-      if (score<avg[quality]*.8){return "<score class='poor short'>poor</score>"}
+      if (score<avg[quality]*.8){return "<score class='poor short'>scarso</score>"}
       else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='average medium'>okay</score>"}
-      else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>good</score>"}
-      else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='great long'>great</score>"}
-      else if (score>=avg[quality]*1.2){return "<score class='excellent max'>excellent</score>"}
+      else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>buono</score>"}
+      else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='great long'>molto buono</score>"}
+      else if (score>=avg[quality]*1.2){return "<score class='excellent max'>ottimo</score>"}
     }
   }
   
