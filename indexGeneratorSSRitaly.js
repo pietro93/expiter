@@ -467,15 +467,15 @@ function appendData($,data) {
     $("#output").html("<center>"+output+"</center>")
     
     $("a.province1st").text(province1st.Name)
-    $("a.province1st").attr("href","https://expiter.com/province/"+province1st.Name.replace(/\s/g,"-")
+    $("a.province1st").attr("href","https://expiter.com/it/province/"+province1st.Name.replace(/\s/g,"-")
      .replace("'","-").toLowerCase()+"/")
     if (selection.length>1){ let province2=selection[1]
     $("a.province2").text(province2.Name)
-    $("a.province2").attr("href","https://expiter.com/province/"+province2.Name.replace(/\s/g,"-")
+    $("a.province2").attr("href","https://expiter.com/it/province/"+province2.Name.replace(/\s/g,"-")
      .replace("'","-").toLowerCase()+"/")}
      if (selection.length>2){ let province3=selection[2]
     $("a.province3").text(province3.Name)
-    $("a.province3").attr("href","https://expiter.com/province/"+province3.Name.replace(/\s/g,"-")
+    $("a.province3").attr("href","https://expiter.com/it/province/"+province3.Name.replace(/\s/g,"-")
      .replace("'","-").toLowerCase()+"/")}
     }
 
@@ -550,10 +550,10 @@ function appendData($,data) {
         card += '<p class="opacity4"><ej>👪</ej>For family: '+ qualityScore("Family-friendly",data[i]["Family-friendly"]) +'</p>';
         card += '<p class="opacity4"><ej>🥗</ej>For vegans: '+ qualityScore("Veg-friendly",data[i]["Veg-friendly"]) +'</p>';
         card += '<p class="opacity4"><ej>🧳</ej>For nomads: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'</p>';
-        card += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+'/\';"> More>> </button>';
+        card += '<button class="more" style="font-size:large;" onclick="location.href=\'./it/province/'+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+'/\';"> More>> </button>';
         card += '</card>'
 
-        col += "<a href='./province/"+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"\''>"+card+"</a></div>";
+        col += "<a href='./it/province/"+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"\''>"+card+"</a></div>";
         
         mainContainer.append(col);
         
