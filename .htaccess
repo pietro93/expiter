@@ -71,4 +71,3 @@ RewriteRule . index.php [L]
 # END MalCare WAF
 
 RedirectMatch 301 ^.com/$ https://expiter.com/app
-RedirectMatch 301 ^.it/$ https://expiter.it/app
