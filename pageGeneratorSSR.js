@@ -121,8 +121,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
 
          let parsedData = fs.readFileSync('temp/parsedDataAbout'+province.Name+'.txt','utf8');
-         let provinceData = parsedData.split("%%%")[0]; (provinceData==undefined?provinceData="":"")
-         let transportData = parsedData.split("%%%")[1]; (transportData==undefined?transportData="":"")
+         let provinceData = parsedData.split("%%%")[0]; (provinceData=="undefined"?provinceData="":"")
+         let transportData = parsedData.split("%%%")[1]; (transportData=="undefined"?transportData="":"")
          facts[province.Name]["provinceData"]=provinceData;
          facts[province.Name]["transportData"]=transportData;
          console.log(facts[province.Name])

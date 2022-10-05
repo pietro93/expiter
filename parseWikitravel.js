@@ -49,6 +49,7 @@ for (var i=0; i<107; i++){
     else if (province=="Padova")wikiUrl="Padua"
     else if (province=="Mantova")wikiUrl="Mantua"
     else if (province=="Lodi")wikiUrl="Lodi_(Lombardy)"
+    else if (province=="Pesaro e Urbino")wikiUrl="Pesaro_and_Urbino_(province)"
     wikiUrl = "https://en.m.wikivoyage.org/wiki/"+wikiUrl.replace(/\s/g,"_");
     console.log("Fetching data from: "+wikiUrl)
     
@@ -63,6 +64,7 @@ setTimeout(function(){
 });
 },10+i*20+i)
 }
+
 }
 
 function parseData(province){
@@ -153,7 +155,7 @@ function parseData(province){
     
 
     //facts[province]["parsedData"]=provinceData
-    let parsedData = provinceData+"%%%"+(getAround.length<500?getAround:"")
+    let parsedData = provinceData+"%%%"+(getAround.length<500?getAround:$("#GAtarget > p").html())
     fs.writeFile('temp/parsedDataAbout'+province+'.txt', parsedData, function (err, file) {
      if (err) throw err;})
 
