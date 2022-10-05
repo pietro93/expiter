@@ -8,14 +8,14 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 ## Begin - Multilanguage Setup
-RewriteRule ^en/?$ "https://expiter.com" [R=301,L]
-RewriteRule ^it/?$ "https://expiter.it" [R=301,L]
-
-# handle sub pages, exclude admin path
-RewriteCond %{REQUEST_URI} !(admin) [NC]
-RewriteRule ^en/(.*)$ "https://expiter.com/$1" [R=301,L]
-RewriteCond %{REQUEST_URI} !(admin) [NC]
-RewriteRule ^it/(.*)$ "https://expiter.it/$1" [R=301,L]
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^(www.)?expiter.it$
+RewriteCond %{REQUEST_URI} !^/it/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /it/$1
+RewriteCond %{HTTP_HOST} ^(www.)?example.it$
+RewriteRule ^(/)?$ subdirectory/app.html [L]
 # End - Multilanguage Setup
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
