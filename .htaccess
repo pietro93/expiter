@@ -7,6 +7,16 @@
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
+## Begin - Multilanguage Setup
+RewriteRule ^en/?$ "https://expiter.com" [R=301,L]
+RewriteRule ^it/?$ "https://expiter.it" [R=301,L]
+
+# handle sub pages, exclude admin path
+RewriteCond %{REQUEST_URI} !(admin) [NC]
+RewriteRule ^en/(.*)$ "https://expiter.com/$1" [R=301,L]
+RewriteCond %{REQUEST_URI} !(admin) [NC]
+RewriteRule ^pl/(.*)$ "https://expiter.it/$1" [R=301,L]
+# End - Multilanguage Setup
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
@@ -26,6 +36,7 @@ RewriteRule ^(.*)$ /$1/ [L,R=301]
 # dynamically generated, and should only be modified via WordPress filters.
 # Any changes to the directives between these markers will be overwritten.
 # END WordPress
+
 
 
 # MalCare WAF
