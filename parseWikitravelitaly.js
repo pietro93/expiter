@@ -76,7 +76,8 @@ function parseData(province){
     $("#Cenni_geografici").parent().next().attr("id","infotarget2");
     format($,"#infotarget1");format($,"#infotarget2");
    
-    let provinceData=$("#mf-section-0").html()+"</br>"+
+    let provinceData=
+    $("#mf-section-0 > p").html()+"</br>"+
     ($("#infotarget1 > p").html()!=undefined?$("#infotarget1 > p").html():"")+"</br>"+
     ($("#infotarget2").html()!=undefined?$("#infotarget2").html():"")
 

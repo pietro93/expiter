@@ -46,7 +46,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
             '<link rel="stylesheet" href="https://expiter.com/style.css">'+
             
-            '<meta name="description" content="Informazion sulla vita a '+province.Name+' '+'('+province.Region+') per fuori sede e nomadi digitali. '+province.Name+' qualità della vita, costo della via, sicurezza e altre info utili." />'+
+            '<meta name="description" content="Informazioni su come si vive a '+province.Name+' '+'('+province.Region+') per fuori sede e nomadi digitali. '+province.Name+' qualità della vita, costo della via, sicurezza e altre info utili." />'+
 	        '<meta name="keywords" content="vivere a'+province.Name+', '+province.Name+' nomadi digitali,'+province.Name+' qualità della vita,'+province.Name+' digital nomad" />'+
             "<title>"+province.Name+" - Qualità e Costo della Vita </title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
@@ -65,7 +65,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 		'</div>'+
 
         '<nav id="navbar"></nav>'+
-            '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="'+province.Name+' Province"'+'></div>'+
+            '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="Provincia di '+province.Name+'"'+'></div>'+
             '<h1 data-toc-skip id="title" class="title column is-12">  </h1></row>'+
             '<div class="tabs effect-3">'+
 			'<input type="radio" id="tab-1" name="tab-effect-3" checked="checked">'+
@@ -109,12 +109,12 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<section id="Clima"><h2>Clima</h2><span id="climate"></span></section>'+
             '<section id="Costo della Vita"><h2>Costo della Vita</h2><span id="CoL"></span></section>'+
             '<section id="Qualità della Vita"><h2>Qualità della Vita</h2>'+
-            '<section id="Sanità"><h3>Healthcare</h3><span id="healthcare"></span></section>'+
+            '<section id="Sanità"><h3>Sanità</h3><span id="healthcare"></span></section>'+
             '<section id="Istruzione"><h3>Istruzione</h3><span id="education"></span></section>'+
             '<section id="Svago"><h3>Svago</h3><span id="leisure"></span></section>'+
             '<section id="Crimine e Sicurezza"><h3>Crimine e Sicurezza</h3><span id="crimeandsafety"></span></section>'+
             '<section id="Trasporti"><h3>Trasporti</h3><span id="transport"></span></section></section>'+
-            '<section id="Scopri"><h2>Scopri</h2><span id="promo"></span></section>'+
+            '<section id="Turismo"><h2>Turismo</h2><span id="promo"></span></section>'+
             '</div>'+
             '</body></html>'
                     )
@@ -156,7 +156,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         appendProvinceData(province, $);
         setNavBar($);
         
-        $(".title").text('Vivere a '+province.Name);
+        $(".title").text('Come si vive a '+province.Name+' - Qualità della vita, costi e cose da sapere');
         $("#overview").append(map)
         $("#overview").append(info.overview)
         $("#overview").append(info.disclaimer)
@@ -266,26 +266,25 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         info.disclaimer='</br></br><center><span id="disclaimer">Questa pagina contiene link di affiliazione. In quanto partner di Amazon e Viator, potremmo guadagnare commissioni su acquisti idonei.</span></center>'
         
-        info.map='</br><center class="map"><iframe id="ggmap" src="https://maps.google.it/maps?f=q&source=s_q&hl=en&geocode=&q=Province%20Of%20'+name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
+        info.map='</br><center class="map"><iframe id="ggmap" src="https://maps.google.it/maps?f=q&source=s_q&hl=it&geocode=&q=Provincia+di+'+name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
         'Search for: '+
-        '<a href="https://www.amazon.it/ulp/view?&linkCode=ll2&tag=expiter-21&linkId=5824e12643c8300394b6ebdd10b7ba3c&language=it_IT&ref_=as_li_ss_tl" target="_blank"><b>📦Punti Amazon Pickup</b></a> '+
-        '<a href="https://www.google.it/maps/search/Provincia+di+'+name+'+Cose+da+fare/" target="_blank"><b><ej>🎭</ej>Attrazioni</b></a> '+
-        '<a href="https://www.google.it/maps/search/Provincia+di+'+name+'+Musei/" target="_blank"><b><ej>🏺</ej>Musei</b></a> '+
-        '<a href="https://www.google.it/maps/search/Provincia+di+'+name+'+Ristoranti/" target="_blank"><b><ej>🍕</ej>Ristoranti</b></a> '+
-        '<a href="https://www.google.it/maps/search/Provincia+di+'+name+'+Bar/" target="_blank"><b><ej>🍺</ej>Bar</b></a> '+
-        '<a href="https://www.google.it/maps/search/Provincia+di+'+name+'+Spiaggie/" target="_blank"><b><ej>🏖️</ej>Spiaggie</b></a> '+
-        '<a href="https://www.google.it/maps/search/Provincia+di+'+name+'+Area+per+passeggiate/" target="_blank"><b><ej>⛰️</ej>Escursioni</b></a> '+
-        '<a onclick=\'$("#ggmap").attr("src","https:\/\/www.google.it\/maps\/search\/Provincia+di+'+name+'+Area+per+passeggiate&output=embed")\' target="_blank"><b><ej>⛰️</ej>Escursioni</b></a> '+
+        '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.it\/maps?f=q&source=s_q&hl=it&geocode=&q=Provincia+di+'+name+'+Cose+da+fare&output=embed")\' target="_blank"><b><ej>🎭</ej>Attrazioni</b></a> '+
+        '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.it\/maps?f=q&source=s_q&hl=it&geocode=&q=Provincia+di+'+name+'+Musei&output=embed")\' target="_blank"><b><ej>🏺</ej>Musei</b></a> '+
+        '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.it\/maps?f=q&source=s_q&hl=it&geocode=&q=Provincia+di+'+name+'+Ristoranti&output=embed")\' target="_blank"><b><ej>🍕</ej>Ristoranti</b></a> '+
+        '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.it\/maps?f=q&source=s_q&hl=it&geocode=&q=Provincia+di+'+name+'+Bar&output=embed")\' target="_blank"><b><ej>🍺</ej>Bar</b></a> '+
+        '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.it\/maps?f=q&source=s_q&hl=it&geocode=&q=Provincia+di+'+name+'+Stabilimento+balneare&output=embed")\' target="_blank"><b><ej>🏖️</ej>Spiaggie</b></a> '+
+        '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.it\/maps?f=q&source=s_q&hl=it&geocode=&q=Provincia+di+'+name+'+Area+per+passeggiate&output=embed")\' target="_blank"><b><ej>⛰️</ej>Escursioni</b></a> '+
+        '<a href="https://www.amazon.it/ulp/view?&linkCode=ll2&tag=expiter-21&linkId=5824e12643c8300394b6ebdd10b7ba3c&language=it_IT&ref_=as_li_ss_tl" target="_blank"><b><ej>📦</ej>Punti Amazon Pickup</b></a> '+
         '</center>'
       
-        info.weather=(province.WeatherWidget?'<center><h3>Weather Now</h3><a class="weatherwidget-io" href="https://forecast7.com/en/'+province.WeatherWidget+'" data-label_1="'+name+'" data-label_2="'+region.Name+'"'+
+        info.weather=(province.WeatherWidget?'<center><h3>Clima</h3><a class="weatherwidget-io" href="https://forecast7.com/en/'+province.WeatherWidget+'" data-label_1="'+name+'" data-label_2="'+region.Name+'"'+
         'data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="clear"  data-basecolor="rgba(155, 205, 245, 0.59)" data-textcolor="#000441" >name Region.Name</a>'+
         '<script>'+
         "!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');"+
         '</script>':"")
       
-        info.viator='<center><h3>Recommended Tours in '+(province.Viator?name:region.Name)+'</h3></center>'+
-        '<div data-vi-partner-id=P00045447 data-vi-language=en data-vi-currency=USD data-vi-partner-type="AFFILIATE" data-vi-url="'+
+        info.viator='<center><h3>Esperienze consigliate a '+(province.Viator?name:region.Name)+'</h3></center>'+
+        '<div data-vi-partner-id=P00045447 data-vi-language=it data-vi-currency=EUR data-vi-partner-type="AFFILIATE" data-vi-url="'+
         (region.Name=='Molise'?'':'https://www.viator.com/')+(province.Viator?province.Viator:region.Viator)+'"'+
         (province.Viator.includes(",")||region.Name=='Molise'?"":' data-vi-total-products=6 ')+
         ' data-vi-campaign="'+name+'" ></div>'+
@@ -323,7 +322,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         target=target.filter(item => item !== related3)
         related4=target[Math.floor(Math.random()*target.length)]
 
-        info.related='<h2>Provinces Nearby</h2> '+
+        info.related='<h2>Nelle vicinanze</h2> '+
         '<row class="columns is-multiline is-mobile"> '+        
         facts[related1].snippet+
         facts[related2].snippet+

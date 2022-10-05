@@ -164,5 +164,14 @@ function clean(raw){
  raw = raw.replace("( )","").replace(new RegExp("<li></li>", 'g'),"").replace(new RegExp("Ã ", 'g'),"à")
  .replace(new RegExp("Ã", 'g'),"à").replace(new RegExp("<ul></ul>", 'g'),"")
  .replace(new RegExp("<p></p>", 'g'),"").replace(new RegExp("<p> </p>", 'g'),"").replace(new RegExp("<p>\n</p>", 'g'),"");
+ 
+ raw.replace("Dante","Dante Alighieri").replace("powerful","important").replace("legacies","legacy")
+ .replace("is inscribed on the","a").replace("half hour","30 minutes").replace("pick pocketing","pick-pocketing")
+ .replace('marketplace for Italian fashion',"Italian fashion capital").replace("business capital", "business hub")
+ .replace("largest","biggest").replace("you can","it is possible to").replace("You can","It is possible to")
+ .replace("Be sure","It is better to").replace("expenssive","pricey").replace("cheap","inexpensive")
+ .replace("difficult","challenging").replace("hotel","accommodation").replace("growing nightlife scene","<b>growing nightlife scene</b>")
+ .replace("shopping heaven","shopping hub")
+
  return raw;
 }
