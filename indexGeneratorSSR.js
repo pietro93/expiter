@@ -123,7 +123,7 @@ function init($){
     createSorting($,"<ej>🌍</ej>Region","Region");
     createSorting($,"<ej>👥</ej>Population","Population");
     createSorting($,"<ej>🌦️</ej>Climate","Climate");
-    createSorting($,"<ej>🤑</ej>Cost","CostOfLiving");
+    createSorting($,"<ej>🤑</ej>Cheapest","CostOfLiving");
     createSorting($,"<ej>👮</ej>Safety","Safety");
     createSorting($,"<ej>🚨</ej>Lack of Crime","Crime");
     createSorting($,"<ej>🍸</ej>Nightlife","Nightlife");
