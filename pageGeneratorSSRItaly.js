@@ -31,12 +31,14 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         for (let i = 0; i < 107; i++){
             let province = dataset[i];
             
-            var fileName = './it/province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+            var fileName = 'it/province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             
             const dom = new jsdom.JSDOM(
             "<html lang='it'>"+
             '<head><meta charset="utf-8">'+
-            '<link rel="canonical" href="https://expiter.com/province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/"/>'+
+            '<link rel="canonical" href="https://expiter.com/'+fileName+'/"/>'+
+            '<link rel="alternate" hreflang="en" href="https://expiter.com/'+fileName.replace('it/','')+'/" />'+
+            '<link rel="alternate" hreflang="it" href="https://expiter.com/'+fileName+'/" />'+
             '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
             '<script type="text/javascript" src="https://expiter.com/jquery3.6.0.js" defer></script>'+
             '<script type="text/json" src="https://expiter.com/dataset.json"></script>'+
