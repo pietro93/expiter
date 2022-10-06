@@ -21,7 +21,7 @@ RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
 RewriteRule ^/it/$ ^.it/
 RewriteCond %{HTTP_HOST} ^(www.)?expiter.it$
-RewriteRule ^(?!domainone/)(.*)$ /it/$1
+RewriteRule ^(?!https:://expiter.it/)(.*)$ /it/$1
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
