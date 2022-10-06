@@ -49,7 +49,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/style.css">'+
             
             '<meta name="description" content="Informazioni su come si vive a '+province.Name+' '+'('+province.Region+') per fuori sede e nomadi digitali. '+province.Name+' qualità della vita, costo della via, sicurezza e altre info utili." />'+
-	        '<meta name="keywords" content="vivere a'+province.Name+', '+province.Name+' nomadi digitali,'+province.Name+' qualità della vita,'+province.Name+' digital nomad" />'+
+	        '<meta name="keywords" content="vivere a'+province.Name+', '+province.Name+' nomadi digitali,'+province.Name+' qualità della vita,'+province.Name+' movida" />'+
             "<title>"+province.Name+" - Qualità e Costo della Vita </title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
             "</head>"+
