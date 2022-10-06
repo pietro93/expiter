@@ -7,21 +7,8 @@
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
-## Begin - Multilanguage Setup
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^(www.)?expiter.it$
-RewriteCond %{REQUEST_URI} !^/it/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /it/$1
-RewriteCond %{HTTP_HOST} ^(www.)?expiter.it$
-RewriteRule ^(/)?$ it/app.html [L]
-# End - Multilanguage Setup
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
-RewriteRule ^/it/$ ^.it/
-RewriteCond %{HTTP_HOST} ^(www.)?expiter.it$
-RewriteRule ^(?!https:://expiter.it/)(.*)$ /it/$1
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
