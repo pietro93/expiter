@@ -8,9 +8,10 @@
 #Alternate default index page
 DirectoryIndex app.html
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{HTTP_HOST} ^expiter.it [NC]
-DirectoryIndex it/app.html
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^expiter.com/it [NC]
+RewriteRule ^$ expiter.it/it/app.html [L]
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
