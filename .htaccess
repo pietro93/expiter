@@ -5,6 +5,9 @@
 </Files>
 # SGS XMLRPC Disable Service END
 
+#Alternate default index page
+DirectoryIndex app.html
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
