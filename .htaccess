@@ -10,7 +10,7 @@ DirectoryIndex app.html
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{HTTP_HOST} ^expiter.it [NC]
-RewriteRule ^.*$ it/app.html [NC,QSA] 
+DirectoryIndex it/app.html
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
