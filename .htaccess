@@ -8,6 +8,10 @@
 #Alternate default index page
 DirectoryIndex app.html
 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{HTTP_HOST} ^expiter.it [NC]
+RewriteRule ^.*$ it/app.html [NC,QSA] 
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
