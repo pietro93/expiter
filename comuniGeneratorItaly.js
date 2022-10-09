@@ -39,8 +39,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         
             }
 
-            var dirName = 'it/province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/';
-            var fileName = 'comuni.html';
+            var dirName = 'it/comuni/provincia-di-'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+            var fileName = '.html';
             
             const dom = new jsdom.JSDOM(
             "<html lang='en'>"+
@@ -126,8 +126,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         
         let html = dom.window.document.documentElement.outerHTML;
       
-        if (!fs.existsSync(dirName)) {
-            fs.mkdirSync(dirName);
+        if (!fs.existsSync("it/comuni")) {
+            fs.mkdirSync("it/comuni");
             }
 
         if (dataset[i].Comuni!=undefined)
