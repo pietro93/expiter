@@ -45,7 +45,7 @@ let urls = {
     },
     "Bologna":{
         "Name":"Bologna","Region":"Emilia-Romagna","Url":
-        "https://web.archive.org/web/2/https://www.tuttitalia.it/emilia-romagna/provincia-di-bologna/60-comuni/popolazione/"
+        "https://web.archive.org/web/2/http://www.tuttitalia.it/emilia-romagna/provincia-di-bologna/60-comuni/popolazione/"
     },
     "Rimini":{
         "Name":"Rimini","Region":"Emilia-Romagna","Url":
@@ -57,7 +57,7 @@ let urls = {
     },
     "Cagliari":{
         "Name":"Cagliari","Region":"Sardegna","Url":
-        "https://web.archive.org/web/2/https://www.tuttitalia.it/sardegna/provincia-di-cagliari/42-comuni/"
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/sardegna/provincia-di-cagliari/42-comuni/popolazione/"
     },
     "Bari":{
         "Name":"Bari","Region":"Puglia","Url":
@@ -85,7 +85,7 @@ let urls = {
     },
     "Perugia":{
         "Name":"Perugia","Region":"Umbria","Url":
-        "https://web.archive.org/web/2/https://web.archive.org/web/20221007010501/https://www.tuttitalia.it/umbria/provincia-di-perugia/72-comuni/popolazione/"
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/umbria/provincia-di-perugia/72-comuni/popolazione/"
     },
     "Avellino":{
         "Name":"Avellino","Region":"Campania","Url":
@@ -258,4 +258,5 @@ function parseData(html,output,province) {
 }
 
 fetchData(output)
+
 
