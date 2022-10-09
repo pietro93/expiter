@@ -115,6 +115,69 @@ let urls = {
     "Cosenza":{
         "Name":"Cosenza","Region":"Calabria","Url":
         "https://web.archive.org/web/2/https://www.tuttitalia.it/calabria/provincia-di-cosenza/35-comuni/popolazione/"
+    },
+    "Siena":{
+        "Name":"Siena","Region":"Toscana","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/toscana/provincia-di-siena/65-comuni/popolazione/"
+    },
+    "Livorno":{
+        "Name":"Livorno","Region":"Toscana","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/toscana/provincia-di-livorno/94-comuni/popolazione/"
+    }
+    ,
+    "Pisa":{
+        "Name":"Pisa","Region":"Toscana","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/toscana/provincia-di-pisa/42-comuni/popolazione/"
+    }
+    ,
+    "Prato":{
+        "Name":"Prato","Region":"Toscana","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/toscana/provincia-di-prato/72-comuni/popolazione/"
+    }
+    ,
+    "Grosseto":{
+        "Name":"Grosseto","Region":"Toscana","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/toscana/provincia-di-grosseto/78-comuni/popolazione/"
+    }
+    ,
+    "Lucca":{
+        "Name":"Lucca","Region":"Toscana","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/toscana/provincia-di-lucca/66-comuni/popolazione/"
+    }
+    ,
+    "Ancona":{
+        "Name":"Ancona","Region":"Marche","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/marche/provincia-di-ancona/26-comuni/popolazione/"
+    }
+    ,
+    "Barletta-Andria-Trani":{
+        "Name":"Barletta-Andria-Trani","Region":"Puglia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/puglia/provincia-di-barletta-andria-trani/58-comuni/popolazione/"
+    }
+    ,
+    "Ascoli-Piceno":{
+        "Name":"Ascoli-Piceno","Region":"Marche","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/marche/provincia-di-ascoli-piceno/25-comuni/popolazione/"
+    }
+    ,
+    "Macerata":{
+        "Name":"Macerata","Region":"Marche","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/marche/provincia-di-macerata/20-comuni/popolazione/"
+    }
+    ,
+    "Pesaro e Urbino":{
+        "Name":"Pesaro e Urbino","Region":"Marche","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/marche/provincia-di-pesaro-urbino/26-comuni/popolazione/"
+    }
+    ,
+    "Isernia":{
+        "Name":"Isernia","Region":"Molise","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/molise/provincia-di-isernia/91-comuni/popolazione/"
+    }
+    ,
+    "Campobasso":{
+        "Name":"Campobasso","Region":"Molise","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/molise/provincia-di-campobasso/77-comuni/popolazione/"
     }
       
 }
@@ -149,7 +212,11 @@ function fetchData(output) {
           
               parseData(html,output,province)
               
+            },
+            process.on('uncaughtException', function (err) {
+                console.log(err);
             })
+            )
     
         })
 
@@ -181,10 +248,9 @@ function parseData(html,output,province) {
 
 
     output[province]["Comuni"]=comuni;
-    console.log(Object.keys(comuni).length)
-    console.log(Object.keys(comuni).length ==0)
+
     if (Object.keys(comuni).length!==0){
-    console.log("Writing to file:")
+    console.log(Object.keys(comuni).length+" comuni found in "+province+". Writing to file.")
     fs.writeFile('temp/'+province+'-comuni.json', JSON.stringify(output[province]), function (err, file) {
         if (err) throw err;})   
     }
