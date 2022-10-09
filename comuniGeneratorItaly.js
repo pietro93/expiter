@@ -56,7 +56,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
             '<link rel="stylesheet" href="https://expiter.com/style.css">'+
-            '<link rel="stylesheet" href="../comuni-style.css">'+
+            '<link rel="stylesheet" href="https://expiter.com/province/comuni-style.css">'+
             
             '<meta name="description" content="Information about living in '+province.Name+', Italy for expats and digital nomads. '+province.Name+' quality of life, cost of living, safety and more." />'+
 	        '<meta name="keywords" content="'+province.Name+' italy, '+province.Name+' expat,'+province.Name+' life,'+province.Name+' digital nomad" />'+
