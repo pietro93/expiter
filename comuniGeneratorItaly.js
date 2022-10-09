@@ -82,10 +82,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<section id="Lista di Comuni in Provincia di '+province.Name+'">'+
         '<center><table id="list">'+
         '<tr id="header">'+
-        '<th>Name</th>'+
-        '<th>Population</th>'+
-        '<th>Density</th>'+
-        '<th>Altitude</th>'+
+        '<th>Nome</th>'+
+        '<th>Popolazione</th>'+
+        '<th>Densità</th>'+
+        '<th>Altitudine</th>'+
         '</tr>'+
         '</table>'+
         '<p id="info"></p></center>'+
