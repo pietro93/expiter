@@ -12,14 +12,13 @@ DirectoryIndex app.html
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
-RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_METHOD} GET
 RewriteCond %{REQUEST_URI} !^/wp-json/.*
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)/$ $1.html 
-RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteCond %{REQUEST_URI} !\.xml$
 RewriteCond %{REQUEST_URI} !\.webp$
