@@ -77,7 +77,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 		'</div>'+
 
         '<nav id="navbar"></nav>'+
-        '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="Towns in the '+province.Name+' Province"'+'>'+
+        '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="Comuni in Provincia di '+province.Name+'"'+'>'+
         '</div><h1 class="title">Comuni a </h1>'+
         '<section id="Lista di Comuni in Provincia di '+province.Name+'">'+
         '<center><table id="list">'+
@@ -96,7 +96,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         const $ = require('jquery')(dom.window)
         //do js shit here
         var nComuni=0;
-        $("h1").text("Towns in "+province.Name)
+        $("h1").text("Comuni in Provincia di "+province.Name)
         if (dataset[i].Comuni!=undefined){
         let list=$("#list").html();
 
