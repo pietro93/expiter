@@ -1,0 +1,41 @@
+
+section #List{
+    align-content: center;
+    text-align:center;
+    width:95%;
+}
+section table#list{
+    max-width:500px;
+}
+
+th h2{
+    font-size:16px;
+    padding:0;
+    margin:0;
+    color:var(--darkest);
+}
+section table#list #header th{
+    font-size:18px;
+    background-color:var(--medium-2);
+    border-bottom:none;
+    color:var(--invert-color);
+    cursor:auto;
+}
+section table#list #header{
+    opacity:1
+}
+section table#list tr th{
+    font-size:16px;
+    color:var(--medium-2);
+    padding:5px;
+    padding-left:8px;padding-right:8px;
+    border-bottom: 2px ridge var(--medium-2);
+}
+
+section #info,
+section #info b{
+    color:var(--text-color);
+    margin-top:16px;
+    font-size:16px;
+    margin-bottom:16px;
+}
