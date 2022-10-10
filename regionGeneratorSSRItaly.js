@@ -20,7 +20,7 @@ var dataset;
 var avg;
 
 
-fetch('http://expiter.com/dataset.json', {method:"Get"})
+fetch('https://expiter.com/dataset.json', {method:"Get"})
     .then(function (response) {
         return response.json();
     })
@@ -50,9 +50,9 @@ fetch('http://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/style.css">'+
             '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css">'+
             
-            '<meta name="description" content="List of all 20 regions in Italy with information about size, population, provinces, towns and more." />'+
-	        '<meta name="keywords" content="'+'regions of Italy, Italy regions, list of regions in italy, Italian regions, regions in Italy by population" />'+
-            "<title> Regions in Italy </title>"+
+            '<meta name="description" content="Lista delle 20 regioni d\'Italia - popolazione, superficie, capoluogo e altre info." />'+
+	        '<meta name="keywords" content="'+'regioni dell\'Italia, Italia regioni, lista delle regioni, regioni italiane, regioni per popolazione" />'+
+            "<title> Regioni Italiane </title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
             "</head>"+
 
@@ -70,17 +70,17 @@ fetch('http://expiter.com/dataset.json', {method:"Get"})
 
         '<nav id="navbar"></nav>'+
         '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+"ROMA"+'.webp\')" '+'title="Regions of Italy"'+'>'+
-        '</div><h1 class="title">Regions of Italy </h1>'+
-        '<section id="List of Regions in Italy">'+
+        '</div><h1 class="title">Regioni Italiane </h1>'+
+        '<section id="Lista delle Regioni Italiane">'+
         '<center><table id="list">'+
         '<tr id="header">'+
-        '<th>Name</th>'+
-        '<th>Population</th>'+
-        '<th>Size</th>'+
-        '<th>Density</th>'+
-        '<th>Provinces</th>'+
-        '<th>Towns</th>'+
-        '<th>Capital</th>'+
+        '<th>Nome</th>'+
+        '<th>Popolazione</th>'+
+        '<th>Superficie</th>'+
+        '<th>Densità</th>'+
+        '<th>Province</th>'+
+        '<th>Comuni</th>'+
+        '<th>Capoluogo</th>'+
         '</tr>'+
         '</table>'+
         '<p id="info"></p></center>'+
@@ -105,11 +105,11 @@ fetch('http://expiter.com/dataset.json', {method:"Get"})
         
         $("#list").html(list);
         
-        let info="There are 20 regions in Italy. The region of <b>Lombardia</b> is the largest by population with a total of 9.965.046 inhabitants, whereas "+
-        "<b>Sicily</b> is the largest by size with a territory of 25.832,55	km²."+
-        "</br></br>Located in <b>Lombardia</b> are the majority of Italian towns and provinces, with a total of 1506 municipalities."+
-        "</br></br>The smallest and least populated region is <b>Aosta Valley</b> with an area of 3.260,85km², 74 towns and a population of 123.337."+
-        "</br></br>The Capital of Italy, <b><a href='https://expiter.com/province/roma/'>Rome</a></b>, is located in the <b>Lazio</b> region."
+        let info="Ci sono 20 regioni in Italia. La <b>Lombardia</b> è la regione più grande per popolazione con un totale di 9.965.046 abitanti, mentre la "+
+        "<b>Sicilia</b> è la più grande per estensione con una superficie di 25.832,55 km²."+
+        "</br></br>La regione col maggior numero di centri abitati è la <b>Lombardia</b>, con 1506 comuni."+
+        "</br></br>La regione più piccola e meno popolata è la <b>Valle d'Aosta</b> con un territorio di soli 3.260,85km² di superficie, 74 comuni e una popolazione di 123.337 abitanti."+
+        "</br></br>La capitale d'Italia, <b><a href='https://expiter.com/province/roma/'>Roma</a></b>, si trova nella regione del <b>Lazio</b>."
        
         $("#info").html(info)
 
