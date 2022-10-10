@@ -4,7 +4,9 @@ import fetch from 'node-fetch';
 import { createRequire } from 'module';
 import { parse } from 'path';
 const require = createRequire(import.meta.url);
-const jsdom = require('jsdom')
+const jsdom = require('jsdom');
+require('events').EventEmitter.prototype._maxListeners = 70;
+require('events').defaultMaxListeners = 70;
 
 let urls = {
     "Milano": {
@@ -45,7 +47,7 @@ let urls = {
     },
     "Bologna":{
         "Name":"Bologna","Region":"Emilia-Romagna","Url":
-        "https://web.archive.org/web/2/http://www.tuttitalia.it/emilia-romagna/provincia-di-bologna/60-comuni/popolazione/"
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/emilia-romagna/provincia-di-bologna/60-comuni/popolazione/"
     },
     "Rimini":{
         "Name":"Rimini","Region":"Emilia-Romagna","Url":
@@ -179,12 +181,122 @@ let urls = {
         "Name":"Campobasso","Region":"Molise","Url":
         "https://web.archive.org/web/2/https://www.tuttitalia.it/molise/provincia-di-campobasso/77-comuni/popolazione/"
     }
+    ,
+    "Arezzo":{
+        "Name":"Arezzo","Region":"Toscana","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/toscana/provincia-di-arezzo/41-comuni/popolazione/"
+    },
+    "Massa-Carrara":{
+        "Name":"Massa-Carrara","Region":"Toscana","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/toscana/provincia-di-massa-carrara/67-comuni/popolazione/"
+    },
+    "Venezia":{
+        "Name":"Venezia","Region":"Veneto","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/veneto/provincia-di-venezia/91-comuni/popolazione/"
+    },
+    "Padova":{
+        "Name":"Padova","Region":"Veneto","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/veneto/provincia-di-padova/28-comuni/popolazione/"
+    },
+    "Vicenza":{
+        "Name":"Vicenza","Region":"Veneto","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/veneto/provincia-di-vicenza/28-comuni/popolazione/"
+    },
+    "Treviso":{
+        "Name":"Treviso","Region":"Veneto","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/veneto/provincia-di-treviso/89-comuni/popolazione/"
+    },
+    "Verona":{
+        "Name":"Verona","Region":"Veneto","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/veneto/provincia-di-verona/70-comuni/popolazione/"
+    },
+    "Udine":{
+        "Name":"Udine","Region":"Friuli-Venezia Giulia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/friuli-venezia-giulia/provincia-di-udine/78-comuni/popolazione/"
+    },
+    "Rovigo":{
+        "Name":"Rovigo","Region":"Veneto","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/veneto/provincia-di-rovigo/50-comuni/popolazione/"
+    },
+    "Pordenone":{
+        "Name":"Pordenone","Region":"Friuli-Venezia Giulia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/friuli-venezia-giulia/provincia-di-pordenone/92-comuni/popolazione/"
+    },
+    "Verbano-Cusio-Ossola":{
+        "Name":"Verbano-Cusio-Ossola","Region":"Piemonte","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/piemonte/provincia-del-verbano-cusio-ossola/30-comuni/popolazione/"
+    },
+    "Bolzano":{
+        "Name":"Bolzano","Region":"Trentino-Alto Adige","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/trentino-alto-adige/provincia-autonoma-di-bolzano/87-comuni/popolazione/"
+    },
+    "Asti":{
+        "Name":"Asti","Region":"Piemonte","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/piemonte/provincia-di-asti/89-comuni/popolazione/"
+    },
+    "Cuneo":{
+        "Name":"Cuneo","Region":"Piemonte","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/piemonte/provincia-di-cuneo/39-comuni/popolazione/"
+    },
+    "Lecco":{
+        "Name":"Lecco","Region":"Lombardia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lombardia/provincia-di-lecco/18-comuni/popolazione/"
+    },
+    "Mantova":{
+        "Name":"Mantova","Region":"Lombardia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lombardia/provincia-di-mantova/50-comuni/popolazione/"
+    },
+    "Pavia":{
+        "Name":"Pavia","Region":"Lombardia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lombardia/provincia-di-pavia/38-comuni/popolazione/"
+    },
+    "Sondrio":{
+        "Name":"Sondrio","Region":"Lombardia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lombardia/provincia-di-sondrio/74-comuni/popolazione/"
+    },
+    "Alessandria":{
+        "Name":"Alessandria","Region":"Piemonte","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/piemonte/provincia-di-alessandria/98-comuni/popolazione/"
+    },
+    "Fermo":{
+        "Name":"Fermo","Region":"Mache","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/marche/provincia-di-fermo/16-comuni/popolazione/"
+    },
+    "Como":{
+        "Name":"Como","Region":"Lombardia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lombardia/provincia-di-como/71-comuni/popolazione/"
+    },
+    "Monza e Brianza":{
+        "Name":"Monza e Brianza","Region":"Lombardia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lombardia/provincia-di-monza-della-brianza/65-comuni/popolazione/"
+    },
+    "Cremona":{
+        "Name":"Cremona","Region":"Lombardia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lombardia/provincia-di-cremona/90-comuni/popolazione/"
+    },
+    "Novara":{
+        "Name":"Novara","Region":"Piemonte","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/piemonte/provincia-di-novara/96-comuni/popolazione/"
+    },
+    "Vercelli":{
+        "Name":"Vercelli","Region":"Piemonte","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/piemonte/provincia-di-vercelli/75-comuni/popolazione/"
+    },
+    "Imperia":{
+        "Name":"Imperia","Region":"Liguria","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/liguria/provincia-di-imperia/62-comuni/popolazione/"
+    },
+    "La Spezia":{
+        "Name":"La Spezia","Region":"Liguria","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/liguria/provincia-della-spezia/86-comuni/popolazione/"
+    }
       
 }
 
 createServer(function (req, res) {
     res.writeHead(200, { 'Content-Type': 'text/html' });
 }).listen(8080);
+
 
 
 const fs = require("fs");
