@@ -116,7 +116,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         const $ = require('jquery')(dom.window)
 
         
-        $("h1").text(comune.Name+", Italy")
+        $("h1").text(comune.Name+", "+province.Region+", Italy")
         
         if (dataset[i].Comuni!=undefined){
         let list=$("#list").html();
@@ -130,6 +130,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
        
         var info=getInfo(province)
         
+        $("#info").append(info.disclaimer)
+        $("#info").append("<h2>Map of "+comune.Name+"</h2>")
+        $("#info").append(info.map)
         $("#info").append(info.related)
         setNavBar($)
         }
@@ -207,11 +210,26 @@ function populateData(data){
    
  }
 
-function getInfo(province){
-    let name=province.Name;
-    let region=regions[province.Region];
-    
-    let info = {}
+
+ function getInfo(comune,province){
+  let name=comune.Name;
+  let region=regions[province.Region];
+  
+  let info = {}
+  
+  info.disclaimer='</br></br><center><span id="disclaimer">This page contains affiliate links. As part of the Amazon Associates and Viator Partner programmes, we may earn a commission on qualified purchases.</span></center>'
+
+  info.map='</br><center class="map"><iframe id="ggmap" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q='+comune.Name+'+Province+Of+'+province.Name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
+  'Search for: '+
+  
+  '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.com\/maps?f=q&source=s_q&hl=en&geocode=&q='+comune.Name+'+Province+Of+'+province.Name+'+Attractions&output=embed")\' target="_blank"><b><ej>🎭</ej>Attractions</b></a> '+
+  '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.com\/maps?f=q&source=s_q&hl=en&geocode=&q='+comune.Name+'+Province+Of+'+province.Name+'+Museums&output=embed")\' target="_blank"><b><ej>🏺</ej>Museums</b></a> '+
+  '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.com\/maps?f=q&source=s_q&hl=en&geocode=&q='+comune.Name+'+Province+Of+'+province.Name+'+Restaurants&output=embed")\' target="_blank"><b><ej>🍕</ej>Restaurants</b></a> '+
+  '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.com\/maps?f=q&source=s_q&hl=en&geocode=&q='+comune.Name+'+Province+Of+'+province.Name+'+Bars&output=embed")\' target="_blank"><b><ej>🍺</ej>Bars</b></a> '+
+  '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.com\/maps?f=q&source=s_q&hl=en&geocode=&q='+comune.Name+'+Province+Of+'+province.Name+'+Beaches&output=embed")\' target="_blank"><b><ej>🏖️</ej>Beaches</b></a> '+
+  '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.com\/maps?f=q&source=s_q&hl=en&geocode=&q='+comune.Name+'+Province+Of+'+province.Name+'+Hikinge&output=embed")\' target="_blank"><b><ej>⛰️</ej>Hikes</b></a> '+
+  '<a href="https://www.amazon.it/ulp/view?&linkCode=ll2&tag=expiter-21&linkId=5824e12643c8300394b6ebdd10b7ba3c&language=it_IT&ref_=as_li_ss_tl" target="_blank"><b><ej>📦</ej>Amazon Pickup Locations</b></a> '+
+  '</center>'
 
 
   let target, related1, related2, related3, related4;
@@ -290,3 +308,4 @@ function parseGoogleMaps(comune){
 function handle(comune){
   return comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()
 }
+
