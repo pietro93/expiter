@@ -250,7 +250,7 @@ function generateSiteMap(dataset){
           urlPath = "https://expiter.com/"+urlPath+"/"
           comuniSiteMap+='<url>'+
           '<loc>'+urlPath+'</loc>'+
-          '<url>'+'\n'
+          '</url>'+'\n'
         }
   comuniSiteMap+='</urlset>'
   fs.writeFile("sitemap/comuni-sitemap.xml", comuniSiteMap, function (err, file) {
