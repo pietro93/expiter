@@ -47,7 +47,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<head><meta charset="utf-8">'+
             '<link rel="canonical" href="https://expiter.com/'+dirName+'/"/>'+
             '<link rel="alternate" hreflang="en" href="https://expiter.com/'+dirName+'/" />'+
-            '<link rel="alternate" hreflang="it" href="https://expiter.com/it/comune/provincia-di-'++province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/" />'+
+            '<link rel="alternate" hreflang="it" href="https://expiter.com/it/comune/provincia-di-'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/" />'+
             '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
             '<script type="text/javascript" src="https://expiter.com/jquery3.6.0.js" defer></script>'+
             '<script type="text/json" src="https://expiter.com/dataset.json"></script>'+
@@ -102,12 +102,15 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let list=$("#list").html();
 
         for (let c in dataset[i].Comuni){
+            let comune = dataset[i]["Comuni"][c];
             nComuni++;
             list+="<tr>"+
-            '<th><h2>'+dataset[i]["Comuni"][c]["Name"]+'</h2></th>'+
-            '<th>'+dataset[i]["Comuni"][c]["Population"]+'</th>'+
-            '<th>'+dataset[i]["Comuni"][c]["Density"]+'</th>'+
-            '<th>'+dataset[i]["Comuni"][c]["Altitude"]+'</th>'+
+            '<th><h2>'+'<a href="https://expiter.com/comuni/'+handle(province)+'/'+handle(comune)+'/">'+
+            comune["Name"]+
+            '</a></h2></th>'+
+            '<th>'+comune["Population"]+'</th>'+
+            '<th>'+comune["Density"]+'</th>'+
+            '<th>'+comune["Altitude"]+'</th>'+
             "</tr>"
         }
         
@@ -116,8 +119,12 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         for (var firstComune in dataset[i].Comuni) break;
         $("#info").html(
-        "There are <b>"+nComuni+" municipalities</b> within the province of "+province.Name+" in "+province.Region+". </br>"+
-        "<b>"+dataset[i]["Comuni"][firstComune]["Name"]+"</b> is the largest city by population with a total of "+dataset[i]["Comuni"][firstComune]["Population"]+" inhabitants.")
+        "There are <b>"+nComuni+" municipalities</b> within the province of "+
+        '<a href="https://expiter.com/it/province/'+handle(province)+'/">'+province.Name+'</a>'+
+        " in "+province.Region+". </br>"+
+        "<b>"+'<a href="https://expiter.com/comuni/'+handle(province)+'/'+handle(dataset[i]["Comuni"][firstComune])+'/">'+
+        dataset[i]["Comuni"][firstComune]["Name"]+
+        "</a></b> is the largest city by population with a total of "+dataset[i]["Comuni"][firstComune]["Population"]+" inhabitants.")
        
         var info=getInfo(province)
         
@@ -259,3 +266,6 @@ function generateSiteMap(dataset){
 });
 }
 
+function handle(comune){
+  return comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()
+}

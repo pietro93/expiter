@@ -103,8 +103,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         for (let c in dataset[i].Comuni){
             nComuni++;
+            let comune = dataset[i]["Comuni"][c];
             list+="<tr>"+
-            '<th><h2>'+dataset[i]["Comuni"][c]["Name"]+'</h2></th>'+
+            '<th><h2>'+'<a href="https://expiter.com/it/comuni/'+handle(province)+'/'+handle(comune)+'/">'+
+            dataset[i]["Comuni"][c]["Name"]+'</a></h2></th>'+
             '<th>'+dataset[i]["Comuni"][c]["Population"]+'</th>'+
             '<th>'+dataset[i]["Comuni"][c]["Density"]+'</th>'+
             '<th>'+dataset[i]["Comuni"][c]["Altitude"]+'</th>'+
@@ -116,8 +118,12 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         for (var firstComune in dataset[i].Comuni) break;
         $("#info").html(
-        "Ci sono <b>"+nComuni+" comuni</b> nella provincia di "+province.Name+" in "+province.Region+". </br>"+
-        "<b>"+dataset[i]["Comuni"][firstComune]["Name"]+"</b> è la maggiore città per popolazione con un totale di "+dataset[i]["Comuni"][firstComune]["Population"]+" abitanti.")
+        "Ci sono <b>"+nComuni+" comuni</b> nella provincia di "+
+        '<a href="https://expiter.com/it/province/'+handle(province)+'/">'+province.Name+'</a>'+
+        " in "+province.Region+". </br>"+
+        "<b>"+'<a href="https://expiter.com/it/comuni/'+handle(province)+'/'+handle(dataset[i]["Comuni"][firstComune])+'/">'+
+        dataset[i]["Comuni"][firstComune]["Name"]+
+        "</a></b> è la maggiore città per popolazione con un totale di "+dataset[i]["Comuni"][firstComune]["Population"]+" abitanti.")
        
         var info=getInfo(province)
         console.log(info.related)
@@ -259,4 +265,6 @@ function generateSiteMap(dataset){
       });
       }
       
-      
+      function handle(comuneorprovince){
+        return comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()
+      }
