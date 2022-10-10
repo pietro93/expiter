@@ -95,7 +95,7 @@ let urls = {
     },
     "Varese":{
         "Name":"Varese","Region":"Lombardia","Url":
-        "https://web.archive.org/web/2/https://www.tuttitalia.it/lombardia/provincia-di-varese/14-comuni/popolazione/"
+        "https://www.tuttitalia.it/lombardia/provincia-di-varese/14-comuni/popolazione/"
     },
     "Salerno":{
         "Name":"Salerno","Region":"Campania","Url":
@@ -157,8 +157,8 @@ let urls = {
         "https://web.archive.org/web/2/https://www.tuttitalia.it/puglia/provincia-di-barletta-andria-trani/58-comuni/popolazione/"
     }
     ,
-    "Ascoli-Piceno":{
-        "Name":"Ascoli-Piceno","Region":"Marche","Url":
+    "Ascoli Piceno":{
+        "Name":"Ascoli Piceno","Region":"Marche","Url":
         "https://web.archive.org/web/2/https://www.tuttitalia.it/marche/provincia-di-ascoli-piceno/25-comuni/popolazione/"
     }
     ,
@@ -429,6 +429,30 @@ let urls = {
     "Oristano":{
         "Name":"Oristano","Region":"Sardegna","Url":
         "https://web.archive.org/web/2/https://www.tuttitalia.it/sardegna/provincia-di-oristano/80-comuni/popolazione/"
+    },
+    "Gorizia":{
+        "Name":"Gorizia","Region":"Friuli-Venezia Giulia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/friuli-venezia-giulia/provincia-di-gorizia/70-comuni/popolazione/"
+    },
+    "Pescara":{
+        "Name":"Pescara","Region":"Abruzzo","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/abruzzo/provincia-di-pescara/95-comuni/popolazione/"
+    },
+    "Belluno":{
+        "Name":"Belluno","Region":"Veneto","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/veneto/provincia-di-belluno/67-comuni/popolazione/"
+    },
+    "Chieti":{
+        "Name":"Chieti","Region":"Abruzzo","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/abruzzo/provincia-di-chieti/14-comuni/popolazione/"
+    },
+    "Ragusa":{
+        "Name":"Ragusa","Region":"Sicilia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/sicilia/provincia-di-ragusa/16-comuni/popolazione/"
+    },
+    "Pistoia":{
+        "Name":"Pistoia","Region":"Toscana","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/toscana/provincia-di-pistoia/12-comuni/popolazione/"
     }
      
 }
