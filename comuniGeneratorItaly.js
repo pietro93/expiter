@@ -46,9 +46,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             const dom = new jsdom.JSDOM(
             "<html lang='en'>"+
             '<head><meta charset="utf-8">'+
-            '<link rel="canonical" href="https://expiter.com/'+fileName+'/"/>'+
-            '<link rel="alternate" hreflang="en" href="https://expiter.com/'+fileName+'/" />'+
-            '<link rel="alternate" hreflang="it" href="https://expiter.com/it/'+fileName+'/" />'+
+            '<link rel="canonical" href="https://expiter.com/'+dirName+'/"/>'+
+            '<link rel="alternate" hreflang="en" href="https://expiter.com/comuni/province-of-'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/" />'+
+            '<link rel="alternate" hreflang="it" href="https://expiter.com/it/'+dirName+'/" />'+
             '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
             '<script type="text/javascript" src="https://expiter.com/jquery3.6.0.js" defer></script>'+
             '<script type="text/json" src="https://expiter.com/dataset.json"></script>'+

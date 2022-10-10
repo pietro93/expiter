@@ -20,7 +20,10 @@ var dataset;
 var avg;
 
 
-fetch('https://expiter.com/dataset.json', {method:"Get"})
+fetch('https://expiter.com/dataset.json', {method:"Get",
+    headers: {
+      'Cache-Control': 'no-cache'
+    }})
     .then(function (response) {
         return response.json();
     })
@@ -101,6 +104,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<th>'+dataset[i]["Towns"]+'</th>'+
             '<th>'+dataset[i]["Capital"]+'</th>'+
             "</tr>"
+            console.log("region "+dataset[i].Name+" "+dataset[i].Provinces+" "+dataset[i].Capital)
         }
         
         $("#list").html(list);
