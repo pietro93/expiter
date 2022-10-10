@@ -265,6 +265,6 @@ function generateSiteMap(dataset){
       });
       }
       
-      function handle(comuneorprovince){
+      function handle(comune){
         return comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()
       }

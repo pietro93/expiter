@@ -20,11 +20,12 @@ section table#list #header th{
     font-size:18px;
     background-color:var(--medium-2);
     border-bottom:none;
-    color:var(--invert-color);
     cursor:auto;
+
 }
 section table#list #header{
-    opacity:1
+    opacity:1;
+    color:var(--invert-color);
 }
 section table#list tr th{
     font-size:16px;
