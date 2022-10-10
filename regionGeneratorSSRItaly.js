@@ -31,8 +31,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         //generateSiteMap(dataset);
        
             
-            var dirName = 'region/';
-            var fileName = 'regions-of-italy.html';
+            var dirName = 'it/regioni/';
+            var fileName = 'regioni-italiane.html';
             
             const dom = new jsdom.JSDOM(
             "<html lang='en'>"+
