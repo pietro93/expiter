@@ -28,6 +28,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         //console.log(dom.window.document.querySelector("body").textContent)
         dataset=data;  
         populateData(data);
+        generateSiteMap(dataset);
         for (let i = 0; i < 107; i++){
             let province = dataset[i];
        
@@ -150,10 +151,10 @@ function setNavBar($){
         '<span class="line line3"></span>'+
     '</div>'+
     '<ul class="menu-items">'+
-        '<li><a href="/">Home</a></li>'+
-        '<li><a href="/resources/">Resources</a></li>'+
-        '<li><a href="/tools/codice-fiscale-generator/">Tools</a></li>'+
-        '<li><a href="/app/#About">About</a></li>'+
+        '<li><a href="https://expiter.com">Home</a></li>'+
+        '<li><a href="https://expiter.com/resources/">Resources</a></li>'+
+        '<li><a href="https://expiter.com/tools/codice-fiscale-generator/">Tools</a></li>'+
+        '<li><a href="https://expiter.com/app/#About">About</a></li>'+
         '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
         '</ul>'+
         '  <label class="switch" id="switch">'+
@@ -239,3 +240,22 @@ function getInfo(province){
        
         return info;
       }
+
+function generateSiteMap(dataset){
+  let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
+        for (let i = 0; i < 107; i++){
+          let province = dataset[i];
+          let urlPath = 'comuni/province-of-'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+          urlPath = "https://expiter.com/"+urlPath+"/"
+          comuniSiteMap+='<url>'+
+          '<loc>'+urlPath+'</loc>'+
+          '<url>'+'\n'
+        }
+  comuniSiteMap+='</urlset>'
+  fs.writeFile("sitemap/comuni-sitemap.xml", comuniSiteMap, function (err, file) {
+    if (err) throw err;
+    console.log("comuni-sitemap.xml"+' Saved!');
+});
+}
+
