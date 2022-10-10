@@ -1148,15 +1148,15 @@ section>div.column{
   float:left;
 }
 
-#tab-1:checked ~ .tab-content > #tab-item-1,#tab-1:checked ~ .tab-content > #tab-item-1 > .column {
+#tab-1:checked ~ .tab-content > #Quality-of-Life,#tab-1:checked ~ .tab-content > #Quality-of-Life > .column {
 	display: block;
 }
 
-#tab-2:checked ~ .tab-content , #tab-2:checked ~ .tab-content > #tab-item-2 > .column {
+#tab-2:checked ~ .tab-content , #tab-2:checked ~ .tab-content > #Cost-of-Living > .column {
 	display: block;
 }
 
-#tab-3:checked ~ .tab-content, #tab-3:checked ~ .tab-content > #tab-item-3 > .column  {
+#tab-3:checked ~ .tab-content, #tab-3:checked ~ .tab-content > #Digital-Nomads > .column  {
 	display: block;
 }
 

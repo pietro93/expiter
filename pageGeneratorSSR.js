@@ -83,7 +83,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 			'<div class="line ease"></div>'+
 			'<!-- tab-content -->'+
 			'<div class="tab-content">'+
-				'<section id="tab-item-1" class="columns is-mobile is-multiline">'+
+				'<section id="Quality-of-Life" class="columns is-mobile is-multiline">'+
                     '<div class="column">'+                    
                '<!--script.js adds content here-->'+
                     '</div>'+
@@ -91,14 +91,14 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
               '<!--script.js adds content here-->'+
                 '</div>'+
 				'</section>'+
-				'<section id="tab-item-2" class="columns is-mobile is-multiline">'+
+				'<section id="Cost-of-Living" class="columns is-mobile is-multiline">'+
 				    '<div class="column">'+
                         '<!--script.js adds content here-->'+
                              '</div>'+
                          '<div class="column" >'+
                          '</div>'+
 				'</section>'+
-				'<section id="tab-item-3" class="columns is-mobile is-multiline">'+
+				'<section id="Digital-Nomads" class="columns is-mobile is-multiline">'+
 				    '<div class="column">'+
                              '</div>'+
                          '<div class="column" >'+
@@ -397,9 +397,9 @@ function populateData(data){
 
   function appendProvinceData(province, $){
   
-    let tab1=$("#tab-item-1 > .column");
-    let tab2=$("#tab-item-2 > .column"); 
-    let tab3=$("#tab-item-3 > .column"); 
+    let tab1=$("#Quality-of-Life > .column");
+    let tab2=$("#Cost-of-Living > .column"); 
+    let tab3=$("#Digital-Nomads > .column"); 
     tab1[0].innerHTML+=('<p><ej>👥</ej>Population: <b>'+province.Population.toLocaleString('en', {useGrouping:true}) +'</b>');
     tab1[0].innerHTML+=('<p><ej>🚑</ej>Healthcare: '+ qualityScore("Healthcare",province.Healthcare));
     tab1[0].innerHTML+=('<p><ej>📚</ej>Education: '+ qualityScore("Education",province.Education));
