@@ -35,8 +35,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             let parsedData = fs.readFileSync('temp/'+province.Name+'-comuni.json','utf8');
             let dic=JSON.parse(parsedData);
             dataset[i]["Comuni"]=dic
-        
             }
+            else console.log("Missing comuni: "+province.Name)
 
             var dirName = 'comuni/province-of-'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             var fileName = '.html';
@@ -109,9 +109,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<th>'+dataset[i]["Comuni"][c]["Altitude"]+'</th>'+
             "</tr>"
         }
-        console.log(province.Name+">>>>>>>>>>>>>>>>>>>>>>>>>>>>"+list)
+        
         $("#list").html(list);
-        console.log($("#list").html());
+        
 
         for (var firstComune in dataset[i].Comuni) break;
         $("#info").html(
@@ -119,7 +119,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         "<b>"+dataset[i]["Comuni"][firstComune]["Name"]+"</b> is the largest city by population with a total of "+dataset[i]["Comuni"][firstComune]["Population"]+" inhabitants.")
        
         var info=getInfo(province)
-        console.log(info.related)
+        
         $("#info").append(info.related)
         setNavBar($)
         }

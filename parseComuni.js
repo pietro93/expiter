@@ -5,8 +5,8 @@ import { createRequire } from 'module';
 import { parse } from 'path';
 const require = createRequire(import.meta.url);
 const jsdom = require('jsdom');
-require('events').EventEmitter.prototype._maxListeners = 70;
-require('events').defaultMaxListeners = 70;
+require('events').EventEmitter.prototype._maxListeners = 107;
+require('events').defaultMaxListeners = 107;
 
 let urls = {
     "Milano": {
@@ -293,8 +293,144 @@ let urls = {
     "Biella":{
         "Name":"Biella","Region":"Piemonte","Url":
         "https://web.archive.org/web/2/https://www.tuttitalia.it/piemonte/provincia-di-biella/29-comuni/popolazione/"
+    },
+    "Lodi":{
+        "Name":"Lodi","Region":"Lombardia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lombardia/provincia-di-lodi/30-comuni/popolazione/"
+    },
+    "Ravenna":{
+        "Name":"Ravenna","Region":"Emilia-Romagna","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/emilia-romagna/provincia-di-ravenna/74-comuni/popolazione/"
+    },
+    "Parma":{
+        "Name":"Parma","Region":"Emilia-Romagna","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/emilia-romagna/provincia-di-parma/44-comuni/popolazione/"
+    },
+    "Ferrara":{
+        "Name":"Ferrara","Region":"Emilia-Romagna","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/emilia-romagna/provincia-di-ferrara/12-comuni/popolazione/"
+    },
+    "Reggio Emilia":{
+        "Name":"Reggio Emilia","Region":"Emilia-Romagna","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/emilia-romagna/provincia-di-reggio-emilia/28-comuni/popolazione/"
+    },
+    "Modena":{
+        "Name":"Modena","Region":"Emilia-Romagna","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/emilia-romagna/provincia-di-modena/70-comuni/"
+    },
+    "Forlì-Cesena":{
+        "Name":"Forlì-Cesena","Region":"Emilia-Romagna","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/emilia-romagna/provincia-di-forli-cesena/87-comuni/popolazione/"
+    },
+    "Piacenza":{
+        "Name":"Piacenza","Region":"Emilia-Romagna","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/emilia-romagna/provincia-di-piacenza/97-comuni/popolazione/"
+    },
+    "Savona":{
+        "Name":"Savona","Region":"Liguria","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/liguria/provincia-di-savona/27-comuni/popolazione/"
+    },
+    "Terni":{
+        "Name":"Terni","Region":"Umbria","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/umbria/provincia-di-terni/28-comuni/popolazione/"
+    },
+    "Teramo":{
+        "Name":"Teramo","Region":"Abruzzo","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/abruzzo/provincia-di-teramo/75-comuni/popolazione/"
+    },
+    "Latina":{
+        "Name":"Latina","Region":"Lazio","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lazio/provincia-di-latina/31-comuni/popolazione/"
+    },
+    "Frosinone":{
+        "Name":"Frosinone","Region":"Lazio","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lazio/provincia-di-frosinone/70-comuni/"
+    },
+    "Rieti":{
+        "Name":"Rieti","Region":"Lazio","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lazio/provincia-di-rieti/83-comuni/popolazione/"
+    },
+    "Viterbo":{
+        "Name":"Viterbo","Region":"Lazio","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lazio/provincia-di-viterbo/19-comuni/popolazione/"
+    },
+    "Caserta":{
+        "Name":"Caserta","Region":"Campania","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/campania/provincia-di-caserta/88-comuni/popolazione/"
+    },
+    "Matera":{
+        "Name":"Matera","Region":"Basilicata","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/basilicata/provincia-di-matera/64-comuni/popolazione/"
+    },
+    "Potenza":{
+        "Name":"Potenza","Region":"Basilicata","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/basilicata/provincia-di-potenza/91-comuni/popolazione/"
+    },
+    "Brindisi":{
+        "Name":"Brindisi","Region":"Puglia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/puglia/provincia-di-brindisi/78-comuni/popolazione/"
+    },
+    "Lecce":{
+        "Name":"Lecce","Region":"Puglia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/puglia/provincia-di-lecce/54-comuni/popolazione/"
+    },
+    "Foggia":{
+        "Name":"Foggia","Region":"Puglia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/puglia/provincia-di-foggia/87-comuni/popolazione/"
+    },
+    "Taranto":{
+        "Name":"Taranto","Region":"Puglia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/puglia/provincia-di-taranto/80-comuni/popolazione/"
+    },
+    "Vibo Valentia":{
+        "Name":"Vibo Valentia","Region":"Calabria","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/calabria/provincia-di-vibo-valentia/91-comuni/popolazione/"
+    },
+    "Crotone":{
+        "Name":"Crotone","Region":"Calabria","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/calabria/provincia-di-crotone/57-comuni/popolazione/"
+    },
+    "Messina":{
+        "Name":"Messina","Region":"Sicilia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/sicilia/provincia-di-messina/33-comuni/popolazione/"
+    },
+    "Caltanissetta":{
+        "Name":"Caltanissetta","Region":"Sicilia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/sicilia/provincia-di-caltanissetta/44-comuni/popolazione/"
+    },
+    "Agrigento":{
+        "Name":"Agrigento","Region":"Sicilia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/sicilia/provincia-di-agrigento/48-comuni/popolazione/"
+    },
+    "Siracusa":{
+        "Name":"Siracusa","Region":"Sicilia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/sicilia/provincia-di-siracusa/56-comuni/popolazione/"
+    },
+    "Trapani":{
+        "Name":"Trapani","Region":"Sicilia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/sicilia/provincia-di-trapani/54-comuni/popolazione/"
+    },
+    "Enna":{
+        "Name":"Enna","Region":"Sicilia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/sicilia/provincia-di-enna/80-comuni/popolazione/"
+    },
+    "Sassari":{
+        "Name":"Sassari","Region":"Sardegna","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/sardegna/provincia-di-sassari/96-comuni/popolazione/"
+    },
+    "Sud Sardegna":{
+        "Name":"Sud Sardegna","Region":"Sardegna","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/sardegna/provincia-del-sud-sardegna/39-comuni/popolazione/"
+    },
+    "Nuoro":{
+        "Name":"Nuoro","Region":"Sardegna","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/sardegna/provincia-di-nuoro/21-comuni/popolazione/"
+    },
+    "Oristano":{
+        "Name":"Oristano","Region":"Sardegna","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/sardegna/provincia-di-oristano/80-comuni/popolazione/"
     }
-      
+     
 }
 
 createServer(function (req, res) {
