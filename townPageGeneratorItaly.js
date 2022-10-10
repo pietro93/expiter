@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 88; i < 107; i++){
+        for (let i = 0; i < 20; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -134,7 +134,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#info").append(info.disclaimer)
         $("#info").append("<h2>Mappa di "+comune.Name+"</h2>")
         $("#info").append(info.map)
-        $("#info").append("<h2>"+province.Name+" Quality of Life</h2>")
+        $("#info").append("<h2>Provincia di "+province.Name+"</h2>")
         $("#tabs").append(info.tabs)
         $("#related").append(info.related)
         appendProvinceData(province,$)
