@@ -49,9 +49,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             
             let comune=comuni[c];
             var dirName = 'comuni/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/';
-            var fileName = comune.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+            var fileName = comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             
-            let urlPath = 'comuni/'+comune.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+            let urlPath = 'comuni/'+dirName+fileName;
           urlPath = "https://expiter.com/"+urlPath+"/"
           comuniSiteMap+='<url>'+
           '<loc>'+urlPath+'</loc>'+
