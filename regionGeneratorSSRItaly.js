@@ -109,7 +109,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         "<b>Sicilia</b> è la più grande per estensione con una superficie di 25.832,55 km²."+
         "</br></br>La regione col maggior numero di centri abitati è la <b>Lombardia</b>, con 1506 comuni."+
         "</br></br>La regione più piccola e meno popolata è la <b>Valle d'Aosta</b> con un territorio di soli 3.260,85km² di superficie, 74 comuni e una popolazione di 123.337 abitanti."+
-        "</br></br>La capitale d'Italia, <b><a href='https://expiter.com/province/roma/'>Roma</a></b>, si trova nella regione del <b>Lazio</b>."
+        "</br></br>La capitale d'Italia, <b><a href='https://expiter.com/it/province/roma/'>Roma</a></b>, si trova nella regione del <b>Lazio</b>."
        
         $("#info").html(info)
 
