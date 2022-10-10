@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 0; i < 33; i++){
+        for (let i = 88; i < 107; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -75,8 +75,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/style.css">'+
             '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css">'+
             
-            '<meta name="description" content="Informazioni sul comune di '+comune.Name+', in provincia di '+province.Name+'." />'+
-	        '<meta name="keywords" content="'+comune.Name+' '+province.Region+', '+comune.Name+' '+province.Name+','+comune.Name+' popolazione,'+comune.Name+' info" />'+
+            '<meta name="description" content="Informazioni sul comune di '+comune.Name+', in provincia di '+province.Name+'. Popolazione, qualità della vita, movida, turismo ecc." />'+
+	        '<meta name="keywords" content="'+comune.Name+' '+province.Region+', '+comune.Name+' '+province.Name+','+comune.Name+' popolazione,'+comune.Name+' info, '+comune.Name+' movida, '+comune.Name+' vita" />'+
             "<title>"+comune.Name+" - Informazioni comune in provincia di "+province.Name+","+province.Region+"</title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
             "</head>"+
@@ -107,6 +107,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '</tr>'+
         '</table>'+
         '<p id="info"></p></center>'+
+        '<p id="tabs"></p>'+
+        '</center><p id="related"></p></center>'+
         '</section>'+
         '</body></html>'
         )
@@ -132,7 +134,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#info").append(info.disclaimer)
         $("#info").append("<h2>Mappa di "+comune.Name+"</h2>")
         $("#info").append(info.map)
-        $("#info").append(info.related)
+        $("#info").append("<h2>"+province.Name+" Quality of Life</h2>")
+        $("#tabs").append(info.tabs)
+        $("#related").append(info.related)
+        appendProvinceData(province,$)
         setNavBar($)
         }
         
@@ -269,13 +274,165 @@ function getInfo(comune,province){
         facts[related2].snippet+
         facts[related3].snippet+
         facts[related4].snippet+'</row>'
+
+        info.tabs='<div class="tabs effect-3">'+
+        '<input type="radio" id="tab-1" name="tab-effect-3" checked="checked">'+
+        '<span>Qualità della Vita</span>'+
+        '<input type="radio" id="tab-2" name="tab-effect-3">'+
+        '<span>Costo della Vita</span>'+
+        '<input type="radio" id="tab-3" name="tab-effect-3">'+
+        '<span>Digital Nomad</span>'+
+        '<input type="radio" id="tab-4" name="tab-effect-3" disabled>'+
+        '<span></span>'+
+        '<input type="radio" id="tab-5" name="tab-effect-3" disabled>'+
+        '<span></span>'+
+        '<div class="line ease"></div>'+
+        '<!-- tab-content -->'+
+        '<div class="tab-content">'+
+          '<section id="Quality-of-Life" class="columns is-mobile is-multiline">'+
+                      '<div class="column">'+                    
+                 '<!--script.js adds content here-->'+
+                      '</div>'+
+                  '<div class="column" >'+
+                '<!--script.js adds content here-->'+
+                  '</div>'+
+          '</section>'+
+          '<section id="Cost-of-Living" class="columns is-mobile is-multiline">'+
+              '<div class="column">'+
+                          '<!--script.js adds content here-->'+
+                               '</div>'+
+                           '<div class="column" >'+
+                           '</div>'+
+          '</section>'+
+          '<section id="Digital-Nomads" class="columns is-mobile is-multiline">'+
+              '<div class="column">'+
+                               '</div>'+
+                           '<div class="column" >'+
+                           '</div>'+
+          '</section>'+
+        '</div>'+
+      '</div></div>'
        
         return info;
       }
 
-
-
-      
-      function handle(comune){
+function handle(comune){
         return comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()
+   }
+
+function appendProvinceData(province, $){
+  
+    let tab1=$("#Quality-of-Life > .column");
+    let tab2=$("#Cost-of-Living > .column"); 
+    let tab3=$("#Digital-Nomads > .column"); 
+    tab1[0].innerHTML+=('<p><ej>👥</ej>Popolazione: <b>'+province.Population.toLocaleString('en', {useGrouping:true}) +'</b>');
+    tab1[0].innerHTML+=('<p><ej>🚑</ej>Sanità: '+ qualityScore("Healthcare",province.Healthcare));
+    tab1[0].innerHTML+=('<p><ej>📚</ej>Istruzione: '+ qualityScore("Education",province.Istruzione));
+    tab1[0].innerHTML+=('<p><ej>👮🏽‍♀️</ej>Sicurezza: '+ qualityScore("Safety",province.Safety));
+    tab1[0].innerHTML+=('<p><ej>🚨</ej>Criminalità: '+ qualityScore("Crime",province.Crime));
+    
+    tab1[0].innerHTML+=('<p><ej>🚌</ej>Trasporti: '+ qualityScore("PublicTransport",province["PublicTransport"]));
+    tab1[0].innerHTML+=('<p><ej>🚥</ej>Traffico: '+ qualityScore("Traffic",province["Traffic"]));
+    tab1[0].innerHTML+=('<p><ej>🚴‍♂️</ej>Bici: '+ qualityScore('CyclingLanes',province['CyclingLanes']));
+    tab1[0].innerHTML+=('<p><ej>🏛️</ej>Cultura: '+ qualityScore("Culture",province.Culture));
+    tab1[0].innerHTML+=('<p><ej>🍸</ej>Movida: '+ qualityScore("Nightlife",province.Nightlife));
+    tab1[0].innerHTML+=('<p><ej>⚽</ej>Svaghi: '+ qualityScore("Sports & Leisure",province["Sports & Leisure"]));
+
+    tab1[1].innerHTML+=('<p><ej>🌦️</ej>Clima: '+ qualityScore("Climate",province.Climate));
+    tab1[1].innerHTML+=('<p><ej>☀️</ej>Sole: '+ qualityScore("SunshineHours",province.SunshineHours));
+    tab1[1].innerHTML+=('<p><ej>🥵</ej>Estati '+ qualityScore("HotDays",province.HotDays));
+    tab1[1].innerHTML+=('<p><ej>🥶</ej>Inverni: '+ qualityScore("ColdDays",province.ColdDays));
+    tab1[1].innerHTML+=('<p><ej>🌧️</ej>Pioggia: '+ qualityScore("RainyDays",province.RainyDays));
+    tab1[1].innerHTML+=('<p><ej>🌫️</ej>Nebbia: '+ qualityScore("FoggyDays",province.FoggyDays));
+    tab1[1].innerHTML+=('<p><ej>🍃</ej>Qualità dell\'Aria: '+ qualityScore("AirQuality",province["AirQuality"]));
+
+    tab1[1].innerHTML+=('<p><ej>👪</ej>Per famiglie: '+ qualityScore("Family-friendly",province["Family-friendly"]));
+    tab1[1].innerHTML+=('<p><ej>👩</ej>Per donne: '+ qualityScore("Female-friendly",province["Female-friendly"]));
+    tab1[1].innerHTML+=('<p><ej>🏳️‍🌈</ej>LGBTQ+: '+ qualityScore("LGBT-friendly",province["LGBT-friendly"]));
+    tab1[1].innerHTML+=('<p><ej>🥗</ej>Vegan: '+ qualityScore("Veg-friendly",province["Veg-friendly"]));
+    
+
+    tab2[0].innerHTML+=('<p><ej>📈</ej>Costo della Vita: '+ qualityScore("CostOfLiving",province["CostOfLiving"]));
+    tab2[0].innerHTML+=('<p><ej>🧑🏻</ej>Costi (individuo): '+ qualityScore("Cost of Living (Individual)",province["Cost of Living (Individual)"]))
+    tab2[0].innerHTML+=('<p><ej>👩🏽‍🏫</ej>Costi (turista): '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
+    tab2[0].innerHTML+=('<p><ej>🏠</ej>Affitti (monolocale): '+ qualityScore("StudioRental",province["StudioRental"]))
+    tab2[0].innerHTML+=('<p><ej>🏘️</ej>Affitti (bilocale): '+ qualityScore("BilocaleRent",province["BilocaleRent"]))
+    tab2[0].innerHTML+=('<p><ej>🏰</ej>Affitti (trilocale): '+ qualityScore("TrilocaleRent",province["TrilocaleRent"]))
+
+    tab2[1].innerHTML+=('<p><ej>🏙️</ej>Costi abitativi: '+ qualityScore("HousingCost",province["HousingCost"]));
+    tab2[1].innerHTML+=('<p><ej>💵</ej>Stipendi: '+ qualityScore("MonthlyIncome",province["MonthlyIncome"]));
+    tab2[1].innerHTML+=('<p><ej>👪</ej>Costi (famiglia): '+ qualityScore("Cost of Living (Family)",province["Cost of Living (Family)"]))
+    tab2[1].innerHTML+=('<p><ej>🏠</ej>Acquisto (monolocale): '+ qualityScore("StudioSale",province["StudioSale"]))
+    tab2[1].innerHTML+=('<p><ej>🏘️</ej>Acquisto (bilocale): '+ qualityScore("BilocaleSale",province["BilocaleSale"]))
+    tab2[1].innerHTML+=('<p><ej>🏰</ej>Acquisto (trilocale): '+ qualityScore("TrilocaleSale",province["TrilocaleSale"]))
+    
+    tab3[0].innerHTML+=('<p><ej>👩‍💻</ej>Nomad-friendly: '+qualityScore("DN-friendly",province["DN-friendly"]))
+    tab3[0].innerHTML+=('<p><ej>💃</ej>Divertimento: '+qualityScore("Fun",province["Fun"]));
+    tab3[0].innerHTML+=('<p><ej>🤗</ej>Simpatia: '+qualityScore("Friendliness",province["Friendliness"]));
+    tab3[0].innerHTML+=('<p><ej>🤐</ej>Internazionalità: '+qualityScore("English-speakers",province["English-speakers"]));
+    tab3[0].innerHTML+=('<p><ej>😊</ej>Felicità: '+qualityScore("Antidepressants",province["Antidepressants"]));
+    
+    tab3[1].innerHTML+=('<p><ej>💸</ej>Spese per Nomadi: '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
+    tab3[1].innerHTML+=('<p><ej>📡</ej>Connessione Ultra-veloce: '+qualityScore("HighSpeedInternetCoverage",province["HighSpeedInternetCoverage"]));
+    tab3[1].innerHTML+=('<p><ej>📈</ej>Innovazione: '+qualityScore("Innovation",province["Innovation"]));
+    tab3[1].innerHTML+=('<p><ej>🏖️</ej>Spiagge: '+qualityScore("Beach",province["Beach"]));
+    tab3[1].innerHTML+=('<p><ej>⛰️</ej>Escursionismo: '+qualityScore("Hiking",province["Hiking"]));
+  }
+    
+    
+  function qualityScore(quality,score){
+        let expenses=["Cost of Living (Individual)","Cost of Living (Family)","Cost of Living (Nomad)", 
+        "StudioRental", "BilocaleRent", "TrilocaleRent", "MonthlyIncome", 
+        "StudioSale","BilocaleSale","TrilocaleSale"]
+        
+        if (quality=="CostOfLiving"||quality=="HousingCost"){
+          if (score<avg[quality]*.8){return "<score class='excellent short'>molto basso</score>"}
+          else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>basso</score>"}
+          else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>nella media</score>"}
+          else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>alto</score>"}
+          else if (score>=avg[quality]*1.2){return "<score class='poor max'>molto alto</score>"}
+        }
+        else if (expenses.includes(quality)){
+          if (score<avg[quality]*.8){return "<score class='green'>"+score+"€/m</score>"}
+          else if (score>=avg[quality]*0.8&&score<avg[quality]*0.95){return "<score class='green'>"+score+"€/m</score>"}
+          else if (score>=avg[quality]*0.95&&score<avg[quality]*1.05){return "<score class='orange'>"+score+"€/m</score>"}
+          else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='red'>"+score+"€/m</score>"}
+          else if (score>=avg[quality]*1.2){return "<score class='red'>"+score+"€/m</score>"}
+        }
+        else if (quality=="HotDays"||quality=="ColdDays"){ // high score = bad; low score = good
+          if (score<avg[quality]*.8){return "<score class='excellent short'>non "+(quality=="HotDays"?"caldo":"freddo")+"</score>"}
+          else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>non molto "+(quality=="HotDays"?"caldo":"freddo")+"</score>"}
+          else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>un po' "+(quality=="HotDays"?"caldo":"freddo")+"</score>"}
+          else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>"+(quality=="HotDays"?"caldo":"freddo")+"</score>"}
+          else if (score>=avg[quality]*1.2){return "<score class='poor max'>molto "+(quality=="HotDays"?"caldo":"freddo")+"</score>"}
+        }
+        else if (quality=="RainyDays"){ // high score = bad; low score = good
+          if (score<avg[quality]*.8){return "<score class='excellent short'>molto poca</score>"}
+          else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>poca</score>"}
+          else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>nella media</score>"}
+          else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>piovoso</score>"}
+          else if (score>=avg[quality]*1.2){return "<score class='poor max'>molto piovoso</score>"}
+        }
+        else if (quality=="FoggyDays"){ // high score = bad; low score = good
+          if (score<avg[quality]*.265){return "<score class='excellent short'>niente nebbia</score>"}
+          else if (score>=avg[quality]*.265&&score<avg[quality]*.6){return "<score class='great medium'>poca</score>"}
+          else if (score>=avg[quality]*.6&&score<avg[quality]*1.00){return "<score class='good medium'>nella media</score>"}
+          else if (score>=avg[quality]*1.05&&score<avg[quality]*3){return "<score class='average long'>nebbioso</score>"}
+          else if (score>=avg[quality]*3){return "<score class='poor max'>molto nebbioso</score>"}
+        }
+        else if (quality=="Crime"||quality=="Traffic"){ // high score = bad; low score = good
+          if (score<avg[quality]*.8){return "<score class='excellent short'>molto basso</score>"}
+          else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>basso</score>"}
+          else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>nella media</score>"}
+          else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>alto</score>"}
+          else if (score>=avg[quality]*1.2){return "<score class='poor max'>molto alto</score>"}
+        }
+        else{ // high score = good; low score = bad
+          if (score<avg[quality]*.8){return "<score class='poor short'>scarso</score>"}
+          else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='average medium'>okay</score>"}
+          else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>buono</score>"}
+          else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='great long'>molto buono</score>"}
+          else if (score>=avg[quality]*1.2){return "<score class='excellent max'>ottimo</score>"}
+        }
       }
+      

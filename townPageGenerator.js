@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 43; i < 45; i++){
+        for (let i = 0; i < 55; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -107,6 +107,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '</tr>'+
         '</table>'+
         '<p id="info"></p></center>'+
+        '<p id="tabs"></p>'+
+        '</center><p id="related"></p></center>'+
         '</section>'+
         '</body></html>'
         )
@@ -134,8 +136,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#info").append("<h2>Map of "+comune.Name+"</h2>")
         $("#info").append(info.map)
         $("#info").append("<h2>"+province.Name+" Quality of Life</h2>")
-        $("#info").append(info.tabs)
-        $("#info").append(info.related)
+        $("#tabs").append(info.tabs)
+        $("#related").append(info.related)
         appendProvinceData(province,$)
         setNavBar($)
         }
