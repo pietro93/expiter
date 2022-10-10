@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 77; i < 107; i++){
+        for (let i = 0; i < 33; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -148,10 +148,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
     }
 
     comuniSiteMap+='</urlset>'
-  fs.writeFile("sitemap/towns-sitemap-3-it.xml", comuniSiteMap, function (err, file) {
+/*  fs.writeFile("sitemap/towns-sitemap-3-it.xml", comuniSiteMap, function (err, file) {
     if (err) throw err;
     console.log("towns-sitemap"+' Saved!');
-});
+});*/
 })
 
 
