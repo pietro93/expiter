@@ -122,7 +122,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let list=$("#list").html();
         
         $("#list").html(list);
-        let intro=comune.Name+" è un comune di "+comune.Population+" abitanti che si trova nella provincia di "+province.Name+" in "+province.Region+"."
+        let intro=comune.Name+" è un comune di "+comune.Population+" abitanti che si trova nella "+
+        "<a href='https://expiter.com/it/comuni/provincia-di-"+handle(province)+"'>provincia di "+province.Name+"</a> in "+province.Region+"."
 
         $("#info").html(intro)
        
@@ -245,7 +246,7 @@ function getInfo(province){
         target=target.filter(item => item !== related3)
         related4=target[Math.floor(Math.random()*target.length)]
 
-        info.related='<h2>Provinces Near '+province.Name+'</h2> '+
+        info.related='<h2>Province Vicino '+province.Name+'</h2> '+
         '<row class="columns is-multiline is-mobile"> '+        
         facts[related1].snippet+
         facts[related2].snippet+
@@ -256,3 +257,8 @@ function getInfo(province){
       }
 
 
+
+      
+      function handle(comune){
+        return comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()
+      }

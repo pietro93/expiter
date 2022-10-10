@@ -122,7 +122,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let list=$("#list").html();
         
         $("#list").html(list);
-        let intro=comune.Name+" is a municipality of "+comune.Population+" inhabitants located in the "+province.Name+" province in the Italian region of "+province.Region+"."
+        let intro=comune.Name+" is a municipality of "+comune.Population+" inhabitants located in the "+
+        "<a href='https://expiter.com/comuni/province-of-"+handle(province)+"'>"+province.Name+" province</a> in the Italian region of "+province.Region+"."
 
         for (var firstComune in dataset[i].Comuni) break;
         $("#info").html(intro)
@@ -283,4 +284,9 @@ function parseGoogleMaps(comune){
 
     })
 
+}
+
+
+function handle(comune){
+  return comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()
 }
