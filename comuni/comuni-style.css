@@ -1,4 +1,6 @@
-
+.hero{
+    z-index:-1
+}
 section #List{
     align-content: center;
     text-align:center;
