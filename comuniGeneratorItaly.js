@@ -35,7 +35,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
             let parsedData = fs.readFileSync('temp/'+province.Name+'-comuni.json','utf8');
             let dic=JSON.parse(parsedData);
-            dataset[i]["Comuni"]=dic["Comuni"]
+            dataset[i]["Comuni"]=dic
         
             }
 

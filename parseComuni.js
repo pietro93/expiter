@@ -47,7 +47,7 @@ let urls = {
     },
     "Bologna":{
         "Name":"Bologna","Region":"Emilia-Romagna","Url":
-        "https://web.archive.org/web/2/https://www.tuttitalia.it/emilia-romagna/provincia-di-bologna/60-comuni/popolazione/"
+        "https://www.tuttitalia.it/emilia-romagna/provincia-di-bologna/60-comuni/popolazione/"
     },
     "Rimini":{
         "Name":"Rimini","Region":"Emilia-Romagna","Url":
@@ -289,6 +289,10 @@ let urls = {
     "La Spezia":{
         "Name":"La Spezia","Region":"Liguria","Url":
         "https://web.archive.org/web/2/https://www.tuttitalia.it/liguria/provincia-della-spezia/86-comuni/popolazione/"
+    },
+    "Biella":{
+        "Name":"Biella","Region":"Piemonte","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/piemonte/provincia-di-biella/29-comuni/popolazione/"
     }
       
 }
@@ -315,20 +319,23 @@ function fetchData(output) {
         output[province]={"Name":province,"Region":region};
         let html;
 
+        
         console.log("fetching data from "+url+"...")
         https.get(url, function (res) {
             res.setEncoding('utf8');
             res.on('data', function (data) {
             
-              html = data;
-          
-              parseData(html,output,province)
+              html += data;
               
-            },
+            }),
+            res.on('end',function(){
+                console.log("...")
+                parseData(html,output,province)
+            }),
             process.on('uncaughtException', function (err) {
                 console.log(err);
             })
-            )
+            
     
         })
 
@@ -347,13 +354,14 @@ function parseData(html,output,province) {
     let name;let pop;let sup;let dens;let alt;
     let oz = 0;
     console.log("scraping comuni in "+province)
-
+    console.log($("table.ut tr td a").length)
     for (let i = 0; i < length; i++) {
         name=$($("table.ut tr td a")[i]).text();
         pop=$($("table.ut tr td.cw")[i]).text();
         sup=$($("table.ut tr td.oz")[oz++]).text();
         dens=$($("table.ut tr td.oz")[oz++]).text();
         alt=$($("table.ut tr td.oz")[oz++]).text();
+
         comuni[name]=
         {"Name":name,"Population":pop,"Surface":sup,"Density":dens,"Altitude":alt};
     }
@@ -363,7 +371,7 @@ function parseData(html,output,province) {
 
     if (Object.keys(comuni).length!==0){
     console.log(Object.keys(comuni).length+" comuni found in "+province+". Writing to file.")
-    fs.writeFile('temp/'+province+'-comuni.json', JSON.stringify(output[province]), function (err, file) {
+    fs.writeFile('temp/'+province+'-comuni.json', JSON.stringify(comuni), function (err, file) {
         if (err) throw err;})   
     }
     return comuni;

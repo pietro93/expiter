@@ -30,12 +30,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         populateData(data);
         for (let i = 0; i < 107; i++){
             let province = dataset[i];
-            
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
             let parsedData = fs.readFileSync('temp/'+province.Name+'-comuni.json','utf8');
             let dic=JSON.parse(parsedData);
-            dataset[i]["Comuni"]=dic["Comuni"]
+            dataset[i]["Comuni"]=dic
         
             }
 
@@ -97,6 +96,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         //do js shit here
         var nComuni=0;
         $("h1").text("Towns in "+province.Name)
+        
         if (dataset[i].Comuni!=undefined){
         let list=$("#list").html();
 
