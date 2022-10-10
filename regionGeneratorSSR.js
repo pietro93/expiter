@@ -20,7 +20,7 @@ var dataset;
 var avg;
 
 
-fetch('http://expiter.com/dataset.json', {method:"Get"})
+fetch('https://expiter.com/dataset.json', {method:"Get"})
     .then(function (response) {
         return response.json();
     })
@@ -107,7 +107,7 @@ fetch('http://expiter.com/dataset.json', {method:"Get"})
         
         let info="There are 20 regions in Italy. The region of <b>Lombardia</b> is the largest by population with a total of 9.965.046 inhabitants, whereas "+
         "<b>Sicily</b> is the largest by size with a territory of 25.832,55	km²."+
-        "</br></br>Located in <b>Lombardia</b> are the majority of Italian towns and provinces, with a total of 1506 municipalities."+
+        "</br></br>The <b>Lombardia</b> region also contains the greatest number of Italian towns and provinces, with a total of 1506 municipalities."+
         "</br></br>The smallest and least populated region is <b>Aosta Valley</b> with an area of 3.260,85km², 74 towns and a population of 123.337."+
         "</br></br>The Capital of Italy, <b><a href='https://expiter.com/province/roma/'>Rome</a></b>, is located in the <b>Lazio</b> region."
        
