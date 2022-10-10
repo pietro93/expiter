@@ -205,7 +205,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         (facts[name].overview?facts[name].overview:"")+
         "</br></br>"+
         "<a href='https://expiter.com/it/comuni/provincia-di-"+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+"/'>"+"L'area metropolitana di "+province.Name+" comprende <b>"+
-        +province.Towns+" comuni</a></b> e ricopre un'area di "+province.Size.toLocaleString()+" km<sup>2</sup>. "
+        +province.Towns+" comuni</b></a> e ricopre un'area di "+province.Size.toLocaleString()+" km<sup>2</sup>. "
         +"La <b>densità di popolazione è di "+province.Density+" abitanti per km<sup>2</sup></b>, il ché la rende "+
         (province.Density<100?"scarsamente popolata.":(province.Density>500?"molto affollata." : "abbastanza densamente popolata."))+
         " Il rapporto tra uomini e donne è di "+ratio+".";
