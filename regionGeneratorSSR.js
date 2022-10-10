@@ -158,7 +158,6 @@ function populateData(data){
      let region = data[i];
      regions[region["Name"]]=region;
      regions[region["Name"]].index=i;
-     console.log(region)
      facts[region["Name"]]={}; //initialize "facts" dictionary with each region
      facts[region["Name"]].snippet=
      '<figure class="column is-3 related"><a href="https://expiter.com/region/'+region.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
