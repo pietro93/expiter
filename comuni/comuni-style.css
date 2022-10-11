@@ -48,9 +48,12 @@ section #info b{
 
 center>b{
     border-bottom:2px dashed var(--lightest);
-    border-left: 6px dashed var(--lightest);
+    border-left: 6px ridge var(--lightest);
+    border-radius:25px;
     opacity:.85;
     font-size:14px;
     font-weight:100;
     letter-spacing:-0.6px;
+    padding-left:2px;
+
 } center>b:hover{opacity:1;color:var(--lightest)}
