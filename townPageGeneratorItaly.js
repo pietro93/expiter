@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 20; i < 40; i++){
+        for (let i = 0; i < 33; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -51,7 +51,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             var dirName = 'it/comuni/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/';
             var fileName = comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             
-            console.log("Writing comune \""+comune.Name+"\" into file")
+            console.log("Writing comune \""+comune.Name+"\" ("+province.Name+") into file")
 
             let urlPath = dirName+fileName;
           urlPath = "https://expiter.com/"+urlPath+"/"
@@ -63,8 +63,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             "<html lang='en'>"+
             '<head><meta charset="utf-8">'+
             '<link rel="canonical" href="https://expiter.com/'+dirName+fileName+'/"/>'+
-            '<link rel="alternate" hreflang="en" href="https://expiter.com/'+dirName+fileName+'/" />'+
-            '<link rel="alternate" hreflang="it" href="https://expiter.com/it/'+dirName+fileName+'/" />'+
+            '<link rel="alternate" hreflang="en" href="https://expiter.com/'+dirName.replace('it/','')+fileName+'/" />'+
+            '<link rel="alternate" hreflang="it" href="https://expiter.com/'+dirName+fileName+'/" />'+
             '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
             '<script type="text/javascript" src="https://expiter.com/jquery3.6.0.js" defer></script>'+
             '<script type="text/json" src="https://expiter.com/dataset.json"></script>'+
@@ -317,7 +317,7 @@ function getInfo(comune,province){
       info.nearby='<h2>Towns in the Province of '+province.Name+'</h2>'+'\n'
       for (let p in province.Comuni){
         if (province.Comuni[p].Name!=comune)
-        info.nearby+='<b><a href="https://expiter.com/comuni/'+handle(province)+'/'
+        info.nearby+='<b><a href="https://expiter.com/it/comuni/'+handle(province)+'/'
         handle(province.Comuni[p])+'/">'+province.Comuni[p].Name+'</a></b>'+' '
       }
        
