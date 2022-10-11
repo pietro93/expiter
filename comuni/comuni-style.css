@@ -54,6 +54,6 @@ center>b{
     font-size:14px;
     font-weight:100;
     letter-spacing:-0.6px;
-    padding-left:2px;
+    padding-left:4px;
 
 } center>b:hover{opacity:1;color:var(--lightest);background-color:var(--lightest)}
