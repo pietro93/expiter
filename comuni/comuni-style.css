@@ -1,6 +1,6 @@
 .hero{
     z-index:0;
-    
+    max-height:42vh;
 }.hero::after{display:none;}
 section #List{
     align-content: center;
