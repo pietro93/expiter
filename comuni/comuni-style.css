@@ -24,16 +24,17 @@ section table#list #header th{
     cursor:auto;
 
 }
-section table#list #header{
-    opacity:1;
-    color:white;
-}
+color:var(--invert-color);
 section table#list tr th{
     font-size:16px;
     color:var(--medium-2);
     padding:5px;
     padding-left:8px;padding-right:8px;
     border-bottom: 2px ridge var(--medium-2);
+}
+
+section table#list tr#header th{
+    color:var(--invert-color);
 }
 
 section #info,
