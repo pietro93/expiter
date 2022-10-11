@@ -17,14 +17,7 @@ th h2{
     margin:0;
     color:var(--darkest);
 }
-section table#list #header th{
-    font-size:18px;
-    background-color:var(--medium-2);
-    border-bottom:none;
-    cursor:auto;
 
-}
-color:var(--invert-color);
 section table#list tr th{
     font-size:16px;
     color:var(--medium-2);
@@ -34,7 +27,12 @@ section table#list tr th{
 }
 
 section table#list tr#header th{
+    font-size:18px;
+    background-color:var(--medium-2);
+    border-bottom:none;
+    cursor:auto;
     color:var(--invert-color);
+    opacity:1;
 }
 
 section #info,
