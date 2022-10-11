@@ -175,10 +175,10 @@ function setNavBar($){
         '<span class="line line3"></span>'+
     '</div>'+
     '<ul class="menu-items">'+
-        '<li><a href="https://expiter.com">Home</a></li>'+
-        '<li><a href="https://expiter.com/resources/">Resources</a></li>'+
-        '<li><a href="https://expiter.com/tools/codice-fiscale-generator/">Tools</a></li>'+
-        '<li><a href="https://expiter.com/app/#About">About</a></li>'+
+        '<li><a href="https://expiter.com/it/">Home</a></li>'+
+        '<li><a href="https://expiter.com/it/resources/">Resources</a></li>'+
+        '<li><a href="https://expiter.com/it/tools/codice-fiscale-generator/">Tools</a></li>'+
+        '<li><a href="https://expiter.com/it/app/#About">About</a></li>'+
         '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
         '</ul>'+
         '  <label class="switch" id="switch">'+
@@ -314,7 +314,7 @@ function getInfo(comune,province){
         '</div>'+
       '</div></div>'
 
-      info.nearby='<h2>Towns in the Province of '+province.Name+'</h2>'+'\n'
+      info.nearby='<h2>Comuni in Provincia di '+province.Name+'</h2>'+'\n'
       for (let p in province.Comuni){
         if (province.Comuni[p].Name!=comune)
         info.nearby+='<b><a href="https://expiter.com/it/comuni/'+handle(province)+'/'+
