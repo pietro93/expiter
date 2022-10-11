@@ -47,7 +47,7 @@ section #info b{
 }
 
 center>b{
-    border-bottom:2px dashed var(--lightest);
+    border-bottom:4px dashed var(--lightest);
     border-left: 6px ridge var(--lightest);
     border-radius:25px;
     opacity:.85;
