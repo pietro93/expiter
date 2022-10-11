@@ -249,9 +249,6 @@ card > p {
   font-weight:400;
   letter-spacing:-.3px;
   font-size:16px;
-  text-shadow: 0 0 3px black,
-  0 0 20px rgba(10,33,23,0.99),
-0 0 33px rgba(43,100,33,0.69);
 color:rgba(205,235,255,1);
 position:relative;
 line-height: 5px;

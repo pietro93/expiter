@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 0; i < 20; i++){
+        for (let i = 20; i < 40; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -136,6 +136,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#info").append(info.map)
         $("#info").append("<h2>Provincia di "+province.Name+"</h2>")
         $("#tabs").append(info.tabs)
+        $("#related").append(info.nearby)
         $("#related").append(info.related)
         appendProvinceData(province,$)
         setNavBar($)
@@ -312,6 +313,13 @@ function getInfo(comune,province){
           '</section>'+
         '</div>'+
       '</div></div>'
+
+      info.nearby='<h2>Towns in the Province of '+province.Name+'</h2>'+'\n'
+      for (let p in province.Comuni){
+        if (province.Comuni[p].Name!=comune)
+        info.nearby+='<b><a href="https://expiter.com/comuni/'+handle(province)+'/'
+        handle(province.Comuni[p])+'/">'+province.Comuni[p].Name+'</a></b>'+' '
+      }
        
         return info;
       }

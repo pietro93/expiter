@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 88; i < 107; i++){
+        for (let i = 0; i < 24; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -51,7 +51,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             var dirName = 'comuni/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/';
             var fileName = comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             
-            console.log("Writing comune \""+comune.Name+"\" into file")
+            console.log("Writing comune \""+comune.Name+"\" ("+province.Region+") into file")
 
             let urlPath = 'comuni/'+dirName+fileName;
           urlPath = "https://expiter.com/"+urlPath+"/"
@@ -96,11 +96,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<nav id="navbar"></nav>'+
         '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="'+comune.Name+", "+province.Name+', Italy"'+'>'+
         '</div><h1 class="title">Comuni di </h1>'+
-        '<section id="'+comune.Name+' Info Sheet">'+
+        '<section id="'+en(comune.Name)+' Info Sheet">'+
         '<center><table id="list">'+
-        '<tr><th><b>Name</b></th><th>'+comune.Name+'</th></tr>'+
-        '<tr><th><b>Province</b></th><th>'+province.Name+'</th></tr>'+
-        '<tr><th><b>Region</b></th><th>'+province.Region+'</th></tr>'+
+        '<tr><th><b>Name</b></th><th>'+en(comune.Name)+'</th></tr>'+
+        '<tr><th><b>Province</b></th><th>'+en(province.Name)+'</th></tr>'+
+        '<tr><th><b>Region</b></th><th>'+en(province.Region)+'</th></tr>'+
         '<tr><th><b>Population</b></th><th>'+comune.Population+'</th></tr>'+
         '<tr><th><b>Density</b></th><th>'+comune.Density+'</th></tr>'+
         '<tr><th><b>Altitude</b></th><th>'+comune.Altitude+'</th></tr>'+
@@ -108,7 +108,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '</table>'+
         '<p id="info"></p></center>'+
         '<p id="tabs"></p>'+
-        '</center><p id="related"></p></center>'+
+        '<center><p id="related"></p></center>'+
         '</section>'+
         '</body></html>'
         )
@@ -118,25 +118,26 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         const $ = require('jquery')(dom.window)
 
         
-        $("h1").text(comune.Name+", "+province.Region+", Italy")
+        $("h1").text(en(comune.Name)+", "+en(province.Region)+", Italy")
         
         if (dataset[i].Comuni!=undefined){
         let list=$("#list").html();
         
         $("#list").html(list);
-        let intro=comune.Name+" is a municipality of "+comune.Population+" inhabitants located in the "+
-        "<a href='https://expiter.com/comuni/province-of-"+handle(province)+"'>"+province.Name+" province</a> in the Italian region of "+province.Region+"."
+        let intro=en(comune.Name)+" is a municipality of "+comune.Population+" inhabitants located in the "+
+        "<a href='https://expiter.com/comuni/province-of-"+handle(province)+"'>"+en(province.Name)+" province</a> in the Italian region of "+en(province.Region)+"."
 
-        for (var firstComune in dataset[i].Comuni) break;
+
         $("#info").html(intro)
        
         var info=getInfo(comune,province)
         
         $("#info").append(info.disclaimer)
-        $("#info").append("<h2>Map of "+comune.Name+"</h2>")
+        $("#info").append("<h2>Map of "+en(comune.Name)+"</h2>")
         $("#info").append(info.map)
-        $("#info").append("<h2>"+province.Name+" Province Info</h2>")
+        $("#info").append("<h2>"+en(province.Name)+" Province Info</h2>")
         $("#tabs").append(info.tabs)
+        $("#related").append(info.nearby)
         $("#related").append(info.related)
         appendProvinceData(province,$)
         setNavBar($)
@@ -208,8 +209,8 @@ function populateData(data){
      '<figure class="column is-3 related"><a href="https://expiter.com/province/'+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
      '<img title="'+province.Name+'" load="lazy" src="'+
      'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
-     'alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'+
-     '<figcaption>'+province.Name+", "+province.Region+"</figcaption></a></figure>";
+     'alt="Province of '+data[i].Name+', '+data[i].Region+'"></img>'+
+     '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></a></figure>";
    }
    avg=data[107];
    
@@ -313,6 +314,14 @@ function populateData(data){
           '</section>'+
         '</div>'+
       '</div></div>'
+
+      info.nearby='<h2>Towns in the Province of '+province.Name+'</h2>'+'\n'
+      for (let p in province.Comuni){
+        if (province.Comuni[p].Name!=comune)
+        info.nearby+='<b><a href="https://expiter.com/comuni/'+handle(province)+'/'
+        handle(province.Comuni[p])+'/">'+province.Comuni[p].Name+'</a></b>'+' '
+      }
+
        
         return info;
       }
@@ -350,6 +359,19 @@ function parseGoogleMaps(comune){
 
 function handle(comune){
   return comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()
+}
+
+function en(word){
+  switch (word){
+    case "Sicilia":return"Sicily";case "Valle d'Aosta":case "Val d'Aosta":return"Aosta Valley";
+    case "Toscana":return"Tuscany";case "Sardegna":return "Sardinia";
+    case "Milano":return"Milan";case "Lombardia":return "Lombardy";
+    case "Torino":return"Turin";case "Piemonte":return "Piedmont";
+    case "Roma":return"Rome";case "Puglia":return "Apulia";
+    case "Mantova":return"Mantua";case "Padova":return"Padua";
+    case "Venezia":return"Venice";case "Firenze":return"Florence";
+    default: return word;
+  }
 }
 
 function appendProvinceData(province, $){
