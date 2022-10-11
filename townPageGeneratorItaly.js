@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 56; i < 80; i++){
+        for (let i = 56; i < 86; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -119,7 +119,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         
         $("h1").text(comune.Name+", "+province.Region)
-        if (comune.Name=="Schio")$("h1").text("Schio de Janeiro, "+province.Region)
+        if (comune.Name==="Schio")$("h1").text("Schio de Janeiro, "+province.Region)
         if (dataset[i].Comuni!=undefined){
         let list=$("#list").html();
         
@@ -239,24 +239,24 @@ function getInfo(comune,province){
    
   let target, related1, related2, related3, related4;
        
-        (region.Name=="Valle d'Aosta"?target=facts[region.Name]["provinces"].concat(facts["Piemonte"]["provinces"]):
-        (region.Name=="Trentino-Alto Adige"?target=facts[region.Name]["provinces"].concat(facts["Veneto"]["provinces"]).concat(["Brescia","Sondrio"]):
-        (region.Name=="Molise"?target=facts[region.Name]["provinces"].concat(facts["Abruzzo"]["provinces"]):
-        (region.Name=="Abruzzo"?target=facts[region.Name]["provinces"].concat(facts["Molise"]["provinces"]):
-        (region.Name=="Emilia-Romagna"?target=facts[region.Name]["provinces"].concat(["Prato","Mantova","Cremona","Rovigo","Massa-Carrara","Lucca","Pistoia","Pesaro e Urbino","Arezzo"]):
-        (region.Name=="Liguria"?target=facts[region.Name]["provinces"].concat(facts["Piemonte"]["provinces"]):
-        (region.Name=="Piemonte"?target=facts[region.Name]["provinces"].concat(facts["Lombardia"]["provinces"]):
-        (region.Name=="Lombardia"?target=facts[region.Name]["provinces"].concat(facts["Piemonte"]["provinces"]):
-        (region.Name=="Friuli-Venezia Giulia"?target=facts[region.Name]["provinces"].concat(facts["Veneto"]["provinces"]):
-        (region.Name=="Basilicata"?target=facts[region.Name]["provinces"].concat(facts["Campania"]["provinces"]).concat(facts["Puglia"]["provinces"]).concat(["Cosenza"]):
-        (region.Name=="Puglia"?target=facts[region.Name]["provinces"].concat(facts["Basilicata"]["provinces"]).concat(["Campobasso","Benevento","Avellino"]):
-        (region.Name=="Umbria"?target=facts[region.Name]["provinces"].concat(facts["Marche"]["provinces"]).concat(["Arezzo","Siena","Viterbo","Rieti"]):
+        (region.Name==="Valle d'Aosta"?target=facts[region.Name]["provinces"].concat(facts["Piemonte"]["provinces"]):
+        (region.Name==="Trentino-Alto Adige"?target=facts[region.Name]["provinces"].concat(facts["Veneto"]["provinces"]).concat(["Brescia","Sondrio"]):
+        (region.Name==="Molise"?target=facts[region.Name]["provinces"].concat(facts["Abruzzo"]["provinces"]):
+        (region.Name==="Abruzzo"?target=facts[region.Name]["provinces"].concat(facts["Molise"]["provinces"]):
+        (region.Name==="Emilia-Romagna"?target=facts[region.Name]["provinces"].concat(["Prato","Mantova","Cremona","Rovigo","Massa-Carrara","Lucca","Pistoia","Pesaro e Urbino","Arezzo"]):
+        (region.Name==="Liguria"?target=facts[region.Name]["provinces"].concat(facts["Piemonte"]["provinces"]):
+        (region.Name==="Piemonte"?target=facts[region.Name]["provinces"].concat(facts["Lombardia"]["provinces"]):
+        (region.Name==="Lombardia"?target=facts[region.Name]["provinces"].concat(facts["Piemonte"]["provinces"]):
+        (region.Name==="Friuli-Venezia Giulia"?target=facts[region.Name]["provinces"].concat(facts["Veneto"]["provinces"]):
+        (region.Name==="Basilicata"?target=facts[region.Name]["provinces"].concat(facts["Campania"]["provinces"]).concat(facts["Puglia"]["provinces"]).concat(["Cosenza"]):
+        (region.Name==="Puglia"?target=facts[region.Name]["provinces"].concat(facts["Basilicata"]["provinces"]).concat(["Campobasso","Benevento","Avellino"]):
+        (region.Name==="Umbria"?target=facts[region.Name]["provinces"].concat(facts["Marche"]["provinces"]).concat(["Arezzo","Siena","Viterbo","Rieti"]):
         target=facts[region.Name]["provinces"]))))))))))));
-        (province.Name=="Reggio Calabria"?target=target.concat(["Messina"]):
-        (province.Name=="Messina"?target=target.concat(["Reggio Calabria"]):
-        (province.Name=="Torino"?target=target.concat(["Aosta"]):
-        (province.Name=="Cosenza"?target=target.concat(facts["Basilicata"]["provinces"]):
-        (province.Name=="Salerno"?target=target.concat(facts["Basilicata"]["provinces"]):
+        (province.Name==="Reggio Calabria"?target=target.concat(["Messina"]):
+        (province.Name==="Messina"?target=target.concat(["Reggio Calabria"]):
+        (province.Name==="Torino"?target=target.concat(["Aosta"]):
+        (province.Name==="Cosenza"?target=target.concat(facts["Basilicata"]["provinces"]):
+        (province.Name==="Salerno"?target=target.concat(facts["Basilicata"]["provinces"]):
         ""
         )))));
         
@@ -317,7 +317,7 @@ function getInfo(comune,province){
       info.nearby='<h2>Towns in the Province of '+province.Name+'</h2>'+'\n'
       for (let p in province.Comuni){
         if (province.Comuni[p].Name!=comune)
-        info.nearby+='<b><a href="https://expiter.com/it/comuni/'+handle(province)+'/'
+        info.nearby+='<b><a href="https://expiter.com/it/comuni/'+handle(province)+'/'+
         handle(province.Comuni[p])+'/">'+province.Comuni[p].Name+'</a></b>'+' '
       }
        
