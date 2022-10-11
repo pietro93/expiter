@@ -1,6 +1,7 @@
 .hero{
-    z-index:-1
-}
+    z-index:0;
+    
+}.hero::after{display:none;}
 section #List{
     align-content: center;
     text-align:center;
