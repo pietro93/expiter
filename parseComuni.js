@@ -11,11 +11,11 @@ require('events').defaultMaxListeners = 107;
 let urls = {
     "Milano": {
         "Name": "Milano","Region":"Lombardia", "Url":
-            "https://web.archive.org/web/20211127234828/https://www.tuttitalia.it/lombardia/provincia-di-milano/34-comuni/popolazione/"
+            "https://web.archive.org/web/2/https://www.tuttitalia.it/lombardia/provincia-di-milano/34-comuni/popolazione/"
     },
     "Roma":{
         "Name":"Roma","Region":"Lazio","Url":
-        "https://web.archive.org/web/20221004130406/https://www.tuttitalia.it/lazio/provincia-di-roma/36-comuni/popolazione/"
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lazio/provincia-di-roma/36-comuni/popolazione/"
     },
     "Napoli":{
         "Name":"Napoli","Region":"Campania","Url":
@@ -47,7 +47,7 @@ let urls = {
     },
     "Bologna":{
         "Name":"Bologna","Region":"Emilia-Romagna","Url":
-        "https://www.tuttitalia.it/emilia-romagna/provincia-di-bologna/60-comuni/popolazione/"
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/emilia-romagna/provincia-di-bologna/60-comuni/popolazione/"
     },
     "Rimini":{
         "Name":"Rimini","Region":"Emilia-Romagna","Url":
@@ -468,6 +468,7 @@ const https = require("follow-redirects").https;
 //const https = require('follow-redirects').https;
 
 var output = {};
+//var ClimateZones={"A":[],"B":[],"C":[],"D":[],"E":[],"F":[]}
 
 function fetchData(output) {
     
@@ -523,20 +524,52 @@ function parseData(html,output,province) {
         alt=$($("table.ut tr td.oz")[oz++]).text();
 
         comuni[name]=
-        {"Name":name,"Population":pop,"Surface":sup,"Density":dens,"Altitude":alt};
+        {"Name":name,"Population":pop,"Surface":sup,"Density":dens,"Altitude":alt,"ClimateZone":""};
     }
+    
 
+    let newUrl=urls[province].Url;
+    newUrl=newUrl.replace(newUrl.substr(-23),"");//remove suffix from old url
+    (newUrl.charAt(newUrl.length-1)!='/'?newUrl.replace(newUrl.substr(newUrl.length-1),""):"")
+    newUrl+=
+    '/classificazione-climatica/'
+    console.log("parsing ClimateData from "+newUrl)
+    let newHtml="";
+    https.get(newUrl, function (res) {
+            res.setEncoding('utf8');
+            res.on('data', function (data) {
+            
+              newHtml += data;
+              
+            }),
+            res.on('end',function(){
+                console.log("parsing ClimateData")
+                const dom2 = new jsdom.JSDOM(newHtml);
+                const $ = require('jquery')(dom2.window);
+                console.log(newHtml)
+                for (let i=0;i<$("td a").length-1;i++){
+                    let target=$("td a").eq(i)
+                    let c=$(target).text();
+                    let cz=$(target).parent().next().text()
+                    comuni[c]["ClimateZone"]=cz;
+                    console.log(comuni[c])
+                }
 
-    output[province]["Comuni"]=comuni;
+                if (Object.keys(comuni).length!==0){
+                    console.log(Object.keys(comuni).length+" comuni found in "+province+". Writing to file.")
+                    fs.writeFile('temp/'+province+'-comuni.json', JSON.stringify(comuni), function (err, file) {
+                        if (err) throw err;})   
+                    }
 
-    if (Object.keys(comuni).length!==0){
-    console.log(Object.keys(comuni).length+" comuni found in "+province+". Writing to file.")
-    fs.writeFile('temp/'+province+'-comuni.json', JSON.stringify(comuni), function (err, file) {
-        if (err) throw err;})   
-    }
+                }
+            )})
+
     return comuni;
 }
 
 fetchData(output)
 
 
+function handle(province){
+    return province.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()
+  }
