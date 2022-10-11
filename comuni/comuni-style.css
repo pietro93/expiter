@@ -34,6 +34,9 @@ section table#list tr#header th{
     color:var(--invert-color);
     opacity:1;
 }
+section table#list tr#header{
+    opacity:1
+}
 
 section #info,
 section #info b{
