@@ -550,10 +550,10 @@ function appendData($,data) {
         card += '<p class="opacity4"><ej>👪</ej>For family: '+ qualityScore("Family-friendly",data[i]["Family-friendly"]) +'</p>';
         card += '<p class="opacity4"><ej>🥗</ej>For vegans: '+ qualityScore("Veg-friendly",data[i]["Veg-friendly"]) +'</p>';
         card += '<p class="opacity4"><ej>🧳</ej>For nomads: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'</p>';
-        card += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+'/\';"> More>> </button>';
+        card += '<button class="more" style="font-size:large;" onclick="location.href=\'https://expiter.com/province/'+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+'/\';"> More>> </button>';
         card += '</card>'
 
-        col += "<a href='./province/"+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"\''>"+card+"</a></div>";
+        col += "<a href='https://expiter.com/province/"+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"\''>"+card+"</a></div>";
         
         mainContainer.append(col);
         
@@ -571,10 +571,10 @@ function setNavBar($){
         '<span class="line line3"></span>'+
     '</div>'+
     '<ul class="menu-items">'+
-        '<li><a href="/">Home</a></li>'+
-        '<li><a href="/resources/">Resources</a></li>'+
-        '<li><a href="/tools/codice-fiscale-generator/">Tools</a></li>'+
-        '<li><a href="/app/#About">About</a></li>'+
+        '<li><a href="https://expiter.com">Home</a></li>'+
+        '<li><a href="https://expiter.com/resources/">Resources</a></li>'+
+        '<li><a href="https://expiter.com/tools/codice-fiscale-generator/">Tools</a></li>'+
+        '<li><a href="https://expiter.com/app/#About">About</a></li>'+
         '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
         '</ul>'+
         '  <label class="switch" id="switch">'+

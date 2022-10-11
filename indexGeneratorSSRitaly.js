@@ -550,10 +550,10 @@ function appendData($,data) {
         card += '<p class="opacity4"><ej>👪</ej>For family: '+ qualityScore("Family-friendly",data[i]["Family-friendly"]) +'</p>';
         card += '<p class="opacity4"><ej>🥗</ej>For vegans: '+ qualityScore("Veg-friendly",data[i]["Veg-friendly"]) +'</p>';
         card += '<p class="opacity4"><ej>🧳</ej>For nomads: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'</p>';
-        card += '<button class="more" style="font-size:large;" onclick="location.href=\'./it/province/'+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+'/\';"> More>> </button>';
+        card += '<button class="more" style="font-size:large;" onclick="location.href=\'https://expiter.com/it/province/'+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+'/\';"> More>> </button>';
         card += '</card>'
 
-        col += "<a href='./it/province/"+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"\''>"+card+"</a></div>";
+        col += "<a href='https://expiter.com/it/province/"+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"\''>"+card+"</a></div>";
         
         mainContainer.append(col);
         
