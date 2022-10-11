@@ -56,4 +56,4 @@ center>b{
     letter-spacing:-0.6px;
     padding-left:2px;
 
-} center>b:hover{opacity:1;color:var(--lightest)}
+} center>b:hover{opacity:1;color:var(--lightest);background-color:var(--lightest)}
