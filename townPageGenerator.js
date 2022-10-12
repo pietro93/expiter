@@ -159,7 +159,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         ["Belluno","Verbano-Cusio-Ossola","Udine","Como","Bergamo","Varese","Biella"].includes(province.Name))?
         "<b>long and very cold winters with plenty of snow</b>, <b>short and mild summers</b>."
         :""
-        ))))))+'\n'+"The province of "+en(province.Name)+" experiences on average "+(province.HotDays/3.5)*12+" days of hot temperatures (over 30°C) and "+
+        ))))))+'\n'+"The province of "+en(province.Name)+" experiences on average "+((province.HotDays/3.5)*12).toFixed(2)+" days of hot temperatures (over 30°C) and "+
         ((province.ColdDays/3.5)*12).toFixed(2)+" cold temperature days (<5°C) per year. It rains (or snows) around "+(province.RainyDays*12).toFixed(2)+" days per year. "+
         (province.FoggyDays<1?"There is little to no fog throughout the year.":"There are "+((province.FoggyDays/3.5)*12).toFixed(2)+" foggy days throughout the year.")+
         " "+en(comune.Name)+" receives around "+province.SunshineHours/30+" hours of sunshine per day on average.";

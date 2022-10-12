@@ -157,7 +157,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         ["Belluno","Verbano-Cusio-Ossola","Udine","Como","Bergamo","Varese","Biella"].includes(province.Name))?
         "<b>inverni lunghi e molto freddi con abbondanti nevicate</b>, <b>estati brevi e non eccessivamente calde</b>."
         :""
-        ))))))+'\n'+"La provincia di "+province.Name+" ha in media "+(province.HotDays/3.5)*12+" giorni di caldo (temperature oltre i 30°C) e "+
+        ))))))+'\n'+"La provincia di "+province.Name+" ha in media "+((province.HotDays/3.5)*12).toFixed(2)+" giorni di caldo (temperature oltre i 30°C) e "+
         ((province.ColdDays/3.5)*12).toFixed(2)+" giornate di freddo (temperature al di sotto dei 5°C) durante l'anno. Piove (o nevica) circa "+(province.RainyDays*12).toFixed(2)+" giorni l'anno. "+
         (province.FoggyDays<1?"Vi è pochissima nebbia durante l'anno.":"Vi sono "+((province.FoggyDays/3.5)*12).toFixed(2)+" giorni di nebbia durante l'anno.")+
         " "+comune.Name+" riceve circa "+province.SunshineHours/30+" ore di sole giornaliere.";
