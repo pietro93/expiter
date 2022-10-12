@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 99; i < 107; i++){
+        for (let i = 21; i < 32; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -104,6 +104,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<tr><th><b>Popolazione</b></th><th>'+comune.Population+'</th></tr>'+
         '<tr><th><b>Densità</b></th><th>'+comune.Density+'ab./km²</th></tr>'+
         '<tr><th><b>Altitudine</b></th><th>'+comune.Altitude+'m</th></tr>'+
+        '<tr><th><b>Climate Zone</b></th><th>'+(comune.ClimateZone?comune.ClimateZone:"?")+'</th></tr>'+
         '</tr>'+
         '</table>'+
         '<p id="info"></p></center>'+
@@ -162,7 +163,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         (province.FoggyDays<1?"Vi è pochissima nebbia durante l'anno.":"Vi sono "+((province.FoggyDays/3.5)*12).toFixed(2)+" giorni di nebbia durante l'anno.")+
         " "+comune.Name+" riceve circa "+province.SunshineHours/30+" ore di sole giornaliere.";
 
-        $("#info").html(intro)
+        $("#info").html(intro+climate)
        
         var info=getInfo(comune,province)
         

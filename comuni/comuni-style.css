@@ -46,7 +46,7 @@ section #info b{
     margin-bottom:16px;
 }
 
-center :not(#info) >b{
+center >b{
     border-bottom:4px dashed var(--lightest);
     border-left: 6px ridge var(--lightest);
     border-radius:25px;
@@ -56,4 +56,4 @@ center :not(#info) >b{
     letter-spacing:-0.6px;
     padding-left:4px;
 
-} center :not(#info) >b:hover{opacity:1;color:var(--lightest);background-color:var(--lightest)}
+} center >b:hover{opacity:1;color:var(--lightest);background-color:var(--lightest)}
