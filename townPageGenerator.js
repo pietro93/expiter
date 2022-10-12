@@ -14,9 +14,9 @@ createServer(function (req, res) {
 var dataset;
 var provinces = {};
 var facts={};
-var selection = [];
-var region_filters = [];
-var additionalFilters=[];
+var north=["Lombardia","Valle d'Aosta","Piemonte","Liguria","Trentino-Alto Adige", "Friuli-Venezia Giulia","Veneto","Emilia-Romagna"];
+var center=["Lazio","Toscana","Marche","Umbria"];
+var south=["Abruzzo","Molise","Campania","Puglia","Basilicata","Calabria","Sicilia","Sardegna"]
 var dataset;
 var avg;
 var regions ={};
@@ -124,9 +124,15 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let list=$("#list").html();
         
         $("#list").html(list);
-        let intro=en(comune.Name)+" is a municipality of "+comune.Population+" inhabitants located in the "+
-        "<a href='https://expiter.com/comuni/province-of-"+handle(province)+"'>"+en(province.Name)+" province</a> in the Italian region of "+en(province.Region)+"."
 
+        let intro="<b>"+en(comune.Name)+" is a municipality of "+comune.Population+" inhabitants located in the "+
+        "<a href='https://expiter.com/comuni/province-of-"+handle(province)+"'>"+en(province.Name)+" province</a></b> in the Italian region of "+en(province.Region)+
+        " in <b>"+(center.includes(province.Region)?"Central Italy":(south.includes(province.Region)?"Southern Italy":"Northern Italy"))+"</b>."
+
+        intro+='\n'+'It has a <b>population density of '+comune.Density+'</b> and an <b>altitude of '+comune.Altitude+'</b>.'+'\n'
+
+        intro+='</br></br><b>'+en(comune.Name)+"</b> accounts for about "+((comune.Population.split('.').join("")*100)/province.Population).toFixed(2)+"% of the total population in the province of "+en(province.Name)+
+        " and about "+((comune.Population.split('.').join("")*100)/60260456).toFixed(3)+"% of the overall population of Italy as of 2022."
 
         $("#info").html(intro)
        
