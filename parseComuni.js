@@ -316,7 +316,7 @@ let urls = {
     },
     "Modena":{
         "Name":"Modena","Region":"Emilia-Romagna","Url":
-        "https://web.archive.org/web/2/https://www.tuttitalia.it/emilia-romagna/provincia-di-modena/70-comuni/"
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/emilia-romagna/provincia-di-modena/70-comuni/popolazione/"
     },
     "Forlì-Cesena":{
         "Name":"Forlì-Cesena","Region":"Emilia-Romagna","Url":
@@ -344,7 +344,7 @@ let urls = {
     },
     "Frosinone":{
         "Name":"Frosinone","Region":"Lazio","Url":
-        "https://web.archive.org/web/2/https://www.tuttitalia.it/lazio/provincia-di-frosinone/70-comuni/"
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lazio/provincia-di-frosinone/70-comuni/popolazione/"
     },
     "Rieti":{
         "Name":"Rieti","Region":"Lazio","Url":
@@ -501,7 +501,7 @@ function fetchData(output) {
         })
 
     }
-    console.log(output)
+    //console.log(output)
     return output
 
 }
@@ -546,15 +546,29 @@ function parseData(html,output,province) {
                 console.log("parsing ClimateData")
                 const dom2 = new jsdom.JSDOM(newHtml);
                 const $ = require('jquery')(dom2.window);
-                console.log(newHtml)
-                for (let i=0;i<$("td a").length-1;i++){
-                    let target=$("td a").eq(i)
+                //console.log(newHtml)
+                for (let i=0;i<$(".ct td a").length-1;i++){
+                    let target=$(".ct td a").eq(i)
                     let c=$(target).text();
                     let cz=$(target).parent().next().text()
-                    comuni[c]["ClimateZone"]=cz;
-                    console.log(comuni[c])
+                    //console.log("processing "+c+" "+cz)
+                  
+                    if (!comuni[c]){
+                        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> "+c+" acting up")
+                        for (let cc in comuni){
+                            if (comuni[cc].Name.substr(0,15)==c.substr(0,15)){
+                                console.log("found "+comuni[cc].Name+" similar to "+c)
+                                console.log(cc)
+                                comuni[cc].Name=c;
+                                comuni[cc].ClimateZone=cz;
+                                console.log(comuni[cc])
+                            }
+                        }
+                    }
+                    else comuni[c]["ClimateZone"]=cz;
+                    //console.log(comuni[c])
                 }
-
+    
                 if (Object.keys(comuni).length!==0){
                     console.log(Object.keys(comuni).length+" comuni found in "+province+". Writing to file.")
                     fs.writeFile('temp/'+province+'-comuni.json', JSON.stringify(comuni), function (err, file) {

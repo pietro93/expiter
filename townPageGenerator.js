@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 54; i < 60; i++){
+        for (let i = 16; i < 30; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -104,6 +104,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<tr><th><b>Population</b></th><th>'+comune.Population+'</th></tr>'+
         '<tr><th><b>Density</b></th><th>'+comune.Density+'</th></tr>'+
         '<tr><th><b>Altitude</b></th><th>'+comune.Altitude+'</th></tr>'+
+        '<tr><th><b>Climate Zone</b></th><th>'+(comune.ClimateZone?comune.ClimateZone:"?")+'</th></tr>'+
         '</tr>'+
         '</table>'+
         '<p id="info"></p></center>'+
@@ -134,7 +135,20 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         intro+='</br></br><b>'+en(comune.Name)+"</b> accounts for about "+((comune.Population.split('.').join("")*100)/province.Population).toFixed(2)+"% of the total population in the province of "+en(province.Name)+
         " and about "+((comune.Population.split('.').join("")*100)/60260456).toFixed(3)+"% of the overall population of Italy as of 2022."
 
-        $("#info").html(intro)
+        let zoneAtext="one of the two hottest municipalities in Italy, the other one being "+(comune.Name=="Porto Empedocle"?
+        "the Pelagie islands of <a href='https://expiter.com/comuni/agrigento/lampedusa-e-linosa/>Lampedusa and Linosa</a>, geographically located in Africa":
+        '<a href="https://expiter.com/comuni/agrigento/porto-empedocle/">Porto Empedocle</a>'+
+        " in the main island of Sicily, also located in the province of Agrigento")
+        let climate='<h3>Climate</h3>'+
+        '<b>'+en(comune.Name)+'</b> is classified as a <b>Climate Zone '+comune.ClimateZone+'</b>, which means it is '+
+        (comune.ClimateZone==="A"?zoneAtext
+        :(comune.ClimateZone==="B"?"one of the warmest and sunniest locations in Italy"
+        :(comune.ClimateZone==="C"?"a fairly warm location"
+        :(comune.ClimateZone==="D"?"a temperate town by Italian standards"
+        :(comune.ClimateZone==="E"?"a fairly chill town"
+        :(comune.ClimateZone==="F"?"one of the coldest locations in Italy"
+        :""))))))+"."
+        $("#info").html(intro+climate)
        
         var info=getInfo(comune,province)
         
