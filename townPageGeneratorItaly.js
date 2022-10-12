@@ -14,9 +14,9 @@ createServer(function (req, res) {
 var dataset;
 var provinces = {};
 var facts={};
-var selection = [];
-var region_filters = [];
-var additionalFilters=[];
+var north=["Lombardia","Valle d'Aosta","Piemonte","Liguria","Trentino-Alto Adige", "Friuli-Venezia Giulia","Veneto","Emilia-Romagna"];
+var center=["Lazio","Toscana","Marche","Umbria"];
+var south=["Abruzzo","Molise","Campania","Puglia","Basilicata","Calabria","Sicilia","Sardegna"]
 var dataset;
 var avg;
 var regions ={};
