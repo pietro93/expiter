@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 0; i < 12; i++){
+        for (let i = 15; i < 17; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -131,8 +131,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         intro+='\n'+'Ha una <b>densità di popolazione del '+comune.Density+' abitanti per km²</b> e una <b>altitudine di '+comune.Altitude+' metri</b> al di sopra della superficie del mare.'+'\n'
 
-        intro+='</br></br><b>La popolazione di '+comune.Name+"</b> è circa "+((comune.Population.split('.').join("")*100)/province.Population).toFixed(2)+"% della popolazione totale delal provincia di "+province.Name+
-        " e circa "+((comune.Population.split('.').join("")*100)/60260456).toFixed(3)+"% del totale della popolazione dell'italia nel 2022."
+        intro+='</br></br><b>La popolazione di '+comune.Name+"</b> è circa "+((comune.Population.split('.').join("")*100)/province.Population).toFixed(2)+"% della popolazione totale della provincia di "+province.Name+
+        " e circa "+((comune.Population.split('.').join("")*100)/60260456).toFixed(5)+"% del totale della popolazione dell'italia nel 2022."
 
         let zoneAtext="una delle due municipalità più calde d'Italia, insieme a"+(comune.Name=="Porto Empedocle"?
         "lle isole Pelagie di <a href='https://expiter.com/it/comuni/agrigento/lampedusa-e-linosa/>Lampedusa and Linosa</a>, che geograficamente si trovano vicino all'Africa":
@@ -158,7 +158,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         ["Belluno","Verbano-Cusio-Ossola","Udine","Como","Bergamo","Varese","Biella"].includes(province.Name))?
         "<b>inverni lunghi e molto freddi con abbondanti nevicate</b>, <b>estati brevi e non eccessivamente calde</b>."
         :""
-        ))))))+'\n </br>'+"La provincia di "+province.Name+" ha in media "+((province.HotDays/3.5)*12).toFixed(2)+" giorni di caldo (temperature oltre i 30°C) e "+
+        ))))))+'\n </br></br>'+"La provincia di "+province.Name+" ha in media "+((province.HotDays/3.5)*12).toFixed(2)+" giorni di caldo (temperature oltre i 30°C) e "+
         ((province.ColdDays/3.5)*12).toFixed(2)+" giornate di freddo (temperature al di sotto dei 5°C) durante l'anno. Piove (o nevica) circa "+(province.RainyDays*12).toFixed(2)+" giorni l'anno. "+
         (province.FoggyDays<1?"Vi è pochissima nebbia durante l'anno.":"Vi sono "+((province.FoggyDays/3.5)*12).toFixed(2)+" giorni di nebbia durante l'anno.")+
         " "+comune.Name+" riceve circa "+province.SunshineHours/30+" ore di sole giornaliere.";

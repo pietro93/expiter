@@ -555,11 +555,12 @@ function parseData(html,output,province) {
                   
                     if (!comuni[c]){
                         console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> "+c+" acting up")
-                        for (let cc in comuni){
+                        if (c.substr(8)=="sulla strada d.v.")c=c.replace("strada d.v.","SdV")
+                        for (let cc in comuni){                       
                             if (comuni[cc].Name.substr(0,15)==c.substr(0,15)){
                                 console.log("found "+comuni[cc].Name+" similar to "+c)
                                 console.log(cc)
-                                comuni[cc].Name=c;
+                                comuni[cc].Name=c.replace("SdV","Strada del Vino");
                                 comuni[cc].ClimateZone=cz;
                                 console.log(comuni[cc])
                             }

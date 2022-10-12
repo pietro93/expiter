@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 40; i < 50; i++){
+        for (let i = 15; i < 17; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -133,7 +133,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         intro+='\n'+'It has a <b>population density of '+comune.Density+' people per km²</b> and an <b>altitude of '+comune.Altitude+' metres</b> above the sea level.'+'\n'
 
         intro+='</br></br><b>'+en(comune.Name)+"</b> accounts for about "+((comune.Population.split('.').join("")*100)/province.Population).toFixed(2)+"% of the total population in the province of "+en(province.Name)+
-        " and about "+((comune.Population.split('.').join("")*100)/60260456).toFixed(3)+"% of the overall population of Italy as of 2022."
+        " and about "+((comune.Population.split('.').join("")*100)/60260456).toFixed(5)+"% of the overall population of Italy as of 2022."
 
         let zoneAtext="one of the two hottest municipalities in Italy, the other one being "+(comune.Name=="Porto Empedocle"?
         "the Pelagie islands of <a href='https://expiter.com/comuni/agrigento/lampedusa-e-linosa/>Lampedusa and Linosa</a>, geographically located in Africa":
@@ -159,7 +159,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         ["Belluno","Verbano-Cusio-Ossola","Udine","Como","Bergamo","Varese","Biella"].includes(province.Name))?
         "<b>long and very cold winters with plenty of snow</b>, <b>short and mild summers</b>."
         :""
-        ))))))+'\n </br>'+"The province of "+en(province.Name)+" experiences on average "+((province.HotDays/3.5)*12).toFixed(2)+" days of hot temperatures (over 30°C) and "+
+        ))))))+'\n </br></br>'+"The province of "+en(province.Name)+" experiences on average "+((province.HotDays/3.5)*12).toFixed(2)+" days of hot temperatures (over 30°C) and "+
         ((province.ColdDays/3.5)*12).toFixed(2)+" cold temperature days (<5°C) per year. It rains (or snows) around "+(province.RainyDays*12).toFixed(2)+" days per year. "+
         (province.FoggyDays<1?"There is little to no fog throughout the year.":"There are "+((province.FoggyDays/3.5)*12).toFixed(2)+" foggy days throughout the year.")+
         " "+en(comune.Name)+" receives around "+province.SunshineHours/30+" hours of sunshine per day on average.";
