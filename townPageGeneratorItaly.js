@@ -102,8 +102,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<tr><th><b>Provincia</b></th><th>'+province.Name+'</th></tr>'+
         '<tr><th><b>Regione</b></th><th>'+province.Region+'</th></tr>'+
         '<tr><th><b>Popolazione</b></th><th>'+comune.Population+'</th></tr>'+
-        '<tr><th><b>Densità</b></th><th>'+comune.Density+'</th></tr>'+
-        '<tr><th><b>Altitudine</b></th><th>'+comune.Altitude+'</th></tr>'+
+        '<tr><th><b>Densità</b></th><th>'+comune.Density+'ab./km²</th></tr>'+
+        '<tr><th><b>Altitudine</b></th><th>'+comune.Altitude+'m</th></tr>'+
         '</tr>'+
         '</table>'+
         '<p id="info"></p></center>'+
@@ -125,7 +125,42 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         
         $("#list").html(list);
         let intro=comune.Name+" è un comune di "+comune.Population+" abitanti che si trova nella "+
-        "<a href='https://expiter.com/it/comuni/provincia-di-"+handle(province)+"'>provincia di "+province.Name+"</a> in "+province.Region+"."
+        "<a href='https://expiter.com/it/comuni/provincia-di-"+handle(province)+"'>provincia di "+province.Name+"</a> in "+province.Region+
+        " nell'<b>italia "+(center.includes(province.Region)?"centrale":(south.includes(province.Region)?"meridionale":"settentrionale"))+"</b>."
+
+        intro+='\n'+'Ha una <b>densità di popolazione del '+comune.Density+' abitanti per km²</b> e una <b>altitudine di '+comune.Altitude+' metri</b> al di sopra della superficie del mare.'+'\n'
+
+        intro+='</br></br><b>La popolazione di '+comune.Name+"</b> è circa "+((comune.Population.split('.').join("")*100)/province.Population).toFixed(2)+"% della popolazione totale delal provincia di "+province.Name+
+        " e circa "+((comune.Population.split('.').join("")*100)/60260456).toFixed(3)+"% del totale della popolazione dell'italia nel 2022."
+
+        let zoneAtext="una delle due municipalità più calde d'Italia, insieme a"+(comune.Name=="Porto Empedocle"?
+        "lle isole Pelagie di <a href='https://expiter.com/it/comuni/agrigento/lampedusa-e-linosa/>Lampedusa and Linosa</a>, che geograficamente si trovano vicino all'Africa":
+        'l comune di <a href="https://expiter.com/it/comuni/agrigento/porto-empedocle/">Porto Empedocle</a>'+
+        " nella Sicilia \"continentale\", anch'esso nella provincia di Agrigento")
+        let climate='<h3>Clima</h3>'+
+        '<b>'+comune.Name+'</b> viene classificato come una <b>Zona Climatica '+comune.ClimateZone+'</b>, si tratta di '+
+        (comune.ClimateZone==="A"?zoneAtext
+        :(comune.ClimateZone==="B"?"una delle località più calde e soleggiate d'Italia"
+        :(comune.ClimateZone==="C"?"località abbastanza calde"
+        :(comune.ClimateZone==="D"?"località temperate per gli standard del paese"
+        :(comune.ClimateZone==="E"?"un comune abbastanza freddo"
+        :(comune.ClimateZone==="F"?"uno dei comuni più freddi in Italia"
+        :""))))))+"."+'\n'
+        climate+=
+        'Il clima locale è caratterizzato da '+
+        (["Sicilia","Calabria","Sardegna"].includes(province.Region)?"<b>inverni corti e miti</b> and long, <b>estati calde e secche. Le precipitazioni sono concentrate per lo più nel periodo invernale.</b>"
+        :(["Liguria","Toscana","Lazio","Campania"].includes(province.Region)?"<b>inverni corti e miti</b> con <b>estati calde e abbastanza ventose</b> e scarse precipitazioni."
+        :(["Emilia-Romagna","Veneto","Lombardia","Piemonte"].includes(province.Region)?"<b>inverni lunghi e freddi</b> e <b>estati molto calde e secche</b>. Vi sono frequenti precipitazioni in autunno e primavera, e fenomeni di <b>nebbia</b> abbastanza diffusi."
+        :(["Friuli-Venezia Giulia","Marche","Abruzzo","Puglia"].includes(province.Region)?"<b>inverni freddi</b> e <b>estati calde e ventose</b>, con pioggie abbastanza frequenti durante tutto l'anno."
+        :(["Umbria","Molise","Basilicata"].includes(province.Region)?"<b>inverni lunghi e freddi con nevicate frequenti sulle aree montane</b>, e <b>estati calde e abbastanza secche</b>."
+        :((["Trentino-Alto Adige","Val d'Aosta"].includes(province.Region)||
+        ["Belluno","Verbano-Cusio-Ossola","Udine","Como","Bergamo","Varese","Biella"].includes(province.Name))?
+        "<b>inverni lunghi e molto freddi con abbondanti nevicate</b>, <b>estati brevi e non eccessivamente calde</b>."
+        :""
+        ))))))+'\n'+"La provincia di "+province.Name+" ha in media "+(province.HotDays/3.5)*12+" giorni di caldo (temperature oltre i 30°C) e "+
+        ((province.ColdDays/3.5)*12).toFixed(2)+" giornate di freddo (temperature al di sotto dei 5°C) durante l'anno. Piove (o nevica) circa "+(province.RainyDays*12).toFixed(2)+" giorni l'anno. "+
+        (province.FoggyDays<1?"Vi è pochissima nebbia durante l'anno.":"Vi sono "+((province.FoggyDays/3.5)*12).toFixed(2)+" giorni di nebbia durante l'anno.")+
+        " "+comune.Name+" riceve circa "+province.SunshineHours/30+" ore di sole giornaliere.";
 
         $("#info").html(intro)
        

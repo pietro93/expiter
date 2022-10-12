@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 44; i < 54; i++){
+        for (let i = 79; i < 92; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -102,8 +102,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<tr><th><b>Province</b></th><th>'+en(province.Name)+'</th></tr>'+
         '<tr><th><b>Region</b></th><th>'+en(province.Region)+'</th></tr>'+
         '<tr><th><b>Population</b></th><th>'+comune.Population+'</th></tr>'+
-        '<tr><th><b>Density</b></th><th>'+comune.Density+'</th></tr>'+
-        '<tr><th><b>Altitude</b></th><th>'+comune.Altitude+'</th></tr>'+
+        '<tr><th><b>Density</b></th><th>'+comune.Density+'pp/km²</th></tr>'+
+        '<tr><th><b>Altitude</b></th><th>'+comune.Altitude+'m</th></tr>'+
         '<tr><th><b>Climate Zone</b></th><th>'+(comune.ClimateZone?comune.ClimateZone:"?")+'</th></tr>'+
         '</tr>'+
         '</table>'+
@@ -130,7 +130,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         "<a href='https://expiter.com/comuni/province-of-"+handle(province)+"'>"+en(province.Name)+" province</a></b> in the Italian region of "+en(province.Region)+
         " in <b>"+(center.includes(province.Region)?"Central Italy":(south.includes(province.Region)?"Southern Italy":"Northern Italy"))+"</b>."
 
-        intro+='\n'+'It has a <b>population density of '+comune.Density+'</b> and an <b>altitude of '+comune.Altitude+'</b>.'+'\n'
+        intro+='\n'+'It has a <b>population density of '+comune.Density+' people per km²</b> and an <b>altitude of '+comune.Altitude+' metres</b> above the sea level.'+'\n'
 
         intro+='</br></br><b>'+en(comune.Name)+"</b> accounts for about "+((comune.Population.split('.').join("")*100)/province.Population).toFixed(2)+"% of the total population in the province of "+en(province.Name)+
         " and about "+((comune.Population.split('.').join("")*100)/60260456).toFixed(3)+"% of the overall population of Italy as of 2022."
@@ -147,7 +147,22 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         :(comune.ClimateZone==="D"?"a temperate town by Italian standards"
         :(comune.ClimateZone==="E"?"a fairly chill town"
         :(comune.ClimateZone==="F"?"one of the coldest locations in Italy"
-        :""))))))+"."
+        :""))))))+"."+'\n'
+        climate+=
+        'The local climate is characterized by '+
+        (["Sicilia","Calabria","Sardegna"].includes(province.Region)?"<b>short, mild winters</b> and long, <b>hot and dry summers. Rainfall is mostly concentrated to the winter period.</b>"
+        :(["Liguria","Toscana","Lazio","Campania"].includes(province.Region)?"<b>short, mild winters</b> with <b>hot and somewhat windy summers</b> and overall little precipitation."
+        :(["Emilia-Romagna","Veneto","Lombardia","Piemonte"].includes(province.Region)?"<b>winters which are long and cold</b> and <b>summers which are dry and very hot</b>. There are frequent precipitations in autumn and spring, and <b>fog is not uncommon</b>."
+        :(["Friuli-Venezia Giulia","Marche","Abruzzo","Puglia"].includes(province.Region)?"<b>cold winters</b> and <b>hot but windy summers</b>, with somewhat frequent rainfall spread throughout the year."
+        :(["Umbria","Molise","Basilicata"].includes(province.Region)?"<b>long and cold winters with frequent snowfall in mountaineous areas</b>, and <b>somewhat warm and dry summers</b>."
+        :((["Trentino-Alto Adige","Val d'Aosta"].includes(province.Region)||
+        ["Belluno","Verbano-Cusio-Ossola","Udine","Como","Bergamo","Varese","Biella"].includes(province.Name))?
+        "<b>long and very cold winters with plenty of snow</b>, <b>short and mild summers</b>."
+        :""
+        ))))))+'\n'+"The province of "+en(province.Name)+" experiences on average "+(province.HotDays/3.5)*12+" days of hot temperatures (over 30°C) and "+
+        ((province.ColdDays/3.5)*12).toFixed(2)+" cold temperature days (<5°C) per year. It rains (or snows) around "+(province.RainyDays*12).toFixed(2)+" days per year. "+
+        (province.FoggyDays<1?"There is little to no fog throughout the year.":"There are "+((province.FoggyDays/3.5)*12).toFixed(2)+" foggy days throughout the year.")+
+        " "+en(comune.Name)+" receives around "+province.SunshineHours/30+" hours of sunshine per day on average.";
         $("#info").html(intro+climate)
        
         var info=getInfo(comune,province)
