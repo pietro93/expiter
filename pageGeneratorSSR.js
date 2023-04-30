@@ -49,11 +49,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/style.css">'+
             
             '<meta name="description" content="Information about living in '+en(province.Name)+', Italy for expats and digital nomads. '+en(province.Name)+' quality of life, cost of living, safety and more." />'+
-	        '<meta name="keywords" content="'+en(province.Name)+' italy, '+en(province.Name)+' expat,'+en(province.Name)+' life,'+en(province.Name)+' digital nomad" />'+
+	          '<meta name="keywords" content="'+en(province.Name)+' italy, '+en(province.Name)+' expat,'+en(province.Name)+' life,'+en(province.Name)+' digital nomad" />'+
             "<title>"+en(province.Name)+" - Quality of Life and Info Sheet for Expats </title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
            
-            +'<meta property="og:description" content="Information about living in '+en(province.Name)+', Italy for expats and digital nomads. '+en(province.Name)+' quality of life, cost of living, safety and more.">'
+            +'<meta property="og:description" content="Information about living in '+en(province.Name)+', Italy for expats and digital nomads. Quality of life, cost of living, safety and more.">'
             +'<meta property="og:image" content="https://expiter.com/img/'+province.Abbreviation+'.webp" />'
             +'<meta property="og:type" content="article" />'
             +'<meta property="og:url" content="https://expiter.com/'+fileName+'/" />'
@@ -125,6 +125,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<section id="Transport"><h3>Transport</h3><span id="transport"></span></section></section>'+
             '<section id="Discover"><h2>Discover</h2><span id="promo"></span></section>'+
             '</div>'+
+            '<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'+
             '</body></html>'
                     )
 
