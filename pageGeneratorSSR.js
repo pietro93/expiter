@@ -125,7 +125,6 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<section id="Transport"><h3>Transport</h3><span id="transport"></span></section></section>'+
             '<section id="Discover"><h2>Discover</h2><span id="promo"></span></section>'+
             '</div>'+
-            '<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'+
             '</body></html>'
                     )
 
@@ -187,6 +186,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#transport").append(info.transport)
         $("#transport").append(separator)
         $("#promo").append(info.viator)
+        $("#promo").append(separator)
+        $("#promo").append(info.getyourguide)
         $("#promo").append(separator)
         $("#promo").append(info.related)
 
@@ -299,6 +300,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         (province.Viator.includes(",")||region.Name=='Molise'?"":' data-vi-total-products=6 ')+
         ' data-vi-campaign="'+name+'" ></div>'+
         '<script async src="https://www.viator.com/orion/partner/widget.js"></script>'
+
+        info.getyourguide='<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'
 
         let target, related1, related2, related3, related4;
        
