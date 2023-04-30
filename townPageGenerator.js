@@ -166,6 +166,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#info").html(intro+climate)
        
         var info=getInfo(comune,province)
+        info.getyourguide='<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'
         
         $("#info").append(info.disclaimer)
         $("#info").append("<h2>Map of "+en(comune.Name)+"</h2>")
@@ -174,6 +175,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#tabs").append(info.tabs)
         $("#related").append(info.nearby)
         $("#related").append(info.related)
+        $("#related").append(info.getyourguide)
         appendProvinceData(province,$)
         setNavBar($)
         }
