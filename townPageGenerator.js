@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 27; i < 37; i++){
+        for (let i = 15; i < 27; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -166,16 +166,20 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#info").html(intro+climate)
        
         var info=getInfo(comune,province)
-        info.getyourguide='<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'
+        var separator='</br><span class="separator"></span></br>'
+        var getyourguide='<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'
         
         $("#info").append(info.disclaimer)
         $("#info").append("<h2>Map of "+en(comune.Name)+"</h2>")
         $("#info").append(info.map)
+        $("#info").append(separator)
+        $("#info").append(getyourguide)
+        $("#info").append(separator)
         $("#info").append("<h2>"+en(province.Name)+" Province Info</h2>")
         $("#tabs").append(info.tabs)
         $("#related").append(info.nearby)
         $("#related").append(info.related)
-        $("#related").append(info.getyourguide)
+    
         appendProvinceData(province,$)
         setNavBar($)
         }
