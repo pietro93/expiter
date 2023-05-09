@@ -664,6 +664,19 @@ facts["Lecce"].nightlife="<b>Lecce, a captivating city in southern Italy's Apuli
 facts["Sassari"].nightlife="<b>Sassari, a lively city in northern Sardinia, offers a vibrant and energetic nightlife</b> that reflects its youthful population and dynamic atmosphere. The city's historic center is filled with charming bars, pubs, and clubs, creating a lively social scene after dark. Sassari hosts various cultural events, music festivals, and live performances throughout the year, attracting both locals and visitors."
 
 facts["Catanzaro"].nightlife="<b>Catanzaro, the capital of the Calabria region, offers a diverse and lively nightlife</b> that combines traditional charm with modern entertainment. The city features a variety of bars, pubs, and clubs catering to different preferences. Catanzaro's historic center is a popular spot for locals and tourists to enjoy the vibrant atmosphere and experience the city's nightlife."
+
+facts["Padova"].nightlife="<b>Padua (Padova) offers a lively and dynamic nightlife</b> that caters to the city's vibrant student population. The streets are lined with a variety of bars, pubs, and clubs where visitors can enjoy live music, DJ sets, and a bustling atmosphere. Padua's nightlife scene is known for its energetic vibe, friendly crowds, and a mix of traditional and contemporary venues."
+
+facts["Trento"].nightlife="<b>Trento, nestled in the stunning Trentino region, offers a charming and vibrant nightlife scene</b>. The city features a mix of cozy wine bars, craft beer pubs, and trendy clubs where visitors can unwind and socialize. Trento's nightlife is influenced by its location in the heart of the Dolomites, with a focus on local produce and a warm, welcoming atmosphere."
+
+facts["Pescara"].nightlife="<b>Pescara, a coastal city in the Abruzzo region, offers a lively and diverse nightlife</b> that combines beachfront entertainment with urban charm. The city features a variety of bars, clubs, and beach clubs where visitors can enjoy live music, DJ sets, and a vibrant atmosphere. Pescara's nightlife scene is known for its fusion of beach parties, trendy venues, and a bustling social scene."
+
+facts["Como"].nightlife="<b>Como, nestled on the shores of Lake Como, offers a sophisticated and elegant nightlife experience</b>. The city features a mix of stylish wine bars, rooftop lounges, and upscale clubs where visitors can enjoy a refined evening. Como's nightlife scene is characterized by its stunning lake views, exclusive venues, and a blend of international and local clientele."
+
+facts["Frosinone"].nightlife="<b>Frosinone offers a lively and energetic nightlife scene</b> that reflects the city's southern Italian spirit. The city features a range of bars, pubs, and clubs where locals and visitors can enjoy live music, DJ sets, and a bustling atmosphere. Frosinone's nightlife scene is known for its warm hospitality, friendly locals, and a variety of venues that cater to different tastes and preferences."
+
+facts["Aosta"].nightlife="<b>Aosta, nestled in the scenic Aosta Valley, offers a charming and cozy nightlife experience</b>. The city features a variety of bars, wine cellars, and traditional taverns where visitors can enjoy local wines, delicious cuisine, and a relaxed atmosphere. Aosta's nightlife scene embraces the region's Alpine charm, providing a tranquil and enjoyable experience for those seeking a laid-back evening."
+ 
 }
 
 function populateSafetyFacts(){
