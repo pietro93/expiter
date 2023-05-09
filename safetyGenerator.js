@@ -28,10 +28,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         //console.log(dom.window.document.querySelector("body").textContent)
         dataset=data;  
         populateData(data);
-        for (let i = 0; i < 107; i++){
+        for (let i = 0; i < 3; i++){
             let province = dataset[i];
             
-            var fileName = 'province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+            var fileName = 'province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/safety';
             
             const dom = new jsdom.JSDOM(
             "<html lang='en'>"+
@@ -161,7 +161,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         appendProvinceData(province, $);
         setNavBar($);
         
-        $(".title").text(en(province.Name)+' for Expats and Nomads');
+        $(".title").text('Is '+en(province.Name)+', Italy Safe?');
         $("#overview").append(map)
         $("#overview").append(info.overview)
         $("#overview").append(info.disclaimer)
@@ -343,6 +343,15 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         return info;
       }
 
+      
+
+function populateFacts(){
+  
+    facts.Roma.overview="The <b>city of Rome</b>, with 2.761.632 residents, is the most popolous city and <b>capital of Italy</b>."
+    facts.Milano.overview="The <b>city of Milan</b>, with 1,371,498 residents, is the second-most popolous city and <b>industrial, commercial and financial capital of Italy</b>."
+    
+    }
+
 
     function setNavBar($){
         $("#navbar").append(
@@ -523,68 +532,3 @@ function en(word){
       default: return word;
     }
   }
-
-  function populateFacts(){
-  
-facts.Roma.overview="The <b>city of Rome</b>, with 2.761.632 residents, is the most popolous city and <b>capital of Italy</b>. Rome is not only known for its historical significance but also as a vibrant and cosmopolitan city. It offers a unique blend of ancient ruins, such as the Colosseum and Roman Forum, alongside Renaissance and Baroque architecture, magnificent churches, and picturesque piazzas. Rome is also home to the Vatican City, an independent city-state and the spiritual center of the Roman Catholic Church, where visitors can explore St. Peter's Basilica and the Vatican Museums, including the Sistine Chapel with its famous ceiling painted by Michelangelo."
-
-facts.Milano.overview="The <b>city of Milan</b>, with 1,371,498 residents, is the second-most popolous city and <b>industrial, commercial and financial capital of Italy</b>. Milan is a global center for fashion, design, and business. It is home to prestigious fashion houses, luxury brands, and renowned design studios. The city hosts major international fashion events, including Milan Fashion Week. Milan's financial district houses Italy's stock exchange and important financial institutions. The city is also rich in artistic and cultural heritage, with iconic landmarks such as the Milan Cathedral (Duomo di Milano), the Galleria Vittorio Emanuele II, and the Sforza Castle. Additionally, Milan is known for its thriving nightlife, diverse culinary scene, and vibrant street markets."
-    
-facts.Firenze.overview="The <b>city of Florence</b> is a historic city in Italy and the capital of the Tuscany region. Florence is renowned for its art and architecture, with iconic landmarks such as the Florence Cathedral (Duomo), Ponte Vecchio, and the Uffizi Gallery. It is considered the birthplace of the Renaissance, with a rich cultural heritage and numerous museums and art galleries."
-
-facts.Palermo.overview="The <b>city of Palermo</b> is the capital of Sicily, an island region of Italy. It is a vibrant and lively city with a fascinating history that spans several centuries. Palermo is known for its bustling street markets, vibrant neighborhoods, and architectural landmarks such as the Palermo Cathedral and the Norman Palace. The city offers a mix of different cultures and influences, reflected in its diverse cuisine and vibrant street life."
-
-facts.Catania.overview="The <b>city of Catania</b> is located on the eastern coast of Sicily, Italy. It is the second-largest city in Sicily and serves as a major transportation hub. Catania is known for its Baroque architecture, including the famous Elephant Fountain and the Catania Cathedral. The city is also situated at the foot of Mount Etna, an active volcano, offering stunning natural scenery and opportunities for outdoor activities."
-
-facts.Pisa.overview="The <b>city of Pisa</b> is located in the Tuscany region of Italy. It is famous for its iconic leaning tower, part of the Piazza dei Miracoli (Square of Miracles), which also includes the Pisa Cathedral and the Baptistry. Pisa is a historic city with a rich cultural heritage, known for its prestigious university, the University of Pisa, which was established in the 12th century."
-
-facts.Livorno.overview="The <b>city of Livorno</b> is a major port city located on the western coast of Tuscany, Italy. It is known for its beautiful waterfront, historic fortresses, and Renaissance-era canals. Livorno has a rich maritime history and offers a variety of attractions, including museums, art galleries, and picturesque squares. The city is also a gateway to the picturesque Tuscan countryside and the nearby islands of Elba and Capraia."
-
-facts.Genova.overview="The <b>city of Genoa</b> (Genova) is located on the northwest coast of Italy, in the region of Liguria. It is a historic port city and birthplace of Christopher Columbus. Genoa is known for its charming old town, with narrow streets (known as caruggi), historic palaces, and medieval architecture. The city has a rich maritime heritage and is home to the largest aquarium in Italy, the Genoa Aquarium."
-  
-facts.Napoli.overview="The <b>city of Naples</b>, with a population of approximately 962,003 residents, is a vibrant and bustling city located in southern Italy. Naples is known for its rich history, stunning architecture, and mouthwatering cuisine. The city is home to numerous historical sites, including the ancient city of Pompeii, which was preserved by the eruption of Mount Vesuvius in 79 AD. Naples is also famous for its pizza, with Neapolitan-style pizza being recognized as a UNESCO intangible cultural heritage. Visitors to Naples can explore the narrow streets of the historic center, visit the Royal Palace of Naples, and enjoy breathtaking views from the hillside neighborhood of Posillipo."
-
-facts.Torino.overview="The <b>city of Turin</b>, with a population of approximately 878,074 residents, is located in the Piedmont region of northern Italy. Turin is known for its rich cultural heritage, elegant architecture, and as the birthplace of Italian cinema. The city is home to several royal residences, including the Palazzo Reale and the Palazzo Madama. Turin is also renowned for its culinary delights, with famous dishes such as agnolotti pasta and gianduja chocolate originating from the region. Additionally, the city is home to the iconic Mole Antonelliana, which houses the National Cinema Museum and offers panoramic views of the city."
-
-facts.Venezia.overview="The <b>city of Venice</b>, with a population of approximately 261,905 residents, is located in northeastern Italy and is renowned for its unique and picturesque canal network. Venice is composed of 118 islands connected by a network of canals and bridges, with the Grand Canal serving as its main waterway. The city is famous for its stunning architecture, including landmarks like St. Mark's Square, the Doge's Palace, and the Rialto Bridge. Visitors can explore the narrow streets, take gondola rides, and admire the beautiful Venetian Gothic and Renaissance-style buildings."
-
-facts.Ragusa.overview="The <b>city of Ragusa</b>, with a population of approximately 73,635 residents, is located in southeastern Sicily, Italy. Ragusa is renowned for its captivating Baroque architecture, which has earned it a coveted UNESCO World Heritage status. Divided into two parts, Ragusa Ibla and Ragusa Superiore, the city offers a fascinating contrast of historic charm and modernity. Visitors can wander through the enchanting streets of Ragusa Ibla, marvel at the ornate facades of its churches and palaces, and soak in the breathtaking views from the panoramic viewpoints. Ragusa is a true gem of Sicily, inviting travelers to discover its cultural heritage and picturesque beauty."
-
-facts.Perugia.overview="The <b>city of Perugia</b>, with a population of approximately 168,066 residents, is the capital of the Umbria region in central Italy. Perugia is a city rich in history, art, and culture. It is known for its well-preserved medieval architecture, Renaissance art, and prestigious universities. The city's historic center features charming cobblestone streets, ancient Etruscan walls, and iconic landmarks such as the stunning Palazzo dei Priori and the magnificent Cathedral of San Lorenzo. Perugia also hosts the renowned Umbria Jazz Festival, attracting music enthusiasts from around the world. Visitors can indulge in the city's culinary delights, including the famous Perugina chocolates."
-
-facts["Reggio Calabria"].overview="The <b>city of Reggio Calabria</b>, with a population of approximately 181,082 residents, is located in the southern region of Calabria. Reggio Calabria is situated on the coast of the Ionian Sea and offers stunning views of the Strait of Messina, which separates Italy from Sicily. The city is known for its beautiful seaside promenade, the Lungomare Falcomatà, and its impressive collection of ancient Greek artifacts at the National Archaeological Museum of Magna Grecia. Visitors can explore the historic center, visit the Cathedral of Reggio Calabria, and enjoy the local cuisine, which includes traditional Calabrian dishes such as 'nduja and swordfish."
-
-facts["Reggio Emilia"].overview="The <b>city of Reggio Emilia</b>, with a population of approximately 172,419 residents, is located in the Emilia-Romagna region of northern Italy. Reggio Emilia is known for its rich history, beautiful architecture, and cultural heritage. The city is renowned for its educational philosophy, the Reggio Emilia approach, which emphasizes creativity and child-centered learning. Visitors can explore the historic center of Reggio Emilia, visit the Teatro Municipale Valli, and indulge in the region's famous culinary specialties, including Parmigiano Reggiano cheese and balsamic vinegar."
-
-facts.Trieste.overview="The <b>city of Trieste</b>, with a population of approximately 205,535 residents, is located in the northeastern part of Italy, near the border with Slovenia. Trieste is a unique city that combines Italian, Slavic, and Austrian influences due to its historical past. The city is situated on the Adriatic Sea and offers a picturesque waterfront, charming cafés, and a relaxed Mediterranean atmosphere. Trieste is known for its elegant architecture, including the Miramare Castle overlooking the sea and the beautiful Piazza Unità d'Italia, which is one of the largest seafront squares in Europe."
-
-facts.Trento.overview="The <b>city of Trento</b>, with a population of approximately 117,417 residents, is located in the Trentino-Alto Adige/Südtirol region of northern Italy. Surrounded by the stunning Dolomite Mountains, Trento offers a perfect blend of natural beauty and historical charm. The city is known for its well-preserved medieval architecture, including the Buonconsiglio Castle and the Duomo di Trento. Trento is also a hub for outdoor enthusiasts, with opportunities for hiking, skiing, and mountain biking in the nearby mountains."
-
-facts.Foggia.overview="The <b>city of Foggia</b>, with a population of approximately 151,246 residents, is located in the Apulia region of southern Italy. Foggia is a vibrant city known for its agricultural heritage and picturesque landscapes. Surrounded by vast plains, olive groves, and vineyards, Foggia offers a serene and idyllic setting. The city boasts historical treasures such as the Romanesque-style Foggia Cathedral and the impressive Arco di Federico II. Foggia is also a gateway to the beautiful Gargano National Park, renowned for its stunning coastline, charming villages, and lush forests. Visitors can savor the authentic flavors of Apulian cuisine, including delicious pasta dishes and fresh seafood specialties."
-
-facts.Verona.overview="The <b>city of Verona</b>, with a population of approximately 257,275 residents, is located in the Veneto region of northern Italy. Verona is known for its well-preserved ancient Roman architecture, including the Arena di Verona, a spectacular Roman amphitheater that hosts world-renowned opera performances. The city is also famous for being the setting of Shakespeare's Romeo and Juliet, with Juliet's House being a popular tourist attraction. Verona's historic center, a UNESCO World Heritage site, offers charming streets, elegant palaces, and a vibrant atmosphere."
-
-facts.Vicenza.overview="The <b>city of Vicenza</b>, with a population of approximately 115,927 residents, is situated in the Veneto region of northern Italy. Vicenza is renowned for its architectural masterpieces designed by the famous Renaissance architect Andrea Palladio. The city's historic center showcases Palladian villas, palaces, and churches, including the iconic Basilica Palladiana and the Villa Capra, also known as 'La Rotonda.' Vicenza's architecture and urban design have had a significant influence on Western architecture. Visitors can explore the city's rich cultural heritage and enjoy the beauty of Palladian architecture."
-
-facts.Cosenza.overview="The <b>city of Cosenza</b>, with a population of approximately 69,393 residents, is located in the Calabria region of southern Italy. Cosenza is known for its historical and artistic heritage, featuring a mix of medieval, Renaissance, and Baroque architecture. The city is dominated by its ancient hilltop Norman-Swabian Castle, which offers panoramic views of the surrounding area. Cosenza's historic center is a labyrinth of narrow streets and picturesque squares, such as Piazza XV Marzo and Piazza Duomo. The city also serves as a gateway to the scenic Sila National Park."
-
-facts.Catanzaro.overview="The <b>city of Catanzaro</b>, with a population of approximately 91,492 residents, is the capital of the Calabria region in southern Italy. Perched on a hilltop overlooking the Gulf of Squillace, Catanzaro offers stunning panoramic views of the surrounding landscapes. The city is known for its historic center, with medieval and Baroque architecture, including the Cathedral of Santa Maria Assunta and the Norman Castle. Catanzaro is also a cultural hub, hosting events such as the Catanzaro Jazz Festival and the International Folklore Festival."
-
-facts.Crotone.overview="The <b>city of Crotone</b>, with a population of approximately 62,949 residents, is located on the Ionian Sea in the Calabria region of southern Italy. With a rich history dating back to ancient times as a Greek colony, Crotone offers a unique blend of archaeological wonders and natural beauty. Visitors can explore the Capo Colonna Archaeological Park, home to the remains of a Doric temple dedicated to Hera Lacinia. The city also boasts beautiful beaches, including Le Castella and Capo Rizzuto, where visitors can relax and enjoy the crystal-clear waters of the Ionian Sea."
-
-facts["La Spezia"].overview="The <b>city of La Spezia</b>, with a population of approximately 94,641 residents, is situated on the Ligurian Sea in northern Italy. It serves as a major port city and gateway to the breathtaking Cinque Terre region. La Spezia offers a picturesque waterfront promenade, lined with colorful buildings and charming cafes. Visitors can explore the historic old town, visit the Naval Museum, and take boat trips to the scenic villages of Cinque Terre, known for their vibrant pastel houses and stunning coastal views."
-
-facts.Asti.overview="The <b>city of Asti</b>, with a population of approximately 76,163 residents, is located in the Piedmont region of northern Italy. Asti is renowned for its sparkling wine, known as Asti Spumante, and its annual wine festival, the Palio di Asti. The city boasts well-preserved medieval towers, such as the Torre Troyana, and a charming historic center with narrow streets and lively piazzas. Asti is also home to beautiful churches and palaces, including the Collegiata di San Secondo and the Palazzo Mazzetti, which houses an art museum."
-
-facts.Ravenna.overview="The <b>city of Ravenna</b>, with a population of approximately 79,938 residents, is located in the Emilia-Romagna region of northeastern Italy. Ravenna is known for its extraordinary Byzantine mosaics, which adorn several UNESCO World Heritage sites. The city was once the capital of the Western Roman Empire and later the Ostrogothic Kingdom. Visitors can explore the stunning mosaics in the Basilica of San Vitale and the Mausoleum of Galla Placidia, among others. Ravenna also offers a rich cultural heritage, with historic buildings, charming streets, and a vibrant arts scene."
-
-facts.Rimini.overview="The <b>city of Rimini</b>, with a population of approximately 150,590 residents, is located on the Adriatic Sea in the Emilia-Romagna region of northern Italy. Rimini is renowned for its long sandy beaches, vibrant nightlife, and lively atmosphere. The city boasts a rich history, dating back to Roman times, with iconic landmarks such as the Arch of Augustus and the Tiberius Bridge. Rimini offers a wide range of entertainment options, including water sports, theme parks, and cultural events. It is a popular destination for beach lovers and partygoers alike."
-
-facts.Agrigento.overview="The <b>city of Agrigento</b>, with a population of approximately 59,489 residents, is situated on the southern coast of Sicily, Italy. Agrigento is renowned for its exceptional archaeological site, the Valley of the Temples, which is a UNESCO World Heritage site. Visitors can marvel at the remarkably preserved ancient Greek temples, including the Temple of Concordia and the Temple of Juno. The city also offers picturesque views of the Mediterranean Sea and beautiful sandy beaches. Agrigento's historic center features charming streets, medieval architecture, and delightful local cuisine, making it a captivating destination for history enthusiasts and beach lovers alike."
-
-facts.Messina.overview="The <b>city of Messina</b>, with a population of approximately 234,570 residents, is located in northeastern Sicily, Italy. Positioned on the Strait of Messina, it serves as a vital transportation hub between Sicily and mainland Italy. Messina boasts a rich cultural heritage, blending Byzantine, Norman, and Baroque influences. The city's main square, Piazza del Duomo, is home to the magnificent Messina Cathedral with its renowned astronomical clock. Visitors can explore the picturesque streets, visit historical landmarks such as the Fountain of Orion and the Church of Santa Maria Alemanna, and enjoy panoramic views of the strait and the surrounding mountains."
-
-facts.Bologna.overview="The <b>city of Bologna</b>, with a population of approximately 389,261 residents, is the capital of the Emilia-Romagna region in northern Italy. Bologna is renowned for its rich history, vibrant culture, and culinary traditions. The city is home to one of the oldest universities in the world, the University of Bologna, which contributes to its youthful and dynamic atmosphere. Bologna is famous for its beautiful medieval architecture, including the iconic Two Towers, the historic Piazza Maggiore, and the intricate Basilica di San Petronio. Visitors can indulge in the city's gastronomic delights, such as authentic Bolognese cuisine and the renowned local specialty, tortellini."
-
-facts.Matera.overview="The <b>city of Matera</b>, with a population of approximately 60,156 residents, is located in the Basilicata region of southern Italy. Matera is known for its remarkable Sassi di Matera, a complex of cave dwellings that is a UNESCO World Heritage site. The city's ancient cave dwellings, known as sassi, are a testament to its unique history and architectural significance. Matera's Sassi district offers a mesmerizing labyrinth of narrow streets, stone houses, and ancient churches carved into the rock. The city has gained international recognition for its cultural heritage and has been a popular filming location for movies. Matera invites visitors to step back in time and experience its fascinating cave-dwelling culture."
-   }
