@@ -28,7 +28,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         //console.log(dom.window.document.querySelector("body").textContent)
         dataset=data;  
         populateData(data);
-        for (let i = 95; i < 108; i++){
+        for (let i = 0; i < 30; i++){
             let province = dataset[i];
             
             var fileName = 'province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
