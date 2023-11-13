@@ -28,7 +28,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         //console.log(dom.window.document.querySelector("body").textContent)
         dataset=data;  
         populateData(data);
-        for (let i = 0; i < 107; i++){
+        for (let i = 39; i < 59; i++){
             let province = dataset[i];
             
             var fileName = 'province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
@@ -153,7 +153,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let map =
         '<figure>'+
         '<img alt="Map of the '+en(province.Name)+' province in '+en(province.Region)+'"'+
-        'src="https://ik.imagekit.io/cfkgj4ulo/map/'+province["Region"].replace(/\s+/g,"-").replace("'","-")+'-provinces.webp?tr=w-250'+
+        'src="https://ik.imagekit.io/cfkgj4ulo/map/'+province["Region"].replace(/\s+/g,"-").replace("'","-")+'-provinces.webp?tr=w-340,'+
         'load="lazy"></img>'+
         '<figcaption>Map of the provinces of '+en(province.Region)+' including '+en(province.Name)+'</figcaption>'+
         '</figure>'
@@ -688,6 +688,8 @@ facts["Ancona"].nightlife="<b>Ancona has a lively and well-organized nightlife</
 facts["Macerata"].nightlife="<b>Macerata also offers a vibrant nightlife scene</b> with various venues to suit different tastes. One of the well-known nightlife spots in Macerata is <b>Strada del Castellano</b>, where you can find the <b>Naif Club</b>. It hosts special events and guest performances. Additionally, <b>Komedia</b> in Castelfidardo, located a short distance from Macerata, is a beautiful nightclub worth visiting. These places provide an exciting atmosphere for partygoers and those seeking a memorable nightlife experience in Macerata."
 
 facts["Oristano"].nightlife="<b>Oristano offers a variety of nightlife venues, including bars, clubs, and pubs in the city center and along the waterfront of Marina di Torre Grande</b>. These places offer diverse atmospheres, catering to different preferences. Visitors can explore these areas to experience the vibrant nightlife scene in Oristano, characterized by a lively and enjoyable ambiance for socializing and entertainment."
+
+facts["Livorno"].nightlife="<b>Livorno, a port city on the Tuscan coast, offers a lively and authentic nightlife experience</b>.\n\n The city features a range of bars, pubs, and taverns where visitors can enjoy local drinks, seafood, and live music. Livorno’s nightlife scene reflects the city’s maritime heritage, multicultural influences, and artistic flair.\n With its casual and friendly atmosphere, Livorno provides a unique and enjoyable evening for those seeking a taste of the real Tuscany."
 }
 
 function populateSafetyFacts(){

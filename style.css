@@ -123,6 +123,10 @@ body::-webkit-scrollbar-thumb {
 
 }
 
+div{
+  white-space: pre-line;
+}
+
 .title {
   font-size: 24px;
   font-weight: 700;
