@@ -186,3 +186,7 @@ section#footer {
       }
     
 }
+
+#table-four{width:100%;} 
+#table-four td{width: 20%;} 
+#table-four th{width:20%;} 
