@@ -188,8 +188,8 @@ section#footer {
 }
 
 #table-four{width:100%;} 
-#table-four td{width: 20%;} 
-#table-four th{width:20%;} 
+#table-four td{width: 25%;} 
+#table-four th{width:25%;color: #efe481;} 
 
 center{
   margin: auto;
