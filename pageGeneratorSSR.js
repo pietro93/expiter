@@ -208,7 +208,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         
         let info = {}
   
-        info.overview="The province of "+en(province.Name)+" is the <b>"+province.SizeByPopulation+(province.SizeByPopulation%10==1?"st":(province.SizeByPopulation%10==2?"nd":province.SizeByPopulation%10==3?"rd":"th"))+" largest Italian province by population</b> with <b>"+province.Population.toLocaleString()+" people</b>, located in the <b>"+en(province.Region)+"</b> region. "+
+        info.overview="The province of "+en(province.Name)+" is the <b>"+province.SizeByPopulation+(province.SizeByPopulation%10==1?"st":(province.SizeByPopulation%10==2?"nd":province.SizeByPopulation%10==3?"rd":"th"))+" largest Italian province by population</b> with <b>"+province.Population.toLocaleString()+" people</b>, located in the <b>"+en(province.Region)+"</b> region.<br><br>"+
         (facts[name].overview?facts[name].overview:"")+
         "</br></br>"+
         "<a href='https://expiter.com/comuni/province-of-"+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+"/'>"+"The larger "+province.Name+" metropolitan area comprises <b>"+province.Towns+" towns</b> (comuni)</a> and covers an area of "+province.Size.toLocaleString()+" km<sup>2</sup>. "
