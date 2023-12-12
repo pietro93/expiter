@@ -214,7 +214,7 @@ hr{  height: 3px;
   );}
 
   #articlecard {
-    width:25%;
+    max-width:400px;
     background-color: rgba(255,255,205,0.33);
     border-style:ridge;
     border-radius:25px;
