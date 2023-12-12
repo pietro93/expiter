@@ -200,3 +200,14 @@ h2,h3{padding-bottom:10px}
 h2{font-size:28px}
 h3{font-size:24px}
 #info p{font-size:20px;line-height:10px}
+
+hr{  height: 3px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(13, 8, 96, .01) 0%,
+    rgba(9, 9, 121, .11) 21%,
+    rgba(6, 84, 170, .21) 51%,
+    rgba(0, 255, 113, .4) 100%
+  );}
