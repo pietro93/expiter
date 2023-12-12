@@ -220,6 +220,7 @@ hr{  height: 3px;
     border-radius:25px;
     border-width:4px;
     border-color:rgba(155,155,105,0.63);
+    padding-right:3px;
   }
 
   img .inarticle {
