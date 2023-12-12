@@ -222,6 +222,7 @@ function setNavBar($){
         '<li><a href="https://expiter.com">Home</a></li>'+
         '<li><a href="https://expiter.com/resources/">Resources</a></li>'+
         '<li><a href="https://expiter.com/tools/codice-fiscale-generator/">Tools</a></li>'+
+        '<li><a href="https://expiter.com/blog/articoli.html">Blog</a></li>'+
         '<li><a href="https://expiter.com/app/#About">About</a></li>'+
         '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
         '</ul>'+
