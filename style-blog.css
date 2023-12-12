@@ -196,10 +196,11 @@ center{
   width: 100%;
   padding: 25%;}
 
-h2,h3{padding-bottom:10px}
-h2{font-size:28px}
-h3{font-size:24px}
-#info p{font-size:20px;line-height:10px}
+h1{font-size:36px; background-color:rgba(10,65,200,0.33)}
+#info h2,h3{padding-bottom:10px}
+#info h2{font-size:28px}
+#info h3{font-size:24px}
+#info p{font-size:20px;line-height:30px}
 
 hr{  height: 3px;
   border: none;
@@ -214,6 +215,10 @@ hr{  height: 3px;
 
   #articlecard {
     width:25%;
+    background-color: rgba(255,255,205,0.33);
+    border-style:ridge;
+    border-radius:25px;
+    border-width:4px;
   }
 
   img .inarticle {
