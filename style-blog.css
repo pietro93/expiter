@@ -211,3 +211,7 @@ hr{  height: 3px;
     rgba(6, 84, 170, .21) 51%,
     rgba(0, 255, 113, .4) 100%
   );}
+
+  #articlecard {
+    width:25%;
+  }
