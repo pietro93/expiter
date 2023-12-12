@@ -187,11 +187,16 @@ section#footer {
     
 }
 
-#table-four{width:100%;} 
-#table-four td{width: 25%;} 
-#table-four th{width:25%;color: #efe481;} 
+#table-four{width:100vw;} 
+#table-four td{width:25vw;} 
+#table-four th{width:25vw;} 
 
 center{
   margin: auto;
-  width: 50%;
-  padding: 10px;}
+  width: 100%;
+  padding: 25%;}
+
+h2,h3{padding-bottom:10px}
+h2{font-size:28px}
+h3{font-size:24px}
+#info p{font-size:20px;line-height:10px}
