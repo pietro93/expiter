@@ -215,3 +215,9 @@ hr{  height: 3px;
   #articlecard {
     width:25%;
   }
+
+  img .inarticle {
+    width:100vw;
+    max-height:33vh;
+     object-fit:cover
+  }
