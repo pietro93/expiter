@@ -157,7 +157,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         setNavBar($);
         let city = en(province.Name);
 
-        $(".title").text(en(province.Name)+' for Expats and Nomads');
+        $(".title").text("What is it like to live in "+en(province.Name)+', Italy');
         $("#overview").append(facts[city].introduction)
         $("#overview").append(facts[city].overview)
         $("#overview").append(info.disclaimer)
