@@ -531,6 +531,7 @@ function en(word){
       case "Roma":return"Rome";case "Puglia":return "Apulia";
       case "Mantova":return"Mantua";case "Padova":return"Padua";
       case "Venezia":return"Venice";case "Firenze":return"Florence";
+      case "Napoli":return"Naples";
       default: return word;
     }
   }
