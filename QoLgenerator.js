@@ -160,6 +160,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $(".title").text(en(province.Name)+' for Expats and Nomads');
         $("#overview").append(facts[city].introduction)
         $("#overview").append(facts[city].overview)
+        $("#overview").append(info.disclaimer)
         $("#overview").append(map)
         $("#overview").append(separator)
         $("#generalinfo").append(facts[city].culture)
@@ -172,8 +173,6 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#generalinfo").append(separator)
         $("#costofliving").append(facts[city].costofliving)
         $("#costofliving").append(separator)
-        //$("#overview").append(info.disclaimer)
-        //$("#overview").append(info.map)
         $("#povertyandsafety").append(facts[city].safety)
         $("#prosandcons").append(facts[city].prosandconstable)
         $("#prosandcons").append("<h3>Advantages of Living in "+city+" <h3>")
@@ -226,7 +225,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         info.disclaimer='</br></br><center><span id="disclaimer">This page contains affiliate links. As part of the Amazon Associates and Viator Partner programmes, we may earn a commission on qualified purchases.</span></center>'
         
-        info.map='</br><center class="map"><iframe id="ggmap" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q='+en(province.Name)+'+&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
+        info.map='</br><center class="map"><iframe id="ggmap" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q='+en(province.Name)+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
         'Search for: '+
         
         '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.com\/maps?f=q&source=s_q&hl=en&geocode=&q='+en(province.Name)+'+Province+Of+'+province.Name+'+Attractions&output=embed")\' target="_blank"><b><ej>🎭</ej>Attractions</b></a> '+
