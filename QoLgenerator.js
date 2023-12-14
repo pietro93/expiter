@@ -170,7 +170,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#generalinfo").append(facts[city].economy)
         $("#generalinfo").append("<h3>Education<h3>")
         $("#generalinfo").append(facts[city].education)
-        $("#generalinfo").append('<center><figure class="column is-3 related">'+
+        $("#generalinfo").append('<center><figure class="column is-6 related">'+
         '<img title="'+en(province.Name)+'" load="lazy" src="'+
         'https://expiter.com/img/blog/vivere-a-'+en(province.Name)+'.webp" '+
         'alt="Life in '+en(province.Name)+', '+en(province.Region)+'"></img>'+
@@ -184,6 +184,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#prosandcons").append(facts[city].pros)
         $("#prosandcons").append("<h3>Disadvantages of Living in "+city+" <h3>")
         $("#prosandcons").append(facts[city].cons)
+        $("#prosandcons").append('<center><figure class="column is-6 related">'+
+        '<img title="'+en(province.Name)+'" load="lazy" src="'+
+        'https://expiter.com/img/blog/vita-a-'+en(province.Name)+'.webp" '+
+        'alt="Pros and cons of living in '+en(province.Name)+', Italy"></img>'+
+        '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></figure></center>")
         $("#prosandcons").append(separator)
         $("#faqs").append("<h3>What is "+city+" like for foreigners? <h3>")
         $("#faqs").append(facts[city].forExpats)
