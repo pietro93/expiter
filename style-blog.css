@@ -192,6 +192,13 @@ hr{  height: 3px;
     object-fit:cover
   }
 
+
+  figure.image img{
+    width:100%;
+    border-radius:15px;
+    padding-top:10px;
+  }
+
   @media (max-width: 768px){
     #FAQs {
         width: 96%;
@@ -229,3 +236,4 @@ hr{  height: 3px;
       #articlecard{width:32%;}
     
 }
+
