@@ -170,6 +170,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#generalinfo").append(facts[city].economy)
         $("#generalinfo").append("<h3>Education<h3>")
         $("#generalinfo").append(facts[city].education)
+        $("#generalinfo").append('<center><figure class="column is-3 related">'+
+        '<img title="'+en(province.Name)+'" load="lazy" src="'+
+        'https://expiter.com/img/blog/vivere-a-'+en(province.Name)+'.webp" '+
+        'alt="Life in '+en(province.Name)+', '+en(province.Region)+'"></img>'+
+        '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></figure></center>")
         $("#generalinfo").append(separator)
         $("#costofliving").append(facts[city].costofliving)
         $("#costofliving").append(separator)
