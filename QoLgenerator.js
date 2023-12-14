@@ -170,8 +170,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#generalinfo").append(facts[city].economy)
         $("#generalinfo").append("<h3>Education<h3>")
         $("#generalinfo").append(facts[city].education)
-        $("#generalinfo").append('<center><figure class="column is-6 related">'+
-        '<img title="'+en(province.Name)+'" load="lazy" src="'+
+        $("#generalinfo").append('<center><figure class="column is-6">'+
+        '<img title="'+en(province.Name)+' City Life" load="lazy" src="'+
         'https://expiter.com/img/blog/living-in-'+en(province.Name).toLowerCase()+'.webp" '+
         'alt="Life in '+en(province.Name)+', '+en(province.Region)+'"></img>'+
         '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></figure></center>")
@@ -184,8 +184,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#prosandcons").append(facts[city].pros)
         $("#prosandcons").append("<h3>Disadvantages of Living in "+city+" <h3>")
         $("#prosandcons").append(facts[city].cons)
-        $("#prosandcons").append('<center><figure class="column is-6 related">'+
-        '<img title="'+en(province.Name)+'" load="lazy" src="'+
+        $("#prosandcons").append('<center><figure class="column is-6">'+
+        '<img title="Life in '+en(province.Name)+'" load="lazy" src="'+
         'https://expiter.com/img/blog/life-in-'+en(province.Name).toLowerCase()+'.webp" '+
         'alt="Pros and cons of living in '+en(province.Name)+', Italy"></img>'+
         '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></figure></center>")
