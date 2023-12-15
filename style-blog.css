@@ -174,14 +174,18 @@ hr{  height: 3px;
   );}
 
   .articlecard {
-    background-color: rgba(255,255,205,0.33);
+    background-color: rgba(255,255,205,0.03);
     border-style:ridge;
-    border-radius:25px;
-    border-width:4px;
-    border-color:rgba(155,155,105,0.63);
+    border-radius:15px;
+    border-width:1px;
+    border-color:rgba(155,155,105,0.06);
     padding:0;
+    max-height:30vh;
   }
 
+  .articlecard > img{
+    border-radius:15px;
+  }
   .articlecard > h3{
     font-size:18px;
   }
