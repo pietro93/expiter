@@ -181,6 +181,11 @@ hr{  height: 3px;
     border-color:rgba(155,155,105,0.06);
     padding:0;
     max-height:30vh;
+    opacity:0.9
+  }
+  .articlecard:hover{
+    opacity:1;
+    background-color:white;
   }
 
   .articlecard > img{
