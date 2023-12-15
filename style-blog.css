@@ -173,17 +173,17 @@ hr{  height: 3px;
     rgba(0, 255, 113, .4) 100%
   );}
 
-  #articlecard {
-    width:24%;
-    max-width:400px;
+  .articlecard {
     background-color: rgba(255,255,205,0.33);
     border-style:ridge;
     border-radius:25px;
     border-width:4px;
     border-color:rgba(155,155,105,0.63);
-    padding-right:5px;
-    display: inline;
-    float:left;
+    padding:0;
+  }
+
+  .articlecard > h3{
+    font-size:18px;
   }
 
   img .inarticle {
