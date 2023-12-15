@@ -181,18 +181,24 @@ hr{  height: 3px;
     border-color:rgba(155,155,105,0.06);
     padding:0;
     max-height:30vh;
-    opacity:0.9
+    opacity:0.9;
+    overflow:auto; 
   }
   .articlecard:hover{
     opacity:1;
     background-color:white;
   }
 
-  .articlecard > img{
+  .articlecard > a > figure > img{
     border-radius:15px;
   }
-  .articlecard > figure > figcaption > h3{
+  .articlecard > a > figure > figcaption > h3{
     font-size:18px;
+    color:rgba(10,10,200,0.6);
+  }
+  .articlecard > a > figure > figcaption > h3 :hover{
+    font-size:18px;
+    color:rgba(10,10,200,0.8);
   }
 
   img .inarticle {
