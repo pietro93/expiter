@@ -191,7 +191,7 @@ hr{  height: 3px;
   .articlecard > img{
     border-radius:15px;
   }
-  .articlecard > h3{
+  .articlecard > figure > figcaption > h3{
     font-size:18px;
   }
 
