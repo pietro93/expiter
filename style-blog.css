@@ -170,11 +170,15 @@ hr{
   .articlecard {
     padding:0;
     opacity:0.9;
-    display:table; 
+    display:max-content; 
   }
   .articlecard:hover{
     opacity:1;
   }
+
+  .articlecard > figure {
+    display:max-content
+    }
 
   .articlecard > figure > a > img {
     border-radius:15px;
