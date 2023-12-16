@@ -169,7 +169,6 @@ hr{
 
   .articlecard {
     padding:0;
-    opacity:0.9;
     display:max-content; 
   }
   .articlecard:hover{
@@ -191,15 +190,14 @@ hr{
   }
   .articlecard > figure > a > figcaption > h3{
     font-size:23px;
-    color:rgba(250,250,250,1);
-    text-shadow: 3px 0 yellow;
+    color:white;
+    text-shadow: 3px 0 white;
     letter-spacing: 3px;
-    padding-left:2px;padding-right:4px;
+    padding-left:4px;
+    padding-right:4px;
+    -webkit-text-stroke: 1px rgba(5,30,100,1);
   }
-  .articlecard > figure > a > figcaption > h3 :hover{
-    font-size:18px;
-    color:rgba(255,255,255,1);
-  }
+
   .articlecard > figure {
     position:relative;
   }
