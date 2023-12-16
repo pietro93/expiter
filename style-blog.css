@@ -170,6 +170,7 @@ hr{
   .articlecard {
     padding:0;
     display:max-content; 
+    max-height:300px;
   }
   .articlecard:hover{
     opacity:1;
