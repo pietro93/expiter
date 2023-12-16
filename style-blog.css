@@ -157,7 +157,7 @@ section#footer {
 #table-four td{width:25vw;} 
 #table-four th{width:25vw;} 
 
-center{
+.center{
   margin: auto;
   width: 100%;
   padding: 25%;}
