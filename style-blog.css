@@ -179,9 +179,11 @@ hr{
   .articlecard > figure > a > img {
     border-radius:15px;
     opacity:0.8;
+    border: 3px ridge pink;
   }
   .articlecard > figure > a > img :hover{
-    opacity:1
+    opacity:1;
+    border-color:rgba(10,50,160,1)
   }
   .articlecard > figure > a > figcaption > h3{
     font-size:22px;
