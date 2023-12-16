@@ -193,21 +193,19 @@ opacity:0.8
 
     filter: opacity(70%);
     filter:saturate(60%);
-    filter:blur(25px);
     filter: contrast(50%);
-    filter: sepia(20%);
-    filter: brightness(60%);
+    filter: brightness(80%);
   }
 
   .articlecard:hover > figure > a > img{
-    filter: brightness(90%);
+    filter: brightness(98%);
     filter: opacity(99%);
     filter:saturate(99%)}
 
 
   .articlecard > figure > a > figcaption > h3{
     font-size:23px;
-    color:black;
+    color:white;
     text-shadow: 3px 3px black;
     text-shadow: 4px 4px black;
     text-shadow: 0 0 3px 3px black;
