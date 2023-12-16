@@ -183,7 +183,7 @@ hr{
   .articlecard > figure > a > img {
     border-radius:15px;
     opacity:0.8;
-    border: 3px ridge pink;
+    border: 3px ridge rgba(10,50,160,0.5);
   }
   .articlecard > figure > a > img :hover{
     opacity:1;
@@ -191,8 +191,9 @@ hr{
   }
   .articlecard > figure > a > figcaption > h3{
     font-size:22px;
+    font-weight:bolder;
     color:rgba(250,250,250,0.8);
-    -webkit-text-stroke: 1px rgba(10,40,160,1);
+    -webkit-text-stroke: 0.1px rgba(10,40,160,1);
     padding-left:2px;padding-right:4px;
   }
   .articlecard > figure > a > figcaption > h3 :hover{
