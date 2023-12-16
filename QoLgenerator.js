@@ -205,6 +205,16 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#faqs").append(separator)
         $("#faqs").append("<h3>What is "+city+" like for LGBTQ people? <h3>")
         $("#faqs").append(facts[city].forLGBTQ)
+        $("#faqs").append(separator)
+        if (["Bari","Palermo"].includes(city)){
+          $("#faqs").append("<h3>Is "+city+" a poor city? <h3>")
+          $("#faqs").append(facts[city].richorpoor)
+          $("#faqs").append(separator)
+          $("#faqs").append("<h3>Is "+city+" dirty? <h3>")
+          $("#faqs").append(facts[city].cleanliness)
+          $("#faqs").append(separator)
+
+        }
         $("#promo").append(info.viator)
         $("#promo").append(separator)
         $("#promo").append(info.getyourguide)
