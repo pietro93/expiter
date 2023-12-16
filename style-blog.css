@@ -193,10 +193,11 @@ opacity:0.8
     filter: brightness(10%);
     filter: opacity(70%);
     filter:saturate(80%);
-    filter:blur(25%);
+    filter:blur(25px);
     filter:grayscale(80%);
-    opacity:0.2;
+    filter: contrast(50%);
   }
+
   .articlecard > figure > a > img:hover{filter: brightness(60%);
     filter: opacity(99%);
     filter:saturate(99%)}
