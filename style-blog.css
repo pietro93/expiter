@@ -176,23 +176,25 @@ hr{
   }
 
   .articlecard > figure {
-    display:max-content
+    display:max-content;
     }
+
+    .articlecard > figure > a {
+opacity:0.8
+}.articlecard > figure > a:hover {
+  opacity:1
+  }
 
   .articlecard > figure > a > img {
     border-radius:15px;
-    opacity:0.8;
-    border: 3px ridge rgba(10,50,160,0.5);
+    border: 3px ridge rgba(10,50,160,0.8);
   }
-  .articlecard > figure > a > img :hover{
-    opacity:1;
-    border-color:rgba(10,50,160,1)
-  }
+
   .articlecard > figure > a > figcaption > h3{
     font-size:23px;
     color:black;
-    text-shadow: 3px 0 black;
-    text-shadow: 0 3px black;
+    text-shadow: 6px 0 black;
+    text-shadow: 0 6px black;
     letter-spacing: 3px;
     padding-left:4px;
     padding-right:4px;
