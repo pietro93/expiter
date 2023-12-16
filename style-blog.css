@@ -196,6 +196,7 @@ opacity:0.8
     filter:blur(25px);
     filter:grayscale(80%);
     filter: contrast(50%);
+    filter: sepia(50%)
   }
 
   .articlecard > figure > a > img:hover{filter: brightness(60%);
