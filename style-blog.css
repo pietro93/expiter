@@ -190,12 +190,13 @@ opacity:0.8
   .articlecard > figure > a > img {
     border-radius:15px;
     border: 3px ridge rgba(10,50,160,0.8);
-    filter: brightness(10%);
+
     filter: opacity(70%);
-    filter:saturate(80%);
+    filter:saturate(60%);
     filter:blur(25px);
     filter: contrast(50%);
-    filter: sepia(90%)
+    filter: sepia(20%);
+    filter: brightness(10%);
   }
 
   .articlecard:hover > figure > a > img{
