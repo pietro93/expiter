@@ -198,7 +198,7 @@ hr{
   }
   .articlecard > figure > a > figcaption{
     position:absolute;
-    top:0;
+    top:30%;
     height:inherit;
   }
   img .inarticle {
