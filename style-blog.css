@@ -164,16 +164,8 @@ center{
 
 hr{  
   border-top: 3px dashed rgba(0, 255, 193, .24);
-  height: 3px;
-  border: none;
   border-radius: 6px;
-  background: linear-gradient(
-    90deg,
-    rgba(13, 8, 96, .01) 0%,
-    rgba(9, 9, 121, .11) 21%,
-    rgba(6, 84, 170, .21) 51%,
-    rgba(0, 255, 113, .4) 100%
-  );}
+}
 
   .articlecard {
     background-color: rgba(255,255,205,0.13);
