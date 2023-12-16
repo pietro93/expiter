@@ -191,11 +191,11 @@ hr{
   .articlecard > figure > a > figcaption > h3{
     font-size:23px;
     color:white;
-    text-shadow: 3px 0 white;
+    text-shadow: 3px 0 rgba(5,30,100,1);
     letter-spacing: 3px;
     padding-left:4px;
     padding-right:4px;
-    -webkit-text-stroke: 1px rgba(5,30,100,1);
+    -webkit-text-stroke: 3px white;
   }
 
   .articlecard > figure {
