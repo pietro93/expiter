@@ -214,7 +214,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
           $("#faqs").append("<hr>")
           $("#faqs").append("<h3>Is "+city+" dirty? <h3>")
           $("#faqs").append(facts[city].cleanliness)
-          $("#faqs").append("<hr>")
+
         }
         if (facts[city].fun){
           $("#faqs").append("<hr>")
