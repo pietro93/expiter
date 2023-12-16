@@ -182,18 +182,25 @@ hr{
     background-color:white;
   }
 
-  .articlecard > a > figure > img{
+  .articlecard > figure > a > img{
     border-radius:15px;
   }
-  .articlecard > a > figure > figcaption > h3{
+  .articlecard > figure > a > figcaption > h3{
     font-size:18px;
-    color:rgba(10,10,200,0.6);
+    color:rgba(10,10,200,0.4);
   }
-  .articlecard > a > figure > figcaption > h3 :hover{
+  .articlecard > figure > a > figcaption > h3 :hover{
     font-size:18px;
     color:rgba(10,10,200,0.8);
   }
-
+  .articlecard > figure {
+    position:relative;
+  }
+  .articlecard > figure > a > figcaption{
+    position:absolute;
+    top:0;
+    height:inherit;
+  }
   img .inarticle {
     width:100vw;
     max-height:33vh;
@@ -241,7 +248,6 @@ hr{
 
       }
 
-      #articlecard{width:32%;}
     
 }
 
