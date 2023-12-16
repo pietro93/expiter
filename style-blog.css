@@ -194,7 +194,8 @@ opacity:0.8
     filter: opacity(70%);
     filter:saturate(80%);
     filter:blur(25%);
-    filter:grayscale(80%)
+    filter:grayscale(80%);
+    opacity:0.2;
   }
   .articlecard > figure > a > img:hover{filter: brightness(60%);
     filter: opacity(99%);
