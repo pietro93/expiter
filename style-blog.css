@@ -192,7 +192,7 @@ opacity:0.8
     border: 3px ridge rgba(10,50,160,0.8);
   }
 
-  .articlecard > figure > a > img  ::after {
+  .articlecard > figure > a > img::after {
     content: "";
     position: absolute;
     top: 0;
