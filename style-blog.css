@@ -162,7 +162,9 @@ center{
   width: 100%;
   padding: 25%;}
 
-hr{  height: 3px;
+hr{  
+  border-top: 3px dashed rgba(0, 255, 193, .24);
+  height: 3px;
   border: none;
   border-radius: 6px;
   background: linear-gradient(
