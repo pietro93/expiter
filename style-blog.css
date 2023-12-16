@@ -198,7 +198,7 @@ opacity:0.8
     filter: sepia(90%)
   }
 
-  .articlecard > figure > a:hover > img{
+  .articlecard:hover > figure > a > img{
     filter: brightness(20%);
     filter: opacity(99%);
     filter:saturate(99%)}
