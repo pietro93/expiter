@@ -177,6 +177,7 @@ hr{
 
   .articlecard > figure {
     display:max-content;
+    max-height:300px;
     }
 
     .articlecard > figure > a {
@@ -208,7 +209,7 @@ opacity:0.8
   }
   .articlecard > figure > a > figcaption{
     position:absolute;
-    top:30%;
+    top:25%;
     height:inherit;
   }
   img .inarticle {
