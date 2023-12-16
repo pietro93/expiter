@@ -195,6 +195,8 @@ opacity:0.8
     color:black;
     text-shadow: 3px 3px black;
     text-shadow: 4px 4px black;
+    text-shadow: 0 0 3px 3px black;
+    text-shadow: 0 0 4px 4px black;
     letter-spacing: 3px;
     padding-left:4px;
     padding-right:4px;
