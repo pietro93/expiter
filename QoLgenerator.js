@@ -155,7 +155,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         
         appendProvinceData(province, $);
         setNavBar($);
-        let city = en(province.Name).replace(" ", "");
+        let city = en(province.Name);
 
         $(".title").text("What is it like to live in "+en(province.Name)+', Italy');
         $("#overview").append(facts[city].introduction)
