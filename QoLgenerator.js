@@ -19,7 +19,7 @@ var additionalFilters=[];
 var dataset;
 var avg;
 var regions ={};
-var selection = ["Agrigento","Bari","Bologna","Florence","Genoa","Palermo","Reggio Calabria","Rome","Milan","Naples","Turin","Venice"]
+var selection = ["Bari","Bologna","Florence","Genoa","Palermo","Reggio Calabria","Rome","Milan","Naples","Turin","Venice"]
 
 fetch('https://expiter.com/dataset.json', {method:"Get"})
     .then(function (response) {
@@ -732,7 +732,8 @@ function addLinkTo(city){
 }
 
 function relatedArticles(city){
-  let related="<br><br><row class='columns is-multiline is-mobile'>";
+  let related="<h2>Related Articles</h2>"+
+  "<row class='columns is-multiline is-mobile'>";
   let candidates = selection.filter(x => x !== city);
   candidates.sort( () => .5 - Math.random() );
   let r1=candidates.pop()
