@@ -230,6 +230,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#promo").append(info.viator)
         $("#promo").append(separator)
         $("#promo").append(info.getyourguide)
+        $("#promo").append(separator)
+        $("#promo").append(info.related)
+
        }
        
       
@@ -324,6 +327,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         related4=target[Math.floor(Math.random()*target.length)]
 
        
+        info.related=relatedArticles(en(province.Name))
+
         return info;
       }
 
@@ -724,4 +729,26 @@ facts["Reggio Calabria"].walkable="Reggio Calabria is not very walkable, especia
 
 function addLinkTo(city){
   return "<a href='https://expiter.com/blog/living-in-"+city.toLowerCase().replace(" ","-")+"'>"+city+"</a>"
+}
+
+function relatedArticles(city){
+  let related="<br><br><row class='columns is-multiline is-mobile'>";
+  let candidates = selection.filter(x => x !== city);
+  candidates.sort( () => .5 - Math.random() );
+  let r1=candidates.pop()
+  let r2=candidates.pop()
+  let r3=candidates.pop()
+  related+='<div class="articlecard column is-4"><figure>'+
+  '<a href="https://expiter.com/blog/living-in-'+r1.toLowerCase().replace(" ","-")+'/">'+
+  '<img src="https://expiter.com/img/blog/living-in-'+r1.toLowerCase().replace(" ","-")+'.webp"></img>'+
+'<figcaption><h3>What is it like to live in '+r1+'?</h3></figcaption></a></figure></div>'
+related+='<div class="articlecard column is-4"><figure>'+
+'<a href="https://expiter.com/blog/living-in-'+r2.toLowerCase().replace(" ","-")+'/">'+
+'<img src="https://expiter.com/img/blog/living-in-'+r2.toLowerCase().replace(" ","-")+'.webp"></img>'+
+'<figcaption><h3>What is it like to live in '+r2+'?</h3></figcaption></a></figure></div>'
+related+='<div class="articlecard column is-4"><figure>'+
+'<a href="https://expiter.com/blog/living-in-'+r3.toLowerCase().replace(" ","-")+'/">'+
+'<img src="https://expiter.com/img/blog/living-in-'+r3.toLowerCase().replace(" ","-")+'.webp"></img>'+
+'<figcaption><h3>What is it like to live in '+r3+'?</h3></figcaption></a></figure></div></row>'
+  return related;
 }
