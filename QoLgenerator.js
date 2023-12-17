@@ -72,7 +72,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 		'</div>'+
 
         '<nav id="navbar"></nav>'+
-            '<div class="hero" style="background-image:url(\'https://expiter.com/img/blog/life-in-'+en(province.Name).toLowerCase()+'.webp\')" '+'title="What is life in '+en(province.Name)+', Italy like?"'+'></div>'+
+            '<div class="hero" style="background-image:url(\'https://expiter.com/img/blog/life-in-'+en(province.Name).toLowerCase().replace(" ","-")+'.webp\')" '+'title="What is life in '+en(province.Name)+', Italy like?"'+'></div>'+
             '<h1 data-toc-skip id="title" class="title column is-12">  </h1></row>'+
             '<div class="tabs effect-3">'+
 			'<input type="radio" id="tab-1" name="tab-effect-3" checked="checked">'+
@@ -175,7 +175,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#generalinfo").append(facts[city].education)
         $("#generalinfo").append('<center><figure class="column is-6 image">'+
         '<img title="'+en(province.Name)+' City Life" load="lazy" src="'+
-        'https://expiter.com/img/blog/living-in-'+en(province.Name).toLowerCase()+'.webp" '+
+        'https://expiter.com/img/blog/living-in-'+en(province.Name).toLowerCase().replace(" ","-")+'.webp" '+
         'alt="Life in '+en(province.Name)+', '+en(province.Region)+'"></img>'+
         '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></figure></center>")
         $("#generalinfo").append(separator)
@@ -191,7 +191,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#prosandcons").append(facts[city].cons)
         $("#prosandcons").append('<center><figure class="column is-6 image">'+
         '<img title="Life in '+en(province.Name)+'" load="lazy" src="'+
-        'https://expiter.com/img/blog/life-in-'+en(province.Name).toLowerCase()+'.webp" '+
+        'https://expiter.com/img/blog/life-in-'+en(province.Name).toLowerCase().replace(" ","-")+'.webp" '+
         'alt="Pros and cons of living in '+en(province.Name)+', Italy"></img>'+
         '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></figure></center>")
         $("#prosandcons").append(separator)
