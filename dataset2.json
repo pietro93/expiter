@@ -3255,61 +3255,61 @@
         "Name": "Olive Oil",
         "Lysine": 0,
         "Arginine": 0,
-        "Ratio": 0,
+        "Ratio": 1,
         "Category": "Oil",
         "Introduction": "Olive oil is a liquid fat obtained from olives, a fruit of the olive tree. It is used for cooking, salad dressing, and cosmetics.",
         "MoreInfo": "Olive oil is rich in monounsaturated fatty acids, which can lower the risk of cardiovascular disease. Olive oil also contains antioxidants, such as phenols and vitamin E, that can protect against oxidative stress and inflammation.",
         "LysineConsiderations": "Olive oil does not contain any lysine, which is an essential amino acid that the body cannot produce. Lysine is important for protein synthesis, collagen formation, and immune function.",
         "ArginineConsiderations": "Olive oil does not contain any arginine, which is a semi-essential amino acid that the body can produce in limited amounts. Arginine is important for nitric oxide production, blood vessel dilation, and wound healing.",
-        "RatioConsiderations": "Olive oil has a zero lysine-arginine ratio, which means that it does not affect the balance of herpes simplex virus (HSV) in the body. However, olive oil may have other benefits for HSV prevention or treatment, such as anti-inflammatory and antiviral properties."
+        "RatioConsiderations": "Olive oil has a neutral lysine-arginine ratio, which means that it does not affect the balance of herpes simplex virus (HSV) in the body. However, olive oil may have other benefits for HSV prevention or treatment, such as anti-inflammatory and antiviral properties."
     },
     {
         "Name": "Coconut Oil",
         "Lysine": 0,
         "Arginine": 0,
-        "Ratio": 0,
+        "Ratio": 1,
         "Category": "Oil",
         "Introduction": "Coconut oil is a solid fat extracted from the flesh of coconuts, a fruit of the coconut palm. It is used for cooking, baking, skin care, and hair care.",
         "MoreInfo": "Coconut oil is high in saturated fat, which can raise the level of cholesterol in the blood. However, coconut oil also contains medium-chain triglycerides (MCTs), which can be metabolized quickly and provide energy. Coconut oil also has antimicrobial, antifungal, and antibacterial properties.",
         "LysineConsiderations": "Coconut oil does not contain any lysine, which is an essential amino acid that the body cannot produce. Lysine is important for protein synthesis, collagen formation, and immune function.",
         "ArginineConsiderations": "Coconut oil does not contain any arginine, which is a semi-essential amino acid that the body can produce in limited amounts. Arginine is important for nitric oxide production, blood vessel dilation, and wound healing.",
-        "RatioConsiderations": "Coconut oil has a zero lysine-arginine ratio, which means that it does not affect the balance of herpes simplex virus (HSV) in the body. However, coconut oil may have other benefits for HSV prevention or treatment, such as antimicrobial, antifungal, and antibacterial properties."
+        "RatioConsiderations": "Coconut oil has a neutral lysine-arginine ratio, which means that it does not affect the balance of herpes simplex virus (HSV) in the body. However, coconut oil may have other benefits for HSV prevention or treatment, such as antimicrobial, antifungal, and antibacterial properties."
     },
     {
         "Name": "Flaxseed Oil",
         "Lysine": 0,
         "Arginine": 0,
-        "Ratio": 0,
+        "Ratio": 1,
         "Category": "Oil",
         "Introduction": "Flaxseed oil is a liquid fat derived from flax seeds, a crop of the flax plant. It is used as a dietary supplement, a salad dressing, and a skin moisturizer.",
         "MoreInfo": "Flaxseed oil is rich in alpha-linolenic acid (ALA), which is an omega-3 fatty acid that can lower the risk of cardiovascular disease, inflammation, and cognitive decline. Flaxseed oil also contains lignans, which are phytoestrogens that can modulate hormone levels and protect against certain cancers.",
         "LysineConsiderations": "Flaxseed oil does not contain any lysine, which is an essential amino acid that the body cannot produce. Lysine is important for protein synthesis, collagen formation, and immune function.",
         "ArginineConsiderations": "Flaxseed oil does not contain any arginine, which is a semi-essential amino acid that the body can produce in limited amounts. Arginine is important for nitric oxide production, blood vessel dilation, and wound healing.",
-        "RatioConsiderations": "Flaxseed oil has a zero lysine-arginine ratio, which means that it does not affect the balance of herpes simplex virus (HSV) in the body. However, flaxseed oil may have other benefits for HSV prevention or treatment, such as anti-inflammatory and omega-3 properties."
+        "RatioConsiderations": "Flaxseed oil has a neutral lysine-arginine ratio, which means that it does not affect the balance of herpes simplex virus (HSV) in the body. However, flaxseed oil may have other benefits for HSV prevention or treatment, such as anti-inflammatory and omega-3 properties."
     },
     {
         "Name": "Oregano Oil",
         "Lysine": 0,
         "Arginine": 0,
-        "Ratio": 0,
+        "Ratio": 1,
         "Category": "Oil",
         "Introduction": "Oregano oil is an essential oil extracted from the leaves of oregano, a herb of the mint family. It is used as a natural remedy, a food flavoring, and a household cleaner.",
         "MoreInfo": "Oregano oil has potent antimicrobial, antifungal, and antiviral properties, which can fight against various infections and pathogens. Oregano oil also has anti-inflammatory, antioxidant, and analgesic properties, which can relieve pain and inflammation.",
         "LysineConsiderations": "Oregano oil does not contain any lysine, which is an essential amino acid that the body cannot produce. Lysine is important for protein synthesis, collagen formation, and immune function.",
         "ArginineConsiderations": "Oregano oil does not contain any arginine, which is a semi-essential amino acid that the body can produce in limited amounts. Arginine is important for nitric oxide production, blood vessel dilation, and wound healing.",
-        "RatioConsiderations": "Oregano oil has a zero lysine-arginine ratio, which means that it does not affect the balance of herpes simplex virus (HSV) in the body. However, oregano oil may have other benefits for HSV prevention or treatment, such as antiviral and antimicrobial properties."
+        "RatioConsiderations": "Oregano oil has a neutral lysine-arginine ratio, which means that it does not affect the balance of herpes simplex virus (HSV) in the body. However, oregano oil may have other benefits for HSV prevention or treatment, such as antiviral and antimicrobial properties."
     },
     {
         "Name": "Hempseed Oil",
         "Lysine": 0,
         "Arginine": 0,
-        "Ratio": 0,
+        "Ratio": 1,
         "Category": "Oil",
         "Introduction": "Hempseed oil is a liquid fat obtained from the seeds of hemp, a variety of the cannabis plant. It is used as a dietary supplement, a cooking oil, and a skin care product.",
         "MoreInfo": "Hempseed oil is high in gamma-linolenic acid (GLA), which is an omega-6 fatty acid that can reduce inflammation, improve skin health, and regulate hormone levels. Hempseed oil also contains omega-3 fatty acids, which can lower the risk of cardiovascular disease, inflammation, and cognitive decline. Hempseed oil does not contain any psychoactive compounds, such as THC, that are found in other parts of the cannabis plant.",
         "LysineConsiderations": "Hempseed oil does not contain any lysine, which is an essential amino acid that the body cannot produce. Lysine is important for protein synthesis, collagen formation, and immune function.",
         "ArginineConsiderations": "Hempseed oil does not contain any arginine, which is a semi-essential amino acid that the body can produce in limited amounts. Arginine is important for nitric oxide production, blood vessel dilation, and wound healing.",
-        "RatioConsiderations": "Hempseed oil has a zero lysine-arginine ratio, which means that it does not affect the balance of herpes simplex virus (HSV) in the body. However, hempseed oil may have other benefits for HSV prevention or treatment, such as anti-inflammatory and omega-6 properties."
+        "RatioConsiderations": "Hempseed oil has a neutral lysine-arginine ratio, which means that it does not affect the balance of herpes simplex virus (HSV) in the body. However, hempseed oil may have other benefits for HSV prevention or treatment, such as anti-inflammatory and omega-6 properties."
     },
     {
         "Name": "Milk chocolate",
