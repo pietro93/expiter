@@ -235,6 +235,7 @@ opacity:0.8
     width:100%;
     border-radius:15px;
     padding-top:10px;
+    max-height:160px;
   }
 
   @media (max-width: 768px){
