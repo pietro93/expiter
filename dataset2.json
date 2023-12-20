@@ -3590,5 +3590,18 @@
         "ArginineConsiderations": "Cucumber is not a good source of arginine, as it only provides 36 mg of arginine per 100 g of food. Arginine is a semi-essential amino acid that is involved in nitric oxide production, wound healing, and immune function. Arginine may help boost blood flow, lower blood pressure, and enhance exercise performance.",
         "RatioConsiderations": "Cucumber has a low lysine-arginine ratio of 0.611, which means that it has more arginine than lysine. This may not be optimal for people who have herpes simplex virus (HSV) infections, as arginine may trigger or worsen outbreaks. Lysine, on the other hand, may help prevent or reduce the severity of HSV infections. Therefore, people with HSV may want to limit their intake of cucumber and increase their intake of lysine-rich foods.",
         "NutritionalValue": "Cucumber is not very nutritious, as it is composed mainly of water. It has only 15 calories and 3.6 g of carbohydrates per 100 g of food. It also has very low amounts of protein, fat, fiber, and minerals. Cucumber may provide some hydration and antioxidants, but it does not offer much in terms of macronutrients or micronutrients."
-    }
+    },
+{
+    "Name": "Cucumbers",
+    "Lysine": 22,
+    "Arginine": 36,
+    "Ratio": 0.611,
+    "Category": "Vegetable",
+    "Introduction": "Cucumber is a variety of gourd that has a green skin and a moist flesh. It is typically consumed raw or pickled, and has a firm and cool taste. It is frequently used in salads, sandwiches, and dips.",
+    "MoreInfo": "Cucumber is very low in calories and carbohydrates, but high in water and electrolytes. It also contains vitamin C, vitamin K, and silica, which may support the skin, hair, and nails. Cucumber may help hydrate the body, remove toxins, and decrease inflammation.",
+    "LysineConsiderations": "Cucumber is not a good source of lysine, as it only provides 22 mg of lysine per 100 g of food. Lysine is an essential amino acid that is vital for protein synthesis, collagen formation, and calcium absorption. Lysine deficiency may result in fatigue, anemia, hair loss, and impaired immunity.",
+    "ArginineConsiderations": "Cucumber is not a good source of arginine, as it only provides 36 mg of arginine per 100 g of food. Arginine is a semi-essential amino acid that is involved in nitric oxide production, wound healing, and immune function. Arginine may help boost blood flow, lower blood pressure, and enhance exercise performance.",
+    "RatioConsiderations": "Cucumber has a low lysine-arginine ratio of 0.611, which means that it has more arginine than lysine. This may not be optimal for people who have herpes simplex virus (HSV) infections, as arginine may trigger or worsen outbreaks. Lysine, on the other hand, may help prevent or reduce the severity of HSV infections. Therefore, people with HSV may want to limit their intake of cucumber and increase their intake of lysine-rich foods.",
+    "NutritionalValue": "Cucumber is not very nutritious, as it is composed mainly of water. It has only 15 calories and 3.6 g of carbohydrates per 100 g of food. It also has very low amounts of protein, fat, fiber, and minerals. Cucumber may provide some hydration and antioxidants, but it does not offer much in terms of macronutrients or micronutrients."
+}
 ]
