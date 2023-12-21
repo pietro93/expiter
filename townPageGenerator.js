@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 36; i < 50; i++){
+        for (let i = 0; i < 107; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -61,6 +61,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
               ci = comindex.indexOf(comune.Name)
               console.log("found some extra info about "+comune.Name+" at position "+ ci)
             }
+            if (ci>0){ //this only updates towns in comuni.js
             console.log("Writing comune \""+comune.Name+"\" ("+province.Name+") into file")
 
             let urlPath = 'comuni/'+dirName+fileName;
@@ -201,6 +202,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         setNavBar($)
         }
         
+        
         let html = dom.window.document.documentElement.outerHTML;
       
         if (!fs.existsSync(dirName)) {
@@ -210,7 +212,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         if (dataset[i].Comuni!=undefined)
         fs.writeFile(dirName+fileName+".html", html, function (err, file) {
            if (err) throw err;
-           console.log(dataset[i].Name+".html"+' Saved!');
+           console.log(dataset[i].Name+" Comuni"+' Saved!');
        });
     }
     }
@@ -219,7 +221,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
     if (err) throw err;
     console.log("comuni-sitemap"+' Saved!');
 });*/
-})
+}
+}
+)
 
 
     
