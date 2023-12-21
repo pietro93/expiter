@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 25; i < 31; i++){
+        for (let i = 84; i < 107; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -148,7 +148,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         " e circa "+((comune.Population.split('.').join("")*100)/60260456).toFixed(5)+"% del totale della popolazione dell'italia nel 2022."
 
         if (ci>0){
-          intro+='<h2>Informazioni su '+en(comune.Name)+'</h2>'+comdata[ci].Attrazioni+'<br><br>'+comdata[ci].Storia
+          intro+='<h2>Informazioni su '+comune.Name+'</h2>'+comdata[ci].Attrazioni+'<br><br>'+comdata[ci].Storia
         }
 
 
