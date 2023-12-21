@@ -187,7 +187,6 @@ opacity:0.9
   .articlecard > a > img {
     border-radius:15px;
     border: 3px ridge var(--dark);
-
     filter: opacity(90%);
     filter: saturate(90%);
     filter: contrast(80%);
