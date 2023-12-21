@@ -176,54 +176,35 @@ hr{
     opacity:1;
   }
 
-  .articlecard > figure {
-    display:max-content;
-    max-height:300px;
-    }
 
-    .articlecard > figure > a {
-opacity:0.8
-}.articlecard > figure > a:hover {
+    .articlecard  {
+opacity:0.9
+}
+.articlecard:hover {
   opacity:1
   }
 
-  .articlecard > figure > a > img {
+  .articlecard > a > img {
     border-radius:15px;
-    border: 3px ridge rgba(10,50,160,0.8);
+    border: 3px ridge var(--dark);
 
-    filter: opacity(70%);
-    filter:saturate(60%);
-    filter: contrast(50%);
-    filter: brightness(80%);
+    filter: opacity(90%);
+    filter: saturate(90%);
+    filter: contrast(80%);
+    filter: brightness(90%);
   }
 
-  .articlecard:hover > figure > a > img{
+  .articlecard:hover > a > img{
     filter: brightness(98%);
     filter: opacity(99%);
     filter:saturate(99%)}
 
 
-  .articlecard > figure > a > figcaption > h3{
-    font-size:23px;
-    color:white;
-    text-shadow: 3px 3px black;
-    text-shadow: 4px 4px black;
-    text-shadow: 0 0 3px 3px black;
-    text-shadow: 0 0 4px 4px black;
-    letter-spacing: 3px;
-    padding-left:4px;
-    padding-right:4px;
-    -webkit-text-stroke: 2px white;
+  .articlecard > a > figcaption {
+      margin-top:-4px;
   }
 
-  .articlecard > figure {
-    position:relative;
-  }
-  .articlecard > figure > a > figcaption{
-    position:absolute;
-    top:25%;
-    height:inherit;
-  }
+  
   img .inarticle {
     width:100vw;
     max-height:33vh;
@@ -239,6 +220,10 @@ opacity:0.8
   }
 
   @media (max-width: 768px){
+
+    .articlecard{
+      width:92vw;
+    }
     #FAQs {
         width: 96%;
         margin: 0 auto;
