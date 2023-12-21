@@ -93,10 +93,14 @@ html {
   margin: auto;
   width: 100vw;
 }
-b,h2,h3,h1,p{ font-family: "Open Sans", sans-serif;color:var(--text-color)}
+b,h2,h3,h1,p{ 
+  font-family: "Open Sans", sans-serif;
+  color:var(--text-color)}
+
 ej{font-family: "Noto Color Emoji";
 font-size:15px;
 padding-right:2px;}
+
 
 
 body {
@@ -817,6 +821,9 @@ h4{
     margin-left: 1.4rem;
     font-size: 1.1rem;
 }
+
+a{color: var(--darkest);font-weight:700}
+a:hover{color: var(--natural-yellow)}
 
 #navbar a{
     color: var(--lightest);

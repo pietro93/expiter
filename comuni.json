@@ -1,0 +1,282 @@
+[
+    {
+        "Name": "Roma",
+        "Landmarks": "Rome has important historical landmarks that testify to its ancient glory, such as the Colosseum, the Pantheon, the Roman Forum, and the Trevi Fountain. <br><br> Rome also boasts magnificent religious and artistic monuments, such as the Vatican, the Sistine Chapel, the Basilica of St. Peter, and the many museums and galleries.",
+        "History": "Rome was founded in the 8th century BC by the legendary Romulus and Remus. <br><br> It became the capital of the Roman Republic, the Roman Empire, and later the Papal States. <br><br> Rome is the birthplace of Western civilization and the center of Christianity.",
+        "Attrazioni": "Roma ha importanti monumenti storici che testimoniano la sua antica gloria, come il Colosseo, il Pantheon, il Foro Romano e la Fontana di Trevi. <br><br> Roma vanta anche magnifici monumenti religiosi e artistici, come il Vaticano, la Cappella Sistina, la Basilica di San Pietro e i numerosi musei e gallerie.",
+        "Storia": "Roma fu fondata nell’VIII secolo a.C. dai leggendari Romolo e Remo. <br><br> Divenne la capitale della Repubblica Romana, dell’Impero Romano e poi degli Stati Pontifici. <br><br> Roma è la culla della civiltà occidentale e il centro del cristianesimo."
+    },
+    {
+        "Name": "Milano",
+        "Landmarks": "Milan is home to some of the most impressive and elegant landmarks in Italy, such as the Duomo, the Castello Sforzesco, the Teatro alla Scala, and the Galleria Vittorio Emanuele II. <br><br> Milan also has a rich cultural and artistic heritage, with museums such as the Pinacoteca di Brera, the Museo del Novecento, and the Museo Nazionale Scienza e Tecnologia Leonardo da Vinci.",
+        "History": "Milan was founded by the Celtic Insubres in the 6th century BC. <br><br> It was conquered by the Romans, the Lombards, the Franks, and the Spanish. <br><br> Milan was a leading city of the Renaissance and the Industrial Revolution. <br><br> Milan is the financial and cultural hub of Italy.",
+        "Attrazioni": "Milano ospita alcuni dei più impressionanti ed eleganti monumenti d’Italia, come il Duomo, il Castello Sforzesco, il Teatro alla Scala e la Galleria Vittorio Emanuele II. <br><br> Milano ha anche una ricca eredità culturale e artistica, con musei come la Pinacoteca di Brera, il Museo del Novecento e il Museo Nazionale Scienza e Tecnologia Leonardo da Vinci.",
+        "Storia": "Milano fu fondata dai Celti Insubri nel VI secolo a.C. <br><br> Fu conquistata dai Romani, dai Longobardi, dai Franchi e dagli Spagnoli. <br><br> Milano fu una città leader del Rinascimento e della Rivoluzione Industriale. <br><br> Oggi, Milano è il polo finanziario e culturale d’Italia."
+    },
+    {
+        "Name": "Napoli",
+        "Landmarks": "Naples is famous for its vibrant and chaotic atmosphere, as well as its stunning landmarks, such as the National Archaeological Museum, the Royal Palace, the Castel Sant’Angelo, and the Sansevero Chapel. <br><br> Naples also offers a taste of authentic Neapolitan culture, with its street food, markets, and nightlife.",
+        "History": "Naples was founded by the Greeks as Neapolis in the 8th century BC. <br><br> It was ruled by the Romans, the Byzantines, the Normans, the Angevins, the Aragonese, and the Bourbons. <br><br> Naples was the capital of the Kingdom of Naples and the Kingdom of the Two Sicilies. <br><br> Naples is the largest city in southern Italy and the home of the Neapolitan culture.",
+        "Attrazioni": "Napoli è famosa per la sua atmosfera vivace e caotica, così come per i suoi splendidi monumenti, come il Museo Archeologico Nazionale, il Palazzo Reale, il Castel Sant’Angelo e la Cappella Sansevero. <br><br> Napoli offre anche un assaggio della cultura napoletana autentica, con il suo cibo di strada, i mercati e la vita notturna.",
+        "Storia": "Napoli fu fondata dai Greci come Neapolis nell’VIII secolo a.C. <br><br> Fu governata dai Romani, dai Bizantini, dai Normanni, dagli Angioini, dagli Aragonesi e dai Borboni. <br><br> Napoli fu la capitale del Regno di Napoli e del Regno delle Due Sicilie. <br><br> Napoli è la città più grande del sud Italia e la patria della cultura napoletana."
+    },
+    {
+        "Name": "Torino",
+        "Landmarks": "Turin is a city of elegance and charm, with its baroque architecture, its Mole Antonelliana, and its Palazzo Reale. <br><br> Turin also has a modern and innovative side, with its Parco Sempione, its Torre Velasca, and its Bosco Verticale.",
+        "History": "Turin was founded by the Taurini tribe in the 3rd century BC. <br><br> It was annexed by the Romans, the Lombards, the Franks, and the Savoy. <br><br> Turin was the first capital of the Kingdom of Italy and the seat of the House of Savoy. <br><br> Today, Turin is a major industrial and cultural center of northern Italy.",
+        "Attrazioni": "Torino è una città di eleganza e fascino, con la sua architettura barocca, la sua Mole Antonelliana e il suo Palazzo Reale. <br><br> Torino ha anche un lato moderno e innovativo, con il suo Parco Sempione, la sua Torre Velasca e il suo Bosco Verticale.",
+        "Storia": "Torino fu fondata dalla tribù dei Taurini nel III secolo a.C. <br><br> Fu annessa dai Romani, dai Longobardi, dai Franchi e dai Savoia. <br><br> Torino fu la prima capitale del Regno d’Italia e la sede della Casa Savoia. <br><br> Oggi Torino è un importante centro industriale e culturale del nord Italia."
+    },
+    {
+        "Name": "Palermo",
+        "Landmarks": "Palermo is a city of contrasts, with its rich and diverse heritage, its monuments, such as the Norman Palace, the Cathedral, the Martorana, and the Zisa, and its colorful and lively streets. <br><br> Palermo also has a unique and fascinating history, with its influences from the Phoenicians, the Greeks, the Romans, the Arabs, the Normans, and the Spanish.",
+        "History": "Palermo was founded by the Phoenicians as Ziz in the 8th century BC. <br><br> It was ruled by the Greeks, the Romans, the Arabs, the Normans, the Swabians, the Angevins, the Aragonese, and the Bourbons. <br><br> Palermo was the capital of the Kingdom of Sicily and the center of the Sicilian Vespers. <br><br> Palermo is the capital of Sicily and the largest island city in the Mediterranean.",
+        "Attrazioni": "Palermo è una città di contrasti, con la sua ricca e diversa eredità, i suoi monumenti, come il Palazzo dei Normanni, la Cattedrale, la Martorana e la Zisa, e le sue strade colorate e vivaci. <br><br> Palermo ha anche una storia unica e affascinante, con le sue influenze dai Fenici, dai Greci, dai Romani, dagli Arabi, dai Normanni e dagli Spagnoli.",
+        "Storia": "Palermo fu fondata dai Fenici come Ziz nell’VIII secolo a.C. <br><br> Fu governata dai Greci, dai Romani, dagli Arabi, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dai Borboni. <br><br> Palermo fu la capitale del Regno di Sicilia e il centro delle Vespri Siciliani. <br><br> Palermo è la capitale della Sicilia e la più grande città insulare del Mediterraneo."
+    },
+    {
+        "Name": "Genova",
+        "Landmarks": "Genoa is a port city with a rich maritime history and a UNESCO World Heritage Site. Some of its landmarks are the Palazzo Ducale, the Cathedral of San Lorenzo, the Aquarium, and the Lanterna lighthouse. <br><br> Genoa also has a medieval old town, with narrow alleys, churches, and palaces.",
+        "History": "Genoa was founded by the Ligurians in the 6th century BC. It was an ally of Rome, a rival of Pisa, a republic, and a maritime power. <br><br> Genoa was involved in the Crusades, the wars with Venice, and the discovery of the New World. <br><br> Genoa was annexed by France, by the Kingdom of Sardinia, and by Italy. <br><br> Genoa is the birthplace of Christopher Columbus and Niccolò Paganini.",
+        "Attrazioni": "Genova è una città portuale con una ricca storia marittima e un Patrimonio dell’Umanità dell’UNESCO. Alcuni dei suoi monumenti sono il Palazzo Ducale, la Cattedrale di San Lorenzo, l’Acquario e il faro della Lanterna. <br><br> Genova ha anche un centro storico medievale, con vicoli stretti, chiese e palazzi.",
+        "Storia": "Genova fu fondata dai Liguri nel VI secolo a.C. Fu alleata di Roma, rivale di Pisa, repubblica e potenza marittima. <br><br> Genova fu coinvolta nelle Crociate, nelle guerre con Venezia e nella scoperta del Nuovo Mondo. <br><br> Genova fu annessa dalla Francia, dal Regno di Sardegna e dall’Italia."
+    },
+    {
+        "Name": "Bari",
+        "Landmarks": "Bari is the capital of Apulia and a major commercial and cultural center. Some of its landmarks are the Basilica of San Nicola, the Castello Normanno-Svevo, the Petruzzelli Theatre, and the Pinacoteca Provinciale. <br><br> Bari also has a lively waterfront, a modern city center, and a historic core, known as Bari Vecchia.",
+        "History": "Bari was founded by the Peucetians in the 8th century BC. It was conquered by the Romans, the Byzantines, the Lombards, the Saracens, the Normans, the Swabians, the Angevins, the Aragonese, and the Bourbons. <br><br> Bari was the seat of the Kingdom of Naples, the Kingdom of the Two Sicilies, and the Kingdom of Italy. <br><br> Bari was bombed by the Allies, liberated by the Polish Army, and rebuilt after World War II.",
+        "Attrazioni": "Bari è la capitale della Puglia e un importante centro commerciale e culturale. Alcuni dei suoi monumenti sono la Basilica di San Nicola, il Castello Normanno-Svevo, il Teatro Petruzzelli e la Pinacoteca Provinciale. <br><br> Bari ha anche un vivace lungomare, un centro città moderno e un nucleo storico, noto come Bari Vecchia.",
+        "Storia": "Bari fu fondata dai Peuceti nell’VIII secolo a.C. Fu conquistata dai Romani, dai Bizantini, dai Longobardi, dai Saraceni, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dai Borboni. <br><br> Bari fu la sede del Regno di Napoli, del Regno delle Due Sicilie e del Regno d’Italia. <br><br> Bari fu bombardata dagli Alleati, liberata dall’Armata Polacca e ricostruita dopo la Seconda Guerra Mondiale."
+    },
+    {
+        "Name": "Lecce",
+        "Landmarks": "Lecce is a city of art and culture, famous for its Baroque architecture and its local stone, called pietra leccese. Some of its landmarks are the Basilica of Santa Croce, the Piazza del Duomo, the Roman Amphitheatre, and the Castle of Charles V. <br><br> Lecce also has a rich tradition of crafts, such as papier-mâché, ceramics, and embroidery.",
+        "History": "Lecce was founded by the Messapians in the 3rd century BC. It was colonized by the Greeks, the Romans, the Byzantines, the Normans, the Swabians, the Angevins, the Aragonese, and the Spanish. <br><br> Lecce was a flourishing center of culture and learning, especially during the Renaissance and the Baroque periods. <br><br> Lecce was part of the Kingdom of Naples, the Kingdom of the Two Sicilies, and the Kingdom of Italy.",
+        "Attrazioni": "Lecce è una città d’arte e cultura, famosa per la sua architettura barocca e la sua pietra locale, chiamata pietra leccese. Alcuni dei suoi monumenti sono la Basilica di Santa Croce, la Piazza del Duomo, l’Anfiteatro Romano e il Castello di Carlo V. <br><br> Lecce ha anche una ricca tradizione artigianale, come il cartapesta, la ceramica e il ricamo.",
+        "Storia": "Lecce fu fondata dai Messapi nel III secolo a.C. Fu colonizzata dai Greci, dai Romani, dai Bizantini, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dagli Spagnoli. <br><br> Lecce fu un fiorente centro di cultura e apprendimento, specialmente durante il Rinascimento e il Barocco. <br><br> Lecce fece parte del Regno di Napoli, del Regno delle Due Sicilie e del Regno d’Italia."
+    },
+    {
+        "Name": "Catania",
+        "Landmarks": "Catania is the second-largest city of Sicily and a major port and industrial center. Some of its landmarks are the Cathedral of Sant’Agata, the Ursino Castle, the Teatro Massimo Bellini, and the Piazza del Duomo. <br><br> Catania is also known for its cuisine, nightlife, and festivals, such as the Feast of Sant’Agata.",
+        "History": "Catania was founded by the Greeks in the 8th century BC. It was ruled by the Romans, the Byzantines, the Arabs, the Normans, the Swabians, the Angevins, the Aragonese, and the Spanish. <br><br> Catania was devastated by several earthquakes and volcanic eruptions, especially by Mount Etna, the largest active volcano in Europe. <br><br> Catania was part of the Kingdom of Sicily, the Kingdom of Naples, the Kingdom of the Two Sicilies, and the Kingdom of Italy. <br><br> Catania was a center of the Sicilian Vespers, the Italian Risorgimento, and the Sicilian autonomy movement.",
+        "Attrazioni": "Catania è la seconda città più grande della Sicilia e un importante porto e centro industriale. Alcuni dei suoi monumenti sono la Cattedrale di Sant’Agata, il Castello Ursino, il Teatro Massimo Bellini e la Piazza del Duomo. <br><br> Catania è anche nota per la sua cucina, la sua vita notturna e le sue feste, come la Festa di Sant’Agata.",
+        "Storia": "Catania fu fondata dai Greci nell’VIII secolo a.C. Fu governata dai Romani, dai Bizantini, dagli Arabi, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dagli Spagnoli. <br><br> Catania fu devastata da diversi terremoti e eruzioni vulcaniche, soprattutto dall’Etna, il più grande vulcano attivo d’Europa. <br><br> Catania fece parte del Regno di Sicilia, del Regno di Napoli, del Regno delle Due Sicilie e del Regno d’Italia. <br><br> Catania fu un centro delle Vespri Siciliani, del Risorgimento Italiano e del movimento autonomista siciliano."
+    },
+    {
+        "Name": "Palermo",
+        "Landmarks": "Palermo is the capital of Sicily and a major cultural and economic hub. Some of its landmarks are the Palazzo dei Normanni, the Cathedral of Palermo, the Teatro Massimo, and the Quattro Canti. <br><br> Palermo is also known for its markets, gardens, and street food, such as arancini, panelle, and cannoli.",
+        "History": "Palermo was founded by the Phoenicians in the 8th century BC. It was ruled by the Carthaginians, the Romans, the Vandals, the Byzantines, the Arabs, the Normans, the Swabians, the Angevins, the Aragonese, and the Spanish. <br><br> Palermo was the capital of the Kingdom of Sicily, the Kingdom of Naples, the Kingdom of the Two Sicilies, and the Italian Republic. <br><br> Palermo was a center of the Sicilian Vespers, the Italian Risorgimento, and the Sicilian autonomy movement. <br><br> Palermo was also a victim of the Mafia, the Allied bombings, and the urban decay.",
+        "Attrazioni": "Palermo è la capitale della Sicilia e un importante polo culturale ed economico. Alcuni dei suoi monumenti sono il Palazzo dei Normanni, la Cattedrale di Palermo, il Teatro Massimo e i Quattro Canti. <br><br> Palermo è anche nota per i suoi mercati, i suoi giardini e il suo cibo di strada, come arancini, panelle e cannoli.",
+        "Storia": "Palermo fu fondata dai Fenici nell’VIII secolo a.C. Fu governata dai Cartaginesi, dai Romani, dai Vandali, dai Bizantini, dagli Arabi, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dagli Spagnoli. <br><br> Palermo fu la capitale del Regno di Sicilia, del Regno di Napoli, del Regno delle Due Sicilie e della Repubblica Italiana. <br><br> Palermo fu un centro delle Vespri Siciliani, del Risorgimento Italiano e del movimento autonomista siciliano. <br><br> Palermo fu anche vittima della Mafia, dei bombardamenti Alleati e del degrado urbano."
+    },
+    {
+        "Name": "Genova",
+        "Landmarks": "Genova is the capital of Liguria and a major maritime and industrial center. Some of its landmarks are the Palazzo Ducale, the Cathedral of San Lorenzo, the Aquarium of Genoa, and the Porto Antico. <br><br> Genova is also known for its music, art, and cuisine, such as pesto, focaccia, and farinata.",
+        "History": "Genova was founded by the Ligurians in the 6th century BC. It was ruled by the Etruscans, the Romans, the Lombards, the Franks, the Saracens, the Normans, the Swabians, the Angevins, the Aragonese, and the Spanish. <br><br> Genova was an independent maritime republic, a powerful ally of the French, and a rival of Venice and Pisa. <br><br> Genova was part of the Kingdom of Sardinia, the Kingdom of Italy, and the Italian Republic. <br><br> Genova was a center of the Italian Risorgimento, the Italian Resistance, and the Red Brigades.",
+        "Attrazioni": "Genova è la capitale della Liguria e un importante centro marittimo e industriale. Alcuni dei suoi monumenti sono il Palazzo Ducale, la Cattedrale di San Lorenzo, l’Acquario di Genova e il Porto Antico. <br><br> Genova è anche nota per la sua musica, la sua arte e la sua cucina, come il pesto, la focaccia e la farinata.",
+        "Storia": "Genova fu fondata dai Liguri nel VI secolo a.C. Fu governata dagli Etruschi, dai Romani, dai Longobardi, dai Franchi, dai Saraceni, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dagli Spagnoli. <br><br> Genova fu una repubblica marittima indipendente, una potente alleata dei Francesi e una rivale di Venezia e Pisa. <br><br> Genova fece parte del Regno di Sardegna, del Regno d’Italia e della Repubblica Italiana. <br><br> Genova fu un centro del Risorgimento Italiano, della Resistenza Italiana e delle Brigate Rosse."
+    },
+    {
+        "Name": "Fossalto",
+        "Landmarks": "Fossalto is a medieval village with a baronial palace and three churches: Santa Maria Assunta, Sant’Antonio di Padova and Sant’Agnese. <br><br> The village also has a Roman bridge, a tower, and an archaeological park.",
+        "History": "Fossalto was founded by the Samnites and later became a Roman colony. <br><br> It was ruled by various feudal lords, such as the Malaspina, the Sangro and the De Sus. It was part of the Kingdom of Naples and the Kingdom of the Two Sicilies.",
+        "Attrazioni": "Fossalto è un borgo medievale con un palazzo baronale e tre chiese: Santa Maria Assunta, Sant’Antonio di Padova e Sant’Agnese. <br><br> Il borgo ha anche un ponte romano, una torre e un parco archeologico.",
+        "Storia": "Fossalto fu fondato dai Sanniti e poi divenne una colonia romana. <br><br> Fu governato da varie famiglie feudali, come i Malaspina, i Sangro e i De Sus. Fece parte del Regno di Napoli e del Regno delle Due Sicilie."
+    },
+    {
+        "Name": "Arce",
+        "Landmarks": "Arce is a town with a Roman bridge, a medieval castle, a Franciscan monastery and several churches, such as San Michele Arcangelo, Sant’Antonio Abate and Santa Maria del Soccorso. <br><br> The town also has a triumphal arch, a municipal palace, and a fountain.",
+        "History": "Arce was inhabited since prehistoric times and was an important center of the Volsci. <br><br> It was conquered by the Romans and became a municipium. It was sacked by the Lombards and the Saracens and later rebuilt by the Benedictines. It was part of the Papal States and the Kingdom of Italy.",
+        "Attrazioni": "Arce è una città con un ponte romano, un castello medievale, un monastero francescano e diverse chiese, come San Michele Arcangelo, Sant’Antonio Abate e Santa Maria del Soccorso. <br><br> La città ha anche un arco di trionfo, un palazzo comunale e una fontana.",
+        "Storia": "Arce fu abitata fin dall’epoca preistorica e fu un importante centro dei Volsci. <br><br> Fu conquistata dai Romani e divenne un municipio. Fu saccheggiata dai Longobardi e dai Saraceni e poi ricostruita dai Benedettini. Fece parte degli Stati Pontifici e del Regno d’Italia."
+    },
+    {
+        "Name": "Melilli",
+        "Landmarks": "Melilli is a hilltop town with a Norman castle, a Baroque fountain, a Greek fountain, a library, a theater and several churches, such as San Sebastiano, Sant’Antonio Abate and Santa Maria dell’Isola. <br><br> The town also has a necropolis, a quarry, and a natural reserve.",
+        "History": "Melilli was settled by the Greeks and was part of the colony of Megara Hyblaea. <br><br> It was ruled by the Romans, the Byzantines, the Arabs, the Normans, the Swabians, the Angevins, the Aragonese and the Bourbons. It was part of the Kingdom of Sicily and the Kingdom of the Two Sicilies.",
+        "Attrazioni": "Melilli è una città collinare con un castello normanno, una fontana barocca, una fontana greca, una biblioteca, un teatro e diverse chiese, come San Sebastiano, Sant’Antonio Abate e Santa Maria dell’Isola. <br><br> La città ha anche una necropoli, una cava e una riserva naturale.",
+        "Storia": "Melilli fu abitata dai Greci e fece parte della colonia di Megara Iblea. <br><br> Fu governata dai Romani, dai Bizantini, dagli Arabi, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dai Borboni. Fece parte del Regno di Sicilia e del Regno delle Due Sicilie."
+    },
+    {
+        "Name": "Ferrazzano",
+        "Landmarks": "Ferrazzano is a village with a Romanesque church, a Renaissance palace, a fountain, a cemetery and a monument to Pope Nicholas V, who was born here. <br><br> The village also has a panoramic view of the surrounding hills and valleys.",
+        "History": "Ferrazzano was founded by the Samnites and later became a Roman garrison. <br><br> It was destroyed by Sulla and rebuilt by the Lombards. It was ruled by various feudal families, such as the Camarda, the Giniaco and the Sangro. It was part of the Kingdom of Naples and the Kingdom of the Two Sicilies.",
+        "Attrazioni": "Ferrazzano è un villaggio con una chiesa romanica, un palazzo rinascimentale, una fontana, un cimitero e un monumento a Papa Niccolò V, che qui nacque. <br><br> Il villaggio ha anche una vista panoramica sulle colline e le valli circostanti.",
+        "Storia": "Ferrazzano fu fondato dai Sanniti e poi divenne una guarnigione romana. <br><br> Fu distrutto da Silla e ricostruito dai Longobardi. Fu governato da varie famiglie feudali, come i Camarda, i Giniaco e i Sangro. Fece parte del Regno di Napoli e del Regno delle Due Sicilie."
+    },
+    {
+        "Name": "Tropea",
+        "Landmarks": "Tropea is a coastal town with a sandy beach, a rocky promontory, a marina, a sanctuary, a cathedral, a castle and several palaces and churches. <br><br> The town also has a picturesque old town, a lighthouse, and a view of the Aeolian Islands.",
+        "History": "Tropea was founded by Hercules, according to a legend, or by the Greeks, according to history. <br><br> It was part of the Magna Graecia and sided with Pyrrhus and Taranto against Rome. It was ruled by the Byzantines, the Normans, the Swabians, the Angevins, the Aragonese and the Bourbons. It was part of the Kingdom of Naples and the Kingdom of the Two Sicilies.",
+        "Attrazioni": "Tropea è una città costiera con una spiaggia sabbiosa, un promontorio roccioso, un porto turistico, un santuario, una cattedrale, un castello e diversi palazzi e chiese. <br><br> La città ha anche un pittoresco centro storico, un faro e una vista sulle Isole Eolie.",
+        "Storia": "Tropea fu fondata da Ercole, secondo una leggenda, o dai Greci, secondo la storia. <br><br> Fece parte della Magna Grecia e si schierò con Pirro e Taranto contro Roma. Fu governata dai Bizantini, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dai Borboni. Fece parte del Regno di Napoli e del Regno delle Due Sicilie."
+    },
+    {
+        "Name": "Gallipoli",
+        "Landmarks": "Gallipoli is a seaside town with a historic center on an island, connected to the mainland by a bridge. It has a port, a castle, a cathedral, a sanctuary, a fountain, a museum and several churches and palaces. <br><br> The town also has a fish market, a beach, and a vibrant nightlife that attracts lots of tourists.",
+        "History": "Gallipoli was founded by the Greeks and was part of the colony of Taranto. <br><br> It was ruled by the Romans, the Byzantines, the Lombards, the Saracens, the Normans, the Swabians, the Angevins, the Aragonese and the Bourbons. It was part of the Kingdom of Naples and the Kingdom of the Two Sicilies.",
+        "Attrazioni": "Gallipoli è una città marittima con un centro storico su un’isola, collegata alla terraferma da un ponte. Ha un porto, un castello, una cattedrale, un santuario, una fontana, un museo e diverse chiese e palazzi. <br><br> La città ha anche un mercato del pesce, una spiaggia e una movida che attrae turisti da tutta la penisola.",
+        "Storia": "Gallipoli fu fondata dai Greci e fece parte della colonia di Taranto. <br><br> Fu governata dai Romani, dai Bizantini, dai Longobardi, dai Saraceni, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dai Borboni. Fece parte del Regno di Napoli e del Regno delle Due Sicilie."
+    },
+    {
+        "Name": "Fossa",
+        "Landmarks": "Fossa is a small village in the province of L’Aquila, surrounded by mountains and forests. <br><br> It has a medieval castle, a church, a museum and several stone houses.",
+        "History": "Fossa was founded in the 12th century and was part of the Kingdom of Naples and the Kingdom of the Two Sicilies. <br><br> It was severely damaged by the 2009 L’Aquila earthquake and was temporarily abandoned by its inhabitants.",
+        "Attrazioni": "Fossa è un piccolo paese nella provincia dell’Aquila, circondato da montagne e boschi. <br><br> Ha un castello medievale, una chiesa, un museo e diverse case in pietra.",
+        "Storia": "Fossa fu fondata nel XII secolo e fece parte del Regno di Napoli e del Regno delle Due Sicilie. <br><br> Fu gravemente danneggiata dal terremoto dell’Aquila del 2009 e fu temporaneamente abbandonata dai suoi abitanti."
+    },
+    {
+        "Name": "Atessa",
+        "Landmarks": "Atessa is a town in the province of Chieti, on the western side of the Peligna Valley. <br><br> It has a duomo, a borgo antico, a convent, a theater and several palaces and churches.",
+        "History": "Atessa was founded by the Greeks and was part of the colony of Corfinium. <br><br> It was ruled by the Romans, the Byzantines, the Lombards, the Saracens, the Normans, the Swabians, the Angevins, the Aragonese and the Bourbons. It was part of the Kingdom of Naples and the Kingdom of the Two Sicilies.",
+        "Attrazioni": "Atessa è una città nella provincia di Chieti, sul lato occidentale della Valle Peligna. <br><br> Ha un duomo, un borgo antico, un convento, un teatro e diversi palazzi e chiese.",
+        "Storia": "Atessa fu fondata dai Greci e fece parte della colonia di Corfinium. <br><br> Fu governata dai Romani, dai Bizantini, dai Longobardi, dai Saraceni, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dai Borboni. Fece parte del Regno di Napoli e del Regno delle Due Sicilie."
+    },
+    {
+        "Name": "Palombaro",
+        "Landmarks": "Palombaro is a village in the province of Chieti, on the slopes of the Majella mountain. <br><br> It has a church, a fountain, a museum and several stone houses.",
+        "History": "Palombaro was founded in the Middle Ages and was part of the Kingdom of Naples and the Kingdom of the Two Sicilies. <br><br> It was affected by several earthquakes and landslides throughout its history.",
+        "Attrazioni": "Palombaro è un paese nella provincia di Chieti, sulle pendici della montagna della Majella. <br><br> Ha una chiesa, una fontana, un museo e diverse case in pietra.",
+        "Storia": "Palombaro fu fondata nel Medioevo e fece parte del Regno di Napoli e del Regno delle Due Sicilie. <br><br> Fu colpita da diversi terremoti e frane nel corso della sua storia."
+    },
+    {
+        "Name": "Sora",
+        "Landmarks": "Sora is a city in the province of Frosinone, on the banks of the Liri river. <br><br> It has a cathedral, a castle, a sanctuary, a fountain, a museum and several churches and palaces.",
+        "History": "Sora was founded by the Volsci and was part of the colony of Alba Longa. <br><br> It was ruled by the Romans, the Lombards, the Byzantines, the Saracens, the Normans, the Swabians, the Angevins, the Aragonese and the Bourbons. It was part of the Papal States and the Kingdom of Italy.",
+        "Attrazioni": "Sora è una città nella provincia di Frosinone, sulle rive del fiume Liri. <br><br> Ha una cattedrale, un castello, un santuario, una fontana, un museo e diverse chiese e palazzi.",
+        "Storia": "Sora fu fondata dai Volsci e fece parte della colonia di Alba Longa. <br><br> Fu governata dai Romani, dai Longobardi, dai Bizantini, dai Saraceni, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dai Borboni. Fece parte degli Stati Pontifici e del Regno d’Italia."
+    },
+    {
+        "Name": "Raiano",
+        "Landmarks": "Raiano is a town in the province of L’Aquila, on the south side of the Aterno river valley. <br><br> It has a hermitage, a church, a museum and several stone houses.",
+        "History": "Raiano was founded by the Romans and was part of the colony of Corfinium. <br><br> It was ruled by the Lombards, the Franks, the Normans, the Swabians, the Angevins, the Aragonese and the Bourbons. It was part of the Kingdom of Naples and the Kingdom of the Two Sicilies.",
+        "Attrazioni": "Raiano è una città nella provincia dell’Aquila, sul lato sud della valle del fiume Aterno. <br><br> Ha un eremo, una chiesa, un museo e diverse case in pietra.",
+        "Storia": "Raiano fu fondata dai Romani e fece parte della colonia di Corfinium. <br><br> Fu governata dai Longobardi, dai Franchi, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dai Borboni. Fece parte del Regno di Napoli e del Regno delle Due Sicilie."
+    },
+    {
+        "Name": "Cinisello Balsamo",
+        "Landmarks": "Cinisello Balsamo is a city in the province of Milan, on the northern outskirts of the metropolitan area. <br><br> It has a cultural center, a church, a museum and several palaces and villas.",
+        "History": "Cinisello Balsamo was formed by the merger of two towns, Cinisello and Balsamo, in 1928. <br><br> It was part of the Duchy of Milan, the Spanish Empire, the Austrian Empire, the Kingdom of Sardinia, the Kingdom of Italy and the Italian Republic.",
+        "Attrazioni": "Cinisello Balsamo è una città nella provincia di Milano, alla periferia nord dell’area metropolitana. <br><br> Ha un centro culturale, una chiesa, un museo e diversi palazzi e ville.",
+        "Storia": "Cinisello Balsamo fu formata dall’unione di due comuni, Cinisello e Balsamo, nel 1928. <br><br> Fece parte del Ducato di Milano, dell’Impero Spagnolo, dell’Impero Austriaco, del Regno di Sardegna, del Regno d’Italia e della Repubblica Italiana."
+    },
+    {
+        "Name": "Sassuolo",
+        "Landmarks": "Sassuolo is a town in the province of Modena, on the banks of the Secchia river. <br><br> It has a ducal palace, a church, a museum and several palaces and villas.",
+        "History": "Sassuolo was founded in the Middle Ages and was part of the Duchy of Modena and Reggio. <br><br> It was ruled by the Este family, the Bonaparte family, the Habsburg-Lorraine family, the Kingdom of Sardinia, the Kingdom of Italy and the Italian Republic.",
+        "Attrazioni": "Sassuolo è una città nella provincia di Modena, sulle rive del fiume Secchia. <br><br> Ha un palazzo ducale, una chiesa, un museo e diversi palazzi e ville.",
+        "Storia": "Sassuolo fu fondata nel Medioevo e fece parte del Ducato di Modena e Reggio. <br><br> Fu governata dalla famiglia d’Este, dalla famiglia Bonaparte, dalla famiglia d’Asburgo-Lorena, dal Regno di Sardegna, dal Regno d’Italia e dalla Repubblica Italiana."
+    },
+    {
+        "Name": "Augusta",
+        "Landmarks": "Augusta is a city in the province of Syracuse, on the east coast of Sicily. <br><br> It has a port, a castle, a cathedral, a sanctuary, a fountain, a museum and several churches and palaces.",
+        "History": "Augusta was founded by the Greeks and was part of the colony of Syracuse. <br><br> It was ruled by the Romans, the Byzantines, the Arabs, the Normans, the Swabians, the Angevins, the Aragonese and the Bourbons. It was part of the Kingdom of Sicily and the Kingdom of the Two Sicilies.",
+        "Attrazioni": "Augusta è una città nella provincia di Siracusa, sulla costa orientale della Sicilia. <br><br> Ha un porto, un castello, una cattedrale, un santuario, una fontana, un museo e diverse chiese e palazzi.",
+        "Storia": "Augusta fu fondata dai Greci e fece parte della colonia di Siracusa. <br><br> Fu governata dai Romani, dai Bizantini, dagli Arabi, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dai Borboni. Fece parte del Regno di Sicilia e del Regno delle Due Sicilie."
+    },
+    {
+        "Name": "Mondragone",
+        "Landmarks": "Mondragone is a coastal town in the province of Caserta, in the Campania region. It is known for its beach, its castle, and its cheese. <br><br> Mondragone is also the site of the ancient city of Sinuessa, where Cicero had a villa.",
+        "History": "Mondragone was founded by the Samnites and later became a Roman colony. <br><br> It was ruled by various feudal lords, such as the Caetani, the Colonna, and the Carafa. It was part of the Kingdom of Naples and the Kingdom of the Two Sicilies.",
+        "Attrazioni": "Mondragone è una cittadina costiera della provincia di Caserta, in Campania. È nota per la sua spiaggia, il suo castello e il suo formaggio. <br><br> Mondragone è anche il luogo dell’antica città di Sinuessa, dove Cicerone aveva una villa.",
+        "Storia": "Mondragone fu fondata dai Sanniti e poi divenne una colonia romana. <br><br> Fu governata da vari signori feudali, come i Caetani, i Colonna e i Carafa. Fece parte del Regno di Napoli e del Regno delle Due Sicilie."
+    },
+    {
+        "Name": "Domodossola",
+        "Landmarks": "Domodossola is a city in the province of Verbano-Cusio-Ossola, in the Piedmont region. It is located at the confluence of the Bogna and Toce rivers, near the Alps. <br><br> Domodossola has a picturesque historical center, with a Gothic town hall and a Renaissance church. It is also a gateway to the Val Grande National Park and the Ossola Valley.",
+        "History": "Domodossola was founded by the Celtic Insubres in the 6th century BC. <br><br> It was conquered by the Romans, the Lombards, the Franks, and the Swiss. <br><br> Domodossola was a free commune, a bishopric, and a fortified town. <br><br> Domodossola was part of the Duchy of Milan, the Kingdom of Sardinia, the Kingdom of Italy, and the Italian Republic.",
+        "Attrazioni": "Domodossola è una città della provincia di Verbano-Cusio-Ossola, in Piemonte. Si trova alla confluenza dei fiumi Bogna e Toce, vicino alle Alpi. <br><br> Domodossola ha un pittoresco centro storico, con un palazzo comunale gotico e una chiesa rinascimentale. È anche una porta d’accesso al Parco Nazionale della Val Grande e alla Valle d’Ossola.",
+        "Storia": "Domodossola fu fondata dai Celti Insubri nel VI secolo a.C. <br><br> Fu conquistata dai Romani, dai Longobardi, dai Franchi e dai Svizzeri. <br><br> Domodossola fu un comune libero, una diocesi e una città fortificata. <br><br> Domodossola fece parte del Ducato di Milano, del Regno di Sardegna, del Regno d’Italia e della Repubblica Italiana."
+    },
+    {
+        "Name": "Gioia Tauro",
+        "Landmarks": "Gioia Tauro is a town in the province of Reggio Calabria, in the Calabria region. It is situated on the Tyrrhenian coast, at the mouth of the river Petrace. <br><br> Gioia Tauro is known for its port, one of the busiest in Europe and the Mediterranean. It is also a center of agriculture, industry, and tourism.",
+        "History": "Gioia Tauro was founded by the Greeks from Zancle in the 7th century BC. It was called Metauros and was part of Magna Graecia. <br><br> It was occupied by the Locrians, the Romans, the Byzantines, the Arabs, the Normans, the Swabians, the Angevins, the Aragonese, and the Bourbons. <br><br> Gioia Tauro was part of the Kingdom of Naples, the Kingdom of the Two Sicilies, and the Kingdom of Italy. <br><br> Gioia Tauro was the site of a famous battle between Hannibal and the Romans in 207 BC.",
+        "Attrazioni": "Gioia Tauro è una cittadina della provincia di Reggio Calabria, in Calabria. Si trova sulla costa tirrenica, alla foce del fiume Petrace. <br><br> Gioia Tauro è nota per il suo porto, uno dei più trafficati d’Europa e del Mediterraneo. È anche un centro di agricoltura, industria e turismo.",
+        "Storia": "Gioia Tauro fu fondata dai Greci di Zancle nel VII secolo a.C. Si chiamava Metauros ed era parte della Magna Grecia. <br><br> Fu occupata dai Locresi, dai Romani, dai Bizantini, dagli Arabi, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dai Borboni. <br><br> Gioia Tauro fece parte del Regno di Napoli, del Regno delle Due Sicilie e del Regno d’Italia. <br><br> Gioia Tauro fu il luogo di una famosa battaglia tra Annibale e i Romani nel 207 a.C."
+    },
+    {
+        "Name": "Monza",
+        "Landmarks": "Monza is a city in the province of Monza and Brianza, in the Lombardy region. It is located on the river Lambro, near Milan. <br><br> Monza is famous for its royal palace, its cathedral, its park, and its racetrack. It is also a center of culture, commerce, and sports.",
+        "History": "Monza was founded by the Celts in the 3rd century BC. It was called Modicia and was part of the Insubrian League. <br><br> It was conquered by the Romans, the Lombards, the Franks, and the Visconti. <br><br> Monza was the capital of the Kingdom of Italy under the Lombards and the coronation place of the kings of Italy. <br><br> Monza was part of the Duchy of Milan, the Spanish Empire, the Austrian Empire, the Kingdom of Lombardy-Venetia, the Kingdom of Italy, and the Italian Republic.",
+        "Attrazioni": "Monza è una città della provincia di Monza e della Brianza, in Lombardia. Si trova sul fiume Lambro, vicino a Milano. <br><br> Monza è famosa per il suo palazzo reale, la sua cattedrale, il suo parco e il suo autodromo. È anche un centro di cultura, commercio e sport.",
+        "Storia": "Monza fu fondata dai Celti nel III secolo a.C. Si chiamava Modicia ed era parte della Lega Insubrica. <br><br> Fu conquistata dai Romani, dai Longobardi, dai Franchi e dai Visconti. <br><br> Monza fu la capitale del Regno d’Italia sotto i Longobardi e il luogo di incoronazione dei re d’Italia. <br><br> Monza fece parte del Ducato di Milano, dell’Impero Spagnolo, dell’Impero Austriaco, del Regno Lombardo-Veneto, del Regno d’Italia e della Repubblica Italiana."
+    },
+    {
+        "Name": "Presicce",
+        "Landmarks": "Presicce is a town in the province of Lecce, in the Apulia region of Italy. It is a member of the I Borghi più belli d’Italia association, and has a well-preserved historic center. <br><br> It has a medieval origin, and has some beautiful buildings, such as the Palazzo Ducale, the Church of Sant’Andrea Apostolo, and the Church of the Carmine. It is also famous for its olive oil production and its underground oil mills.",
+        "History": "Presicce was founded by the Greeks and was part of the colony of Taranto. <br><br> It was ruled by the Romans, the Byzantines, the Lombards, the Saracens, the Normans, the Swabians, the Angevins, the Aragonese and the Bourbons. It was part of the Kingdom of Naples and the Kingdom of the Two Sicilies.",
+        "Attrazioni": "Presicce è una città nella provincia di Lecce, nella regione Puglia. È membro dell’associazione I Borghi più belli d’Italia, e ha un centro storico ben conservato. <br><br> Ha un’origine medievale, e ha alcuni edifici bellissimi, come il Palazzo Ducale, la Chiesa di Sant’Andrea Apostolo, e la Chiesa del Carmine. È famosa anche per la sua produzione di olio d’oliva e i suoi frantoi ipogei.",
+        "Storia": "Presicce fu fondata dai Greci e fece parte della colonia di Taranto. <br><br> Fu governata dai Romani, dai Bizantini, dai Longobardi, dai Saraceni, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dai Borboni. Fece parte del Regno di Napoli e del Regno delle Due Sicilie."
+    },
+    {
+        "Name": "Pomezia",
+        "Landmarks": "Pomezia is a city in the Metropolitan City of Rome, in the Lazio region of Italy. It is a modern and urban city, but it also has some traces of its ancient past. <br><br> It is located near the site of the ancient city of Lavinium, and has some archaeological attractions, such as the Area Archeologica dell’Antica Lavinium, the Santuario del Sol Indiges, and the Villa Romana.",
+        "History": "Pomezia was founded in 1939 as a new town near the location of ancient Lavinium, on land resulting from the reclamation of the Pontine Marshes under Benito Mussolini. Its new population was extracted from the poor peasants of Romagna, Veneto and Friuli. <br><br> Pomezia was occupied by the forces of the Third Reich, and was heavily bombed during the Battle of Anzio in World War II. After the war, Pomezia developed as a strong industrial center, especially in the medical and pharmaceutical sectors, as well as a recreational center.",
+        "Attrazioni": "Pomezia è una città nella Città Metropolitana di Roma, nella regione Lazio. È una città moderna e urbana, ma ha anche alcune tracce del suo passato antico. <br><br> Si trova vicino al sito dell’antica città di Lavinium, e ha alcune attrazioni archeologiche, come l’Area Archeologica dell’Antica Lavinium, il Santuario del Sol Indiges, e la Villa Romana.",
+        "Storia": "Pomezia fu fondata nel 1939 come una città nuova vicino alla località di Lavinium antica, su terreni derivanti dalla bonifica delle Paludi Pontine sotto Benito Mussolini. La sua nuova popolazione fu estratta dai poveri contadini di Romagna, Veneto e Friuli. <br><br> Pomezia fu occupata dalle forze del Terzo Reich, e fu pesantemente bombardata durante la Battaglia di Anzio nella Seconda Guerra Mondiale. Dopo la guerra, Pomezia si sviluppò come un forte centro industriale, soprattutto nei settori medico e farmaceutico, oltre che come centro ricreativo."
+    },
+    {
+        "Name": "Giugliano in Campania",
+        "Landmarks": "Giugliano in Campania is a town in the metropolitan city of Naples. It is located on the plain of Campania, between the Gulf of Naples and the volcanic area of the Campi Flegrei. <br><br> Giugliano in Campania is known for its historical and artistic heritage, its agricultural production, and its folk traditions.",
+        "History": "Giugliano in Campania was founded by the Osci in the 8th century BC. It was called Liternum and was part of the Samnite League. <br><br> It was occupied by the Romans, the Goths, the Byzantines, the Lombards, the Normans, the Swabians, the Angevins, the Aragonese, and the Bourbons. <br><br> Giugliano in Campania was part of the Kingdom of Naples, the Kingdom of the Two Sicilies, and the Kingdom of Italy. <br><br> Giugliano in Campania was the birthplace of the poet Giambattista Marino and the philosopher Giordano Bruno.",
+        "Attrazioni": "Giugliano in Campania è una cittadina della città metropolitana di Napoli, in Campania. Si trova sulla pianura campana, tra il golfo di Napoli e l’area vulcanica dei Campi Flegrei. <br><br> Giugliano in Campania è nota per il suo patrimonio storico e artistico, la sua produzione agricola e le sue tradizioni popolari.",
+        "Storia": "Giugliano in Campania fu fondata dagli Osci nell’VIII secolo a.C. Si chiamava Liternum ed era parte della Lega Sannitica. <br><br> Fu occupata dai Romani, dai Goti, dai Bizantini, dai Longobardi, dai Normanni, dagli Svevi, dagli Angioini, dagli Aragonesi e dai Borboni. <br><br> Giugliano in Campania fece parte del Regno di Napoli, del Regno delle Due Sicilie e del Regno d’Italia. <br><br> Giugliano in Campania fu il luogo di nascita del poeta Giambattista Marino e del filosofo Giordano Bruno."
+    },
+    {
+        "Name": "Latina",
+        "Landmarks": "Latina is a city in the province of Latina, in the Lazio region. It is located on the Pontine Plain, near the Tyrrhenian Sea. <br><br> Latina is a modern and planned city, founded by Benito Mussolini in 1932. It is known for its rationalist architecture, its monuments, and its gardens.",
+        "History": "Latina was founded by Benito Mussolini in 1932, as part of the fascist project of reclaiming the Pontine Marshes. It was originally called Littoria and was inaugurated by the king Victor Emmanuel III. <br><br> Latina was part of the Kingdom of Italy, the Italian Social Republic, and the Italian Republic. <br><br> Latina was the scene of fierce battles during World War II, between the Allied and the German forces.",
+        "Attrazioni": "Latina è una città della provincia di Latina, in Lazio. Si trova sulla Pianura Pontina, vicino al Mar Tirreno. <br><br> Latina è una città moderna e pianificata, fondata da Benito Mussolini nel 1932. È nota per la sua architettura razionalista, i suoi monumenti e i suoi giardini.",
+        "Storia": "Latina fu fondata da Benito Mussolini nel 1932, come parte del progetto fascista di bonifica delle Paludi Pontine. Si chiamava originariamente Littoria e fu inaugurata dal re Vittorio Emanuele III. <br><br> Latina fece parte del Regno d’Italia, della Repubblica Sociale Italiana e della Repubblica Italiana. <br><br> Latina fu teatro di aspri combattimenti durante la Seconda Guerra Mondiale, tra le forze Alleate e quelle Tedesche."
+    },
+    {
+        "Name": "Sesto San Giovanni",
+        "Landmarks": "Sesto San Giovanni is a city in the metropolitan city of Milan, in the Lombardy region. It is located on the Martesana canal, near the river Lambro. <br><br> Sesto San Giovanni is known for its industrial history, its cultural activities, and its social movements. It is also a center of innovation, education, and services.",
+        "History": "Sesto San Giovanni was founded by the Romans in the 1st century AD. It was called Sextus and was a rural settlement. <br><br> It was ruled by the Lombards, the Franks, the Visconti, the Sforza, the Spanish, the Austrians, and the Savoy. <br><br> Sesto San Giovanni was a major industrial center, especially in the fields of steel, chemicals, and mechanics. <br><br> Sesto San Giovanni was part of the Kingdom of Sardinia, the Kingdom of Italy, and the Italian Republic. <br><br> Sesto San Giovanni was a stronghold of the Italian Communist Party and the Italian Resistance.",
+        "Attrazioni": "Sesto San Giovanni è una città della città metropolitana di Milano, in Lombardia. Si trova sul canale della Martesana, vicino al fiume Lambro. <br><br> Sesto San Giovanni è nota per la sua storia industriale, le sue attività culturali e i suoi movimenti sociali. È anche un centro di innovazione, istruzione e servizi.",
+        "Storia": "Sesto San Giovanni fu fondata dai Romani nel I secolo d.C. Si chiamava Sextus ed era un insediamento rurale. <br><br> Fu governata dai Longobardi, dai Franchi, dai Visconti, dagli Sforza, dagli Spagnoli, dagli Austriaci e dai Savoia. <br><br> Sesto San Giovanni fu un importante centro industriale, soprattutto nei settori dell’acciaio, della chimica e della meccanica. <br><br> Sesto San Giovanni fece parte del Regno di Sardegna, del Regno d’Italia e della Repubblica Italiana. <br><br> Sesto San Giovanni fu una roccaforte del Partito Comunista Italiano e della Resistenza Italiana."
+    },
+    {
+        "Name": "Fiumicino",
+        "Landmarks": "Fiumicino è una città e comune nella città metropolitana di Roma, Lazio, Italia centrale. È famosa per il suo aeroporto, l’Aeroporto Internazionale Leonardo da Vinci, anche conosciuto come Aeroporto di Fiumicino.",
+        "History": "Fiumicino fu fondata in epoca antica ed era un importante porto per l’Impero Romano. Era anche un centro di agricoltura e pesca. <br><br> Ai giorni nostri, è diventata una grande piattaforma di trasporto, con l’aeroporto che è uno dei più trafficati d’Europa.",
+        "Attrazioni": "Le attrazioni di Fiumicino includono l’aeroporto internazionale Leonardo da Vinci, la spiaggia di Focene, il porto turistico di Traiano, il Parco Leonardo, il Parco Comunale di Fiumicino, il Museo del Territorio, il Museo delle Navi Romane, e il Museo del Mare.",
+        "Storia": "Fiumicino fu fondata in epoca antica ed era un importante porto per l’Impero Romano. Era anche un centro di agricoltura e pesca. <br><br> Ai giorni nostri, è diventata una grande piattaforma di trasporto, con l’aeroporto che è uno dei più trafficati d’Europa."
+    },
+    {
+        "Name": "Piacenza",
+        "Landmarks": "Piacenza è una città dell’Emilia-Romagna, nel nord Italia. Si trova sulle rive del fiume Po, vicino al confine con la Lombardia.",
+        "History": "Piacenza fu fondata dai Romani nel II secolo a.C. Si chiamava Placentia ed era una colonia militare. <br><br> Fu governata dai Longobardi, dai Franchi, dai Visconti, dagli Sforza, dagli Spagnoli, dagli Austriaci e dai Savoia. <br><br> Piacenza fu un centro di agricoltura, commercio e cultura. Era anche una posizione strategica per le campagne militari.",
+        "Attrazioni": "Le attrazioni di Piacenza includono il Duomo di Piacenza, il Palazzo Farnese, il Teatro Municipale, il Museo Civico di Piacenza, il Museo Diocesano, il Museo Archeologico Nazionale, e il Museo del Risorgimento e della Resistenza.",
+        "Storia": "Piacenza fu fondata dai Romani nel II secolo a.C. Si chiamava Placentia ed era una colonia militare. <br><br> Fu governata dai Longobardi, dai Franchi, dai Visconti, dagli Sforza, dagli Spagnoli, dagli Austriaci e dai Savoia. <br><br> Piacenza fu un centro di agricoltura, commercio e cultura. Era anche una posizione strategica per le campagne militari."
+    },
+    {
+        "Name": "Cinisello Balsamo",
+        "Landmarks": "Cinisello Balsamo è una città della città metropolitana di Milano, in Lombardia. Si trova sulle rive del fiume Lambro.",
+        "History": "Cinisello Balsamo fu fondata in epoca antica ed era un importante centro per l’agricoltura e il commercio. <br><br> Ai giorni nostri, è diventata un centro di industria, commercio e servizi.",
+        "Attrazioni": "Le attrazioni di Cinisello Balsamo includono il Parco Nord Milano, il Parco della Villa Ghirlanda Silva, il Museo di Arte Contemporanea del '900, il Museo di Storia Naturale di Milano, e il Museo del Cinema.",
+        "Storia": "Cinisello Balsamo fu fondata in epoca antica ed era un importante centro per l’agricoltura e il commercio. <br><br> Ai giorni nostri, è diventata un centro di industria, commercio e servizi."
+    },
+    {
+        "Name": "Fiumicino",
+        "Landmarks": "Fiumicino’s attractions include the Leonardo da Vinci International Airport, the Focene beach, the Trajan’s Marina, the Parco Leonardo, the Parco Comunale di Fiumicino, the Museum of the Territory, the Museum of Roman Ships, and the Museum of the Sea.",
+        "History": "Fiumicino was founded in ancient times, and was an important port for the Roman Empire. It was also a center of agriculture and fishing. <br><br> In modern times, it has become a major transportation hub, with the airport being one of the busiest in Europe.",
+        "Attrazioni": "Attrazioni di Fiumicino includono l’aeroporto internazionale Leonardo da Vinci, la spiaggia di Focene, il porto turistico di Traiano, il Parco Leonardo, il Parco Comunale di Fiumicino, il Museo del Territorio, il Museo delle Navi Romane, e il Museo del Mare.",
+        "Storia": "Fiumicino fu fondata in epoca antica ed era un importante porto per l’Impero Romano. Era anche un centro di agricoltura e pesca. <br><br> Ai giorni nostri, è diventata una grande piattaforma di trasporto, con l’aeroporto che è uno dei più trafficati d’Europa."
+    },
+    {
+        "Name": "Piacenza",
+        "Landmarks": "Piacenza’s attractions include the Piacenza Cathedral, the Farnese Palace, the Municipal Theater, the Civic Museum of Piacenza, the Diocesan Museum, the National Archaeological Museum, and the Museum of the Risorgimento and the Resistance.",
+        "History": "Piacenza was founded by the Romans in the 2nd century BC. It was called Placentia and was a military colony. <br><br> It was ruled by the Lombards, the Franks, the Visconti, the Sforza, the Spanish, the Austrians, and the Savoy. <br><br> Piacenza was a center of agriculture, trade, and culture. It was also a strategic location for military campaigns.",
+        "Attrazioni": "Le attrazioni di Piacenza includono il Duomo di Piacenza, il Palazzo Farnese, il Teatro Municipale, il Museo Civico di Piacenza, il Museo Diocesano, il Museo Archeologico Nazionale, e il Museo del Risorgimento e della Resistenza.",
+        "Storia": "Piacenza fu fondata dai Romani nel II secolo a.C. Si chiamava Placentia ed era una colonia militare. <br><br> Fu governata dai Longobardi, dai Franchi, dai Visconti, dagli Sforza, dagli Spagnoli, dagli Austriaci e dai Savoia. <br><br> Piacenza fu un centro di agricoltura, commercio e cultura. Era anche una posizione strategica per le campagne militari."
+    },
+    {
+        "Name": "Cinisello Balsamo",
+        "Landmarks": "Cinisello Balsamo’s attractions include the Parco Nord Milano, the Parco della Villa Ghirlanda Silva, the Museum of Contemporary Art of the '900, the Museum of Natural History of Milan, and the Museum of Cinema.",
+        "History": "Cinisello Balsamo was founded in ancient times, and was an important center for agriculture and trade. <br><br> In modern times, it has become a center of industry, commerce, and services.",
+        "Attrazioni": "Le attrazioni di Cinisello Balsamo includono il Parco Nord Milano, il Parco della Villa Ghirlanda Silva, il Museo di Arte Contemporanea del '900, il Museo di Storia Naturale di Milano, e il Museo del Cinema.",
+        "Storia": "Cinisello Balsamo fu fondata in epoca antica ed era un importante centro per l’agricoltura e il commercio. <br><br> Ai giorni nostri, è diventata un centro di industria, commercio e servizi."
+    }
+]

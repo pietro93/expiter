@@ -33,7 +33,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 95; i < 107; i++){
+        for (let i = 56; i < 57; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -45,12 +45,22 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
             let comuni=dataset[i]["Comuni"];
 
+            let comdataset = fs.readFileSync('comuni.json','utf8');
+            let comdata=JSON.parse(comdataset);
+            let comindex = []
+            for (let i=0; i<comdata.length; i++) comindex.push(comdata[i].Name)
+          
             for (let c in comuni){
             
             let comune=comuni[c];
             var dirName = 'comuni/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/';
             var fileName = comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
-            
+            let ci=-1;
+
+            if (comindex.includes(comune.Name)) {
+              ci = comindex.indexOf(comune.Name)
+              console.log("found some extra info about "+comune.Name+" at position "+ ci)
+            }
             console.log("Writing comune \""+comune.Name+"\" ("+province.Name+") into file")
 
             let urlPath = 'comuni/'+dirName+fileName;
@@ -102,7 +112,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<section id="'+en(comune.Name)+' Info Sheet">'+
         '<center><table id="list">'+
         '<tr><th><b>Name</b></th><th>'+en(comune.Name)+'</th></tr>'+
-        '<tr><th><b>Province</b></th><th>'+en(province.Name)+'</th></tr>'+
+        '<tr><th><b>Province</b></th><th>'+province.Name+'</th></tr>'+
         '<tr><th><b>Region</b></th><th>'+en(province.Region)+'</th></tr>'+
         '<tr><th><b>Population</b></th><th>'+comune.Population+'</th></tr>'+
         '<tr><th><b>Density</b></th><th>'+comune.Density+'pp/km²</th></tr>'+
@@ -137,6 +147,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         intro+='</br></br><b>'+en(comune.Name)+"</b> accounts for about "+((comune.Population.split('.').join("")*100)/province.Population).toFixed(2)+"% of the total population in the province of "+en(province.Name)+
         " and about "+((comune.Population.split('.').join("")*100)/60260456).toFixed(5)+"% of the overall population of Italy as of 2022."
+
+        if (ci>0){
+          intro+='<h2>About '+en(comune.Name)+'</h2>'+comdata[ci].Landmarks+'<br><br>'+comdata[ci].History
+        }
 
         let zoneAtext="one of the two hottest municipalities in Italy, the other one being "+(comune.Name=="Porto Empedocle"?
         "the Pelagie islands of <a href='https://expiter.com/comuni/agrigento/lampedusa-e-linosa/>Lampedusa and Linosa</a>, geographically located in Africa":

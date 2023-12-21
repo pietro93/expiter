@@ -45,12 +45,22 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
             let comuni=dataset[i]["Comuni"];
 
+            let comdataset = fs.readFileSync('comuni.json','utf8');
+            let comdata=JSON.parse(comdataset);
+            let comindex = []
+            for (let i=0; i<comdata.length; i++) comindex.push(comdata[i].Name)
+
             for (let c in comuni){
             
             let comune=comuni[c];
             var dirName = 'it/comuni/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/';
             var fileName = comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
-            
+            let ci=-1;
+
+            if (comindex.includes(comune.Name)) {
+              ci = comindex.indexOf(comune.Name)
+              console.log("found some extra info about "+comune.Name+" at position "+ ci)
+            }
             console.log("Writing comune \""+comune.Name+"\" ("+province.Name+") into file")
 
             let urlPath = dirName+fileName;
@@ -136,6 +146,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         intro+='</br></br><b>La popolazione di '+comune.Name+"</b> è circa "+((comune.Population.split('.').join("")*100)/province.Population).toFixed(2)+"% della popolazione totale della provincia di "+province.Name+
         " e circa "+((comune.Population.split('.').join("")*100)/60260456).toFixed(5)+"% del totale della popolazione dell'italia nel 2022."
+
+        if (ci>0){
+          intro+='<h2>Informazioni su '+en(comune.Name)+'</h2>'+comdata[ci].Attrazioni+'<br><br>'+comdata[ci].Storia
+        }
+
 
         let zoneAtext="una delle due municipalità più calde d'Italia, insieme a"+(comune.Name=="Porto Empedocle"?
         "lle isole Pelagie di <a href='https://expiter.com/it/comuni/agrigento/lampedusa-e-linosa/>Lampedusa and Linosa</a>, che geograficamente si trovano vicino all'Africa":
