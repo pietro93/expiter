@@ -76,7 +76,11 @@
 #FAQs .answers b{
     font-size:14px;
 }
-#info {text-align:justify}
+
+#info, #info>p {
+  text-align:justify
+}
+
 .res{
   width:100%;
   border-bottom: 2px double var(--medium-2);
