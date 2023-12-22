@@ -77,8 +77,10 @@
     font-size:14px;
 }
 
-#info, #info>p {
-  text-align:justify
+p{text-align:justify}
+#info {
+  text-align:justify;
+  font-size:20px;
 }
 
 .res{

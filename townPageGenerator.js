@@ -123,8 +123,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<tr><th><b>Altitude</b></th><th>'+comune.Altitude+'m</th></tr>'+
         '<tr><th><b>Climate Zone</b></th><th>'+(comune.ClimateZone?comune.ClimateZone:"?")+'</th></tr>'+
         '</tr>'+
-        '</table>'+
-        '<p id="info"></p></center>'+
+        '</table></center>'+
+        '<br>'+
+        '<p id="info"></p>'+
         '<p id="tabs"></p>'+
         '<center><p id="related"></p></center>'+
         '</section>'+
@@ -147,7 +148,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         "<a href='https://expiter.com/comuni/province-of-"+handle(province)+"'>"+en(province.Name)+" province</a></b> in the Italian region of "+en(province.Region)+
         " in <b>"+(center.includes(province.Region)?"Central Italy":(south.includes(province.Region)?"Southern Italy":"Northern Italy"))+"</b>."
 
-        intro+='\n'+'It has a <b>population density of '+comune.Density+' people per km²</b> and an <b>altitude of '+comune.Altitude+' metres</b> above the sea level.'+'\n'
+        intro+='<br><br>'+'It has a <b>population density of '+comune.Density+' people per km²</b> and an <b>altitude of '+comune.Altitude+' metres</b> above the sea level.'+'\n'
 
         intro+='</br></br><b>'+en(comune.Name)+"</b> accounts for about "+((comune.Population.split('.').join("")*100)/province.Population).toFixed(2)+"% of the total population in the province of "+en(province.Name)+
         " and about "+((comune.Population.split('.').join("")*100)/60260456).toFixed(5)+"% of the overall population of Italy as of 2022."
