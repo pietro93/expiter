@@ -178,34 +178,40 @@ hr{
 
 
     .articlecard  {
-opacity:0.9
+opacity:0.9;
+border-radius:15px
 }
 .articlecard:hover {
   opacity:1
   }
 
   .articlecard > a > img {
-    border-radius:15px;
-    border: 3px ridge var(--dark);
     filter: opacity(90%);
     filter: saturate(90%);
     filter: contrast(80%);
     filter: brightness(90%);
   }
 
-  .articlecard:hover > a > img{
+  .articlecard > a:hover > img{
     filter: brightness(98%);
     filter: opacity(99%);
     filter:saturate(99%)}
 
 
   .articlecard > a > figcaption {
-      margin-top:-4px;
-      font-size:25px;
+      margin-top:-10px;
   }
 
-  a{color:var(--darkest)}
-  a:hover{
+  .articlecard > a > figcaption > h3 {
+    font-size:17px;
+    letter-spacing:-.71px;
+    line-height:21px;
+}
+
+
+  a,  a > *{color:var(--darkest)}
+
+  a:hover,   a:hover>*{
     color:var(--natural-yellow)
   }
 
