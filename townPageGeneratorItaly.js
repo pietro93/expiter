@@ -124,8 +124,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<tr><th><b>Altitudine</b></th><th>'+comune.Altitude+'m</th></tr>'+
         '<tr><th><b>Climate Zone</b></th><th>'+(comune.ClimateZone?comune.ClimateZone:"?")+'</th></tr>'+
         '</tr>'+
-        '</table>'+
-        '<p id="info"></p></center>'+
+        '</table></center>'+
+        '<p id="info"></p>'+
         '<p id="tabs"></p>'+
         '</center><p id="related"></p></center>'+
         '</section>'+
