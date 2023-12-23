@@ -1,11 +1,10 @@
 #FAQs {
     width: 90%;
     margin: 0 auto;
-    padding-bottom:24px;
+    padding-bottom:14px;
   }
 
   #FAQs .question {
-
   font-weight: normal;
   position: relative;
   background: var(--dark);
@@ -17,7 +16,7 @@
 }
 #FAQs .question h3{
     color:var(--invert-color);
-    font-size:16px;
+    font-size:20px;
     margin: 0 auto;
     padding: 0;
 
@@ -38,8 +37,7 @@
   height: auto;
   display:block;
   opacity: 1;
-  padding: 15px;
-  padding-bottom:30px;
+  padding: 0 15px 15px 15px;
 }
 
 #FAQs div.plus {
@@ -73,11 +71,8 @@
   display: none;
 }
 
-#FAQs .answers b{
-    font-size:14px;
-}
-
 p{text-align:justify}
+
 #info {
   text-align:justify;
   font-size:20px;
