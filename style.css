@@ -22,8 +22,6 @@
 html, body {
   font-family:"Open Sans";
   margin: 20px 0;
-  font-size: 18px;
-  font-weight: 500;
   background-color:var(--invert-color);
   background-image: linear-gradient(
   var(--medium-1),
@@ -55,9 +53,11 @@ html {
   margin: auto;
   width: 100vw;
 }
-b,h2,h3,h1,p{ 
+
+body{ 
   font-family: "Open Sans", sans-serif;
-  color:var(--text-color)}
+  }
+
 
 ej{font-family: "Noto Color Emoji";
 font-size:15px;
