@@ -92,7 +92,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             
             '<meta name="description" content="Informazioni sul comune di '+comune.Name+', in provincia di '+province.Name+'. Popolazione, qualità della vita, movida, turismo ecc." />'+
 	        '<meta name="keywords" content="'+comune.Name+' '+province.Region+', '+comune.Name+' '+province.Name+','+comune.Name+' popolazione,'+comune.Name+' info, '+comune.Name+' movida, '+comune.Name+' vita" />'+
-            "<title>"+comune.Name+" - Informazioni comune in provincia di "+province.Name+","+province.Region+"</title>"+
+            "<title>"+comune.Name+" - Informazioni comune in provincia di "+province.Name+", "+province.Region+"</title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
             
             '<!-- GetYourGuide Analytics -->'+
