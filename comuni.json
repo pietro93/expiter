@@ -186,7 +186,7 @@
         "Landmarks": "Domodossola is a city in the province of Verbano-Cusio-Ossola, in the Piedmont region. It is located at the confluence of the Bogna and Toce rivers, near the Alps. <br><br> Domodossola has a picturesque historical center, with a Gothic town hall and a Renaissance church. It is also a gateway to the Val Grande National Park and the Ossola Valley.",
         "History": "Domodossola was founded by the Celtic Insubres in the 6th century BC. <br><br> It was conquered by the Romans, the Lombards, the Franks, and the Swiss. <br><br> Domodossola was a free commune, a bishopric, and a fortified town. <br><br> Domodossola was part of the Duchy of Milan, the Kingdom of Sardinia, the Kingdom of Italy, and the Italian Republic.",
         "Attrazioni": "Domodossola è una città della provincia di Verbano-Cusio-Ossola, in Piemonte. Si trova alla confluenza dei fiumi Bogna e Toce, vicino alle Alpi. <br><br> Domodossola ha un pittoresco centro storico, con un palazzo comunale gotico e una chiesa rinascimentale. È anche una porta d’accesso al Parco Nazionale della Val Grande e alla Valle d’Ossola.",
-        "Storia": "Domodossola fu fondata dai Celti Insubri nel VI secolo a.C. <br><br> Fu conquistata dai Romani, dai Longobardi, dai Franchi e dai Svizzeri. <br><br> Domodossola fu un comune libero, una diocesi e una città fortificata. <br><br> Domodossola fece parte del Ducato di Milano, del Regno di Sardegna, del Regno d’Italia e della Repubblica Italiana."
+        "Storia": "Domodossola fu fondata dai Celti Insubri nel VI secolo a.C. Fu conquistata dai Romani, dai Longobardi, dai Franchi e dai Svizzeri. <br><br> Domodossola fu un comune libero, una diocesi e una città fortificata. <br><br> Domodossola fece parte del Ducato di Milano, del Regno di Sardegna, del Regno d’Italia e della Repubblica Italiana."
     },
     {
         "Name": "Gioia Tauro",
@@ -233,9 +233,9 @@
     {
         "Name": "Sesto San Giovanni",
         "Landmarks": "Sesto San Giovanni is a city in the metropolitan city of Milan, in the Lombardy region. It is located on the Martesana canal, near the river Lambro. <br><br> Sesto San Giovanni is known for its industrial history, its cultural activities, and its social movements. It is also a center of innovation, education, and services.",
-        "History": "Sesto San Giovanni was founded by the Romans in the 1st century AD. It was called Sextus and was a rural settlement. <br><br> It was ruled by the Lombards, the Franks, the Visconti, the Sforza, the Spanish, the Austrians, and the Savoy. <br><br> Sesto San Giovanni was a major industrial center, especially in the fields of steel, chemicals, and mechanics. <br><br> Sesto San Giovanni was part of the Kingdom of Sardinia, the Kingdom of Italy, and the Italian Republic. <br><br> Sesto San Giovanni was a stronghold of the Italian Communist Party and the Italian Resistance.",
-        "Attrazioni": "Sesto San Giovanni è una città della città metropolitana di Milano, in Lombardia. Si trova sul canale della Martesana, vicino al fiume Lambro. <br><br> Sesto San Giovanni è nota per la sua storia industriale, le sue attività culturali e i suoi movimenti sociali. È anche un centro di innovazione, istruzione e servizi.",
-        "Storia": "Sesto San Giovanni fu fondata dai Romani nel I secolo d.C. Si chiamava Sextus ed era un insediamento rurale. <br><br> Fu governata dai Longobardi, dai Franchi, dai Visconti, dagli Sforza, dagli Spagnoli, dagli Austriaci e dai Savoia. <br><br> Sesto San Giovanni fu un importante centro industriale, soprattutto nei settori dell’acciaio, della chimica e della meccanica. <br><br> Sesto San Giovanni fece parte del Regno di Sardegna, del Regno d’Italia e della Repubblica Italiana. <br><br> Sesto San Giovanni fu una roccaforte del Partito Comunista Italiano e della Resistenza Italiana."
+        "History": "Sesto San Giovanni was founded by the Romans in the 1st century AD. It was called Sextus and was a rural settlement. It was ruled by the Lombards, the Franks, the Visconti, the Sforza, the Spanish, the Austrians, and the Savoy. <br><br> Sesto San Giovanni was a major industrial center, especially in the fields of steel, chemicals, and mechanics. <br><br> Sesto San Giovanni was part of the Kingdom of Sardinia, the Kingdom of Italy, and the Italian Republic.",
+        "Attrazioni": "Sesto San Giovanni è una città della città metropolitana di Milano, in Lombardia. Si trova sul canale della Martesana, vicino al fiume Lambro. <br><br> Sesto San Giovanni è nota per la sua storia industriale, le sue attività culturali e i suoi movimenti sociali. È anche un centro di innovazione, educazione e servizi.",
+        "Storia": "Sesto San Giovanni fu fondata dai Romani nel I secolo d.C. Si chiamava Sextus ed era un insediamento rurale. Fu governata dai Longobardi, dai Franchi, dai Visconti, dagli Sforza, dagli Spagnoli, dagli Austriaci e dai Savoia. <br><br> Sesto San Giovanni fu un importante polo industriale, soprattutto nei settori dell’acciaio, della chimica e della meccanica. <br><br> Sesto San Giovanni fece parte del Regno di Sardegna, del Regno d’Italia e della Repubblica Italiana."
     },
     {
         "Name": "Fiumicino",
@@ -1559,5 +1559,68 @@
         "History": "Aci Trezza was founded by the Greeks as Trischines, and was later renamed Trezza by the Arabs. <br><br> It was part of the Kingdom of Naples and the Kingdom of the Two Sicilies. <br><br> Aci Trezza was also the scene of a naval battle between the Greeks and the Carthaginians in 396 BC.",
         "Attrazioni": "Aci Trezza è un borgo marinaro nella provincia di Catania, vicino alle Isole dei Ciclopi. <br><br> Ha un porto peschereccio, un castello, una chiesa e un museo. <br><br> Aci Trezza è anche famosa per essere l’ambientazione del romanzo I Malavoglia di Giovanni Verga, e del film La terra trema di Luchino Visconti.",
         "Storia": "Aci Trezza fu fondata dai Greci come Trischines, e fu poi rinominata Trezza dagli Arabi. <br><br> Fece parte del Regno di Napoli e del Regno delle Due Sicilie. <br><br> Aci Trezza fu anche teatro di una battaglia navale tra i Greci e i Cartaginesi nel 396 a.C."
+    },
+    {
+        "Name": "Sassocorvaro Auditore",
+        "Landmarks": "Sassocorvaro Auditore is a municipality in the Province of Pesaro and Urbino in the Italian region of Marche. The Rocca Ubaldinesca, a Renaissance fortification designed by Francesco di Giorgio Martini, is one of the main attractions. Other landmarks include the Castello Di Auditore and the Lago di Mercatale.",
+        "History": "Sassocorvaro Auditore was established on 1 January 2019 with the merger of the municipalities of Sassocorvaro and Auditore.",
+        "Attrazioni": "Sassocorvaro Auditore è un comune italiano di 4 861 abitanti della provincia di Pesaro e Urbino nelle Marche ma in parte appartenente al territorio della Romagna storica. È un comune sparso, istituito il 1º gennaio 2019 dalla fusione dei comuni di Auditore e di Sassocorvaro. La Rocca Ubaldinesca, una fortificazione rinascimentale progettata da Francesco di Giorgio Martini, è una delle principali attrazioni. Altre attrazioni includono il Castello Di Auditore e il Lago di Mercatale.",
+        "Storia": "Sassocorvaro Auditore è stato istituito il 1º gennaio 2019 con la fusione dei comuni di Sassocorvaro e Auditore."
+    },
+    {
+        "Name": "Ripi",
+        "Landmarks": "Ripi is a municipality in the Province of Frosinone in the Italian region Lazio. Some of the main attractions include the Museo dell’Energia di Ripi and the churches of Sant’Agostino e San Bartolomeo and San Salvatore.",
+        "History": "The earliest historical record of Ripi dates back to 1173. The town has experienced various periods of growth and development since then.",
+        "Attrazioni": "Ripi è un comune nella Provincia di Frosinone nella regione italiana del Lazio. Alcune delle principali attrazioni includono il Museo dell’Energia di Ripi e le chiese di Sant’Agostino e San Bartolomeo e San Salvatore.",
+        "Storia": "La prima registrazione storica di Ripi risale al 1173. La città ha sperimentato vari periodi di crescita e sviluppo da allora."
+    },
+    {
+        "Name": "Canicattini Bagni",
+        "Landmarks": "Canicattini Bagni is a town in the Province of Syracuse, Sicily. It is known for the Ponte Sant’Alfano and several churches including Chiesa Madre, Chiesa Anime del Purgatorio, and Parrocchia Maria Ss. Ausiliatrice.",
+        "History": "The history of Canicattini Bagni is rich with cultural and architectural developments.",
+        "Attrazioni": "Canicattini Bagni è una città nella Provincia di Siracusa, Sicilia. È conosciuta per il Ponte Sant’Alfano e diverse chiese tra cui Chiesa Madre, Chiesa Anime del Purgatorio e Parrocchia Maria Ss. Ausiliatrice.",
+        "Storia": "La storia di Canicattini Bagni è ricca di sviluppi culturali e architettonici."
+    },
+    {
+        "Name": "Floridia",
+        "Landmarks": "Floridia is a city in the Province of Syracuse, Sicily. It is known for its beautiful coastline and numerous historical, cultural, and natural landmarks.",
+        "History": "Floridia has a rich history and has been a significant location in the region for many years.",
+        "Attrazioni": "Floridia è una città nella Provincia di Siracusa, Sicilia. È conosciuta per la sua bellissima costa e numerosi luoghi di interesse storico, culturale e naturale.",
+        "Storia": "Floridia ha una storia ricca ed è stata una località significativa nella regione per molti anni."
+    },
+    {
+        "Name": "Cugnoli",
+        "Landmarks": "Cugnoli is a municipality in the Province of Pescara in the Abruzzo region of Italy. It is an ancient village with a picturesque historic center.",
+        "History": "The history of Cugnoli dates back to ancient times and it has experienced various periods of growth and development.",
+        "Attrazioni": "Cugnoli è un comune nella Provincia di Pescara nella regione Abruzzo in Italia. È un antico villaggio con un pittoresco centro storico.",
+        "Storia": "La storia di Cugnoli risale a tempi antichi e ha sperimentato vari periodi di crescita e sviluppo."
+    },
+    {
+        "Name": "Pescopagano",
+        "Landmarks": "Pescopagano is known for its Torre dell’Orologio (Watch Tower), built on the ancient Porta Sibilla (Sybil’s Gate) of the walls. It houses a Roman bust of Ianus. Other landmarks include Il castello (the Castle), Church of San Giovanni Battista, and Church of Montemauro.",
+        "History": "Pescopagano is a town in the province of Potenza, in the region of Basilicata, southern Italy.",
+        "Attrazioni": "Pescopagano è noto per la sua Torre dell’Orologio, costruita sull’antica Porta Sibilla delle mura. Ospita un busto romano di Ianus. Altri luoghi di interesse includono Il castello, la Chiesa di San Giovanni Battista e la Chiesa di Montemauro.",
+        "Storia": "Pescopagano è un comune della provincia di Potenza, nella regione Basilicata, nel sud Italia."
+    },
+    {
+        "Name": "Camisano Vicentino",
+        "Landmarks": "Camisano Vicentino is home to the Torre Rossa, which recalls the battles between Vicentines and Paduans, Villa Capra Barbaran, and the Church of Santa Maria Maddalena, which houses a precious altarpiece by Giambattista Tiepolo.",
+        "History": "Camisano Vicentino is one of the locations affected by human and historical events that took place between the 11th and 13th centuries and by the numerous properties that saw various members of the Ezzelini family as protagonists.",
+        "Attrazioni": "Camisano Vicentino ospita la Torre Rossa, che ricorda le battaglie tra Vicentini e Padovani, Villa Capra Barbaran e la Chiesa di Santa Maria Maddalena, che ospita un prezioso altare di Giambattista Tiepolo.",
+        "Storia": "Camisano Vicentino è una delle località interessate dalle vicende umane e storiche che si svolsero tra l’XI e il XIII secolo e dalle numerose proprietà che videro protagonisti i vari componenti della famiglia degli Ezzelini."
+    },
+    {
+        "Name": "Fontana Liri",
+        "Landmarks": "Fontana Liri is known for its historic walking areas and the Church of San Michele Arcangelo.",
+        "History": "Fontana Liri is a municipality in the Province of Frosinone in the Italian region Lazio, located about 90 kilometres southeast of Rome and about 15 kilometres east of Frosinone.",
+        "Attrazioni": "Fontana Liri è conosciuta per le sue aree pedonali storiche e la Chiesa di San Michele Arcangelo.",
+        "Storia": "Fontana Liri è un comune della Provincia di Frosinone nella regione Lazio, situato a circa 90 chilometri a sud-est di Roma e a circa 15 chilometri a est di Frosinone."
+    },
+    {
+        "Name": "Strangolagalli",
+        "Landmarks": "Strangolagalli is located on the slopes of the Ernici mountains, towards the Liri river.",
+        "History": "The history of Strangolagalli is marked by the arrival of a Tyrolean monk, Kofler, in 1700. He brought the art of wood carving to the village which is still practiced with the roots of the olive tree.",
+        "Attrazioni": "Strangolagalli si trova sulle pendici dei monti Ernici, verso il fiume Liri.",
+        "Storia": "La storia di Strangolagalli è segnata dall’arrivo di un monaco tirolese, Kofler, nel 1700. Ha portato l’arte della scultura del legno al villaggio che è ancora praticata con le radici dell’ulivo."
     }
 ]
