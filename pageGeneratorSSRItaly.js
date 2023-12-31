@@ -32,7 +32,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             let province = dataset[i];
             
             var fileName = 'it/province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
-            
+            let seoTitle=province.Name+" - Qualità e Costo della Vita"
+            let seoDescription='Informazioni su come si vive a '+province.Name+' '+'('+province.Region+') per espatriati, fuori sede e nomadi digitali. '+province.Name+' qualità della vita, costo della via, sicurezza e altre info utili.'
+            let heroImage='https://expiter.com/img/'+province.Abbreviation+'.webp'
+
             const dom = new jsdom.JSDOM(
             "<html lang='it'>"+
             '<head><meta charset="utf-8">'+
@@ -53,10 +56,14 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>'+
             "</head>"+
 
-            
-            '<meta name="description" content="Informazioni su come si vive a '+province.Name+' '+'('+province.Region+') per fuori sede e nomadi digitali. '+province.Name+' qualità della vita, costo della via, sicurezza e altre info utili." />'+
+            '<meta property="og:title" content="'+seoTitle+'" />'+
+            '<meta property="og:description" content="'+seoDescription+'" />'+
+            '<meta property="og:image" content="'+heroImage+'" />'+
+            '<meta name="description" content="'+seoDescription+'" />'+
+            "<title>"+seoTitle+"</title>"+
+           
 	        '<meta name="keywords" content="vivere a'+province.Name+', '+province.Name+' nomadi digitali,'+province.Name+' qualità della vita,'+province.Name+' movida" />'+
-            "<title>"+province.Name+" - Qualità e Costo della Vita </title>"+
+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
             "</head>"+
 
