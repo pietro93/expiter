@@ -289,7 +289,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         "!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');"+
         '</script>':"")
       
-        info.viator='<center><h3>Esperienze e Tour a '+(province.Viator?name:region.Name)+'</h3></center>'+
+        info.viator='<center><h3>Esperienze e Tour a '+(province.Viator?province.Name:region.Name)+'</h3></center>'+
         '<div data-vi-partner-id=P00045447 data-vi-language=en data-vi-currency=EUR data-vi-partner-type="AFFILIATE" data-vi-url="'+
         (region.Name=='Molise'?'':'https://www.viator.com/')+(province.Viator?province.Viator:region.Viator)+'"'+
         (province.Viator.includes(",")||region.Name=='Molise'?"":' data-vi-total-products=6 ')+
@@ -331,7 +331,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         related4=target[Math.floor(Math.random()*target.length)]
 
        
-        info.related=relatedArticles(en(province.Name))
+        info.related=relatedArticles(province.Name)
 
         return info;
       }
@@ -593,10 +593,10 @@ facts.Milan.fun="Milano è la città della vita notturna per eccellenza. Teatri 
 facts.Milan.richorpoor="Milano è considerata la città più ricca d’Italia, con un reddito pro capite di più di 30mila euro.<br><br>Tuttavia, presenta una grande disuguaglianza economica tra i suoi quartieri. Ad esempio, il reddito medio nel centro storico può raggiungere 88.745 euro, mentre in quartieri come Quarto Oggiaro è di soli 17.628 euro.<br><br>Nonostante la ricchezza generale, la povertà è un problema crescente a Milano. Nel 2020, la povertà assoluta è aumentata, raggiungendo il livello più alto dal 2005, in particolare nel Nord e nelle aree metropolitane."
 facts.Milan.cleanliness="Milano è conosciuta per la sua pulizia e l'attenzione alla gestione dei rifiuti rispetto ad altre città italiane.<br><br>La città ha un sistema di raccolta differenziata efficiente e i cittadini sono generalmente consapevoli dell'importanza del riciclaggio. Tuttavia, come molte grandi città, Milano affronta la sfida dello smog."
 
-facts.Rome.introduction="Roma, la capitale d'Italia, è una delle città più antiche e storiche del mondo.<br><br> È il centro politico del paese e uno dei più ricchi in Europa in termini di storia e cultura.<br><br> La città è famosa per la sua vitalità e per il suo patrimonio storico, culturale e architettonico. Roma è una città che offre molte opportunità, sia per chi ci vive sia per chi la visita come turista.<br><br> Vivere a Roma significa immergersi in un'atmosfera unica, dove il passato e il presente si fondono in un'esperienza indimenticabile. La vita quotidiana a Roma è arricchita da una varietà di eventi culturali, da una vivace scena culinaria e da un senso di comunità che rende la città accogliente per residenti e visitatori.";
+facts.Rome.introduction="Roma, la capitale d'Italia, è una delle città più antiche e storiche del mondo e un posto unico in cui abitare. È il centro politico del paese e uno dei più ricchi in Europa in termini di storia e cultura.<br><br> La città è famosa per la sua vitalità e per il suo patrimonio storico, culturale e architettonico. Roma è una città che offre molte opportunità, sia per chi ci vive sia per chi la visita come turista.<br><br> Vivere a Roma significa immergersi in un'atmosfera unica, dove il passato e il presente si fondono in un'esperienza indimenticabile. La vita quotidiana a Roma è arricchita da una varietà di eventi culturali, da una vivace scena culinaria e da un senso di comunità che rende la città accogliente per residenti e visitatori.";
 facts.Rome.costofliving = "Il costo della vita a Roma è generalmente alto, ma può variare notevolmente a seconda dello stile di vita e del quartiere in cui si vive.<br><br>Il costo medio di un monolocale nel centro di Roma è di circa 770€ al mese, mentre un appartamento da una camera da letto può costare fino a 1.650€ al mese. Se si sceglie di vivere in periferia o vicino alle aree residenziali, i costi di affitto possono essere significativamente più bassi.<br><br>Per quanto riguarda le spese alimentari, il costo medio mensile della spesa si aggira intorno ai 275€ per un singolo residente. I prezzi della spesa a Roma sono circa il 10% più economici rispetto a Milano.<br><br>Un abbonamento mensile per i trasporti pubblici a Roma costa circa 35€. Se si possiede un'auto, il costo del carburante è di circa 1,6€ al litro.<br><br>Il costo medio dei servizi pubblici (elettricità, riscaldamento, raffreddamento, acqua, spazzatura) per un appartamento di 85m2 è di circa 233,58€ al mese.<br><br>L'istruzione a Roma può variare notevolmente a seconda della scuola. Le scuole pubbliche sono generalmente gratuite, mentre le scuole private possono costare diverse migliaia di euro all'anno.<br><br>Il costo dell'intrattenimento a Roma può variare notevolmente. Ad esempio, un biglietto del cinema costa in media 9€, mentre una cena fuori in un ristorante medio può costare circa 35€ a persona.<br><br>In media, una singola persona può aspettarsi che le sue spese mensili di vita si aggirino intorno ai 1.800€. Questa cifra è divisa tra quattro principali aspetti della vita: Alloggio, Cibo, Trasporti e Intrattenimento. Per uno stile di vita più confortevole, prevedi di spendere intorno ai 2.500€."
+facts.Rome.overview="La capitale è anche la città più popolosa del paese.<br><br> Con una popolazione di circa 2,8 milioni di persone e un'area metropolitana che conta 4,4 milioni di residenti, Roma è un centro di cultura e storia.<br><br> L'area urbana di Roma, che si estende ben oltre i confini della città metropolitana amministrativa, è una delle più grandi dell'UE.<br><br> Conosciuta come la 'Città Eterna', Roma è famosa per la sua ricca storia e il suo patrimonio culturale, che comprende siti come il Colosseo, il Foro Romano e la Città del Vaticano.<br><br> Oltre alla sua importanza storica, Roma è anche un importante centro politico, essendo la sede del governo italiano e di numerose organizzazioni internazionali.";
 
-facts.Rome.overview="Roma, la capitale d'Italia, è la città più popolosa del paese.<br><br> Con una popolazione di circa 2,8 milioni di persone e un'area metropolitana che conta 4,4 milioni di residenti, Roma è un centro di cultura e storia.<br><br> L'area urbana di Roma, che si estende ben oltre i confini della città metropolitana amministrativa, è una delle più grandi dell'UE.<br><br> Conosciuta come la 'Città Eterna', Roma è famosa per la sua ricca storia e il suo patrimonio culturale, che comprende siti come il Colosseo, il Foro Romano e la Città del Vaticano.<br><br> Oltre alla sua importanza storica, Roma è anche un importante centro politico, essendo la sede del governo italiano e di numerose organizzazioni internazionali.";
 facts.Rome.culture="Roma è famosa per la sua ricca cultura e storia. La città è conosciuta per la sua arte, il teatro, la letteratura, la musica e la cucina. Roma ospita numerosi musei, università, accademie, palazzi, chiese, biblioteche, gallerie d'arte, teatri, ristoranti, bar e club. La città è anche famosa per la sua vita notturna e per le sue numerose feste e festival.";
 
 facts.Rome.economy="Roma è la città più importante e la più popolosa d'Italia. È uno dei centri economici più importanti d'Italia e d'Europa. Roma ha un'economia diversificata con settori come il turismo, la moda, il design e l'alta tecnologia che giocano un ruolo importante.<br><br> Il PIL pro capite di Roma di circa €36.000 (US$40.000) è tra i più alti d'Italia. Roma ospita numerose multinazionali italiane ed estere.";
@@ -951,16 +951,16 @@ function relatedArticles(city){
     let r2=candidates.pop()
     let r3=candidates.pop()
     related+='<div class="articlecard column is-4"><figure>'+
-    '<a href="https://expiter.com/blog/living-in-'+r1.toLowerCase().replace(" ","-")+'/">'+
-    '<img src="https://expiter.com/img/blog/living-in-'+r1.toLowerCase().replace(" ","-")+'.webp"></img>'+
+    '<a href="https://expiter.com/it/blog/vivere-a-'+r1.toLowerCase().replace(" ","-")+'/">'+
+    '<img src="https://expiter.com/img/blog/living-in-'+en(r1).toLowerCase().replace(" ","-")+'.webp"></img>'+
   '<figcaption><h3>Come è vivere a '+r1+'?</h3></figcaption></a></figure></div>'
   related+='<div class="articlecard column is-4"><figure>'+
-  '<a href="https://expiter.com/blog/living-in-'+r2.toLowerCase().replace(" ","-")+'/">'+
-  '<img src="https://expiter.com/img/blog/living-in-'+r2.toLowerCase().replace(" ","-")+'.webp"></img>'+
+  '<a href="https://expiter.com/it/blog/vivere-a-'+r2.toLowerCase().replace(" ","-")+'/">'+
+  '<img src="https://expiter.com/img/blog/living-in-'+en(r2).toLowerCase().replace(" ","-")+'.webp"></img>'+
   '<figcaption><h3>Come è vivere a '+r2+'?</h3></figcaption></a></figure></div>'
   related+='<div class="articlecard column is-4"><figure>'+
-  '<a href="https://expiter.com/blog/living-in-'+r3.toLowerCase().replace(" ","-")+'/">'+
-  '<img src="https://expiter.com/img/blog/living-in-'+r3.toLowerCase().replace(" ","-")+'.webp"></img>'+
+  '<a href="https://expiter.com/it/blog/vivere-a-'+r3.toLowerCase().replace(" ","-")+'/">'+
+  '<img src="https://expiter.com/img/blog/living-in-'+en(r3).toLowerCase().replace(" ","-")+'.webp"></img>'+
   '<figcaption><h3>Come è vivere a '+r3+'?</h3></figcaption></a></figure></div></row>'
     return related;
   }
