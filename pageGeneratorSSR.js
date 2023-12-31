@@ -32,7 +32,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             let province = dataset[i];
             
             var fileName = 'province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
-            
+            let seoTitle=en(province.Name)+" - Quality of Life and Info Sheet for Expats";
+            let seoDescription='Information about living in '+en(province.Name)+', Italy for expats and digital nomads. '+en(province.Name)+' quality of life, cost of living, safety and more.'
+            let heroImage='https://expiter.com/img/'+province.Abbreviation+'.webp'
+
             const dom = new jsdom.JSDOM(
             "<html lang='en'>"+
             '<head><meta charset="utf-8">'+
@@ -48,9 +51,12 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
             '<link rel="stylesheet" href="https://expiter.com/style.css">'+
             
-            '<meta name="description" content="Information about living in '+en(province.Name)+', Italy for expats and digital nomads. '+en(province.Name)+' quality of life, cost of living, safety and more." />'+
+            '<meta property="og:title" content="'+seoTitle+'" />'+
+            '<meta property="og:description" content="'+seoDescription+'" />'+
+            '<meta property="og:image" content="'+heroImage+'" />'+
+            '<meta name="description" content="'+seoDescription+'" />'+
 	          '<meta name="keywords" content="'+en(province.Name)+' italy, '+en(province.Name)+' expat,'+en(province.Name)+' life,'+en(province.Name)+' digital nomad" />'+
-            "<title>"+en(province.Name)+" - Quality of Life and Info Sheet for Expats </title>"+
+            "<title>"+seoTitle+"</title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'           
             +
             '<!-- GetYourGuide Analytics -->'+

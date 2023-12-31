@@ -19,7 +19,7 @@ var additionalFilters=[];
 var dataset;
 var avg;
 var regions ={};
-var selection = ["Milan"]
+var selection = ["Milano","Roma","",""]
 
 fetch('https://expiter.com/dataset.json', {method:"Get"})
     .then(function (response) {
@@ -34,11 +34,13 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             if (selection.includes(province.Name)){
                 console.log(province.Name+" selected")
             var fileName = 'it/blog/vivere-a-'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
-            
+            let seoTitle="Come è vivere a "+province.Name+"?"
+            let seoDescription=province.Name+' è un buon posto dove vivere? Una guida per gli espatriati. '+en(province.Name)+' qualità della vita, costo della vita, sicurezza e altro ancora.'
+
             const dom = new jsdom.JSDOM(
-            "<html lang='en'>"+
+            "<html lang='it'>"+
             '<head><meta charset="utf-8">'+
-            '<link rel="canonical" href="https://expiter.com/blog/living-in-'+fileName+'/"/>'+
+            '<link rel="canonical" href="https://expiter.com/it/blog/living-in-'+fileName+'/"/>'+
             '<link rel="alternate" hreflang="en" href="https://expiter.com/blog/living-in-'+fileName+'/" />'+
             '<link rel="alternate" hreflang="it" href="https://expiter.com/it/vivere-a-'+fileName+'/" />'+
             '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
@@ -50,9 +52,12 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
             '<link rel="stylesheet" href="https://expiter.com/style.css">'+
             
-            '<meta name="description" content="È '+province.Name+' un buon posto in cui vivere? Una guida per gli espatriati. '+province.Name+' qualità della vita, costo della vita, sicurezza e altro." />'+
-'<meta name="keywords" content="'+province.Name+' italia, '+province.Name+' expat,'+province.Name+' vita,'+province.Name+' nomade digitale" />'+
-"<title>Come è vivere a "+province.Name+", Italia </title>"+
+            '<meta property="og:title" content="'+seoTitle+'" />'+
+'<meta property="og:description" content="'+seoDescription+'" />'+
+'<meta property="og:image" content="https://expiter.com/img/blog/living-in-'+en(province.Name).toLowerCase().replace(" ","-")+'.webp" />'+
+'<meta name="description" content="'+seoDescription+'" />'+
+'<meta name="keywords" content="'+en(province.Name)+' italy, '+en(province.Name)+' expat,'+en(province.Name)+' life,'+en(province.Name)+' digital nomad" />'+
+"<title>"+seoTitle+"</title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'           
             +
             '<!-- GetYourGuide Analytics -->'+
@@ -113,7 +118,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 		'</div></div>'+
         '<div id="info" class="columns is-multiline is-mobile">'+
         '<section id="overview"><h2>Vivere a '+province.Name+'</h2><span id="intro"></span></section>'+
-        '<section id="generalinfo"><h2>Informazioni utili su '+province.Name+'?</h2><span id="info"></span></section>'+
+        '<section id="generalinfo"><h2>Informazioni utili su '+province.Name+'</h2><span id="info"></span></section>'+
         '<section id="costofliving"><h2>Costo della vita a '+province.Name+'</h2><span id="CoL"></span></section>'+
         '<section id="povertyandsafety"><h2>È '+province.Name+' sicura?</h2><span id="safety"></span></section>'+
         '<section id="prosandcons"><h2>Pro e contro della vita a '+province.Name+'</h2><span id="ProsAndCons"></span></section>'+
@@ -179,49 +184,49 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#generalinfo").append('<center><figure class="column is-6 image">'+
         '<img title="'+en(province.Name)+' Vita Cittadina" load="lazy" src="'+
         'https://expiter.com/img/blog/living-in-'+en(province.Name).toLowerCase().replace(" ","-")+'.webp" '+
-        'alt="Vita in '+en(province.Name)+', '+en(province.Region)+'"></img>'+
-        '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></figure></center>")
+        'alt="Vita a '+province.Name+', '+province.Region+'"></img>'+
+        '<figcaption>'+province.Name+", "+province.Region+"</figcaption></figure></center>")
         $("#generalinfo").append(separator)
         $("#costofliving").append(facts[city].costofliving)
         $("#costofliving").append(separator)
         $("#povertyandsafety").append(facts[city].safety)
         $("#povertyandsafety").append(separator)
         $("#prosandcons").append(facts[city].prosandconstable)
-        $("#prosandcons").append("<h3>Vantaggi di vivere a "+city+" <h3>")
+        $("#prosandcons").append("<h3>Vantaggi di vivere a "+province.Name+" <h3>")
         $("#prosandcons").append(facts[city].pros)
         $("#prosandcons").append(separator)
-        $("#prosandcons").append("<h3>Svantaggi di vivere a "+city+" <h3>")
+        $("#prosandcons").append("<h3>Svantaggi di vivere a "+province.Name+" <h3>")
         $("#prosandcons").append(facts[city].cons)
         $("#prosandcons").append('<center><figure class="column is-6 image">'+
-        '<img title="Vita in '+en(province.Name)+'" load="lazy" src="'+
+        '<img title="Vita a '+province.Name+'" load="lazy" src="'+
         'https://expiter.com/img/blog/life-in-'+en(province.Name).toLowerCase().replace(" ","-")+'.webp" '+
-        'alt="Pro e contro di vivere a '+en(province.Name)+', Italia"></img>'+
-        '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></figure></center>")
+        'alt="Pro e contro di vivere a '+province.Name+'"></img>'+
+        '<figcaption>'+province.Name+", "+province.Region+"</figcaption></figure></center>")
         $("#prosandcons").append(separator)
-        $("#faqs").append("<h3>Come è "+city+" per le famiglie? <h3>")
-        $("#faqs").append(facts[city].forExpats)
+        $("#faqs").append("<h3>Come è "+province.Name+" per le famiglie? <h3>")
+        $("#faqs").append(facts[city].forFamilies)
         $("#faqs").append("<hr>")
-        $("#faqs").append("<h3>Come è "+city+" per gli studenti? <h3>")
+        $("#faqs").append("<h3>Come è "+province.Name+" per gli studenti? <h3>")
         $("#faqs").append(facts[city].forStudents)
 
 
         if (facts[city].richorpoor){
           $("#faqs").append("<hr>")
-          $("#faqs").append("<h3>"+city+" è una città ricca o povera? <h3>")
+          $("#faqs").append("<h3>"+province.Name+" è una città ricca o povera? <h3>")
           $("#faqs").append(facts[city].richorpoor)
           $("#faqs").append("<hr>")
-          $("#faqs").append("<h3>"+city+" è sporca? <h3>")
+          $("#faqs").append("<h3>"+province.Name+" è sporca? <h3>")
           $("#faqs").append(facts[city].cleanliness)
 
         }
         if (facts[city].fun){
           $("#faqs").append("<hr>")
-          $("#faqs").append("<h3>Com'è la movida a "+city+"? <h3>")
+          $("#faqs").append("<h3>Com'è la movida a "+province.Name+"? <h3>")
           $("#faqs").append(facts[city].fun)
           }
         if (facts[city].walkable){
           $("#faqs").append("<hr>")
-        $("#faqs").append("<h3>Si può camminare a piedi a "+city+"? <h3>")
+        $("#faqs").append("<h3>Si può camminare a piedi a "+province.Name+"? <h3>")
         $("#faqs").append(facts[city].walkable)
         }
         $("#faqs").append(separator)
@@ -251,7 +256,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let info = {}
   
         console.log("trying to retrieve facts for "+name+"...")
-        //console.log(facts[name].overview)
+        console.log(facts[name].overview)
         info.overview=facts[name].introduction
         info.generalinfo=facts[name].overview;
         info.povertyandsafety=facts[name].safety;
@@ -368,17 +373,19 @@ function populateData(data){
      }
     for (let i = 0; i < 107; i++) {
       let province = data[i];
+      
       provinces[province["Name"]]=province;
       provinces[province["Name"]].index=i;
       facts[province["Region"]].provinces.push(province.Name) //add province to region dictionary
       
       facts[en(province["Name"])]={}; //initialize "facts" dictionary with each province
       facts[en(province["Name"])].snippet=
-      '<figure class="column is-3 related"><a href="https://expiter.com/province/'+en(province.Name).replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
-      '<img title="'+en(province.Name)+'" load="lazy" src="'+
+      '<figure class="column is-3 related"><a href="https://expiter.com/province/'+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
+      '<img title="'+province.Name+'" load="lazy" src="'+
       'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
-      'alt="Province of '+en(data[i].Name)+', '+en(data[i].Region)+'"></img>'+
-      '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></a></figure>";
+      'alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'+
+      '<figcaption>'+province.Name+", "+province.Region+"</figcaption></a></figure>";
+
     }
     
     avg=data[107];
@@ -519,11 +526,11 @@ function en(word){
 
 facts["Agrigento"].overview=""
 
-facts.Milan.introduction="Milano, capoluogo della regione Lombardia, è la città più prospera e industriale d'Italia. È il centro finanziario del paese e uno dei più ricchi in Europa. La città è famosa per la sua vitalità e per il suo patrimonio storico, culturale e architettonico. Milano è una città che offre molte opportunità, sia per chi ci vive sia per chi la visita come turista.";
+facts.Milan.introduction="Milano, capoluogo della regione Lombardia, è la città più prospera e industriale d'Italia.<br><br> È il centro finanziario del paese e uno dei più ricchi in Europa.<br><br> La città è famosa per la sua vitalità e per il suo patrimonio storico, culturale e architettonico. Milano è una città che offre molte opportunità, sia per chi ci vive sia per chi la visita come turista.";
 
-facts.Milan.overview="Milano è la seconda città più popolosa d'Italia dopo "+addLinkTo('Roma')+". La città ha una popolazione di circa 1,4 milioni di persone, mentre la sua area metropolitana conta 3,22 milioni di residenti. L'area urbana di Milano, che si estende ben oltre i confini della città metropolitana amministrativa e si estende fino alla vicina Svizzera, è la quarta più grande dell'UE con 5,27 milioni di abitanti. Milano è considerata la capitale economica dell'Italia e un centro finanziario globale.";
+facts.Milan.overview="Milano, situata nel cuore della regione Lombardia, è la seconda città più popolosa d'Italia dopo "+addLinkTo('Roma')+".<br><br> Con una popolazione di circa 1,4 milioni di persone e un'area metropolitana che conta 3,22 milioni di residenti, Milano è un vivace centro urbano.<br><br> L'area urbana di Milano si estende ben oltre i confini della città metropolitana amministrativa, arrivando fino alla vicina Svizzera, rendendola la quarta più grande dell'UE con 5,27 milioni di abitanti.<br><br> Conosciuta come la capitale economica dell'Italia, Milano è un centro finanziario globale. Ospita la Borsa Italiana e numerose multinazionali, rendendola un hub per le opportunità di carriera.<br><br> Inoltre, Milano è famosa per la sua influenza nel design, nella moda e nell'arte, ospitando eventi di rilievo mondiale come la Settimana della Moda di Milano e il Salone del Mobile.";
 
-facts.Milan.costofliving="Il costo della vita a Milano è piuttosto alto. Il costo medio della vita a Milano è di $2056, che lo colloca tra il 17% delle città più costose del mondo. Il salario mediano dopo le tasse è di $1853, che è sufficiente per coprire le spese di vita.";
+facts.Milan.costofliving = "Milano è la città più costosa d'Italia e una delle più costose in Europa. Il costo medio di un monolocale nel centro di Milano varia, ma si può aspettare di pagare tra 1.000 € e 2.300 € al mese.<br><br> Per quanto riguarda le spese previste per una famiglia, una famiglia di quattro persone può aspettarsi di spendere circa 3.551,4€ al mese senza considerare l'affitto. Questo include spese come cibo, trasporti, servizi pubblici, istruzione e intrattenimento.<br><br> Il costo del cibo a Milano può variare, ma in media, si può aspettare di spendere circa 300€ al mese per una persona. Questo include la spesa al supermercato e occasionali pasti fuori.<br><br> Un abbonamento mensile per i trasporti pubblici a Milano costa circa 35€. Se si possiede un'auto, il costo del carburante è di circa 1,6€ al litro.<br><br>Il costo medio dei servizi pubblici (elettricità, riscaldamento, raffreddamento, acqua, spazzatura) per un appartamento di 85m2 è di circa 150€ al mese.<br><br>L'istruzione a Milano può variare notevolmente a seconda della scuola. Le scuole pubbliche sono generalmente gratuite, mentre le scuole private possono costare diverse migliaia di euro all'anno.<br><br>Il costo dell'intrattenimento a Milano può variare notevolmente. Ad esempio, un biglietto del cinema costa in media 8€, mentre una cena fuori in un ristorante medio può costare circa 30€ a persona.";
 
 facts.Milan.culture="Milano è famosa per la sua ricca cultura e storia. La città è conosciuta per la sua moda, il design, l'arte, il teatro, la letteratura, la musica e la cucina. Milano ospita numerosi musei, università, accademie, palazzi, chiese, biblioteche, gallerie d'arte, teatri, ristoranti, bar e club. La città è anche famosa per la sua vita notturna e per le sue numerose feste e festival.";
 
@@ -535,9 +542,9 @@ facts.Milan.safety="Milano è considerata una città molto sicura, sebbene alcun
 
 facts.Milan.climate="A Milano, il clima è moderatamente continentale, con inverni freddi e umidi, ed estati calde e afose. La città si trova nell'Italia nord-occidentale, nella Valpadana, una pianura chiusa da tre lati, con le Alpi a nord e a ovest, e gli Appennini a sud. <br><br> Le precipitazioni a Milano sono significative, con precipitazioni anche nei mesi più secchi. Se vivi a Milano, puoi aspettarti nebbia in inverno e un caldo afoso in estate.";
 
-facts.Milan.pros = "Milano è una città vibrante con una ricca storia e cultura.<br><br>È un importante centro finanziario e di moda, offrendo numerose opportunità di lavoro.<br><br>La città attrae molti expat internazionali, creando un ambiente multiculturale.<br><br>Le università di Milano sono rinomate, rendendo la città un'ottima scelta per gli studenti.<br><br>La movida di Milano è vivace, con una vasta gamma di ristoranti, negozi, e locali notturni.<br><br>Infine, Milano offre una vasta gamma di musei e eventi culturali.<br><br>Il sistema di trasporto pubblico a Milano è efficiente e ben sviluppato."
+facts.Milan.pros = "Milano è una città vibrante con una ricca storia e cultura. È un importante centro finanziario e di moda, offrendo numerose opportunità di lavoro. La città attrae molti expat internazionali, creando un ambiente multiculturale e cosmopolita, più aperto mentalmente rispetto ad altre realtà italiane.<br><br>Le università di Milano sono rinomate, rendendo la città un'ottima scelta per gli studenti, anche se il costo della vita può essere proibitivo.<br><br> La movida di Milano è vivace, con una vasta gamma di ristoranti, negozi, e locali notturni. Infine, Milano offre una vasta gamma di musei e eventi culturali.<br><br>Il sistema di trasporto pubblico a Milano è inoltre abbastanza efficiente e ben sviluppato."
 
-facts.Milan.cons = "Vivere a Milano può essere costoso, con costi di affitto e vita generalmente più alti rispetto ad altre città italiane.<br><br>Il traffico può essere intenso e la qualità dell'aria può essere un problema a causa dell'inquinamento.<br><br>Il clima a Milano può essere un svantaggio rispetto alle città del sud Italia, con inverni più freddi e estati meno calde.<br><br>La città può essere molto affollata, soprattutto durante la settimana della moda o altri grandi eventi.<br><br>Infine, il ritmo di vita a Milano può essere frenetico, il che potrebbe non piacere a tutti."
+facts.Milan.cons = "Vivere a Milano può essere molto costoso, con costi di affitto e vita generalmente più alti rispetto ad altre città italiane e al pari con capitali europee.<br><br>Il traffico può essere intenso e la qualità dell'aria può essere un problema a causa dell'inquinamento.<br><br>Il clima a Milano è generalmente meno piacevole rispetto ad altre città italiane, con nebbia, pioggia, inverni freddi e estati afose.<br><br>La città può essere molto affollata, soprattutto durante la settimana della moda o altri grandi eventi.<br><br>Infine, il ritmo di vita a Milano può essere frenetico rispetto ad altre città più piccole, il che potrebbe non piacere a tutti."
 
 facts.Milan.prosandconstable = `
 <center>
@@ -586,26 +593,37 @@ facts.Milan.fun="Milano è la città della vita notturna per eccellenza. Teatri 
 facts.Milan.richorpoor="Milano è considerata la città più ricca d’Italia, con un reddito pro capite di più di 30mila euro.<br><br>Tuttavia, presenta una grande disuguaglianza economica tra i suoi quartieri. Ad esempio, il reddito medio nel centro storico può raggiungere 88.745 euro, mentre in quartieri come Quarto Oggiaro è di soli 17.628 euro.<br><br>Nonostante la ricchezza generale, la povertà è un problema crescente a Milano. Nel 2020, la povertà assoluta è aumentata, raggiungendo il livello più alto dal 2005, in particolare nel Nord e nelle aree metropolitane."
 facts.Milan.cleanliness="Milano è conosciuta per la sua pulizia e l'attenzione alla gestione dei rifiuti rispetto ad altre città italiane.<br><br>La città ha un sistema di raccolta differenziata efficiente e i cittadini sono generalmente consapevoli dell'importanza del riciclaggio. Tuttavia, come molte grandi città, Milano affronta la sfida dello smog."
 
+facts.Rome.introduction="Roma, la capitale d'Italia, è una delle città più antiche e storiche del mondo.<br><br> È il centro politico del paese e uno dei più ricchi in Europa in termini di storia e cultura.<br><br> La città è famosa per la sua vitalità e per il suo patrimonio storico, culturale e architettonico. Roma è una città che offre molte opportunità, sia per chi ci vive sia per chi la visita come turista.<br><br> Vivere a Roma significa immergersi in un'atmosfera unica, dove il passato e il presente si fondono in un'esperienza indimenticabile. La vita quotidiana a Roma è arricchita da una varietà di eventi culturali, da una vivace scena culinaria e da un senso di comunità che rende la città accogliente per residenti e visitatori.";
+facts.Rome.costofliving = "Il costo della vita a Roma è generalmente alto, ma può variare notevolmente a seconda dello stile di vita e del quartiere in cui si vive.<br><br>Il costo medio di un monolocale nel centro di Roma è di circa 770€ al mese, mentre un appartamento da una camera da letto può costare fino a 1.650€ al mese. Se si sceglie di vivere in periferia o vicino alle aree residenziali, i costi di affitto possono essere significativamente più bassi.<br><br>Per quanto riguarda le spese alimentari, il costo medio mensile della spesa si aggira intorno ai 275€ per un singolo residente. I prezzi della spesa a Roma sono circa il 10% più economici rispetto a Milano.<br><br>Un abbonamento mensile per i trasporti pubblici a Roma costa circa 35€. Se si possiede un'auto, il costo del carburante è di circa 1,6€ al litro.<br><br>Il costo medio dei servizi pubblici (elettricità, riscaldamento, raffreddamento, acqua, spazzatura) per un appartamento di 85m2 è di circa 233,58€ al mese.<br><br>L'istruzione a Roma può variare notevolmente a seconda della scuola. Le scuole pubbliche sono generalmente gratuite, mentre le scuole private possono costare diverse migliaia di euro all'anno.<br><br>Il costo dell'intrattenimento a Roma può variare notevolmente. Ad esempio, un biglietto del cinema costa in media 9€, mentre una cena fuori in un ristorante medio può costare circa 35€ a persona.<br><br>In media, una singola persona può aspettarsi che le sue spese mensili di vita si aggirino intorno ai 1.800€. Questa cifra è divisa tra quattro principali aspetti della vita: Alloggio, Cibo, Trasporti e Intrattenimento. Per uno stile di vita più confortevole, prevedi di spendere intorno ai 2.500€."
 
-facts.Rome.introduction="Rome is one of the oldest and most influential cities in the world, with a history that spans over 2,500 years.<br><br>It is the capital of Italy and the seat of the Roman Catholic Church, as well as a UNESCO World Heritage Site.<br><br>Living in Rome as an expat can be both rewarding and challenging. You can enjoy the beauty and culture of the city, but also face the difficulties of traffic, bureaucracy, and pollution.<br><br>Rome is a city of contrasts, where ancient monuments coexist with modern buildings, and where tradition and innovation blend together."
-facts.Rome.overview="Rome is the most populous city in Italy, with about 2.8 million inhabitants.<br><br>It is also the core of the wider Rome metropolitan area, which is estimated to have between 4.2 million and 6.7 million people.<br><br>Rome is the political and administrative capital of Italy and a major cultural and tourist center. It is known for its landmarks, such as the Colosseum, the Pantheon, the Vatican, and the Trevi Fountain.<br><br>It has a GDP of about €200 billion ($246 billion), making it the fourth richest city in Italy and one of the largest economies in Europe."
-facts.Rome.costofliving="The cost of living in Rome is high compared to most other Italian cities, but still lower than "+addLinkTo("Milan")+" and "+addLinkTo("Venice")+".<br><br>A family of four estimated monthly costs are €4,000 without rent, and a single person estimated monthly costs are €2,400 without rent.<br><br>Rent in Rome is also high, especially in the city centre. For example, a one-bedroom apartment in the city centre costs about €800 per month, while a three-bedroom apartment costs about €1,600 per month.<br><br>The prices of food, transportation, utilities, and entertainment are also higher than the national average."
-facts.Rome.culture="Rome is a historical and artistic city, with a rich and diverse population.<br><br>It is home to people from different countries, religions and backgrounds, who contribute to the city’s social and cultural life.<br><br>Rome is also a cultural and artistic center, with a long and glorious history and heritage.<br><br>It hosts many museums, galleries, theaters, festivals and events, covering various fields of interest, such as art, music, literature, cinema, religion and sports.<br><br>Some of the most famous cultural attractions in Rome are the Vatican Museums, the Sistine Chapel, the Roman Forum, the Capitoline Museums, the Borghese Gallery and the National Museum of Rome."
-facts.Rome.economy="Rome is the political and administrative capital of Italy, and a major cultural and tourist center. It is known for its landmarks, such as the Colosseum, the Pantheon, the Vatican, and the Trevi Fountain.<br><br>It has a mixed and diversified economy, based on sectors such as public administration, services, tourism, commerce, media, entertainment, education, and research.<br><br>It is also a hub for innovation and creativity, hosting several universities, academies, and institutes, such as the Sapienza University of Rome, the LUISS University, the Rome University of Fine Arts, and the National Research Council.<br><br>Rome offers many opportunities for work and career development, especially for highly skilled and qualified professionals.<br><br>However, it is also a very expensive and congested city, where the quality of life is often affected by problems such as traffic, pollution, bureaucracy, and corruption.<br><br>Rome is one of the most visited cities in the world, but it also faces some social and economic challenges, such as poverty, inequality, unemployment, and immigration.<br><br>According to the latest data, about 14% of the population in Rome lives below the poverty line, and about 11% is unemployed.<br><br>The city also hosts a large number of immigrants, mostly from Eastern Europe, Africa, and Asia, who often face difficulties in integrating and accessing basic services.<br><br>The city authorities have implemented various policies and initiatives to address these issues, such as urban regeneration, social inclusion, cultural promotion, and security."
-facts.Rome.education="Rome is a historical and artistic city, with a rich and diverse educational offer.<br><br>It has several public and private universities and colleges, offering a wide range of courses and degrees, from humanities and social sciences to engineering and medicine.<br><br>Some of the most prestigious and renowned academic institutions in Rome are the Sapienza University of Rome, the LUISS University, the Pontifical Gregorian University, and the John Cabot University.<br><br>The city also has many international schools, catering to the needs of expat families and children.<br><br>Some of the most popular and reputable international schools in Rome are the American Overseas School of Rome, the St. George’s British International School, the Marymount International School, and the Rome International School."
-facts.Rome.safety="Rome is a relatively safe city to visit, with a moderate crime rate compared to other major cities in Italy and Europe.<br><br>However, some precautions are recommended, especially in certain areas and situations.<br><br>The most common crimes in Rome are pickpocketing, bag-snatching, scams, and vandalism, which usually target crowded and touristy places, such as the city center, the railway stations, the metro, and the buses.<br><br>To avoid these risks, it is advisable to be vigilant and careful, to keep your valuables close and secure, to avoid suspicious or aggressive people, and to report any incident to the police.<br><br>Rome is also generally safe at night, but it is better to avoid walking alone in dark and isolated streets, and to stick to the well-lit and busy areas.<br><br>Some of the areas to avoid in Rome are Tor Bella Monaca, Romanina, San Basilio, and Corviale, which are affected by drug trafficking, thefts, strong presence of immigrants, and delinquency."
-facts.Rome.climate="Rome has a Mediterranean climate, with mild winters and warm to hot summers. It is located in central Italy, on a plain, and about 25 km (15 mi) from the Tyrrhenian Sea.<br><br>The average temperature of the coldest month (January) is of 7.7 °C (46 °F), that of the warmest months (July, August) is of 25.6 °C (78 °F).<br><br>Precipitation amounts to about 800 millimeters (31.5 inches) per year; the wettest season is autumn, followed by winter3 Here is the average precipitation4<br><br>In the summer, it’s hot and sunny, and you can enjoy the sun and the nightlife. However, there can be some afternoon thunderstorms, and the humidity can be high.<br><br>In the winter, it’s mild and quite rainy, but it can get cold at night. Sometimes, there can be some snowfalls, but they are usually light and rare.<br><br>The spring and the autumn are pleasant and variable, with some rain and some sun. You can see the flowers and the leaves, and enjoy the culture and the art.<br><br>Rome is not very sunny or rainy by Italian standards, but it still has some clear and bright days, and some wet and cloudy days.<br><br>The weather can be changeable and unpredictable, so you need to be prepared for anything."
-facts.Rome.pros="Overall, Rome is a historical and artistic city, with a rich and diverse culture.<br><br>You can explore its many attractions, such as ancient monuments, museums, art galleries, churches, and fountains, and immerse yourself in its history.<br><br>It is also a religious capital, with the Vatican City and the Pope based in the city, and a lot of spiritual and cultural events.<br><br>The city has a good public transportation system, which makes it easy to get around and to other major Italian cities, such as "+addLinkTo("Florence")+", "+addLinkTo("Naples")+", and "+addLinkTo("Venice")+".<br><br>Not only that, but you can also enjoy its food and wine, which are famous for their quality and variety, and reflect the regional and seasonal diversity of Italy.<br><br>Rome is a historical and artistic city, with a rich and diverse population.<br><br>You can meet people from different countries, religions, and backgrounds, who contribute to the city’s social and cultural life.<br><br>English is widely spoken here, especially among the younger generation, which makes it easier for you to communicate and find work.<br><br>The city has a stable and diversified economy, which offers you many opportunities for career growth and development.<br><br>Rome has a high quality of life, with excellent education, healthcare, and social services, which ensure your well-being and happiness."
-facts.Rome.cons="Rome can be expensive and challenging to live in.<br><br>You can face difficulties in finding affordable housing, especially in the city centre, where the prices are very high.<br><br>You can also spend a lot on food, utilities, entertainment, and healthcare, which are higher than the national average.<br><br>The city can be crowded and noisy, especially during peak tourist season, when it is full of visitors and events.<br><br>It can also be polluted, with poor air quality and traffic congestion, which can affect your health and mood.<br><br>Rome is not very friendly to foreigners, and the language barrier can be a challenge, especially if you don’t speak Italian.<br><br>You can also have trouble making friends and integrating into the local community, which can make you feel lonely and isolated.<br><br>Moreover, the city can have a slow-paced and bureaucratic lifestyle, which can be frustrating and demotivating, especially if you have to deal with red tape and corruption.<br><br>In addition to that, compared to other parts of Italy, Rome can have a hot and dry climate, with scorching and humid summers, which can make you feel uncomfortable and exhausted."
-facts.Rome.prosandconstable="<center><table class=‘table center’> <tr> <th>Pros</th> <th>Cons</th> </tr> <tr> <td>Historical and artistic city</td> <td>Expensive city</td> </tr> <tr> <td>Rich and diverse culture</td> <td>Crowded and noisy</td> </tr> <tr> <td>Religious capital</td> <td>Polluted</td> </tr> <tr> <td>Well-developed public transportation</td> <td>Not very friendly to foreigners</td> </tr> <tr> <td>Close to other major Italian cities</td> <td>Language barrier</td> </tr> <tr> <td>Food and wine</td> <td>Hard to make friends and integrate</td> </tr> <tr> <td>Historical and artistic population</td> <td>Slow-paced and bureaucratic lifestyle</td> </tr> <tr> <td>English is widely spoken</td> <td>Hot and dry climate</td> </tr> <tr> <td>Stable and diversified economy</td> <td></td> </tr> <tr> <td>High quality of life</td> <td></td> </tr> </table></center>"
-facts.Rome.forExpats="Rome is a historic and cultural city that attracts many expats from different countries and backgrounds.<br><br>It is the capital and the largest city of Italy, offering a variety of opportunities and experiences for those who live there.<br><br>Living in Rome as an expat can be both rewarding and challenging. You can enjoy the benefits of living in a beautiful and ancient city that offers a lot of culture, history, art, and cuisine, but you also have to deal with the high cost of living, the language barrier, the bureaucracy and the pollution.<br><br>Some of the best areas for expats to live in Rome are Trastevere, Monti, Testaccio, and Prati."
-facts.Rome.forWomen="Rome is a great city for women who want to pursue their personal and professional goals.<br><br>It is a city that values women and offers them a lot of opportunities in various fields, especially in education, culture, tourism and politics.<br><br>Women in Rome can enjoy a high quality of life, a rich cultural scene, a diverse and inclusive society, and a safe and secure environment.<br><br>However, women in Rome also face some challenges, such as the gender pay gap, the glass ceiling, the work-life balance, and the social pressure to conform to certain standards of beauty and style."
-facts.Rome.forStudents="Rome is a popular destination for students who want to study in Italy or abroad.<br><br>It is a city that offers a wide range of academic programs, from arts and humanities to engineering and sciences, from public and private universities to international and prestigious institutions.<br><br>Students in Rome can benefit from a stimulating and innovative learning environment, a lively and diverse student community, a rich and varied cultural offer, and a lot of opportunities for internships and career development.<br><br>However, students in Rome also have to cope with the high cost of living, the competitive and demanding academic standards, the limited availability of accommodation, and the complex bureaucracy and regulations."
-facts.Rome.forLGBTQ="As the capital and largest city in the country, Rome is one of the most LGBTQ-friendly cities in Italy.<br><br>It is a city that celebrates diversity and inclusion, and that supports and protects the rights and freedoms of LGBTQ people.<br><br>LGBTQ people in Rome can enjoy a vibrant and colorful social scene, a large and active LGBTQ community, a lot of events and festivals, and a lot of resources and services.<br><br>However, LGBTQ people in Rome also have to face some challenges, such as discrimination, harassment, violence, and homophobia, especially in some conservative and religious sectors of the society."
-facts.Rome.richorpoor="Rome is a wealthy city in Italy, with a GDP per capita of €40,000 ($47,000), which is higher than the national average of €30,000 ($35,000).<br><br>Rome has a diverse and dynamic economy, based on sectors such as tourism, culture, finance, media, and public administration. It is also a center for innovation and education, hosting several universities and research institutes.<br><br>However, Rome also faces some social and economic challenges, such as unemployment, poverty, inequality, and corruption. According to the latest data, the unemployment rate in Rome is 9.8%, higher than the national average of 8.8%. The poverty rate is 11.4%, which is above the national average of 9.4%, and affects about 300,000 people in the city."
-facts.Rome.cleanliness="Rome is a moderately clean city in Italy, with a fair level of air quality, waste management, and water sanitation. Rome ranked 32nd out of 104 Italian cities in the latest environmental survey by Legambiente and Ambiente Italia, which measures the quality of urban ecosystems.<br><br>Rome has implemented some initiatives to improve its cleanliness and sustainability, such as promoting public transportation, cycling, and electric vehicles, reducing greenhouse gas emissions, increasing recycling and composting, and protecting green areas and monuments.<br><br>However, Rome still faces some problems with cleanliness, such as littering, graffiti, dog waste, and frequent smog episodes. Rome also needs to improve its water efficiency and consumption, as it has one of the highest rates of water loss and leakage in Italy. Rome also suffers from illegal dumping and burning of waste, which poses a serious health and environmental risk."
-facts.Rome.walkable="Rome is a city that has a low level of walkability, as it is huge, chaotic, and crowded with tourists and traffic. It also has a poor public transport service, with frequent delays, breakdowns, and strikes, that makes it hard to move around the city and reach the main attractions.<br><br>However, Rome also has some advantages for pedestrians, such as a rich and diverse historical and artistic heritage, a lively and vibrant atmosphere, and a mild and sunny climate for most of the year."
-facts.Rome.fun="Rome is a fun city for those who enjoy history, culture, art and gastronomy, with countless options to explore and experience.<br><br>It is a city that combines ancient and modern, with monuments, ruins, churches and museums that testify to its rich and glorious past.<br><br>Some of the most famous and impressive attractions in Rome are the Colosseum, the Pantheon, the Vatican, the Trevi Fountain and the Spanish Steps.<br><br>It is also a city that offers a lively and diverse nightlife, with bars, clubs, restaurants and venues that cater to different tastes and preferences.<br><br>It is famous for its aperitivo, a pre-dinner drink with snacks and appetizers, which is a social and relaxing way to start the evening.<br><br>It has many areas where you can enjoy nightlife and recreation, such as Trastevere, Testaccio, Monti, Pigneto and San Lorenzo.<br><br>It also has many places where you can enjoy live music, comedy, theater and other performances, such as Auditorium Parco della Musica, Teatro dell’Opera, Teatro Sistina and Teatro Vittoria.<br><br>Rome is a city that never sleeps, and it will always amaze you with its fun and vibrant atmosphere."
+facts.Rome.overview="Roma, la capitale d'Italia, è la città più popolosa del paese.<br><br> Con una popolazione di circa 2,8 milioni di persone e un'area metropolitana che conta 4,4 milioni di residenti, Roma è un centro di cultura e storia.<br><br> L'area urbana di Roma, che si estende ben oltre i confini della città metropolitana amministrativa, è una delle più grandi dell'UE.<br><br> Conosciuta come la 'Città Eterna', Roma è famosa per la sua ricca storia e il suo patrimonio culturale, che comprende siti come il Colosseo, il Foro Romano e la Città del Vaticano.<br><br> Oltre alla sua importanza storica, Roma è anche un importante centro politico, essendo la sede del governo italiano e di numerose organizzazioni internazionali.";
+facts.Rome.culture="Roma è famosa per la sua ricca cultura e storia. La città è conosciuta per la sua arte, il teatro, la letteratura, la musica e la cucina. Roma ospita numerosi musei, università, accademie, palazzi, chiese, biblioteche, gallerie d'arte, teatri, ristoranti, bar e club. La città è anche famosa per la sua vita notturna e per le sue numerose feste e festival.";
+
+facts.Rome.economy="Roma è la città più importante e la più popolosa d'Italia. È uno dei centri economici più importanti d'Italia e d'Europa. Roma ha un'economia diversificata con settori come il turismo, la moda, il design e l'alta tecnologia che giocano un ruolo importante.<br><br> Il PIL pro capite di Roma di circa €36.000 (US$40.000) è tra i più alti d'Italia. Roma ospita numerose multinazionali italiane ed estere.";
+
+facts.Rome.education="Roma offre una vasta rete di scuole pubbliche e private sotto il curriculum italiano, oltre a una serie di scuole straniere e internazionali. <br><br> Roma è una delle destinazioni europee più popolari per gli studi universitari: ospita numerose istituzioni di livello universitario e accademie d'arte. Tra le università più importanti ci sono l'Università degli Studi di Roma 'La Sapienza' e l'Università degli Studi di Roma 'Tor Vergata'.";
+
+facts.Rome.safety="Roma è generalmente considerata una città sicura, sebbene alcune aree possano attirare borseggiatori. Ci sono quartieri fuori dalla città che è meglio evitare. <br><br> Alcune truffe sono possibili in luoghi turistici dove le persone potrebbero chiederti dei soldi. Secondo Numbeo.com, i livelli di criminalità a Roma sono moderati, simili a molte altre grandi città europee, e la criminalità è aumentata negli ultimi 3 anni.";
+facts.Rome.climate="A Roma, il clima è mediterraneo, con inverni miti e piuttosto piovosi, ed estati calde e soleggiate, con qualche temporale pomeridiano.<br><br> La città si trova nel centro Italia, su una pianura, a circa 25 km dal Mar Tirreno.<br><br> Le precipitazioni a Roma ammontano a circa 800 millimetri all'anno; la stagione più piovosa è l'autunno, seguita dall'inverno.<br><br> Se vivi a Roma, puoi aspettarti un clima generalmente mite, con temperature medie del mese più freddo (gennaio) di 7,7 °C, e del mese più caldo (luglio, agosto) di 25,6 °C.";
+
+facts.Rome.pros = "Roma è una città vibrante con una ricca storia e cultura.<br><br> È un importante centro politico e culturale, offrendo numerose opportunità di lavoro.<br><br> La città attrae molti expat internazionali, creando un ambiente multiculturale e cosmopolita.<br><br> Le università di Roma sono rinomate, rendendo la città un'ottima scelta per gli studenti.<br><br> La movida di Roma è vivace, con una vasta gamma di ristoranti, negozi, e locali notturni.";
+
+facts.Rome.cons = "Vivere a Roma può essere molto costoso, con costi di affitto e vita generalmente più alti rispetto ad altre città italiane.<br><br> Il traffico può essere intenso e la qualità dell'aria può essere un problema a causa dell'inquinamento.<br><br> La città può essere molto affollata, soprattutto durante eventi di grande richiamo.<br><br> Infine, il ritmo di vita a Roma può essere frenetico rispetto ad altre città più piccole, il che potrebbe non piacere a tutti.";
+
+facts.Rome.prosandconstable = "<center><table class='table center'><tr><th>Pro</th><th>Contro</th></tr><tr><td>Una città vibrante con una ricca storia e cultura.</td><td>Costi di affitto e vita generalmente più alti rispetto ad altre città italiane.</td></tr><tr><td>Un importante centro politico e culturale, offrendo numerose opportunità di lavoro.</td><td>Traffico intenso e problemi di qualità dell'aria a causa dell'inquinamento.</td></tr><tr><td>Attrae molti expat internazionali, creando un ambiente multiculturale e cosmopolita.</td><td>Città molto affollata, soprattutto durante eventi di grande richiamo.</td></tr><tr><td>Università rinomate, rendendo la città un'ottima scelta per gli studenti.</td><td>Ritmo di vita frenetico, il che potrebbe non piacere a tutti.</td></tr><tr><td>Movida vivace, con una vasta gamma di ristoranti, negozi, e locali notturni.</td><td></td></tr></table></center>"
+
+facts.Rome.forStudents="Roma, conosciuta come la 'Città Eterna', offre un ambiente di apprendimento unico per gli studenti. Con le sue numerose istituzioni educative, tra cui l'Università La Sapienza, una delle più antiche del mondo, gli studenti hanno l'opportunità di studiare in un contesto ricco di storia e cultura.<br><br> Nonostante sia una metropoli, Roma mantiene un senso di comunità che può rendere la vita degli studenti più accogliente e gratificante.";
+
+facts.Rome.forFamilies="Roma è una città ideale per le famiglie, offrendo una miriade di esperienze educative e ricreative. Dai suoi numerosi parchi e giardini, ai musei e siti storici, c'è sempre qualcosa da fare per i bambini.<br><br> Inoltre, Roma vanta un sistema scolastico di alta qualità, con un'ampia varietà di scuole internazionali.";
+
+facts.Rome.walkable="Nonostante le sue dimensioni, Roma è una città molto percorribile. Il centro storico è particolarmente adatto per le passeggiate, con molte delle principali attrazioni turistiche raggiungibili a piedi.<br><br> Roma ha anche un sistema di trasporto pubblico abbastanza efficiente, che facilita gli spostamenti in tutta la città. Il traffico può tuttavia essere molto intenso e caotico.";
+
+facts.Rome.fun="Roma è rinomata per la sua vivace scena culturale e sociale. Che tu sia un amante dell'arte, un appassionato di storia, un foodie o un amante della vita notturna, Roma ha qualcosa da offrire.<br><br> La città è famosa per la sua 'movida', con un'ampia scelta di ristoranti, bar e club, in particolare nei quartieri di Trastevere e Testaccio.";
+
+facts.Rome.cleanliness="Roma è una città che affronta sfide significative in termini di gestione dei rifiuti.<br><br> La città ha avuto problemi con la raccolta dei rifiuti e la pulizia delle strade. Tuttavia, ci sono sforzi in corso per migliorare la situazione e rendere Roma una città più pulita e sostenibile.";
+
+facts.Rome.richorpoor="Roma è una città con un reddito pro capite di circa 30mila euro.<br><br> Tuttavia, presenta una grande disuguaglianza economica tra i suoi quartieri. Ad esempio, il reddito medio nel centro storico può raggiungere cifre molto alte, mentre in quartieri periferici è decisamente più basso.<br><br> Nonostante la ricchezza generale, la povertà è un problema a Roma. La città ha un tasso di disoccupazione del 7,3%."
+
 
 facts.Naples.introduction="Naples is one of the most ancient and fascinating cities in Italy, with a history that spans more than 2,800 years.<br><br>It is the cultural, artistic and culinary capital of the south, famous for its pizza, coffee, music and art.<br><br>Living in Naples as an expat can be both rewarding and challenging. You can enjoy the beauty and diversity of the city, its rich heritage and lively atmosphere, but you also have to deal with its problems, such as traffic, pollution, crime and bureaucracy.";
 facts.Naples.overview="Naples is the third most populous city in Italy, after "+addLinkTo("Rome")+" and "+addLinkTo("Milan")+", with about 909,000 inhabitants.<br><br>It is also the core of the wider Naples metropolitan area, which is estimated to have between 3.1 million and 12.5 million people.<br><br>Naples is the regional capital of Campania and a major port city. It is known for its historic and cultural attractions, especially in the fields of archaeology, architecture, music and literature.<br><br>It has a GDP of about €80 billion ($99 billion), making it the fourth richest city in Italy and one of the most important in the Mediterranean."
@@ -922,7 +940,7 @@ facts.Vicenza.walkable="Vicenza’s public transportation is managed by Società
 
 
 function addLinkTo(city){
-  return "<a href='https://expiter.com/blog/living-in-"+city.toLowerCase().replace(" ","-")+"'>"+city+"</a>"
+  return "<a href='https://expiter.com/it/blog/vivere-a-"+city.toLowerCase().replace(" ","-")+"'>"+city+"</a>"
 }
 function relatedArticles(city){
     let related="<h2>Articoli correlati</h2>"+
