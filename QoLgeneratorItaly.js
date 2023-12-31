@@ -19,9 +19,7 @@ var additionalFilters=[];
 var dataset;
 var avg;
 var regions ={};
-var selection = ["Bari","Bologna","Cagliari","Catania","Florence","Genoa",
-"Livorno","Lucca","Padua","Palermo","Reggio Calabria","Rome","Milan","Naples",
-"Siena","Trieste","Turin","Venice","Vicenza"]
+var selection = ["Milan"]
 
 fetch('https://expiter.com/dataset.json', {method:"Get"})
     .then(function (response) {
@@ -33,11 +31,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         populateData(data);
         for (let i = 0; i < 107; i++){
             let province = dataset[i];
-            if (selection.includes(en(province.Name))){
-                console.log(en(province.Name)+" selected")
-            var fileName = 'blog/living-in-'+en(province.Name).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
-            let seoTitle="What is it like to live in "+en(province.Name)+", Italy"
-            let seoDescription='Is '+en(province.Name)+', Italy a good place to live? A guide for expats. '+en(province.Name)+' quality of life, cost of living, safety and more.'
+            if (selection.includes(province.Name)){
+                console.log(province.Name+" selected")
+            var fileName = 'it/blog/vivere-a-'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+            
             const dom = new jsdom.JSDOM(
             "<html lang='en'>"+
             '<head><meta charset="utf-8">'+
@@ -53,12 +50,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
             '<link rel="stylesheet" href="https://expiter.com/style.css">'+
             
-            '<meta property="og:title" content="'+seoTitle+'" />'+
-            '<meta property="og:description" content="'+seoDescription+'" />'+
-            '<meta property="og:image" content="https://expiter.com/img/blog/living-in-'+en(province.Name).toLowerCase().replace(" ","-")+'.webp" />'+
-            '<meta name="description" content="'+seoDescription+'" />'+
-	          '<meta name="keywords" content="'+en(province.Name)+' italy, '+en(province.Name)+' expat,'+en(province.Name)+' life,'+en(province.Name)+' digital nomad" />'+
-            "<title>"+seoTitle+"</title>"+
+            '<meta name="description" content="È '+province.Name+' un buon posto in cui vivere? Una guida per gli espatriati. '+province.Name+' qualità della vita, costo della vita, sicurezza e altro." />'+
+'<meta name="keywords" content="'+province.Name+' italia, '+province.Name+' expat,'+province.Name+' vita,'+province.Name+' nomade digitale" />'+
+"<title>Come è vivere a "+province.Name+", Italia </title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'           
             +
             '<!-- GetYourGuide Analytics -->'+
@@ -117,15 +111,15 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 				'</section>'+
 			'</div>'+
 		'</div></div>'+
-            '<div id="info" class="columns is-multiline is-mobile">'+
-            '<section id="overview"><h2>Living in '+en(province.Name)+'</h2><span id="intro"></span></section>'+
-            '<section id="generalinfo"><h2>What is '+en(province.Name)+' like?</h2><span id="info"></span></section>'+
-            '<section id="costofliving"><h2>Cost of living in '+en(province.Name)+'</h2><span id="CoL"></span></section>'+
-            '<section id="povertyandsafety"><h2>Is '+en(province.Name)+' safe?</h2><span id="safety"></span></section>'+
-            '<section id="prosandcons"><h2>Pros and cons of life in '+en(province.Name)+'</h2><span id="ProsAndCons"></span></section>'+
-            '<section id="faqs"><h2>FAQs</h2><span id="faqs"></span></section>'+
-            '<section id="Discover"><h2>Discover</h2><span id="promo"></span></section>'+
-            '</div>'+
+        '<div id="info" class="columns is-multiline is-mobile">'+
+        '<section id="overview"><h2>Vivere a '+province.Name+'</h2><span id="intro"></span></section>'+
+        '<section id="generalinfo"><h2>Informazioni utili su '+province.Name+'?</h2><span id="info"></span></section>'+
+        '<section id="costofliving"><h2>Costo della vita a '+province.Name+'</h2><span id="CoL"></span></section>'+
+        '<section id="povertyandsafety"><h2>È '+province.Name+' sicura?</h2><span id="safety"></span></section>'+
+        '<section id="prosandcons"><h2>Pro e contro della vita a '+province.Name+'</h2><span id="ProsAndCons"></span></section>'+
+        '<section id="faqs"><h2>FAQ</h2><span id="faqs"></span></section>'+
+        '<section id="Discover"><h2>Scopri '+province.Name+'</h2><span id="promo"></span></section>'+
+    '</div>'+
             '</body></html>'
                     )
 
@@ -153,7 +147,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
     });
 
     function newPage(province, $){
-        let info = getInfo(province)
+        
+        let info = getInfo(en(province))
         let separator='</br><span class="separator"></span></br>'
 
         let map = info.map
@@ -162,8 +157,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         appendProvinceData(province, $);
         setNavBar($);
         let city = en(province.Name);
+        console.log("writing facts about "+city)
 
-        $(".title").text("What is it like to live in "+en(province.Name)+', Italy');
+        $(".title").text("Come è vivere a "+province.Name+', Italia');
         $("#overview").append(facts[city].introduction)
         $("#overview").append("<br><br>")
         $("#overview").append(facts[city].overview)
@@ -172,18 +168,18 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#overview").append(separator)
         $("#generalinfo").append(facts[city].culture)
         $("#generalinfo").append("<hr>")
-        $("#generalinfo").append("<h3>Climate<h3>")
+        $("#generalinfo").append("<h3>Clima<h3>")
         $("#generalinfo").append(facts[city].climate)
         $("#generalinfo").append("<hr>")
-        $("#generalinfo").append("<h3>Economy<h3>")
+        $("#generalinfo").append("<h3>Economia<h3>")
         $("#generalinfo").append(facts[city].economy)
         $("#generalinfo").append("<hr>")
-        $("#generalinfo").append("<h3>Education<h3>")
+        $("#generalinfo").append("<h3>Educazione<h3>")
         $("#generalinfo").append(facts[city].education)
         $("#generalinfo").append('<center><figure class="column is-6 image">'+
-        '<img title="'+en(province.Name)+' City Life" load="lazy" src="'+
+        '<img title="'+en(province.Name)+' Vita Cittadina" load="lazy" src="'+
         'https://expiter.com/img/blog/living-in-'+en(province.Name).toLowerCase().replace(" ","-")+'.webp" '+
-        'alt="Life in '+en(province.Name)+', '+en(province.Region)+'"></img>'+
+        'alt="Vita in '+en(province.Name)+', '+en(province.Region)+'"></img>'+
         '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></figure></center>")
         $("#generalinfo").append(separator)
         $("#costofliving").append(facts[city].costofliving)
@@ -191,46 +187,41 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#povertyandsafety").append(facts[city].safety)
         $("#povertyandsafety").append(separator)
         $("#prosandcons").append(facts[city].prosandconstable)
-        $("#prosandcons").append("<h3>Advantages of Living in "+city+" <h3>")
+        $("#prosandcons").append("<h3>Vantaggi di vivere a "+city+" <h3>")
         $("#prosandcons").append(facts[city].pros)
         $("#prosandcons").append(separator)
-        $("#prosandcons").append("<h3>Disadvantages of Living in "+city+" <h3>")
+        $("#prosandcons").append("<h3>Svantaggi di vivere a "+city+" <h3>")
         $("#prosandcons").append(facts[city].cons)
         $("#prosandcons").append('<center><figure class="column is-6 image">'+
-        '<img title="Life in '+en(province.Name)+'" load="lazy" src="'+
+        '<img title="Vita in '+en(province.Name)+'" load="lazy" src="'+
         'https://expiter.com/img/blog/life-in-'+en(province.Name).toLowerCase().replace(" ","-")+'.webp" '+
-        'alt="Pros and cons of living in '+en(province.Name)+', Italy"></img>'+
+        'alt="Pro e contro di vivere a '+en(province.Name)+', Italia"></img>'+
         '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></figure></center>")
         $("#prosandcons").append(separator)
-        $("#faqs").append("<h3>What is "+city+" like for foreigners? <h3>")
+        $("#faqs").append("<h3>Come è "+city+" per le famiglie? <h3>")
         $("#faqs").append(facts[city].forExpats)
         $("#faqs").append("<hr>")
-        $("#faqs").append("<h3>What is "+city+" like for students? <h3>")
+        $("#faqs").append("<h3>Come è "+city+" per gli studenti? <h3>")
         $("#faqs").append(facts[city].forStudents)
-        $("#faqs").append("<hr>")
-        $("#faqs").append("<h3>What is "+city+" like for women? <h3>")
-        $("#faqs").append(facts[city].forWomen)
-        $("#faqs").append("<hr>")
-        $("#faqs").append("<h3>What is "+city+" like for LGBTQ people? <h3>")
-        $("#faqs").append(facts[city].forLGBTQ)
+
 
         if (facts[city].richorpoor){
           $("#faqs").append("<hr>")
-          $("#faqs").append("<h3>Is "+city+" a poor city? <h3>")
+          $("#faqs").append("<h3>"+city+" è una città ricca o povera? <h3>")
           $("#faqs").append(facts[city].richorpoor)
           $("#faqs").append("<hr>")
-          $("#faqs").append("<h3>Is "+city+" dirty? <h3>")
+          $("#faqs").append("<h3>"+city+" è sporca? <h3>")
           $("#faqs").append(facts[city].cleanliness)
 
         }
         if (facts[city].fun){
           $("#faqs").append("<hr>")
-          $("#faqs").append("<h3>Is "+city+" a fun city? <h3>")
+          $("#faqs").append("<h3>Com'è la movida a "+city+"? <h3>")
           $("#faqs").append(facts[city].fun)
           }
         if (facts[city].walkable){
           $("#faqs").append("<hr>")
-        $("#faqs").append("<h3>Is "+city+" walkable? <h3>")
+        $("#faqs").append("<h3>Si può camminare a piedi a "+city+"? <h3>")
         $("#faqs").append(facts[city].walkable)
         }
         $("#faqs").append(separator)
@@ -241,6 +232,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#promo").append(info.related)
 
        }
+
        
       
   function getData(province){
@@ -259,7 +251,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let info = {}
   
         console.log("trying to retrieve facts for "+name+"...")
-        console.log(facts[name].overview)
+        //console.log(facts[name].overview)
         info.overview=facts[name].introduction
         info.generalinfo=facts[name].overview;
         info.povertyandsafety=facts[name].safety;
@@ -286,13 +278,13 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<a href="https://www.amazon.it/ulp/view?&linkCode=ll2&tag=expiter-21&linkId=5824e12643c8300394b6ebdd10b7ba3c&language=it_IT&ref_=as_li_ss_tl" target="_blank"><b><ej>📦</ej>Amazon Pickup Locations</b></a> '+
         '</center>'
       
-        info.weather=(province.WeatherWidget?'<center><h3>Weather Now</h3><a class="weatherwidget-io" href="https://forecast7.com/en/'+province.WeatherWidget+'" data-label_1="'+name+'" data-label_2="'+region.Name+'"'+
+        info.weather=(province.WeatherWidget?'<center><h3>Clima adesso</h3><a class="weatherwidget-io" href="https://forecast7.com/en/'+province.WeatherWidget+'" data-label_1="'+name+'" data-label_2="'+region.Name+'"'+
         'data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="clear"  data-basecolor="rgba(155, 205, 245, 0.59)" data-textcolor="#000441" >name Region.Name</a>'+
         '<script>'+
         "!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');"+
         '</script>':"")
       
-        info.viator='<center><h3>Recommended Tours in '+(province.Viator?name:region.Name)+'</h3></center>'+
+        info.viator='<center><h3>Esperienze e Tour a '+(province.Viator?name:region.Name)+'</h3></center>'+
         '<div data-vi-partner-id=P00045447 data-vi-language=en data-vi-currency=EUR data-vi-partner-type="AFFILIATE" data-vi-url="'+
         (region.Name=='Molise'?'':'https://www.viator.com/')+(province.Viator?province.Viator:region.Viator)+'"'+
         (province.Viator.includes(",")||region.Name=='Molise'?"":' data-vi-total-products=6 ')+
@@ -379,15 +371,16 @@ function populateData(data){
       provinces[province["Name"]]=province;
       provinces[province["Name"]].index=i;
       facts[province["Region"]].provinces.push(province.Name) //add province to region dictionary
-     
+      
       facts[en(province["Name"])]={}; //initialize "facts" dictionary with each province
       facts[en(province["Name"])].snippet=
-      '<figure class="column is-3 related"><a href="https://expiter.com/province/'+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
+      '<figure class="column is-3 related"><a href="https://expiter.com/province/'+en(province.Name).replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
       '<img title="'+en(province.Name)+'" load="lazy" src="'+
       'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
       'alt="Province of '+en(data[i].Name)+', '+en(data[i].Region)+'"></img>'+
       '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></a></figure>";
     }
+    
     avg=data[107];
     
   }
@@ -526,23 +519,73 @@ function en(word){
 
 facts["Agrigento"].overview=""
 
-facts.Milan.introduction="Milan is one of the most popular and dynamic cities in Italy, attracting millions of visitors and expats every year.<br><br>It is the economic, financial and fashion capital of the country, offering a variety of opportunities and experiences for those who live there.<br><br>Living in Milan as an expat can be both exciting and challenging. You can enjoy the benefits of living in a vibrant and cosmopolitan city that offers a lot of opportunities and experiences, but the price for this is that the city has the highest cost of living in the entire country."
-facts.Milan.overview="Milan is the second most populous city in Italy, after "+addLinkTo("Rome")+", with about 1.4 million inhabitants.<br><br>It is also the core of the wider Milan metropolitan area, which is estimated to have between 8.2 million and 12.5 million people.<br><br>Milan is the economic capital of Italy and a global financial centre. It is known for its industries, especially in the fields of fashion, design, media, and commerce.<br><br>It has a GDP of about €400 billion ($493 billion), making it the richest city in Italy and one of the richest in Europe."
-facts.Milan.costofliving="The cost of living in Milan is high compared to other Italian cities. It is the most expensive city in Italy and one of the most expensive in Europe.<br><br>A family of four estimated monthly costs are €5,036 without rent, and a single person estimated monthly costs are €3,007 without rent.<br><br>Rent in Milan is also high, especially in the city centre. For example, a one-bedroom apartment in the city centre costs about €1,000 per month, while a three-bedroom apartment costs about €2,000 per month3.<br><br>The prices of food, transportation, utilities, and entertainment are also higher than the national average."
-facts.Milan.culture="Milan is a cosmopolitan and multicultural city, with a diverse and vibrant population.<br><br>It is home to people from different countries, cultures and backgrounds, who contribute to the city’s social and artistic life.<br><br>Milan is also a cultural and artistic center, with a rich history and heritage.<br><br>It hosts many museums, galleries, theaters, festivals and events, covering various fields of interest, such as art, music, literature, cinema, fashion and design.<br><br>Some of the most famous cultural attractions in Milan are the Pinacoteca di Brera, the Museo del Novecento, the Triennale, the Palazzo Reale, the Museo Poldi Pezzoli and the Museo Nazionale della Scienza e della Tecnologia."
-facts.Milan.economy="Milan is the economic engine of Italy, and one of the main financial and business hubs in Europe.<br><br>It has a diversified and dynamic economy, based on sectors such as banking, insurance, fashion, design, media, publishing, tourism, trade and services.<br><br>It is also a leading center for innovation and research, hosting several universities, colleges and institutes, such as the Bocconi University, the Politecnico di Milano, the Università Cattolica del Sacro Cuore and the Università degli Studi di Milano.<br><br>Milan offers many opportunities for work and career development, especially for highly skilled and qualified professionals.<br><br>However, it is also a very competitive and demanding city, where the work ethic is strong and the cost of living is high.<br><br>Milan is one of the richest cities in Italy and Europe, but it also faces some social and economic challenges, such as poverty, inequality, unemployment and immigration.<br><br>According to the latest data, about 15% of the population in Milan lives below the poverty line, and about one in ten is unemployed.<br><br>The city also hosts a large number of immigrants, mostly from Eastern Europe, Africa and Asia, who often face difficulties in integrating and accessing basic services.<br><br>The city authorities have implemented various policies and initiatives to address these issues, such as social housing, welfare programs, education and training, cultural integration and security."
-facts.Milan.education="Milan is a student city, with a large and diverse student population.<br><br>It has several public and private universities and colleges, offering a wide range of courses and degrees, from humanities and social sciences to engineering and medicine.<br><br>Some of the most prestigious and renowned academic institutions in Milan are the Bocconi University, the Politecnico di Milano, the Università Cattolica del Sacro Cuore and the Università degli Studi di Milano.<br><br>The city also has many international schools, catering to the needs of expat families and children.<br><br>Some of the most popular and reputable international schools in Milan are the American School of Milan, the British School of Milan, the International School of Milan and the St. Louis School."
-facts.Milan.safety="Milan is a safe city for tourists and expats, with a relatively low crime rate compared to other major cities in Italy and Europe.<br><br>However, some precautions are recommended, especially in certain areas and situations.<br><br>The most common crimes in Milan are pickpocketing, bag-snatching, scams and vandalism, which usually target crowded and touristy places, such as the city center, the railway station, the metro and the buses.<br><br>To avoid these risks, it is advisable to be vigilant and careful, to keep your valuables close and secure, to avoid suspicious or aggressive people, and to report any incident to the police.<br><br>Milan is also generally safe at night, but it is better to avoid walking alone in dark and isolated streets, and to stick to the well-lit and busy areas."
-facts.Milan.climate="Living in Milan means experiencing four seasons, each with its own charm and challenges.<br><br>In the summer, it’s hot and humid, and you can enjoy the sun and the nightlife.<br><br>In the winter, it’s cold and foggy, and you can admire the snow and the decorations.<br><br>The spring and the autumn are mild and pleasant, with some rain and some sun.<br><br>You can see the flowers and the leaves, and enjoy the culture and the art.<br><br>Milan is not very sunny or rainy by Italian standards, but it still has some clear and bright days, and some wet and cloudy days.<br><br>The weather can be changeable and unpredictable, so you need to be prepared for anything."
-facts.Milan.pros="Overall, Milan is a vibrant and cosmopolitan city, with a rich culture and history.<br><br>You can explore its many attractions, such as museums, art galleries, theatres, and festivals, and immerse yourself in its culture.<br><br>It is also a fashion capital, with many famous brands and designers based in the city, and a lot of shopping opportunities.<br><br>The city has a good public transportation system, which makes it easy to get around and to other major European cities, such as Paris, Berlin, and Zurich.<br><br>Not only that, but you can also enjoy its green spaces and parks, where you can relax and connect with nature, or its lakes and mountains, where you can have fun and adventure.<br><br>Milan is a multicultural and diverse city, where you can meet people from different backgrounds and sectors, such as banking, industrial and design.<br><br>English is more widely spoken here than in other Italian cities, which makes it easier for you to communicate and find work.<br><br>The city has a dynamic and innovative economy, which offers you many opportunities for career growth and development.<br><br>Milan has a high quality of life, with excellent education, healthcare, and social services, which ensure your well-being and happiness."
-facts.Milan.cons="Milan can be expensive and challenging to live in.<br><br>You can face difficulties in finding affordable housing, especially in the city centre, where the prices are very high.<br><br>You can also spend a lot on food, utilities, entertainment, and healthcare, which are higher than the national average.<br><br>The city can be crowded and noisy, especially during peak tourist season, when it is full of visitors and events.<br><br>It can also be polluted, with poor air quality and traffic congestion, which can affect your health and mood.<br><br>Milan is not very friendly to foreigners, and the language barrier can be a challenge, especially if you don’t speak Italian.<br><br>You can also have trouble making friends and integrating into the local community, which can make you feel lonely and isolated.<br><br>Moreover, the city can have a fast-paced and competitive lifestyle, which can be stressful and exhausting, especially if you have to balance work and personal life.<br><br>In addition to that, compared to other parts of Italy, Milan can have a cold and humid climate, with foggy and rainy winters, which can make you feel gloomy and depressed."
-facts.Milan.prosandconstable="<center><table class='table center'>   <tr>     <th>Pros</th>     <th>Cons</th>   </tr>   <tr>     <td>Vibrant and cosmopolitan city</td>     <td>Expensive city</td>   </tr>   <tr>     <td>Rich culture and history</td>     <td>Crowded and noisy</td>   </tr>   <tr>     <td>Fashion capital</td>     <td>Polluted</td>   </tr>   <tr>     <td>Well-developed public transportation</td>     <td>Not very friendly to foreigners</td>   </tr>   <tr>     <td>Close to other major European cities</td>     <td>Language barrier</td>   </tr>   <tr>     <td>Many green spaces and parks</td>     <td>Hard to make friends and integrate</td>   </tr>   <tr>     <td>Surrounded by beautiful lakes and mountains</td>     <td>Fast-paced and competitive lifestyle</td>   </tr>   <tr>     <td>Multicultural and diverse</td>     <td>Cold and humid climate</td>   </tr>   <tr>     <td>English is more widespread</td>     <td></td>   </tr>   <tr>     <td>Dynamic and innovative economy</td>     <td></td>   </tr>   <tr>     <td>High quality of life</td>     <td></td>   </tr> </table></center>"
-facts.Milan.forExpats="Milan is a vibrant and cosmopolitan city that attracts many expats from different countries and backgrounds.<br><br>It is the economic, financial and fashion capital of Italy, offering a variety of opportunities and experiences for those who live there.<br><br>Living in Milan as an expat can be both exciting and challenging. You can enjoy the benefits of living in a modern and dynamic city that offers a lot of culture, entertainment, shopping and gastronomy, but you also have to deal with the high cost of living, the language barrier, the bureaucracy and the traffic.<br><br>Some of the best areas for expats to live in Milan are Porta Nuova, Isola, Garibaldi, Brera and Navigli."
-facts.Milan.forWomen="Milan is a great city for women who want to pursue their personal and professional goals.<br><br>It is a city that empowers women and offers them a lot of opportunities in various fields, especially in fashion, design, media and business.<br><br>Women in Milan can enjoy a high quality of life, a rich cultural scene, a diverse and inclusive society, and a safe and secure environment.<br><br>However, women in Milan also face some challenges, such as the gender pay gap, the glass ceiling, the work-life balance, and the social pressure to conform to certain standards of beauty and style."
-facts.Milan.forStudents="Milan is a popular destination for students who want to study in Italy or abroad.<br><br>It is a city that offers a wide range of academic programs, from arts and humanities to engineering and sciences, from public and private universities to international and prestigious institutions.<br><br>Students in Milan can benefit from a stimulating and innovative learning environment, a lively and diverse student community, a rich and varied cultural offer, and a lot of opportunities for internships and career development.<br><br>However, students in Milan also have to cope with the high cost of living, the competitive and demanding academic standards, the limited availability of accommodation, and the complex bureaucracy and regulations."
-facts.Milan.forLGBTQ="Milan is one of the most LGBTQ-friendly cities in Italy and Europe.<br><br>It is a city that celebrates diversity and inclusion, and that supports and protects the rights and freedoms of LGBTQ people.<br><br>LGBTQ people in Milan can enjoy a vibrant and colorful social scene, a large and active LGBTQ community, a lot of events and festivals, and a lot of resources and services.<br><br>However, LGBTQ people in Milan also have to face some challenges, such as discrimination, harassment, violence, and homophobia, especially in some conservative and religious sectors of the society."
-facts.Milan.walkable="Milan is a city that has a moderate level of walkability, as it is large, sprawling, and divided into different zones.<br><br>It also has a comprehensive public transport network, consisting of buses, trams, metro, and suburban trains, that covers the whole city and the nearby towns.<br><br>However, Milan also has some drawbacks for walkers, such as long distances, high prices, noise, and smog."
-facts.Milan.fun="Milan is a fun city for those who love nightlife and recreation, with a variety of options to suit different tastes and budgets.<br><br>It is famous for its aperitivo, a pre-dinner drink accompanied by snacks and finger food, which is a social and relaxing way to start the evening.<br><br>It has many bars and clubs, ranging from elegant and sophisticated to casual and lively, where you can enjoy cocktails, music, dancing and meeting new people.<br><br>Some of the most popular nightlife areas in Milan are Navigli, Brera, Corso Como, Porta Romana and Isola.<br><br>It also has many venues for live music, comedy, theater and other performances, such as Zelig Cabaret, Nidaba Theatre, La Chiesetta and The Club Milano.<br><br>For those who prefer more cultural and leisure activities, Milan offers many museums, parks, cinemas, theaters and shopping centers, where you can spend a fun and enjoyable day.<br><br>Some of the most fun and interesting attractions in Milan are the Sforza Castle, the Duomo, the Galleria Vittorio Emanuele II, the San Siro Stadium and the Idroscalo.<br><br>Milan is a city that never sleeps, and it will always surprise you with its fun and vibrant atmosphere."
+facts.Milan.introduction="Milano, capoluogo della regione Lombardia, è la città più prospera e industriale d'Italia. È il centro finanziario del paese e uno dei più ricchi in Europa. La città è famosa per la sua vitalità e per il suo patrimonio storico, culturale e architettonico. Milano è una città che offre molte opportunità, sia per chi ci vive sia per chi la visita come turista.";
+
+facts.Milan.overview="Milano è la seconda città più popolosa d'Italia dopo "+addLinkTo('Roma')+". La città ha una popolazione di circa 1,4 milioni di persone, mentre la sua area metropolitana conta 3,22 milioni di residenti. L'area urbana di Milano, che si estende ben oltre i confini della città metropolitana amministrativa e si estende fino alla vicina Svizzera, è la quarta più grande dell'UE con 5,27 milioni di abitanti. Milano è considerata la capitale economica dell'Italia e un centro finanziario globale.";
+
+facts.Milan.costofliving="Il costo della vita a Milano è piuttosto alto. Il costo medio della vita a Milano è di $2056, che lo colloca tra il 17% delle città più costose del mondo. Il salario mediano dopo le tasse è di $1853, che è sufficiente per coprire le spese di vita.";
+
+facts.Milan.culture="Milano è famosa per la sua ricca cultura e storia. La città è conosciuta per la sua moda, il design, l'arte, il teatro, la letteratura, la musica e la cucina. Milano ospita numerosi musei, università, accademie, palazzi, chiese, biblioteche, gallerie d'arte, teatri, ristoranti, bar e club. La città è anche famosa per la sua vita notturna e per le sue numerose feste e festival.";
+
+facts.Milan.economy="Milano è la città più importante e la seconda più popolosa d'Italia. È uno dei centri economici più importanti d'Italia e d'Europa. Milano ha superato Berlino per dimensioni dell'economia nel 2014, ed è da allora la città più ricca tra i Quattro Motori per l'Europa. <br><br> L'entroterra di Milano è la più grande area industriale d'Italia. Il PIL pro capite di Milano di circa €49.500 (US$55.600) è tra i più alti d'Italia. Milano ospita circa 2000 multinazionali estere, pari al 45% di quelle presenti in Italia.";
+
+facts.Milan.education="Milano offre una vasta rete di scuole pubbliche e private sotto il curriculum italiano, oltre a una serie di scuole straniere e internazionali. <br><br> Milano è una delle destinazioni europee più popolari per gli studi universitari: ospita 11 istituzioni di livello universitario e sette accademie d'arte. Tra le università più importanti ci sono l'Università degli Studi di Milano e il Politecnico di Milano.";
+
+facts.Milan.safety="Milano è considerata una città molto sicura, sebbene alcune aree attirino molti borseggiatori. Ci sono quartieri fuori dalla città che è meglio evitare. <br><br> Alcune truffe sono possibili al centro del Duomo dove le persone ti chiederanno dei soldi. Secondo Numbeo.com, i livelli di criminalità a Milano sono moderati, simili a molte altre grandi città europee, e la criminalità è aumentata negli ultimi 3 anni.";
+
+facts.Milan.climate="A Milano, il clima è moderatamente continentale, con inverni freddi e umidi, ed estati calde e afose. La città si trova nell'Italia nord-occidentale, nella Valpadana, una pianura chiusa da tre lati, con le Alpi a nord e a ovest, e gli Appennini a sud. <br><br> Le precipitazioni a Milano sono significative, con precipitazioni anche nei mesi più secchi. Se vivi a Milano, puoi aspettarti nebbia in inverno e un caldo afoso in estate.";
+
+facts.Milan.pros = "Milano è una città vibrante con una ricca storia e cultura.<br><br>È un importante centro finanziario e di moda, offrendo numerose opportunità di lavoro.<br><br>La città attrae molti expat internazionali, creando un ambiente multiculturale.<br><br>Le università di Milano sono rinomate, rendendo la città un'ottima scelta per gli studenti.<br><br>La movida di Milano è vivace, con una vasta gamma di ristoranti, negozi, e locali notturni.<br><br>Infine, Milano offre una vasta gamma di musei e eventi culturali.<br><br>Il sistema di trasporto pubblico a Milano è efficiente e ben sviluppato."
+
+facts.Milan.cons = "Vivere a Milano può essere costoso, con costi di affitto e vita generalmente più alti rispetto ad altre città italiane.<br><br>Il traffico può essere intenso e la qualità dell'aria può essere un problema a causa dell'inquinamento.<br><br>Il clima a Milano può essere un svantaggio rispetto alle città del sud Italia, con inverni più freddi e estati meno calde.<br><br>La città può essere molto affollata, soprattutto durante la settimana della moda o altri grandi eventi.<br><br>Infine, il ritmo di vita a Milano può essere frenetico, il che potrebbe non piacere a tutti."
+
+facts.Milan.prosandconstable = `
+<center>
+<table class='table center'>
+  <tr>
+    <th>Pro</th>
+    <th>Contro</th>
+  </tr>
+  <tr>
+    <td>Una città vibrante con una ricca storia e cultura.</td>
+    <td>Costi di affitto e vita generalmente più alti rispetto ad altre città italiane.</td>
+  </tr>
+  <tr>
+    <td>Un importante centro finanziario e di moda, offrendo numerose opportunità di lavoro.</td>
+    <td>Traffico intenso e problemi di qualità dell'aria a causa dell'inquinamento.</td>
+  </tr>
+  <tr>
+    <td>Attrae molti expat internazionali, creando un ambiente multiculturale.</td>
+    <td>Clima più freddo in inverno e meno caldo in estate rispetto alle città del sud Italia.</td>
+  </tr>
+  <tr>
+    <td>Università rinomate, rendendo la città un'ottima scelta per gli studenti.</td>
+    <td>Città molto affollata, soprattutto durante la settimana della moda o altri grandi eventi.</td>
+  </tr>
+  <tr>
+    <td>Movida vivace, con una vasta gamma di ristoranti, negozi, e locali notturni.</td>
+    <td>Ritmo di vita frenetico, il che potrebbe non piacere a tutti.</td>
+  </tr>
+  <tr>
+    <td>Vasta gamma di musei e eventi culturali.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Sistema di trasporto pubblico efficiente e ben sviluppato.</td>
+    <td></td>
+  </tr>
+</table>
+</center>
+`;
+
+facts.Milan.forStudents="Milano è una città che offre un'atmosfera internazionale e moderna, con una vasta offerta culturale.<br><br>Vivere a Milano come studente fuori sede significa stabilirsi nella seconda città più grande d'Italia.<br><br>La città ospita molte università di rilievo internazionale, come il Politecnico per l'ingegneria e la Bocconi per gli indirizzi economici.<br><br>Milano offre una vasta gamma di opportunità attraverso le sue università pubbliche e private. Tuttavia, tieni presente che Milano non è una città economica rispetto al resto dell'Italia e dell'Europa."
+facts.Milan.forFamilies="Milano è una città molto adatta alle famiglie.<br><br>Offre una vasta gamma di attività per bambini di tutte le età, dai musei interattivi ai parchi e giardini.<br><br>Le scuole a Milano sono di alto livello, con molte opzioni per l'istruzione bilingue.<br><br>Inoltre, la città è ben collegata con il resto del paese e dell'Europa, rendendo facile per le famiglie viaggiare e esplorare."
+facts.Milan.walkable="Milano è una città amica dei pedoni. L’intero centro può essere attraversato in un paio d’ore, fermandosi ovunque per fare shopping, visitare luoghi di interesse e godersi i panorami.<br><br> Milano è molto semplice da girare, grazie a una rete estesa di trasporti sotterranei e di superficie.<br><br> La Carta della Mobilità elaborata da ATM spa, come gestore del servizio di trasporto pubblico, è uno strumento utile per la tutela dei clienti del servizio di pubblico trasporto."
+
+facts.Milan.fun="Milano è la città della vita notturna per eccellenza. Teatri per una serata elegante, musei con aperture serali per chi ama la cultura, discoteche famose in tutta Italia, pub, bar con musica dal vivo, locali per l’aperitivo e l’happy hour.<br><br> La movida milanese è protagonista in diverse zone della città, dal quartiere Isola al quartiere Garibaldi, Navigli, da Città Studi fino a Corso Sempione."
+facts.Milan.richorpoor="Milano è considerata la città più ricca d’Italia, con un reddito pro capite di più di 30mila euro.<br><br>Tuttavia, presenta una grande disuguaglianza economica tra i suoi quartieri. Ad esempio, il reddito medio nel centro storico può raggiungere 88.745 euro, mentre in quartieri come Quarto Oggiaro è di soli 17.628 euro.<br><br>Nonostante la ricchezza generale, la povertà è un problema crescente a Milano. Nel 2020, la povertà assoluta è aumentata, raggiungendo il livello più alto dal 2005, in particolare nel Nord e nelle aree metropolitane."
+facts.Milan.cleanliness="Milano è conosciuta per la sua pulizia e l'attenzione alla gestione dei rifiuti rispetto ad altre città italiane.<br><br>La città ha un sistema di raccolta differenziata efficiente e i cittadini sono generalmente consapevoli dell'importanza del riciclaggio. Tuttavia, come molte grandi città, Milano affronta la sfida dello smog."
+
 
 facts.Rome.introduction="Rome is one of the oldest and most influential cities in the world, with a history that spans over 2,500 years.<br><br>It is the capital of Italy and the seat of the Roman Catholic Church, as well as a UNESCO World Heritage Site.<br><br>Living in Rome as an expat can be both rewarding and challenging. You can enjoy the beauty and culture of the city, but also face the difficulties of traffic, bureaucracy, and pollution.<br><br>Rome is a city of contrasts, where ancient monuments coexist with modern buildings, and where tradition and innovation blend together."
 facts.Rome.overview="Rome is the most populous city in Italy, with about 2.8 million inhabitants.<br><br>It is also the core of the wider Rome metropolitan area, which is estimated to have between 4.2 million and 6.7 million people.<br><br>Rome is the political and administrative capital of Italy and a major cultural and tourist center. It is known for its landmarks, such as the Colosseum, the Pantheon, the Vatican, and the Trevi Fountain.<br><br>It has a GDP of about €200 billion ($246 billion), making it the fourth richest city in Italy and one of the largest economies in Europe."
@@ -881,26 +924,25 @@ facts.Vicenza.walkable="Vicenza’s public transportation is managed by Società
 function addLinkTo(city){
   return "<a href='https://expiter.com/blog/living-in-"+city.toLowerCase().replace(" ","-")+"'>"+city+"</a>"
 }
-
 function relatedArticles(city){
-  let related="<h2>Related Articles</h2>"+
-  "<row class='columns is-multiline is-mobile'>";
-  let candidates = selection.filter(x => x !== city);
-  candidates.sort( () => .5 - Math.random() );
-  let r1=candidates.pop()
-  let r2=candidates.pop()
-  let r3=candidates.pop()
+    let related="<h2>Articoli correlati</h2>"+
+    "<row class='columns is-multiline is-mobile'>";
+    let candidates = selection.filter(x => x !== city);
+    candidates.sort( () => .5 - Math.random() );
+    let r1=candidates.pop()
+    let r2=candidates.pop()
+    let r3=candidates.pop()
+    related+='<div class="articlecard column is-4"><figure>'+
+    '<a href="https://expiter.com/blog/living-in-'+r1.toLowerCase().replace(" ","-")+'/">'+
+    '<img src="https://expiter.com/img/blog/living-in-'+r1.toLowerCase().replace(" ","-")+'.webp"></img>'+
+  '<figcaption><h3>Come è vivere a '+r1+'?</h3></figcaption></a></figure></div>'
   related+='<div class="articlecard column is-4"><figure>'+
-  '<a href="https://expiter.com/blog/living-in-'+r1.toLowerCase().replace(" ","-")+'/">'+
-  '<img src="https://expiter.com/img/blog/living-in-'+r1.toLowerCase().replace(" ","-")+'.webp"></img>'+
-'<figcaption><h3>What is it like to live in '+r1+'?</h3></figcaption></a></figure></div>'
-related+='<div class="articlecard column is-4"><figure>'+
-'<a href="https://expiter.com/blog/living-in-'+r2.toLowerCase().replace(" ","-")+'/">'+
-'<img src="https://expiter.com/img/blog/living-in-'+r2.toLowerCase().replace(" ","-")+'.webp"></img>'+
-'<figcaption><h3>What is it like to live in '+r2+'?</h3></figcaption></a></figure></div>'
-related+='<div class="articlecard column is-4"><figure>'+
-'<a href="https://expiter.com/blog/living-in-'+r3.toLowerCase().replace(" ","-")+'/">'+
-'<img src="https://expiter.com/img/blog/living-in-'+r3.toLowerCase().replace(" ","-")+'.webp"></img>'+
-'<figcaption><h3>What is it like to live in '+r3+'?</h3></figcaption></a></figure></div></row>'
-  return related;
-}
+  '<a href="https://expiter.com/blog/living-in-'+r2.toLowerCase().replace(" ","-")+'/">'+
+  '<img src="https://expiter.com/img/blog/living-in-'+r2.toLowerCase().replace(" ","-")+'.webp"></img>'+
+  '<figcaption><h3>Come è vivere a '+r2+'?</h3></figcaption></a></figure></div>'
+  related+='<div class="articlecard column is-4"><figure>'+
+  '<a href="https://expiter.com/blog/living-in-'+r3.toLowerCase().replace(" ","-")+'/">'+
+  '<img src="https://expiter.com/img/blog/living-in-'+r3.toLowerCase().replace(" ","-")+'.webp"></img>'+
+  '<figcaption><h3>Come è vivere a '+r3+'?</h3></figcaption></a></figure></div></row>'
+    return related;
+  }
