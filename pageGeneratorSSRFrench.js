@@ -1,3 +1,4 @@
+import * as pb from './js/pageBuilder.js'
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
@@ -168,7 +169,7 @@ console.log('error: ' + err);
             '</figure>'
             
             appendProvinceData(province, $);
-            setNavBar($);
+            pb.setNavBarFR($);
             
             $(".title").text('Comment vivre à '+fr(province.Name)+' - Qualité de vie, coûts et choses à savoir');
             $("#overview").append(map)
@@ -338,30 +339,7 @@ console.log('error: ' + err);
             return info;
           }
 
-            function setNavBar($){
-                $("#navbar").append(
-                '<div class="navbar-container">'+
-                '<input type="checkbox" name="navbar" id="nbar">'+
-                '<div class="hamburger-lines">'+
-                    '<span class="line line1"></span>'+
-                    '<span class="line line2"></span>'+
-                    '<span class="line line3"></span>'+
-                '</div>'+
-                '<ul class="menu-items">'+
-                    '<li><a href="/">Home</a></li>'+
-                    '<li><a href="https://expiter.com/it/resources/">Risorse</a></li>'+
-                    '<li><a href="https://expiter.com/it/tools/codice-fiscale-generator/">Strumenti</a></li>'+
-                    '<li><a href="https://expiter.com/it/app/#About">About</a></li>'+
-                    '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
-                    '</ul>'+
-                    '  <label class="switch" id="switch">'+
-                    '<input type="checkbox">'+
-                    '<span class="slider round"></span>'+
-                  '</label>'+
-               '<a href="/"><div class="logo">Italy Expats & Nomads</div></a>'+
-              '</div>')
-              }
-              
+           
               function populateFacts(){
                 facts.Roma.overview="La <b>ville de Rome</b>, avec 2.761.632 habitants, est la ville la plus peuplée et la <b>capitale de l'Italie</b>."
               facts.Milano.overview="La <b>ville de Milan</b>, avec 1.371.498 habitants, est la deuxième ville la plus peuplée et la <b>capitale industrielle, commerciale et financière de l'Italie</b>."

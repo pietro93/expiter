@@ -1,3 +1,4 @@
+import * as pb from './js/pageBuilder.js';
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
@@ -169,7 +170,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '</figure>'
         
         appendProvinceData(province, $);
-        setNavBar($);
+        pb.setNavBarIT($);
         
         $(".title").text('Come si vive a '+province.Name+' - Qualità della vita, costi e cose da sapere');
         $("#overview").append(map)
@@ -361,32 +362,7 @@ function populateFacts(){
     facts.Milano.overview="The <b>city of Milan</b>, with 1,371,498 residents, is the second-most popolous city and <b>industrial, commercial and financial capital of Italy</b>."
     
     }
-
-
-    function setNavBar($){
-        $("#navbar").append(
-        '<div class="navbar-container">'+
-        '<input type="checkbox" name="navbar" id="nbar">'+
-        '<div class="hamburger-lines">'+
-            '<span class="line line1"></span>'+
-            '<span class="line line2"></span>'+
-            '<span class="line line3"></span>'+
-        '</div>'+
-        '<ul class="menu-items">'+
-            '<li><a href="/">Home</a></li>'+
-            '<li><a href="https://expiter.com/it/resources/">Risorse</a></li>'+
-            '<li><a href="https://expiter.com/it/tools/codice-fiscale-generator/">Strumenti</a></li>'+
-            '<li><a href="https://expiter.com/it/app/#About">About</a></li>'+
-            '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
-            '</ul>'+
-            '  <label class="switch" id="switch">'+
-            '<input type="checkbox">'+
-            '<span class="slider round"></span>'+
-          '</label>'+
-       '<a href="/"><div class="logo">Italy Expats & Nomads</div></a>'+
-      '</div>')
-      }
-      
+    
       
 function populateData(data){
      for (let i = 108; i < data.length; i++) {
@@ -530,3 +506,4 @@ function populateData(data){
     }
   }
   
+
