@@ -1,4 +1,5 @@
 import * as pb from './js/pageBuilder.js'
+import {fr} from './js/pageBuilder.js'
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
@@ -28,14 +29,14 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         //console.log(dom.window.document.querySelector("body").textContent)
         dataset=data;  
         populateData(data);
-        const html = fs.readFileSync('./indexTemplateIT.html','utf8');
+        const html = fs.readFileSync('./indexTemplateFR.html','utf8');
         const dom = new jsdom.JSDOM(html);
   
         const $ = require('jquery')(dom.window);
         init($)
         
         let newHtml = dom.window.document.documentElement.outerHTML;
-         fs.writeFile('it/app.html', newHtml, function (err, file) {
+         fs.writeFile('fr/app.html', newHtml, function (err, file) {
             if (err) throw err;
             else console.log('app.html'+' Saved!');
         });
@@ -72,7 +73,7 @@ function populateData(data){
 
 function init($){
     console.log("setting nav bar")
-    setNavBar($);
+    pb.setNavBarFR($);
     if (!!$("#filters")){
     let filters = $("#filters");
     let regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
@@ -375,7 +376,7 @@ function qualityScore(quality,score){
     else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>moyen</score>"}
     else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>élevé</score>"}
     else if (score>=avg[quality]*1.2){return "<score class='poor max'>cher</score>"}
-  
+  }
   else if (expenses.includes(quality)){
     if (score<avg[quality]*.8){return "<score class='green'>"+score+"€/m</score>"}
     else if (score>=avg[quality]*0.8&&score<avg[quality]*0.95){return "<score class='green'>"+score+"€/m</score>"}
@@ -418,11 +419,13 @@ function qualityScore(quality,score){
       }
     }
 
+  }
+
     function clearData($){
         $("#app").innerHTML="";
       }
     
-      function appendData($,data) {
+function appendData($,data) {
         console.log("effacement des données")
         clearData($);
         console.log("données effacées... ajout de nouvelles données")
@@ -519,3 +522,41 @@ function qualityScore(quality,score){
           case "Valle d'Aosta": img="AO"; break;
           case "Veneto": img="VE"; break;
         }
+
+            //if ($(window).width() > 765) {
+        //card +='<img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-190,h-250,c-at_least" alt="'+data[i].Name+'"></img>'
+       // }
+      //  else{
+        card +='<img title="'+fr(data[i].Name)+'" '+ (i>2?'loading="lazy"':"") +' src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+img+'.webp?tr=w-180,h-240,c-at_least,q-1,bl-1" width="180" height="240" alt="Province de '+fr(data[i].Name)+', '+fr(data[i].Region)+'"></img>'
+        //  }
+  
+          if (data[i].Name.length>14){card += '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + fr(data[i].Name) + '</h3></center></div>'}
+          else card += '<div class="frame" ><center><h3 class="header">' + fr(data[i].Name) + '</h3></center></div> ';
+          card += '<p class="region">' + data[i]["Region"]+'</p>';
+          card += '<p class="population"><ej>👥</ej>Population: <b style="color:white">'+data[i].Population.toLocaleString('en', {useGrouping:true}) +'</b>'+'</p>';
+          card += '<p>&#128184Coût: '+ qualityScore("CostOfLiving",data[i].CostOfLiving) +'';
+          card += '<p><ej>💰</ej>Dépenses: '+ qualityScore("Cost of Living (Individual)",data[i]["Cost of Living (Individual)"])+'</p>';
+          card += '<p><ej>☀️</ej>Climat: '+ qualityScore("Climate",data[i].Climate) +'</p>';
+          card += '<p><ej>🚑</ej>Santé: '+ qualityScore("Healthcare",data[i].Healthcare) +'</p>';
+          card += '<p><ej>🚌</ej>Transport: '+ qualityScore("PublicTransport",data[i]["PublicTransport"]) +'</p>';
+          card += '<p><ej>👮🏽‍♀️</ej>Sécurité: '+ qualityScore("Safety",data[i]["Safety"]) +'</p>';
+          card += '<p><ej>📚</ej>Éducation: '+ qualityScore("Education",data[i]["Education"]) +'</p>';
+          card += '<p><ej>🏛️</ej>Culture: '+ qualityScore("Culture",data[i].Culture) +'</p>';
+          card += '<p><ej>🍸</ej>Vie nocturne: '+ qualityScore("Nightlife",data[i].Nightlife) +'</p>';
+          card += '<p class="opacity6"><ej>⚽</ej>Loisirs: '+ qualityScore("Sports & Leisure",data[i]["Sports & Leisure"])+'</p>';
+          card += '<p class="opacity6"><ej>🍃</ej>Qualité de l\'air: '+ qualityScore("AirQuality",data[i]["AirQuality"]) +'</p>';
+          card += '<p class="opacity6"><ej>🏳️‍🌈</ej>LGBTQ+: '+ qualityScore("LGBT-friendly",data[i]["LGBT-friendly"]) +'</p>';
+          card += '<p class="opacity4"><ej>👩</ej>Pour les femmes: '+ qualityScore("Female-friendly",data[i]["Female-friendly"]) +'</p>';
+          card += '<p class="opacity4"><ej>👪</ej>Pour la famille: '+ qualityScore("Family-friendly",data[i]["Family-friendly"]) +'</p>';
+          card += '<p class="opacity4"><ej>🥗</ej>Pour les végétaliens: '+ qualityScore("Veg-friendly",data[i]["Veg-friendly"]) +'</p>';
+          card += '<p class="opacity4"><ej>🧳</ej>Pour les nomades: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'</p>';
+          card += '<button class="more" style="font-size:large;" onclick="location.href=\'https://expiter.com/it/province/'+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+'/\';"> Plus>> </button>';
+          card += '</card>'
+  
+          col += "<a href='https://expiter.com/fr/province/"+fr(data[i].Name).replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"\''>"+card+"</a></div>";
+          
+          mainContainer.append(col);
+          
+      }
+      
+  }

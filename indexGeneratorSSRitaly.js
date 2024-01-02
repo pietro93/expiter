@@ -72,7 +72,7 @@ function populateData(data){
 
 function init($){
     console.log("setting nav bar")
-    setNavBar($);
+    pb.setNavBarIT($);
     if (!!$("#filters")){
     let filters = $("#filters");
     let regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
@@ -561,28 +561,3 @@ function appendData($,data) {
     }
     
 }
-
-function setNavBar($){
-    $("#navbar").append(
-    '<div class="navbar-container">'+
-    '<input type="checkbox" name="navbar" id="nbar">'+
-    '<div class="hamburger-lines">'+
-        '<span class="line line1"></span>'+
-        '<span class="line line2"></span>'+
-        '<span class="line line3"></span>'+
-    '</div>'+
-    '<ul class="menu-items">'+
-        '<li><a href="https://expiter.it">Home</a></li>'+
-        '<li><a href="https://expiter.com/resources/">Resources</a></li>'+
-        '<li><a href="https://expiter.com/tools/codice-fiscale-generator/">Tools</a></li>'+
-        '<li><a href="https://expiter.it/app/#About">About</a></li>'+
-        '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
-        '</ul>'+
-        '  <label class="switch" id="switch">'+
-        '<input type="checkbox">'+
-        '<span class="slider round"></span>'+
-      '</label>'+
-   '<a href="/"><p class="logo">Italy Expats & Nomads</p></a>'+
-  '</div>')
-  }
-  

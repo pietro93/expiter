@@ -1,4 +1,5 @@
 import * as pb from './js/pageBuilder.js'
+import {fr} from './js/pageBuilder.js'
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
@@ -362,7 +363,7 @@ console.log('error: ' + err);
                   
               facts[province["Name"]]={}; //initialiser le dictionnaire "facts" avec chaque province
               facts[province["Name"]].snippet=
-              '<figure class="column is-3 related"><a href="https://expiter.it/it/province/'+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
+              '<figure class="column is-3 related"><a href="https://expiter.com/fr/province/'+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
               '<img title="'+fr(province.Name)+'" load="lazy" src="'+
               'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
               'alt="Province de '+data[i].Name+', '+data[i].Region+'"></img>'+
@@ -490,163 +491,3 @@ if (quality=="CostOfLiving"||quality=="HousingCost"){
             return "<score class='excellent max'>excellent</score>"} 
         } 
     }
-
-    function fr(province) {
-        // Use a switch case to handle the different cases
-        switch (province) {
-          // Provinces that change name from Italian to French and are still valid
-          case "Agrigento":
-            return "Agrigente";
-          case "Alessandria":
-            return "Alexandrie";
-          case "Ancona":
-            return "Ancône";
-          case "Aosta":
-            return "Aoste";
-          case "Bolzano":
-            return "Bozen";
-          case "Caltanissetta":
-            return "Caltanisetta";
-          case "Catania":
-            return "Catane";
-          case "Como":
-            return "Côme";
-          case "Cremona":
-            return "Crémone";
-          case "Firenze":
-            return "Florence";
-          case "Forlì-Cesena":
-            return "Forlì-Cesène";
-          case "Frosinone":
-            return "Frosinone";
-          case "Genova":
-            return "Gênes";
-          case "Gorizia":
-            return "Goritz";
-          case "Livorno":
-            return "Livourne";
-          case "Lucca":
-            return "Lucques";
-          case "Mantova":
-            return "Mantoue";
-          case "Massa-Carrara":
-            return "Massa-Carrare";
-          case "Messina":
-            return "Messine";
-          case "Milano":
-            return "Milan";
-          case "Modena":
-            return "Modène";
-          case "Monza e Brianza":
-            return "Monza et Brianza";
-          case "Napoli":
-            return "Naples";
-          case "Novara":
-            return "Novare";
-          case "Padova":
-            return "Padoue";
-          case "Palermo":
-            return "Palerme";
-          case "Parma":
-            return "Parme";
-          case "Pavia":
-            return "Pavie";
-          case "Perugia":
-            return "Pérouse";
-          case "Pesaro e Urbino":
-            return "Pesaro et Urbino";
-          case "Piacenza":
-            return "Plaisance";
-          case "Pisa":
-            return "Pise";
-          case "Pistoia":
-            return "Pistoia";
-          case "Prato":
-            return "Prato";
-          case "Ragusa":
-            return "Raguse";
-          case "Ravenna":
-            return "Ravenne";
-          case "Reggio Calabria":
-            return "Reggio de Calabre";
-          case "Reggio Emilia":
-            return "Reggio d'Émilie";
-          case "Roma":
-            return "Rome";
-          case "Salerno":
-            return "Salerne";
-          case "Savona":
-            return "Savone";
-          case "Siena":
-            return "Sienne";
-          case "Siracusa":
-            return "Syracuse";
-          case "Taranto":
-            return "Tarente";
-          case "Torino":
-            return "Turin";
-          case "Treviso":
-            return "Trévise";
-          case "Udine":
-            return "Udine";
-          case "Varese":
-            return "Varèse";
-          case "Venezia":
-            return "Venise";
-          case "Verona":
-            return "Vérone";
-          case "Vicenza":
-            return "Vicence";
-          case "Viterbo":
-            return "Viterbe";
-          // Provinces that do not change name from Italian to French
-          // Add Sud Sardegna province
-          case "Sud Sardegna":
-            return "Sud Sardaigne";
-          // Regions that change name from Italian to French
-          case "Abruzzo":
-            return "Abruzzes";
-          case "Basilicata":
-            return "Basilicate";
-          case "Calabria":
-            return "Calabre";
-          case "Campania":
-            return "Campanie";
-          case "Emilia-Romagna":
-            return "Émilie-Romagne";
-          case "Friuli-Venezia Giulia":
-            return "Frioul-Vénétie julienne";
-          case "Lazio":
-            return "Latium";
-          case "Liguria":
-            return "Ligurie";
-          case "Lombardia":
-            return "Lombardie";
-          case "Marche":
-            return "Marches";
-          case "Molise":
-            return "Molise";
-          case "Piemonte":
-            return "Piémont";
-          case "Puglia":
-            return "Pouilles";
-          case "Sardegna":
-            return "Sardaigne";
-          case "Sicilia":
-            return "Sicile";
-          case "Toscana":
-            return "Toscane";
-          case "Trentino-Alto Adige":
-            return "Trentin-Haut-Adige";
-          case "Umbria":
-            return "Ombrie";
-          case "Valle d'Aosta":
-            return "Vallée d'Aoste";
-          case "Veneto":
-            return "Vénétie";
-          default:
-            // Return the same name
-            return province;
-        }
-      }
-      
