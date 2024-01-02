@@ -1,3 +1,4 @@
+import * as pb from './js/pageBuilder.js'
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
@@ -65,7 +66,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
               ci = comindex.indexOf(comune.Name)
               console.log("found some extra info about "+comune.Name+" at position "+ ci)
             }
-            if (ci>0){ //this only updates towns in comuni.js
+            if (ci>-1){ //this only updates towns in comuni.js
             console.log("Writing comune \""+comune.Name+"\" ("+province.Name+") into file")
 
             let urlPath = dirName+fileName;
@@ -75,7 +76,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
           '</url>'+'\n'
 
             const dom = new jsdom.JSDOM(
-            "<html lang='en'>"+
+            "<html lang='it'>"+
             '<head><meta charset="utf-8">'+
             '<link rel="canonical" href="https://expiter.com/'+dirName+fileName+'/"/>'+
             '<link rel="alternate" hreflang="en" href="https://expiter.com/'+dirName.replace('it/','')+fileName+'/" />'+
@@ -132,13 +133,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '</body></html>'
         )
 
-        
 
         const $ = require('jquery')(dom.window)
-
         
         $("h1").text(comune.Name+", "+province.Region)
-        if (comune.Name==="Schio")$("h1").text("Schio de Janeiro, "+province.Region)
         if (dataset[i].Comuni!=undefined){
         let list=$("#list").html();
         
@@ -203,7 +201,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#related").append(info.nearby)
         $("#related").append(info.related)
         appendProvinceData(province,$)
-        setNavBar($)
+        pb.setNavBar($)
         }
         
         let html = dom.window.document.documentElement.outerHTML;
