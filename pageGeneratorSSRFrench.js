@@ -387,7 +387,7 @@ tab1[0].innerHTML+=('<p><ej>🚌</ej>Transports: '+ qualityScore("PublicTranspor
 tab1[0].innerHTML+=('<p><ej>🚥</ej>Trafic: '+ qualityScore("Traffic",province["Traffic"]));
 tab1[0].innerHTML+=('<p><ej>🚴‍♂️</ej>Vélo: '+ qualityScore('CyclingLanes',province['CyclingLanes']));
 tab1[0].innerHTML+=('<p><ej>🏛️</ej>Culture: '+ qualityScore("Culture",province.Culture));
-tab1[0].innerHTML+=('<p><ej>🍸</ej>Movida: '+ qualityScore("Nightlife",province.Nightlife));
+tab1[0].innerHTML+=('<p><ej>🍸</ej>Vie Nocturne: '+ qualityScore("Nightlife",province.Nightlife));
 tab1[0].innerHTML+=('<p><ej>⚽</ej>Loisirs: '+ qualityScore("Sports & Leisure",province["Sports & Leisure"]));
 
 tab1[1].innerHTML+=('<p><ej>🌦️</ej>Climat: '+ qualityScore("Climate",province.Climate));
