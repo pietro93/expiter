@@ -35,7 +35,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 0; i < 23; i++){
+        for (let i = 96; i < 107; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -383,7 +383,7 @@ tab1[0].innerHTML+=('<p><ej>🚌</ej>Transports: '+ qualityScore("PublicTranspor
 tab1[0].innerHTML+=('<p><ej>🚥</ej>Trafic: '+ qualityScore("Traffic",province["Traffic"]));
 tab1[0].innerHTML+=('<p><ej>🚴‍♂️</ej>Vélo: '+ qualityScore('CyclingLanes',province['CyclingLanes']));
 tab1[0].innerHTML+=('<p><ej>🏛️</ej>Culture: '+ qualityScore("Culture",province.Culture));
-tab1[0].innerHTML+=('<p><ej>🍸</ej>Movida: '+ qualityScore("Nightlife",province.Nightlife));
+tab1[0].innerHTML+=('<p><ej>🍸</ej>Vie Nocturne: '+ qualityScore("Nightlife",province.Nightlife));
 tab1[0].innerHTML+=('<p><ej>⚽</ej>Loisirs: '+ qualityScore("Sports & Leisure",province["Sports & Leisure"]));
 
 tab1[1].innerHTML+=('<p><ej>🌦️</ej>Climat: '+ qualityScore("Climate",province.Climate));
