@@ -136,9 +136,9 @@ createSorting($,"<ej>❄️</ej>Le plus froid","ColdDays");
 createSorting($,"<ej>☔</ej>Le plus humide","RainyDays");
 createSorting($,"<ej>🧳</ej>Adapté aux nomades","DN-friendly");
 createSorting($,"<ej>🏳️‍🌈</ej>Amical LGBTQ+","LGBT-friendly");
-createSorting($,"<ej>👩</ej>Amical pour les femmes","Female-friendly");
+createSorting($,"<ej>👩</ej>Amical pour femmes","Female-friendly");
 createSorting($,"<ej>👩‍👦</ej>Adapté aux familles","Family-friendly");
-createSorting($,"<ej>🥙</ej>Amical pour les végétaliens","Veg-friendly");
+createSorting($,"<ej>🥙</ej>Amical pour végétaliens","Veg-friendly");
 createSorting($,"<ej>🌆</ej>Densité de population","Density");
 createSorting($,"<ej>🏖️</ej>Meilleures plages","Beach");
 createSorting($,"<ej>⛰️</ej>Meilleures randonnées","Hiking");
@@ -532,7 +532,7 @@ function appendData($,data) {
   
           if (data[i].Name.length>14){card += '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + fr(data[i].Name) + '</h3></center></div>'}
           else card += '<div class="frame" ><center><h3 class="header">' + fr(data[i].Name) + '</h3></center></div> ';
-          card += '<p class="region">' + data[i]["Region"]+'</p>';
+          card += '<p class="region">' + fr(data[i]["Region"])+'</p>';
           card += '<p class="population"><ej>👥</ej>Population: <b style="color:white">'+data[i].Population.toLocaleString('en', {useGrouping:true}) +'</b>'+'</p>';
           card += '<p>&#128184Coût: '+ qualityScore("CostOfLiving",data[i].CostOfLiving) +'';
           card += '<p><ej>💰</ej>Dépenses: '+ qualityScore("Cost of Living (Individual)",data[i]["Cost of Living (Individual)"])+'</p>';
@@ -550,7 +550,7 @@ function appendData($,data) {
           card += '<p class="opacity4"><ej>👪</ej>Pour la famille: '+ qualityScore("Family-friendly",data[i]["Family-friendly"]) +'</p>';
           card += '<p class="opacity4"><ej>🥗</ej>Pour les végétaliens: '+ qualityScore("Veg-friendly",data[i]["Veg-friendly"]) +'</p>';
           card += '<p class="opacity4"><ej>🧳</ej>Pour les nomades: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'</p>';
-          card += '<button class="more" style="font-size:large;" onclick="location.href=\'https://expiter.com/it/province/'+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+'/\';"> Plus>> </button>';
+          card += '<button class="more" style="font-size:large;" onclick="location.href=\'https://expiter.com/fr/province/'+fr(data[i].Name).replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+'/\';"> Plus>> </button>';
           card += '</card>'
   
           col += "<a href='https://expiter.com/fr/province/"+fr(data[i].Name).replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"\''>"+card+"</a></div>";

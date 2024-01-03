@@ -75,7 +75,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
           comuniSiteMap+='<url>'+
           '<loc>'+urlPath+'</loc>'+
           '</url>'+'\n'
-/*
+
             const dom = new jsdom.JSDOM(
             "<html lang='fr'>"+
             '<head><meta charset="utf-8">'+
@@ -116,7 +116,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         '<nav id="navbar"></nav>'+
         '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="'+comune.Name+", "+province.Name+', Italy"'+'>'+
-        '</div><h1 class="title">Commune dans </h1>'+
+        '</div><h1 class="title">Commune de </h1>'+
         '<section id="'+comune.Name+' Info">'+
         '<center><table id="list">'+
         '<tr><th><b>Nome</b></th><th>'+comune.Name+'</th></tr>'+
@@ -146,8 +146,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         
         $("#list").html(list);
         let intro=comune.Name+" est une municipalité de "+comune.Population+" habitants située dans "+
-        "<a href='https://expiter.com/it/comuni/provincia-di-"+handle(province)+"'>la province de "+province.Name+"</a> dans la région "+
-        province.Region+" en "+(center.includes(province.Region)?"Italie centrale":(south.includes(province.Region)?"Italie méridionale":"Italie septentrionale"))+".";
+        "<a href='https://expiter.com/fr/municipalites/province-de-"+handle(fr(province))+"'>la province de "+fr(province.Name)+"</a> dans la région "+
+        fr(province.Region)+" en "+(center.includes(province.Region)?"Italie centrale":(south.includes(province.Region)?"Italie méridionale":"Italie septentrionale"))+".";
 
         intro+='\n'+'Elle a une <b>densité de population de '+comune.Density+' habitants par km²</b> et une <b>altitude de '+comune.Altitude+' mètres</b> au-dessus du niveau de la mer.'+'\n'
 
@@ -218,15 +218,15 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         fs.writeFile(dirName+fileName+".html", html, function (err, file) {
            if (err) throw err;
            console.log(dataset[i].Name+".html"+' Saved!');
-       });*/
+       });
     }
     }
-
+/*
     comuniSiteMap+='</urlset>'
     fs.writeFile("sitemap/towns-sitemap-4-fr.xml", comuniSiteMap, function (err, file) {
     if (err) throw err;
     console.log("towns-sitemap"+' Saved!');
-})
+})*/
 }
 } 
 )
@@ -359,7 +359,7 @@ info.tabs='<div class="tabs effect-3">'+
       info.nearby='<h2>Communes dans la Province de '+province.Name+'</h2>'+'\n'
       for (let p in province.Comuni){
         if (province.Comuni[p].Name!=comune)
-        info.nearby+='<b><a href="https://expiter.com/it/comuni/'+handle(province)+'/'+
+        info.nearby+='<b><a href="https://expiter.com/fr/municipalites/'+handle(fr(province))+'/'+
         handle(province.Comuni[p])+'/">'+province.Comuni[p].Name+'</a></b>'+' '
       }
        
