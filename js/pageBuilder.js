@@ -35,8 +35,7 @@ export function setNavBarIT($){
     '</div>'+
     '<ul class="menu-items">'+
         '<li><a href="https://expiter.com/it/">Home</a></li>'+
-        '<li><a href="https://expiter.com/it/resources/">Risorse</a></li>'+
-        '<li><a href="https://expiter.com/it/tools/codice-fiscale-generator/">Strumenti</a></li>'+
+        '<li><a href="https://expiter.com/it/risorse/generatore-codice-fiscale/">Generatore Codice Fiscale</a></li>'+
         '<li><a href="https://expiter.com/it/blog/articoli/">Blog</a></li>'+
         '<li><a href="https://expiter.com/it/app/#About">About</a></li>'+
         '</ul>'+
@@ -59,8 +58,7 @@ export function setNavBarIT($){
     '</div>'+
     '<ul class="menu-items">'+
         '<li><a href="https://expiter.com/fr/">Home</a></li>'+
-        '<li><a href="https://expiter.com/fr/ressources/">Ressources</a></li>'+
-        '<li><a href="https://expiter.com/fr/outils/generateur-de-code-fiscal/">Outils</a></li>'+
+        '<li><a href="https://expiter.com/fr/ressources/generateur-codice-fiscale/">Generateur Code Fiscal</a></li>'+
         '<li><a href="https://expiter.com/fr/blog/articles/">Blog</a></li>'+
         '<li><a href="https://expiter.com/fr/app/#About">About</a></li>'+
         '</ul>'+

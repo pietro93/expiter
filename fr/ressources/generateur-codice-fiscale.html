@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
-    <base href="/">
-    <link rel="canonical" href="https://expiter.com/tools/codice-fiscale-generator/"/>
-    <link rel="alternate" href="https://expiter.com/fr/ressources/generateur-codice-fiscale/" hreflang="fr"/>
-    <link rel="alternate" href="https://expiter.com/it/risorse/generatore-codice-fiscale/" hreflang="it"/>
+    <link rel="alternate" href="https://expiter.com/it/risorse/generatore-codice-fiscale/"  hreflang="it" />
+    <link rel="alternate" href="https://expiter.com/tools/codice-fiscale-generator/" hreflang="en"/>
+    <link rel="canonical" href="https://expiter.com/fr/ressources/generateur-codice-fiscale/"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="tools/bootstrap.min.css">
@@ -13,7 +12,7 @@
     <link rel="stylesheet" href="https://expiter.com/tools/resources-style.css">
     <link rel="stylesheet" href="https://expiter.com/style-blog.css">
     <link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media='all'">
-    <title>Codice Fiscale Generator</title>
+    <title>Générateur de Code Fiscal Italien</title>"
     <script src="https://expiter.com/jquery3.6.0.js"></script>
     <script src="https://expiter.com/script.js" defer></script>
     <script>/*!
@@ -29,9 +28,10 @@
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="../img/expiter-favicon.ico"></link>
-    <meta name="description" content="Codice Fiscale (Italian Tax Code) generator. Calculate your Italian tax code online." />
-	<meta name="keywords" content="italy, italian cities, best city in italy, italy digital nomad, italy expat" />
-    <meta property="og:description" content="Codice Fiscale (Italian Tax Code) generator. Calculate your Italian tax code online.">
+    <meta name="description" content="Générateur de Codice Fiscale (Code Fiscal italien). Calculez votre code fiscal italien en ligne." />
+<meta name="keywords" content="Italie, villes italiennes, meilleure ville en Italie, nomade numérique en Italie, expatrié en Italie" />
+<meta property="og:description" content="Générateur de Code Fiscal (Code Fiscal italien). Calculez votre code fiscal italien en ligne.">
+
     <meta property="og:image" content="https://expiter.com/img/tools/codice-fiscale-card.webp" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://expiter.com/tools/codice-fiscale-generator/" />
@@ -50,12 +50,10 @@
             </div>
         
             <ul class="menu-items">
-                <li><a href="https://expiter.com/">Home</a></li>
-                <li><a href="https://expiter.com/resources/">Resources</a></li>
-                <li><a href="https://expiter.com/tools/codice-fiscale-generator/">Tools</a></li>
-                <li><a href="https://expiter.com/blog/articles/">Blog</a></li>
-                <li><a href="https://expiter.com/app/#About">About</a></li>
-                <li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>
+                <li><a href="https://expiter.com/fr/">Home</a></li>
+                <li><a href="https://expiter.com/fr/ressources/generateur-codice-fiscale/">Generateur Code Fiscal</a></li>
+                <li><a href="https://expiter.com/fr/blog/articles/">Blog</a></li>
+                <li><a href="https://expiter.com/fr/app/#About">About</a></li>
                 </ul>
                   <label class="switch" id="switch">
                     <input type="checkbox">
@@ -69,133 +67,128 @@
 
     <div class="text-center">
         <div class="container">  
-            <center>  
-                <h1 class="title">Codice Fiscale Generator</h1>
-            <p class="subtitle">Calculate your Italian Tax Code online. </p>
-        </div>
-        <div>
-            <a href="https://expiter.com/tools/codice-fiscale-generator/#Codice Fiscale Calculator"><div class="btn quicklink">Calculate Codice Fiscale</div></a>
-          <a href="https://expiter.com/tools/codice-fiscale-generator/#Reverse Codice Fiscale"><div class=" btn quicklink">Reverse Codice Fiscale</div>
-         </div></a>
-        
-        </center>  
-    <div>
-        <section id="Codice Fiscale Calculator">
-        <h2 class="title">Calculate Codice Fiscale</h2>
-        <div id="CF" class="container card"> 
+            <center>
+                <h1 class="title">Générateur de Code Fiscal</h1>
+                <p class="subtitle">Calculez votre Code Fiscal italien en ligne.</p>
+            </center>
+            <div>
+                <a href="https://expiter.com/tools/codice-fiscale-generator/#Calcolatore Codice Fiscale"><div class="btn quicklink">Calculer le Code Fiscal</div></a>
+                <a href="https://expiter.com/tools/codice-fiscale-generator/#Reverse Codice Fiscale"><div class="btn quicklink">Code Fiscal Inversé</div></a>
+            </div>
             
-            <form id="cf-direct">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="name">Name (Nome)</label>
-                        <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="Mike" required>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="surname">Surname (Cognome)</label>
-                        <input type="text" class="form-control" id="surname" placeholder="Surname" name="surname" value="Bongiorno" required>
+            </center>  
+            <div>
+                <section id="Codice Fiscale Calculator">
+                    <h2 class="title">Calcul du Code Fiscal</h2>
+                    <div id="CF" class="container card"> 
+                        
+                        <form id="cf-direct">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Nom</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Nom" name="name" value="Mike" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="surname">Prénom</label>
+                                    <input type="text" class="form-control" id="surname" placeholder="Prénom" name="surname" value="Bongiorno" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="gender">Sexe</label>
+                                    <select class="custom-select" name="gender" id="gender" required>
+                                        <option selected value="M">Homme (M)</option>
+                                        <option value="F">Femme (F)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="birthday">Date de Naissance</label>
+                                    <input type="date" class="form-control" id="birthday" name="birthday" value="yyyy-MM-dd" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="birthday_province">Lieu de Naissance</label>
+                                    <select class="custom-select" name="birthplace_province" id="birthplace_province" required>
+                                    </select>
+                                    <sub>Choisissez "Estero" si vous êtes né en dehors de l'Italie.</sub>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="birthplace"></br></label>
+                                    <select class="custom-select" name="birthplace" id="birthplace" required>
+                                    </select>            
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="gender">Gender (Sesso)</label>
-                        <select class="custom-select" name="gender" id="gender" required>
-                            <option selected value="M">Male (M)</option>
-                            <option value="F">Female (F)</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="birthday">Date of Birth (Data di Nascita)</label>
-                        <input type="date" class="form-control" id="birthday" name="birthday" value="yyyy-MM-dd" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="birthday_province">Birthplace (Luogo di Nascita) </label>
-                        <select class="custom-select" name="birthplace_province" id="birthplace_province" required>
-                        </select>
-                        <sub>Choose "Estero" if you were born outside of Italy.</sub>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="birthplace"></br></label>
-                        <select class="custom-select" name="birthplace" id="birthplace" required>
-                        </select>
-                    </div>
-                </div>
-                <button type="submit" class="btn button" >Submit</button>
+                <button type="submit" class="btn button">ENVOYER</button>
             </form>
-        </div>
-    </br>
+            </br>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <center>
-                    <label for="cf">Your Codice Fiscale:</label>
-                    
-                    <div class="input-group mb-3 codice">
-                        <input type="text" class="form-control" id="cf-1" readonly>
-                        <div class="input-group-append">
-                            <button class="btn button" type="button" id="copy"> <ej>📋</ej>Copy</button>
+                        <label for="cf">Votre Code Fiscal :</label>
+                        
+                        <div class="input-group mb-3 codice">
+                            <input type="text" class="form-control" id="cf-1" readonly>
+                            <div class="input-group-append">
+                                <button class="btn button" type="button" id="copy"> <ej>📋</ej>Copier</button>
+                            </div>
                         </div>
-                    </div>
-                </center>
+                    </center>
                 </div>
             </div>
             <div class="alert alert-success alert-dismissible fade" id="alert">
-                Copied to clipboard.
-                <button type="button" class="close" id="copy-alert-btn" aria-label="Close">
+                Copié.
+                <button type="button" class="close" id="copy-alert-btn" aria-label="Fermer">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        </div>
-
-    </section>
+            </div>
+            </section>
             <hr>
-
-    <section id="Reverse Codice Fiscale">
-        <h2 class="title">Reverse Codice Fiscale</h2>
-            <div id="RCF" class="container card"> 
-              
-                <form id="cf-reverse">
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <center>
-                            <label for="cf">Codice Fiscale</label>
-                            <div class="input-group mb-3 codice">
-                                <input type="text" class="form-control" id="cf-2">
-                                <div class="input-group-append">
-                                    <button class="btn button" type="submit">Reverse</button>
-                                </div>
-                                <div class="invalid-feedback">
-                                    Invalid Codice Fiscale
-                                </div>
+            <section id="Reverse Codice Fiscale">
+                <h2 class="title">Code Fiscal Inversé</h2>
+                <div id="RCF" class="container card"> 
+                    <form id="cf-reverse">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <center>
+                                    <label for="cf">Code Fiscal</label>
+                                    <div class="input-group mb-3 codice">
+                                        <input type="text" class="form-control" id="cf-2">
+                                        <div class="input-group-append">
+                                            <button class="btn button" type="submit">Inverser</button>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Code Fiscal Invalide
+                                        </div>
+                                    </div>
+                                </center>
                             </div>
-                        </center>
+                        </div>
+                    </form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Nom</label>
+                            <input type="text" class="form-control" id="name-reverse" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="surname">Prénom</label>
+                            <input type="text" class="form-control" id="surname-reverse" readonly>
                         </div>
                     </div>
-                </form>
-            
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="name">Name (Nome)</label>
-                        <input type="text" class="form-control" id="name-reverse"  readonly>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="birthday">Sexe</label>
+                            <input type="text" class="form-control" id="gender-reverse" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="birthday">Date de Naissance</label>
+                            <input type="text" class="form-control" id="birthday-reverse" readonly>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="surname">Surname (Cognome)</label>
-                        <input type="text" class="form-control" id="surname-reverse" readonly>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="birthday">Gender (Sesso)</label>
-                        <input type="text" class="form-control" id="gender-reverse" readonly>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="birthday">Date of Birth (Data di Nascita)</label>
-                        <input type="text" class="form-control" id="birthday-reverse" readonly>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="birthplace">Birthplace (Luogo di Nascita)</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="birthplace">Lieu de Naissance</label>            
                         <input type="text"  class="form-control" id="birthplace_province-reverse" readonly>
                     </div>
                     <div class="form-group col-md-6">
@@ -211,62 +204,47 @@
 
         <section id="FAQs"> 
             
-            <h2>FAQs</h2>
-            <div>
-            <input type="checkbox" id="question1" name="q"  class="questions">
-            <div class="plus">+</div>
-            <label for="question1" class="question">
-              <h3>What is the Codice Fiscale (Italian Tax Code)?</h3>
-            </label>
-            <div class="answers">
-              The Codice Fiscale is a unique tax ID assigned to anyone who lives in Italy for fiscal reasons and needed for a variety of purposes from opening a bank account to purchasing a car or house.
-            </br></br>
-            <figure>
-            <center><img title="Codice Fiscale / Italian Tax ID" alt="Example of a Codice Fiscale Card" src="https://expiter.com/img/tools/codice-fiscale-card.webp" width="250" load="lazy"></img></center>
-            <figcaption>Example of an Italian Tax ID Card.</figcaption>
+            <h2>Questions Fréquentes</h2>
+<div>
+    <input type="checkbox" id="question1" name="q" class="questions">
+    <div class="plus">+</div>
+    <label for="question1" class="question">
+        <h3>Qu'est-ce que le Codice Fiscale (Code Fiscal italien) ?</h3>
+    </label>
+    <div class="answers">
+        Le Codice Fiscale est un identifiant fiscal unique attribué à toute personne vivant en Italie pour des raisons fiscales et est nécessaire pour une variété de raisons, de l'ouverture d'un compte bancaire à l'achat d'une voiture ou d'une maison.
+        </br></br>
+        <figure>
+            <center><img title="Codice Fiscale / Italian Tax ID" alt="Exemple de Carte du Codice Fiscale" src="https://expiter.com/img/tools/codice-fiscale-card.webp" width="250" load="lazy"></img></center>
+            <figcaption>Exemple de Carte d'identité fiscale italienne.</figcaption>
         </figure>
-            </div>
+    </div>
+</div>
+
+<div>
+    <input type="checkbox" id="question2" name="q" class="questions">
+    <div class="plus">+</div>
+    <label for="question2" class="question">
+        <h3>Comment puis-je demander le Codice Fiscale ?</h3>
+    </label>
+    <div class="answers">
+        Les citoyens italiens reçoivent automatiquement un codice fiscale à la naissance. Ceux qui déménagent en Italie depuis l'étranger doivent en demander un, soit à l'<b>ambassade italienne de leur pays d'origine</b>, soit à l'<b>Agenzia delle Entrate italienne</b> dans leur nouvelle résidence en Italie.
+        </br></br>
+        Il est également possible de faire une demande de code fiscal par l'intermédiaire d'un représentant professionnel.
+    </div>
+</div>
+
+<div>
+    <input type="checkbox" id="question3" name="q" class="questions">
+    <div class="plus">+</div>
+    <label for="question3" class="question">
+        <h3>Comment le Codice Fiscale est-il généré ?</h3>
+    </label>
+    <div class="answers">
+        Le codice fiscale peut être "calculé" à partir de vos données d'état civil, car il s'agit d'une combinaison de votre nom, prénom, date de naissance et lieu de naissance. Il est également possible de "déduire" un codice fiscale pour retracer les informations personnelles du propriétaire.
+    </div>
+</div>
           </div>
-          
-          <div>
-            <input type="checkbox" id="question2" name="q" class="questions">
-            <div class="plus">+</div>
-            <label for="question2" class="question">
-              <h3>How do I apply for Codice Fiscale?</h3>
-            </label>
-            <div class="answers">
-                Italian citizens are automatically assigned a fiscal code at birth. Those moving to Italy from abroad need to apply for one either from the <b>Italian ambassy in their country of origin</b> or from the </b>Italian Revenue Agency</b> (<i>Agenzia delle Entrate</i>) in their new place of residence in Italy.
-
-                It is also possible to have a professional representative apply on your behalf.
-            </div>
-          </div>
-            
-          <div>
-            <input type="checkbox" id="question3" name="q" class="questions">
-            <div class="plus">+</div>
-            <label for="question3" class="question">
-                <h3>How is the Codice Fiscale generated?</h3>
-            </label>
-            <div class="answers">
-                The tax code can be "calculated" from your demographic data, since it's a combination of your Name, Surname, date of birth, and place of birth. It is also possible to "reverse engineer" a codice fiscale to track down personal information about its owner.
-            </div>
-
-            <div>
-                <input type="checkbox" id="question4" name="q" class="questions">
-                <div class="plus">+</div>
-                <label for="question4" class="question">
-                    <h3>How can I check if a Codice Fiscale is valid?</h3>
-                </label>
-                <div class="answers">
-                    The tool hereby provided is an <i>unofficial</i> Italian tax code generator and may not be 100% accurate. In order to check if a codice fiscale is valid online, it is best to use the official tool provided by <a href="https://telematici.agenziaentrate.gov.it/VerificaCF/" target="_blank">Agenzia delle Entrate</a>.
-                </div>
-
-           
-
-          </div>
-
-
-          
 
         </section>
     </div>
