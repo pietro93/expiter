@@ -231,3 +231,82 @@ export function setNavBarIT($){
       }
     }
     
+export function de(name) {
+      switch (name) {
+          // Regions
+          case "Piemonte":
+              return "Piemont";
+          case "Valle d'Aosta":
+              return "Aostatal";
+          case "Lombardia":
+              return "Lombardei";
+          case "Trentino-Alto Adige":
+              return "Trentino-Südtirol";
+          case "Friuli-Venezia Giulia":
+              return "Friaul-Julisch Venetien";
+          case "Veneto":
+              return "Venetien";
+          case "Liguria":
+              return "Ligurien";
+          case "Umbria":
+              return "Umbrien";
+          case "Marche":
+              return "Marken";
+          case "Lazio":
+              return "Latium";
+          case "Abruzzo":
+              return "Abruzzen";
+          case "Campania":
+              return "Kampanien";
+          case "Puglia":
+              return "Apulien";
+          case "Basilicata":
+              return "Basilikata";
+          case "Calabria":
+              return "Kalabrien";
+          case "Sicilia":
+              return "Sizilien";
+          case "Sardegna":
+              return "Sardinien";
+  
+          // Provinces
+          case "Agrigento":
+              return "Agrigent";
+          case "Bolzano":
+              return "Bozen";
+          case "Firenze":
+              return "Florenz";
+          case "Genova":
+              return "Genua";
+          case "Milano":
+              return "Mailand";
+          case "Napoli":
+              return "Neapel";
+          case "Roma":
+              return "Rom";
+          case "Torino":
+              return "Turin";
+          case "Trento":
+              return "Trient";
+          case "Trieste":
+              return "Triest";
+          case "Venezia":
+              return "Venedig";
+          case "Siracusa":
+              return "Syrakus";
+          case "Gorizia":
+              return "Görz";
+          case "Monza und Brianza":
+              return "Monza und Brianza";
+          case "Padova":
+              return "Padua";
+          case "Mantova":
+              return "Mantua";
+          case "Taranto":
+              return "Tarent";
+  
+          default:
+              return name; 
+      }
+  }
+  
