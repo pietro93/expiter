@@ -34,7 +34,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
     })
 
 function fetchData(){
-for (var i=0; i<14; i++){
+for (var i=98; i<107; i++){
     let province=dataset[i].Name;
     facts[province]={};
 
