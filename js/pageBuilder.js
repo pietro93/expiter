@@ -70,6 +70,30 @@ export function setNavBarIT($){
   '</div>')
   }
 
+  export function setNavBarDE($) {
+    $("#navbar").append(
+        '<div class="navbar-container">' +
+        '<input type="checkbox" name="navbar" id="nbar">' +
+        '<div class="hamburger-lines">' +
+        '<span class="line line1"></span>' +
+        '<span class="line line2"></span>' +
+        '<span class="line line3"></span>' +
+        '</div>' +
+        '<ul class="menu-items">' +
+        '<li><a href="https://expiter.com/de/">Startseite</a></li>' +
+        '<li><a href="https://expiter.com/de/ressourcen/generateur-codice-fiscale/">Steuercode-Generator</a></li>' +
+        '<li><a href="https://expiter.com/de/blog/artikel/">Blog</a></li>' +
+        '<li><a href="https://expiter.com/de/app/#Über">Über uns</a></li>' +
+        '</ul>' +
+        '  <label class="switch" id="switch">' +
+        '<input type="checkbox">' +
+        '<span class="slider round"></span>' +
+        '</label>' +
+        '<a href="/"><div class="logo">Deutsche Expats & Nomaden</div></a>' +
+        '</div>'
+    )
+}
+
   
   export 
   function fr(province) {

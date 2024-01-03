@@ -35,7 +35,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 73; i < 107; i++){
+        for (let i = 10; i < 21; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -119,14 +119,15 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '</div><h1 class="title">Commune de </h1>'+
         '<section id="'+comune.Name+' Info">'+
         '<center><table id="list">'+
-        '<tr><th><b>Nome</b></th><th>'+comune.Name+'</th></tr>'+
-        '<tr><th><b>Provincia</b></th><th>'+fr(province.Name)+'</th></tr>'+
-        '<tr><th><b>Regione</b></th><th>'+fr(province.Region)+'</th></tr>'+
-        '<tr><th><b>Popolazione</b></th><th>'+comune.Population+'</th></tr>'+
-        '<tr><th><b>Densità</b></th><th>'+comune.Density+'ab./km²</th></tr>'+
-        '<tr><th><b>Altitudine</b></th><th>'+comune.Altitude+'m</th></tr>'+
-        '<tr><th><b>Climate Zone</b></th><th>'+(comune.ClimateZone?comune.ClimateZone:"?")+'</th></tr>'+
-        '</tr>'+
+        '<tr><th><b>Nom</b></th><th>'+comune.Name+'</th></tr>'+
+        '<tr><th><b>Province</b></th><th>'+fr(province.Name)+'</th></tr>'+
+        '<tr><th><b>Région</b></th><th>'+fr(province.Region)+'</th></tr>'+
+        '<tr><th><b>Population</b></th><th>'+comune.Population+'</th></tr>'+
+        '<tr><th><b>Densité</b></th><th>'+comune.Density+' hab./km²</th></tr>'+
+        '<tr><th><b>Altitude</b></th><th>'+comune.Altitude+'m</th></tr>'+
+        '<tr><th><b>Zone climatique</b></th><th>'+(comune.ClimateZone ? comune.ClimateZone : "?")+'</th></tr>'+
+        '</table>'+
+        '</center>';        
         '</table></center>'+
         '<p id="info"></p>'+
         '<p id="tabs"></p>'+
@@ -160,8 +161,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
 
         let zoneAtext="l'une des deux municipalités les plus chaudes d'Italie, aux côtés de"+(comune.Name=="Porto Empedocle"?
-        "s îles Pelagie de <a href='https://expiter.com/it/comuni/agrigento/lampedusa-e-linosa/>Lampedusa et Linosa</a>, qui se trouvent géographiquement près de l'Afrique":
-        'e municipalité de <a href="https://expiter.com/it/comuni/agrigento/porto-empedocle/">Porto Empedocle</a>'+
+        "s îles Pelagie de <a href='https://expiter.com/fr/municipalites/agrigente/lampedusa-e-linosa/>Lampedusa et Linosa</a>, qui se trouvent géographiquement près de l'Afrique":
+        'e municipalité de <a href="https://expiter.com/fr/municipalites/agrigente/porto-empedocle/">Porto Empedocle</a>'+
         " en Sicile 'continentale', également dans la province d'Agrigente")
         let climate='<h3>Climat</h3>'+
         '<b>'+comune.Name+'</b> est classée comme une <b>Zone Climatique '+comune.ClimateZone+'</b>, elle est '+
@@ -183,7 +184,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         ["Belluno","Verbano-Cusio-Ossola","Udine","Côme","Bergame","Varèse","Biella"].includes(province.Name))?
         "<b>des hivers longs et très froids avec beaucoup de chutes de neige</b>, <b>des étés courts et pas excessivement chauds</b>."
         :""
-        ))))))+'\n </br></br>'+"La province de "+province.Name+" a en moyenne "+((province.HotDays/3.5)*12).toFixed(2)+" jours de chaleur (températures au-dessus de 30°C) et "+
+        ))))))+'\n </br></br>'+"La province de "+fr(province.Name)+" a en moyenne "+((province.HotDays/3.5)*12).toFixed(2)+" jours de chaleur (températures au-dessus de 30°C) et "+
         ((province.ColdDays/3.5)*12).toFixed(2)+" jours de froid (températures en dessous de 5°C) par an. Il pleut (ou neige) environ "+(province.RainyDays*12).toFixed(2)+" jours par an. "+
         (province.FoggyDays<1?"Il y a très peu de brouillard pendant l'année.":"Il y a "+((province.FoggyDays/3.5)*12).toFixed(2)+" jours de brouillard pendant l'année.")+
         " "+comune.Name+" reçoit environ "+province.SunshineHours/30+" heures de soleil par jour.";
@@ -248,7 +249,7 @@ function populateData(data){
     
      facts[province["Name"]]={}; //initialize "facts" dictionary with each province
      facts[province["Name"]].snippet=
-     '<figure class="column is-3 related"><a href="https://expiter.com/province/'+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
+     '<figure class="column is-3 related"><a href="https://expiter.com/fr/province/'+fr(province.Name).replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
      '<img title="'+fr(province.Name)+'" load="lazy" src="'+
      'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
      'alt="Province de '+fr(data[i].Name)+', '+fr(data[i].Region)+'"></img>'+
@@ -266,7 +267,7 @@ function getInfo(comune,province){
     
     let info = {}
     
-    info.disclaimer='</br></br><center><span id="disclaimer">Questa pagina contiene link di affiliazione. In quanto partner di Amazon e Viator, potremmo guadagnare commissioni su acquisti idonei.</span></center>'
+    info.disclaimer = '</br></br><center><span id="disclaimer">Cette page contient des liens d'affiliation. En tant que partenaire d'Amazon et de Viator, nous pouvons percevoir des commissions sur des achats éligibles.</span></center>';
         
     info.map='</br><center class="map"><iframe id="ggmap" src="https://maps.google.it/maps?f=q&source=s_q&hl=it&geocode=&q='+comune.Name+'+Provincia+Di+'+province.Name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
     'Mostra: '+
@@ -356,7 +357,7 @@ info.tabs='<div class="tabs effect-3">'+
         '</div>'+
       '</div></div>'
 
-      info.nearby='<h2>Communes dans la Province de '+province.Name+'</h2>'+'\n'
+      info.nearby='<h2>Communes dans la Province de '+fr(province.Name)+'</h2>'+'\n'
       for (let p in province.Comuni){
         if (province.Comuni[p].Name!=comune)
         info.nearby+='<b><a href="https://expiter.com/fr/municipalites/'+handle(fr(province))+'/'+
