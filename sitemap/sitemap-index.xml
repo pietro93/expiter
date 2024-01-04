@@ -210,4 +210,7 @@
    <sitemap>
       <loc>https://expiter.com/sitemap/towns-sitemap-4-de.xml</loc>
    </sitemap>
+      <sitemap>
+      <loc>https://expiter.com/sitemap/img-sitemap.xml</loc>
+   </sitemap>
 </sitemapindex>
