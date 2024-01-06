@@ -35,11 +35,13 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             var fileName = 'regioni-italiane.html';
             
             const dom = new jsdom.JSDOM(
-            "<html lang='en'>"+
+            "<html lang='it'>"+
             '<head><meta charset="utf-8">'+
-            '<link rel="canonical" href="https://expiter.com/'+fileName+'/"/>'+
-            '<link rel="alternate" hreflang="en" href="https://expiter.com/'+fileName+'/" />'+
+            '<link rel="canonical" href="https://expiter.com/it/'+fileName+'/"/>'+
+            '<link rel="alternate" hreflang="en" href="https://expiter.com/regions-of-italy/" />'+
             '<link rel="alternate" hreflang="it" href="https://expiter.com/it/'+fileName+'/" />'+
+            '<link rel="alternate" hreflang="fr" href="https://expiter.com/fr/regions-italiennes/" />'+
+            '<link rel="alternate" hreflang="de" href="https://expiter.com/de/italienische-regionen/" />'+
             '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
             '<script type="text/javascript" src="https://expiter.com/jquery3.6.0.js" defer></script>'+
             '<script type="text/json" src="https://expiter.com/dataset.json"></script>'+
@@ -69,7 +71,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 		'</div>'+
 
         '<nav id="navbar"></nav>'+
-        '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+"ROMA"+'.webp\')" '+'title="Regions of Italy"'+'>'+
+        '<div class="hero" style="background-image:url(\'https://expiter.com/img/regions.webp\')" '+'title="Regions of Italy"'+'>'+
         '</div><h1 class="title">Regioni Italiane </h1>'+
         '<section id="Lista delle Regioni Italiane">'+
         '<center><table id="list">'+
@@ -99,7 +101,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<th>'+dataset[i]["Density"]+'</th>'+
             '<th>'+dataset[i]["Provinces"]+'</th>'+
             '<th>'+dataset[i]["Towns"]+'</th>'+
-            '<th>'+dataset[i]["Capital"]+'</th>'+
+            '<th>'+'<a href="https://expiter.com/it/province/'+dataset[i]["Capital"].replace(/\s+/g,"-").replace("'","-").toLowerCase()+
+            '/">'+dataset[i]["Capital"]+'</a>'+'</th>'+
             "</tr>"
         }
         
@@ -166,11 +169,11 @@ function populateData(data){
      regions[region["Name"]].index=i;
      facts[region["Name"]]={}; //initialize "facts" dictionary with each region
      facts[region["Name"]].snippet=
-     '<figure class="column is-3 related"><a href="https://expiter.com/region/'+region.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
+     '<figure class="column is-3 related"><a href="https://expiter.com/it/regioni/'+region.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
      '<img title="'+region.Name+'" load="lazy" src="'+
      'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+region.Name+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
-     'alt="Regione di '+data[i].Name+', '+data[i].Region+'"></img>'+
-     '<figcaption>'+region.Name+", Italy</figcaption></a></figure>";
+     'alt="Regione di '+data[i].Name+', Italia"></img>'+
+     '<figcaption>'+region.Name+", Italia</figcaption></a></figure>";
    }
    avg=data[107];
    

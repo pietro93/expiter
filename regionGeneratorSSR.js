@@ -42,7 +42,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get",
             '<head><meta charset="utf-8">'+
             '<link rel="canonical" href="https://expiter.com/'+fileName+'/"/>'+
             '<link rel="alternate" hreflang="en" href="https://expiter.com/'+fileName+'/" />'+
-            '<link rel="alternate" hreflang="it" href="https://expiter.com/it/'+fileName+'/" />'+
+            '<link rel="alternate" hreflang="it" href="https://expiter.com/it/regioni-italiane/" />'+
+            '<link rel="alternate" hreflang="de" href="https://expiter.com/de/italienische-regionen/" />'+
+            '<link rel="alternate" hreflang="fr" href="https://expiter.com/fr/regions-italiennes/" />'+
             '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
             '<script type="text/javascript" src="https://expiter.com/jquery3.6.0.js" defer></script>'+
             '<script type="text/json" src="https://expiter.com/dataset.json"></script>'+
@@ -102,7 +104,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get",
             '<th>'+dataset[i]["Density"]+'</th>'+
             '<th>'+dataset[i]["Provinces"]+'</th>'+
             '<th>'+dataset[i]["Towns"]+'</th>'+
-            '<th>'+dataset[i]["Capital"]+'</th>'+
+            '<th>'+'<a href="https://expiter.com/province/'+dataset[i]["Capital"].replace(/\s+/g,"-").replace("'","-").toLowerCase()+
+            '/">'+dataset[i]["Capital"]+'</a>'+'</th>'+
             "</tr>"
             console.log("region "+dataset[i].Name+" "+dataset[i].Provinces+" "+dataset[i].Capital)
         }
