@@ -69,7 +69,7 @@ var     fileName = 'italienische-regionen.html';
 			'</div>'+
 		'</div>'+
         '<nav id="navbar"></nav>'+
-'<div class="hero" style="background-image:url(\'https://expiter.com/img/'+"ROM"+'.webp\')" '+'title="Regionen Italiens"'+'>'+
+'<div class="hero" style="background-image:url(\'https://expiter.com/img/regions.webp\')" '+'title="Regionen Italiens"'+'>'+
 '</div><h1 class="title">Italienische Regionen </h1>'+
 '<section id="Liste der Italienischen Regionen">'+
 '<center><table id="list">'+

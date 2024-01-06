@@ -74,7 +74,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get",
 		'</div>'+
 
         '<nav id="navbar"></nav>'+
-        '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+"ROMA"+'.webp\')" '+'title="Regions of Italy"'+'>'+
+        '<div class="hero" style="background-image:url(\'https://expiter.com/img/regions.webp\')" '+'title="Regions of Italy"'+'>'+
         '</div><h1 class="title">Regions of Italy </h1>'+
         '<section id="List of Regions in Italy">'+
         '<center><table id="list">'+
