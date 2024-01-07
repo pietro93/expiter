@@ -1610,3 +1610,66 @@ figure.related a{font-weight:600}
     overflow:hidden;
   }
 }
+
+
+.sb {
+  font-family: "Arial";
+  position: relative;
+  vertical-align: top;
+  overflow-y: none;
+  width: 26vw;
+  max-width: 260px;
+  top: 44vh;
+  bottom: 0;
+  right: -2vw;
+  margin-top: 4vh;
+  margin-left: 0;
+  float: right;
+  padding: 15px;
+  padding-left: 25px;
+  border: 0px ridge rgba(33, 133, 255, 0.6);
+  border-left: 2px ridge var(--medium-dark);
+  background: linear-gradient(to bottom, var(--light), var(--lighter), var(--lightest), rgba(255,255,255,0));
+}
+
+.sb .menu-label {
+  font-size: 18px;
+  border-bottom: 2px solid var(--medium-dark);
+  padding-top:12px;
+  color:var(--darkester);
+}
+
+.sb .about {
+  font-size: 15px;
+  text-align: justify;
+  line-height: 21px;
+  letter-spacing: -.61px;
+}
+
+.sb .disclaimer {
+  font-size: 13px;
+  color: rgba(20, 55, 35, 0.68);
+  text-align: justify;
+  line-height: 19px;
+  letter-spacing: -.61px;
+}
+.sb.higher{top:77px}
+.mobileonly {
+  display: none
+}
+
+@media (max-width: 868px) {
+  .sb {
+    display: none;
+  }
+
+  .mobileonly {
+    width: 96vw;
+    top: 2vh;
+    max-width: 96vw;
+    left: -2vw;
+    display: inline-block;
+    border-left:0px;
+    border-top:2px;
+  }
+}
