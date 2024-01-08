@@ -1,3 +1,4 @@
+import * as pb from './js/pageBuilder.js'
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
@@ -31,6 +32,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         const $ = require('jquery')(dom.window);
         setProvinces($)
         setNavBar($)
+        $(".sb").append(pb.setSideBar())
         let newHtml = dom.window.document.documentElement.outerHTML;
          fs.writeFile('./provinces.html', newHtml, function (err, file) {
             if (err) throw err;
