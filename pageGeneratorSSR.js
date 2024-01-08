@@ -52,7 +52,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css">'+
+            '<link rel="stylesheet" href="https://raw.githubusercontent.com/pietro93/expiter/main/style.css">'+
             
             '<meta property="og:title" content="'+seoTitle+'" />'+
             '<meta property="og:description" content="'+seoDescription+'" />'+
