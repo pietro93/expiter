@@ -1660,7 +1660,8 @@ width:20vw;max-width:70vw;
 border-right:15px;
 background-color:var(--bg2);
 border-right: 2px ridge var(--medium-dark);
-padding-top:35vh;height:100%; 
+padding-top:35vh;
+height:100%; 
 background: linear-gradient(to bottom, var(--bg1), var(--bg2), transparent)
 }
 

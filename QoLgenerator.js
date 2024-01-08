@@ -1,3 +1,4 @@
+import * as pb from './js/pageBuilder.js'
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
@@ -38,6 +39,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             var fileName = 'blog/living-in-'+en(province.Name).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             let seoTitle="What is it like to live in "+en(province.Name)+", Italy"
             let seoDescription='Is '+en(province.Name)+', Italy a good place to live? A guide for expats. '+en(province.Name)+' quality of life, cost of living, safety and more.'
+            let sidebar=pb.setSideBar(province)
+            
             const dom = new jsdom.JSDOM(
             "<html lang='en'>"+
             '<head><meta charset="utf-8">'+
@@ -51,7 +54,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css">'+
+            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.1">'+
             
             '<meta property="og:title" content="'+seoTitle+'" />'+
             '<meta property="og:description" content="'+seoDescription+'" />'+
@@ -64,7 +67,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<!-- GetYourGuide Analytics -->'+
             '<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>'+
             "</head>"+
-
+            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
             '<body data-spy="scroll" data-target="#toc">'+
 
             '<div class="toc container collapsed" >'+
@@ -126,6 +129,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<section id="faqs"><h2>FAQs</h2><span id="faqs"></span></section>'+
             '<section id="Discover"><h2>Discover</h2><span id="promo"></span></section>'+
             '</div>'+
+            '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
             '</body></html>'
                     )
 
