@@ -55,7 +55,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get",
             '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.1">'+
+            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.2">'+
             '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css">'+
             
             '<meta name="description" content="List of all 20 regions in Italy with information about size, population, provinces, towns and more." />'+
