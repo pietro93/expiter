@@ -55,7 +55,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get",
             '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css">'+
+            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.1">'+
             '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css">'+
             
             '<meta name="description" content="List of all 20 regions in Italy with information about size, population, provinces, towns and more." />'+
@@ -64,7 +64,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get",
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
             "</head>"+
             '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
-            '<body data-spy="scroll" data-target="#toc">'+
+            '<body data-spy="scroll" data-target="#toc" style="left:0; max-width:100vw">'+
 
             '<div class="toc container collapsed" >'+
 			'<i class="arrow left" onclick="$(\'.toc\').toggleClass(\'collapsed\')"></i>'+
@@ -77,10 +77,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get",
 		'</div>'+
 
         '<nav id="navbar"></nav>'+
-        '<div class="hero" style="background-image:url(\'https://expiter.com/img/regions.webp\')" '+'title="Regions of Italy"'+'>'+
+        '<div class="hero" style="top:68px;max-height:238px;z-index:-1;background-image:url(\'https://expiter.com/img/regions.webp\')" '+'title="Regions of Italy"'+'>'+
         '</div><h1 class="title">Regions of Italy </h1>'+
-        '<section id="List of Regions in Italy">'+
-        '<center><table id="list">'+
+        '<section id="List of Regions in Italy" style="z-index:2;margin-top:48px">'+
+        '<center><div style="overflow-x: auto;margin-top:20px"><table id="list">'+
         '<tr id="header">'+
         '<th>Name</th>'+
         '<th>Population</th>'+
@@ -90,8 +90,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get",
         '<th>Towns</th>'+
         '<th>Capital</th>'+
         '</tr>'+
-        '</table>'+
-        '<p id="info"></p></center>'+
+        '</table></div></center>'+
+        '</section><section>'+
+        '<p id="info" style="text-alignment:justify"></p>'+
         '</section>'+
         '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
         '</body></html>'
