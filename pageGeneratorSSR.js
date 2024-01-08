@@ -21,6 +21,7 @@ var dataset;
 var avg;
 var regions ={};
 
+
 fetch('https://expiter.com/dataset.json', {method:"Get"})
     .then(function (response) {
         return response.json();
@@ -36,6 +37,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             let seoTitle=en(province.Name)+" - Quality of Life and Info Sheet for Expats";
             let seoDescription='Information about living in '+en(province.Name)+', Italy for expats and digital nomads. '+en(province.Name)+' quality of life, cost of living, safety and more.'
             let heroImage='https://expiter.com/img/'+province.Abbreviation+'.webp'
+            let sidebar=pb.setSideBar(province)
 
             const dom = new jsdom.JSDOM(
             "<html lang='en'>"+
@@ -63,7 +65,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<!-- GetYourGuide Analytics -->'+
             '<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>'+
             "</head>"+
-
+            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
             '<body data-spy="scroll" data-target="#toc">'+
 
             '<div class="toc container collapsed" >'+
@@ -77,6 +79,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 		'</div>'+
 
         '<nav id="navbar"></nav>'+
+
             '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="'+province.Name+' Province"'+'></div>'+
             '<h1 data-toc-skip id="title" class="title column is-12">  </h1></row>'+
             '<div class="tabs effect-3">'+
@@ -128,6 +131,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<section id="Transport"><h3>Transport</h3><span id="transport"></span></section></section>'+
             '<section id="Discover"><h2>Discover</h2><span id="promo"></span></section>'+
             '</div>'+
+            '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
             '</body></html>'
                     )
 

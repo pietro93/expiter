@@ -1,3 +1,52 @@
+export function setSideBar(province){
+  let sb="";
+  
+  province?sb=
+  '<p class="menu-label">Province Overview</p>'+
+  '<ul class="menu-list">'+
+  '<li><a href="https://expiter.com/province/'+handle(province.Name)+'/">'+en(province.Name)+' Province Overview</a></li>'+
+  '<li><a href="http://expiter.com/comuni/province-of-'+handle(province.Name)+'/">Municipalities in '+en(province.Name)+'</a></li>'+
+  '<li><a href="https://expiter.com/app/?sort=Name&region='+handle(province.Region,1)+'">Provinces in '+en(province.Region)+'</a></li>'+
+  '</ul>'+
+  '<p class="menu-label">Get Inspired</p>'+
+  '<ul class="menu-list">'+
+  '<li><a href="https://expiter.com/"><b>Province Comparison Tool</b></a></li>'+
+  '<li><a href="https://expiter.com/app/?sort=Expat-friendly&region='+handle(province.Region,1)+'">Best Places to Live in '+en(province.Region)+'</a></li>'+
+  '<li><a href="https://expiter.com/app/?sort=Cheapest&region='+handle(province.Region,1)+'">Cheapest Provinces in '+en(province.Region)+'</a></li>'+
+  '<li><a href="https://expiter.com/app/?sort=Climate&region='+handle(province.Region,1)+'">Provinces in '+en(province.Region)+' with the best climate</a></li>'+
+  '<li><a href="https://expiter.com/app/?sort=Safety&region='+handle(province.Region,1)+'">Safest provinces in '+en(province.Region)+'</a></li>'+
+  '</ul>'
+  :sb=
+  '<p class="menu-label">Start Here</p>'+
+  '<ul class="menu-list">'+
+  '<li><a href="https://expiter.com/resources/">Italy Expat Resources</a></li>'+
+  '<li><a href="https://expiter.com/tools/codice-fiscale-generator/">Codice Fiscale Generator</a></li>'+
+  '<li><a href="https://expiter.com/region/regions-of-italy/">Regions of Italy</a></li>'+
+'</ul>'+
+'<p class="menu-label">Get Inspired</p>'+
+'<ul class="menu-list">'+
+'<li><a href="https://expiter.com/"><b>Province Comparison Tool</b></a></li>'+
+'<li><a href="https://expiter.com/app/?sort=Cheapest&region=All">Cheapest Italian Provinces</a></li>'+
+'<li><a href="https://expiter.com/app/?sort=SunshineHours&region=North">Sunniest Provinces in Northern Italy</a></li>'+
+'<li><a href="https://expiter.com/app/?sort=Expat-friendly&region=South">Best Places to Live in Souhtern Italy</a></li>'+
+'<li><a href="https://expiter.com/app/?sort=DN-friendly&region=All">Best Digital Nomad Destinations in Italy</a></li>'+
+'</ul>'
+
+sb+='<br>'+
+  '<p class="menu-label">'+
+  'About</p>'+
+  '<p class="about">Expiter is a data visualization tool for researching and comparing different quality of life factors in Italian cities and provinces.'+
+  '<br><br>We provide valuable information for expats, exchange students, full-time travelers, remote workers and digital nomads who are living in (or planning to move to) Italy. </p>'+
+  '<br>'+
+  '<p class="menu-label">Disclaimer</p>'+
+'<p class="disclaimer">The information on this website is for educational purposes only. We collect data from different sources including internal surveys and publicly available databases from external sources.<br><br>'+
+'Expiter.com does not endorse or guarantee the accuracy, reliability, or completeness of any products, services, or information mentioned on this website.'+
+'  <br><br>Expiter.com participates in affiliate programs, including the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.<br><br>'+
+ 'This means that we may earn a commission if you click on or purchase products through our links, at no extra cost to you. </p><br><br>'
+
+ return sb
+}
+
 export function setNavBar($){
     $("#navbar").append(
     '<div class="navbar-container">'+
@@ -54,7 +103,7 @@ export function setNavBarIT($){
     '<div class="hamburger-lines">'+
         '<span class="line line1"></span>'+
         '<span class="line line2"></span>'+
-        '<span class="line line3"></span>'+
+
     '</div>'+
     '<ul class="menu-items">'+
         '<li><a href="https://expiter.com/fr/">Home</a></li>'+
@@ -334,3 +383,31 @@ export function de(name) {
       }
   }
   
+  export function handle(str,isUpperCase) {
+    // Convert to lowercase
+    !isUpperCase?
+    str = str.toLowerCase():""
+
+    // Replace spaces with hyphens
+    str = str.replace(/ /g, '-');
+    str = str.replace(/'/g, '-');
+
+    // Remove non-alphanumeric characters (except hyphens)
+    str = str.replace(/[^a-zA-Z0-9-]/g, '');
+
+    return str;
+}
+
+function en(word){
+  switch (word){
+    case "Sicilia":return"Sicily";case "Valle d'Aosta":case "Val d'Aosta":return"Aosta Valley";
+    case "Toscana":return"Tuscany";case "Sardegna":return "Sardinia";
+    case "Milano":return"Milan";case "Lombardia":return "Lombardy";
+    case "Torino":return"Turin";case "Piemonte":return "Piedmont";
+    case "Roma":return"Rome";case "Puglia":return "Apulia";
+    case "Mantova":return"Mantua";case "Padova":return"Padua";
+    case "Venezia":return"Venice";case "Firenze":return"Florence";
+    case "Napoli":return"Naples";case "Genova":return"Genoa";
+    default: return word;
+  }
+}

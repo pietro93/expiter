@@ -1,3 +1,4 @@
+import * as pb from './js/pageBuilder.js'
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
@@ -18,6 +19,8 @@ var region_filters = [];
 var additionalFilters=[];
 var dataset;
 var avg;
+let sidebar=pb.setSideBar()
+
 
 
 fetch('https://expiter.com/dataset.json', {method:"Get",
@@ -60,7 +63,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get",
             "<title> Regions in Italy </title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
             "</head>"+
-
+            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
             '<body data-spy="scroll" data-target="#toc">'+
 
             '<div class="toc container collapsed" >'+
@@ -90,6 +93,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get",
         '</table>'+
         '<p id="info"></p></center>'+
         '</section>'+
+        '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
         '</body></html>'
         )
 
