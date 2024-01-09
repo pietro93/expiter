@@ -299,7 +299,7 @@ function populateData(data){
       
       sortParams=[sortBy]
       console.log("appending searchParams...")
-      let newHref="https://expiter.com/app/"+
+      let newHref="https://expiter.com/it/app/"+
       "?sort="+sortParams[0]+
       (regionParams.length===0?"":"&region="+regionParams)+
       (filterParams.length===0?"":"&filter="+filterParams);

@@ -484,14 +484,14 @@ function appendData($,data) {
     if (region_filters.length==1) {$(".chosenArea").text(region_filters[0])}
     else if (region_filters.length==2) {$(".chosenArea").text(region_filters[0]+" and "+region_filters[1])}
     else if (region_filters.length==3) {$(".chosenArea").text(region_filters[0]+", "+region_filters[1]+" and "+region_filters[2])}
-    else if (region_filters.sort().toString() == "Lazio,Marche,Toscana,Umbria") {$(".chosenArea").text("Central Italy")}
-    else if (region_filters.sort().toString() == "Abruzzo,Basilicata,Calabria,Campania,Molise,Puglia,Sardegna,Sicilia") {$(".chosenArea").text("Southern Italy")}
-    else if (region_filters.sort().toString() == "Emilia-Romagna,Friuli-Venezia Giulia,Liguria,Lombardia,Piemonte,Trentino-Alto Adige,Valle d'Aosta,Veneto") {$(".chosenArea").text("Northern Italy")}
-    else if (region_filters.length>3) {$(".chosenArea").text("Italy")}
+    else if (region_filters.sort().toString() == "Lazio,Marche,Toscana,Umbria") {$(".chosenArea").text("Italia Centrale")}
+    else if (region_filters.sort().toString() == "Abruzzo,Basilicata,Calabria,Campania,Molise,Puglia,Sardegna,Sicilia") {$(".chosenArea").text("Italia Meridionale")}
+    else if (region_filters.sort().toString() == "Emilia-Romagna,Friuli-Venezia Giulia,Liguria,Lombardia,Piemonte,Trentino-Alto Adige,Valle d'Aosta,Veneto") {$(".chosenArea").text("Italia Settentrionale")}
+    else if (region_filters.length>3) {$(".chosenArea").text("Italia")}
 
-    if (additionalFilters.sort().toString()=="Pop1m+"||additionalFilters.sort().toString()=="Pop1m+,Pop500k+") $(".smallorlarge").text("Large");
-    else if (additionalFilters.sort().toString()=="Pop300k+"||additionalFilters.sort().toString()=="Pop500k+"||additionalFilters.sort().toString()=="Pop300k+,Pop500k+") $(".smallorlarge").text("Medium-sized");
-    else if (additionalFilters.sort().toString()=="Pop300k-"||additionalFilters.sort().toString()=="Pop300k+,Pop300k-") $(".smallorlarge").text("Small");
+    if (additionalFilters.sort().toString()=="Pop1m+"||additionalFilters.sort().toString()=="Pop1m+,Pop500k+") $(".smallorlarge").text("Grandi");
+    else if (additionalFilters.sort().toString()=="Pop300k+"||additionalFilters.sort().toString()=="Pop500k+"||additionalFilters.sort().toString()=="Pop300k+,Pop500k+") $(".smallorlarge").text("Medie");
+    else if (additionalFilters.sort().toString()=="Pop300k-"||additionalFilters.sort().toString()=="Pop300k+,Pop300k-") $(".smallorlarge").text("Piccole");
      
 
     for (let i = 0; i < Math.min(data.length,30); i++) {
