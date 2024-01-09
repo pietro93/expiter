@@ -1,3 +1,4 @@
+import * as pb from './js/pageBuilder.js'
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
@@ -18,6 +19,8 @@ var region_filters = [];
 var additionalFilters=[];
 var dataset;
 var avg;
+let sidebar=pb.setSideBarIT()
+
 
 
 fetch('https://expiter.com/dataset.json', {method:"Get"})
@@ -49,7 +52,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css">'+
+            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.2">'+
             '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css">'+
             
             '<meta name="description" content="Lista delle 20 regioni d\'Italia - popolazione, superficie, capoluogo e altre info." />'+
@@ -57,7 +60,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             "<title> Regioni Italiane </title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
             "</head>"+
-
+            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
             '<body data-spy="scroll" data-target="#toc">'+
 
             '<div class="toc container collapsed" >'+
@@ -87,6 +90,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '</table>'+
         '<p id="info"></p></center>'+
         '</section>'+
+        '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
         '</body></html>'
         )
 

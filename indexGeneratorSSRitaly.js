@@ -287,73 +287,74 @@ function createSorting($,label, value){
         }
         console.log("appending data")
         appendData($,data);
-        $(".provinces").text("Provinces");
+        $(".provinces").text("Province");
         switch(sortBy){ 
         case "Expat-friendly":
-          $("span.sortBy").text("for Expats");
-          $("span.bestorworst").text("Best")
+          $("span.sortBy").text("per Espatriati");
+          $("span.bestorworst").text("Migliori")
           break;
         case "Name":
-          $("span.sortBy").text("by Alphabetical Order");
+          $("span.sortBy").text("in Ordine Alfabetico");
           break;
         case "Random":
-          $("span.sortBy").text("by Random Order");
+          $("span.sortBy").text("in Ordine Casuale");
           break;
         case "Region":
-          $("span.sortBy").text("by Region");
+          $("span.sortBy").text("per Regione");
           break;
         case "CostOfLiving":
           $("span.sortBy").text("");
-          $("span.bestorworst").text("Cheapest")
+          $("span.bestorworst").text("Più economiche")
           break;
         case "Population":
-          $("span.sortBy").text("by Population");
+          $("span.sortBy").text("per Popolazione");
           break;
         case "MonthlyIncome":
-          $("span.sortBy").text("by Average Income");
+          $("span.sortBy").text("per Reddito Medio");
           $("span.bestorworst").text("");
           break;
         case 'Expat-friendly':case'LGBT-friendly':
           $("span.sortBy").text("");
-          $("span.bestorworst").text("Most "+sortBy);
+          $("span.bestorworst").text("Più "+sortBy);
           break;
         case 'DN-friendly':case'Female-friendly'
         :case 'Family-friendly':case 'Veg-friendly':
-          $("span.sortBy").text((sortBy==='DN-friendly'?"for Digital Nomads":"for Women"));
-          (sortBy==='Family-friendly'?$("span.sortBy").text("for Families"):
-          (sortBy==='Veg-friendly'?$("span.sortBy").text("for Vegans"):""));
-          $("span.bestorworst").text("Best");
+          $("span.sortBy").text((sortBy==='DN-friendly'?"per Nomadi Digitali":"per Donne"));
+          (sortBy==='Family-friendly'?$("span.sortBy").text("per Famiglie"):
+          (sortBy==='Veg-friendly'?$("span.sortBy").text("per Vegani"):""));
+          $("span.bestorworst").text("Migliori");
           break;
         case 'SunshineHours':
           $("span.sortBy").text("");
-          $("span.bestorworst").text("Sunniest");
+          $("span.bestorworst").text("Più soleggiate");
           break;
         case sortBy == 'HotDays',sortBy=='ColdDays':
           $("span.sortBy").text("");
-          $("span.bestorworst").text((sortBy=='HotDays'?"Hottest":"Coldest"));
+          $("span.bestorworst").text((sortBy=='HotDays'?"Più calde":"Più fredde"));
           break;
         case 'Safety':
           $("span.sortBy").text("");
-          $("span.bestorworst").text("Safest");
+          $("span.bestorworst").text("Più sicure");
           break;
         case 'Crime':
-          $("span.sortBy").text("by Lowest Amount of Crime");
+          $("span.sortBy").text("con il minor tasso di criminalità");
           $("span.bestorworst").text("");
           break;
         case 'Beach':
           $("span.sortBy").text("");
-          $("span.bestorworst").text("Best");
-          $("span.provinces").text("Beach Destinations")
+          $("span.bestorworst").text("Migliori");
+          $("span.provinces").text("Destinazioni balneari")
           break;
           case 'WinterSports':
           $("span.sortBy").text("");
-          $("span.bestorworst").text("Best");
-          $("span.provinces").text("Skiing Destinations")
+          $("span.bestorworst").text("Migliori");
+          $("span.provinces").text("Destinazioni sciistiche")
           break;
         default:
-        $("span.sortBy").text("for "+sortBy);
-        $("span.bestorworst").text("Best");
+        $("span.sortBy").text("per "+sortBy);
+        $("span.bestorworst").text("Migliori");
         }
+
         /*if (sortBy == "Climate" || sortBy == "Healthcare" || sortBy == "Culture" || sortBy == "Nightlife" || sortBy == "Education"  ){
           $("span.bestorworst").text("Best")
         }*/
@@ -434,17 +435,17 @@ function appendData($,data) {
 
     let title = $("#title")
         
-    title.append("<span class='bestorworst'></span> <span class='smallorlarge'></span> Provinces in "+
-    "<span class='chosenArea'>Italy</span> <span class='sortBy'></span>");
+    title.append("<span class='bestorworst'></span> <span class='smallorlarge'></span> Province in "+
+    "<span class='chosenArea'>Italia</span> <span class='sortBy'></span>");
 
 
 
-    if (selection.length==0) {title.innerHTML="Could not find any provinces based on your filters."
+    if (selection.length==0) {title.innerHTML="Non è stato possibile trovare alcuna provincia in base ai tuoi filtri."
   
     $("#output").html(
-      "<p>Based on our data, there are no "+
+      "<p>Secondo i nostri dati, non ci sono "+
       "<span class='smallorlarge'></span> <span class='hotorcold'></span> "+
-      "<span class='costofliving'></span> provinces in <span class='chosenArea'></span> "+
+      "<span class='costofliving'></span> province in <span class='chosenArea'></span> "+
       "<span class='withthings'></span></p>."
       )
     
@@ -452,16 +453,16 @@ function appendData($,data) {
   else{
     let province1st=selection[0];
     let output="<p>"+
-    "Based on our data, the <span class='bestorworst'></span> <span class='smallorlarge'></span> "+
+    "Secondo i nostri dati, la <span class='bestorworst'></span> <span class='smallorlarge'></span> "+
     "<span class='hotorcold'></span> <span class='costofliving'></span> "+
-    "province in <span class='chosenArea'>Italy</span> "+
-    "<span class='withthings'></span> <span class='sortBy'></span> is "+
-    "<b><a class='province1st'></a></b>, with a score of <span id='score1'></span>/10.";
+    "provincia in <span class='chosenArea'>Italia</span> "+
+    "<span class='withthings'></span> <span class='sortBy'></span> è "+
+    "<b><a class='province1st'></a></b>, con un punteggio di <span id='score1'></span>/10.";
     if (selection.length>1){
       for (var i=2;i<=3&i<selection.length;i++){
-        output+=(i===3?" and ":"</br>")+
-        "<b><a class='province"+i+"'></a></b> ranks "+(i===2?"2nd ":"3rd ")+
-        "with a score of <span id='score"+i+"'></span>/10"
+        output+=(i===3?" e ":"</br>")+
+        "<b><a class='province"+i+"'></a></b> si classifica "+(i===2?"seconda ":"terza ")+
+        "con un punteggio di <span id='score"+i+"'></span>/10"
       }output+="."
     }output+="</p>"
 
@@ -531,33 +532,34 @@ function appendData($,data) {
           card +='<img title="'+data[i].Name+'" '+ (i>2?'loading="lazy"':"") +' src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+img+'.webp?tr=w-180,h-240,c-at_least,q-1,bl-1" width="180" height="240" alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'
       //  }
 
-        if (data[i].Name.length>14){card += '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + data[i].Name + '</h3></center></div>'}
-        else card += '<div class="frame" ><center><h3 class="header">' + data[i].Name + '</h3></center></div> ';
-        card += '<p class="region">' + data[i]["Region"]+'</p>';
-        card += '<p class="population"><ej>👥</ej>Population: <b style="color:white">'+data[i].Population.toLocaleString('en', {useGrouping:true}) +'</b>'+'</p>';
-        card += '<p>&#128184Cost: '+ qualityScore("CostOfLiving",data[i].CostOfLiving) +'';
-        card += '<p><ej>💰</ej>Expenses: '+ qualityScore("Cost of Living (Individual)",data[i]["Cost of Living (Individual)"])+'</p>';
-        card += '<p><ej>☀️</ej>Climate: '+ qualityScore("Climate",data[i].Climate) +'</p>';
-        card += '<p><ej>🚑</ej>Healthcare: '+ qualityScore("Healthcare",data[i].Healthcare) +'</p>';
-        card += '<p><ej>🚌</ej>Transport: '+ qualityScore("PublicTransport",data[i]["PublicTransport"]) +'</p>';
-        card += '<p><ej>👮🏽‍♀️</ej>Safety: '+ qualityScore("Safety",data[i]["Safety"]) +'</p>';
-        card += '<p><ej>📚</ej>Education: '+ qualityScore("Education",data[i]["Education"]) +'</p>';
-        card += '<p><ej>🏛️</ej>Culture: '+ qualityScore("Culture",data[i].Culture) +'</p>';
-        card += '<p><ej>🍸</ej>Nightlife: '+ qualityScore("Nightlife",data[i].Nightlife) +'</p>';
-        card += '<p class="opacity6"><ej>⚽</ej>Recreation: '+ qualityScore("Sports & Leisure",data[i]["Sports & Leisure"])+'</p>';
-        card += '<p class="opacity6"><ej>🍃</ej>Air quality: '+ qualityScore("AirQuality",data[i]["AirQuality"]) +'</p>';
-        card += '<p class="opacity6"><ej>🏳️‍🌈</ej>LGBTQ+: '+ qualityScore("LGBT-friendly",data[i]["LGBT-friendly"]) +'</p>';
-        card += '<p class="opacity4"><ej>👩</ej>For women: '+ qualityScore("Female-friendly",data[i]["Female-friendly"]) +'</p>';
-        card += '<p class="opacity4"><ej>👪</ej>For family: '+ qualityScore("Family-friendly",data[i]["Family-friendly"]) +'</p>';
-        card += '<p class="opacity4"><ej>🥗</ej>For vegans: '+ qualityScore("Veg-friendly",data[i]["Veg-friendly"]) +'</p>';
-        card += '<p class="opacity4"><ej>🧳</ej>For nomads: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'</p>';
-        card += '<button class="more" style="font-size:large;" onclick="location.href=\'https://expiter.com/it/province/'+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+'/\';"> More>> </button>';
-        card += '</card>'
+      if (data[i].Name.length>14){card += '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + data[i].Name + '</h3></center></div>'}
+      else card += '<div class="frame" ><center><h3 class="header">' + data[i].Name + '</h3></center></div> ';
+      card += '<p class="region">' + data[i]["Region"]+'</p>';
+      card += '<p class="population"><ej>👥</ej>Popolazione: <b style="color:white">'+data[i].Population.toLocaleString('en', {useGrouping:true}) +'</b>'+'</p>';
+      card += '<p>💸Costo: '+ qualityScore("CostOfLiving",data[i].CostOfLiving) +'';
+      card += '<p><ej>💰</ej>Spese: '+ qualityScore("Cost of Living (Individual)",data[i]["Cost of Living (Individual)"])+'</p>';
+      card += '<p><ej>☀️</ej>Clima: '+ qualityScore("Climate",data[i].Climate) +'</p>';
+      card += '<p><ej>🚑</ej>Assistenza sanitaria: '+ qualityScore("Healthcare",data[i].Healthcare) +'</p>';
+      card += '<p><ej>🚌</ej>Trasporto: '+ qualityScore("PublicTransport",data[i]["PublicTransport"]) +'</p>';
+      card += '<p><ej>👮🏽‍♀️</ej>Sicurezza: '+ qualityScore("Safety",data[i]["Safety"]) +'</p>';
+      card += '<p><ej>📚</ej>Educazione: '+ qualityScore("Education",data[i]["Education"]) +'</p>';
+      card += '<p><ej>🏛️</ej>Cultura: '+ qualityScore("Culture",data[i].Culture) +'</p>';
+      card += '<p><ej>🍸</ej>Vita notturna: '+ qualityScore("Nightlife",data[i].Nightlife) +'</p>';
+      card += '<p class="opacity6"><ej>⚽</ej>Ricreazione: '+ qualityScore("Sports & Leisure",data[i]["Sports & Leisure"])+'</p>';
+      card += '<p class="opacity6"><ej>🍃</ej>Qualità dell\'aria: '+ qualityScore("AirQuality",data[i]["AirQuality"]) +'</p>';
+      card += '<p class="opacity6"><ej>🏳️‍🌈</ej>LGBTQ+: '+ qualityScore("LGBT-friendly",data[i]["LGBT-friendly"]) +'</p>';
+      card += '<p class="opacity4"><ej>👩</ej>Per le donne: '+ qualityScore("Female-friendly",data[i]["Female-friendly"]) +'</p>';
+      card += '<p class="opacity4"><ej>👪</ej>Per la famiglia: '+ qualityScore("Family-friendly",data[i]["Family-friendly"]) +'</p>';
+      card += '<p class="opacity4"><ej>🥗</ej>Per i vegani: '+ qualityScore("Veg-friendly",data[i]["Veg-friendly"]) +'</p>';
+      card += '<p class="opacity4"><ej>🧳</ej>Per i nomadi: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'</p>';
+      card += '<button class="more" style="font-size:large;" onclick="location.href=\'https://expiter.com/it/province/'+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+'/\';"> Più>> </button>';
+      card += '</card>'
 
-        col += "<a href='https://expiter.com/it/province/"+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"\''>"+card+"</a></div>";
-        
-        mainContainer.append(col);
-        
-    }
-    
+      col += "<a href='https://expiter.com/it/province/"+data[i].Name.replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"\''>"+card+"</a></div>";
+      
+      mainContainer.append(col);
+      
+  }
+  
 }
+

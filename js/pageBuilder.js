@@ -47,6 +47,56 @@ sb+='<br>'+
  return sb
 }
 
+export function setSideBarIT(province){
+  let sb="";
+  
+  province?sb=
+  '<p class="menu-label">Panoramica</p>'+
+  '<ul class="menu-list">'+
+  '<li><a href="https://expiter.com/it/province/'+handle(province.Name)+'/">'+en(province.Name)+' Panoramica</a></li>'+
+  '<li><a href="http://expiter.com/it/comuni/provincia-di-'+handle(province.Name)+'/">Comuni in Provincia di '+en(province.Name)+'</a></li>'+
+  '<li><a href="https://expiter.com/it/app/?sort=Name&region='+handle(province.Region,1)+'">Province in '+en(province.Region)+'</a></li>'+
+  '</ul>'+
+  '<p class="menu-label">Lasciati ispirare</p>'+
+  '<ul class="menu-list">'+
+  '<li><a href="https://expiter.com/it/"><b>Strumento di Confronto tra Province</b></a></li>'+
+  '<li><a href="https://expiter.com/it/app/?sort=Expat-friendly&region='+handle(province.Region,1)+'">I migliori posti dove vivere in '+en(province.Region)+'</a></li>'+
+  '<li><a href="https://expiter.com/it/app/?sort=Cheapest&region='+handle(province.Region,1)+'">Le province più economiche in '+en(province.Region)+'</a></li>'+
+  '<li><a href="https://expiter.com/it/app/?sort=Climate&region='+handle(province.Region,1)+'">Province in '+en(province.Region)+' con il miglior clima</a></li>'+
+  '<li><a href="https://expiter.com/it/app/?sort=Safety&region='+handle(province.Region,1)+'">Le province più sicure in '+en(province.Region)+'</a></li>'+
+  '</ul>'
+  :sb=
+  '<p class="menu-label">Inizia qui</p>'+
+  '<ul class="menu-list">'+
+  '<li><a href="https://expiter.com/it/risorse/">Risorse per Espatriati</a></li>'+
+  '<li><a href="https://expiter.com/it/risorse/generatore-codice-fiscale/">Generatore di Codice Fiscale</a></li>'+
+  '<li><a href="https://expiter.com/it/regioni/regioni-italiane/">Regioni d\'Italia</a></li>'+
+'</ul>'+
+'<p class="menu-label">Lasciati ispirare</p>'+
+'<ul class="menu-list">'+
+'<li><a href="https://expiter.com/it/"><b>Confronto Province</b></a></li>'+
+'<li><a href="https://expiter.com/it/app/?sort=Cheapest&region=All">Le province italiane più economiche</a></li>'+
+'<li><a href="https://expiter.com/it/app/?sort=SunshineHours&region=North">Le province più soleggiate del Nord Italia</a></li>'+
+'<li><a href="https://expiter.com/it/app/?sort=Expat-friendly&region=South">I migliori posti dove vivere nel Sud Italia</a></li>'+
+'<li><a href="https://expiter.com/it/app/?sort=DN-friendly&region=All">Le migliori destinazioni per i Nomadi Digitali in Italia</a></li>'+
+'</ul>'
+
+sb+='<br>'+
+  '<p class="menu-label">'+
+  'Informazioni</p>'+
+  '<p class="about">Expiter è uno strumento di visualizzazione dei dati per la ricerca e il confronto di diversi fattori di qualità della vita nelle città e province italiane.'+
+  '<br><br>Forniamo informazioni preziose per espatriati, studenti in scambio, viaggiatori a tempo pieno, lavoratori remoti e nomadi digitali che vivono in (o stanno pianificando di trasferirsi in) Italia. </p>'+
+  '<br>'+
+  '<p class="menu-label">Disclaimer</p>'+
+'<p class="disclaimer">Le informazioni su questo sito web sono solo a scopo educativo. Raccogliamo dati da diverse fonti, compresi sondaggi interni e database pubblicamente disponibili da fonti esterne.<br><br>'+
+'Expiter.com non garantisce l\'accuratezza, l\'affidabilità o l\'integrità di qualsiasi prodotto, servizio o informazione menzionata su questo sito web.'+
+'  <br><br>Expiter.com partecipa a programmi di affiliazione, tra cui il programma di affiliazione Amazon Services LLC, un programma di pubblicità di affiliazione progettato per fornire un mezzo per i siti di guadagnare commissioni pubblicitarie pubblicizzando e collegando ad Amazon.<br><br>'+
+ 'Ciò significa che potremmo guadagnare una commissione se fai clic su o acquisti prodotti attraverso i nostri link, senza alcun costo aggiuntivo per te. </p><br><br>'
+
+ return sb
+}
+
+
 export function setNavBar($){
     $("#navbar").append(
     '<div class="navbar-container">'+

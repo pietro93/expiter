@@ -20,6 +20,8 @@ var additionalFilters=[];
 var dataset;
 var avg;
 var regions ={};
+let sidebar=pb.setSideBarIT()
+
 
 fetch('https://expiter.com/dataset.json', {method:"Get"})
     .then(function (response) {
@@ -50,13 +52,12 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css">'+
+            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.2">'+
 
             
             '<!-- GetYourGuide Analytics -->'+
             '<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>'+
-            "</head>"+
-
+      
             '<meta property="og:title" content="'+seoTitle+'" />'+
             '<meta property="og:description" content="'+seoDescription+'" />'+
             '<meta property="og:image" content="'+heroImage+'" />'+
@@ -67,6 +68,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
             "</head>"+
+            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
 
             '<body data-spy="scroll" data-target="#toc">'+
 
@@ -132,6 +134,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<section id="Trasporti"><h3>Trasporti</h3><span id="transport"></span></section></section>'+
             '<section id="Turismo"><h2>Turismo</h2><span id="promo"></span></section>'+
             '</div>'+
+            '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
             '</body></html>'
                     )
 
