@@ -332,7 +332,7 @@ function populateData(data){
       else if (sortParams[0]==="Region") $("#output").html("<center><p>Displaying selected provinces alphabetically by region. </br> Showing first 30 provinces based on your filters.</p></br></center>")
       else if (sortParams[0]==="Name") $("#output").html("<center><p>Displaying selected provinces by alphabetical order. </br> Showing first 30 provinces based on your filters.</p></br></center>")
       else if (sortParams[0]==="Random") $("#output").html("<center><p>Displaying carefully selected provinces based on Algorithmic Sorcery (i.e. at random).</br>"+
-      "The algorithm thinks you should check out: <span class='province1st'></span></p></center>")
+      "L'algoritmo consiglia: <span class='province1st'></span></p></center>")
       else if (sortParams[0]==="Population"){
       $("span#score1").text("a total population of "+score1.toLocaleString()+" across its "+towns1+" towns (comuni)");
       $("span#score2").text("and has a population of "+score2.toLocaleString()+" with "+towns2+" towns");
@@ -501,15 +501,15 @@ function appendData(data) {
       $("#output").html("<center>"+output+"</center>")
       
       $("a.province1st").text(province1st.Name)
-      $("a.province1st").attr("href","https://expiter.com/province/"+province1st.Name.replace(/\s/g,"-")
+      $("a.province1st").attr("href","https://expiter.com/it/province/"+province1st.Name.replace(/\s/g,"-")
        .replace("'","-").toLowerCase()+"/")
       if (selection.length>1){ let province2=selection[1]
       $("a.province2").text(province2.Name)
-      $("a.province2").attr("href","https://expiter.com/province/"+province2.Name.replace(/\s/g,"-")
+      $("a.province2").attr("href","https://expiter.com/it/province/"+province2.Name.replace(/\s/g,"-")
        .replace("'","-").toLowerCase()+"/")}
        if (selection.length>2){ let province3=selection[2]
       $("a.province3").text(province3.Name)
-      $("a.province3").attr("href","https://expiter.com/province/"+province3.Name.replace(/\s/g,"-")
+      $("a.province3").attr("href","https://expiter.com/it/province/"+province3.Name.replace(/\s/g,"-")
        .replace("'","-").toLowerCase()+"/")}
       }
     
@@ -644,26 +644,6 @@ facts.Milano.overview="The <b>city of Milan</b>, with 1,371,498 residents, is th
 
 }
 */
-function setNavBar(){
-  let navbar = document.getElementById("navbar");
-  navbar.innerHTML=
-  '<div class="navbar-container">'+
-  '<input type="checkbox" name="navbar" id="nbar">'+
-  '<div class="hamburger-lines">'+
-      '<span class="line line1"></span>'+
-      '<span class="line line2"></span>'+
-      '<span class="line line3"></span>'+
-  '</div>'+
-  '<ul class="menu-items">'+
-      '<li><a href="https://expiter.com">Home</a></li>'+
-      '<li><a href="https://expiter.com/resources/">Resources</a></li>'+
-      '<li><a href="https://expiter.com/tools/codice-fiscale-generator/">Tools</a></li>'+
-      '<li><a href="https://expiter.com//app#About">About</a></li>'+
-      '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
-      '</ul>'+
- '<a href="/"><p class="logo">Italy Expats & Nomads</p></a>'+
-'</div>'
-}
 
 function createSorting(label, value){
   if (value==undefined)value=label;
@@ -849,7 +829,7 @@ function searchParams(){
     }
     filterDataByRegion();
     console.log("making url more human-friendly...");
-    let newHref="http://expiter.com/app/"+
+    let newHref="http://expiter.com/it/app/"+
     $("#title").text().replace(/\s+/g,"-").toLowerCase()
     $('link[rel="canonical"]').attr('href', newHref);
     //document.location.href=newHref
@@ -864,7 +844,7 @@ function searchParams(){
   }
 
   function linkTo(province){
-    return '<b><a href="https://expiter.com/province/'+province.Name.replace("'","").replace(/\s+/g,"-").toLowerCase()+
+    return '<b><a href="https://expiter.com/it/province/'+province.Name.replace("'","").replace(/\s+/g,"-").toLowerCase()+
     '"/>'+province.Name+'</a></b>'
   }
   
