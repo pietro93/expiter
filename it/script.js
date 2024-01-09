@@ -829,7 +829,7 @@ function searchParams(){
     }
     filterDataByRegion();
     console.log("making url more human-friendly...");
-    let newHref="http://expiter.com/it/app/"+
+    let newHref="https://expiter.com/it/app/"+
     $("#title").text().replace(/\s+/g,"-").toLowerCase()
     $('link[rel="canonical"]').attr('href', newHref);
     //document.location.href=newHref
