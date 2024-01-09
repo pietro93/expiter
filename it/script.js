@@ -13,7 +13,7 @@ var regionParams=["All"];
 var sortParams=["Expat-friendly"];
 
 
-fetch('../dataset.json', {method:"Get"})
+fetch('https://expiter.com/dataset.json', {method:"Get"})
     .then(function (response) {
         return response.json();
     })
