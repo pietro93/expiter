@@ -20,7 +20,6 @@ var additionalFilters=[];
 var dataset;
 var avg;
 var regions ={};
-let sidebar=pb.setSideBarIT()
 
 
 fetch('https://expiter.com/dataset.json', {method:"Get"})
@@ -33,6 +32,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         populateData(data);
         for (let i = 0; i < 107; i++){
             let province = dataset[i];
+            let sidebar=pb.setSideBarIT(province)
             
             var fileName = 'it/province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             let seoTitle=province.Name+" - Qualità e Costo della Vita"

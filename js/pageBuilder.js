@@ -53,17 +53,17 @@ export function setSideBarIT(province){
   province?sb=
   '<p class="menu-label">Panoramica</p>'+
   '<ul class="menu-list">'+
-  '<li><a href="https://expiter.com/it/province/'+handle(province.Name)+'/">'+en(province.Name)+' Panoramica</a></li>'+
-  '<li><a href="http://expiter.com/it/comuni/provincia-di-'+handle(province.Name)+'/">Comuni in Provincia di '+en(province.Name)+'</a></li>'+
-  '<li><a href="https://expiter.com/it/app/?sort=Name&region='+handle(province.Region,1)+'">Province in '+en(province.Region)+'</a></li>'+
+  '<li><a href="https://expiter.com/it/province/'+handle(province.Name)+'/">Provincia di '+province.Name+'</a></li>'+
+  '<li><a href="http://expiter.com/it/comuni/provincia-di-'+handle(province.Name)+'/">Comuni in Provincia di '+province.Name+'</a></li>'+
+  '<li><a href="https://expiter.com/it/app/?sort=Name&region='+handle(province.Region,1)+'">Province in '+province.Region+'</a></li>'+
   '</ul>'+
   '<p class="menu-label">Lasciati ispirare</p>'+
   '<ul class="menu-list">'+
   '<li><a href="https://expiter.com/it/"><b>Strumento di Confronto tra Province</b></a></li>'+
-  '<li><a href="https://expiter.com/it/app/?sort=Expat-friendly&region='+handle(province.Region,1)+'">I migliori posti dove vivere in '+en(province.Region)+'</a></li>'+
-  '<li><a href="https://expiter.com/it/app/?sort=Cheapest&region='+handle(province.Region,1)+'">Le province più economiche in '+en(province.Region)+'</a></li>'+
-  '<li><a href="https://expiter.com/it/app/?sort=Climate&region='+handle(province.Region,1)+'">Province in '+en(province.Region)+' con il miglior clima</a></li>'+
-  '<li><a href="https://expiter.com/it/app/?sort=Safety&region='+handle(province.Region,1)+'">Le province più sicure in '+en(province.Region)+'</a></li>'+
+  '<li><a href="https://expiter.com/it/app/?sort=Expat-friendly&region='+handle(province.Region,1)+'">I migliori posti dove vivere in '+province.Region+'</a></li>'+
+  '<li><a href="https://expiter.com/it/app/?sort=Cheapest&region='+handle(province.Region,1)+'">Le province più economiche in '+province.Region+'</a></li>'+
+  '<li><a href="https://expiter.com/it/app/?sort=Climate&region='+handle(province.Region,1)+'">Province in '+province.Region+' con il miglior clima</a></li>'+
+  '<li><a href="https://expiter.com/it/app/?sort=Safety&region='+handle(province.Region,1)+'">Le province più sicure in '+province.Region+'</a></li>'+
   '</ul>'
   :sb=
   '<p class="menu-label">Inizia qui</p>'+

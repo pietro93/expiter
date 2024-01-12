@@ -22,6 +22,7 @@ var dataset;
 var avg;
 var regions ={};
 
+
 fetch('https://expiter.com/dataset.json', {method:"Get"})
     .then(function (response) {
         return response.json();
@@ -34,9 +35,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 0; i < 107; i++){
+        for (let i = 99; i < 107; i++){
             let province = dataset[i];
-       
+            let sidebar=pb.setSideBarIT(province)
+
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
             let parsedData = fs.readFileSync('temp/'+province.Name+'-comuni.json','utf8');
             let dic=JSON.parse(parsedData);
@@ -66,7 +68,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
               ci = comindex.indexOf(comune.Name)
               console.log("found some extra info about "+comune.Name+" at position "+ ci)
             }
-            if (ci>-1){ //this only updates towns in comuni.js
+            if (ci>-11){ //this only updates towns in comuni.js
             console.log("Writing comune \""+comune.Name+"\" ("+province.Name+") into file")
 
             let urlPath = dirName+fileName;
@@ -99,6 +101,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<!-- GetYourGuide Analytics -->'+
             '<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>'+
             "</head>"+
+            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
 
             '<body data-spy="scroll" data-target="#toc">'+
 
@@ -130,6 +133,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<p id="tabs"></p>'+
         '</center><p id="related"></p></center>'+
         '</section>'+
+        '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
         '</body></html>'
         )
 
