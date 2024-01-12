@@ -1,3 +1,4 @@
+import * as pb from './js/pageBuilder.js'
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
@@ -160,11 +161,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         ''
         
         appendProvinceData(province, $);
-        setNavBar($);
+        pb.setNavBarIT($);
         let city = en(province.Name);
         console.log("writing facts about "+city)
 
-        $(".title").text("Come è vivere a "+province.Name+', Italia');
+        $(".title").text("Come è vivere a "+province.Name+'');
         $("#overview").append(facts[city].introduction)
         $("#overview").append("<br><br>")
         $("#overview").append(facts[city].overview)
@@ -334,32 +335,6 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         info.related=relatedArticles(province.Name)
 
         return info;
-      }
-
-
-    function setNavBar($){
-        $("#navbar").append(
-        '<div class="navbar-container">'+
-        '<input type="checkbox" name="navbar" id="nbar">'+
-        '<div class="hamburger-lines">'+
-            '<span class="line line1"></span>'+
-            '<span class="line line2"></span>'+
-            '<span class="line line3"></span>'+
-        '</div>'+
-        '<ul class="menu-items">'+
-            '<li><a href="/">Home</a></li>'+
-            '<li><a href="https://expiter.com/resources/">Resources</a></li>'+
-            '<li><a href="https://expiter.com/tools/codice-fiscale-generator/">Tools</a></li>'+
-            '<li><a href="https://expiter.com/blog/articles/">Blog</a></li>'+
-            '<li><a href="https://expiter.com/app/#About">About</a></li>'+
-            '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
-            '</ul>'+
-            '  <label class="switch" id="switch">'+
-            '<input type="checkbox">'+
-            '<span class="slider round"></span>'+
-          '</label>'+
-       '<a href="/"><div class="logo">Italy Expats & Nomads</div></a>'+
-      '</div>')
       }
       
       
