@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
 <url><loc>https://expiter.com/blog/articles/</loc></url>
+<url><loc>https://expiter.com/it/blog/articoli/</loc></url>
 <url><loc>https://expiter.com/blog/italy-quality-of-life-2023/</loc></url>
 <url><loc>https://expiter.com/blog/best-cities-for-digital-nomads-in-italy/</loc></url>
 <url><loc>https://expiter.com/blog/living-in-milan/</loc></url>
@@ -22,5 +23,8 @@
 <url><loc>https://expiter.com/blog/living-in-cagliari/</loc></url>
 <url><loc>https://expiter.com/blog/living-in-siena/</loc></url>
 <url><loc>https://expiter.com/blog/living-in-vicenza/</loc></url>
-
+<url><loc>https://expiter.com/it/blog/vivere-a-milano/</loc></url>
+<url><loc>https://expiter.com/it/blog/vivere-a-roma/</loc></url>
+<url><loc>https://expiter.com/it/blog/vivere-a-napoli/</loc></url>
+<url><loc>https://expiter.com/it/blog/vivere-a-bari/</loc></url>
 </urlset>
