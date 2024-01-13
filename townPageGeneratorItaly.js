@@ -205,7 +205,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#related").append(info.nearby)
         $("#related").append(info.related)
         appendProvinceData(province,$)
-        pb.setNavBar($)
+        pb.setNavBarIT($)
         }
         
         let html = dom.window.document.documentElement.outerHTML;
