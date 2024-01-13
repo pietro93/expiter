@@ -88,8 +88,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.2">'+
             '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css">'+
+            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.2">'+
             
             '<meta name="description" content="Information about living in '+comune.Name+', Italy for expats and digital nomads. '+comune.Name+' quality of life, cost of living, safety and more." />'+
 	        '<meta name="keywords" content="'+comune.Name+' italy, '+comune.Name+' expat,'+comune.Name+' life,'+comune.Name+' digital nomad" />'+
@@ -116,7 +116,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="'+comune.Name+", "+province.Name+', Italy"'+'>'+
         '</div><h1 class="title">Comuni di </h1>'+
         '<section id="'+en(comune.Name)+' Info Sheet">'+
-        '<center><table id="table list">'+
+        '<center><table id="list" class="table">'+
         '<tr><th><b>Name</b></th><th>'+en(comune.Name)+'</th></tr>'+
         '<tr><th><b>Province</b></th><th>'+province.Name+'</th></tr>'+
         '<tr><th><b>Region</b></th><th>'+en(province.Region)+'</th></tr>'+
