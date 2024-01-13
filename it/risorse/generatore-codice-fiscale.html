@@ -7,10 +7,10 @@
     <link rel="alternate" href="https://expiter.com/fr/ressources/generateur-codice-fiscale/" hreflang="fr"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="tools/bootstrap.min.css">
+    <link rel="stylesheet" href="https://expiter.com/tools/bootstrap.min.css">
     <link rel="stylesheet" href="https://expiter.com/style.css?v=1.2">
-    <link rel="stylesheet" href="https://expiter.com/tools/resources-style.css">
-    <link rel="stylesheet" href="https://expiter.com/style-blog.css">
+    <link rel="stylesheet" href="../../tools/resources-style.css">
+    <link rel="stylesheet" href="https://expiter.com/style-blog.css?v=1.2">
     <link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media='all'">
     <title>Generatore Codice Fiscale</title>
     <script src="https://expiter.com/jquery3.6.0.js"></script>
@@ -52,7 +52,6 @@
         
             <ul class="menu-items">
                 <li><a href="https://expiter.com/it/">Home</a></li>
-                <li><a href="https://expiter.com/it/resources/">Risorse</a></li>
                 <li><a href="https://expiter.com/it/risorse/generatore-codice-fiscale/">Strumenti</a></li>
                 <li><a href="https://expiter.com/it/blog/articoli/">Blog</a></li>
                 <li><a href="https://expiter.com/it/app/#About">About</a></li>
@@ -69,86 +68,117 @@
 
     <div class="text-center">
         <div class="container">  
-            <center>  
+        <center>  
                 <h1 class="title">Generatore di Codice Fiscale</h1>
                 <p class="subtitle">Calcola il tuo Codice Fiscale italiano online.</p>
-            </center>
             <div>
-                <a href="https://expiter.com/tools/codice-fiscale-generator/#Calcolatore Codice Fiscale"><div class="btn quicklink">Calcola il Codice Fiscale</div></a>
-                <a href="https://expiter.com/tools/codice-fiscale-generator/#Reverse Codice Fiscale"><div class="btn quicklink">Codice Fiscale Inverso</div></a>
-            </div>
-            
+                <a href="https://expiter.com/it/risorse/generatore-codice-fiscale/#Codice Fiscale Calculator">
+                    <div class="btn quicklink">Calcola il Codice Fiscale</div>
+                </a>
+                <a href="https://expiter.com/it/risorse/generatore-codice-fiscale/#Reverse Codice Fiscale">
+                    <div class="btn quicklink">Codice Fiscale Inverso</div>
+                </a>
+            </div>  
+        </center>
         
-        </center>  
-    <div>
-        <section id="Codice Fiscale Calculator">
-        <h2 class="title">Calcolo Codice Fiscale</h2>
-        <div id="CF" class="container card"> 
-            
-            <form id="cf-direct">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="name">Nome</label>
-                        <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="Mike" required>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="surname">Cognome</label>
-                        <input type="text" class="form-control" id="surname" placeholder="Surname" name="surname" value="Bongiorno" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="gender">Sesso</label>
-                        <select class="custom-select" name="gender" id="gender" required>
-                            <option selected value="M">Uomo (M)</option>
-                            <option value="F">Donna (F)</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="birthday">Data di Nascita</label>
-                        <input type="date" class="form-control" id="birthday" name="birthday" value="yyyy-MM-dd" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="birthday_province">Luogo di Nascita</label>
-                        <select class="custom-select" name="birthplace_province" id="birthplace_province" required>
-                        </select>
-                        <sub>Choose "Estero" if you were born outside of Italy.</sub>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="birthplace"></br></label>
-                        <select class="custom-select" name="birthplace" id="birthplace" required>
-                        </select>
-                    </div>
-                </div>
-                <button type="submit" class="btn button" >INVIO</button>
-            </form>
-        </div>
-    </br>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <center>
-                    <label for="cf">Il tuo Codice Fiscale:</label>
-                    
-                    <div class="input-group mb-3 codice">
-                        <input type="text" class="form-control" id="cf-1" readonly>
-                        <div class="input-group-append">
-                            <button class="btn button" type="button" id="copy"> <ej>📋</ej>Copia</button>
-                        </div>
-                    </div>
-                </center>
-                </div>
-            </div>
-            <div class="alert alert-success alert-dismissible fade" id="alert">
-                Copiato.
-                <button type="button" class="close" id="copy-alert-btn" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </div>
 
-    </section>
+        <section id="Codice Fiscale Calculator">
+            <h2 class="title">
+             Calcolo Codice Fiscale
+            </h2>
+            <div class="container card" id="CF">
+             <form id="cf-direct">
+              <div class="form-row">
+               <div class="form-group col-md-6">
+                <label for="name">
+                 Nome
+                </label>
+                <input class="form-control" id="name" name="name" placeholder="Name" required="" type="text" value="Mike"/>
+               </div>
+               <div class="form-group col-md-6">
+                <label for="surname">
+                 Cognome
+                </label>
+                <input class="form-control" id="surname" name="surname" placeholder="Surname" required="" type="text" value="Bongiorno"/>
+               </div>
+              </div>
+              <div class="form-row">
+               <div class="form-group col-md-6">
+                <label for="gender">
+                 Sesso
+                </label>
+                <select class="custom-select" id="gender" name="gender" required="">
+                 <option selected="" value="M">
+                  Uomo (M)
+                 </option>
+                 <option value="F">
+                  Donna (F)
+                 </option>
+                </select>
+               </div>
+               <div class="form-group col-md-6">
+                <label for="birthday">
+                 Data di Nascita
+                </label>
+                <input class="form-control" id="birthday" name="birthday" required="" type="date" value="yyyy-MM-dd"/>
+               </div>
+              </div>
+              <div class="form-row">
+               <div class="form-group col-md-6">
+                <label for="birthday_province">
+                 Luogo di Nascita
+                </label>
+                <select class="custom-select" id="birthplace_province" name="birthplace_province" required="">
+                </select>
+                <sub>
+                 Choose "Estero" if you were born outside of Italy.
+                </sub>
+               </div>
+               <div class="form-group col-md-6">
+                <label for="birthplace">
+                 </br>
+                </label>
+                <select class="custom-select" id="birthplace" name="birthplace" required="">
+                </select>
+               </div>
+              </div>
+              <button class="btn button" type="submit">
+               INVIO
+              </button>
+             </form>
+             </br>
+             <div class="form-row">
+              <div class="form-group col-md-12">
+               <center>
+                <label for="cf">
+                 Il tuo Codice Fiscale:
+                </label>
+                <div class="input-group mb-3 codice">
+                 <input class="form-control" id="cf-1" readonly="" type="text"/>
+                 <div class="input-group-append">
+                  <button class="btn button" id="copy" type="button">
+                   <ej>
+                    📋
+                   </ej>
+                   Copia
+                  </button>
+                 </div>
+                </div>
+               </center>
+              </div>
+             </div>
+             <div class="alert alert-success alert-dismissible fade" id="alert">
+              Copiato.
+              <button aria-label="Close" class="close" id="copy-alert-btn" type="button">
+               <span aria-hidden="true">
+                ×
+               </span>
+              </button>
+             </div>
+            </div>
+           </section>
+           
+
             <hr>
 
     <section id="Reverse Codice Fiscale">
@@ -263,19 +293,14 @@
             </div>
             
 
-           
-
           </div>
-
-
-          
 
         </section>
     </div>
     </div>
        
     </div>
-</div>
+
 
     <script>
         $(function(){

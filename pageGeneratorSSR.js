@@ -40,7 +40,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             let sidebar=pb.setSideBar(province)
 
             const dom = new jsdom.JSDOM(
-            "<html lang='en'>"+
+            "<!DOCTYPE html><html lang='en'>"+
             '<head><meta charset="utf-8">'+
             '<link rel="canonical" href="https://expiter.com/'+fileName+'/"/>'+
             '<link rel="alternate" hreflang="en" href="https://expiter.com/'+fileName+'/" />'+

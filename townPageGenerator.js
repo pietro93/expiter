@@ -34,7 +34,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 97; i < 107; i++){
+        for (let i = 0; i < 2; i++){
             let province = dataset[i];
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
@@ -76,7 +76,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
           '</url>'+'\n'
 
             const dom = new jsdom.JSDOM(
-            "<html lang='en'>"+
+            "<!DOCTYPE html><html lang='en'>"+
             '<head><meta charset="utf-8">'+
             '<link rel="canonical" href="https://expiter.com/'+dirName+fileName+'/"/>'+
             '<link rel="alternate" hreflang="en" href="https://expiter.com/'+dirName+fileName+'/" />'+
@@ -116,7 +116,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="'+comune.Name+", "+province.Name+', Italy"'+'>'+
         '</div><h1 class="title">Comuni di </h1>'+
         '<section id="'+en(comune.Name)+' Info Sheet">'+
-        '<center><table id="list">'+
+        '<center><table id="table list">'+
         '<tr><th><b>Name</b></th><th>'+en(comune.Name)+'</th></tr>'+
         '<tr><th><b>Province</b></th><th>'+province.Name+'</th></tr>'+
         '<tr><th><b>Region</b></th><th>'+en(province.Region)+'</th></tr>'+

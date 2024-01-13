@@ -37,6 +37,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             var fileName = 'it/blog/vivere-a-'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             let seoTitle="Come è vivere a "+province.Name+"?"
             let seoDescription=province.Name+' è un buon posto dove vivere? Una guida per gli espatriati. '+en(province.Name)+' qualità della vita, costo della vita, sicurezza e altro ancora.'
+            let sidebar=pb.setSideBarIT(province)
 
             const dom = new jsdom.JSDOM(
             "<html lang='it'>"+
@@ -64,6 +65,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<!-- GetYourGuide Analytics -->'+
             '<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>'+
             "</head>"+
+            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
 
             '<body data-spy="scroll" data-target="#toc">'+
 
@@ -126,6 +128,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<section id="faqs"><h2>FAQ</h2><span id="faqs"></span></section>'+
         '<section id="Discover"><h2>Scopri '+province.Name+'</h2><span id="promo"></span></section>'+
     '</div>'+
+    '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
             '</body></html>'
                     )
 
