@@ -6,6 +6,7 @@ section #List{
     align-content: center;
     text-align:center;
     width:95%;
+    margin-top:10vh
 }
 section table#list{
     max-width:500px;
