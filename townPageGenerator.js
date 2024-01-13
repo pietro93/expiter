@@ -36,6 +36,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         for (let i = 0; i < 2; i++){
             let province = dataset[i];
+            let sidebar=pb.setSideBar(province)
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
             let parsedData = fs.readFileSync('temp/'+province.Name+'-comuni.json','utf8');
@@ -44,7 +45,6 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             }
             else console.log("Missing comuni: "+province.Name)
 
-            let sidebar=pb.setSideBar(province)
             let comuni=dataset[i]["Comuni"];
 
             let comdataset = fs.readFileSync('comuni.json','utf8');
@@ -126,10 +126,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<tr><th><b>Climate Zone</b></th><th>'+(comune.ClimateZone?comune.ClimateZone:"?")+'</th></tr>'+
         '</tr>'+
         '</table></center>'+
-        '<br>'+
         '<p id="info"></p>'+
         '<p id="tabs"></p>'+
-        '<center><p id="related"></p></center>'+
+        '</center><p id="related"></p></center>'+
         '</section>'+
         '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
         '</body></html>'
@@ -139,14 +138,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
         const $ = require('jquery')(dom.window)
 
-        
         $("h1").text(en(comune.Name)+", "+en(province.Region)+", Italy")
-        
         if (dataset[i].Comuni!=undefined){
         let list=$("#list").html();
         
         $("#list").html(list);
-
         let intro="<b>"+en(comune.Name)+" is a municipality of "+comune.Population+" inhabitants located in the "+
         "<a href='https://expiter.com/comuni/province-of-"+handle(province)+"'>"+en(province.Name)+" province</a></b> in the Italian region of "+en(province.Region)+
         " in <b>"+(center.includes(province.Region)?"Central Italy":(south.includes(province.Region)?"Southern Italy":"Northern Italy"))+"</b>."
@@ -208,8 +204,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         appendProvinceData(province,$)
         pb.setNavBar($)
         }
-        
-        
+         
         let html = dom.window.document.documentElement.outerHTML;
       
         if (!fs.existsSync(dirName)) {
