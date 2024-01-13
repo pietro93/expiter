@@ -115,7 +115,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<nav id="navbar"></nav>'+
         '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="'+comune.Name+", "+province.Name+', Italy"'+'>'+
         '</div><h1 class="title">Comuni di </h1>'+
-        '<section id="'+en(comune.Name)+' Info Sheet">'+
+        '<section id="'+en(comune.Name)+' Info Sheet" style="width: 62%">'+
         '<center><table id="list" class="table">'+
         '<tr><th><b>Name</b></th><th>'+en(comune.Name)+'</th></tr>'+
         '<tr><th><b>Province</b></th><th>'+province.Name+'</th></tr>'+
