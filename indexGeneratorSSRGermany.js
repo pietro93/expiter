@@ -1,5 +1,5 @@
 import * as pb from './js/pageBuilder.js'
-import {fr} from './js/pageBuilder.js'
+import {de} from './js/pageBuilder.js'
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
@@ -29,14 +29,14 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         //console.log(dom.window.document.querySelector("body").textContent)
         dataset=data;  
         populateData(data);
-        const html = fs.readFileSync('./indexTemplateFR.html','utf8');
+        const html = fs.readFileSync('./indexTemplateDE.html','utf8');
         const dom = new jsdom.JSDOM(html);
   
         const $ = require('jquery')(dom.window);
         init($)
         
         let newHtml = dom.window.document.documentElement.outerHTML;
-         fs.writeFile('fr/app.html', newHtml, function (err, file) {
+         fs.writeFile('de/app.html', newHtml, function (err, file) {
             if (err) throw err;
             else console.log('app.html'+' Saved!');
         });
@@ -73,7 +73,7 @@ function populateData(data){
 
 function init($){
     console.log("setting nav bar")
-    pb.setNavBarFR($);
+    pb.setNavBarDE($);
     if (!!$("#filters")){
     let filters = $("#filters");
     let regions = ["Abruzzo","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise",
@@ -118,36 +118,36 @@ function init($){
     row+='</row>' 
     filters.append(row)
 
-    console.log("création de tris")
-createSorting($,"<ej>👍</ej>Adapté aux expatriés","Expat-friendly");
-createSorting($,"<ej>🔠</ej>A-Z","Name");
-createSorting($,"<ej>🔀</ej>Aléatoire","Random");
-createSorting($,"<ej>🌍</ej>Région","Region");
-createSorting($,"<ej>👥</ej>Population","Population");
-createSorting($,"<ej>🌦️</ej>Climat","Climate");
-createSorting($,"<ej>🤑</ej>Coût","CostOfLiving");
-createSorting($,"<ej>👮</ej>Sécurité","Safety");
-createSorting($,"<ej>🚨</ej>Manque de criminalité","Crime");
-createSorting($,"<ej>🍸</ej>Vie nocturne","Nightlife");
-createSorting($,"<ej>📚</ej>Éducation","Education");
-createSorting($,"<ej>☀️</ej>Ensoleillement","SunshineHours");
-createSorting($,"<ej>♨️</ej>Le plus chaud","HotDays");
-createSorting($,"<ej>❄️</ej>Le plus froid","ColdDays");
-createSorting($,"<ej>☔</ej>Le plus humide","RainyDays");
-createSorting($,"<ej>🧳</ej>Adapté aux nomades","DN-friendly");
-createSorting($,"<ej>🏳️‍🌈</ej>Amical LGBTQ+","LGBT-friendly");
-createSorting($,"<ej>👩</ej>Amical pour femmes","Female-friendly");
-createSorting($,"<ej>👩‍👦</ej>Adapté aux familles","Family-friendly");
-createSorting($,"<ej>🥙</ej>Amical pour végétaliens","Veg-friendly");
-createSorting($,"<ej>🌆</ej>Densité de population","Density");
-createSorting($,"<ej>🏖️</ej>Meilleures plages","Beach");
-createSorting($,"<ej>⛰️</ej>Meilleures randonnées","Hiking");
-createSorting($,"<ej>⛷️</ej>Meilleur ski","WinterSports")
+    console.log("Sortierung erstellen");
+createSorting($, "<ej>👍</ej>Für Expatriates geeignet", "Expat-friendly");
+createSorting($, "<ej>🔠</ej>A-Z", "Name");
+createSorting($, "<ej>🔀</ej>Zufällig", "Random");
+createSorting($, "<ej>🌍</ej>Region", "Region");
+createSorting($, "<ej>👥</ej>Bevölkerung", "Population");
+createSorting($, "<ej>🌦️</ej>Klima", "Climate");
+createSorting($, "<ej>🤑</ej>Kosten", "CostOfLiving");
+createSorting($, "<ej>👮</ej>Sicherheit", "Safety");
+createSorting($, "<ej>🚨</ej>Geringe Kriminalität", "Crime");
+createSorting($, "<ej>🍸</ej>Nachtleben", "Nightlife");
+createSorting($, "<ej>📚</ej>Bildung", "Education");
+createSorting($, "<ej>☀️</ej>Sonnenschein", "SunshineHours");
+createSorting($, "<ej>♨️</ej>Heißester Tag", "HotDays");
+createSorting($, "<ej>❄️</ej>Kältester Tag", "ColdDays");
+createSorting($, "<ej>☔</ej>Feuchtester Tag", "RainyDays");
+createSorting($, "<ej>🧳</ej>Für Nomaden geeignet", "DN-friendly");
+createSorting($, "<ej>🏳️‍🌈</ej>LGBTQ+-freundlich", "LGBT-friendly");
+createSorting($, "<ej>👩</ej>Frauenfreundlich", "Female-friendly");
+createSorting($, "<ej>👩‍👦</ej>Familienfreundlich", "Family-friendly");
+createSorting($, "<ej>🥙</ej>Veganfreundlich", "Veg-friendly");
+createSorting($, "<ej>🌆</ej>Bevölkerungsdichte", "Density");
+createSorting($, "<ej>🏖️</ej>Beste Strände", "Beach");
+createSorting($, "<ej>⛰️</ej>Beste Wanderungen", "Hiking");
+createSorting($, "<ej>⛷️</ej>Bestes Skifahren", "WinterSports");
 
-console.log("filtrage par")
-filterBy($);
-}
-}
+    console.log("Filtern nach");
+    filterBy($);
+    }
+} 
 
 
 function createSorting($,label, value){
@@ -364,7 +364,6 @@ function createSorting($,label, value){
         $("span#score2").text(selection[1][sortParams[0]].toFixed(1))
         $("span#score3").text(selection[2][sortParams[0]].toFixed(1))
     }
-
   
 function qualityScore(quality,score){
   let expenses=["Cost of Living (Individual)","Cost of Living (Family)","Cost of Living (Nomad)", 
@@ -425,75 +424,86 @@ function qualityScore(quality,score){
         $("#app").innerHTML="";
       }
     
-function appendData($,data) {
-        console.log("effacement des données")
+      function appendData($, data) {
+        console.log("Daten anhängen");
         clearData($);
-        console.log("données effacées... ajout de nouvelles données")
+        console.log("Daten gelöscht... Hinzufügen neuer Daten");
         let mainContainer = $("#app");
     
-        let title = $("#title")
-            
-        title.append("<span class='bestorworst'></span> <span class='smallorlarge'></span> Provinces en "+
-        "<span class='chosenArea'>Italie</span> <span class='sortBy'></span>");
+        let title = $("#title");
     
-        if (selection.length==0) {title.innerHTML="Impossible de trouver des provinces en fonction de vos filtres."
-      
-        $("#output").html(
-          "<p>Sur la base de nos données, il n'y a pas de "+
-          "<span class='smallorlarge'></span> <span class='hotorcold'></span> "+
-          "<span class='costofliving'></span> provinces en <span class='chosenArea'></span> "+
-          "<span class='withthings'></span></p>."
-          )
-        
-      }
-      else{
-        let province1st=selection[0];
-        let output="<p>"+
-        "Sur la base de nos données, la <span class='bestorworst'></span> <span class='smallorlarge'></span> "+
-        "<span class='hotorcold'></span> <span class='costofliving'></span> "+
-        "province en <span class='chosenArea'>Italie</span> "+
-        "<span class='withthings'></span> <span class='sortBy'></span> est "+
-        "<b><a class='province1st'></a></b>, avec un score de <span id='score1'></span>/10.";
-        if (selection.length>1){
-          for (var i=2;i<=3&i<selection.length;i++){
-            output+=(i===3?" et ":"</br>")+
-            "<b><a class='province"+i+"'></a></b> se classe "+(i===2?"2ème ":"3ème ")+
-            "avec un score de <span id='score"+i+"'></span>/10"
-          }output+="."
-        }output+="</p>"
+        title.append("<span class='bestorworst'></span> <span class='smallorlarge'></span> Provinzen in " +
+            "<span class='chosenArea'>Italien</span> <span class='sortBy'></span>");
     
-        $("#output").html("<center>"+output+"</center>")
-        
-        $("a.province1st").text(fr(province1st.Name))
-        $("a.province1st").attr("href","https://expiter.com/fr/province/"+fr(province1st.Name).replace(/\s/g,"-")
-         .replace("'","-").toLowerCase()+"/")
-        if (selection.length>1){ let province2=selection[1]
-        $("a.province2").text(province2.Name)
-        $("a.province2").attr("href","https://expiter.com/fr/province/"+fr(province2.Name).replace(/\s/g,"-")
-         .replace("'","-").toLowerCase()+"/")}
-         if (selection.length>2){ let province3=selection[2]
-        $("a.province3").text(province3.Name)
-        $("a.province3").attr("href","https://expiter.com/fr/province/"+fr(province3.Name).replace(/\s/g,"-")
-        .replace("'","-").toLowerCase()+"/")}
-       }
-       if (region_filters.length==1) {$(".chosenArea").text(region_filters[0])}
-       else if (region_filters.length==2) {$(".chosenArea").text(region_filters[0]+" et "+region_filters[1])}
-       else if (region_filters.length==3) {$(".chosenArea").text(region_filters[0]+", "+region_filters[1]+" et "+region_filters[2])}
-       else if (region_filters.sort().toString() == "Lazio,Marche,Toscana,Umbria") {$(".chosenArea").text("Italie centrale")}
-       else if (region_filters.sort().toString() == "Abruzzo,Basilicata,Calabria,Campania,Molise,Puglia,Sardegna,Sicilia") {$(".chosenArea").text("Italie du Sud")}
-       else if (region_filters.sort().toString() == "Emilia-Romagna,Friuli-Venezia Giulia,Liguria,Lombardia,Piemonte,Trentino-Alto Adige,Valle d'Aosta,Veneto") {$(".chosenArea").text("Italie du Nord")}
-       else if (region_filters.length>3) {$(".chosenArea").text("Italie")}
-       
-       if (additionalFilters.sort().toString()=="Pop1m+"||additionalFilters.sort().toString()=="Pop1m+,Pop500k+") $(".smallorlarge").text("Grande");
-       else if (additionalFilters.sort().toString()=="Pop300k+"||additionalFilters.sort().toString()=="Pop500k+"||additionalFilters.sort().toString()=="Pop300k+,Pop500k+") $(".smallorlarge").text("De taille moyenne");
-       else if (additionalFilters.sort().toString()=="Pop300k-"||additionalFilters.sort().toString()=="Pop300k+,Pop300k-") $(".smallorlarge").text("Petite");
-            
-       
-       for (let i = 0; i < Math.min(data.length,30); i++) {
-           let card = '<card id="'+data[i].Name+'"class="'+(data[i].Name=="Aosta"?"Vallée d'Aoste":data[i].Region)+' paracard" '+
-            'title="'+data[i].Name+', '+(data[i].Name=="Aosta"?"Vallée d'Aoste":data[i].Region)+'"'+
-            '>';
-            
+        if (selection.length == 0) {
+            title.innerHTML = "Es konnten keine Provinzen entsprechend Ihrer Filter gefunden werden.";
+    
+            $("#output").html(
+                "<p>Basierend auf unseren Daten gibt es keine " +
+                "<span class='smallorlarge'></span> <span class='hotorcold'></span> " +
+                "<span class='costofliving'></span> Provinzen in <span class='chosenArea'></span> " +
+                "<span class='withthings'></span></p>."
+            );
+    
+        } else {
+            let province1st = selection[0];
+            let output = "<p>" +
+                "Basierend auf unseren Daten ist die <span class='bestorworst'></span> <span class='smallorlarge'></span> " +
+                "<span class='hotorcold'></span> <span class='costofliving'></span> " +
+                "Provinz in <span class='chosenArea'>Italien</span> " +
+                "<span class='withthings'></span> <span class='sortBy'></span> " +
+                "ist <b><a class='province1st'></a></b>, mit einer Punktzahl von <span id='score1'></span>/10.";
+            if (selection.length > 1) {
+                for (var i = 2; i <= 3 & i < selection.length; i++) {
+                    output += (i === 3 ? " und " : "</br>") +
+                        "<b><a class='province" + i + "'></a></b> belegt den " + (i === 2 ? "2. " : "3. ") +
+                        "Platz mit einer Punktzahl von <span id='score" + i + "'></span>/10";
+                }
+                output += ".";
+            }
+            output += "</p>";
+    
+            $("#output").html("<center>" + output + "</center>");
+    
+            $("a.province1st").text(de(province1st.Name))
+            $("a.province1st").attr("href", "https://expiter.com/de/provinz/" + de(province1st.Name).replace(/\s/g, "-")
+                .replace("'", "-").toLowerCase() + "/")
+            if (selection.length > 1) {
+                let province2 = selection[1]
+                $("a.province2").text(de(province2.Name))
+                $("a.province2").attr("href", "https://expiter.com/de/provinz/" + de(province2.Name).replace(/\s/g, "-")
+                    .replace("'", "-").toLowerCase() + "/")
+            }
+            if (selection.length > 2) {
+                let province3 = selection[2]
+                $("a.province3").text(de(province3.Name))
+                $("a.province3").attr("href", "https://expiter.com/de/provinz/" + de(province3.Name).replace(/\s/g, "-")
+                    .replace("'", "-").toLowerCase() + "/")
+            }
+        }
+        if (region_filters.length == 1) {
+            $(".chosenArea").text(region_filters[0])
+        } else if (region_filters.length == 2) {
+            $(".chosenArea").text(region_filters[0] + " und " + region_filters[1])
+        } else if (region_filters.length == 3) {
+            $(".chosenArea").text(region_filters[0] + ", " + region_filters[1] + " und " + region_filters[2])
+        } else if (region_filters.sort().toString() == "Lazio,Marche,Toscana,Umbria") {
+            $(".chosenArea").text("Mittelitalien")
+        } else if (region_filters.sort().toString() == "Abruzzo,Basilicata,Calabria,Campania,Molise,Puglia,Sardegna,Sicilia") {
+            $(".chosenArea").text("Süditalien")
+        } else if (region_filters.sort().toString() == "Emilia-Romagna,Friuli-Venezia Giulia,Liguria,Lombardia,Piemonte,Trentino-Alto Adige,Valle d'Aosta,Veneto") {
+            $(".chosenArea").text("Norditalien")
+        } else if (region_filters.length > 3) {
+            $(".chosenArea").text("Italien")
+        }
+    
+        if (additionalFilters.sort().toString() == "Pop1m+" || additionalFilters.sort().toString() == "Pop1m+,Pop500k+") $(".smallorlarge").text("Große");
+        else if (additionalFilters.sort().toString() == "Pop300k+" || additionalFilters.sort().toString() == "Pop500k+" || additionalFilters.sort().toString() == "Pop300k+,Pop500k+") $(".smallorlarge").text("Mittlere");
+        else if (additionalFilters.sort().toString() == "Pop300k-" || additionalFilters.sort().toString() == "Pop300k+,Pop300k-") $(".smallorlarge").text("Kleine");
+    
+        for (let i = 0; i < Math.min(data.length, 30); i++) {
+            let card = '<card id="' + data[i].Name + '"class="' + (data[i].Name == "Aosta" ? "Aostatal" : data[i].Region) + ' parac';
+    
            let col = "<div class='column'>";
 
            
@@ -521,40 +531,40 @@ function appendData($,data) {
           case "Veneto": img="VE"; break;
         }
 
-            //if ($(window).width() > 765) {
-        //card +='<img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-190,h-250,c-at_least" alt="'+data[i].Name+'"></img>'
-       // }
-      //  else{
-        card +='<img title="'+fr(data[i].Name)+'" '+ (i>2?'loading="lazy"':"") +' src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+img+'.webp?tr=w-180,h-240,c-at_least,q-1,bl-1" width="180" height="240" alt="Province de '+fr(data[i].Name)+', '+fr(data[i].Region)+'"></img>'
-        //  }
-  
-          if (data[i].Name.length>14){card += '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + fr(data[i].Name) + '</h3></center></div>'}
-          else card += '<div class="frame" ><center><h3 class="header">' + fr(data[i].Name) + '</h3></center></div> ';
-          card += '<p class="region">' + fr(data[i]["Region"])+'</p>';
-          card += '<p class="population"><ej>👥</ej>Population: <b style="color:white">'+data[i].Population.toLocaleString('en', {useGrouping:true}) +'</b>'+'</p>';
-          card += '<p>&#128184Coût: '+ qualityScore("CostOfLiving",data[i].CostOfLiving) +'';
-          card += '<p><ej>💰</ej>Dépenses: '+ qualityScore("Cost of Living (Individual)",data[i]["Cost of Living (Individual)"])+'</p>';
-          card += '<p><ej>☀️</ej>Climat: '+ qualityScore("Climate",data[i].Climate) +'</p>';
-          card += '<p><ej>🚑</ej>Santé: '+ qualityScore("Healthcare",data[i].Healthcare) +'</p>';
-          card += '<p><ej>🚌</ej>Transport: '+ qualityScore("PublicTransport",data[i]["PublicTransport"]) +'</p>';
-          card += '<p><ej>👮🏽‍♀️</ej>Sécurité: '+ qualityScore("Safety",data[i]["Safety"]) +'</p>';
-          card += '<p><ej>📚</ej>Éducation: '+ qualityScore("Education",data[i]["Education"]) +'</p>';
-          card += '<p><ej>🏛️</ej>Culture: '+ qualityScore("Culture",data[i].Culture) +'</p>';
-          card += '<p><ej>🍸</ej>Vie nocturne: '+ qualityScore("Nightlife",data[i].Nightlife) +'</p>';
-          card += '<p class="opacity6"><ej>⚽</ej>Loisirs: '+ qualityScore("Sports & Leisure",data[i]["Sports & Leisure"])+'</p>';
-          card += '<p class="opacity6"><ej>🍃</ej>Qualité de l\'air: '+ qualityScore("AirQuality",data[i]["AirQuality"]) +'</p>';
-          card += '<p class="opacity6"><ej>🏳️‍🌈</ej>LGBTQ+: '+ qualityScore("LGBT-friendly",data[i]["LGBT-friendly"]) +'</p>';
-          card += '<p class="opacity4"><ej>👩</ej>Pour les femmes: '+ qualityScore("Female-friendly",data[i]["Female-friendly"]) +'</p>';
-          card += '<p class="opacity4"><ej>👪</ej>Pour la famille: '+ qualityScore("Family-friendly",data[i]["Family-friendly"]) +'</p>';
-          card += '<p class="opacity4"><ej>🥗</ej>Pour les végétaliens: '+ qualityScore("Veg-friendly",data[i]["Veg-friendly"]) +'</p>';
-          card += '<p class="opacity4"><ej>🧳</ej>Pour les nomades: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'</p>';
-          card += '<button class="more" style="font-size:large;" onclick="location.href=\'https://expiter.com/fr/province/'+fr(data[i].Name).replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+'/\';"> Plus>> </button>';
-          card += '</card>'
-  
-          col += "<a href='https://expiter.com/fr/province/"+fr(data[i].Name).replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase()+"\''>"+card+"</a></div>";
-          
-          mainContainer.append(col);
-          
-      }
-      
-  }
+         //if ($(window).width() > 765) {
+//card +='<img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-190,h-250,c-at_least" alt="'+data[i].Name+'"></img>'
+// }
+//  else{
+card += '<img title="' + de(data[i].Name) + '" ' + (i > 2 ? 'loading="lazy"' : "") + ' src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/' + img + '.webp?tr=w-180,h-240,c-at_least,q-1,bl-1" width="180" height="240" alt="Provinz von ' + de(data[i].Name) + ', ' + de(data[i].Region) + '"></img>'
+//  }
+
+if (data[i].Name.length > 14) {
+    card += '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + de(data[i].Name) + '</h3></center></div>'
+} else card += '<div class="frame" ><center><h3 class="header">' + de(data[i].Name) + '</h3></center></div> ';
+card += '<p class="region">' + de(data[i]["Region"]) + '</p>';
+card += '<p class="population"><ej>👥</ej>Bevölkerung: <b style="color:white">' + data[i].Population.toLocaleString('en', { useGrouping: true }) + '</b>' + '</p>';
+card += '<p>&#128184Kosten: ' + qualityScore("CostOfLiving", data[i].CostOfLiving) + '';
+card += '<p><ej>💰</ej>Ausgaben: ' + qualityScore("Cost of Living (Individual)", data[i]["Cost of Living (Individual)"]) + '</p>';
+card += '<p><ej>☀️</ej>Klima: ' + qualityScore("Climate", data[i].Climate) + '</p>';
+card += '<p><ej>🚑</ej>Gesundheit: ' + qualityScore("Healthcare", data[i].Healthcare) + '</p>';
+card += '<p><ej>🚌</ej>Transport: ' + qualityScore("PublicTransport", data[i]["PublicTransport"]) + '</p>';
+card += '<p><ej>👮🏽‍♀️</ej>Sicherheit: ' + qualityScore("Safety", data[i]["Safety"]) + '</p>';
+card += '<p><ej>📚</ej>Bildung: ' + qualityScore("Education", data[i]["Education"]) + '</p>';
+card += '<p><ej>🏛️</ej>Kultur: ' + qualityScore("Culture", data[i].Culture) + '</p>';
+card += '<p><ej>🍸</ej>Nachtleben: ' + qualityScore("Nightlife", data[i].Nightlife) + '</p>';
+card += '<p class="opacity6"><ej>⚽</ej>Freizeit: ' + qualityScore("Sports & Leisure", data[i]["Sports & Leisure"]) + '</p>';
+card += '<p class="opacity6"><ej>🍃</ej>Luftqualität: ' + qualityScore("AirQuality", data[i]["AirQuality"]) + '</p>';
+card += '<p class="opacity6"><ej>🏳️‍🌈</ej>LGBTQ+: ' + qualityScore("LGBT-freundlich", data[i]["LGBT-freundlich"]) + '</p>';
+card += '<p class="opacity4"><ej>👩</ej>Frauenfreundlich: ' + qualityScore("Frauenfreundlich", data[i]["Frauenfreundlich"]) + '</p>';
+card += '<p class="opacity4"><ej>👪</ej>Familienfreundlich: ' + qualityScore("Familienfreundlich", data[i]["Familienfreundlich"]) + '</p>';
+card += '<p class="opacity4"><ej>🥗</ej>Vegan-freundlich: ' + qualityScore("Vegan-freundlich", data[i]["Vegan-freundlich"]) + '</p>';
+card += '<p class="opacity4"><ej>🧳</ej>Nomadenfreundlich: ' + qualityScore("Nomadenfreundlich", data[i]["Nomadenfreundlich"]) + '</p>';
+card += '<button class="more" style="font-size:large;" onclick="location.href=\'https://expiter.com/de/provinz/' + de(data[i].Name).replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase() + '/\';"> Mehr>> </button>';
+card += '</card>'
+
+col += "<a href='https://expiter.com/de/provinz/" + de(data[i].Name).replace(/\s+/g, '-').replace(/'/g, '-').toLowerCase() + "\''>" + card + "</a></div>";
+
+mainContainer.append(col);
+}
+
+}

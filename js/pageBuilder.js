@@ -96,6 +96,174 @@ sb+='<br>'+
  return sb
 }
 
+export function setSideBarDE(province) {
+  let sb = "";
+
+  province?sb =
+        '<p class="menu-label">Überblick</p>' +
+        '<ul class="menu-list">' +
+        '<li><a href="https://expiter.com/de/provinz/' +
+        handle(de(province.Name)) +
+        '/">Provinz ' +
+        de(province.Name) +
+        '</a></li>' +
+        '<li><a href="http://expiter.com/de/gemeinden/provinz-' +
+        handle(de(province.Name)) +
+        '/">Gemeinden in der Provinz ' +
+        de(province.Name) +
+        '</a></li>' +
+        '<li><a href="https://expiter.com/de/app/?sort=Name&region=' +
+        handle(province.Region, 1) +
+        '">Provinzen in ' +
+        de(province.Region) +
+        '</a></li>' +
+        '</ul>' +
+        '<p class="menu-label">Lass dich inspirieren</p>' +
+        '<ul class="menu-list">' +
+        '<li><a href="https://expiter.com/de/"><b>Vergleichstool für Provinzen</b></a></li>' +
+        '<li><a href="https://expiter.com/de/app/?sort=Expat-friendly&region=' +
+        handle(province.Region, 1) +
+        '">Die besten Orte zum Leben in ' +
+        de(province.Region) +
+        '</a></li>' +
+        '<li><a href="https://expiter.com/de/app/?sort=Cheapest&region=' +
+        handle(province.Region, 1) +
+        '">Die günstigsten Provinzen in ' +
+        de(province.Region) +
+        '</a></li>' +
+        '<li><a href="https://expiter.com/de/app/?sort=Climate&region=' +
+        handle(province.Region, 1) +
+        '">Provinzen in ' +
+        de(province.Region) +
+        ' mit dem besten Klima</a></li>' +
+        '<li><a href="https://expiter.com/de/app/?sort=Safety&region=' +
+        handle(province.Region, 1) +
+        '">Die sichersten Provinzen in ' +
+        de(province.Region) +
+        '</a></li>' +
+        '</ul>'
+    : sb =
+        '<p class="menu-label">Hier geht\'s los</p>' +
+        '<ul class="menu-list">' +
+        '<li><a href="https://expiter.com/de/ressourcen/">Ressourcen für Expatriates</a></li>' +
+        '<li><a href="https://expiter.com/de/ressourcen/steuernummer-generieren//">Italienische Steuernummer Generieren</a></li>' +
+        '<li><a href="https://expiter.com/de/regionen/italienische-regionen/">Regionen d\'Italia</a></li>' +
+        '</ul>' +
+        '<p class="menu-label">Lass dich inspirieren</p>' +
+        '<ul class="menu-list">' +
+        '<li><a href="https://expiter.com/de/"><b>Vergleich der Provinzen</b></a></li>' +
+        '<li><a href="https://expiter.com/de/app/?sort=Cheapest&region=All">Die günstigsten italienischen Provinzen</a></li>' +
+        '<li><a href="https://expiter.com/de/app/?sort=SunshineHours&region=North">Die sonnigsten Provinzen Norditaliens</a></li>' +
+        '<li><a href="https://expiter.com/de/app/?sort=Expat-friendly&region=South">Die besten Orte zum Leben im Süden Italiens</a></li>' +
+        '<li><a href="https://expiter.com/de/app/?sort=DN-friendly&region=All">Die besten Ziele für digitale Nomaden in Italien</a></li>' +
+        '</ul>';
+
+  sb +=
+    '<br>' +
+    '<p class="menu-label">' +
+    'Informationen</p>' +
+    '<p class="about">Expiter ist ein Datenvisualisierungstool zur Untersuchung und Vergleich verschiedener Lebensqualitätsfaktoren in italienischen Städten und Provinzen.' +
+    '<br><br>Wir bieten wertvolle Informationen für Expatriates, Austauschstudenten, Vollzeitreisende, Fernarbeiter und digitale Nomaden, die in Italien leben (oder planen, dorthin zu ziehen).' +
+    '</p>' +
+    '<br>' +
+    '<p class="menu-label">Haftungsausschluss</p>' +
+    '<p class="disclaimer">Die Informationen auf dieser Website dienen nur zu Bildungszwecken. Wir sammeln Daten aus verschiedenen Quellen, einschließlich interner Umfragen und öffentlich verfügbarer Datenbanken von externen Quellen.' +
+    '<br><br>' +
+    'Expiter.com garantiert nicht die Genauigkeit, Zuverlässigkeit oder Integrität von Produkten, Dienstleistungen oder Informationen, die auf dieser Website erwähnt werden.' +
+    '<br><br>' +
+    'Expiter.com nimmt an Partnerprogrammen teil, einschließlich des Amazon Services LLC-Partnerprogramms, eines Partnerwerbeprogramms, das entwickelt wurde, um Mittel für Websites zu schaffen, um Werbegebühren zu verdienen, indem sie Werbung schalten und auf Amazon verlinken.' +
+    '<br><br>' +
+    'Das bedeutet, dass wir eine Provision verdienen können, wenn Sie auf unsere Links klicken oder Produkte über unsere Links kaufen, ohne dass Ihnen zusätzliche Kosten entstehen.' +
+    '</p>' +
+    '<br><br>';
+
+  return sb;
+}
+
+export function setSideBarFR(province) {
+  let sb = "";
+
+  province ? sb =
+        '<p class="menu-label">Aperçu</p>' +
+        '<ul class="menu-list">' +
+        '<li><a href="https://expiter.com/fr/province/' +
+        handle(fr(province.Name)) +
+        '/">Province de ' +
+        fr(province.Name) +
+        '</a></li>' +
+        '<li><a href="http://expiter.com/fr/gemeinden/provinz-' +
+        handle(fr(province.Name)) +
+        '/">Communes dans la province de ' +
+        fr(province.Name) +
+        '</a></li>' +
+        '<li><a href="https://expiter.com/fr/app/?sort=Name&region=' +
+        handle(fr(province.Region), 1) +
+        '">Provinces en ' +
+        fr(province.Region) +
+        '</a></li>' +
+        '</ul>' +
+        '<p class="menu-label">Laissez-vous inspirer</p>' +
+        '<ul class="menu-list">' +
+        '<li><a href="https://expiter.com/fr/"><b>Outil de Comparaison des Provinces</b></a></li>' +
+        '<li><a href="https://expiter.com/fr/app/?sort=Expat-friendly&region=' +
+        handle(fr(province.Region), 1) +
+        '">Les meilleurs endroits pour vivre en ' +
+        fr(province.Region) +
+        '</a></li>' +
+        '<li><a href="https://expiter.com/fr/app/?sort=Cheapest&region=' +
+        handle(fr(province.Region), 1) +
+        '">Les provinces les moins chères en ' +
+        fr(province.Region) +
+        '</a></li>' +
+        '<li><a href="https://expiter.com/fr/app/?sort=Climate&region=' +
+        handle(fr(province.Region), 1) +
+        '">Provinces en ' +
+        fr(province.Region) +
+        ' avec le meilleur climat</a></li>' +
+        '<li><a href="https://expiter.com/fr/app/?sort=Safety&region=' +
+        handle(fr(province.Region), 1) +
+        '">Les provinces les plus sûres en ' +
+        fr(province.Region) +
+        '</a></li>' +
+        '</ul>'
+    : sb =
+        '<p class="menu-label">Commencez ici</p>' +
+        '<ul class="menu-list">' +
+        '<li><a href="https://expiter.com/fr/ressources/">Ressources pour Expatriés</a></li>' +
+        '<li><a href="https://expiter.com/fr/ressources/generateur-codice-fiscale//">Générateur de Code Fiscal Italien</a></li>' +
+        '<li><a href="https://expiter.com/fr/regions/regions-italiennes/">Régions d\'Italie</a></li>' +
+        '</ul>' +
+        '<p class="menu-label">Laissez-vous inspirer</p>' +
+        '<ul class="menu-list">' +
+        '<li><a href="https://expiter.com/fr/"><b>Comparaison des Provinces</b></a></li>' +
+        '<li><a href="https://expiter.com/fr/app/?sort=Cheapest&region=All">Les provinces italiennes les moins chères</a></li>' +
+        '<li><a href="https://expiter.com/fr/app/?sort=SunshineHours&region=North">Les provinces les plus ensoleillées du Nord de l\'Italie</a></li>' +
+        '<li><a href="https://expiter.com/fr/app/?sort=Expat-friendly&region=South">Les meilleurs endroits pour vivre dans le Sud de l\'Italie</a></li>' +
+        '<li><a href="https://expiter.com/fr/app/?sort=DN-friendly&region=All">Les meilleures destinations pour les Nomades Digitaux en Italie</a></li>' +
+        '</ul>';
+
+  sb +=
+    '<br>' +
+    '<p class="menu-label">' +
+    'Informations</p>' +
+    '<p class="about">Expiter est un outil de visualisation des données permettant d\'étudier et de comparer différents facteurs de qualité de vie dans les villes et provinces italiennes.' +
+    '<br><br>Nous fournissons des informations précieuses pour les expatriés, les étudiants en échange, les voyageurs à plein temps, les télétravailleurs et les nomades numériques vivant en Italie (ou envisageant de s\'y installer).' +
+    '</p>' +
+    '<br>' +
+    '<p class="menu-label">Clause de non-responsabilité</p>' +
+    '<p class="disclaimer">Les informations sur ce site web sont fournies à des fins éducatives uniquement. Nous recueillons des données auprès de différentes sources, y compris des sondages internes et des bases de données disponibles publiquement à partir de sources externes.' +
+    '<br><br>' +
+    'Expiter.com ne garantit pas l\'exactitude, la fiabilité ou l\'intégrité de tout produit, service ou information mentionnés sur ce site web.' +
+    '<br><br>' +
+    'Expiter.com participe à des programmes d\'affiliation, y compris le programme d\'affiliation Amazon Services LLC, un programme de publicité d\'affiliation conçu pour fournir un moyen aux sites de gagner des frais de publicité en faisant de la publicité et en établissant un lien vers Amazon.' +
+    '<br><br>' +
+    'Cela signifie que nous pouvons gagner une commission si vous cliquez sur nos liens ou achetez des produits via nos liens, sans frais supplémentaires pour vous.' +
+    '</p>' +
+    '<br><br>';
+
+  return sb;
+}
+
 
 export function setNavBar($){
     $("#navbar").append(
@@ -192,6 +360,7 @@ export function setNavBarIT($){
         '</div>'
     )
 }
+
 
   
   export 

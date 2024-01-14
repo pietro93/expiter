@@ -32,12 +32,13 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         populateData(data);
         for (let i = 0; i < 107; i++){
             let province = dataset[i];
+            let sidebar=pb.setSideBarDE(province)
             
             var fileName = 'de/provinz/'+de(province.Name).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
-            let seoTitle=de(province.Name)+" - Qualité et Coût de la Vie"
-            let seoDescription='Informations sur la vie à '+de(province.Name)+' '+'('+de(province.Region)+') pour les expatriés, les étudiants et les nomades digitaux. '+de(province.Name)+' qualité de vie, coût de la vie, sécurité et autres infos utiles.'
-            let heroImage='https://expiter.com/img/'+province.Abbreviation+'.webp'
-
+            let seoTitle = de(province.Name) + " - Lebensqualität und Lebenshaltungskosten";
+            let seoDescription = 'Informationen über das Leben in ' + de(province.Name) + ' (' + de(province.Region) + ') für Expatriates, Studenten und digitale Nomaden. ' + de(province.Name) + ' Lebensqualität, Lebenshaltungskosten, Sicherheit und andere nützliche Informationen.';
+            let heroImage = 'https://expiter.com/img/' + province.Abbreviation + '.webp';
+            
             const dom = new jsdom.JSDOM(
             "<html lang='de'>"+
             '<head><meta charset="utf-8">'+
@@ -52,7 +53,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css">'+
+            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.0">'+
 
             
             '<!-- GetYourGuide Analytics -->'+
@@ -65,10 +66,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<meta name="description" content="'+seoDescription+'" />'+
             "<title>"+seoTitle+"</title>"+
            
-	        '<meta name="keywords" content="vivre à '+de(province.Name)+', '+de(province.Name)+' nomades digitaux,'+de(province.Name)+' qualité de vie,'+de(province.Name)+' vie nocturne" />'+
+            '<meta name="keywords" content="Leben in ' + de(province.Name) + ', ' + de(province.Name) + ' digitale Nomaden, ' + de(province.Name) + ' Lebensqualität, ' + de(province.Name) + ' Nachtleben" />' +
 
-            '<link rel="icon" type="image/x-icon" title="Expiter - Expatriés et Nomades en Italie" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
-            "</head>"+
+            '<link rel="icon" type="image/x-icon" title="Expiter - Expatriates and Nomads in Italy" href="https://expiter.com/img/expiter-favicon.ico"></link>' +
+            "</head>" +
+            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
 
             '<body data-spy="scroll" data-target="#toc">'+
 
@@ -86,12 +88,13 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="Provincia di '+de(province.Name)+'"'+'></div>'+
             '<h1 data-toc-skip id="title" class="title column is-12">  </h1></row>'+
             '<div class="tabs effect-3">'+
-			'<input type="radio" id="tab-1" name="tab-effect-3" checked="checked">'+
-            '<span>Qualité de Vie</span>'+
-            '<input type="radio" id="tab-2" name="tab-effect-3">'+
-            '<span>Coût de la Vie</span>'+
-            '<input type="radio" id="tab-3" name="tab-effect-3">'+
-            '<span>Nomades Numériques</span>'+    
+            '<input type="radio" id="tab-1" name="tab-effect-3" checked="checked">' +
+            '<span>Lebensqualität</span>' +
+            '<input type="radio" id="tab-2" name="tab-effect-3">' +
+            '<span>Lebenshaltungskosten</span>' +
+            '<input type="radio" id="tab-3" name="tab-effect-3">' +
+            '<span>Digitale Nomaden</span>' +
+            
 			'<input type="radio" id="tab-4" name="tab-effect-3" disabled>'+
 			'<span></span>'+
 			'<input type="radio" id="tab-5" name="tab-effect-3" disabled>'+
@@ -122,17 +125,21 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 				'</section>'+
 			'</div>'+
 		'</div></div>'+
-'<div id="info" class="columns is-multiline is-mobile">'+ 
-'<section id="Informations Générales"><h2>Informations Générales</h2><span id="overview"></span></section>'+ 
-'<section id="Climat"><h2>Climat</h2><span id="climate"></span></section>'+ '<section id="Coût de la Vie"><h2>Coût de la Vie</h2><span id="CoL"></span></section>'+
-'<section id="Qualité de la Vie"><h2>Qualité de la Vie</h2>'+ 
-'<section id="Santé"><h3>Santé</h3><span id="healthcare"></span></section>'+ 
-'<section id="Éducation"><h3>Éducation</h3><span id="education"></span></section>'+
-'<section id="Loisirs"><h3>Loisirs</h3><span id="leisure"></span></section>'+
-'<section id="Criminalité et Sécurité"><h3>Criminalité et Sécurité</h3><span id="crimeandsafety"></span></section>'+
-'<section id="Transports"><h3>Transports</h3><span id="transport"></span></section></section>'+ 
-'<section id="Tourisme"><h2>Tourisme</h2><span id="promo"></span></section>'+
-'</div>'+ '</body></html>'
+    '<div id="info" class="columns is-multiline is-mobile">' +
+    '<section id="Informations Générales"><h2>Informations Générales</h2><span id="overview"></span></section>' +
+    '<section id="Climat"><h2>Climat</h2><span id="climate"></span></section>' +
+    '<section id="Coût de la Vie"><h2>Coût de la Vie</h2><span id="CoL"></span></section>' +
+    '<section id="Qualité de la Vie"><h2>Qualité de la Vie</h2>' +
+        '<section id="Santé"><h3>Santé</h3><span id="healthcare"></span></section>' +
+        '<section id="Éducation"><h3>Éducation</h3><span id="education"></span></section>' +
+        '<section id="Loisirs"><h3>Loisirs</h3><span id="leisure"></span></section>' +
+        '<section id="Criminalité et Sécurité"><h3>Criminalité et Sécurité</h3><span id="crimeandsafety"></span></section>' +
+        '<section id="Transports"><h3>Transports</h3><span id="transport"></span></section>' +
+    '</section>' +
+    '<section id="Tourisme"><h2>Tourisme</h2><span id="promo"></span></section>' +
+'</div>' +
+'<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
+'</body></html>'
 )
 
 
@@ -163,17 +170,17 @@ console.log('error: ' + err);
             let separator='</br><span class="separator"></span></br>'
         
             let map =
-            '<figure>'+
-            '<img alt="Carte de la province de '+de(province.Name)+' dans '+de(province.Region)+'"'+
-            'src="https://ik.imagekit.io/cfkgj4ulo/map/'+province["Region"].replace(/\s+/g,"-").replace("'","-")+'-provinces.webp?tr=w-250'+
-            'load="lazy"></img>'+
-            '<figcaption>Carte des provinces de la région '+de(province.Region)+' incluant '+de(province.Name)+'</figcaption>'+
-            '</figure>'
-            
-            appendProvinceData(province, $);
-            pb.setNavBarFR($);
-            
-            $(".title").text('Comment vivre à '+de(province.Name)+' - Qualité de vie, coûts et choses à savoir');
+    '<figure>' +
+        '<img alt="Karte der Provinz ' + de(province.Name) + ' in ' + de(province.Region) + '"' +
+        'src="https://ik.imagekit.io/cfkgj4ulo/map/' + province["Region"].replace(/\s+/g, "-").replace("'", "-") + '-provinces.webp?tr=w-250' +
+        'load="lazy"></img>' +
+        '<figcaption>Karte der Provinzen der Region ' + de(province.Region) + ' einschließlich ' + de(province.Name) + '</figcaption>' +
+    '</figure>';
+
+appendProvinceData(province, $);
+pb.setNavBarFR($);
+
+$(".title").text('Wie man in ' + de(province.Name) + ' lebt - Lebensqualität, Kosten und Wissenswertes');
             $("#overview").append(map)
             $("#overview").append(info.overview)
             $("#overview").append(info.disclaimer)
@@ -216,63 +223,62 @@ console.log('error: ' + err);
             
             let info = {}
         
-            info.overview="La province de "+de(province.Name)+" est la <b>"+province.SizeByPopulation+"e plus grande province italienne par population</b> avec <b>"+province.Population.toLocaleString()+" habitants</b>, dans la région <b>"+de(province.Region)+"</b>. "+
-            (facts[name].overview?facts[name].overview:"")+
-            "</br></br>"+
-            "<a href='https://expiter.com/de/communes/province-de-"+de(province.Name).replace(/\s+/g,"-").replace("'","-").toLowerCase()+"/'>"+"L'aire métropolitaine de "+de(province.Name)+" comprend <b>"+
-            +province.Towns+" communes</b></a> et couvre une superficie de "+province.Size.toLocaleString()+" km<sup>2</sup>. "
-            +"La <b>densité de population est de "+province.Density+" habitants par km<sup>2</sup></b>, ce qui la rend "+
-            (province.Density<100?"peu peuplée.":(province.Density>500?"très peuplée." : "assez densément peuplée."))+
-            " Le rapport entre hommes et femmes est de "+ratio+".";
-            
-            (facts[name]["provinceData"]!=""?(info.overview+='</br></br>'+facts[name]["provinceData"])
-            :"")
-          
-            info.CoL="Le <b>salaire moyen mensuel à "+de(province.Name)+" est de "+province.MonthlyIncome+"€</b>, ce qui est "+
-            (province.MonthlyIncome>1500&&province.MonthlyIncome<1800?"dans la moyenne du pays":(province.MonthlyIncome>=1800?"<b class='green'>au-dessus de la moyenne</b> pour l'Italie":"<b class='red'>en dessous de la moyenne</b> pour l'Italie"))+"."+
-            "</br></br>"+
-            "Le coût de la vie est estimé à "+province["Cost of Living (Individual)"]+"€ par mois pour une personne seule ou "+province["Cost of Living (Family)"]+"€ par mois pour une famille de quatre personnes. Le coût pour louer "+
-            "un petit appartement (deux ou trois pièces) dans un quartier résidentiel de la ville est d'environ "+province["MonthlyRental"]+"€ par mois."+"</br></br>"+
-            "En général, vivre à "+(province["Cost of Living (Individual)"]>avg["Cost of Living (Individual)"]?"<b class='red'>"+de(province.Name)+" est très coûteux":(province["Cost of Living (Individual)"]<1150?"<b class='green'>"+de(province.Name)+" n'est pas du tout coûteux":"<b class='green'>"+de(province.Name)+" n'est pas très coûteux"))+"</b> par rapport aux autres provinces italiennes."
-            +" Vivre à "+de(province.Name)+" est environ "+(province['Cost of Living (Individual)']>avg["Cost of Living (Individual)"]?"<b class='red'>"+(province['Cost of Living (Individual)']/avg["Cost of Living (Individual)"]*100-100).toFixed(2)+"% plus coûteux que la moyenne</b> de toutes les villes italiennes":"<b class='green'>"+(100-province['Cost of Living (Individual)']/avg["Cost of Living (Individual)"]*100).toFixed(2)+"% moins cher que la moyenne</b> de toutes les autres provinces italiennes.")
-            +".";
-          
-            info.climate="La province de "+de(province.Name)+" reçoit en moyenne <b>"+province.SunshineHours+" heures de soleil</b> par mois, soit "+province.SunshineHours/30+" heures de lumière par jour."+
-            " Cela représente "+(province.SunshineHours>236?"<b class='green'>"+(province.SunshineHours/236*100-100).toFixed(2)+"% de plus</b> que la moyenne italienne":"<b class='red'>"+(100-(province.SunshineHours/236)*100).toFixed(2)+"% de moins</b> que la moyenne italienne")+" et "+
-            (province.SunshineHours>region.SunshineHours?"<b class='green'>"+(province.SunshineHours/region.SunshineHours*100-100).toFixed(2)+"% de plus</b> que la moyenne de la région ":"<b class='red'>"+(100-(province.SunshineHours/region.SunshineHours)*100).toFixed(2)+"% de moins</b> que la moyenne de la région ")+de(province.Region)+"."+
-            "</br></br>"
-            info.lgbtq="<b>"+de(province.Name)+" est "+(province['LGBT-friendly']>7.9?"l'une des provinces les plus LGBTQ-friendly d'Italie":(province['LGBT-friendly']>6?"assez LGBTQ-friendly selon les normes italiennes":"pas particulièrement LGBTQ-friendly par rapport aux autres provinces italiennes"))+
-            ".</b> "+(province.LGBTQAssociations>1?"Il y a "+province.LGBTQAssociations+" associations locales LGBTQ+ (Arcigay) dans cette province.":(province.LGBTQAssociations==1?"Il y a 1 association LGBTQ+ (Arcigay) dans cette province.":""))
-          
-            info.leisure=de(province.Name)+" a <b>"+(province.Nightlife>7.5?"une excellente vie nocturne":"une vie nocturne assez animée")+"</b> avec "+
-            province.Bars+" bars et "+province.Restaurants+" restaurants pour dix mille habitants. "
-           
-            info.healthcare="<b>La santé à "+de(province.Name)+" est "+(province.Healthcare>6.74?"<b class='green'>au-dessus de la moyenne":"<b class='red'>en dessous de la moyenne")+"</b></b>. "+
-            "Pour dix mille habitants, il y a environ "+province.pharmacies+" pharmacies, "+province.GeneralPractitioners+" médecins généralistes et "+province.SpecializedDoctors+" médecins spécialisés. "+
-            "<b>L'espérance de vie moyenne à "+de(province.Name)+" est "+(province.LifeExpectancy>82.05?" très élevée avec ":"de ")+province.LifeExpectancy+" ans.</b>"
-            
-            info.crimeandsafety="La province de "+de(province.Name)+" est généralement "+(province.Safety>7.33?"<b class='green'>très sûre":(province.Safety>6?"<b class='green'>modérément sûre":"<b class='red'>moins sûre que les autres provinces italiennes"))+"</b>. "+
-            "En 2021, il y a eu <b>"+province.ReportedCrimes+" plaintes pour crimes pour cent mille habitants</b>. Cela représente "+(province.ReportedCrimes>2835.76?"<b class='red'>"+(((province.ReportedCrimes/2835.76)*100)-100).toFixed(2)+"% de plus que la moyenne nationale</b>":"<b class='green'>"+((100-(province.ReportedCrimes/2835.76)*100).toFixed(2))+"% de moins que la moyenne nationale</b>")+"."+
-            "<br><br>"+
-            "Il y a eu environ <b>"+province.RoadFatalities+" décès dus à des accidents de la route</b> et <b>"+province.WorkAccidents+" accidents graves au travail</b> pour dix mille personnes à "+de(province.Name)+". Il s'agit respectivement de "+
-            (province.RoadFatalities>0.54?"<b class='red'>"+(((province.RoadFatalities/0.54)*100-100).toFixed(2))+"% d'accidents de la route en plus que la moyenne":"<b class='green'>"+(((100-(province.RoadFatalities/0.54)*100).toFixed(2))+"% d'accidents de la route en moins que la moyenne"))+"</b> et de "+
-            (province.RoadFatalities>12.90?"<b class='red'>"+(((province.WorkAccidents/12.90)*100-100).toFixed(2))+"% d'accidents au travail en plus que la moyenne":"<b class='green'>"+(((100-(province.WorkAccidents/12.90)*100).toFixed(2))+"% d'accidents au travail en moins que la moyenne"))+"</b>."+
-            "<br><br>"
-            info.crimeandsafety+=(province.CarTheft>70.53?"Le vol de voitures est estimé être <b class='red'>"+(((province.CarTheft/70.53)*100)-100).toFixed(2)+"% plus élevé que la moyenne</b> avec "+province.CarTheft+" cas pour cent mille habitants.":"Les vols de voitures sont signalés être <b class='green'>"+((100-(province.CarTheft/70.53)*100)).toFixed(2)+"% moins nombreux que la moyenne</b> avec seulement "+province.CarTheft+" cas signalés pour cent mille habitants.")+" "+ (province.HouseTheft>175.02?"Les cas signalés de vols dans les habitations sont <b class='red'>"+(((province.HouseTheft/175.02)*100)-100).toFixed(2)+"% plus élevés que la moyenne</b> avec "+province.HouseTheft+" plaintes pour cent mille habitants.":"Les cas de vols dans les habitations sont signalés <b class='green'>"+((100-(province.HouseTheft/175.02)*100)).toFixed(2)+"% moins nombreux</b> que la moyenne avec "+province.HouseTheft+" cas pour cent mille habitants.")+" "+ (province.Robberies>22.14?"Les événements de vol à main armée ne sont pas tout à fait inhabituels, il y a <b class='red'>"+(((province.Robberies/22.14)*100)-100).toFixed(2)+"% plus de cas signalés que la moyenne nationale</b> avec "+province.Robberies+" plaintes pour cent mille habitants":"Les vols à main armée ne sont pas très fréquents avec "+province.HouseTheft+" cas signalés pour cent mille habitants, environ <b class='green'>"+((100-(province.Robberies/22.14)*100)).toFixed(2)+"% moins que la moyenne nationale</b>")+". "
-            info.education=de(province.Name)+" a "+(province.HighSchoolGraduates>avg.HighSchoolGraduates?"<b class='green'>un nombre de diplômés plus élevé que la moyenne":"<b class='red'>un taux de diplômés plus bas que la moyenne")+"</b>, environ "+province.HighSchoolGraduates+"%; et "+(province.UniversityGraduates>avg.UniversityGraduates?"<b class='green'>un taux de diplômés plus élevé que la moyenne":"<b class='red'>un pourcentage de diplômés plus bas que la moyenne")+"</b>, environ "+province.UniversityGraduates+"%."+
-            " Le nombre moyen d'<b>années d'études</b> achevées pour les personnes de plus de 25 ans est de "+province.YearsOfIstruzione+", ce qui est "+(province.YearsOfIstruzione>avg.YearsOfIstruzione*1.05?"<b class='green'>au-dessus de la moyenne nationale</b>":(province.YearsOfIstruzione<avg.YearsOfIstruzione*.95?"<b class='red'>en dessous de la moyenne nationale</b>":"pas loin de la moyenne nationale"))+" de "+avg.YearsOfIstruzione+". "+
-            +"<h3>Combien d'universités y a-t-il à "+de(province.Name)+"?</h3>";
-            (province.Universities>1?" Il y a <b>"+province.Universities+" universités</b> dans la province de":(province.Universities==1?" Il y a <b>une seule université</b> dans la province de":" <b>Il n'y a pas d'université</b> dans la province de "))+de(province.Name)+"."
-          
-            info.transport="<b>L'offre de transport public à "+name+"</b> est "+(province.PublicTransport<avg.PublicTransport*.9?"<b class='red'>insuffisante":(province.PublicTransport>avg.PublicTransport*1.1?"<b class='green'>assez bonne":"<b class='green'>plus que satisfaisante"))+"</b>, et "+
-            (province.Traffic<avg.Traffic*.85?"<b class='green'>le trafic est faible":(province.Traffic<avg.Traffic?"<b class='green'>le trafic est en dessous de la moyenne":(province.Traffic>avg.Traffic*1.1?"<b class='red'>il y a beaucoup de trafic automobile":"<b class='red'>il y a des niveaux de trafic assez élevés")))+"</b>. "+
-            "Il y a en moyenne "+province.VehiclesPerPerson+" véhicules par personne, par rapport à la moyenne nationale de "+avg.VehiclesPerPerson+". "+(province.Subway>0?"La ville de "+name+" est l'une des rares villes italiennes dotées d'un système de transport métropolitain, le <b>Métro de "+name+"</b>. ":"")+
-            "<br><br>"+
-            (facts[name]["transportData"]!=""?(info.transport+='</br></br>'+facts[name]["transportData"])
-            :"")
-        
-            info.disclaimer='</br></br><center><span id="disclaimer">Cette page contient des liens d\'affiliation. En tant que partenaire d\'Amazon et de Viator, nous pouvons gagner des commissions sur les achats éligibles.</span></center>'
-            
+            info.overview = "Die Provinz " + de(province.Name) + " ist die <b>" + province.SizeByPopulation + ". größte italienische Provinz nach Bevölkerung</b> mit <b>" + province.Population.toLocaleString() + " Einwohnern</b> in der Region <b>" + de(province.Region) + "</b>. " +
+    (facts[name].overview ? facts[name].overview : "") +
+    "</br></br>" +
+    "<a href='https://expiter.com/de/communes/province-de-" + de(province.Name).replace(/\s+/g, "-").replace("'", "-").toLowerCase() + "/'>" + "Das Ballungsgebiet von " + de(province.Name) + " umfasst <b>" +
+    +province.Towns + " Gemeinden</b> und erstreckt sich über eine Fläche von " + province.Size.toLocaleString() + " km<sup>2</sup>. "
+    + "Die <b>Bevölkerungsdichte beträgt " + province.Density + " Einwohner pro km<sup>2</sup></b>, was sie " +
+    (province.Density < 100 ? "wenig bevölkert macht." : (province.Density > 500 ? "sehr dicht besiedelt macht." : "ziemlich dicht besiedelt macht.")) +
+    " Das Verhältnis zwischen Männern und Frauen beträgt " + ratio + ".";
+
+(facts[name]["provinceData"] != "" ? (info.overview += '</br></br>' + facts[name]["provinceData"]) : "")
+
+info.CoL = "Das <b>durchschnittliche monatliche Gehalt in " + de(province.Name) + " beträgt " + province.MonthlyIncome + "€</b>, was " +
+    (province.MonthlyIncome > 1500 && province.MonthlyIncome < 1800 ? "im landesweiten Durchschnitt liegt" : (province.MonthlyIncome >= 1800 ? "<b class='green'>über dem Durchschnitt</b> für Italien" : "<b class='red'>unter dem Durchschnitt</b> für Italien")) +
+    "</br></br>" +
+    "Die Lebenshaltungskosten werden auf " + province["Cost of Living (Individual)"] + "€ pro Monat für eine Einzelperson oder " + province["Cost of Living (Family)"] + "€ pro Monat für eine vierköpfige Familie geschätzt. Die Kosten für die Miete eines " +
+    "kleinen Apartments (zwei oder drei Zimmer) in einem Wohnviertel der Stadt betragen etwa " + province["MonthlyRental"] + "€ pro Monat." + "</br></br>" +
+    "Im Allgemeinen ist das Leben in " + (province["Cost of Living (Individual)"] > avg["Cost of Living (Individual)"] ? "<b class='red'>" + de(province.Name) + " ist sehr teuer" : (province["Cost of Living (Individual)"] < 1150 ? "<b class='green'>" + de(province.Name) + " ist überhaupt nicht teuer" : "<b class='green'>" + de(province.Name) + " ist nicht sehr teuer")) + "</b> im Vergleich zu anderen italienischen Provinzen."
+    + " Das Leben in " + de(province.Name) + " ist ungefähr " + (province['Cost of Living (Individual)'] > avg["Cost of Living (Individual)"] ? "<b class='red'>" + (province['Cost of Living (Individual)'] / avg["Cost of Living (Individual)"] * 100 - 100).toFixed(2) + "% teurer als der Durchschnitt</b> aller italienischen Städte" : "<b class='green'>" + (100 - province['Cost of Living (Individual)'] / avg["Cost of Living (Individual)"] * 100).toFixed(2) + "% günstiger als der Durchschnitt</b> aller anderen italienischen Provinzen.")
+    + ".";
+  
+info.climate = "Die Provinz " + de(province.Name) + " erhält durchschnittlich <b>" + province.SunshineHours + " Stunden Sonnenschein</b> pro Monat, was " +
+    province.SunshineHours / 30 + " Stunden Helligkeit pro Tag entspricht." +
+    " Das entspricht " + (province.SunshineHours > 236 ? "<b class='green'>" + (province.SunshineHours / 236 * 100 - 100).toFixed(2) + "% mehr</b> als der italienische Durchschnitt" : "<b class='red'>" + (100 - (province.SunshineHours / 236) * 100).toFixed(2) + "% weniger</b> als der italienische Durchschnitt") + " und " +
+    (province.SunshineHours > region.SunshineHours ? "<b class='green'>" + (province.SunshineHours / region.SunshineHours * 100 - 100).toFixed(2) + "% mehr</b> als der Durchschnitt der Region " : "<b class='red'>" + (100 - (province.SunshineHours / region.SunshineHours) * 100).toFixed(2) + "% weniger</b> als der Durchschnitt der Region ") + de(province.Region) + "." +
+    "</br></br>"
+info.lgbtq = "<b>" + de(province.Name) + " ist " + (province['LGBT-friendly'] > 7.9 ? "eine der LGBTQ-freundlichsten Provinzen Italiens" : (province['LGBT-friendly'] > 6 ? "ziemlich LGBTQ-freundlich nach italienischen Standards" : "nicht besonders LGBTQ-freundlich im Vergleich zu anderen italienischen Provinzen")) +
+    ".</b> " + (province.LGBTQAssociations > 1 ? "Es gibt " + province.LGBTQAssociations + " lokale LGBTQ+ (Arcigay) -Vereine in dieser Provinz." : (province.LGBTQAssociations == 1 ? "Es gibt 1 LGBTQ+ (Arcigay) -Verein in dieser Provinz." : ""))
+  
+info.leisure = de(province.Name) + " hat <b>" + (province.Nightlife > 7.5 ? "ein ausgezeichnetes Nachtleben" : "ein ziemlich lebhaftes Nachtleben") + "</b> mit " +
+    province.Bars + " Bars und " + province.Restaurants + " Restaurants pro zehntausend Einwohnern. "
+   
+info.healthcare = "<b>Die Gesundheitsversorgung in " + de(province.Name) + " ist " + (province.Healthcare > 6.74 ? "<b class='green'>über dem Durchschnitt" : "<b class='red'>unter dem Durchschnitt") + "</b></b>. " +
+    "Auf zehntausend Einwohner kommen etwa " + province.pharmacies + " Apotheken, " + province.GeneralPractitioners + " Allgemeinärzte und " + province.SpecializedDoctors + " Fachärzte. " +
+    "<b>Die durchschnittliche Lebenserwartung in " + de(province.Name) + " beträgt " + (province.LifeExpectancy > 82.05 ? "sehr hoch mit " : "von ") + province.LifeExpectancy + " Jahren.</b>"
+
+    info.crimeandsafety = "Die Provinz " + de(province.Name) + " ist in der Regel " + (province.Safety > 7.33 ? "<b class='green'>sehr sicher" : (province.Safety > 6 ? "<b class='green'>mäßig sicher" : "<b class='red'>weniger sicher als andere italienische Provinzen")) + "</b>. " +
+    "Im Jahr 2021 gab es <b>" + province.ReportedCrimes + " Beschwerden über Verbrechen pro Hunderttausend Einwohner</b>. Das entspricht " + (province.ReportedCrimes > 2835.76 ? "<b class='red'>" + (((province.ReportedCrimes / 2835.76) * 100) - 100).toFixed(2) + "% über dem nationalen Durchschnitt</b>" : "<b class='green'>" + ((100 - (province.ReportedCrimes / 2835.76) * 100).toFixed(2)) + "% unter dem nationalen Durchschnitt</b>") + "." +
+    "<br><br>" +
+    "Es gab ungefähr <b>" + province.RoadFatalities + " Todesfälle durch Verkehrsunfälle</b> und <b>" + province.WorkAccidents + " schwere Arbeitsunfälle</b> pro zehntausend Personen in " + de(province.Name) + ". Das sind jeweils " +
+    (province.RoadFatalities > 0.54 ? "<b class='red'>" + (((province.RoadFatalities / 0.54) * 100 - 100).toFixed(2)) + "% mehr Verkehrsunfälle als der Durchschnitt" : "<b class='green'>" + (((100 - (province.RoadFatalities / 0.54) * 100).toFixed(2)) + "% weniger Verkehrsunfälle als der Durchschnitt")) + "</b> und " +
+    (province.RoadFatalities > 12.90 ? "<b class='red'>" + (((province.WorkAccidents / 12.90) * 100 - 100).toFixed(2)) + "% mehr Arbeitsunfälle als der Durchschnitt" : "<b class='green'>" + (((100 - (province.WorkAccidents / 12.90) * 100).toFixed(2)) + "% weniger Arbeitsunfälle als der Durchschnitt")) + "</b>." +
+    "<br><br>"
+info.crimeandsafety += (province.CarTheft > 70.53 ? "Autodiebstahl wird auf <b class='red'>" + (((province.CarTheft / 70.53) * 100) - 100).toFixed(2) + "% über dem Durchschnitt geschätzt</b> mit " + province.CarTheft + " Fällen pro Hunderttausend Einwohner." : "Autodiebstähle werden <b class='green'>" + ((100 - (province.CarTheft / 70.53) * 100)).toFixed(2) + "% seltener als der Durchschnitt</b> mit nur " + province.CarTheft + " gemeldeten Fällen pro Hunderttausend Einwohner.") + " " +
+    (province.HouseTheft > 175.02 ? "Die gemeldeten Fälle von Einbruchdiebstahl sind <b class='red'>" + (((province.HouseTheft / 175.02) * 100) - 100).toFixed(2) + "% höher als der Durchschnitt</b> mit " + province.HouseTheft + " Beschwerden pro Hunderttausend Einwohner." : "Einbruchdiebstähle werden <b class='green'>" + ((100 - (province.HouseTheft / 175.02) * 100)).toFixed(2) + "% seltener als der Durchschnitt</b> mit nur " + province.HouseTheft + " Fällen pro Hunderttausend Einwohner.") + " " +
+    (province.Robberies > 22.14 ? "Bewaffnete Raubüberfälle sind nicht ganz ungewöhnlich, es gibt <b class='red'>" + (((province.Robberies / 22.14) * 100) - 100).toFixed(2) + "% mehr gemeldete Fälle als der nationale Durchschnitt</b> mit " + province.Robberies + " Beschwerden pro Hunderttausend Einwohner" : "Bewaffnete Raubüberfälle sind nicht sehr häufig mit " + province.Robberies + " gemeldeten Fällen pro Hunderttausend Einwohner, etwa <b class='green'>" + ((100 - (province.Robberies / 22.14) * 100)).toFixed(2) + "% weniger als der nationale Durchschnitt</b>") + ". "
+info.education = de(province.Name) + " hat " + (province.HighSchoolGraduates > avg.HighSchoolGraduates ? "<b class='green'>eine höhere Absolventenquote als der Durchschnitt" : "<b class='red'>eine niedrigere Absolventenquote als der Durchschnitt") + "</b>, etwa " + province.HighSchoolGraduates + "%; und " + (province.UniversityGraduates > avg.UniversityGraduates ? "<b class='green'>eine höhere Abschlussquote als der Durchschnitt" : "<b class='red'>einen niedrigeren Prozentsatz von Abschlüssen als der Durchschnitt") + "</b>, etwa " + province.UniversityGraduates + "%." +
+    " Die durchschnittliche Anzahl der <b>abgeschlossenen Schuljahre</b> für Personen über 25 Jahre beträgt " + province.YearsOfIstruzione + ", was " + (province.YearsOfIstruzione > avg.YearsOfIstruzione * 1.05 ? "<b class='green'>über dem nationalen Durchschnitt liegt</b>" : (province.YearsOfIstruzione < avg.YearsOfIstruzione * 0.95 ? "<b class='red'>unter dem nationalen Durchschnitt liegt</b>" : "nahe dem nationalen Durchschnitt")) + " von " + avg.YearsOfIstruzione + ". " +
+    +"<h3>Wie viele Universitäten gibt es in " + de(province.Name) + "?</h3>";
+(province.Universities > 1 ? " Es gibt <b>" + province.Universities + " Universitäten</b> in der Provinz von" : (province.Universities == 1 ? " Es gibt <b>eine einzige Universität</b> in der Provinz von" : " <b>Es gibt keine Universität</b> in der Provinz von ")) + de(province.Name) + "."
+info.transport = "<b>Das Angebot an öffentlichen Verkehrsmitteln in " + de(name) + "</b> ist " + (province.PublicTransport < avg.PublicTransport * 0.9 ? "<b class='red'>unzureichend" : (province.PublicTransport > avg.PublicTransport * 1.1 ? "<b class='green'>zufriedenstellend" : "<b class='green'>mehr als zufriedenstellend")) + "</b>, und " +
+    (province.Traffic < avg.Traffic * 0.85 ? "<b class='green'>der Verkehr ist leicht" : (province.Traffic < avg.Traffic ? "<b class='green'>der Verkehr liegt unter dem Durchschnitt" : (province.Traffic > avg.Traffic * 1.1 ? "<b class='red'>der Verkehr ist hoch" : "<b class='red'>der Verkehr ist ziemlich hoch"))) + "</b>. " +
+    "Es gibt im Durchschnitt " + province.VehiclesPerPerson + " Fahrzeuge pro Person, verglichen mit dem nationalen Durchschnitt von " + avg.VehiclesPerPerson + ". " + (province.Subway > 0 ? "Die Stadt " + name + " ist eine der wenigen italienischen Städte mit einem Metrosystem, der <b>U-Bahn von " + name + "</b>. " : "") +
+    "<br><br>" +
+    (facts[name]["transportData"] != "" ? (info.transport += '</br></br>' + facts[name]["transportData"]) : "")
+info.disclaimer = '</br></br><center><span id="disclaimer">Diese Seite enthält Partnerlinks. Als Partner von Amazon und Viator können wir Provisionen für qualifizierte Käufe verdienen.</span></center>'
+
             info.map='</br><center class="map"><iframe id="ggmap" src="https://maps.google.it/maps?f=q&source=s_q&hl=fr&geocode=&q=Provincia+di+'+name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
             'Afficher: '+
             '<a onclick=\'$("#ggmap").attr("src","https:\/\/maps.google.it\/maps?f=q&source=s_q&hl=fr&geocode=&q=Provincia+di+'+name+'+Cose+da+fare&output=embed")\' target="_blank"><b><ej>🎭</ej>Attractions</b></a> '+
@@ -284,17 +290,18 @@ console.log('error: ' + err);
             '<a href="https://www.amazon.it/ulp/view?&linkCode=ll2&tag=expiter-21&linkId=5824e12643c8300394b6ebdd10b7ba3c&language=fr_FR&ref_=as_li_ss_tl" target="_blank"><b><ej>📦</ej>Points de retrait Amazon</b></a> '+
             '</center>'
           
-            info.weather=(province.WeatherWidget?'<center><h3>Climat</h3><a class="weatherwidget-io" href="https://forecast7.com/de/'+province.WeatherWidget+'" data-label_1="'+name+'" data-label_2="'+region.Name+'"'+
-            'data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="clear"  data-basecolor="rgba(155, 205, 245, 0.59)" data-textcolor="#000441" >name Region.Name</a>'+
-            '<script>'+
-            "!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');"+
-            '</script>':"")
-          
-            info.viator='<center><h3>Expériences recommandées à '+(province.Viator?name:region.Name)+'</h3></center>'+
-            '<div data-vi-partner-id=P00045447 data-vi-language=fr data-vi-currency=EUR data-vi-partner-type="AFFILIATE" data-vi-url="'+
-            (region.Name=='Molise'?'':'https://www.viator.com/')+(province.Viator?province.Viator:region.Viator)+'"'+
-            (province.Viator.includes(",")||region.Name=='Molise'?"":' data-vi-total-products=6 ')+
-            ' data-vi-campaign="'+name+'" ></div>'+
+            info.weather = (province.WeatherWidget ? '<center><h3>Wetter</h3><a class="weatherwidget-io" href="https://forecast7.com/de/' + province.WeatherWidget + '" data-label_1="' + name + '" data-label_2="' + region.Name + '"' +
+    'data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="clear"  data-basecolor="rgba(155, 205, 245, 0.59)" data-textcolor="#000441" >' + name + ' ' + region.Name + '</a>' +
+    '<script>' +
+    "!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');" +
+    '</script>' : '');
+
+info.viator = '<center><h3>Empfohlene Erlebnisse in ' + (province.Viator ? name : region.Name) + '</h3></center>' +
+    '<div data-vi-partner-id=P00045447 data-vi-language=de data-vi-currency=EUR data-vi-partner-type="AFFILIATE" data-vi-url="' +
+    (region.Name == 'Molise' ? '' : 'https://www.viator.com/') + (province.Viator ? province.Viator : region.Viator) + '"' +
+    (province.Viator.includes(",") || region.Name == 'Molise' ? "" : ' data-vi-total-products=6 ') +
+    ' data-vi-campaign="' + name + '" ></div>'
+
             '<script async src="https://www.viator.com/orion/partner/widget.js"></script>'
     
             info.getyourguide='<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'
@@ -342,11 +349,11 @@ console.log('error: ' + err);
           }
 
            
-              function populateFacts(){
-                facts.Roma.overview="La <b>ville de Rome</b>, avec 2.761.632 habitants, est la ville la plus peuplée et la <b>capitale de l'Italie</b>."
-              facts.Milano.overview="La <b>ville de Milan</b>, avec 1.371.498 habitants, est la deuxième ville la plus peuplée et la <b>capitale industrielle, commerciale et financière de l'Italie</b>."
-              
-              }
+          function populateFacts() {
+            facts.Roma.overview = "Die <b>Stadt Rom</b> mit 2.761.632 Einwohnern ist die bevölkerungsreichste Stadt und die <b>Hauptstadt Italiens</b>.";
+            facts.Milano.overview = "Die <b>Stadt Mailand</b> mit 1.371.498 Einwohnern ist die zweitgrößte Stadt und die <b>industrielle, kommerzielle und finanzielle Hauptstadt Italiens</b>.";
+        }
+        
               
         function populateData(data){
              for (let i = 108; i < data.length; i++) {
@@ -374,121 +381,150 @@ console.log('error: ' + err);
 
         }
 
-        function appendProvinceData(province, $){
-            let tab1=$("#Quality-of-Life > .column");
-let tab2=$("#Cost-of-Living > .column"); 
-let tab3=$("#Digital-Nomads > .column"); 
-tab1[0].innerHTML+=('<p><ej>👥</ej>Population: <b>'+province.Population.toLocaleString('fr', {useGrouping:true}) +'</b>');
-tab1[0].innerHTML+=('<p><ej>🚑</ej>Santé: '+ qualityScore("Healthcare",province.Healthcare));
-tab1[0].innerHTML+=('<p><ej>📚</ej>Éducation: '+ qualityScore("Education",province.Istruzione));
-tab1[0].innerHTML+=('<p><ej>👮🏽‍♀️</ej>Sécurité: '+ qualityScore("Safety",province.Safety));
-tab1[0].innerHTML+=('<p><ej>🚨</ej>Criminalité: '+ qualityScore("Crime",province.Crime));
-
-tab1[0].innerHTML+=('<p><ej>🚌</ej>Transports: '+ qualityScore("PublicTransport",province["PublicTransport"]));
-tab1[0].innerHTML+=('<p><ej>🚥</ej>Trafic: '+ qualityScore("Traffic",province["Traffic"]));
-tab1[0].innerHTML+=('<p><ej>🚴‍♂️</ej>Vélo: '+ qualityScore('CyclingLanes',province['CyclingLanes']));
-tab1[0].innerHTML+=('<p><ej>🏛️</ej>Culture: '+ qualityScore("Culture",province.Culture));
-tab1[0].innerHTML+=('<p><ej>🍸</ej>Vie Nocturne: '+ qualityScore("Nightlife",province.Nightlife));
-tab1[0].innerHTML+=('<p><ej>⚽</ej>Loisirs: '+ qualityScore("Sports & Leisure",province["Sports & Leisure"]));
-
-tab1[1].innerHTML+=('<p><ej>🌦️</ej>Climat: '+ qualityScore("Climate",province.Climate));
-tab1[1].innerHTML+=('<p><ej>☀️</ej>Soleil: '+ qualityScore("SunshineHours",province.SunshineHours));
-tab1[1].innerHTML+=('<p><ej>🥵</ej>Étés '+ qualityScore("HotDays",province.HotDays));
-tab1[1].innerHTML+=('<p><ej>🥶</ej>Hivers: '+ qualityScore("ColdDays",province.ColdDays));
-tab1[1].innerHTML+=('<p><ej>🌧️</ej>Pluie: '+ qualityScore("RainyDays",province.RainyDays));
-tab1[1].innerHTML+=('<p><ej>🌫️</ej>Brouillard: '+ qualityScore("FoggyDays",province.FoggyDays));
-tab1[1].innerHTML+=('<p><ej>🍃</ej>Qualité de l\'Air: '+ qualityScore("AirQuality",province["AirQuality"]));
-
-tab1[1].innerHTML+=('<p><ej>👪</ej>Pour les familles: '+ qualityScore("Family-friendly",province["Family-friendly"]));
-tab1[1].innerHTML+=('<p><ej>👩</ej>Pour les femmes: '+ qualityScore("Female-friendly",province["Female-friendly"]));
-tab1[1].innerHTML+=('<p><ej>🏳️‍🌈</ej>LGBTQ+: '+ qualityScore("LGBT-friendly",province["LGBT-friendly"]));
-tab1[1].innerHTML+=('<p><ej>🥗</ej>Vegan: '+ qualityScore("Veg-friendly",province["Veg-friendly"]));
-
-tab2[0].innerHTML+=('<p><ej>📈</ej>Coût de la vie: '+ qualityScore("CostOfLiving",province["CostOfLiving"]));
-tab2[0].innerHTML+=('<p><ej>🧑🏻</ej>Coûts (individu): '+ qualityScore("Cost of Living (Individual)",province["Cost of Living (Individual)"]))
-tab2[0].innerHTML+=('<p><ej>👩🏽‍🏫</ej>Coûts (touriste): '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
-tab2[0].innerHTML+=('<p><ej>🏠</ej>Loyers (studio): '+ qualityScore("StudioRental",province["StudioRental"]))
-tab2[0].innerHTML+=('<p><ej>🏘️</ej>Loyers (deux pièces): '+ qualityScore("BilocaleRent",province["BilocaleRent"]))
-tab2[0].innerHTML+=('<p><ej>🏰</ej>Loyers (trois pièces): '+ qualityScore("TrilocaleRent",province["TrilocaleRent"]))
-
-tab2[1].innerHTML+=('<p><ej>🏙️</ej>Coûts du logement: '+ qualityScore("HousingCost",province["HousingCost"]));
-tab2[1].innerHTML+=('<p><ej>💵</ej>Salaire: '+ qualityScore("MonthlyIncome",province["MonthlyIncome"]));
-tab2[1].innerHTML+=('<p><ej>👪</ej>Coûts (famille): '+ qualityScore("Cost of Living (Family)",province["Cost of Living (Family)"]))
-tab2[1].innerHTML+=('<p><ej>🏠</ej>Achat (studio): '+ qualityScore("StudioSale",province["StudioSale"]))
-tab2[1].innerHTML+=('<p><ej>🏘️</ej>Achat (deux pièces): '+ qualityScore("BilocaleSale",province["BilocaleSale"]))
-tab2[1].innerHTML+=('<p><ej>🏰</ej>Achat (trois pièces): '+ qualityScore("TrilocaleSale",province["TrilocaleSale"]))
-
-tab3[0].innerHTML+=('<p><ej>👩‍💻</ej>Nomade-friendly: '+qualityScore("DN-friendly",province["DN-friendly"]))
-tab3[0].innerHTML+=('<p><ej>💃</ej>Divertissement: '+qualityScore("Fun",province["Fun"]));
-tab3[0].innerHTML+=('<p><ej>🤗</ej>Sympathie: '+qualityScore("Friendliness",province["Friendliness"]));
-tab3[0].innerHTML+=('<p><ej>🤐</ej>Internationalité: '+qualityScore("English-speakers",province["English-speakers"]));
-tab3[0].innerHTML+=('<p><ej>😊</ej>Bonheur: '+qualityScore("Antidepressants",province["Antidepressants"]));
-
-tab3[1].innerHTML+=('<p><ej>💸</ej>Dépenses pour les nomades: '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
-tab3[1].innerHTML+=('<p><ej>📡</ej>Connexion ultra-rapide: '+qualityScore("HighSpeedInternetCoverage",province["HighSpeedInternetCoverage"]));
-tab3[1].innerHTML+=('<p><ej>📈</ej>Innovation: '+qualityScore("Innovation",province["Innovation"]));
-tab3[1].innerHTML+=('<p><ej>🏖️</ej>Plages: '+qualityScore("Beach",province["Beach"]));
-tab3[1].innerHTML+=('<p><ej>⛰️</ej>Randonnée: '+qualityScore("Hiking",province["Hiking"]));
-
-}
-
-function qualityScore(quality,score){ let expenses=["Cost of Living (Individual)","Cost of Living (Family)","Cost of Living (Nomad)", "StudioRental", "BilocaleRent", "TrilocaleRent", "MonthlyIncome", "StudioSale","BilocaleSale","TrilocaleSale"]
-if (quality=="CostOfLiving"||quality=="HousingCost"){
-    if (score<avg[quality]*.8){return "<score class='excellent short'>très bas</score>"}
-    else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>bas</score>"}
-    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>dans la moyenne</score>"}
-    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>élevé</score>"}
-    else if (score>=avg[quality]*1.2){return "<score class='poor max'>très élevé</score>"}
-  }
-  else if (expenses.includes(quality)){
-    if (score<avg[quality]*.8){return "<score class='green'>"+score+"€/m</score>"}
-    else if (score>=avg[quality]*0.8&&score<avg[quality]*0.95){return "<score class='green'>"+score+"€/m</score>"}
-    else if (score>=avg[quality]*0.95&&score<avg[quality]*1.05){return "<score class='orange'>"+score+"€/m</score>"}
-    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='red'>"+score+"€/m</score>"}
-    else if (score>=avg[quality]*1.2){return "<score class='red'>"+score+"€/m</score>"}
-  }
-  else if (quality=="HotDays"||quality=="ColdDays"){ // high score = bad; low score = good
-    if (score<avg[quality]*.8){return "<score class='excellent short'>pas "+(quality=="HotDays"?"chaud":"froid")+"</score>"}
-    else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>pas très "+(quality=="HotDays"?"chaud":"froid")+"</score>"}
-    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>un peu "+(quality=="HotDays"?"chaud":"froid")+"</score>"}
-    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>"+(quality=="HotDays"?"chaud":"froid")+"</score>"}
-    else if (score>=avg[quality]*1.2){return "<score class='poor max'>très "+(quality=="HotDays"?"chaud":"froid")+"</score>"}
-  }
-  else if (quality=="RainyDays"){ // high score = bad; low score = good
-    if (score<avg[quality]*.8){return "<score class='excellent short'>très peu</score>"}
-    else if (score>=avg[quality]*.8&&score<avg[quality]*.95){return "<score class='great medium'>peu</score>"}
-    else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){return "<score class='good medium'>dans la moyenne</score>"}
-    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){return "<score class='average long'>pluvieux</score>"}
-    else if (score>=avg[quality]*1.2){return "<score class='poor max'>très pluvieux</score>"}
-  }
-  else if (quality=="FoggyDays"){ // high score = bad; low score = good
-    if (score<avg[quality]*.265){return "<score class='excellent short'>pas de brouillard</score>"}
-    else if (score>=avg[quality]*.265&&score<avg[quality]*.6){return "<score class='great medium'>peu</score>"}
-    else if (score>=avg[quality]*.6&&score<avg[quality]*1.00){return "<score class='good medium'>dans la moyenne</score>"}
-    else if (score>=avg[quality]*1.05&&score<avg[quality]*3){return "<score class='average long'>brumeux</score>"}
-    else if (score>=avg[quality]*3){return "<score class='poor max'>très brumeux</score>"}
-  }
-  else if (quality=="Crime"||quality=="Traffic"){ // high score = bad; low score = good 
-    if (score<avg[quality]*.8){
-        return "<score class='excellent short'>très bas</score>"} 
-        else if (score>=avg[quality]*.8&&score<avg[quality]*.95){
-            return "<score class='great medium'>bas</score>"} 
-        else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){
-            return "<score class='good medium'>moyen</score>"} 
-        else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){
-            return "<score class='average long'>haut</score>"} 
-        else if (score>=avg[quality]*1.2){
-            return "<score class='poor max'>très haut</score>"} } 
-    else{ // high score = good; low score = bad 
-        if (score<avg[quality]*.8){
-            return "<score class='poor short'>mauvais</score>"} 
-            else if (score>=avg[quality]*.8&&score<avg[quality]*.95){
-                return "<score class='average medium'>correct</score>"} 
-                else if (score>=avg[quality]*.95&&score<avg[quality]*1.05){
-                    return "<score class='good medium'>bon</score>"} 
-                    else if (score>=avg[quality]*1.05&&score<avg[quality]*1.2){
-                        return "<score class='great long'>très bon</score>"} 
-                        else if (score>=avg[quality]*1.2){
-            return "<score class='excellent max'>excellent</score>"} 
-        } 
-    }
+        function appendProvinceData(province, $) {
+          let tab1 = $("#Quality-of-Life > .column");
+          let tab2 = $("#Cost-of-Living > .column");
+          let tab3 = $("#Digital-Nomads > .column");
+          
+          tab1[0].innerHTML += ('<p><ej>👥</ej>Bevölkerung: <b>' + province.Population.toLocaleString('de', { useGrouping: true }) + '</b>');
+          tab1[0].innerHTML += ('<p><ej>🚑</ej>Gesundheit: ' + qualityScore("Healthcare", province.Healthcare));
+          tab1[0].innerHTML += ('<p><ej>📚</ej>Bildung: ' + qualityScore("Education", province.Istruzione));
+          tab1[0].innerHTML += ('<p><ej>👮🏽‍♀️</ej>Sicherheit: ' + qualityScore("Safety", province.Safety));
+          tab1[0].innerHTML += ('<p><ej>🚨</ej>Kriminalität: ' + qualityScore("Crime", province.Crime));
+      
+          tab1[0].innerHTML += ('<p><ej>🚌</ej>Verkehr: ' + qualityScore("PublicTransport", province["PublicTransport"]));
+          tab1[0].innerHTML += ('<p><ej>🚥</ej>Verkehr: ' + qualityScore("Traffic", province["Traffic"]));
+          tab1[0].innerHTML += ('<p><ej>🚴‍♂️</ej>Fahrrad: ' + qualityScore('CyclingLanes', province['CyclingLanes']));
+          tab1[0].innerHTML += ('<p><ej>🏛️</ej>Kultur: ' + qualityScore("Culture", province.Culture));
+          tab1[0].innerHTML += ('<p><ej>🍸</ej>Nachtleben: ' + qualityScore("Nightlife", province.Nightlife));
+          tab1[0].innerHTML += ('<p><ej>⚽</ej>Freizeit: ' + qualityScore("Sports & Leisure", province["Sports & Leisure"]));
+      
+          tab1[1].innerHTML += ('<p><ej>🌦️</ej>Klima: ' + qualityScore("Climate", province.Climate));
+          tab1[1].innerHTML += ('<p><ej>☀️</ej>Sonnenstunden: ' + qualityScore("SunshineHours", province.SunshineHours));
+          tab1[1].innerHTML += ('<p><ej>🥵</ej>Sommer ' + qualityScore("HotDays", province.HotDays));
+          tab1[1].innerHTML += ('<p><ej>🥶</ej>Winter: ' + qualityScore("ColdDays", province.ColdDays));
+          tab1[1].innerHTML += ('<p><ej>🌧️</ej>Regen: ' + qualityScore("RainyDays", province.RainyDays));
+          tab1[1].innerHTML += ('<p><ej>🌫️</ej>Nebel: ' + qualityScore("FoggyDays", province.FoggyDays));
+          tab1[1].innerHTML += ('<p><ej>🍃</ej>Luftqualität: ' + qualityScore("AirQuality", province["AirQuality"]));
+      
+          tab1[1].innerHTML += ('<p><ej>👪</ej>Für Familien: ' + qualityScore("Family-friendly", province["Family-friendly"]));
+          tab1[1].innerHTML += ('<p><ej>👩</ej>Für Frauen: ' + qualityScore("Female-friendly", province["Female-friendly"]));
+          tab1[1].innerHTML += ('<p><ej>🏳️‍🌈</ej>LGBTQ+: ' + qualityScore("LGBT-friendly", province["LGBT-friendly"]));
+          tab1[1].innerHTML += ('<p><ej>🥗</ej>Vegan: ' + qualityScore("Veg-friendly", province["Veg-friendly"]));
+      
+          tab2[0].innerHTML += ('<p><ej>📈</ej>Lebenshaltungskosten: ' + qualityScore("CostOfLiving", province["CostOfLiving"]));
+          tab2[0].innerHTML += ('<p><ej>🧑🏻</ej>Kosten (Einzelne Person): ' + qualityScore("Cost of Living (Individual)", province["Cost of Living (Individual)"]))
+          tab2[0].innerHTML += ('<p><ej>👩🏽‍🏫</ej>Kosten (Tourist): ' + qualityScore("Cost of Living (Nomad)", province["Cost of Living (Nomad)"]))
+          tab2[0].innerHTML += ('<p><ej>🏠</ej>Mieten (Studio): ' + qualityScore("StudioRental", province["StudioRental"]))
+          tab2[0].innerHTML += ('<p><ej>🏘️</ej>Mieten (Zwei Zimmer): ' + qualityScore("BilocaleRent", province["BilocaleRent"]))
+          tab2[0].innerHTML += ('<p><ej>🏰</ej>Mieten (Drei Zimmer): ' + qualityScore("TrilocaleRent", province["TrilocaleRent"]))
+      
+          tab2[1].innerHTML += ('<p><ej>🏙️</ej>Wohnungskosten: ' + qualityScore("HousingCost", province["HousingCost"]));
+          tab2[1].innerHTML += ('<p><ej>💵</ej>Gehalt: ' + qualityScore("MonthlyIncome", province["MonthlyIncome"]));
+          tab2[1].innerHTML += ('<p><ej>👪</ej>Kosten (Familie): ' + qualityScore("Cost of Living (Family)", province["Cost of Living (Family)"]))
+          tab2[1].innerHTML += ('<p><ej>🏠</ej>Kauf (Studio): ' + qualityScore("StudioSale", province["StudioSale"]))
+          tab2[1].innerHTML += ('<p><ej>🏘️</ej>Kauf (Zwei Zimmer): ' + qualityScore("BilocaleSale", province["BilocaleSale"]))
+          tab2[1].innerHTML += ('<p><ej>🏰</ej>Kauf (Drei Zimmer): ' + qualityScore("TrilocaleSale", province["TrilocaleSale"]))
+      
+          tab3[0].innerHTML += ('<p><ej>👩‍💻</ej>Nomade-freundlich: ' + qualityScore("DN-friendly", province["DN-friendly"]))
+          tab3[0].innerHTML += ('<p><ej>💃</ej>Unterhaltung: ' + qualityScore("Fun", province["Fun"]));
+          tab3[0].innerHTML += ('<p><ej>🤗</ej>Freundlichkeit: ' + qualityScore("Friendliness", province["Friendliness"]));
+          tab3[0].innerHTML += ('<p><ej>🤐</ej>Internationalität: ' + qualityScore("English-speakers", province["English-speakers"]));
+          tab3[0].innerHTML += ('<p><ej>😊</ej>Glück: ' + qualityScore("Antidepressants", province["Antidepressants"]));
+      
+          tab3[1].innerHTML += ('<p><ej>💸</ej>Ausgaben für Nomaden: ' + qualityScore("Cost of Living (Nomad)", province["Cost of Living (Nomad)"]))
+          tab3[1].innerHTML += ('<p><ej>📡</ej>Ultra-schnelles Internet: ' + qualityScore("HighSpeedInternetCoverage", province["HighSpeedInternetCoverage"]));
+          tab3[1].innerHTML += ('<p><ej>📈</ej>Innovation: ' + qualityScore("Innovation", province["Innovation"]));
+          tab3[1].innerHTML += ('<p><ej>🏖️</ej>Strände: ' + qualityScore("Beach", province["Beach"]));
+          tab3[1].innerHTML += ('<p><ej>⛰️</ej>Wandern: ' + qualityScore("Hiking", province["Hiking"]));
+      }
+      
+      function qualityScore(quality, score) {
+        let expenses = ["Cost of Living (Individual)", "Cost of Living (Family)", "Cost of Living (Nomad)", "StudioRental", "BilocaleRent", "TrilocaleRent", "MonthlyIncome", "StudioSale", "BilocaleSale", "TrilocaleSale"];
+    
+        if (quality == "CostOfLiving" || quality == "HousingCost") {
+            if (score < avg[quality] * 0.8) {
+                return "<score class='excellent short'>sehr niedrig</score>";
+            } else if (score >= avg[quality] * 0.8 && score < avg[quality] * 0.95) {
+                return "<score class='great medium'>niedrig</score>";
+            } else if (score >= avg[quality] * 0.95 && score < avg[quality] * 1.05) {
+                return "<score class='good medium'>im Durchschnitt</score>";
+            } else if (score >= avg[quality] * 1.05 && score < avg[quality] * 1.2) {
+                return "<score class='average long'>hoch</score>";
+            } else if (score >= avg[quality] * 1.2) {
+                return "<score class='poor max'>sehr hoch</score>";
+            }
+        } else if (expenses.includes(quality)) {
+            if (score < avg[quality] * 0.8) {
+                return "<score class='green'>" + score + "€/m</score>";
+            } else if (score >= avg[quality] * 0.8 && score < avg[quality] * 0.95) {
+                return "<score class='green'>" + score + "€/m</score>";
+            } else if (score >= avg[quality] * 0.95 && score < avg[quality] * 1.05) {
+                return "<score class='orange'>" + score + "€/m</score>";
+            } else if (score >= avg[quality] * 1.05 && score < avg[quality] * 1.2) {
+                return "<score class='red'>" + score + "€/m</score>";
+            } else if (score >= avg[quality] * 1.2) {
+                return "<score class='red'>" + score + "€/m</score>";
+            }
+        } else if (quality == "HotDays" || quality == "ColdDays") {
+            if (score < avg[quality] * 0.8) {
+                return "<score class='excellent short'>nicht " + (quality == "HotDays" ? "heiß" : "kalt") + "</score>";
+            } else if (score >= avg[quality] * 0.8 && score < avg[quality] * 0.95) {
+                return "<score class='great medium'>nicht sehr " + (quality == "HotDays" ? "heiß" : "kalt") + "</score>";
+            } else if (score >= avg[quality] * 0.95 && score < avg[quality] * 1.05) {
+                return "<score class='good medium'>etwas " + (quality == "HotDays" ? "heiß" : "kalt") + "</score>";
+            } else if (score >= avg[quality] * 1.05 && score < avg[quality] * 1.2) {
+                return "<score class='average long'>" + (quality == "HotDays" ? "heiß" : "kalt") + "</score>";
+            } else if (score >= avg[quality] * 1.2) {
+                return "<score class='poor max'>sehr " + (quality == "HotDays" ? "heiß" : "kalt") + "</score>";
+            }
+        } else if (quality == "RainyDays") {
+            if (score < avg[quality] * 0.8) {
+                return "<score class='excellent short'>sehr wenig</score>";
+            } else if (score >= avg[quality] * 0.8 && score < avg[quality] * 0.95) {
+                return "<score class='great medium'>wenig</score>";
+            } else if (score >= avg[quality] * 0.95 && score < avg[quality] * 1.05) {
+                return "<score class='good medium'>im Durchschnitt</score>";
+            } else if (score >= avg[quality] * 1.05 && score < avg[quality] * 1.2) {
+                return "<score class='average long'>regnerisch</score>";
+            } else if (score >= avg[quality] * 1.2) {
+                return "<score class='poor max'>sehr regnerisch</score>";
+            }
+        } else if (quality == "FoggyDays") {
+            if (score < avg[quality] * 0.265) {
+                return "<score class='excellent short'>kein Nebel</score>";
+            } else if (score >= avg[quality] * 0.265 && score < avg[quality] * 0.6) {
+                return "<score class='great medium'>wenig</score>";
+            } else if (score >= avg[quality] * 0.6 && score < avg[quality] * 1.00) {
+                return "<score class='good medium'>im Durchschnitt</score>";
+            } else if (score >= avg[quality] * 1.05 && score < avg[quality] * 3) {
+                return "<score class='average long'>neblig</score>";
+            } else if (score >= avg[quality] * 3) {
+                return "<score class='poor max'>sehr neblig</score>";
+            }
+        } else if (quality == "Crime" || quality == "Traffic") { // high score = bad; low score = good 
+          if (score < avg[quality] * 0.8) {
+              return "<score class='excellent short'>sehr niedrig</score>";
+          } else if (score >= avg[quality] * 0.8 && score < avg[quality] * 0.95) {
+              return "<score class='great medium'>niedrig</score>";
+          } else if (score >= avg[quality] * 0.95 && score < avg[quality] * 1.05) {
+              return "<score class='good medium'>mittel</score>";
+          } else if (score >= avg[quality] * 1.05 && score < avg[quality] * 1.2) {
+              return "<score class='average long'>hoch</score>";
+          } else if (score >= avg[quality] * 1.2) {
+              return "<score class='poor max'>sehr hoch</score>";
+          }
+      } else { // high score = good; low score = bad 
+          if (score < avg[quality] * 0.8) {
+              return "<score class='poor short'>schlecht</score>";
+          } else if (score >= avg[quality] * 0.8 && score < avg[quality] * 0.95) {
+              return "<score class='average medium'>ausreichend</score>";
+          } else if (score >= avg[quality] * 0.95 && score < avg[quality] * 1.05) {
+              return "<score class='good medium'>gut</score>";
+          } else if (score >= avg[quality] * 1.05 && score < avg[quality] * 1.2) {
+              return "<score class='great long'>sehr gut</score>";
+          } else if (score >= avg[quality] * 1.2) {
+              return "<score class='excellent max'>ausgezeichnet</score>";}
+          }
+        }   
+                

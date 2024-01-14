@@ -32,6 +32,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         populateData(data);
         for (let i = 0; i < 107; i++){
             let province = dataset[i];
+            let sidebar=pb.setSideBarFR(province)
             
             var fileName = 'fr/province/'+fr(province.Name).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             let seoTitle=fr(province.Name)+" - Qualité et Coût de la Vie"
@@ -51,7 +52,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css">'+
+            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.0">'+
 
             
             '<!-- GetYourGuide Analytics -->'+
@@ -68,7 +69,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
             '<link rel="icon" type="image/x-icon" title="Expiter - Expatriés et Nomades en Italie" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
             "</head>"+
-
+            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
             '<body data-spy="scroll" data-target="#toc">'+
 
             '<div class="toc container collapsed" >'+
@@ -131,6 +132,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 '<section id="Criminalité et Sécurité"><h3>Criminalité et Sécurité</h3><span id="crimeandsafety"></span></section>'+
 '<section id="Transports"><h3>Transports</h3><span id="transport"></span></section></section>'+ 
 '<section id="Tourisme"><h2>Tourisme</h2><span id="promo"></span></section>'+
+'<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
 '</div>'+ '</body></html>'
 )
 
