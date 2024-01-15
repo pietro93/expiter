@@ -62,5 +62,6 @@ RewriteRule . app\.html [L]
 RedirectMatch 301 ^.com/$ https://expiter.com/app
 RedirectMatch 301 ^.it/$ https://expiter.com/it/app
 
+Options -Indexes
 RewriteEngine On
-RewriteRule ^risorse/$ /it/risorse.html [L]
+RewriteRule ^it/risorse/$ /it/risorse.html [L]
