@@ -1,3 +1,4 @@
+import * as pb from './js/pageBuilder.js'
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
@@ -42,6 +43,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
             var dirName = 'it/comuni/provincia-di-'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             var fileName = '.html';
+
+            let sidebar=pb.setSideBarIT(province)
             
             const dom = new jsdom.JSDOM(
             "<html lang='en'>"+
@@ -56,15 +59,15 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css">'+
+            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.0">'+
+            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css?v=1.0">'+
             
             '<meta name="description" content="Information about living in '+province.Name+', Italy for expats and digital nomads. '+province.Name+' quality of life, cost of living, safety and more." />'+
 	        '<meta name="keywords" content="'+province.Name+' italy, '+province.Name+' expat,'+province.Name+' life,'+province.Name+' digital nomad" />'+
             "<title>"+province.Name+" - Quality of Life and Info Sheet for Expats </title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
             "</head>"+
-
+            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
             '<body data-spy="scroll" data-target="#toc">'+
 
             '<div class="toc container collapsed" >'+
@@ -91,6 +94,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '</table>'+
         '<p id="info"></p></center>'+
         '</section>'+
+        '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
         '</body></html>'
         )
 

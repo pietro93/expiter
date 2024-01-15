@@ -191,7 +191,7 @@ export function setSideBarFR(province) {
         '/">Province de ' +
         fr(province.Name) +
         '</a></li>' +
-        '<li><a href="http://expiter.com/fr/gemeinden/provinz-' +
+        '<li><a href="http://expiter.com/fr/municipalites/province-de-' +
         handle(fr(province.Name)) +
         '/">Communes dans la province de ' +
         fr(province.Name) +
@@ -348,7 +348,7 @@ export function setNavBarIT($){
         '</div>' +
         '<ul class="menu-items">' +
         '<li><a href="https://expiter.com/de/">Startseite</a></li>' +
-        '<li><a href="https://expiter.com/de/ressourcen/generateur-codice-fiscale/">Steuercode-Generator</a></li>' +
+        '<li><a href="https://expiter.com/de/ressourcen/italianische-steuercode-generator/">Steuercode-Generator</a></li>' +
         '<li><a href="https://expiter.com/de/app/#Über">Über uns</a></li>' +
         '</ul>' +
         '  <label class="switch" id="switch">' +
@@ -602,6 +602,14 @@ export function de(name) {
   }
   
   export function handle(str,isUpperCase) {
+    // Replace accented characters with unaccented equivalents
+    const accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ';
+    const accentsOut = "AAAAAAaaaaaaOOOOOOooooooEEEEeeeeCcIIIIiiiiUUUUuuuuyNn";
+    str = str.split('').map((letter, index) => {
+        const accentIndex = accents.indexOf(letter);
+        return accentIndex !== -1 ? accentsOut[accentIndex] : letter;
+    }).join('');
+
     // Convert to lowercase
     !isUpperCase?
     str = str.toLowerCase():""
@@ -609,7 +617,7 @@ export function de(name) {
     // Replace spaces with hyphens
     str = str.replace(/ /g, '-');
     str = str.replace(/'/g, '-');
-
+    
     // Remove non-alphanumeric characters (except hyphens)
     str = str.replace(/[^a-zA-Z0-9-]/g, '');
 
