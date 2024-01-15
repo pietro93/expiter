@@ -302,6 +302,7 @@ export function setNavBarIT($){
     '</div>'+
     '<ul class="menu-items">'+
         '<li><a href="https://expiter.com/it/">Home</a></li>'+
+        '<li><a href="https://expiter.com/it/risorse/">Risorse</a></li>'+
         '<li><a href="https://expiter.com/it/risorse/generatore-codice-fiscale/">Generatore Codice Fiscale</a></li>'+
         '<li><a href="https://expiter.com/it/blog/articoli/">Blog</a></li>'+
         '<li><a href="https://expiter.com/it/app/#About">About</a></li>'+
