@@ -210,6 +210,18 @@
    <sitemap>
       <loc>https://expiter.com/sitemap/towns-sitemap-4-de.xml</loc>
    </sitemap>
+   <sitemap>
+      <loc>https://expiter.com/sitemap/comuni-sitemap.xml
+   </sitemap>
+   <sitemap>
+      <loc>https://expiter.com/sitemap/comuni-sitemap-de.xml
+   </sitemap>
+   <sitemap>
+      <loc>https://expiter.com/sitemap/comuni-sitemap-fr.xml
+   </sitemap>
+   <sitemap>
+      <loc>https://expiter.com/sitemap/comuni-sitemap-it.xml
+   </sitemap>
       <sitemap>
       <loc>https://expiter.com/sitemap/img-sitemap.xml</loc>
    </sitemap>

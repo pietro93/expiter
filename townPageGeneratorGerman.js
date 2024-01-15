@@ -35,8 +35,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 82; i < 107; i++){
+        for (let i = 50; i < 59; i++){
             let province = dataset[i];
+            let sidebar=pb.setSideBarDE(province)
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
             let parsedData = fs.readFileSync('temp/'+province.Name+'-comuni.json','utf8');
@@ -77,7 +78,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
           '</url>'+'\n'
 
             const dom = new jsdom.JSDOM(
-            "<html lang='fr'>"+
+            "<html lang='de'>"+
             '<head><meta charset="utf-8">'+
             '<link rel="canonical" href="https://expiter.com/'+dirName+fileName+'/"/>'+
             '<link rel="alternate" hreflang="en" href="https://expiter.com/'+dirName.replace('fr/','')+fileName+'/" />'+
@@ -89,8 +90,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css">'+
+            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.1">'+
+            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css?v=1.1">'+
             
             '<meta name="description" content="Informationen über die Gemeinde ' + comune.Name + ' in der Provinz ' + de(province.Name) + '. Bevölkerung, Lebensqualität, Nachtleben, Tourismus, usw." />' +
             '<meta name="keywords" content="' + comune.Name + ' ' + de(province.Region) + ', ' + comune.Name + ' ' + de(province.Name) + ', Bevölkerung von ' + comune.Name + ', ' + comune.Name + ' Informationen, ' + comune.Name + ' Nachtleben, ' + comune.Name + ' Leben" />' +
@@ -100,7 +101,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<!-- GetYourGuide Analytics -->'+
             '<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>'+
             "</head>"+
-
+            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
             '<body data-spy="scroll" data-target="#toc">'+
 
             '<div class="toc container collapsed" >'+
@@ -134,6 +135,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<p id="tabs"></p>'+
         '</center><p id="related"></p></center>'+
         '</section>'+
+        '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
         '</body></html>'
         )
 

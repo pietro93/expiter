@@ -37,6 +37,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
        
         for (let i = 96; i < 107; i++){
             let province = dataset[i];
+            let sidebar=pb.setSideBarFR(province)
        
             if (fs.existsSync('temp/'+province.Name+'-comuni.json')){
             let parsedData = fs.readFileSync('temp/'+province.Name+'-comuni.json','utf8');
@@ -89,7 +90,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css">'+
+            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.1">'+
             '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css">'+
             
             '<meta name="description" content="Informations sur la municipalité de '+comune.Name+', dans la province de '+province.Name+'. Population, qualité de vie, vie nocturne, tourisme, etc." />'+
@@ -101,6 +102,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<!-- GetYourGuide Analytics -->'+
             '<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>'+
             "</head>"+
+            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
 
             '<body data-spy="scroll" data-target="#toc">'+
 
@@ -125,14 +127,13 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<tr><th><b>Population</b></th><th>'+comune.Population+'</th></tr>'+
         '<tr><th><b>Densité</b></th><th>'+comune.Density+' hab./km²</th></tr>'+
         '<tr><th><b>Altitude</b></th><th>'+comune.Altitude+'m</th></tr>'+
-        '<tr><th><b>Zone climatique</b></th><th>'+(comune.ClimateZone ? comune.ClimateZone : "?")+'</th></tr>'+
-        '</table>'+
-        '</center>';        
+        '<tr><th><b>Zone climatique</b></th><th>'+(comune.ClimateZone ? comune.ClimateZone : "?")+'</th></tr>'+       
         '</table></center>'+
         '<p id="info"></p>'+
         '<p id="tabs"></p>'+
         '</center><p id="related"></p></center>'+
         '</section>'+
+        '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
         '</body></html>'
         )
 
@@ -267,7 +268,7 @@ function getInfo(comune,province){
     
     let info = {}
     
-    info.disclaimer = '</br></br><center><span id="disclaimer">Cette page contient des liens d'affiliation. En tant que partenaire d'Amazon et de Viator, nous pouvons percevoir des commissions sur des achats éligibles.</span></center>';
+    info.disclaimer = '</br></br><center><span id="disclaimer">Cette page contient des liens d\'affiliation. En tant que partenaire d\'Amazon et de Viator, nous pouvons percevoir des commissions sur des achats éligibles.</span></center>';
         
     info.map='</br><center class="map"><iframe id="ggmap" src="https://maps.google.it/maps?f=q&source=s_q&hl=it&geocode=&q='+comune.Name+'+Provincia+Di+'+province.Name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
     'Mostra: '+
