@@ -254,7 +254,7 @@ function generateSiteMap(dataset){
               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
               for (let i = 0; i < 107; i++){
                 let province = dataset[i];
-                let urlPath = 'comuni/it/provincia-di-'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+                let urlPath = 'de/gemeinden/provinz-'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
                 urlPath = "https://expiter.com/"+urlPath+"/"
                 comuniSiteMap+='<url>'+
                 '<loc>'+urlPath+'</loc>'+
