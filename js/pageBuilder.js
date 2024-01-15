@@ -326,7 +326,6 @@ export function setNavBarIT($){
     '<ul class="menu-items">'+
         '<li><a href="https://expiter.com/fr/">Home</a></li>'+
         '<li><a href="https://expiter.com/fr/ressources/generateur-codice-fiscale/">Generateur Code Fiscal</a></li>'+
-        '<li><a href="https://expiter.com/fr/blog/articles/">Blog</a></li>'+
         '<li><a href="https://expiter.com/fr/app/#About">About</a></li>'+
         '</ul>'+
         '  <label class="switch" id="switch">'+
@@ -349,7 +348,6 @@ export function setNavBarIT($){
         '<ul class="menu-items">' +
         '<li><a href="https://expiter.com/de/">Startseite</a></li>' +
         '<li><a href="https://expiter.com/de/ressourcen/generateur-codice-fiscale/">Steuercode-Generator</a></li>' +
-        '<li><a href="https://expiter.com/de/blog/artikel/">Blog</a></li>' +
         '<li><a href="https://expiter.com/de/app/#Über">Über uns</a></li>' +
         '</ul>' +
         '  <label class="switch" id="switch">' +
