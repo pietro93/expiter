@@ -41,7 +41,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get",
             var fileName = 'regions-of-italy.html';
             
             const dom = new jsdom.JSDOM(
-            "<html lang='en'>"+
+            "<!DOCTYPE html>\n<html lang='en'>"+
             '<head><meta charset="utf-8">'+
             '<link rel="canonical" href="https://expiter.com/'+fileName+'/"/>'+
             '<link rel="alternate" hreflang="en" href="https://expiter.com/'+fileName+'/" />'+
