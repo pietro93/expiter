@@ -38,7 +38,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             var fileName = 'regioni-italiane.html';
             
             const dom = new jsdom.JSDOM(
-            "<html lang='it'>"+
+            "<!DOCTYPE html>\n<html lang='it'>"+
             '<head><meta charset="utf-8">'+
             '<link rel="canonical" href="https://expiter.com/it/'+fileName+'/"/>'+
             '<link rel="alternate" hreflang="en" href="https://expiter.com/regions-of-italy/" />'+
@@ -237,7 +237,7 @@ function generateSiteMap(dataset){
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
         for (let i = 0; i < 107; i++){
           let region = dataset[i];
-          let urlPath = 'region/'+region.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+          let urlPath = 'regioni/'+region.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
           urlPath = "https://expiter.com/"+urlPath+"/"
           comuniSiteMap+='<url>'+
           '<loc>'+urlPath+'</loc>'+
