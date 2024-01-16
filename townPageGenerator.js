@@ -34,7 +34,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 0; i < 2; i++){
+        for (let i = 0; i < 107; i++){
             let province = dataset[i];
             let sidebar=pb.setSideBar(province)
        
@@ -66,7 +66,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
               ci = comindex.indexOf(comune.Name)
               console.log("found some extra info about "+comune.Name+" at position "+ ci)
             }
-            if (ci>-11){ //this only updates towns in comuni.js
+            if (ci>-1){ //this only updates towns in comuni.js
             console.log("Writing comune \""+comune.Name+"\" ("+province.Name+") into file")
 
             let urlPath = 'comuni/'+dirName+fileName;

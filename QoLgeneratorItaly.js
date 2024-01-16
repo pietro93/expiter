@@ -169,38 +169,38 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         console.log("writing facts about "+city)
 
         $(".title").text("Come è vivere a "+province.Name+'');
-        $("#overview").append(facts[city].introduction)
+        $("#overview").append(pb.addBreaks(facts[city].introduction))
         $("#overview").append("<br><br>")
-        $("#overview").append(facts[city].overview)
+        $("#overview").append(pb.addBreaks(facts[city].overview))
         $("#overview").append(info.disclaimer)
         $("#overview").append(map)
         $("#overview").append(separator)
-        $("#generalinfo").append(facts[city].culture)
+        $("#generalinfo").append(pb.addBreaks(facts[city].culture))
         $("#generalinfo").append("<hr>")
         $("#generalinfo").append("<h3>Clima<h3>")
-        $("#generalinfo").append(facts[city].climate)
+        $("#generalinfo").append(pb.addBreaks(facts[city].climate))
         $("#generalinfo").append("<hr>")
         $("#generalinfo").append("<h3>Economia<h3>")
-        $("#generalinfo").append(facts[city].economy)
+        $("#generalinfo").append(pb.addBreaks(facts[city].economy))
         $("#generalinfo").append("<hr>")
         $("#generalinfo").append("<h3>Educazione<h3>")
-        $("#generalinfo").append(facts[city].education)
+        $("#generalinfo").append(pb.addBreaks(facts[city].education))
         $("#generalinfo").append('<center><figure class="column is-6 image">'+
         '<img title="'+en(province.Name)+' Vita Cittadina" load="lazy" src="'+
         'https://expiter.com/img/blog/living-in-'+en(province.Name).toLowerCase().replace(" ","-")+'.webp" '+
         'alt="Vita a '+province.Name+', '+province.Region+'"></img>'+
         '<figcaption>'+province.Name+", "+province.Region+"</figcaption></figure></center>")
         $("#generalinfo").append(separator)
-        $("#costofliving").append(facts[city].costofliving)
+        $("#costofliving").append(pb.addBreaks(facts[city].costofliving))
         $("#costofliving").append(separator)
-        $("#povertyandsafety").append(facts[city].safety)
+        $("#povertyandsafety").append(pb.addBreaks(facts[city].safety))
         $("#povertyandsafety").append(separator)
         $("#prosandcons").append(facts[city].prosandconstable)
         $("#prosandcons").append("<h3>Vantaggi di vivere a "+province.Name+" <h3>")
-        $("#prosandcons").append(facts[city].pros)
+        $("#prosandcons").append(pb.addBreaks(facts[city].pros))
         $("#prosandcons").append(separator)
         $("#prosandcons").append("<h3>Svantaggi di vivere a "+province.Name+" <h3>")
-        $("#prosandcons").append(facts[city].cons)
+        $("#prosandcons").append(pb.addBreaks(facts[city].cons))
         $("#prosandcons").append('<center><figure class="column is-6 image">'+
         '<img title="Vita a '+province.Name+'" load="lazy" src="'+
         'https://expiter.com/img/blog/life-in-'+en(province.Name).toLowerCase().replace(" ","-")+'.webp" '+
@@ -208,10 +208,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<figcaption>'+province.Name+", "+province.Region+"</figcaption></figure></center>")
         $("#prosandcons").append(separator)
         $("#faqs").append("<h3>Come è "+province.Name+" per le famiglie? <h3>")
-        $("#faqs").append(facts[city].forFamilies)
+        $("#faqs").append(pb.addBreaks(facts[city].forFamilies))
         $("#faqs").append("<hr>")
         $("#faqs").append("<h3>Come è "+province.Name+" per gli studenti? <h3>")
-        $("#faqs").append(facts[city].forStudents)
+        $("#faqs").append(pb.addBreaks(facts[city].forStudents))
 
 
         if (facts[city].richorpoor){

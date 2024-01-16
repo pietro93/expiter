@@ -35,7 +35,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 99; i < 107; i++){
+        for (let i = 0; i < 107; i++){
             let province = dataset[i];
             let sidebar=pb.setSideBarIT(province)
 
@@ -67,7 +67,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
               ci = comindex.indexOf(comune.Name)
               console.log("found some extra info about "+comune.Name+" at position "+ ci)
             }
-            if (ci>-11){ //this only updates towns in comuni.js
+            if (ci>-1){ //this only updates towns in comuni.js
             console.log("Writing comune \""+comune.Name+"\" ("+province.Name+") into file")
 
             let urlPath = dirName+fileName;
@@ -187,7 +187,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         (province.FoggyDays<1?"Vi è pochissima nebbia durante l'anno.":"Vi sono "+((province.FoggyDays/3.5)*12).toFixed(2)+" giorni di nebbia durante l'anno.")+
         " "+comune.Name+" riceve circa "+province.SunshineHours/30+" ore di sole giornaliere.";
 
-        $("#info").html(intro+climate)
+        $("#info").html(pb.addBreaks(intro)+pb.addBreaks(climate))
        
         var info=getInfo(comune,province)
         var separator='</br><span class="separator"></span></br>'
