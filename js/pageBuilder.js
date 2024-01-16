@@ -637,3 +637,15 @@ function en(word){
     default: return word;
   }
 }
+
+export function addBreaks(inputString) {
+  let sentences = inputString.split('. ');
+  for (let i = 0; i < sentences.length - 1; i++) {
+      if (sentences[i].length > 70 && sentences[i + 1].length > 50 && !sentences[i].endsWith('<br><br>') && !sentences[i + 1].startsWith('<br><br>')) {
+          sentences[i] = sentences[i] + '.<br><br>';
+      } else {
+          sentences[i] = sentences[i] + '.';
+      }
+  }
+  return sentences.join(' ');
+}

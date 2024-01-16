@@ -659,15 +659,17 @@ p.column.is-12{
     }
 
 #info,#info>*,#info>section>span{
-  font-size:18px;
+  font-size:21px;
   font-family: "Open Sans", sans-serif;
   color:var(--text-color);
   margin-left:0px;
-  z-index:2
+  z-index:2;
+  line-height:38px;
 }
 #info>section{
   width:100%
 }
+
 
 h2{
   font-size:26px;
@@ -700,10 +702,15 @@ h4{
   background-color:var(--darkest);
   color:var(--invert-color);
   text-transform: uppercase;
+  padding-top:18px;
+  padding-bottom:18px;
+  margin-bottom:29px
 }
 
 #info >section> h3{
-  padding-left:2px;
+  color:var(--darkest);
+  margin-bottom:-5px;
+  font-size:26px;
 }
 
 #info > section > span > h4{
@@ -1316,12 +1323,32 @@ section>div.column{
 
   #info > section{
     max-width:95vw;
-    margin-left:2vw;
+    margin-left:1vw;
     text-align:justify;
   }
   #info > section > h2{
     width:105vw;
     margin-left:-2.5vw;
+    font-weight:600;
+    font-size:29px;
+    margin-bottom:10px;
+    padding-bottom:15px;
+    padding-top:15px;
+  }
+
+  #info > section > h3{
+    font-size:27px;
+    font-weight:700;
+    margin-top:10px;margin-bottom:-7px
+  }
+
+  #info,#info>*,#info>section>span{
+    font-size:22px;
+    font-family: "Open Sans", sans-serif;
+    color:var(--text-color);
+    margin-left:0px;
+    z-index:2;
+    line-height:38px;
   }
   
   /* override the Affix plugin so that the navigation isn't sticky */

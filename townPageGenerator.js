@@ -88,7 +88,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css">'+
+            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css?v=1.0">'+
             '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.2">'+
             
             '<meta name="description" content="Information about living in '+comune.Name+', Italy for expats and digital nomads. '+comune.Name+' quality of life, cost of living, safety and more." />'+
@@ -184,7 +184,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         ((province.ColdDays/3.5)*12).toFixed(2)+" cold temperature days (<5°C) per year. It rains (or snows) around "+(province.RainyDays*12).toFixed(2)+" days per year. "+
         (province.FoggyDays<1?"There is little to no fog throughout the year.":"There are "+((province.FoggyDays/3.5)*12).toFixed(2)+" foggy days throughout the year.")+
         " "+en(comune.Name)+" receives around "+province.SunshineHours/30+" hours of sunshine per day on average.";
-        $("#info").html(intro+climate)
+        $("#info").html(pb.addBreaks(intro)+pb.addBreaks(climate))
        
         var info=getInfo(comune,province)
         var separator='</br><span class="separator"></span></br>'
