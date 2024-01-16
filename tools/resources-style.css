@@ -33,10 +33,19 @@ h2,h2.title{
 @media only screen and (min-width: 768px){
   .button,.codice{max-width:300px;}
   div.container{
-    max-width:700px;
+    max-width:620px;
     float:left
   }
 }
+
+@media only screen and (min-width: 1268px){
+  .button,.codice{max-width:300px;}
+  div.container{
+    max-width:720px;
+    float:left
+  }
+}
+
 @media only screen and (max-width: 768px){
   label > br{display:none}
 }
