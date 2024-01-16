@@ -48,7 +48,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             let sidebar=pb.setSideBarDE(province)
             
             const dom = new jsdom.JSDOM(
-            "<html lang='de'>"+
+            "<!DOCTYPE html>\n<html lang='de'>"+
             '<head><meta charset="utf-8">'+
             '<link rel="canonical" href="https://expiter.com/'+dirName+'/"/>'+
             '<link rel="alternate" hreflang="en" href="https://expiter.com/comuni/province-of-'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/" />'+

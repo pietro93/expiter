@@ -40,7 +40,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             let heroImage='https://expiter.com/img/'+province.Abbreviation+'.webp'
 
             const dom = new jsdom.JSDOM(
-            "<html lang='it'>"+
+            "<!DOCTYPE html>\n<html lang='it'>"+
             '<head><meta charset="utf-8">'+
             '<link rel="canonical" href="https://expiter.com/'+fileName+'/"/>'+
             '<link rel="alternate" hreflang="en" href="https://expiter.com/'+fileName.replace('it/','')+'/" />'+
