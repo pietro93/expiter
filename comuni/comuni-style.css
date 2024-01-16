@@ -13,14 +13,14 @@ section table#list{
 }
 
 th h2{
-    font-size:16px;
+    font-size:17px;
     padding:0;
     margin:0;
     color:var(--darkest);
 }
 
 section table#list tr th{
-    font-size:16px;
+    font-size:17px;
     color:var(--medium-2);
     padding:5px;
     padding-left:8px;padding-right:8px;
@@ -43,16 +43,13 @@ section #info,
 section #info b{
     color:var(--text-color);
     margin-top:16px;
-    font-size:16px;
     margin-bottom:16px;
 }
 
 section b a{
     border-bottom:4px dashed var(--lightest);
-    border-left: 6px ridge var(--lightest);
     border-radius:25px;
     opacity:.85;
-    font-size:14px;
     font-weight:100;
     letter-spacing:-0.6px;
     padding-left:4px;

@@ -56,7 +56,9 @@ html {
 
 body{ 
   font-family: "Open Sans", sans-serif;
-  }
+  font-size: 17px;
+  line-height:17px;  
+}
 
 
 ej{font-family: "Noto Color Emoji";
