@@ -33,6 +33,10 @@ export function setSideBar(province){
 '</ul>'
 
 sb+='<br>'+
+'<p class="menu-label">Experience</p>'+
+'<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'
+
+sb+='<br>'+
   '<p class="menu-label">'+
   'About</p>'+
   '<p class="about">Expiter is a data visualization tool for researching and comparing different quality of life factors in Italian cities and provinces.'+
@@ -80,6 +84,10 @@ export function setSideBarIT(province){
 '<li><a href="https://expiter.com/it/app/?sort=Expat-friendly&region=South">I migliori posti dove vivere nel Sud Italia</a></li>'+
 '<li><a href="https://expiter.com/it/app/?sort=DN-friendly&region=All">Le migliori destinazioni per i Nomadi Digitali in Italia</a></li>'+
 '</ul>'
+
+sb+='<br>'+
+'<p class="menu-label">Esperienze</p>'+
+'<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'
 
 sb+='<br>'+
   '<p class="menu-label">'+
@@ -158,6 +166,10 @@ export function setSideBarDE(province) {
         '<li><a href="https://expiter.com/de/app/?sort=DN-friendly&region=All">Die besten Ziele für digitale Nomaden in Italien</a></li>' +
         '</ul>';
 
+        sb+='<br>'+
+        '<p class="menu-label">Reiseerfahrungen</p>'+
+        '<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'
+      
   sb +=
     '<br>' +
     '<p class="menu-label">' +
@@ -241,6 +253,10 @@ export function setSideBarFR(province) {
         '<li><a href="https://expiter.com/fr/app/?sort=Expat-friendly&region=South">Les meilleurs endroits pour vivre dans le Sud de l\'Italie</a></li>' +
         '<li><a href="https://expiter.com/fr/app/?sort=DN-friendly&region=All">Les meilleures destinations pour les Nomades Digitaux en Italie</a></li>' +
         '</ul>';
+
+        sb+='<br>'+
+        '<p class="menu-label">Expériences</p>'+
+        '<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'
 
   sb +=
     '<br>' +

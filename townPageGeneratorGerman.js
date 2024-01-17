@@ -251,7 +251,7 @@ function populateData(data){
      facts[province["Name"]]={}; //initialize "facts" dictionary with each province
      facts[province["Name"]].snippet=
      '<figure class="column is-3 related"><a href="https://expiter.com/de/provinz/'+de(province.Name).replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
-     '<img title="'+de(province.Name)+'" load="lazy" src="'+
+     '<img title="'+de(province.Name)+'" loading="lazy" src="'+
      'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
      'alt="Provinz '+de(data[i].Name)+', '+de(data[i].Region)+'"></img>'+
      '<figcaption>'+de(province.Name)+", "+de(province.Region)+"</figcaption></a></figure>";

@@ -173,7 +173,7 @@ console.log('error: ' + err);
     '<figure>' +
         '<img alt="Karte der Provinz ' + de(province.Name) + ' in ' + de(province.Region) + '"' +
         'src="https://ik.imagekit.io/cfkgj4ulo/map/' + province["Region"].replace(/\s+/g, "-").replace("'", "-") + '-provinces.webp?tr=w-250' +
-        'load="lazy"></img>' +
+        'loading="lazy"></img>' +
         '<figcaption>Karte der Provinzen der Region ' + de(province.Region) + ' einschließlich ' + de(province.Name) + '</figcaption>' +
     '</figure>';
 
@@ -372,7 +372,7 @@ info.viator = '<center><h3>Empfohlene Erlebnisse in ' + (province.Viator ? name 
               facts[province["Name"]]={}; //initialiser le dictionnaire "facts" avec chaque province
               facts[province["Name"]].snippet=
               '<figure class="column is-3 related"><a href="https://expiter.com/de/provinz/'+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
-              '<img title="'+de(province.Name)+'" load="lazy" src="'+
+              '<img title="'+de(province.Name)+'" loading="lazy" src="'+
               'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
               'alt="Province de '+data[i].Name+', '+data[i].Region+'"></img>'+
               '<figcaption>'+de(province.Name)+", "+de(province.Region)+"</figcaption></a></figure>";

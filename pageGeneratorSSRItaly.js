@@ -168,7 +168,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<figure>'+
         '<img alt="Mappa della provincia di '+province.Name+' in '+province.Region+'"'+
         'src="https://ik.imagekit.io/cfkgj4ulo/map/'+province["Region"].replace(/\s+/g,"-").replace("'","-")+'-provinces.webp?tr=w-250'+
-        'load="lazy"></img>'+
+        'loading="lazy"></img>'+
         '<figcaption>Mappa delle province della regione '+province.Region+' inclusa '+province.Name+'</figcaption>'+
         '</figure>'
         
@@ -384,7 +384,7 @@ function populateData(data){
       facts[province["Name"]]={}; //initialize "facts" dictionary with each province
       facts[province["Name"]].snippet=
       '<figure class="column is-3 related"><a href="https://expiter.it/it/province/'+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
-      '<img title="'+province.Name+'" load="lazy" src="'+
+      '<img title="'+province.Name+'" loading="lazy" src="'+
       'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
       'alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'+
       '<figcaption>'+province.Name+", "+province.Region+"</figcaption></a></figure>";
