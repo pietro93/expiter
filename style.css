@@ -667,7 +667,8 @@ p.column.is-12{
   line-height:38px;
 }
 #info>section{
-  width:100%
+  width:68vw;
+  max-width:750px
 }
 
 
