@@ -20,7 +20,7 @@ var additionalFilters=[];
 var dataset;
 var avg;
 var regions ={};
-var selection = ["Bari","Bologna","Cagliari","Catania","Florence","Genoa",
+var selection = ["Bari","Bologna","Cagliari","Caserta","Catania","Florence","Genoa",
 "Livorno","Lucca","Padua","Palermo", "Pisa","Reggio Calabria","Rome","Milan","Naples",
 "Siena","Trieste","Turin","Venice","Vicenza"]
 
