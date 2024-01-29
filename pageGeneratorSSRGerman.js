@@ -125,19 +125,20 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 				'</section>'+
 			'</div>'+
 		'</div></div>'+
-    '<div id="info" class="columns is-multiline is-mobile">' +
-    '<section id="Informations Générales"><h2>Informations Générales</h2><span id="overview"></span></section>' +
-    '<section id="Climat"><h2>Climat</h2><span id="climate"></span></section>' +
-    '<section id="Coût de la Vie"><h2>Coût de la Vie</h2><span id="CoL"></span></section>' +
-    '<section id="Qualité de la Vie"><h2>Qualité de la Vie</h2>' +
-        '<section id="Santé"><h3>Santé</h3><span id="healthcare"></span></section>' +
-        '<section id="Éducation"><h3>Éducation</h3><span id="education"></span></section>' +
-        '<section id="Loisirs"><h3>Loisirs</h3><span id="leisure"></span></section>' +
-        '<section id="Criminalité et Sécurité"><h3>Criminalité et Sécurité</h3><span id="crimeandsafety"></span></section>' +
-        '<section id="Transports"><h3>Transports</h3><span id="transport"></span></section>' +
-    '</section>' +
-    '<section id="Tourisme"><h2>Tourisme</h2><span id="promo"></span></section>' +
-'</div>' +
+        '<div id="info" class="columns is-multiline is-mobile">' +
+        '<section id="Allgemeine Informationen"><h2>Allgemeine Informationen</h2><span id="overview"></span></section>' +
+        '<section id="Klima"><h2>Klima</h2><span id="climate"></span></section>' +
+        '<section id="Lebenshaltungskosten"><h2>Lebenshaltungskosten</h2><span id="CoL"></span></section>' +
+        '<section id="Lebensqualität"><h2>Lebensqualität</h2>' +
+            '<section id="Gesundheit"><h3>Gesundheit</h3><span id="healthcare"></span></section>' +
+            '<section id="Bildung"><h3>Bildung</h3><span id="education"></span></section>' +
+            '<section id="Freizeit"><h3>Freizeit</h3><span id="leisure"></span></section>' +
+            '<section id="Kriminalität und Sicherheit"><h3>Kriminalität und Sicherheit</h3><span id="crimeandsafety"></span></section>' +
+            '<section id="Verkehr"><h3>Verkehr</h3><span id="transport"></span></section>' +
+        '</section>' +
+        '<section id="Tourismus"><h2>Tourismus</h2><span id="promo"></span></section>' +
+    '</div>' +
+    
 '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
 '</body></html>'
 )
@@ -338,7 +339,7 @@ info.viator = '<center><h3>Empfohlene Erlebnisse in ' + (province.Viator ? name 
             related3=target[Math.floor(Math.random()*target.length)]
             target=target.filter(item => item !== related3)
             related4=target[Math.floor(Math.random()*target.length)]
-            info.related='<h2>A proximité</h2> '+
+            info.related='<h2>In der Nähe</h2> '+
             '<row class="columns is-multiline is-mobile"> '+        
             facts[related1].snippet+
             facts[related2].snippet+
