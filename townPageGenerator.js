@@ -34,7 +34,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 97; i < 107; i++){
+        for (let i = 0; i < 107; i++){
             let province = dataset[i];
             let sidebar=pb.setSideBar(province)
        
@@ -66,7 +66,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
               ci = comindex.indexOf(comune.Name)
               console.log("found some extra info about "+comune.Name+" at position "+ ci)
             }
-            if (ci>-11){ //this only updates towns in comuni.js
+            if (ci>-1){ //this only updates towns in comuni.js
             console.log("Writing comune \""+comune.Name+"\" ("+province.Name+") into file")
 
             let urlPath = 'comuni/'+dirName+fileName;
@@ -160,7 +160,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<a href="https://expiter.com/comuni/agrigento/porto-empedocle/">Porto Empedocle</a>'+
         " in the main island of Sicily, also located in the province of Agrigento")
         let climate='<h3>Climate</h3>'+
-        '<b>'+en(comune.Name)+'</b> is classified as a <b>Climate Zone '+comune.ClimateZone+'</b>, which means it is '+
+        '<p><b>'+en(comune.Name)+'</b> is classified as a <b>Climate Zone '+comune.ClimateZone+'</b>, which means it is '+
         (comune.ClimateZone==="A"?zoneAtext
         :(comune.ClimateZone==="B"?"one of the warmest and sunniest locations in Italy"
         :(comune.ClimateZone==="C"?"a fairly warm location"
@@ -182,7 +182,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         ))))))+'\n </br></br>'+"The province of "+en(province.Name)+" experiences on average "+((province.HotDays/3.5)*12).toFixed(2)+" days of hot temperatures (over 30°C) and "+
         ((province.ColdDays/3.5)*12).toFixed(2)+" cold temperature days (<5°C) per year. It rains (or snows) around "+(province.RainyDays*12).toFixed(2)+" days per year. "+
         (province.FoggyDays<1?"There is little to no fog throughout the year.":"There are "+((province.FoggyDays/3.5)*12).toFixed(2)+" foggy days throughout the year.")+
-        " "+en(comune.Name)+" receives around "+province.SunshineHours/30+" hours of sunshine per day on average.";
+        " "+en(comune.Name)+" receives around "+province.SunshineHours/30+" hours of sunshine per day on average.</p>";
         $("#info").html(pb.addBreaks(intro)+pb.addBreaks(climate))
        
         var info=getInfo(comune,province)
@@ -193,6 +193,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#info").append("<h2>Map of "+en(comune.Name)+"</h2>")
         $("#info").append(info.map)
         $("#info").append(separator)
+        $("#info").append("<h2>Experiences and tours near "+en(comune.Name)+"</h2>")
         $("#info").append(getyourguide)
         $("#info").append(separator)
         $("#info").append("<h2>"+en(province.Name)+" Province Info</h2>")
