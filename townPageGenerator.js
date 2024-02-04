@@ -34,7 +34,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 0; i < 107; i++){
+        for (let i = 24; i < 35; i++){
             let province = dataset[i];
             let sidebar=pb.setSideBar(province)
        
@@ -66,7 +66,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
               ci = comindex.indexOf(comune.Name)
               console.log("found some extra info about "+comune.Name+" at position "+ ci)
             }
-            if (ci>-1){ //this only updates towns in comuni.js
+            if (ci>-11){ //this only updates towns in comuni.js
             console.log("Writing comune \""+comune.Name+"\" ("+province.Name+") into file")
 
             let urlPath = 'comuni/'+dirName+fileName;
@@ -159,8 +159,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         "the Pelagie islands of <a href='https://expiter.com/comuni/agrigento/lampedusa-e-linosa/>Lampedusa and Linosa</a>, geographically located in Africa":
         '<a href="https://expiter.com/comuni/agrigento/porto-empedocle/">Porto Empedocle</a>'+
         " in the main island of Sicily, also located in the province of Agrigento")
-        let climate='<h3>Climate</h3>'+
-        '<p><b>'+en(comune.Name)+'</b> is classified as a <b>Climate Zone '+comune.ClimateZone+'</b>, which means it is '+
+        let climate='<br><h3>Climate</h3>'+
+        '<p style="font-size:21px; line-height:42px"><b>'+en(comune.Name)+'</b> is classified as a <b>Climate Zone '+comune.ClimateZone+'</b>, which means it is '+
         (comune.ClimateZone==="A"?zoneAtext
         :(comune.ClimateZone==="B"?"one of the warmest and sunniest locations in Italy"
         :(comune.ClimateZone==="C"?"a fairly warm location"
@@ -180,21 +180,30 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         "<b>long and very cold winters with plenty of snow</b>, <b>short and mild summers</b>."
         :""
         ))))))+'\n </br></br>'+"The province of "+en(province.Name)+" experiences on average "+((province.HotDays/3.5)*12).toFixed(2)+" days of hot temperatures (over 30°C) and "+
-        ((province.ColdDays/3.5)*12).toFixed(2)+" cold temperature days (<5°C) per year. It rains (or snows) around "+(province.RainyDays*12).toFixed(2)+" days per year. "+
-        (province.FoggyDays<1?"There is little to no fog throughout the year.":"There are "+((province.FoggyDays/3.5)*12).toFixed(2)+" foggy days throughout the year.")+
-        " "+en(comune.Name)+" receives around "+province.SunshineHours/30+" hours of sunshine per day on average.</p>";
-        $("#info").html(pb.addBreaks(intro)+pb.addBreaks(climate))
+        ((province.ColdDays/3.5)*12).toFixed(2)+" cold temperature days (<5°C) per year. <br><br> Precipitation in the form of rain or snow occurs around "+(province.RainyDays*12).toFixed(2)+" days per year. "+
+        (province.FoggyDays<1?"Fog is rarely an issue, with little to no foggy days throughout the year. ":"There are "+((province.FoggyDays/3.5)*12).toFixed(2)+" foggy days throughout the year. ")+
+        "<br><br>The municipality of " + en(comune.Name) + " enjoys approximately " + province.SunshineHours/30 + " hours of sunshine per day. This means that the town experiences an average of " +(((province.SunshineHours/30)/9)*365).toFixed(2)+ " sunny days in a year.</p>";
+        $("#info").html(pb.addBreaks(intro)+climate)
        
         var info=getInfo(comune,province)
         var separator='</br><span class="separator"></span></br>'
         var getyourguide='<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'
         
+        var expedia='<div id="searchWidget" style="width:98%;height:550px;"><iframe id="widgetIframe" src="https://www.expedia.com/marketing/widgets/searchform/widget?wtt=5&tp1=1101l3BUi9&tp2=expiter&lob=H,FH,CA,CR,A&des='
+        +comune.Name+'&wbi=13&olc=000000&whf=4&hfc=C7C7C7&wif=4&ifc=000000&wbc=FFCC00&wbf=4&bfc=3D3100&wws=2&sfs=H550FW98R&langid=1033" width="100%" height="100%" scrolling="no" frameborder="0"></iframe></div>'
+
+        expedia += '<div style="text-align:center; margin-top:20px;">Search for: ' + ['Hotels', 'Apartments', 'Bed & Breakfasts', 'Villas'].map((lodging, index) => `<a href="https://expedia.com/affiliate?siteid=1&landingPage=https://www.expedia.com/Hotel-Search?lodging=${['HOTEL', 'APARTMENT', 'BED_AND_BREAKFAST', 'VILLA'][index]}&destination=${comune.Name}&camref=1101l3BUi9&creativeref=1100l68075" target="_blank" rel="nofollow sponsored" style="font-size:18px; margin: 0 10px;">${lodging}</a>` + (index < 3 ? ' | ' : '')).join('') + '</div>';
+
+
         $("#info").append(info.disclaimer)
         $("#info").append("<h2>Map of "+en(comune.Name)+"</h2>")
         $("#info").append(info.map)
         $("#info").append(separator)
         $("#info").append("<h2>Experiences and tours near "+en(comune.Name)+"</h2>")
         $("#info").append(getyourguide)
+        $("#info").append(separator)
+        $("#info").append("<h2>Hotels and travel options near "+en(comune.Name)+"</h2>")
+        $("#info").append(expedia)
         $("#info").append(separator)
         $("#info").append("<h2>"+en(province.Name)+" Province Info</h2>")
         $("#tabs").append(info.tabs)

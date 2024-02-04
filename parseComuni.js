@@ -8,7 +8,12 @@ const jsdom = require('jsdom');
 require('events').EventEmitter.prototype._maxListeners = 107;
 require('events').defaultMaxListeners = 107;
 
+
 let urls = {
+       "Agrigento":{
+        "Name":"Agrigento","Region":"Sicilia","Url":
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/sicilia/provincia-di-agrigento/48-comuni/popolazione/"
+    }, 
     "Milano": {
         "Name": "Milano","Region":"Lombardia", "Url":
             "https://web.archive.org/web/2/https://www.tuttitalia.it/lombardia/provincia-di-milano/34-comuni/popolazione/"
@@ -95,7 +100,7 @@ let urls = {
     },
     "Varese":{
         "Name":"Varese","Region":"Lombardia","Url":
-        "https://www.tuttitalia.it/lombardia/provincia-di-varese/14-comuni/popolazione/"
+        "https://web.archive.org/web/2/https://www.tuttitalia.it/lombardia/provincia-di-varese/14-comuni/popolazione/"
     },
     "Salerno":{
         "Name":"Salerno","Region":"Campania","Url":
@@ -398,10 +403,6 @@ let urls = {
         "Name":"Caltanissetta","Region":"Sicilia","Url":
         "https://web.archive.org/web/2/https://www.tuttitalia.it/sicilia/provincia-di-caltanissetta/44-comuni/popolazione/"
     },
-    "Agrigento":{
-        "Name":"Agrigento","Region":"Sicilia","Url":
-        "https://web.archive.org/web/2/https://www.tuttitalia.it/sicilia/provincia-di-agrigento/48-comuni/popolazione/"
-    },
     "Siracusa":{
         "Name":"Siracusa","Region":"Sicilia","Url":
         "https://web.archive.org/web/2/https://www.tuttitalia.it/sicilia/provincia-di-siracusa/56-comuni/popolazione/"
@@ -466,6 +467,18 @@ createServer(function (req, res) {
 const fs = require("fs");
 const https = require("follow-redirects").https;
 //const https = require('follow-redirects').https;
+
+
+https.get({
+    host: '',
+    path: '/',
+    timeout: 100000, // Here is where you set the timeout
+    followAllRedirects: true,
+  }, function(response) {
+    // handle the response
+  }).on('error', function(error) {
+    console.log('Error: ' + error.message);
+  });
 
 var output = {};
 //var ClimateZones={"A":[],"B":[],"C":[],"D":[],"E":[],"F":[]}
