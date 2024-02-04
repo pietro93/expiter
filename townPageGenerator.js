@@ -34,7 +34,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 96; i < 107; i++){
+        for (let i = 0; i < 1; i++){
             let province = dataset[i];
             let sidebar=pb.setSideBar(province)
        
@@ -89,6 +89,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
             '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.3">'+
+            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css?v=1.0">'+
             
             '<meta name="description" content="Information about living in '+comune.Name+', Italy for expats and digital nomads. '+comune.Name+' quality of life, cost of living, safety and more." />'+
 	        '<meta name="keywords" content="'+comune.Name+' italy, '+comune.Name+' expat,'+comune.Name+' life,'+comune.Name+' digital nomad" />'+

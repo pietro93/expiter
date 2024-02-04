@@ -20,9 +20,7 @@ var additionalFilters=[];
 var dataset;
 var avg;
 var regions ={};
-var selection = ["Bari","Bologna","Cagliari","Caserta","Catania","Florence","Genoa",
-"Livorno","Lucca","Padua","Palermo", "Pisa","Reggio Calabria","Rome","Milan","Naples",
-"Siena","Trieste","Turin","Venice","Vicenza"]
+var selection = ["Bari"]
 
 // Fetch the first dataset
 fetch('https://expiter.com/dataset.json', {method:"Get"})
@@ -50,13 +48,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                         province = {...province, ...crimeData};
                     }
                     // Now province contains data from both datasets
-                    // Continue with your code...
-                }
-            } catch(err) {
-                console.log('Error parsing JSON string:', err);
-            }
-        });
-    });
+                    
             if (selection.includes(en(province.Name))){
                 console.log(en(province.Name)+" selected")
             var fileName = 'crime-safety/-'+en(province.Name).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
@@ -170,15 +162,13 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
          fs.writeFile(fileName+".html", html, function (err, file) {
             if (err) throw err;
             console.log(en(dataset[i].Name)+".html"+' Saved!');
+                }
+            } catch(err) {
+                console.log('Error parsing JSON string:', err);
+            }
         });
-        
-    }
-        }
-    })
-    .catch(function (err) {
-        console.log('error: ' + err);
     });
-
+            
     function newPage(province, $){
         let info = getInfo(province)
         let separator='</br><span class="separator"></span></br>'
@@ -223,7 +213,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
     info.generalinfo=facts[name].overview;
 
     info.overview="The province of "+en(province.Name)+" is located in the <b>"+en(province.Region)+"</b> region and has a <b>"+province.Population.toLocaleString()+" people</b>.<br><br>"+
-    en(province.Name)+ " ranks"+
+    en(province.Name)+ " ranks "+province.SafetyRank+"th."
     
     info.viator='<center><h3>Recommended Tours in '+(province.Viator?name:region.Name)+'</h3></center>'+
     '<div data-vi-partner-id=P00045447 data-vi-language=en data-vi-currency=EUR data-vi-partner-type="AFFILIATE" data-vi-url="'+
