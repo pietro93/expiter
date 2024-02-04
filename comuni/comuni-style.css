@@ -54,4 +54,7 @@ section b a{
     letter-spacing:-0.6px;
     padding-left:4px;
 
-} section b a:hover{opacity:1;color:var(--lightest);background-color:var(--white)}
+} section b a:hover{
+    opacity:1;
+    color:var(--lighter);
+    background-color:var(--white)}
