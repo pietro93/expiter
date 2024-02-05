@@ -58,3 +58,14 @@ section b a{
     opacity:1;
     color:var(--lighter);
     background-color:var(--white)}
+
+section .infosheet{
+    width: 62%
+}
+
+@media only screen and (max-width: 768px) {
+    section .infosheet{
+        width: 100%
+    }
+    
+}

@@ -90,7 +90,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
             '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.3">'+
-            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css?v=1.1">'+
+            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css?v=1.12">'+
             
             '<meta name="description" content="Informazioni sul comune di '+comune.Name+', in provincia di '+province.Name+'. Popolazione, qualità della vita, movida, turismo ecc." />'+
 	        '<meta name="keywords" content="'+comune.Name+' '+province.Region+', '+comune.Name+' '+province.Name+','+comune.Name+' popolazione,'+comune.Name+' info, '+comune.Name+' movida, '+comune.Name+' vita" />'+
@@ -163,7 +163,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         'l comune di <a href="https://expiter.com/it/comuni/agrigento/porto-empedocle/">Porto Empedocle</a>'+
         " nella Sicilia \"continentale\", anch'esso nella provincia di Agrigento")
         let climate='<h3>Clima</h3>'+
-        '<b>'+comune.Name+'</b> viene classificato come una <b>Zona Climatica '+comune.ClimateZone+'</b>, si tratta di '+
+        '<p style="font-size:21px; line-height:42px"><b>'+comune.Name+'</b> viene classificato come una <b>Zona Climatica '+comune.ClimateZone+'</b>, si tratta di '+
         (comune.ClimateZone==="A"?zoneAtext
         :(comune.ClimateZone==="B"?"una delle località più calde e soleggiate d'Italia"
         :(comune.ClimateZone==="C"?"località abbastanza calde"
@@ -183,15 +183,21 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         "<b>inverni lunghi e molto freddi con abbondanti nevicate</b>, <b>estati brevi e non eccessivamente calde</b>."
         :""
         ))))))+'\n </br></br>'+"La provincia di "+province.Name+" ha in media "+((province.HotDays/3.5)*12).toFixed(2)+" giorni di caldo (temperature oltre i 30°C) e "+
-        ((province.ColdDays/3.5)*12).toFixed(2)+" giornate di freddo (temperature al di sotto dei 5°C) durante l'anno. Piove (o nevica) circa "+(province.RainyDays*12).toFixed(2)+" giorni l'anno. "+
+        ((province.ColdDays/3.5)*12).toFixed(2)+" giornate di freddo (temperature al di sotto dei 5°C) durante l'anno. <br><br> Piove (o nevica) circa "+(province.RainyDays*12).toFixed(2)+" giorni l'anno. "+
         (province.FoggyDays<1?"Vi è pochissima nebbia durante l'anno.":"Vi sono "+((province.FoggyDays/3.5)*12).toFixed(2)+" giorni di nebbia durante l'anno.")+
-        " "+comune.Name+" riceve circa "+province.SunshineHours/30+" ore di sole giornaliere.";
+        "<br><br>"+comune.Name+" riceve circa "+province.SunshineHours/30+" ore di sole giornaliere, dunque circa "+(((province.SunshineHours/30)/9)*365).toFixed(2)+ " di giornate soleggiate in un anno.</p>";
 
-        $("#info").html(pb.addBreaks(intro)+pb.addBreaks(climate))
+        $("#info").html(pb.addBreaks(intro)+climate)
        
         var info=getInfo(comune,province)
         var separator='</br><span class="separator"></span></br>'
         var getyourguide='<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'
+
+        var expedia='<div id="searchWidget" style="width:98%;height:550px;"><iframe id="widgetIframe" src="https://www.expedia.com/marketing/widgets/searchform/widget?wtt=5&tp1=1101l3BUi9&tp2=expiter&lob=H,FH,CA,CR,A&des='
+        +comune.Name+'&wbi=13&olc=000000&whf=4&hfc=C7C7C7&wif=4&ifc=000000&wbc=FFCC00&wbf=4&bfc=3D3100&wws=2&sfs=H550FW98R&langid=1033" width="100%" height="100%" scrolling="no" frameborder="0"></iframe></div>'
+
+        expedia += '<div style="text-align:center; margin-top:20px;">Search for: ' + ['Hotel', 'Appartamenti', 'Bed & Breakfast', 'Ville'].map((lodging, index) => `<a href="https://www.expedia.it/Hotel-Search?lodging=${['HOTEL', 'APARTMENT', 'BED_AND_BREAKFAST', 'VILLA'][index]}&destination=${comune.Name}&camref=1101l3BUi9&creativeref=1100l68075" target="_blank" rel="nofollow sponsored" style="font-size:18px; margin: 0 10px;">${lodging}</a>` + (index < 3 ? ' | ' : '')).join('') + '</div>';
+
         
         $("#info").append(info.disclaimer)
         $("#info").append("<h2>Mappa di "+comune.Name+"</h2>")
@@ -199,6 +205,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#info").append(separator)
         $("#info").append("<h2>Esperienze e Tour Vicino a "+comune.Name+"</h2>")
         $("#info").append(getyourguide)
+        $("#info").append(separator)
+        $("#info").append("<h2>Hotel e pacchetti di viaggio a "+comune.Name+"</h2>")
+        $("#info").append(expedia)
         $("#info").append(separator)
         $("#info").append("<h2>Provincia di "+province.Name+"</h2>")
         $("#tabs").append(info.tabs)

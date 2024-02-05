@@ -34,7 +34,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
 
-        for (let i = 13; i < 26; i++){
+        for (let i = 0; i < 1; i++){
             let province = dataset[i];
             let sidebar=pb.setSideBar(province)
        
@@ -89,7 +89,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
             '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.3">'+
-            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css?v=1.0">'+
+            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css?v=1.1">'+
             
             '<meta name="description" content="Information about living in '+comune.Name+', Italy for expats and digital nomads. '+comune.Name+' quality of life, cost of living, safety and more." />'+
 	        '<meta name="keywords" content="'+comune.Name+' italy, '+comune.Name+' expat,'+comune.Name+' life,'+comune.Name+' digital nomad" />'+
@@ -115,7 +115,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<nav id="navbar"></nav>'+
         '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="'+comune.Name+", "+province.Name+', Italy"'+'>'+
         '</div><h1 class="title">Comuni di </h1>'+
-        '<section id="'+en(comune.Name)+' Info Sheet" style="width: 62%">'+
+        '<section id="'+en(comune.Name)+' Info Sheet" class="infosheet">'+
         '<center><table id="list" class="table">'+
         '<tr><th><b>Name</b></th><th>'+en(comune.Name)+'</th></tr>'+
         '<tr><th><b>Province</b></th><th>'+province.Name+'</th></tr>'+
@@ -126,8 +126,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<tr><th><b>Climate Zone</b></th><th>'+(comune.ClimateZone?comune.ClimateZone:"?")+'</th></tr>'+
         '</tr>'+
         '</table></center>'+
-        '<p id="info"></p>'+
-        '<p id="tabs"></p>'+
+        '<span id="info"></span>'+
+        '<span id="tabs"></span>'+
         '</center><p id="related"></p></center>'+
         '</section>'+
         '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
@@ -193,7 +193,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         var expedia='<div id="searchWidget" style="width:98%;height:550px;"><iframe id="widgetIframe" src="https://www.expedia.com/marketing/widgets/searchform/widget?wtt=5&tp1=1101l3BUi9&tp2=expiter&lob=H,FH,CA,CR,A&des='
         +comune.Name+'&wbi=13&olc=000000&whf=4&hfc=C7C7C7&wif=4&ifc=000000&wbc=FFCC00&wbf=4&bfc=3D3100&wws=2&sfs=H550FW98R&langid=1033" width="100%" height="100%" scrolling="no" frameborder="0"></iframe></div>'
 
-        expedia += '<div style="text-align:center; margin-top:20px;">Search for: ' + ['Hotels', 'Apartments', 'Bed & Breakfasts', 'Villas'].map((lodging, index) => `<a href="https://expedia.com/affiliate?siteid=1&landingPage=https://www.expedia.com/Hotel-Search?lodging=${['HOTEL', 'APARTMENT', 'BED_AND_BREAKFAST', 'VILLA'][index]}&destination=${comune.Name}&camref=1101l3BUi9&creativeref=1100l68075" target="_blank" rel="nofollow sponsored" style="font-size:18px; margin: 0 10px;">${lodging}</a>` + (index < 3 ? ' | ' : '')).join('') + '</div>';
+        expedia += '<div style="text-align:center; margin-top:20px;">Search for: ' + ['Hotels', 'Apartments', 'Bed & Breakfasts', 'Villas'].map((lodging, index) => `<a href="https://www.expedia.com/Hotel-Search?lodging=${['HOTEL', 'APARTMENT', 'BED_AND_BREAKFAST', 'VILLA'][index]}&destination=${comune.Name}&camref=1101l3BUi9&creativeref=1100l68075" target="_blank" rel="nofollow sponsored" style="font-size:18px; margin: 0 10px;">${lodging}</a>` + (index < 3 ? ' | ' : '')).join('') + '</div>';
 
 
         $("#info").append(info.disclaimer)
@@ -203,7 +203,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#info").append("<h2>Experiences and tours near "+en(comune.Name)+"</h2>")
         $("#info").append(getyourguide)
         $("#info").append(separator)
-        $("#info").append("<h2>Hotels and travel options near "+en(comune.Name)+"</h2>")
+        $("#info").append("<h2>Hotels and travel options in "+en(comune.Name)+"</h2>")
         $("#info").append(expedia)
         $("#info").append(separator)
         $("#info").append("<h2>"+en(province.Name)+" Province Info</h2>")
