@@ -60,13 +60,14 @@ section b a{
     background-color:var(--white)}
 
 @media only screen and (min-width: 769px) {
-        section .infosheet{
+        .infosheet{
             width: 62%
         }
         
     }
+
 @media only screen and (max-width: 768px) {
-    section .infosheet{
+    .infosheet{
         width: 100%
     }
     
