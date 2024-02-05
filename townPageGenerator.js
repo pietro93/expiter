@@ -89,7 +89,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
             '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
             '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.3">'+
-            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css?v=1.15">'+
+            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css?v=1.65">'+
             
             '<meta name="description" content="Information about living in '+comune.Name+', Italy for expats and digital nomads. '+comune.Name+' quality of life, cost of living, safety and more." />'+
 	        '<meta name="keywords" content="'+comune.Name+' italy, '+comune.Name+' expat,'+comune.Name+' life,'+comune.Name+' digital nomad" />'+
@@ -125,7 +125,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<tr><th><b>Altitude</b></th><th>'+comune.Altitude+'m</th></tr>'+
         '<tr><th><b>Climate Zone</b></th><th>'+(comune.ClimateZone?comune.ClimateZone:"?")+'</th></tr>'+
         '</tr>'+
-        '</table></center>'+
+        '</table></center><br>'+
         '<span id="info"></span>'+
         '<span id="tabs"></span>'+
         '</center><p id="related"></p></center>'+
