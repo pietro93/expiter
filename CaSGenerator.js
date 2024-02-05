@@ -34,7 +34,7 @@ fetch('https://expiter.com/dataset.json', { method: 'Get' })
     populateData(data);
 
     // Fetch additional crime dataset
-    return fetch('https://expiter.com/dataset_crime_2023.js', { method: 'Get' });
+    return fetch('https://expiter.com/dataset_crime_2023.json', { method: 'Get' });
   })
   .then(function (response) {
     return response.json();
@@ -50,6 +50,7 @@ fetch('https://expiter.com/dataset.json', { method: 'Get' })
     
     for (let i = 0; i < 107; i++) {
       let province = combinedData[i];
+      
 
       let dirName = province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
       let dir = path.join(__dirname, dirName);
