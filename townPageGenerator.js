@@ -98,6 +98,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
            
             '<!-- GetYourGuide Analytics -->'+
             '<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>'+
+            pb.headerScripts()+
             "</head>"+
             '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
             '<body data-spy="scroll" data-target="#toc">'+

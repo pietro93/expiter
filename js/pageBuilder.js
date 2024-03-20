@@ -1,3 +1,9 @@
+export function headerScripts(){
+  let scripts=""
+  scripts+='<script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZToxY2NlNzA3MS0yNWM2LTQ4YzEtYjdlZS0xZGE1Njc0YjhiZmQ=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>'
+  return scripts;
+}
+
 export function setSideBar(province){
   let sb="";
   
