@@ -1,7 +1,5 @@
 RewriteEngine on
+RewriteRule ^province/palermo/$ province/palermo.html [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*[^/])$ /$1/ [L,R=301]
-RewriteRule ^$ province/palermo.html [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^.]+)$ $1.html [NC,L]
+RewriteRule ^([^.]+)/?$ $1.html [NC,L]
