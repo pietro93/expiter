@@ -1,3 +1,3 @@
 RewriteEngine on
-RewriteRule ^$ ../province/teramo.html [L]
+RewriteRule ^$ /province/teramo.html [L]
 RewriteRule ^([a-zA-Z0-9-]+)/$ $1.html [L]
