@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ belluno.html [L]

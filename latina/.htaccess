@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ latina.html [L]

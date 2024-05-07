@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ l-aquila.html [L]

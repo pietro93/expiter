@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ pistoia.html [L]

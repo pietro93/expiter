@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ torino.html [L]

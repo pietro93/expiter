@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ massa-carrara.html [L]

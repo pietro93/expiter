@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ reggio-emilia.html [L]

@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ matera.html [L]
