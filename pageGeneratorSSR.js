@@ -129,7 +129,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<section id="Healthcare"><h3>Healthcare</h3><span id="healthcare"></span></section>'+
             '<section id="Education"><h3>Education</h3><span id="education"></span></section>'+
             '<section id="Leisure"><h3>Leisure</h3><span id="leisure"></span></section>'+
-            '<section id="Crime and Safety"><h3>Crime and Safety</h3><span id="crimeandsafety"></span></section>'+
+            '<section id="Crime and Safety"><h3><a href="https://expiter.com/'+fileName+'/crime-and-safety/">Crime and Safety</a></h3><span id="crimeandsafety"></span></section>'+
             '<section id="Transport"><h3>Transport</h3><span id="transport"></span></section></section>'+
             '<section id="Discover"><h2>Discover</h2><span id="promo"></span></section>'+
             '</div>'+
