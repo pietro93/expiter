@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteRule ^province/roma/$ province/roma.html [L]
+RewriteRule ^province/roma.html$ province/roma/ [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^.]+)/?$ $1.html [NC,L]

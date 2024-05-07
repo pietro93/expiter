@@ -89,7 +89,7 @@ fetch('https://expiter.com/dataset.json', { method: 'Get' })
 
       // Create .htaccess file in the directory
       let htaccessContent = `RewriteEngine on\n` +
-                      `RewriteRule ^${dirName}/$ ${dirName}.html [L]\n` +
+                      `RewriteRule ^${dirName}.html$ ${dirName}/ [L]\n` +
                       `RewriteCond %{REQUEST_FILENAME} !-f\n` +
                       `RewriteCond %{REQUEST_FILENAME} !-d\n` +
                       `RewriteRule ^([^\.]+)/?$ $1.html [NC,L]`;
