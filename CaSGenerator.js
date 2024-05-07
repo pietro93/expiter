@@ -44,7 +44,7 @@ function populateData(data){
   
     facts[province["Name"]]={}; //initialize "facts" dictionary with each province
     facts[province["Name"]].snippet=
-    '<figure class="column is-3 related"><a href="https://expiter.com/'+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/crime-and-safety/">'+
+    '<figure class="column is-3 related"><a href="https://expiter.com/province/'+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/crime-and-safety/">'+
     '<img title="'+en(province.Name)+'" loading="lazy" src="'+
     'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
     'alt="Crime and safety in '+en(data[i].Name)+', '+en(data[i].Region)+'"></img>'+
@@ -79,7 +79,7 @@ fetch('https://expiter.com/dataset.json', { method: 'Get' })
     for (let i = 0; i < 107; i++) {
       let province = combinedData[i];
 
-      let dirName = province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+      let dirName = 'province/'+province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
       let dir = path.join(__dirname, dirName);
 
         // Create directory if it doesn't exist

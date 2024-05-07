@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ province/napoli.html [L]

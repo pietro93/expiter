@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ province/ascoli-piceno.html [L]

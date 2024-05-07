@@ -1,2 +1,0 @@
-RewriteEngine on
-RewriteRule ^$ enna.html [L]

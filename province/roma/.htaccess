@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ province/roma.html [L]
