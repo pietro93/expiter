@@ -88,7 +88,7 @@ fetch('https://expiter.com/dataset.json', { method: 'Get' })
     }
 
       // Create .htaccess file in the directory
-let htaccessContent = `RewriteEngine on\nRewriteRule ^$ ${dirName}.html [L]\nRewriteRule ^([a-zA-Z0-9-]+)/$ $1.html [L]`;
+let htaccessContent = `RewriteEngine on\nRewriteRule ^([a-zA-Z0-9-]+)/$ $1.html [L]\nRewriteRule ^$ ${dirName}.html [L]\n`;
 fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent);
 
 

@@ -1,3 +1,3 @@
 RewriteEngine on
-RewriteRule ^$ province/verbano-cusio-ossola.html [L]
 RewriteRule ^([a-zA-Z0-9-]+)/$ $1.html [L]
+RewriteRule ^$ province/verbano-cusio-ossola.html [L]
