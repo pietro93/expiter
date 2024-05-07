@@ -88,11 +88,7 @@ fetch('https://expiter.com/dataset.json', { method: 'Get' })
     }
 
       // Create .htaccess file in the directory
-      let htaccessContent = `RewriteEngine on\n` +
-                      `RewriteRule ^${dirName}.html$ ${dirName}/ [L]\n` +
-                      `RewriteCond %{REQUEST_FILENAME} !-f\n` +
-                      `RewriteCond %{REQUEST_FILENAME} !-d\n` +
-                      `RewriteRule ^([^\.]+)/?$ $1.html [NC,L]`;
+      let htaccessContent = `RewriteEngine on\nRewriteRule ^$ ${dirName}.html [L]`;
 fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent);
 
       var fileName = ''+dirName+'/crime-and-safety';
