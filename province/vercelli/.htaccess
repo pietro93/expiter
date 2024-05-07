@@ -1,3 +1,3 @@
 RewriteEngine on
 RewriteRule ^$ province/vercelli.html [L]
-RewriteRule ^([a-zA-Z0-9-]+)/$ province/vercelli/$1.html [L]
+RewriteRule ^([a-zA-Z0-9-]+)/$ $1.html [L]
