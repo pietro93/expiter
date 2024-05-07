@@ -87,9 +87,16 @@ fetch('https://expiter.com/dataset.json', { method: 'Get' })
          fs.mkdirSync(dir);
     }
 
-      // Create .htaccess file in the directory
-      let htaccessContent = `RewriteEngine on\nRewriteRule ^$ ${dirName}.html [L]\nRewriteCond %{REQUEST_FILENAME} !-f\nRewriteRule ^([^\.]+)$ $1.html [NC,L]\nRewriteRule ^([^/]+)/$ $1.html [NC,L]`;
-      fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent);
+// Create .htaccess file in the directory
+let htaccessContent = `RewriteEngine on\n` +
+                      `RewriteCond %{REQUEST_FILENAME} !-f\n` +
+                      `RewriteCond %{REQUEST_FILENAME} !-d\n` +
+                      `RewriteRule ^(.*[^/])$ /$1/ [L,R=301]\n` +
+                      `RewriteRule ^$ ${dirName}.html [L]\n` +
+                      `RewriteCond %{REQUEST_FILENAME} !-f\n` +
+                      `RewriteRule ^([^\.]+)$ $1.html [NC,L]`;
+fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent);
+
 
       var fileName = ''+dirName+'/crime-and-safety';
             let seoTitle=en(province.Name)+" - Crime and Safety Info Sheet";
