@@ -1,2 +1,3 @@
 RewriteEngine on
 RewriteRule ^$ province/trapani.html [L]
+RewriteRule ^([a-zA-Z0-9-]+)/$ province/trapani/$1.html [L]
