@@ -224,7 +224,7 @@ fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent);
     appendProvinceData(province, $);
     pb.setNavBar($);
         
-    $(".title").text(en(province.Name)+' for Expats and Nomads');
+    $(".title").text("Crime and Safety in "+en(province.Name)+'');
 
     $("#overview").append(pb.addBreaks(info.overview))
     $("#crimeandsafety").append(pb.addBreaks(info.crimeandsafety))
@@ -511,4 +511,5 @@ facts.Catanzaro.mafia="The 'Ndrangheta, one of Italy's most powerful mafia organ
 facts.Verona.mafia="Verona has faced significant mafia infiltration, particularly from the 'Ndrangheta criminal organization. The city is the second province in the Veneto region for the number of assets confiscated from mafia groups. The mafia has been accused of infiltrating the construction sector in Verona, with over 1 billion euros in value and more than 13,600 companies affected. This has led to calls from local mayors for the establishment of an anti-mafia investigative unit in the region to combat the criminal activities."
 facts.Pisa.mafia="Pisa has been a target for mafia activities, with incidents such as the confiscation of 250,000 euros worth of assets from a mafia clan in the area. Additionally, the mafia in Pisa has been linked to supporting the electoral campaign of the mayor of Rosarno, Giuseppe Idà, in exchange for political favors. These events highlight the significant presence and involvement of the mafia in Pisa, engaging in criminal activities and exerting influence in the region."
 facts.Brindisi.mafia = "The Sacra Corona Unita, a powerful mafia-type criminal organization, is actively present and engaged in various illicit activities in Brindisi. This group has been heavily involved in cigarette smuggling, earning Brindisi the nickname 'Marlboro City' in the 1990s. The Sacra Corona Unita has also been linked to a violent feud between criminal clans in the Brindisi area between 1989 and 1991, resulting in over 100 deaths. Recent law enforcement operations have also targeted extortion, drug trafficking, and robbery activities by the Sacra Corona Unita clan in Brindisi. Law enforcement has taken action, arresting 13 suspected members of the Sacra Corona Unita, including some in leadership positions. However, the mafia's presence and criminal activities continue to be a significant problem in Brindisi."
+facts.Rimini.mafia = "The mafia presence in Rimini has been a concern, with instances of anti-mafia measures being taken against businesses suspected of having ties to organized crime. The local prefect has issued interdicts against certain enterprises in Rimini, indicating ongoing efforts to combat mafia influence in the city. These actions reflect a proactive stance to prevent mafia infiltration in the economic fabric of Rimini and maintain the dominance of legitimate economic activities in the region."
 }
