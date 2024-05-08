@@ -53,6 +53,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<loc>https://expiter.it/province/'+dataset[i].Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/</loc>'+
             '<priority>.8</priority>'+
             '</url>')
+            siteMap=siteMap.concat('<url>'+
+            '<loc>https://expiter.it/province/'+dataset[i].Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/sicurezza-e-criminalita/</loc>'+
+            '<priority>.8</priority>'+
+            '</url>')
         }
         for (let i = 0; i < 107; i++){
             let province = dataset[i];
