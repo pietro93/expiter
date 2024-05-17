@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ crotone.html [L]

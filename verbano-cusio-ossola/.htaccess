@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ verbano-cusio-ossola.html [L]

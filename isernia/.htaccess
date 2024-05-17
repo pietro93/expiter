@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ isernia.html [L]
