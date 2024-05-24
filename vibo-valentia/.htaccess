@@ -1,2 +1,0 @@
-RewriteEngine on
-RewriteRule ^$ vibo-valentia.html [L]
