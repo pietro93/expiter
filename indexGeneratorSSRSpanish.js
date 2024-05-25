@@ -29,7 +29,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         //console.log(dom.window.document.querySelector("body").textContent)
         dataset=data;  
         populateData(data);
-        const html = fs.readFileSync('./indexTemplateFR.html','utf8');
+        const html = fs.readFileSync('./indexTemplateES.html','utf8');
         const dom = new jsdom.JSDOM(html);
   
         const $ = require('jquery')(dom.window);
