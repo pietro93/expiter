@@ -18,7 +18,6 @@ var facts={};
 var selection = [];
 var region_filters = [];
 var additionalFilters=[];
-var dataset;
 var avg;
 var regions ={};
 

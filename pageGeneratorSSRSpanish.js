@@ -32,7 +32,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             let province = dataset[i];
             let sidebar = pb.setSideBarES(province);
             
-            var fileName = 'es/province/' + es(province.Name).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+            var fileName = 'es/provincia/' + es(province.Name).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             let seoTitle = es(province.Name) + " - Calidad y Costo de Vida";
             let seoDescription = 'Información sobre la vida en ' + es(province.Name) + ' ' + '(' + es(province.Region) + ') para expatriados, estudiantes y nómadas digitales. ' + es(province.Name) + ' calidad de vida, costo de vida, seguridad y otros datos útiles.';
             let heroImage = 'https://expiter.com/img/' + province.Abbreviation + '.webp';
@@ -134,10 +134,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 '</div>'+ '</body></html>'
 )
 
-
 let parsedData = fs.readFileSync('temp/es-parsedDataAbout'+province.Name+'.txt','utf8');
 let provinceData = parsedData.split("%%%")[0]; (provinceData==undefined?provinceData="":"")
 let transportData = parsedData.split("%%%")[1]; (transportData==undefined?transportData="":"")
+
 facts[province.Name]["provinceData"]=provinceData;
 facts[province.Name]["transportData"]=transportData;
 console.log(facts[province.Name])
@@ -426,16 +426,16 @@ function appendProvinceData(province, $) {
     tab2[1].innerHTML += ('<p><ej>🏰</ej>Compra (tres habitaciones): ' + qualityScore("TrilocaleSale", province["TrilocaleSale"]))
 
     tab3[0].innerHTML += ('<p><ej>👩‍💻</ej>Adecuado para nómadas: ' + qualityScore("DN-friendly", province["DN-friendly"]))
-        tab3[0].innerHTML += ('<p><ej>💃</ej>Diversión: ' + qualityScore("Fun", province["Fun"]));
-        tab3[0].innerHTML += ('<p><ej>🤗</ej>Simpatía: ' + qualityScore("Friendliness", province["Friendliness"]));
-        tab3[0].innerHTML += ('<p><ej>🤐</ej>Internacionalidad: ' + qualityScore("English-speakers", province["English-speakers"]));
-        tab3[0].innerHTML += ('<p><ej>😊</ej>Felicidad: ' + qualityScore("Antidepressants", province["Antidepressants"]));
+    tab3[0].innerHTML += ('<p><ej>💃</ej>Diversión: ' + qualityScore("Fun", province["Fun"]));
+    tab3[0].innerHTML += ('<p><ej>🤗</ej>Simpatía: ' + qualityScore("Friendliness", province["Friendliness"]));
+    tab3[0].innerHTML += ('<p><ej>🤐</ej>Internacionalidad: ' + qualityScore("English-speakers", province["English-speakers"]));
+    tab3[0].innerHTML += ('<p><ej>😊</ej>Felicidad: ' + qualityScore("Antidepressants", province["Antidepressants"]));
     
-        tab3[1].innerHTML += ('<p><ej>💸</ej>Gastos para nómadas: ' + qualityScore("Cost of Living (Nomad)", province["Cost of Living (Nomad)"]))
-        tab3[1].innerHTML += ('<p><ej>📡</ej>Conexión ultra rápida: ' + qualityScore("HighSpeedInternetCoverage", province["HighSpeedInternetCoverage"]));
-        tab3[1].innerHTML += ('<p><ej>📈</ej>Innovación: ' + qualityScore("Innovation", province["Innovation"]));
-        tab3[1].innerHTML += ('<p><ej>🏖️</ej>Playas: ' + qualityScore("Beach", province["Beach"]));
-        tab3[1].innerHTML += ('<p><ej>⛰️</ej>Senderismo: ' + qualityScore("Hiking", province["Hiking"]));
+    tab3[1].innerHTML += ('<p><ej>💸</ej>Gastos para nómadas: ' + qualityScore("Cost of Living (Nomad)", province["Cost of Living (Nomad)"]))
+    tab3[1].innerHTML += ('<p><ej>📡</ej>Conexión ultra rápida: ' + qualityScore("HighSpeedInternetCoverage", province["HighSpeedInternetCoverage"]));
+    tab3[1].innerHTML += ('<p><ej>📈</ej>Innovación: ' + qualityScore("Innovation", province["Innovation"]));
+    tab3[1].innerHTML += ('<p><ej>🏖️</ej>Playas: ' + qualityScore("Beach", province["Beach"]));
+    tab3[1].innerHTML += ('<p><ej>⛰️</ej>Senderismo: ' + qualityScore("Hiking", province["Hiking"]));
     }
     
 function qualityScore(quality, score) {
@@ -500,7 +500,8 @@ function qualityScore(quality, score) {
             } else if (score >= avg[quality] * 3) {
                 return "<score class='poor max'>muy brumoso</score>";
             }
-        } else if (quality == "Crime" || quality == "Traffic") { // high score = bad; low score = good 
+        } 
+        else if (quality == "Crime" || quality == "Traffic") { // puntaje alto = malo; puntaje bajo = bueno 
             if (score < avg[quality] * .8) {
                 return "<score class='excellent short'>muy bajo</score>";
             } else if (score >= avg[quality] * .8 && score < avg[quality] * .95) {
@@ -512,5 +513,18 @@ function qualityScore(quality, score) {
             } else if (score >= avg[quality] * 1.2) {
                 return "<score class='poor max'>muy alto</score>";
             }
+        } else { // puntaje alto = bueno; puntaje bajo = malo 
+            if (score < avg[quality] * .8) {
+                return "<score class='poor short'>malo</score>";
+            } else if (score >= avg[quality] * .8 && score < avg[quality] * .95) {
+                return "<score class='average medium'>correcto</score>";
+            } else if (score >= avg[quality] * .95 && score < avg[quality] * 1.05) {
+                return "<score class='good medium'>bueno</score>";
+            } else if (score >= avg[quality] * 1.05 && score < avg[quality] * 1.2) {
+                return "<score class='great long'>muy bueno</score>";
+            } else if (score >= avg[quality] * 1.2) {
+                return "<score class='excellent max'>excelente</score>";
+            }
         }
-}
+        }
+        

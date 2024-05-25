@@ -198,50 +198,50 @@ export function setSideBarDE(province) {
   return sb;
 }
 
-export function setSideBarES(provincia) {
+export function setSideBarES(province) {
   let sb = "";
 
-  provincia?sb =
+  province?sb =
         '<p class="menu-label">Visión general</p>' +
         '<ul class="menu-list">' +
         '<li><a href="https://expiter.com/es/provincia/' +
-        handle(es(provincia.Nombre)) +
+        handle(es(province.Name)) +
         '/">Provincia de ' +
-        es(provincia.Nombre) +
+        es(province.Name) +
         '</a></li>' +
         '<li><a href="http://expiter.com/es/municipios/provincia-' +
-        handle(es(provincia.Nombre)) +
+        handle(es(province.Name)) +
         '/">Municipios en la provincia de ' +
-        es(provincia.Nombre) +
+        es(province.Name) +
         '</a></li>' +
         '<li><a href="https://expiter.com/es/app/?sort=Name&region=' +
-        handle(provincia.Region, 1) +
+        handle(province.Region, 1) +
         '">Provincias en ' +
-        es(provincia.Region) +
+        es(province.Region) +
         '</a></li>' +
         '</ul>' +
         '<p class="menu-label">Inspírate</p>' +
         '<ul class="menu-list">' +
         '<li><a href="https://expiter.com/es/"><b>Herramienta de comparación de provincias</b></a></li>' +
         '<li><a href="https://expiter.com/es/app/?sort=Expat-friendly&region=' +
-        handle(provincia.Region, 1) +
+        handle(province.Region, 1) +
         '">Los mejores lugares para vivir en ' +
-        es(provincia.Region) +
+        es(province.Region) +
         '</a></li>' +
         '<li><a href="https://expiter.com/es/app/?sort=Cheapest&region=' +
-        handle(provincia.Region, 1) +
+        handle(province.Region, 1) +
         '">Las provincias más económicas en ' +
-        es(provincia.Region) +
+        es(province.Region) +
         '</a></li>' +
         '<li><a href="https://expiter.com/es/app/?sort=Climate&region=' +
-        handle(provincia.Region, 1) +
+        handle(province.Region, 1) +
         '">Provincias en ' +
-        es(provincia.Region) +
+        es(province.Region) +
         ' con el mejor clima</a></li>' +
         '<li><a href="https://expiter.com/es/app/?sort=Safety&region=' +
-        handle(provincia.Region, 1) +
+        handle(province.Region, 1) +
         '">Las provincias más seguras en ' +
-        es(provincia.Region) +
+        es(province.Region) +
         '</a></li>' +
         '</ul>'
     : sb =
@@ -808,6 +808,8 @@ export function de(name) {
             return "Mantua";
         case "Taranto":
             return "Tarento";
+        case "Rimini":
+        return "Rímini";
 
         default:
             return name;
