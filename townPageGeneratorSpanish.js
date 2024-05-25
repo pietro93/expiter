@@ -35,7 +35,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 93; i < 96; i++){
+        for (let i = 96; i < 99; i++){
             let province = dataset[i];
             let sidebar=pb.setSideBarFR(province)
        
@@ -300,11 +300,9 @@ target=facts[region.Name]["provinces"]))))))))))));
 (province.Name==="Cosenza"?target=target.concat(facts["Basilicata"]["provinces"]):
 (province.Name==="Salerno"?target=target.concat(facts["Basilicata"]["provinces"]):
 (province.Name==="Bolzano"?target=target.concat(facts["Veneto"]["provinces"]):
-(province.Name==="Bolzano"?target=target.concat(["Trento"]):
-(province.Name==="Trento"?target=target.concat(["Bolzano"]):
 (province.Name==="Trento"?target=target.concat(facts["Veneto"]["provinces"]):
 ""
-)))))))));
+)))))));
 
 target=target.filter(item => item !== name)
 related1=target[Math.floor(Math.random()*target.length)]

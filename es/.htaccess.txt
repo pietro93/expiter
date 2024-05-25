@@ -1,0 +1,21 @@
+RewriteEngine On
+
+# Redirect URLs with accented vowels to their non-accented counterparts
+RewriteRule ^(.*)à(.*)$ $1a$2 [L,R=301]
+RewriteRule ^(.*)á(.*)$ $1a$2 [L,R=301]
+RewriteRule ^(.*)è(.*)$ $1e$2 [L,R=301]
+RewriteRule ^(.*)é(.*)$ $1e$2 [L,R=301]
+RewriteRule ^(.*)ì(.*)$ $1i$2 [L,R=301]
+RewriteRule ^(.*)í(.*)$ $1i$2 [L,R=301]
+RewriteRule ^(.*)ò(.*)$ $1o$2 [L,R=301]
+RewriteRule ^(.*)ó(.*)$ $1o$2 [L,R=301]
+RewriteRule ^(.*)ù(.*)$ $1u$2 [L,R=301]
+RewriteRule ^(.*)ú(.*)$ $1u$2 [L,R=301]
+
+# Replace "n" with "deltas" (normal "n")
+RewriteRule ^(.*)n(.*)$ $1deltas$2 [L,R=301]
+
+# Redirect URLs without trailing slashes to URLs with trailing slashes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ http://expiter.com/$1/ [L,R=301]
