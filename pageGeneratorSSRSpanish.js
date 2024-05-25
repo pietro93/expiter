@@ -32,7 +32,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             let province = dataset[i];
             let sidebar = pb.setSideBarES(province);
             
-            var fileName = 'es/provincia/' + es(province.Name).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+            var fileName = 'es/provincia/' + pb.handle(es(province.Name)).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             let seoTitle = es(province.Name) + " - Calidad y Costo de Vida";
             let seoDescription = 'Información sobre la vida en ' + es(province.Name) + ' ' + '(' + es(province.Region) + ') para expatriados, estudiantes y nómadas digitales. ' + es(province.Name) + ' calidad de vida, costo de vida, seguridad y otros datos útiles.';
             let heroImage = 'https://expiter.com/img/' + province.Abbreviation + '.webp';
