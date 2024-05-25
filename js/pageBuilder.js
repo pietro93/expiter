@@ -198,6 +198,95 @@ export function setSideBarDE(province) {
   return sb;
 }
 
+export function setSideBarES(provincia) {
+  let sb = "";
+
+  provincia?sb =
+        '<p class="menu-label">Visión general</p>' +
+        '<ul class="menu-list">' +
+        '<li><a href="https://expiter.com/es/provincia/' +
+        handle(es(provincia.Nombre)) +
+        '/">Provincia de ' +
+        es(provincia.Nombre) +
+        '</a></li>' +
+        '<li><a href="http://expiter.com/es/municipios/provincia-' +
+        handle(es(provincia.Nombre)) +
+        '/">Municipios en la provincia de ' +
+        es(provincia.Nombre) +
+        '</a></li>' +
+        '<li><a href="https://expiter.com/es/app/?sort=Name&region=' +
+        handle(provincia.Region, 1) +
+        '">Provincias en ' +
+        es(provincia.Region) +
+        '</a></li>' +
+        '</ul>' +
+        '<p class="menu-label">Inspírate</p>' +
+        '<ul class="menu-list">' +
+        '<li><a href="https://expiter.com/es/"><b>Herramienta de comparación de provincias</b></a></li>' +
+        '<li><a href="https://expiter.com/es/app/?sort=Expat-friendly&region=' +
+        handle(provincia.Region, 1) +
+        '">Los mejores lugares para vivir en ' +
+        es(provincia.Region) +
+        '</a></li>' +
+        '<li><a href="https://expiter.com/es/app/?sort=Cheapest&region=' +
+        handle(provincia.Region, 1) +
+        '">Las provincias más económicas en ' +
+        es(provincia.Region) +
+        '</a></li>' +
+        '<li><a href="https://expiter.com/es/app/?sort=Climate&region=' +
+        handle(provincia.Region, 1) +
+        '">Provincias en ' +
+        es(provincia.Region) +
+        ' con el mejor clima</a></li>' +
+        '<li><a href="https://expiter.com/es/app/?sort=Safety&region=' +
+        handle(provincia.Region, 1) +
+        '">Las provincias más seguras en ' +
+        es(provincia.Region) +
+        '</a></li>' +
+        '</ul>'
+    : sb =
+        '<p class="menu-label">Comienza aquí</p>' +
+        '<ul class="menu-list">' +
+        '<li><a href="https://expiter.com/es/recursos/">Recursos para expatriados</a></li>' +
+        '<li><a href="https://expiter.com/es/recursos/numero-de-identificacion-fiscal-italiano/">Generador de Número de Identificación Fiscal Italiano</a></li>' +
+        '<li><a href="https://expiter.com/es/regiones/regiones-italianas/">Regiones de Italia</a></li>' +
+        '</ul>' +
+        '<p class="menu-label">Inspírate</p>' +
+        '<ul class="menu-list">' +
+        '<li><a href="https://expiter.com/es/"><b>Comparación de provincias</b></a></li>' +
+        '<li><a href="https://expiter.com/es/app/?sort=Cheapest&region=All">Las provincias italianas más económicas</a></li>' +
+        '<li><a href="https://expiter.com/es/app/?sort=SunshineHours&region=North">Las provincias más soleadas del norte de Italia</a></li>' +
+        '<li><a href="https://expiter.com/es/app/?sort=Expat-friendly&region=South">Los mejores lugares para vivir en el sur de Italia</a></li>' +
+        '<li><a href="https://expiter.com/es/app/?sort=DN-friendly&region=All">Los mejores destinos para nómadas digitales en Italia</a></li>' +
+        '</ul>';
+
+        sb+='<br>'+
+        '<p class="menu-label">Experiencias de viaje</p>'+
+        '<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'
+      
+  sb +=
+    '<br>' +
+    '<p class="menu-label">' +
+    'Información</p>' +
+    '<p class="about">Expiter es una herramienta de visualización de datos para investigar y comparar diversos factores de calidad de vida en ciudades y provincias italianas.' +
+    '<br><br>Ofrecemos información valiosa para expatriados, estudiantes de intercambio, viajeros a tiempo completo, trabajadores remotos y nómadas digitales que viven en Italia (o planean mudarse allí).' +
+    '</p>' +
+    '<br>' +
+    '<p class="menu-label">Descargo de responsabilidad</p>' +
+    '<p class="disclaimer">La información en este sitio web es solo para fines educativos. Recopilamos datos de diversas fuentes, incluidas encuestas internas y bases de datos de acceso público de fuentes externas.' +
+    '<br><br>' +
+    'Expiter.com no garantiza la precisión, confiabilidad o integridad de los productos, servicios o información mencionados en este sitio web.' +
+    '<br><br>' +
+    'Expiter.com participa en programas de afiliados, incluido el programa de afiliados de Amazon Services LLC, un programa de publicidad de afiliados diseñado para proporcionar un medio para que los sitios web obtengan tarifas de publicidad mediante publicidad y enlaces a Amazon.' +
+    '<br><br>' +
+    'Esto significa que podemos ganar una comisión si hace clic en nuestros enlaces o compra productos a través de nuestros enlaces, sin costo adicional para usted.' +
+    '</p>' +
+    '<br><br>';
+
+  return sb;
+}
+
+
 export function setSideBarFR(province) {
   let sb = "";
 
@@ -358,6 +447,29 @@ export function setNavBarIT($){
    '<a href="/"><div class="logo">Italy Expats & Nomads</div></a>'+
   '</div>')
   }
+
+  export function setNavBarES($) {
+    $("#navbar").append(
+      '<div class="navbar-container">' +
+      '<input type="checkbox" name="navbar" id="nbar">' +
+      '<div class="hamburger-lines">' +
+      '<span class="line line1"></span>' +
+      '<span class="line line2"></span>' +
+      '</div>' +
+      '<ul class="menu-items">' +
+      '<li><a href="https://expiter.com/es/">Inicio</a></li>' +
+      '<li><a href="https://expiter.com/es/recursos/generador-codice-fiscale/">Generador de Código Fiscal</a></li>' +
+      '<li><a href="https://expiter.com/es/app/#About">Acerca de</a></li>' +
+      '</ul>' +
+      '  <label class="switch" id="switch">' +
+      '<input type="checkbox">' +
+      '<span class="slider round"></span>' +
+      '</label>' +
+      '<a href="/"><div class="logo">Expatriados y Nómadas en Italia</div></a>' +
+      '</div>'
+    );
+  }
+  
 
   export function setNavBarDE($) {
     $("#navbar").append(
@@ -609,7 +721,7 @@ export function de(name) {
               return "Syrakus";
           case "Gorizia":
               return "Görz";
-          case "Monza und Brianza":
+          case "Monza e Brianza":
               return "Monza und Brianza";
           case "Padova":
               return "Padua";
@@ -622,6 +734,86 @@ export function de(name) {
               return name; 
       }
   }
+
+  export function es(name) {
+    switch (name) {
+        // Regiones
+        case "Piemonte":
+            return "Piamonte";
+        case "Valle d'Aosta":
+            return "Valle de Aosta";
+        case "Lombardia":
+            return "Lombardía";
+        case "Trentino-Alto Adige":
+            return "Trentino-Alto Adigio";
+        case "Friuli-Venezia Giulia":
+            return "Friul-Venecia Julia";
+        case "Veneto":
+            return "Véneto";
+        case "Liguria":
+            return "Liguria";
+        case "Umbria":
+            return "Umbría";
+        case "Marche":
+            return "Marcas";
+        case "Lazio":
+            return "Lacio";
+        case "Abruzzo":
+            return "Abruzos";
+        case "Campania":
+            return "Campania";
+        case "Puglia":
+            return "Apulia";
+        case "Basilicata":
+            return "Basilicata";
+        case "Calabria":
+            return "Calabria";
+        case "Sicilia":
+            return "Sicilia";
+        case "Sardegna":
+            return "Cerdeña";
+
+        // Provincias
+        case "Agrigento":
+            return "Agrigento";
+        case "Bolzano":
+            return "Bolzano";
+        case "Firenze":
+            return "Florencia";
+        case "Genova":
+            return "Génova";
+        case "Milano":
+            return "Milán";
+        case "Napoli":
+            return "Nápoles";
+        case "Roma":
+            return "Roma";
+        case "Torino":
+            return "Turín";
+        case "Trento":
+            return "Trento";
+        case "Trieste":
+            return "Trieste";
+        case "Venezia":
+            return "Venecia";
+        case "Siracusa":
+            return "Siracusa";
+        case "Gorizia":
+            return "Gorizia";
+        case "Monza e Brianza":
+            return "Monza y Brianza";
+        case "Padova":
+            return "Padua";
+        case "Mantova":
+            return "Mantua";
+        case "Taranto":
+            return "Tarento";
+
+        default:
+            return name;
+    }
+}
+
   
   export function handle(str,isUpperCase) {
     // Replace accented characters with unaccented equivalents
