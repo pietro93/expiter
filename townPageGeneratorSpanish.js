@@ -35,7 +35,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
        
-        for (let i = 15; i < 25; i++){
+        for (let i = 9; i < 19; i++){
             let province = dataset[i];
             let sidebar=pb.setSideBarFR(province)
        
@@ -59,7 +59,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
             comune.Name = comune.Name[0] + comune.Name.toLowerCase().slice(1); //decapitalize all letters but the first
 
-            var dirName = 'es/municipalites/'+es(province.Name).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/';
+            var dirName = 'es/municipios/'+es(province.Name).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase()+'/';
             var fileName = comune.Name.replace('(*)','').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
             let ci=-1;
 
@@ -145,7 +145,7 @@ let list=$("#list").html();
 
 $("#list").html(list);
 let intro=comune.Name+" es un municipio de "+comune.Population+" habitantes ubicado en "+
-"<a href='https://expiter.com/es/municipalites/provincia-de-"+handle(es(province))+"'>la provincia de "+es(province.Name)+"</a> en la región "+
+"<a href='https://expiter.com/es/municipios/provincia-de-"+handle(es(province))+"'>la provincia de "+es(province.Name)+"</a> en la región "+
 es(province.Region)+" en "+(center.includes(province.Region)?"Italia central":(south.includes(province.Region)?"Italia meridional":"Italia septentrional"))+".";
 
 intro+='\n'+'Tiene una <b>densidad de población de '+comune.Density+' habitantes por km²</b> y una <b>altitud de '+comune.Altitude+' metros</b> sobre el nivel del mar.'+'\n'
@@ -159,8 +159,8 @@ if (ci>0){
 
 
 let zoneAtext="una de las dos municipalidades más calurosas de Italia, junto con"+(comune.Name=="Porto Empedocle"?
-" las islas Pelagias de <a href='https://expiter.com/es/municipalites/agrigente/lampedusa-e-linosa/>Lampedusa y Linosa</a>, que están geográficamente cerca de África":
-'de la municipalidad de <a href="https://expiter.com/es/municipalites/agrigente/porto-empedocle/">Porto Empedocle</a>'+
+" las islas Pelagias de <a href='https://expiter.com/es/municipios/agrigente/lampedusa-e-linosa/>Lampedusa y Linosa</a>, que están geográficamente cerca de África":
+'de la municipalidad de <a href="https://expiter.com/es/municipios/agrigente/porto-empedocle/">Porto Empedocle</a>'+
 " en Sicilia 'continental', también en la provincia de Agrigento")
 let climate='<h3>Clima</h3>'+
 '<b>'+comune.Name+'</b> está clasificada como una <b>Zona Climática '+comune.ClimateZone+'</b>, es '+
@@ -358,7 +358,7 @@ info.tabs='<div class="tabs effect-3">'+
 info.nearby='<h2>Municipios en la Provincia de '+es(province.Name)+'</h2>'+'\n'
       for (let p in province.Comuni){
         if (province.Comuni[p].Name!=comune)
-        info.nearby+='<b><a href="https://expiter.com/es/municipalidades/'+handle(es(province))+'/'+
+        info.nearby+='<b><a href="https://expiter.com/es/municipios/'+handle(es(province))+'/'+
         handle(province.Comuni[p])+'/">'+province.Comuni[p].Name+'</a></b>'+' '
       }
        
