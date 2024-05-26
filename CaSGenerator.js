@@ -98,7 +98,7 @@ fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent);
       var fileName = ''+dirName+'/crime-and-safety';
             let seoTitle=en(province.Name)+" - Crime and Safety Info Sheet";
             let seoDescription='Information about crime and safety in '+en(province.Name)+', Italy. '+en(province.Name)+' crime index, mafia activity, safety and more.'
-            let heroImage='https://expiter.com/img/'+province.Abbreviation+'.webp'
+            let heroImage='https://expiter.com/img/safety/'+province.Abbreviation+'.webp'
             let sidebar=pb.setSideBar(province)
 
             const dom = new jsdom.JSDOM(

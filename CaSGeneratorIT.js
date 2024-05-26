@@ -94,7 +94,7 @@ fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent)
 var fileName = ''+dirName+'/sicurezza-e-criminalita';
 let seoTitle=(province.Name)+" - Scheda informativa su criminalità e sicurezza";
 let seoDescription='Informazioni su criminalità e sicurezza a '+(province.Name)+', Italia. '+(province.Name)+' indice di criminalità, attività mafiosa, sicurezza e altro ancora.'
-let heroImage='https://expiter.com/img/'+province.Abbreviation+'.webp'
+let heroImage='https://expiter.com/img/safety/'+province.Abbreviation+'.webp'
 let sidebar=pb.setSideBar(province)
 
 const dom = new jsdom.JSDOM(
@@ -139,7 +139,7 @@ const dom = new jsdom.JSDOM(
 
 '<nav id="navbar"></nav>'+
 
-'<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="'+province.Name+' Provincia"'+'></div>'+
+'<div class="hero" style="background-image:url(\'https://expiter.com/img/safety/'+province.Abbreviation+'.webp\')" '+'title="'+province.Name+' Provincia"'+'></div>'+
 '<h1 data-toc-skip id="title" class="title column is-12">  </h1></row>'+
 '<div class="tabs effect-3">'+
 '<input type="radio" id="tab-1" name="tab-effect-3" checked="checked">'+
