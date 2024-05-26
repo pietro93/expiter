@@ -16,6 +16,7 @@
     "live-server": "^1.2.2",
     "node-fetch": "^3.2.10",
     "nodejs": "^0.0.0",
+    "sharp": "^0.33.4",
     "utf-8-validate": "^5.0.9"
   },
   "type": "module",

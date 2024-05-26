@@ -143,7 +143,7 @@ fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent);
 
         '<nav id="navbar"></nav>'+
 
-            '<div class="hero" style="background-image:url(\'https://expiter.com/img/'+province.Abbreviation+'.webp\')" '+'title="'+province.Name+' Province"'+'></div>'+
+            '<div class="hero" style="background-image:url(\'https://expiter.com/img/safety/'+province.Abbreviation+'.webp\')" '+'title="'+province.Name+' Province"'+'></div>'+
             '<h1 data-toc-skip id="title" class="title column is-12">  </h1></row>'+
             '<div class="tabs effect-3">'+
 			'<input type="radio" id="tab-1" name="tab-effect-3" checked="checked">'+
