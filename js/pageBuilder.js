@@ -209,7 +209,7 @@ export function setSideBarES(province) {
         '/">Provincia de ' +
         es(province.Name) +
         '</a></li>' +
-        '<li><a href="http://expiter.com/es/municipios/provincia-' +
+        '<li><a href="http://expiter.com/es/municipios/provincia-de-' +
         handle(es(province.Name)) +
         '/">Municipios en la provincia de ' +
         es(province.Name) +
@@ -444,7 +444,7 @@ export function setNavBarIT($){
         '<input type="checkbox">'+
         '<span class="slider round"></span>'+
       '</label>'+
-   '<a href="/"><div class="logo">Italy Expats & Nomads</div></a>'+
+   '<a href="https://expiter.com/fr/"><div class="logo">Italy Expats & Nomads</div></a>'+
   '</div>')
   }
 
@@ -465,7 +465,7 @@ export function setNavBarIT($){
       '<input type="checkbox">' +
       '<span class="slider round"></span>' +
       '</label>' +
-      '<a href="/"><div class="logo">Expatriados y Nómadas en Italia</div></a>' +
+      '<a href="https://expiter.com/es/"><div class="logo">Expatriados y Nómadas en Italia</div></a>' +
       '</div>'
     );
   }
@@ -489,7 +489,7 @@ export function setNavBarIT($){
         '<input type="checkbox">' +
         '<span class="slider round"></span>' +
         '</label>' +
-        '<a href="/"><div class="logo">Deutsche Expats & Nomaden</div></a>' +
+        '<a href="https://expiter.com/de/"><div class="logo">Deutsche Expats & Nomaden</div></a>' +
         '</div>'
     )
 }
