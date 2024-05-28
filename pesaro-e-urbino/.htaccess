@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ pesaro-e-urbino.html [L]

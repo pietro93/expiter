@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ pisa.html [L]

@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ lecce.html [L]

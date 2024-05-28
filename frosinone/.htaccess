@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ frosinone.html [L]
