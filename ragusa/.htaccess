@@ -1,2 +1,0 @@
-RewriteEngine on
-RewriteRule ^$ ragusa.html [L]
