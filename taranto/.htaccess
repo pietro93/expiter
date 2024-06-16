@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ taranto.html [L]
