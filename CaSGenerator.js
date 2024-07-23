@@ -124,9 +124,8 @@ fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent);
 	          '<meta name="keywords" content="'+en(province.Name)+' italy, '+en(province.Name)+' is it safe,'+en(province.Name)+' crime,'+en(province.Name)+' mafia" />'+
             "<title>"+seoTitle+"</title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'           
-            +
-            '<!-- GetYourGuide Analytics -->'+
-            '<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>'+
+            +'    <!-- Journey by Mediavine -->'+
+           '<script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="//scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js"></script>'+
             "</head>"+
             '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
             '<body data-spy="scroll" data-target="#toc">'+

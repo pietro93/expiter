@@ -56,8 +56,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.0">'+
 
             
-            '<!-- GetYourGuide Analytics -->'+
-            '<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>'+
+            '<!-- Journey by Mediavine -->'+
+            '<script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="//scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js"></script>'+       
             "</head>"+
 
             '<meta property="og:title" content="'+seoTitle+'" />'+

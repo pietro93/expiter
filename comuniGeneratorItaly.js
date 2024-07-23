@@ -66,6 +66,10 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 	        '<meta name="keywords" content="'+province.Name+' italy, '+province.Name+' expat,'+province.Name+' life,'+province.Name+' digital nomad" />'+
             "<title>"+province.Name+" - Quality of Life and Info Sheet for Expats </title>"+
             '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
+            
+            '<!-- Journey by Mediavine -->'+
+            '<script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="//scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js"></script>'+        
+            
             "</head>"+
             '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
             '<body data-spy="scroll" data-target="#toc">'+
