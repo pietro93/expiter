@@ -1648,7 +1648,7 @@ figure.related a{font-weight:600}
   vertical-align: top;
   overflow-y: none;
   width: 26vw;
-  max-width: 260px;
+  max-width: 360px;
   top: 44vh;
   bottom: 0;
   right: -2vw;
@@ -1707,10 +1707,10 @@ background: linear-gradient(to bottom, var(--bg1), var(--bg2), transparent)
   }
 
   .mobileonly {
-    width: 96vw;
+    width: 98vw; 
     top: 2vh;
-    max-width: 96vw;
-    left: -2vw;
+    max-width: 98vw;
+    left: -1vw;
     display: inline-block;
     border-left:0px;
     border-top:2px;
