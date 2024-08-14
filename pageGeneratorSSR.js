@@ -161,7 +161,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
     function newPage(province, $){
         let info = getInfo(province)
-        let separator='</br><span class="separator"></span></br>'
+        let separator='</br><div class="separator"></div></br>'
 
         let map =
         '<figure>'+
