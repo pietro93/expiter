@@ -122,16 +122,16 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 			'</div>'+
 		'</div></div>'+
             '<div id="info" class="columns is-multiline is-mobile">'+
-            '<section id="Overview"><h2>Overview</h2><span id="overview"></span></section>'+
-            '<section id="Climate"><h2>Climate</h2><span id="climate"></span></section>'+
-            '<section id="Cost of Living"><h2>Cost of Living</h2><span id="CoL"></span></section>'+
+            '<section id="Overview"><h2>Overview</h2><div style="display: inline;" id="overview"></div></section>'+
+            '<section id="Climate"><h2>Climate</h2><div style="display: inline;" id="climate"></div></section>'+
+            '<section id="Cost of Living"><h2>Cost of Living</h2><div style="display: inline;" id="CoL"></div></section>'+
             '<section id="Quality of Life"><h2>Quality of Life</h2>'+
-            '<section id="Healthcare"><h3>Healthcare</h3><span id="healthcare"></span></section>'+
-            '<section id="Education"><h3>Education</h3><span id="education"></span></section>'+
-            '<section id="Leisure"><h3>Leisure</h3><span id="leisure"></span></section>'+
-            '<section id="Crime and Safety"><h3><a href="https://expiter.com/'+fileName+'/crime-and-safety/">Crime and Safety</a></h3><span id="crimeandsafety"></span></section>'+
-            '<section id="Transport"><h3>Transport</h3><span id="transport"></span></section></section>'+
-            '<section id="Discover"><h2>Discover</h2><span id="promo"></span></section>'+
+            '<section id="Healthcare"><h3>Healthcare</h3><div style="display: inline;" id="healthcare"></div></section>'+
+            '<section id="Education"><h3>Education</h3><div style="display: inline;" id="education"></div></section>'+
+            '<section id="Leisure"><h3>Leisure</h3><div style="display: inline;" id="leisure"></div></section>'+
+            '<section id="Crime and Safety"><h3><a href="https://expiter.com/'+fileName+'/crime-and-safety/">Crime and Safety</a></h3><div style="display: inline;" id="crimeandsafety"></div></section>'+
+            '<section id="Transport"><h3>Transport</h3><div style="display: inline;" id="transport"></div></section></section>'+
+            '<section id="Discover"><h2>Discover</h2><div style="display: inline;" id="promo"></div></section>'+
             '</div>'+
             '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
             '</body></html>'
@@ -295,7 +295,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         (facts[name]["transportData"]!=""?(info.transport+='</br></br>'+facts[name]["transportData"])
         :"")
 
-        info.disclaimer='</br></br><center><span id="disclaimer">This page contains affiliate links. As part of the Amazon Associates and Viator Partner programmes, we may earn a commission on qualified purchases.</span></center>'
+        info.disclaimer='</br></br><center><div style="display: inline;" id="disclaimer">This page contains affiliate links. As part of the Amazon Associates and Viator Partner programmes, we may earn a commission on qualified purchases.</div></center>'
         
         info.map='</br><center class="map"><iframe id="ggmap" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Province%20Of%20'+name+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
         'Search for: '+
