@@ -221,24 +221,24 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         
         let info = {}
   
-        info.overview="<p>The province of "+en(province.Name)+" is the <b>"+province.SizeByPopulation+(province.SizeByPopulation%10==1?"st":(province.SizeByPopulation%10==2?"nd":province.SizeByPopulation%10==3?"rd":"th"))+" largest Italian province by population</b> with <b>"+province.Population.toLocaleString()+" people</b>, located in the <b>"+en(province.Region)+"</b> region.<br><br>"+
+        info.overview="<p>The province of "+en(province.Name)+" is the <b>"+province.SizeByPopulation+(province.SizeByPopulation%10==1?"st":(province.SizeByPopulation%10==2?"nd":province.SizeByPopulation%10==3?"rd":"th"))+" largest Italian province by population</b> with <b>"+province.Population.toLocaleString()+" people</b>, located in the <b>"+en(province.Region)+"</b> region.<br><br></p>"+
         (facts[name].overview?facts[name].overview:"")+
         "</br></br>"+
-        "<a href='https://expiter.com/comuni/province-of-"+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+"/'>"+"The larger "+province.Name+" metropolitan area comprises <b>"+province.Towns+" towns</b> (comuni)</a> and covers an area of "+province.Size.toLocaleString()+" km<sup>2</sup>. "
-        +"The <b>population density is "+province.Density+" inhabitants per km<sup>2</sup></b>, making it "+
+        "<p><a href='https://expiter.com/comuni/province-of-"+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+"/'>"+"The larger "+province.Name+" metropolitan area comprises <b>"+province.Towns+" towns</b> (comuni)</a> and covers an area of "+province.Size.toLocaleString()+" km<sup>2</sup>. </p>"
+        +"<p>The <b>population density is "+province.Density+" inhabitants per km<sup>2</sup></b>, making it "+
         (province.Density<100?"sparcely populated.":(province.Density>500?"highly densely populated." : "somewhat densely populated."))+
-        " The male to female ratio is "+ratio+".";
+        " The male to female ratio is "+ratio+".</p>";
         
         (facts[name]["provinceData"]!=""?(info.overview+='</br></br>'+facts[name]["provinceData"])
         :"")
       
-        info.CoL="The <b>average monthly income in "+en(province.Name)+" is around "+province.MonthlyIncome+"€</b>, which is "+
+        info.CoL="<p>The <b>average monthly income in "+en(province.Name)+" is around "+province.MonthlyIncome+"€</b>, which is "+
         (province.MonthlyIncome>1500&&province.MonthlyIncome<1800?"close to the average for Italy":(province.MonthlyIncome>=1800?"<b class='green'>higher than the average</b> for Italy":"<b class='red'>lower than the average</b> for Italy"))+"."+
-        "</br></br>"+
-        "The estimated cost of living is around "+province["Cost of Living (Individual)"]+"€ per month for an individual or "+province["Cost of Living (Family)"]+"€ per month for a family of 4. <br><br> The cost for renting "+
-        "a small apartment (2-3 bedrooms) in a main city area is around "+province["MonthlyRental"]+"€ per month."+"</br></br>"+
-        "Overall, "+(province["Cost of Living (Individual)"]>avg["Cost of Living (Individual)"]?"<b class='red'>"+province.Name+" is expensive":(province["Cost of Living (Individual)"]<1150?"<b class='green'>"+en(province.Name)+" is cheap":"<b class='green'>"+en(province.Name)+" is affordable"))+"</b> compared to other Italian provinces."
-        +" Living in "+en(province.Name)+" is around "+(province['Cost of Living (Individual)']>avg["Cost of Living (Individual)"]?"<b class='red'>"+(province['Cost of Living (Individual)']/avg["Cost of Living (Individual)"]*100-100).toFixed(2)+"% more expensive than the average</b> of all Italian provinces":"<b class='green'>"+(100-province['Cost of Living (Individual)']/avg["Cost of Living (Individual)"]*100).toFixed(2)+"% cheaper than the average</b> of all Italian provinces")
+        "</br></br></p>"+
+        "<p>The estimated cost of living is around "+province["Cost of Living (Individual)"]+"€ per month for an individual or "+province["Cost of Living (Family)"]+"€ per month for a family of 4. <br><br> The cost for renting "+
+        "a small apartment (2-3 bedrooms) in a main city area is around "+province["MonthlyRental"]+"€ per month."+"</br></br></p>"+
+        "<p>Overall, "+(province["Cost of Living (Individual)"]>avg["Cost of Living (Individual)"]?"<b class='red'>"+province.Name+" is expensive":(province["Cost of Living (Individual)"]<1150?"<b class='green'>"+en(province.Name)+" is cheap":"<b class='green'>"+en(province.Name)+" is affordable"))+"</b> compared to other Italian provinces.</p>"
+        +"<p>Living in "+en(province.Name)+" is around "+(province['Cost of Living (Individual)']>avg["Cost of Living (Individual)"]?"<b class='red'>"+(province['Cost of Living (Individual)']/avg["Cost of Living (Individual)"]*100-100).toFixed(2)+"% more expensive than the average</b> of all Italian provinces":"<b class='green'>"+(100-province['Cost of Living (Individual)']/avg["Cost of Living (Individual)"]*100).toFixed(2)+"% cheaper than the average</b> of all Italian provinces")
         +".</p>";
       
         info.climate="<p>The province of "+en(province.Name)+" receives on average <b>"+province.SunshineHours+" hours of sunshine</b> per month, or "+province.SunshineHours/30+" hours of sunshine per day."+
@@ -248,8 +248,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         "</br></br></p>"
         info.climate+="<p>Throughout the year, <b>it rains on average "+province.RainyDays+" days per month</b>, which is "+
         (province.RainyDays>8?"<b class='red'>well above average":(province.RainyDays<7?"<b class='green'>below average</b>":"<b>an ordinary amount of precipitation"))+"</b> for an Italian province."+
-        "</br></br>"+
-        "During the autumn and winter season, there are usually "+(province.FoggyDays>5?"<b class='red'>":"<b class='green'>")+province.FoggyDays+" days per month with fog</b> and <b>"+province.ColdDays+" cold days per month</b> with perceived temperatures below 3°C. "+
+        "</br></br></p>"+
+        "<p>During the autumn and winter season, there are usually "+(province.FoggyDays>5?"<b class='red'>":"<b class='green'>")+province.FoggyDays+" days per month with fog</b> and <b>"+province.ColdDays+" cold days per month</b> with perceived temperatures below 3°C. "+
         " In the summer, there are on average <b>"+province.HotDays+" hot days per month</b> with perceived temperatures above 30°C.</p>"
         
         info.lgbtq="<p><b>"+en(province.Name)+" is "+(province['LGBT-friendly']>7.9?"one of the most LGBTQ-friendly provinces in Italy":(province['LGBT-friendly']>6?"somewhat LGBTQ+ friendly by Italian standards":"not particularly LGBTQ-friendly as far as Italian provinces go"))+
