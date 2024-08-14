@@ -862,7 +862,7 @@ export function addBreaks(inputString) {
   // Map over each sentence to wrap it in <p> tags
   sentences = sentences.map(sentence => {
     // Trim any whitespace and wrap the sentence in <p> tags
-    return `<p>${sentence.trim()}.</p></br>`;
+    return `<p>${sentence.trim()}.</p></br></br>`;
   });
 
   // Join the sentences back together with a space
