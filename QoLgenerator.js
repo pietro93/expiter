@@ -122,13 +122,13 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 			'</div>'+
 		'</div></div>'+
             '<div id="info" class="columns is-multiline is-mobile">'+
-            '<section id="overview"><h2>Living in '+en(province.Name)+'</h2><span id="intro"></span></section>'+
-            '<section id="generalinfo"><h2>What is '+en(province.Name)+' like?</h2><span id="info"></span></section>'+
-            '<section id="costofliving"><h2>Cost of living in '+en(province.Name)+'</h2><span id="CoL"></span></section>'+
-            '<section id="povertyandsafety"><h2>Is '+en(province.Name)+' safe?</h2><span id="safety"></span></section>'+
-            '<section id="prosandcons"><h2>Pros and cons of life in '+en(province.Name)+'</h2><span id="ProsAndCons"></span></section>'+
-            '<section id="faqs"><h2>FAQs</h2><span id="faqs"></span></section>'+
-            '<section id="Discover"><h2>Discover</h2><span id="promo"></span></section>'+
+            '<section id="overview"><h2>Living in '+en(province.Name)+'</h2><div style="display: inline;" id="intro"></div></section>'+
+            '<section id="generalinfo"><h2>What is '+en(province.Name)+' like?</h2><div style="display: inline;" id="info"></div></section>'+
+            '<section id="costofliving"><h2>Cost of living in '+en(province.Name)+'</h2><div style="display: inline;" id="CoL"></div></section>'+
+            '<section id="povertyandsafety"><h2>Is '+en(province.Name)+' safe?</h2><div style="display: inline;" id="safety"></div></section>'+
+            '<section id="prosandcons"><h2>Pros and cons of life in '+en(province.Name)+'</h2><div style="display: inline;" id="ProsAndCons"></div></section>'+
+            '<section id="faqs"><h2>FAQs</h2><div style="display: inline;" id="faqs"></div></section>'+
+            '<section id="Discover"><h2>Discover</h2><div style="display: inline;" id="promo"></div></section>'+
             '</div>'+
             '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
             '</body></html>'
@@ -159,7 +159,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 
     function newPage(province, $){
         let info = getInfo(province)
-        let separator='</br><span class="separator"></span></br>'
+        let separator='</br><div class="separator"></div></br>'
 
         let map = info.map
         ''
@@ -277,7 +277,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         ".</b> "+(province.LGBTQAssociations>1?"There are "+province.LGBTQAssociations+" local LGBTQ+ associations (Arcigay) in this province.":(province.LGBTQAssociations==1?"There is 1 LGBTQ+ association (Arcigay) in this province.":""))
 
 
-        info.disclaimer='</br></br><center><span id="disclaimer">This page contains affiliate links. As part of the Amazon Associates and Viator Partner programmes, we may earn a commission on qualified purchases.</span></center>'
+        info.disclaimer='</br></br><center><div style="display: inline;" id="disclaimer">This page contains affiliate links. As part of the Amazon Associates and Viator Partner programmes, we may earn a commission on qualified purchases.</div></center>'
         
         info.map='</br><center class="map"><iframe id="ggmap" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q='+en(province.Name)+'&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe></br></br>'+
         'Search for: '+

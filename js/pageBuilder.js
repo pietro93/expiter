@@ -856,13 +856,15 @@ function en(word){
 }
 
 export function addBreaks(inputString) {
+  // Split the input string into sentences based on '. '
   let sentences = inputString.split('. ');
-  for (let i = 0; i < sentences.length - 1; i++) {
-      if (sentences[i].length > 70 && sentences[i + 1].length > 50 && !sentences[i].endsWith('<br><br>') && !sentences[i + 1].startsWith('<br><br>')) {
-          sentences[i] = sentences[i] + '.<br><br>';
-      } else {
-          sentences[i] = sentences[i] + '.';
-      }
-  }
+
+  // Map over each sentence to wrap it in <p> tags
+  sentences = sentences.map(sentence => {
+    // Trim any whitespace and wrap the sentence in <p> tags
+    return `<p>${sentence.trim()}.</p>`;
+  });
+
+  // Join the sentences back together with a space
   return sentences.join(' ');
 }
