@@ -188,7 +188,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         $("#info").html(pb.addBreaks(intro)+climate)
        
         var info=getInfo(comune,province)
-        var separator='</br><span class="separator"></span></br>'
+        var separator='</br><div class="separator"></div></br>'
         var getyourguide='<div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div>'
         
         var expedia='<div id="searchWidget" style="width:98%;height:550px;"><iframe id="widgetIframe" src="https://www.expedia.com/marketing/widgets/searchform/widget?wtt=5&tp1=1101l3BUi9&tp2=expiter&lob=H,FH,CA,CR,A&des='
