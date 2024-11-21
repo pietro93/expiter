@@ -121,7 +121,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 				'</section>'+
 			'</div>'+
 		'</div></div>'+
-            '<div id="info" class="columns is-multiline is-mobile">'+
+            '<div id="info" class="columns is-multiline is-mobile wp-block-group entry-content">'+
             '<section id="overview"><h2>Living in '+en(province.Name)+'</h2><div style="display: inline;" id="intro"></div></section>'+
             '<section id="generalinfo"><h2>What is '+en(province.Name)+' like?</h2><div style="display: inline;" id="info"></div></section>'+
             '<section id="costofliving"><h2>Cost of living in '+en(province.Name)+'</h2><div style="display: inline;" id="CoL"></div></section>'+

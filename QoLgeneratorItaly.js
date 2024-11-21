@@ -120,7 +120,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 				'</section>'+
 			'</div>'+
 		'</div></div>'+
-        '<div id="info" class="columns is-multiline is-mobile">'+
+        '<div id="info" class="columns is-multiline is-mobile entry-content">'+
         '<section id="overview"><h2>Vivere a '+province.Name+'</h2><span id="intro"></span></section>'+
         '<section id="generalinfo"><h2>Informazioni utili su '+province.Name+'</h2><span id="info"></span></section>'+
         '<section id="costofliving"><h2>Costo della vita a '+province.Name+'</h2><span id="CoL"></span></section>'+
