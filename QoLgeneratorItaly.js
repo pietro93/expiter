@@ -120,7 +120,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 				'</section>'+
 			'</div>'+
 		'</div></div>'+
-        '<div id="info" class="columns is-multiline is-mobile entry-content">'+
+        '<article class="article-post"><div id="info" class="columns is-multiline is-mobile entry-content mv-content">'+
         '<section id="overview"><h2>Vivere a '+province.Name+'</h2><span id="intro"></span></section>'+
         '<section id="generalinfo"><h2>Informazioni utili su '+province.Name+'</h2><span id="info"></span></section>'+
         '<section id="costofliving"><h2>Costo della vita a '+province.Name+'</h2><span id="CoL"></span></section>'+
@@ -128,7 +128,7 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<section id="prosandcons"><h2>Pro e contro della vita a '+province.Name+'</h2><span id="ProsAndCons"></span></section>'+
         '<section id="faqs"><h2>FAQ</h2><span id="faqs"></span></section>'+
         '<section id="Discover"><h2>Scopri '+province.Name+'</h2><span id="promo"></span></section>'+
-    '</div>'+
+    '</div></article>'+
     '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
             '</body></html>'
                     )
