@@ -41,8 +41,10 @@ Status: ✅ COMPLETE
 
 ### Step 1: Start Production Build
 ```bash
-node generateProductionSite.js
+node buildProduction.js
 ```
+
+**Note:** This is the ONLY build script. Use this one.
 
 This will:
 1. Verify all data files exist

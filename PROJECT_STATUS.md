@@ -160,8 +160,8 @@ ls temp/*-comuni.json | wc -l  # Should show 107 files
 
 ### Execute Build
 ```bash
-# Start the production build
-node generateProductionSite.js
+# Start the production build (ONLY ONE SCRIPT - buildProduction.js)
+node buildProduction.js
 
 # Monitor progress (it will show real-time output)
 # Expected output:
@@ -329,7 +329,7 @@ After executing `node generateProductionSite.js`:
 ✅ **Production build script is ready to execute**  
 ✅ **Will generate 47,286 pages for deployment**  
 
-**Ready to proceed?** Run: `node generateProductionSite.js`
+**Ready to proceed?** Run: `node buildProduction.js`
 
 ---
 

@@ -1,6 +1,8 @@
 # Next Steps - While Build Runs
 
 **Status:** Build script (`buildProduction.js`) is running
+
+⚠️ **Note:** This is the ONLY build script you need. Other scripts (generateProductionSite.js, runFullBuild.js) were removed - they were simulations.
 **Expected Duration:** 45-60 more minutes
 **ETA Completion:** Varies based on your system
 
