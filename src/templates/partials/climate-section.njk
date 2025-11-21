@@ -1,0 +1,52 @@
+{# Climate Section #}
+<section class="info-section" id="Climate">
+  <h2 class="title is-2">{{ t('sections.climate') }}</h2>
+  <div class="columns">
+    <div class="column is-6">
+      <h3 class="title is-4">Weather Patterns</h3>
+      <div class="climate-stats">
+        <div class="stat-item">
+          <span class="stat-label">{{ t('metrics.climate') }} Score</span>
+          <span class="stat-value {% if province.climate.value >= 8 %}has-text-success{% else %}has-text-warning{% endif %}">
+            {{ province.climate.value | round(1) }}/10
+          </span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">{{ t('metrics.sunshine') }}</span>
+          <span class="stat-value">{{ province.climate.sunshineHours }} hours/year</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">{{ t('metrics.hot_days') }}</span>
+          <span class="stat-value">{{ province.climate.hotDays | round(0) }} days/year</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">{{ t('metrics.cold_days') }}</span>
+          <span class="stat-value">{{ province.climate.coldDays | round(0) }} days/year</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">{{ t('metrics.rainy_days') }}</span>
+          <span class="stat-value">{{ province.climate.rainyDays | round(0) }} days/year</span>
+        </div>
+      </div>
+    </div>
+    <div class="column is-6">
+      <h3 class="title is-4">Climate Suitability</h3>
+      <div class="content">
+        <p>
+          {{ province.name }} has a
+          {% if province.climate.value >= 8 %}
+            <strong>Mediterranean climate</strong> with hot, dry summers and mild winters.
+          {% elif province.climate.value >= 6 %}
+            <strong>Temperate climate</strong> with moderate temperature variations.
+          {% else %}
+            <strong>Variable climate</strong> with significant seasonal changes.
+          {% endif %}
+        </p>
+        <p>
+          This climate is {% if province.climate.value >= 7 %}ideal{% elif province.climate.value >= 5 %}suitable{% else %}challenging{% endif %}
+          for most lifestyles and outdoor activities.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

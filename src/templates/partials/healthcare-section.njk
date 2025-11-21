@@ -1,0 +1,33 @@
+{# Healthcare Section #}
+<section class="info-section" id="Healthcare">
+  <h2 class="title is-2">{{ t('sections.healthcare') }}</h2>
+  <div class="columns">
+    <div class="column is-6">
+      <h3 class="title is-4">Healthcare Quality</h3>
+      <div class="box">
+        <p class="heading">{{ t('metrics.healthcare') }} Rating</p>
+        <progress class="progress {% if province.healthcare.value >= 8 %}is-success{% elif province.healthcare.value >= 6 %}is-info{% else %}is-warning{% endif %}" 
+                  value="{{ province.healthcare.value }}" max="10"></progress>
+        <p class="title is-3 has-text-centered">{{ province.healthcare.value | round(1) }}/10</p>
+      </div>
+    </div>
+    <div class="column is-6">
+      <h3 class="title is-4">Healthcare System</h3>
+      <div class="content">
+        <p>
+          Italy has a universal healthcare system (Servizio Sanitario Nazionale - SSN) that provides
+          high-quality medical care to residents. {{ province.name }} benefits from this excellent system.
+        </p>
+        <ul>
+          <li>Public hospitals and clinics available</li>
+          <li>Private healthcare options</li>
+          <li>Pharmacies on every corner</li>
+          <li>European health insurance reciprocity</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="notification is-info">
+    <strong>Note:</strong> EU citizens should register with the local healthcare authority (ASL) to access public healthcare services.
+  </div>
+</section>

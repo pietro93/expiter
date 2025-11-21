@@ -1,0 +1,33 @@
+{# Education Section #}
+<section class="info-section" id="Education">
+  <h2 class="title is-2">{{ t('sections.education') }}</h2>
+  <div class="columns">
+    <div class="column is-6">
+      <h3 class="title is-4">Education Quality</h3>
+      <div class="box">
+        <p class="heading">{{ t('metrics.education') }} Rating</p>
+        <progress class="progress {% if province.education.value >= 8 %}is-success{% elif province.education.value >= 6 %}is-info{% else %}is-warning{% endif %}" 
+                  value="{{ province.education.value }}" max="10"></progress>
+        <p class="title is-3 has-text-centered">{{ province.education.value | round(1) }}/10</p>
+      </div>
+    </div>
+    <div class="column is-6">
+      <h3 class="title is-4">Education System</h3>
+      <div class="content">
+        <p>
+          Italy's education system includes public and private schools at all levels.
+          {{ province.name }} offers various educational options:
+        </p>
+        <ul>
+          <li>Public schools (elementary, middle, high school)</li>
+          <li>Private and international schools</li>
+          <li>Universities and higher education institutions</li>
+          <li>Vocational training programs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="notification is-info">
+    <strong>International Schools:</strong> Check for international school options if you have children and prefer education in English.
+  </div>
+</section>

@@ -1,0 +1,122 @@
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+  {# Hero Section #}
+  <section class="hero is-medium" style="background-image: url('{{ province.heroImage | default('/img/placeholder.webp') }}'); background-size: cover; background-position: center;">
+    <div class="hero-overlay" style="background: rgba(0,0,0,0.3);"></div>
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title is-1 has-text-white">{{ province.name }}</h1>
+        <p class="subtitle is-4 has-text-white-bis">{{ province.region }}</p>
+      </div>
+    </div>
+  </section>
+
+  {# Breadcrumbs #}
+  {% include "partials/breadcrumbs.njk" %}
+
+  {# Main Content Section #}
+  <section class="section">
+    <div class="container">
+      {# Tabs Navigation #}
+      <div class="tabs is-centered is-large" id="tabs">
+        <ul>
+          <li class="is-active" data-tab="quality">
+            <a>
+              <span class="icon"><i class="fas fa-heart"></i></span>
+              <span>{{ t('tabs.quality_of_life') }}</span>
+            </a>
+          </li>
+          <li data-tab="cost">
+            <a>
+              <span class="icon"><i class="fas fa-euro-sign"></i></span>
+              <span>{{ t('tabs.cost_of_living') }}</span>
+            </a>
+          </li>
+          <li data-tab="nomads">
+            <a>
+              <span class="icon"><i class="fas fa-laptop"></i></span>
+              <span>{{ t('tabs.digital_nomads') }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {# Tab Contents #}
+      <div class="tabs-content">
+        {# Quality of Life Tab #}
+        <div class="tab-pane is-active" id="quality-pane">
+          <section class="box">
+            <h2 class="title is-3">{{ t('tabs.quality_of_life') }}</h2>
+            {% include "partials/quality-scores-tab.njk" %}
+          </section>
+        </div>
+
+        {# Cost of Living Tab #}
+        <div class="tab-pane" id="cost-pane">
+          <section class="box">
+            <h2 class="title is-3">{{ t('tabs.cost_of_living') }}</h2>
+            {% include "partials/cost-living-tab.njk" %}
+          </section>
+        </div>
+
+        {# Digital Nomads Tab #}
+        <div class="tab-pane" id="nomads-pane">
+          <section class="box">
+            <h2 class="title is-3">{{ t('tabs.digital_nomads') }}</h2>
+            {% include "partials/nomads-tab.njk" %}
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# Information Sections #}
+  <section class="section info-sections">
+    <div class="container">
+      {# Overview Section #}
+      {% include "partials/overview-section.njk" %}
+
+      {# Climate Section #}
+      {% include "partials/climate-section.njk" %}
+
+      {# Cost Details Section #}
+      {% include "partials/cost-section.njk" %}
+
+      {# Safety Section #}
+      {% include "partials/safety-section.njk" %}
+
+      {# Healthcare Section #}
+      {% include "partials/healthcare-section.njk" %}
+
+      {# Education Section #}
+      {% include "partials/education-section.njk" %}
+
+      {# Transportation Section #}
+      {% include "partials/transport-section.njk" %}
+    </div>
+  </section>
+
+  {# Related Places #}
+  {% include "partials/related-places.njk" %}
+
+  {# Call to Action #}
+  <section class="section has-background-primary">
+    <div class="container has-text-centered">
+      <h2 class="title is-3 has-text-white">Ready to move to {{ province.name }}?</h2>
+      <p class="subtitle is-5 has-text-white-bis">
+        Explore more information, resources, and similar provinces.
+      </p>
+      <div class="buttons is-centered">
+        <a class="button is-light is-large" href="/province/">
+          <span class="icon"><i class="fas fa-arrow-left"></i></span>
+          <span>Back to Provinces</span>
+        </a>
+        <a class="button is-light is-large" href="#cost-pane">
+          <span class="icon"><i class="fas fa-euro-sign"></i></span>
+          <span>View Costs</span>
+        </a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

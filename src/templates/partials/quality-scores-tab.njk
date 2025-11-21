@@ -1,0 +1,78 @@
+{# Quality of Life Scores Tab #}
+<div class="columns is-multiline">
+  <div class="column is-6">
+    <h3 class="title is-5">{{ t('metrics.population') }} & Demographics</h3>
+    <div class="score-card">
+      <div class="score-item">
+        <span class="score-label">{{ t('metrics.population') }}</span>
+        <span class="score-value">{{ province.population }}</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">{{ t('metrics.density') }}</span>
+        <span class="score-value">{{ province.density }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-6">
+    <h3 class="title is-5">Quality Metrics</h3>
+    <div class="score-card">
+      <div class="score-item">
+        <span class="score-label">{{ t('metrics.healthcare') }}</span>
+        <span class="score-value {% if province.healthcare.value >= 7 %}has-text-success{% else %}has-text-warning{% endif %}">
+          {{ province.healthcare.value | round(1) }}/10
+        </span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">{{ t('metrics.education') }}</span>
+        <span class="score-value {% if province.education.value >= 7 %}has-text-success{% else %}has-text-warning{% endif %}">
+          {{ province.education.value | round(1) }}/10
+        </span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">{{ t('metrics.safety') }}</span>
+        <span class="score-value {% if province.safety.value >= 7 %}has-text-success{% else %}has-text-danger{% endif %}">
+          {{ province.safety.value | round(1) }}/10
+        </span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">{{ t('metrics.transport') }}</span>
+        <span class="score-value {% if province.transport.value >= 6 %}has-text-success{% else %}has-text-warning{% endif %}">
+          {{ province.transport.value | round(1) }}/10
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-full">
+    <h3 class="title is-5">{{ t('sections.climate') }}</h3>
+    <div class="columns is-multiline">
+      <div class="column is-3">
+        <div class="score-card">
+          <p class="score-label">{{ t('metrics.climate') }}</p>
+          <p class="score-value {% if province.climate.value >= 7 %}has-text-success{% else %}has-text-warning{% endif %}">
+            {{ province.climate.value | round(1) }}/10
+          </p>
+        </div>
+      </div>
+      <div class="column is-3">
+        <div class="score-card">
+          <p class="score-label">{{ t('metrics.sunshine') }}</p>
+          <p class="score-value">{{ province.climate.sunshineHours }} hrs</p>
+        </div>
+      </div>
+      <div class="column is-3">
+        <div class="score-card">
+          <p class="score-label">{{ t('metrics.hot_days') }}</p>
+          <p class="score-value">{{ province.climate.hotDays | round(0) }} days</p>
+        </div>
+      </div>
+      <div class="column is-3">
+        <div class="score-card">
+          <p class="score-label">{{ t('metrics.rainy_days') }}</p>
+          <p class="score-value">{{ province.climate.rainyDays | round(0) }} days</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

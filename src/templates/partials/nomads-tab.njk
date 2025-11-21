@@ -1,0 +1,52 @@
+{# Digital Nomads Tab #}
+<div class="columns is-multiline">
+  <div class="column is-6">
+    <h3 class="title is-5">{{ t('common.nomad_friendly') }} Score</h3>
+    <div class="nomad-score">
+      <div class="nomad-item">
+        <span class="nomad-label">Overall Nomad Friendliness</span>
+        <progress class="progress is-success" value="{{ province.nomadFriendly }}" max="10"></progress>
+        <span class="nomad-value">{{ province.nomadFriendly | round(1) }}/10</span>
+      </div>
+      <div class="nomad-item">
+        <span class="nomad-label">{{ t('common.expat_friendly') }}</span>
+        <progress class="progress is-info" value="{{ province.expatFriendly }}" max="10"></progress>
+        <span class="nomad-value">{{ province.expatFriendly | round(1) }}/10</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-6">
+    <h3 class="title is-5">Nomad Resources</h3>
+    <div class="nomad-resources">
+      <div class="resource-item">
+        <h4 class="subtitle is-6">Accommodation</h4>
+        <p>{{ province.accommodationOptions | default('Varies by location') }}</p>
+      </div>
+      <div class="resource-item">
+        <h4 class="subtitle is-6">Coworking Spaces</h4>
+        <p>{{ province.coworkingSpaces | default('Check local listings') }}</p>
+      </div>
+      <div class="resource-item">
+        <h4 class="subtitle is-6">Internet Speed</h4>
+        <p>{{ province.internetSpeed | default('Generally good in urban areas') }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-full">
+    <div class="message is-success">
+      <div class="message-header">
+        <p>Why {{ province.name }} for Digital Nomads?</p>
+      </div>
+      <div class="message-body">
+        <ul>
+          <li>Cost of living: {{ province.costOfLiving.individual | formatCurrency }} per month</li>
+          <li>Safety rating: {{ province.safety.value | round(1) }}/10</li>
+          <li>Healthcare quality: {{ province.healthcare.value | round(1) }}/10</li>
+          <li>Climate: {% if province.climate.value >= 8 %}Excellent{% elif province.climate.value >= 6 %}Good{% else %}Moderate{% endif %}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

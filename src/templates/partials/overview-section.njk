@@ -1,0 +1,30 @@
+{# Overview Section #}
+<section class="info-section" id="Overview">
+  <h2 class="title is-2">{{ t('sections.overview') }}</h2>
+  <div class="columns">
+    <div class="column is-8">
+      <div class="content">
+        {% if province.overview %}
+          {{ province.overview | safe }}
+        {% else %}
+          <p>Overview information for {{ province.name }}, {{ province.region }}, Italy.</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="column is-4">
+      <div class="box">
+        <h3 class="title is-5">Quick Facts</h3>
+        <dl class="quick-facts">
+          <dt>{{ t('common.province') }}</dt>
+          <dd>{{ province.name }}</dd>
+          
+          <dt>{{ t('common.region') }}</dt>
+          <dd>{{ province.region }}</dd>
+          
+          <dt>{{ t('metrics.population') }}</dt>
+          <dd>{{ province.population }}</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

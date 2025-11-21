@@ -1,0 +1,35 @@
+{# Transportation Section #}
+<section class="info-section" id="Transport">
+  <h2 class="title is-2">{{ t('sections.transport') }}</h2>
+  <div class="columns">
+    <div class="column is-6">
+      <h3 class="title is-4">{{ t('metrics.transport') }} Rating</h3>
+      <div class="box">
+        <p class="heading">Public Transport Score</p>
+        <progress class="progress {% if province.transport.value >= 7 %}is-success{% elif province.transport.value >= 5 %}is-info{% else %}is-warning{% endif %}" 
+                  value="{{ province.transport.value }}" max="10"></progress>
+        <p class="title is-3 has-text-centered">{{ province.transport.value | round(1) }}/10</p>
+      </div>
+    </div>
+    <div class="column is-6">
+      <h3 class="title is-4">Transportation Options</h3>
+      <div class="content">
+        <p>
+          {{ province.name }} offers various transportation options:
+        </p>
+        <ul>
+          <li>Public buses and regional transit</li>
+          <li>Railways connecting to major cities</li>
+          <li>Car rentals and taxi services</li>
+          <li>Bike-sharing and pedestrian-friendly areas</li>
+          {% if province.hasAirport %}
+            <li>Nearby airport for flights</li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="notification is-info">
+    <strong>Getting Around:</strong> Many Italian cities are very walkable with excellent public transport connections.
+  </div>
+</section>

@@ -1,0 +1,44 @@
+{# Cost of Living Tab #}
+<div class="columns is-multiline">
+  <div class="column is-6">
+    <h3 class="title is-5">Monthly Costs</h3>
+    <div class="cost-comparison">
+      <div class="cost-item">
+        <span class="cost-label">{{ t('metrics.cost_individual') }}</span>
+        <span class="cost-value">{{ province.costOfLiving.individual | formatCurrency }}</span>
+      </div>
+      <div class="cost-item">
+        <span class="cost-label">{{ t('metrics.cost_family') }}</span>
+        <span class="cost-value">{{ province.costOfLiving.family | formatCurrency }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-6">
+    <h3 class="title is-5">Income & Rental</h3>
+    <div class="cost-comparison">
+      <div class="cost-item">
+        <span class="cost-label">{{ t('metrics.monthly_income') }}</span>
+        <span class="cost-value">{{ province.monthlyIncome | formatCurrency }}</span>
+      </div>
+      <div class="cost-item">
+        <span class="cost-label">{{ t('metrics.monthly_rental') }}</span>
+        <span class="cost-value">{{ province.monthlyRental | formatCurrency }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-full">
+    <div class="notification is-info">
+      <h4 class="title is-6">Cost Comparison</h4>
+      <p>
+        These are estimated monthly costs for living in {{ province.name }}.
+        Individual cost includes basic necessities (food, transport, utilities).
+        Family cost is for a family of 4 with similar lifestyle.
+      </p>
+      <p>
+        <em>Data updated: <time datetime="{{ costDataDate }}">{{ costDataDate }}</time></em>
+      </p>
+    </div>
+  </div>
+</div>

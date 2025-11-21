@@ -1,0 +1,10 @@
+{# Breadcrumbs Navigation #}
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/">Home</a></li>
+    {% if province %}
+      <li><a href="/province/">{{ t('common.province') | capitalize }}</a></li>
+      <li class="is-active"><a href="#" aria-current="page">{{ province.name }}</a></li>
+    {% endif %}
+  </ul>
+</nav>

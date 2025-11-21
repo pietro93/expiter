@@ -1,0 +1,51 @@
+{# Cost of Living Section #}
+<section class="info-section" id="Cost">
+  <h2 class="title is-2">{{ t('sections.cost') }}</h2>
+  <div class="columns">
+    <div class="column is-6">
+      <h3 class="title is-4">{{ t('metrics.cost_individual') }}</h3>
+      <div class="cost-breakdown">
+        <div class="cost-item">
+          <span class="cost-label">Monthly Total</span>
+          <span class="cost-value">{{ province.costOfLiving.individual | formatCurrency }}</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-label">Housing (estimated)</span>
+          <span class="cost-value">{{ (province.costOfLiving.individual * 0.3) | formatCurrency }}</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-label">Food (estimated)</span>
+          <span class="cost-value">{{ (province.costOfLiving.individual * 0.2) | formatCurrency }}</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-label">Transport (estimated)</span>
+          <span class="cost-value">{{ (province.costOfLiving.individual * 0.15) | formatCurrency }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="column is-6">
+      <h3 class="title is-4">{{ t('metrics.cost_family') }}</h3>
+      <div class="cost-breakdown">
+        <div class="cost-item">
+          <span class="cost-label">Monthly Total</span>
+          <span class="cost-value">{{ province.costOfLiving.family | formatCurrency }}</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-label">Housing (estimated)</span>
+          <span class="cost-value">{{ (province.costOfLiving.family * 0.35) | formatCurrency }}</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-label">Food (estimated)</span>
+          <span class="cost-label">{{ (province.costOfLiving.family * 0.25) | formatCurrency }}</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-label">Education (estimated)</span>
+          <span class="cost-value">{{ (province.costOfLiving.family * 0.15) | formatCurrency }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="notification is-info">
+    <p>Costs are estimates and can vary based on lifestyle choices and local market conditions.</p>
+  </div>
+</section>

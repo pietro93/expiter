@@ -1,0 +1,43 @@
+{# Safety Section #}
+<section class="info-section" id="Safety">
+  <h2 class="title is-2">{{ t('sections.safety') }}</h2>
+  <div class="columns">
+    <div class="column is-4">
+      <div class="box has-background-info has-text-white">
+        <p class="heading">{{ t('metrics.safety') }} Rating</p>
+        <p class="title is-1 has-text-centered">{{ province.safety.value | round(1) }}/10</p>
+        <p class="has-text-centered">
+          {% if province.safety.value >= 8 %}
+            <span class="tag is-success is-light">Very Safe</span>
+          {% elif province.safety.value >= 6 %}
+            <span class="tag is-warning is-light">Moderately Safe</span>
+          {% else %}
+            <span class="tag is-danger is-light">Exercise Caution</span>
+          {% endif %}
+        </p>
+      </div>
+    </div>
+    <div class="column is-4">
+      <div class="box">
+        <p class="heading">{{ t('metrics.crime_rate') }}</p>
+        <p class="title">{{ province.crimeRate | default('Low') }}</p>
+        <p class="subtitle is-6">Comparative to national average</p>
+      </div>
+    </div>
+    <div class="column is-4">
+      <div class="box">
+        <p class="heading">Police & Emergency</p>
+        <p class="title">112</p>
+        <p class="subtitle is-6">Italian Emergency Number</p>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <h3>Safety Notes</h3>
+    <p>
+      {{ province.name }} has a safety rating of <strong>{{ province.safety.value | round(1) }}/10</strong>,
+      which indicates it is a {% if province.safety.value >= 7 %}safe{% else %}relatively safe{% endif %}
+      place to live. Like all areas, it's important to take standard precautions and be aware of your surroundings.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+{# Related Places Section #}
+<section class="section has-background-light">
+  <div class="container">
+    <h2 class="title is-2 has-text-centered">Explore Related Provinces</h2>
+    <p class="has-text-centered subtitle">Provinces similar to {{ province.name }} in {{ province.region }}</p>
+
+    <div class="columns is-multiline">
+      {% if relatedProvinces %}
+        {% for related in relatedProvinces %}
+          <div class="column is-4">
+            <a href="/province/{{ related.name | toSlug }}.html" class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="/img/{{ related.name | toSlug }}.webp" alt="{{ related.name }}">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-5">{{ related.name }}</p>
+                    <p class="subtitle is-6">{{ related.region }}</p>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="tags">
+                    <span class="tag is-info">Safety: {{ related.safety | round(1) }}</span>
+                    <span class="tag is-warning">Cost: {{ related.costOfLiving.individual | formatCurrency }}</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="column is-full">
+          <div class="notification is-info">
+            <p>Explore other provinces in <a href="/region/{{ province.region | toSlug }}.html">{{ province.region }}</a> region.</p>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
