@@ -3,7 +3,7 @@
 **Project Start Date:** November 21, 2025  
 **Overall Status:** 🟡 IN PROGRESS  
 **Total Tasks:** 24  
-**Completed:** 2 (Git Setup + Project Structure)  
+**Completed:** 3 (Git Setup + Project Structure + Dependencies)  
 **In Progress:** 0  
 **Blocked:** 0  
 
@@ -48,23 +48,37 @@
 ---
 
 ### Task 1.2: Install Core Dependencies
-**Status:** 🔲 TODO  
+**Status:** ✅ COMPLETED  
 **Priority:** HIGH  
 **Dependencies:** Task 1.1  
 **Est. Tokens:** 1,500  
+**Actual Tokens Used:** ~2,000  
 
 **Checklist:**
-- [ ] Install nunjucks@3.2.4
-- [ ] Install i18next@23.5.0
-- [ ] Install axios@1.6.7
-- [ ] Install sharp@0.33.4
-- [ ] Install jsdom@20.0.1
-- [ ] Install dev deps (jest@29.7.0, eslint@8.50.0, prettier@3.0.0, dotenv@16.3.1)
-- [ ] Verify versions with `npm list nunjucks i18next jest`
+- [x] Install nunjucks@3.2.4
+- [x] Install i18next@23.5.0
+- [x] Install axios@1.6.7 (already present)
+- [x] Install sharp@0.33.4 (already present)
+- [x] Install jsdom@20.0.1 (already present)
+- [x] Install dev deps (jest@29.7.0, eslint@8.50.0, prettier@3.0.0, dotenv@16.3.1)
+- [x] Install cheerio@1.0.0 and p-limit@4.0.0
+- [x] Verify versions with `npm list nunjucks i18next jest`
 
-**Validation:** ✅ npm list shows exact versions, no critical peer dependency warnings
+**Validation:** ✅ PASS
+- ✅ All packages installed with correct versions
+- ✅ nunjucks@3.2.4 ✓
+- ✅ i18next@23.5.0 ✓
+- ✅ jest@29.7.0 ✓
+- ✅ prettier@3.0.0 ✓
+- ✅ eslint@8.50.0 ✓
+- ✅ p-limit@4.0.0 ✓
+- ✅ cheerio@1.0.0 ✓
 
-**Notes:**
+**Installed Packages Summary:**
+- **Runtime:** nunjucks, i18next, p-limit, cheerio, axios (existing), sharp (existing), jsdom (existing)
+- **Dev:** jest, eslint, prettier, dotenv
+
+**Notes:** All dependencies installed successfully. Some deprecation warnings from older packages (from existing project) but no blocking issues.
 
 ---
 
@@ -512,7 +526,7 @@
 | Metric | Target | Current | Status |
 |--------|--------|---------|--------|
 | **Phases Completed** | 6 | 0 | 🔴 0% |
-| **Tasks Completed** | 24 | 2 | 🟡 8% |
+| **Tasks Completed** | 24 | 3 | 🟡 12% |
 | **Generator Files** | 6 | 0 | 🔴 Not started |
 | **Province Pages** | 535 | 0 | 🔴 Not started |
 | **Total Output Files** | ≥650 | 0 | 🔴 Not started |
@@ -527,6 +541,7 @@
 
 | Timestamp | Task | Status | Notes |
 |-----------|------|--------|-------|
+| 2025-11-21 14:40 | Task 1.2: Install Dependencies | ✅ DONE | Installed nunjucks, i18next, jest, eslint, prettier, and more |
 | 2025-11-21 14:25 | Task 1.1: Project Structure | ✅ DONE | Created 10 subdirectories, 5 placeholder files |
 | 2025-11-21 12:00 | Git setup | ✅ DONE | Created nunjucks-migration branch, pushed to origin |
 | 2025-11-21 11:50 | Migration started | 🟡 IN PROGRESS | Initial kanban created, progress tracker added |
@@ -541,4 +556,4 @@ None currently.
 
 ## Next Action
 
-👉 **Start Task 1.2:** Install Core Dependencies (nunjucks, i18next, jest, etc.)
+👉 **Start Task 1.3:** Configure Nunjucks & i18next Initialization
