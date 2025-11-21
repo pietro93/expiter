@@ -1,0 +1,64 @@
+{
+  "common": {
+    "quality_of_life_and_info": "Quality of Life and Info Sheet for Expats",
+    "expat_guide": "Expat Guide to Italian Provinces",
+    "find_perfect_province": "Find the Perfect Italian Province",
+    "province": "Province",
+    "region": "Region",
+    "population": "Population",
+    "healthcare": "Healthcare",
+    "education": "Education",
+    "safety": "Safety",
+    "climate": "Climate",
+    "cost_of_living": "Cost of Living",
+    "digital_nomads": "Digital Nomads",
+    "nomad_friendly": "Nomad Friendly",
+    "expat_friendly": "Expat Friendly"
+  },
+  "tabs": {
+    "quality_of_life": "Quality of Life",
+    "cost_of_living": "Cost of Living",
+    "digital_nomads": "Digital Nomads"
+  },
+  "metrics": {
+    "population": "Population",
+    "density": "Population Density",
+    "healthcare": "Healthcare",
+    "education": "Education",
+    "safety": "Safety",
+    "crime_rate": "Crime Rate",
+    "transport": "Public Transport",
+    "climate": "Climate",
+    "sunshine": "Sunshine Hours",
+    "hot_days": "Hot Days",
+    "cold_days": "Cold Days",
+    "rainy_days": "Rainy Days",
+    "foggy_days": "Foggy Days",
+    "cost_individual": "Cost for Individual",
+    "cost_family": "Cost for Family",
+    "monthly_income": "Monthly Income",
+    "monthly_rental": "Monthly Rental"
+  },
+  "sections": {
+    "overview": "Overview",
+    "climate": "Climate",
+    "cost": "Cost of Living",
+    "safety": "Safety",
+    "healthcare": "Healthcare",
+    "education": "Education",
+    "transport": "Transport"
+  },
+  "buttons": {
+    "view_more": "View More",
+    "back": "Back",
+    "explore": "Explore",
+    "compare": "Compare"
+  },
+  "ratings": {
+    "excellent": "Excellent",
+    "great": "Great",
+    "good": "Good",
+    "okay": "Okay",
+    "poor": "Poor"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "common": {
+    "quality_of_life_and_info": "Qualità della Vita e Scheda Informativa per Espatriati",
+    "expat_guide": "Guida per Espatriati alle Province Italiane",
+    "find_perfect_province": "Trova la Provincia Italiana Perfetta",
+    "province": "Provincia",
+    "region": "Regione",
+    "population": "Popolazione",
+    "healthcare": "Sanità",
+    "education": "Istruzione",
+    "safety": "Sicurezza",
+    "climate": "Clima",
+    "cost_of_living": "Costo della Vita",
+    "digital_nomads": "Nomadi Digitali",
+    "nomad_friendly": "Amichevole per Nomadi",
+    "expat_friendly": "Amichevole per Espatriati"
+  },
+  "tabs": {
+    "quality_of_life": "Qualità della Vita",
+    "cost_of_living": "Costo della Vita",
+    "digital_nomads": "Nomadi Digitali"
+  },
+  "metrics": {
+    "population": "Popolazione",
+    "density": "Densità Abitativa",
+    "healthcare": "Sanità",
+    "education": "Istruzione",
+    "safety": "Sicurezza",
+    "crime_rate": "Tasso di Criminalità",
+    "transport": "Trasporti Pubblici",
+    "climate": "Clima",
+    "sunshine": "Ore di Sole",
+    "hot_days": "Giorni Caldi",
+    "cold_days": "Giorni Freddi",
+    "rainy_days": "Giorni Piovosi",
+    "foggy_days": "Giorni Nebbiosi",
+    "cost_individual": "Costo per Individuo",
+    "cost_family": "Costo per Famiglia",
+    "monthly_income": "Reddito Mensile",
+    "monthly_rental": "Affitto Mensile"
+  },
+  "sections": {
+    "overview": "Panoramica",
+    "climate": "Clima",
+    "cost": "Costo della Vita",
+    "safety": "Sicurezza",
+    "healthcare": "Sanità",
+    "education": "Istruzione",
+    "transport": "Trasporti"
+  },
+  "buttons": {
+    "view_more": "Visualizza di Più",
+    "back": "Indietro",
+    "explore": "Esplora",
+    "compare": "Confronta"
+  },
+  "ratings": {
+    "excellent": "Eccellente",
+    "great": "Ottimo",
+    "good": "Buono",
+    "okay": "Accettabile",
+    "poor": "Scarso"
+  }
+}

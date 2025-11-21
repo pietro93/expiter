@@ -1,0 +1,64 @@
+{
+  "common": {
+    "quality_of_life_and_info": "Calidad de Vida y Hoja Informativa para Expatriados",
+    "expat_guide": "Guía para Expatriados de Provincias Italianas",
+    "find_perfect_province": "Encuentra la Provincia Italiana Perfecta",
+    "province": "Provincia",
+    "region": "Región",
+    "population": "Población",
+    "healthcare": "Sanidad",
+    "education": "Educación",
+    "safety": "Seguridad",
+    "climate": "Clima",
+    "cost_of_living": "Costo de Vida",
+    "digital_nomads": "Nómadas Digitales",
+    "nomad_friendly": "Amigable para Nómadas",
+    "expat_friendly": "Amigable para Expatriados"
+  },
+  "tabs": {
+    "quality_of_life": "Calidad de Vida",
+    "cost_of_living": "Costo de Vida",
+    "digital_nomads": "Nómadas Digitales"
+  },
+  "metrics": {
+    "population": "Población",
+    "density": "Densidad de Población",
+    "healthcare": "Sanidad",
+    "education": "Educación",
+    "safety": "Seguridad",
+    "crime_rate": "Tasa de Criminalidad",
+    "transport": "Transporte Público",
+    "climate": "Clima",
+    "sunshine": "Horas de Sol",
+    "hot_days": "Días Calurosos",
+    "cold_days": "Días Fríos",
+    "rainy_days": "Días Lluviosos",
+    "foggy_days": "Días Brumosos",
+    "cost_individual": "Costo para Individuo",
+    "cost_family": "Costo para Familia",
+    "monthly_income": "Ingreso Mensual",
+    "monthly_rental": "Alquiler Mensual"
+  },
+  "sections": {
+    "overview": "Descripción General",
+    "climate": "Clima",
+    "cost": "Costo de Vida",
+    "safety": "Seguridad",
+    "healthcare": "Sanidad",
+    "education": "Educación",
+    "transport": "Transporte"
+  },
+  "buttons": {
+    "view_more": "Ver Más",
+    "back": "Atrás",
+    "explore": "Explorar",
+    "compare": "Comparar"
+  },
+  "ratings": {
+    "excellent": "Excelente",
+    "great": "Excelente",
+    "good": "Bueno",
+    "okay": "Aceptable",
+    "poor": "Malo"
+  }
+}
