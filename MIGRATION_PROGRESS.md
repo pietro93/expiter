@@ -3,7 +3,7 @@
 **Project Start Date:** November 21, 2025  
 **Overall Status:** 🟡 IN PROGRESS  
 **Total Tasks:** 24  
-**Completed:** 5 (Git Setup + Project Structure + Dependencies + Nunjucks/i18n Config + Translation Files)  
+**Completed:** 6 (Git Setup + Project Structure + Dependencies + Nunjucks/i18n Config + Translation Files + Base Layout)  
 **In Progress:** 0  
 **Blocked:** 0  
 
@@ -159,23 +159,46 @@
 ## PHASE 2: TEMPLATE SYSTEM
 
 ### Task 2.1: Create Master Base Layout
-**Status:** 🔲 TODO  
+**Status:** ✅ COMPLETED  
 **Priority:** HIGH  
 **Dependencies:** Task 1.4  
 **Est. Tokens:** 3,500  
+**Actual Tokens Used:** ~2,500  
 
 **Checklist:**
-- [ ] Create src/templates/layouts/base.njk with {% block content %}
-- [ ] Create stub: src/templates/partials/head.njk
-- [ ] Create stub: src/templates/partials/scripts.njk
-- [ ] Create stub: src/templates/components/navbar.njk
-- [ ] Create stub: src/templates/components/sidebar.njk
-- [ ] Create stub: src/templates/components/footer.njk
-- [ ] Verify base.njk parses without errors
+- [x] Create src/templates/layouts/base.njk with {% block content %}
+- [x] Create stub: src/templates/partials/head.njk
+- [x] Create stub: src/templates/partials/scripts.njk
+- [x] Create stub: src/templates/components/navbar.njk
+- [x] Create stub: src/templates/components/sidebar.njk
+- [x] Create stub: src/templates/components/footer.njk
+- [x] Verify base.njk parses without errors
 
-**Validation:** ✅ base.njk extends properly, all includes referenced
+**Validation:** ✅ PASS
+- ✅ All 6 template files created
+- ✅ base.njk contains {% block content %} with default fallback
+- ✅ All includes properly referenced
+- ✅ Proper HTML5 structure with DOCTYPE, lang attribute
+- ✅ Nunjucks block inheritance syntax validated
 
-**Notes:**
+**Created Files:**
+- `src/templates/layouts/base.njk` (465 bytes) - Master layout with blocks for head/content
+- `src/templates/partials/head.njk` (739 bytes) - Meta tags, SEO, stylesheets, preconnect
+- `src/templates/partials/scripts.njk` (681 bytes) - JavaScript includes, GA, ads, JSON-LD
+- `src/templates/components/navbar.njk` (844 bytes) - Navigation with brand, menu, language switcher
+- `src/templates/components/sidebar.njk` (640 bytes) - Province sidebar + quick facts
+- `src/templates/components/footer.njk` (839 bytes) - Footer with links, languages, copyright
+
+**Template Features:**
+- Accessibility attributes (role, aria-label, aria-expanded)
+- Responsive design (Bulma framework)
+- Multi-language support (language variable)
+- SEO-ready (seo object support)
+- Conditional rendering (environment, showAds)
+- Breadcrumb-friendly structure
+- Data-driven includes (province-specific sidebar)
+
+**Notes:** Base layout uses clean architecture with proper separation of concerns. All partials and components are independently reusable and well-documented with Nunjucks comments.
 
 ---
 
@@ -561,7 +584,7 @@
 | Metric | Target | Current | Status |
 |--------|--------|---------|--------|
 | **Phases Completed** | 6 | 0 | 🔴 0% |
-| **Tasks Completed** | 24 | 5 | 🟡 21% |
+| **Tasks Completed** | 24 | 6 | 🟡 25% |
 | **Generator Files** | 6 | 0 | 🔴 Not started |
 | **Province Pages** | 535 | 0 | 🔴 Not started |
 | **Total Output Files** | ≥650 | 0 | 🔴 Not started |
@@ -576,6 +599,7 @@
 
 | Timestamp | Task | Status | Notes |
 |-----------|------|--------|-------|
+| 2025-11-21 15:10 | Task 2.1: Master Base Layout | ✅ DONE | Created 6 template files (base.njk + 5 components/partials) |
 | 2025-11-21 15:00 | Task 1.4: Translation Files | ✅ DONE | Created 5 language JSON files with 65 keys each (en, it, de, es, fr) |
 | 2025-11-21 14:50 | Task 1.3: Nunjucks & i18n Config | ✅ DONE | Created template-engine.js and i18n-config.js with 6 custom filters |
 | 2025-11-21 14:40 | Task 1.2: Install Dependencies | ✅ DONE | Installed nunjucks, i18next, jest, eslint, prettier, and more |
@@ -593,4 +617,4 @@ None currently.
 
 ## Next Action
 
-👉 **Start PHASE 2 - Task 2.1:** Create Master Base Layout (base.njk template)
+👉 **Start Task 2.2:** Create Province Detail Template (province-detail.njk with 3 tabs)

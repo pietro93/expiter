@@ -1,0 +1,59 @@
+{# Navigation Bar Component #}
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <strong>Expiter</strong>
+      <span class="subtitle is-6">Expat Guide to Italy</span>
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarMenu" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/">
+        {{ t('common.province') }}
+      </a>
+      <a class="navbar-item" href="/region/">
+        {{ t('common.region') }}
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="/comuni/">
+            Municipalities
+          </a>
+          <a class="navbar-item" href="/safety/">
+            Safety & Crime
+          </a>
+          <a class="navbar-item" href="/provinces/">
+            All Provinces
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item" href="/resources/">
+            Resources
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          {% for lang in ['en', 'it', 'de', 'es', 'fr'] %}
+            <a class="button is-small {% if language == lang %}is-info{% else %}is-light{% endif %}" 
+               href="{{ pageUrl }}-{{ lang if lang != 'en' else '' }}.html">
+              {{ lang | upper }}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

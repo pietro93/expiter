@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ language | default('en') }}">
+  <head>
+    {% block head %}
+      {% include "partials/head.njk" %}
+    {% endblock %}
+  </head>
+  <body data-spy="scroll" data-target="#toc">
+    <!-- Navigation -->
+    {% include "components/navbar.njk" %}
+
+    <!-- Main Container -->
+    <div class="main-container">
+      <!-- Sidebar Navigation -->
+      {% include "components/sidebar.njk" %}
+
+      <!-- Main Content Area -->
+      <main class="content" role="main">
+        {% block content %}
+          <!-- Override in child templates -->
+          <div class="section">
+            <p>Default content - override in child template</p>
+          </div>
+        {% endblock %}
+      </main>
+    </div>
+
+    <!-- Footer -->
+    {% include "components/footer.njk" %}
+
+    <!-- Scripts -->
+    {% include "partials/scripts.njk" %}
+  </body>
+</html>

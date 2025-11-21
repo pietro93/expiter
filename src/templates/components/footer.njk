@@ -1,0 +1,51 @@
+{# Footer Component #}
+<footer class="footer">
+  <div class="content has-text-centered">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4">
+          <h4>About Expiter</h4>
+          <p>
+            Expiter provides quality of life information for Italian provinces,
+            helping expats find the perfect place to live.
+          </p>
+        </div>
+
+        <div class="column is-4">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/province/">Provinces</a></li>
+            <li><a href="/region/">Regions</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+
+        <div class="column is-4">
+          <h4>Languages</h4>
+          <div class="buttons are-small">
+            <a class="button" href="/index.html">English</a>
+            <a class="button" href="/index-it.html">Italiano</a>
+            <a class="button" href="/index-de.html">Deutsch</a>
+            <a class="button" href="/index-es.html">Español</a>
+            <a class="button" href="/index-fr.html">Français</a>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="footer-bottom">
+        <p>
+          <strong>Expiter</strong> © 2025 | 
+          <a href="/privacy-policy.html">Privacy Policy</a> | 
+          <a href="/contact/">Contact</a>
+        </p>
+        <p class="is-size-7">
+          Data sourced from official Italian statistics and quality of life databases.
+          Last updated: <time datetime="{{ currentDate }}">{{ currentDate }}</time>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

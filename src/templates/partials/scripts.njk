@@ -1,0 +1,38 @@
+{# Scripts Partial - JavaScript files and tracking #}
+
+{# jQuery - for DOM manipulation #}
+<script src="/jquery3.6.0.js"></script>
+
+{# Bootstrap TOC - for table of contents #}
+<script src="/bootstrap-toc.js"></script>
+
+{# Main Application Scripts #}
+<script src="/script.js"></script>
+
+{# Ads.txt Configuration #}
+<script src="/adsTxtUpdater.js"></script>
+
+{# Google Analytics - if in production #}
+{% if environment == 'production' %}
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_ID');
+  </script>
+{% endif %}
+
+{# Advertisement Scripts #}
+{% if showAds %}
+  <!-- Ad Network Scripts -->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+{% endif %}
+
+{# Structured Data / JSON-LD #}
+{% if structuredData %}
+  <script type="application/ld+json">
+    {{ structuredData | safe }}
+  </script>
+{% endif %}

@@ -1,0 +1,55 @@
+{# Sidebar Navigation Component #}
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-content">
+    {% if province %}
+      {# Province Sidebar #}
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">{{ province.name }}</h3>
+        <p class="sidebar-subtitle">{{ province.region }}</p>
+        
+        <nav class="sidebar-nav">
+          <ul class="toc-list">
+            <li><a href="#Overview">{{ t('sections.overview') }}</a></li>
+            <li><a href="#Climate">{{ t('sections.climate') }}</a></li>
+            <li><a href="#Cost">{{ t('sections.cost') }}</a></li>
+            <li><a href="#Safety">{{ t('sections.safety') }}</a></li>
+            <li><a href="#Healthcare">{{ t('sections.healthcare') }}</a></li>
+            <li><a href="#Education">{{ t('sections.education') }}</a></li>
+            <li><a href="#Transport">{{ t('sections.transport') }}</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      {# Quick Facts #}
+      <div class="sidebar-section">
+        <h4>Quick Facts</h4>
+        <dl class="quick-facts">
+          <dt>{{ t('metrics.population') }}</dt>
+          <dd>{{ province.population }}</dd>
+          
+          <dt>{{ t('metrics.healthcare') }}</dt>
+          <dd>{{ province.healthcare.value }}/10</dd>
+          
+          <dt>{{ t('metrics.safety') }}</dt>
+          <dd>{{ province.safety.value }}/10</dd>
+          
+          <dt>{{ t('metrics.climate') }}</dt>
+          <dd>{{ province.climate.value }}/10</dd>
+        </dl>
+      </div>
+    {% else %}
+      {# Default Sidebar #}
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">{{ t('common.quality_of_life_and_info') }}</h3>
+        <nav class="sidebar-nav">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/province/">Provinces</a></li>
+            <li><a href="/region/">Regions</a></li>
+            <li><a href="/comuni/">Cities</a></li>
+          </ul>
+        </nav>
+      </div>
+    {% endif %}
+  </div>
+</aside>
