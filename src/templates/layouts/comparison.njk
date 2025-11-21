@@ -1,0 +1,103 @@
+{% extends "layouts/base.njk" %}
+
+{# Comparison Layout - Side-by-side comparison of multiple provinces #}
+
+{% block content %}
+<main role="main" aria-label="Comparison content">
+
+  {# Breadcrumbs #}
+  {% include "breadcrumbs.njk" %}
+
+  {# Header Section #}
+  <section class="hero is-light" aria-label="Comparison hero">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title is-2">Province Comparison</h1>
+        <p class="subtitle is-4">Compare quality of life, costs, and other factors across Italian provinces</p>
+      </div>
+    </div>
+  </section>
+
+  {# Main Comparison Content #}
+  <section class="section" aria-labelledby="comparison-content">
+    <div class="container">
+      
+      {# Province Selection Info #}
+      <div class="notification is-info">
+        <p>
+          <strong>Comparing {{ comparisonItems.length }} province{{ 's' if comparisonItems.length != 1 else '' }}:</strong>
+          {%- for item in comparisonItems -%}
+          <span class="tag ml-2">{{ item.name }}</span>
+          {%- endfor -%}
+        </p>
+      </div>
+
+      {# Overview Section #}
+      <h2 id="comparison-content" class="title is-3 mt-5">Overview Comparison</h2>
+      {% include "comparison-overview.njk" %}
+
+      {# Quality Scores Section #}
+      <h2 class="title is-3 mt-5">Quality Metrics</h2>
+      {% include "comparison-quality-scores.njk" %}
+
+      {# Cost of Living Section #}
+      <h2 class="title is-3 mt-5">Cost of Living</h2>
+      {% include "comparison-cost-living.njk" %}
+
+      {# Climate Section #}
+      <h2 class="title is-3 mt-5">Climate Comparison</h2>
+      {% include "comparison-climate.njk" %}
+
+      {# Healthcare Section #}
+      <h2 class="title is-3 mt-5">Healthcare Quality</h2>
+      {% include "comparison-healthcare.njk" %}
+
+      {# Safety Section #}
+      <h2 class="title is-3 mt-5">Safety & Crime</h2>
+      {% include "comparison-safety.njk" %}
+
+      {# Summary Table #}
+      <h2 class="title is-3 mt-5">Summary Table</h2>
+      {% include "comparison-summary-table.njk" %}
+
+      {# Download Section #}
+      <div class="box has-background-light mt-5">
+        <h3 class="title is-5">Export Comparison</h3>
+        <p class="mb-4">Download this comparison as a PDF or CSV file for your records:</p>
+        <div class="buttons">
+          <a href="#" class="button is-info">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+            <span>Download PDF</span>
+          </a>
+          <a href="#" class="button is-info">
+            <span class="icon"><i class="fas fa-file-csv"></i></span>
+            <span>Download CSV</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  {# Action Section #}
+  <section class="section has-background-info-light" aria-labelledby="comparison-action">
+    <div class="container">
+      <div class="box has-text-centered">
+        <h2 id="comparison-action" class="title is-4">Ready to Explore More?</h2>
+        <p class="mb-4">Use our interactive tools to customize your comparison or explore individual provinces in detail.</p>
+        <div class="buttons is-centered">
+          <a href="/" class="button is-info is-medium">
+            <span class="icon"><i class="fas fa-home"></i></span>
+            <span>Back to Home</span>
+          </a>
+          <a href="#" class="button is-light is-medium">
+            <span class="icon"><i class="fas fa-plus"></i></span>
+            <span>New Comparison</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+{% endblock %}

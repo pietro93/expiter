@@ -1,0 +1,79 @@
+{# Quality Score Component - Macros for rendering score cards and grids #}
+
+{# scoreCard macro: Renders a single quality metric score with icon and label #}
+{%- macro scoreCard(label, score, icon='star', showPercentage=true) -%}
+<div class="card quality-score-card">
+  <div class="card-content">
+    <div class="level is-mobile">
+      <div class="level-left">
+        <div class="level-item">
+          <div class="icon-wrapper">
+            <i class="fas fa-{{ icon }}"></i>
+          </div>
+        </div>
+        <div class="level-item">
+          <div class="content">
+            <p class="heading is-size-7">{{ label }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <div class="score-display">
+            <span class="score-value">{{ score | round }}</span>
+            {%- if showPercentage %}<span class="score-unit">/10</span>{% endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+    <progress class="progress {% if score >= 8 %}is-success{% elif score >= 6 %}is-info{% elif score >= 4 %}is-warning{% else %}is-danger{% endif %}" value="{{ score }}" max="10"></progress>
+  </div>
+</div>
+{%- endmacro -%}
+
+{# scoreGrid macro: Renders a responsive grid of quality score cards #}
+{%- macro scoreGrid(scores, columnsOnDesktop=4, showPercentage=true) -%}
+<div class="columns is-multiline">
+  {%- for item in scores -%}
+    <div class="column is-full-mobile is-half-tablet is-one-{{ columnsOnDesktop }}-desktop">
+      {{ scoreCard(item.label, item.score, item.icon or 'star', showPercentage) }}
+    </div>
+  {%- endfor -%}
+</div>
+{%- endmacro -%}
+
+{# ratingBadge macro: Small inline badge showing a single rating #}
+{%- macro ratingBadge(label, score) -%}
+<span class="tag {% if score >= 8 %}is-success{% elif score >= 6 %}is-info{% elif score >= 4 %}is-warning{% else %}is-danger{% endif %}">
+  {{ label }}: {{ score | round }}/10
+</span>
+{%- endmacro -%}
+
+{# ratingBar macro: Horizontal bar chart showing multiple ratings #}
+{%- macro ratingBar(ratings) -%}
+<div class="rating-bars">
+  {%- for item in ratings -%}
+    <div class="rating-bar-item">
+      <label class="rating-label">{{ item.label }}</label>
+      <div class="bar-container">
+        <div class="bar-fill" style="width: {{ (item.score / 10) * 100 }}%; background-color: {% if item.score >= 8 %}#48c774{% elif item.score >= 6 %}#3273dc{% elif item.score >= 4 %}#ffdd57{% else %}#f14668{% endif %}"></div>
+      </div>
+      <span class="rating-value">{{ item.score | round }}/10</span>
+    </div>
+  {%- endfor -%}
+</div>
+{%- endmacro -%}
+
+{# scoreComparison macro: Side-by-side comparison of two score sets #}
+{%- macro scoreComparison(leftScores, rightScores, leftLabel='Option A', rightLabel='Option B') -%}
+<div class="comparison-container">
+  <div class="comparison-section">
+    <h4 class="title is-5">{{ leftLabel }}</h4>
+    {{ scoreGrid(leftScores, 2, false) }}
+  </div>
+  <div class="comparison-section">
+    <h4 class="title is-5">{{ rightLabel }}</h4>
+    {{ scoreGrid(rightScores, 2, false) }}
+  </div>
+</div>
+{%- endmacro -%}

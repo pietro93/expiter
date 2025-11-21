@@ -1,0 +1,42 @@
+{# Comparison Quality Scores - Side-by-side quality metric comparison #}
+
+{%- import "quality-score.njk" as qscore -%}
+
+<div class="columns is-multiline">
+  {%- for item in comparisonItems -%}
+  <div class="column is-full-mobile is-half-tablet">
+    <h4 class="title is-5 mb-4">{{ item.name }}</h4>
+    
+    <div class="box mb-3">
+      <p class="heading is-size-7">Healthcare Quality</p>
+      <progress class="progress is-info mb-2" value="{{ item.healthcare or 7 }}" max="10"></progress>
+      <p class="title is-6">{{ item.healthcare or 7 }}/10</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Safety Rating</p>
+      <progress class="progress is-success mb-2" value="{{ item.safety or 7 }}" max="10"></progress>
+      <p class="title is-6">{{ item.safety or 7 }}/10</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Education Quality</p>
+      <progress class="progress is-warning mb-2" value="{{ item.education or 7 }}" max="10"></progress>
+      <p class="title is-6">{{ item.education or 7 }}/10</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Climate Quality</p>
+      <progress class="progress is-danger mb-2" value="{{ item.climate or 7 }}" max="10"></progress>
+      <p class="title is-6">{{ item.climate or 7 }}/10</p>
+    </div>
+  </div>
+  {%- endfor -%}
+</div>
+
+<div class="notification is-light mt-4">
+  <p class="is-size-7">
+    Ratings are on a scale of 1-10, with 10 being the highest quality. These scores are based on multiple 
+    data points including official statistics, surveys, and quality indices.
+  </p>
+</div>

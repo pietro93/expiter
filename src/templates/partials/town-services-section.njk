@@ -1,0 +1,142 @@
+{# Town Services Section - Utilities, healthcare, education, transport #}
+
+<div class="content">
+  <h3 class="title is-4">Available Services</h3>
+
+  <div class="columns is-multiline">
+    {# Healthcare #}
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+      <div class="card">
+        <div class="card-header has-background-info">
+          <p class="card-header-title has-text-white">
+            <span class="icon"><i class="fas fa-hospital-user"></i></span>
+            <span>Healthcare</span>
+          </p>
+        </div>
+        <div class="card-content">
+          <p class="is-size-7">
+            {%- if town.healthcare -%}
+            {{ town.healthcare.description }}
+            {%- else -%}
+            Healthcare services are available in {{ town.name }}, with hospitals and clinics nearby.
+            {%- endif -%}
+          </p>
+          {%- if town.healthcare and town.healthcare.facilities -%}
+          <ul class="is-size-7 mt-3">
+            {%- for facility in town.healthcare.facilities -%}
+            <li>{{ facility }}</li>
+            {%- endfor -%}
+          </ul>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    {# Education #}
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+      <div class="card">
+        <div class="card-header has-background-warning">
+          <p class="card-header-title has-text-white">
+            <span class="icon"><i class="fas fa-graduation-cap"></i></span>
+            <span>Education</span>
+          </p>
+        </div>
+        <div class="card-content">
+          <p class="is-size-7">
+            {%- if town.education -%}
+            {{ town.education.description }}
+            {%- else -%}
+            Educational institutions are available at all levels in or near {{ town.name }}.
+            {%- endif -%}
+          </p>
+          {%- if town.education and town.education.types -%}
+          <ul class="is-size-7 mt-3">
+            {%- for type in town.education.types -%}
+            <li>{{ type }}</li>
+            {%- endfor -%}
+          </ul>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    {# Public Transport #}
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+      <div class="card">
+        <div class="card-header has-background-success">
+          <p class="card-header-title has-text-white">
+            <span class="icon"><i class="fas fa-bus"></i></span>
+            <span>Public Transport</span>
+          </p>
+        </div>
+        <div class="card-content">
+          <p class="is-size-7">
+            {%- if town.transport -%}
+            {{ town.transport.description }}
+            {%- else -%}
+            Public transport options are available to connect {{ town.name }} with nearby towns.
+            {%- endif -%}
+          </p>
+          {%- if town.transport and town.transport.types -%}
+          <ul class="is-size-7 mt-3">
+            {%- for type in town.transport.types -%}
+            <li>{{ type }}</li>
+            {%- endfor -%}
+          </ul>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    {# Shopping #}
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+      <div class="card">
+        <div class="card-header has-background-danger">
+          <p class="card-header-title has-text-white">
+            <span class="icon"><i class="fas fa-shopping-bags"></i></span>
+            <span>Shopping</span>
+          </p>
+        </div>
+        <div class="card-content">
+          <p class="is-size-7">
+            {{ town.name }} offers a variety of shopping options including local markets, traditional shops, and supermarkets serving daily needs.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {# Dining #}
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+      <div class="card">
+        <div class="card-header has-background-link">
+          <p class="card-header-title has-text-white">
+            <span class="icon"><i class="fas fa-utensils"></i></span>
+            <span>Dining</span>
+          </p>
+        </div>
+        <div class="card-content">
+          <p class="is-size-7">
+            Enjoy authentic local cuisine and traditional restaurants featuring regional specialties throughout {{ town.name }}.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {# Utilities #}
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+      <div class="card">
+        <div class="card-header has-background-grey">
+          <p class="card-header-title has-text-white">
+            <span class="icon"><i class="fas fa-zap"></i></span>
+            <span>Utilities</span>
+          </p>
+        </div>
+        <div class="card-content">
+          <p class="is-size-7">
+            All standard utilities including electricity, water, gas, and internet connectivity are available in {{ town.name }}.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

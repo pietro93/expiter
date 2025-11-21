@@ -1,0 +1,44 @@
+
+🌍 Expiter Migration - Province Page Generator
+   Languages: en, it, de, es, fr
+   Environment: production
+✓ PageGenerator initialized
+
+🚀 Starting multi-language generation for 5 languages...
+
+📄 Generating province pages for en...
+  ✓ Generated 128/128 pages
+  📊 Total size: 3.05 MB
+  📏 Average size: 24.43 KB
+
+📄 Generating province pages for it...
+  ✓ Generated 128/128 pages
+  📊 Total size: 3.05 MB
+  📏 Average size: 24.43 KB
+
+📄 Generating province pages for de...
+  ✓ Generated 128/128 pages
+  📊 Total size: 3.05 MB
+  📏 Average size: 24.43 KB
+
+📄 Generating province pages for es...
+  ✓ Generated 128/128 pages
+  📊 Total size: 3.05 MB
+  📏 Average size: 24.42 KB
+
+📄 Generating province pages for fr...
+  ✓ Generated 128/128 pages
+  📊 Total size: 3.05 MB
+  📏 Average size: 24.43 KB
+
+✨ Generation complete!
+  ⏱️  Total time: 29.04s
+  📄 Total files: 640
+  📦 Total size: 15.27 MB
+
+✅ All languages generated successfully
+{
+  "totalFiles": 640,
+  "totalSize": 16009472,
+  "totalSizeFormatted": "15.27 MB"
+}

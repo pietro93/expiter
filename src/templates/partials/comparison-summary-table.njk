@@ -1,0 +1,98 @@
+{# Comparison Summary Table - Complete comparison matrix #}
+
+<div class="table-container">
+  <table class="table is-striped is-hoverable is-fullwidth is-size-7">
+    <thead>
+      <tr>
+        <th style="min-width: 150px;">Metric</th>
+        {%- for item in comparisonItems -%}
+        <th style="min-width: 120px;"><a href="/province/{{ item.slug }}">{{ item.name }}</a></th>
+        {%- endfor -%}
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="is-selected">
+        <td><strong>Population</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.population | formatNumber }}</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Area (km²)</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.area | round(0) }}</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Density</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ (item.population / item.area) | round }}/km²</td>
+        {%- endfor -%}
+      </tr>
+      <tr class="is-selected">
+        <td><strong>Healthcare Quality</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.healthcare }}/10</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Safety Rating</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.safety }}/10</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Education Quality</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.education }}/10</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Climate Quality</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.climate }}/10</td>
+        {%- endfor -%}
+      </tr>
+      <tr class="is-selected">
+        <td><strong>Single Person Cost/mo</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.costOfLiving.singlePerson | formatCurrency }}</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Family of 4 Cost/mo</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.costOfLiving.family | formatCurrency }}</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Rent (1BR center)</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.costOfLiving.rent | formatCurrency }}/mo</td>
+        {%- endfor -%}
+      </tr>
+      <tr class="is-selected">
+        <td><strong>Avg Temperature</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.climate.avgTemp }}&deg;C</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Annual Rainfall</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.climate.rainfall | round }} mm</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Sunshine Hours/year</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.climate.sunshine | round(0) }}</td>
+        {%- endfor -%}
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="is-size-7 has-text-grey mt-3">
+  Last updated: {{ "now" | date("Y-m-d") }}
+</p>

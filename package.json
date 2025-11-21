@@ -33,7 +33,17 @@
     "prettier": "^3.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
+    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "generate": "node src/index.js",
+    "generate:en": "node src/index.js --lang en",
+    "generate:it": "node src/index.js --lang it",
+    "generate:de": "node src/index.js --lang de",
+    "generate:es": "node src/index.js --lang es",
+    "generate:fr": "node src/index.js --lang fr",
+    "validate": "node run-validate.js",
+    "verify": "node verify-migration.sh"
   },
   "repository": {
     "type": "git",

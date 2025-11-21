@@ -5,11 +5,15 @@
 
 import nunjucks from 'nunjucks';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-function setupNunjucks() {
-  const templatesPath = path.join(import.meta.url, '../../templates');
+function setupNunjucks(templatesDir) {
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const templatesPath = templatesDir || path.join(__dirname, '../templates');
 
-  const env = nunjucks.configure(templatesPath, {
+  // Create environment with FileSystemLoader
+  const loader = new nunjucks.FileSystemLoader(templatesPath);
+  const env = new nunjucks.Environment(loader, {
     autoescape: true,
     trimBlocks: true,
     lstripBlocks: true,
@@ -69,9 +73,9 @@ function setupNunjucks() {
   });
 
   /**
-   * Custom filter: toSlug
-   * Converts a string to a URL-safe slug
-   */
+    * Custom filter: toSlug
+    * Converts a string to a URL-safe slug
+    */
   env.addFilter('toSlug', (value) => {
     if (typeof value !== 'string') return value;
     return value
@@ -79,6 +83,14 @@ function setupNunjucks() {
       .trim()
       .replace(/\s+/g, '-')
       .replace(/[^\w-]/g, '');
+  });
+
+  /**
+    * Global function: t
+    * Translation function (to be overridden in context)
+    */
+  env.addGlobal('t', (key) => {
+    return key; // Fallback to key name if not provided in context
   });
 
   return env;

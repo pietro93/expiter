@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-11-21T08:45:01.343Z",
+  "duration": "6.00",
+  "summary": {
+    "total": 795,
+    "valid": 795,
+    "invalid": 0,
+    "errors": [],
+    "warnings": []
+  },
+  "details": {
+    "errorFiles": [],
+    "warningFiles": []
+  }
+}

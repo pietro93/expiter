@@ -1,0 +1,63 @@
+{# Town Events Section - Local festivals, events, and celebrations #}
+
+<div class="content">
+  <h3 class="title is-4">Local Events & Festivals</h3>
+
+  {%- if events and events.length > 0 -%}
+  <div class="columns is-multiline">
+    {%- for event in events -%}
+    <div class="column is-full-mobile is-half-tablet">
+      <div class="card">
+        <div class="card-header has-background-primary-light">
+          <p class="card-header-title">
+            <span class="icon"><i class="fas fa-calendar-days"></i></span>
+            <span>{{ event.name }}</span>
+          </p>
+        </div>
+        <div class="card-content">
+          <div class="level is-mobile">
+            <div class="level-left">
+              <div class="level-item">
+                <small class="has-text-grey">
+                  <strong>When:</strong> {{ event.month }}
+                </small>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <span class="tag is-small">{{ event.type }}</span>
+              </div>
+            </div>
+          </div>
+          <p class="content is-size-7 mt-3">{{ event.description }}</p>
+          {%- if event.highlights -%}
+          <p class="is-size-7"><strong>Highlights:</strong></p>
+          <ul class="is-size-7">
+            {%- for highlight in event.highlights -%}
+            <li>{{ highlight }}</li>
+            {%- endfor -%}
+          </ul>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+    {%- endfor -%}
+  </div>
+  {%- else -%}
+  <div class="notification is-info">
+    <p><strong>Note:</strong> Event information for {{ town.name }} is being compiled. Check back soon for details about local festivals and celebrations.</p>
+  </div>
+  {%- endif -%}
+
+  <h4 class="title is-5 mt-5">Seasonal Highlights</h4>
+  <div class="box has-background-warning-light">
+    <p class="mb-3">
+      {{ town.name }} celebrates the seasons with unique traditions and events throughout the year. 
+      The town hosts various cultural festivals, food celebrations, and traditional events that showcase 
+      local heritage and community spirit.
+    </p>
+    <p class="is-size-7">
+      <em>For the most current event schedule, we recommend checking with the local tourism office or town website.</em>
+    </p>
+  </div>
+</div>

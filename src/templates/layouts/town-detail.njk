@@ -1,0 +1,133 @@
+{% extends "layouts/base.njk" %}
+
+{# Town/Comune Detail Layout - Extends base.njk for consistent styling #}
+
+{% block content %}
+<main role="main" aria-label="Town content">
+  
+  {# Breadcrumbs Navigation #}
+  {% include "breadcrumbs.njk" %}
+  
+  {# Hero Section #}
+  <section class="hero is-light" aria-label="Town hero section">
+    <div class="hero-body">
+      <div class="container">
+        <div class="content">
+          <h1 class="title is-2">{{ town.name }}</h1>
+          <p class="subtitle is-4">
+            {{ town.province }}, {{ town.region }} • 
+            <span class="tag">Population: {{ town.population | formatNumber }}</span>
+          </p>
+          <p class="is-size-6">{{ town.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# Quick Facts Section #}
+  <section class="section" aria-labelledby="quick-facts">
+    <div class="container">
+      <h2 id="quick-facts" class="title is-3">Quick Facts</h2>
+      <div class="columns is-multiline">
+        <div class="column is-full-mobile is-half-tablet is-one-quarter-desktop">
+          <div class="box has-background-light">
+            <p class="heading">Population</p>
+            <p class="title is-5">{{ town.population | formatNumber }}</p>
+          </div>
+        </div>
+        <div class="column is-full-mobile is-half-tablet is-one-quarter-desktop">
+          <div class="box has-background-light">
+            <p class="heading">Area (km²)</p>
+            <p class="title is-5">{{ town.area | round(2) }}</p>
+          </div>
+        </div>
+        <div class="column is-full-mobile is-half-tablet is-one-quarter-desktop">
+          <div class="box has-background-light">
+            <p class="heading">Elevation (m)</p>
+            <p class="title is-5">{{ town.elevation | round }}</p>
+          </div>
+        </div>
+        <div class="column is-full-mobile is-half-tablet is-one-quarter-desktop">
+          <div class="box has-background-light">
+            <p class="heading">Postal Code</p>
+            <p class="title is-5">{{ town.postalCode }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# Main Content Tabs #}
+  <section class="section" aria-labelledby="town-content">
+    <div class="container">
+      <h2 id="town-content" class="title is-3">Town Information</h2>
+      
+      <div class="tabs is-boxed is-fullwidth">
+        <ul>
+          <li class="is-active" data-tab="overview">
+            <a><span class="icon is-small"><i class="fas fa-map-pin"></i></span><span>Overview</span></a>
+          </li>
+          <li data-tab="attractions">
+            <a><span class="icon is-small"><i class="fas fa-landmark"></i></span><span>Attractions</span></a>
+          </li>
+          <li data-tab="services">
+            <a><span class="icon is-small"><i class="fas fa-briefcase"></i></span><span>Services</span></a>
+          </li>
+          <li data-tab="events">
+            <a><span class="icon is-small"><i class="fas fa-calendar"></i></span><span>Events</span></a>
+          </li>
+        </ul>
+      </div>
+
+      {# Overview Tab #}
+      <div id="overview" class="tab-content is-active" role="tabpanel" aria-labelledby="tab-overview">
+        {% include "town-overview-section.njk" %}
+      </div>
+
+      {# Attractions Tab #}
+      <div id="attractions" class="tab-content" role="tabpanel" aria-labelledby="tab-attractions">
+        {% include "town-attractions-section.njk" %}
+      </div>
+
+      {# Services Tab #}
+      <div id="services" class="tab-content" role="tabpanel" aria-labelledby="tab-services">
+        {% include "town-services-section.njk" %}
+      </div>
+
+      {# Events Tab #}
+      <div id="events" class="tab-content" role="tabpanel" aria-labelledby="tab-events">
+        {% include "town-events-section.njk" %}
+      </div>
+    </div>
+  </section>
+
+  {# Related Towns Section #}
+  <section class="section has-background-light" aria-labelledby="related-towns">
+    <div class="container">
+      <h2 id="related-towns" class="title is-3">Nearby Towns</h2>
+      {% include "related-towns.njk" %}
+    </div>
+  </section>
+
+  {# Call to Action #}
+  <section class="section" aria-labelledby="town-cta">
+    <div class="container">
+      <div class="box has-background-info-light has-text-centered">
+        <h2 id="town-cta" class="title is-4">Planning to visit or move here?</h2>
+        <p class="mb-4">{{ town.name }} is a wonderful destination. Explore our comprehensive guide and discover why locals love this place.</p>
+        <div class="buttons is-centered">
+          <a href="#" class="button is-info is-medium">
+            <span class="icon"><i class="fas fa-download"></i></span>
+            <span>Download Guide</span>
+          </a>
+          <a href="#" class="button is-light is-medium">
+            <span class="icon"><i class="fas fa-envelope"></i></span>
+            <span>Subscribe for Updates</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+{% endblock %}

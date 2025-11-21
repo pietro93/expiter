@@ -1,0 +1,299 @@
+# Expiter Nunjucks Migration - Production Deployment Checklist
+
+**Deployment Date:** [TO BE FILLED]  
+**Deployed By:** [TO BE FILLED]  
+**Environment:** Production  
+**Branch:** nunjucks-migration  
+
+---
+
+## PRE-DEPLOYMENT VERIFICATION (Check Before Deploying)
+
+- [ ] All 22 test cases passing (`npm test` returns 22/22)
+- [ ] No uncommitted changes in git (`git status` is clean)
+- [ ] All 801 output files generated (`tests/compare-output.js` shows 801 files)
+- [ ] HTML validation passes (`npm run validate` shows 795/795 passing)
+- [ ] Code coverage at acceptable threshold (≥50% global)
+- [ ] No console errors in generation logs
+- [ ] Sitemap index validates (6 files created)
+- [ ] All 5 languages generated successfully
+- [ ] Package dependencies installed (`npm list nunjucks i18next` shows versions)
+
+### Validation Commands
+```bash
+# 1. Run tests
+npm test
+
+# 2. Check file generation
+node tests/compare-output.js
+
+# 3. Validate HTML
+node run-validate.js
+
+# 4. Verify git status
+git status
+
+# 5. Check all 5 languages exist
+ls -la output/en output/it output/de output/es output/fr
+```
+
+**Pre-deployment Status:** ☐ PASS / ☐ FAIL
+
+---
+
+## STAGING DEPLOYMENT (Test on Staging First)
+
+### 1. Backup Current Staging
+- [ ] Create backup of current staging files: `backup_staging_$(date +%Y%m%d_%H%M%S).tar.gz`
+- [ ] Store backup in secure location with versioning
+- [ ] Document backup location in deployment log
+
+### 2. Upload Files to Staging
+- [ ] Clone/pull nunjucks-migration branch to staging server
+  ```bash
+  cd /home/[user]/public_html_staging
+  git pull origin nunjucks-migration
+  ```
+- [ ] Install/update dependencies: `npm install`
+- [ ] Generate all output files: `npm run generate`
+- [ ] Verify file count matches (801 files, 20.33 MB)
+
+### 3. Test Staging Deployment
+- [ ] Check homepage loads: `https://staging.expiter.com/en/`
+- [ ] Verify province pages load: `https://staging.expiter.com/en/province/milano.html`
+- [ ] Check region pages: `https://staging.expiter.com/en/region/lombardia.html`
+- [ ] Test search functionality on index page
+- [ ] Test language switching on all pages
+- [ ] Check breadcrumbs navigation
+- [ ] Verify styles loaded correctly (no 404s on CSS/JS)
+- [ ] Test tabs on province detail pages (Quality, Cost, Nomads)
+- [ ] Check mobile responsiveness with DevTools
+- [ ] Validate no console errors (Chrome DevTools)
+- [ ] Check SEO meta tags (OG tags in source)
+
+### 4. Verify Staging Sitemaps
+- [ ] Check sitemap index: `https://staging.expiter.com/sitemap.xml`
+- [ ] Verify English sitemap: `https://staging.expiter.com/sitemap-en.xml`
+- [ ] Check all 5 language sitemaps load
+- [ ] Validate sitemap XML structure (valid XML)
+
+### 5. Performance Testing (Staging)
+- [ ] Page load time < 2 seconds (use Chrome PageSpeed Insights)
+- [ ] No 404 errors in server logs
+- [ ] No timeout errors
+- [ ] Check server CPU/memory usage during load test
+
+**Staging Status:** ☐ PASS / ☐ FAIL
+
+---
+
+## PRODUCTION DEPLOYMENT
+
+### 1. Create Production Backup
+- [ ] Full backup of production files: `backup_prod_$(date +%Y%m%d_%H%M%S).tar.gz`
+- [ ] Store backup in secure, redundant location
+- [ ] Document backup location, date, and commit hash
+- [ ] Keep backup for minimum 30 days
+
+### 2. Deploy to Production
+- [ ] Switch to production directory
+  ```bash
+  cd /home/[user]/public_html
+  ```
+- [ ] Verify you're on main branch: `git branch`
+- [ ] Pull latest code: `git pull origin main`
+- [ ] Merge nunjucks-migration PR if not already merged
+  ```bash
+  git merge nunjucks-migration
+  git push origin main
+  ```
+- [ ] Install/update dependencies: `npm install`
+- [ ] Generate all output files: `npm run generate`
+- [ ] Verify file count and structure
+- [ ] Set proper file permissions: `chmod -R 755 output/`
+
+### 3. DNS & Load Balancer (If Applicable)
+- [ ] Update DNS to point to new server (if migrating servers)
+- [ ] Configure load balancer if using one
+- [ ] Update SSL certificates if needed
+- [ ] Verify SSL/TLS version (TLS 1.2+)
+
+### 4. Production Smoke Testing
+- [ ] Homepage loads: `https://expiter.com/en/`
+- [ ] Province page loads: `https://expiter.com/en/province/roma.html`
+- [ ] Region page loads: `https://expiter.com/en/region/lazio.html`
+- [ ] Safety page loads: `https://expiter.com/en/safety/`
+- [ ] All language variants load (en, it, de, es, fr)
+- [ ] No console errors on homepage
+- [ ] Search functionality works
+- [ ] Breadcrumbs navigation works
+- [ ] Tab switching works (Quality, Cost, Nomads)
+- [ ] Images load correctly
+- [ ] Fonts display correctly
+
+### 5. Production Sitemaps
+- [ ] Main sitemap index loads: `https://expiter.com/sitemap.xml`
+- [ ] All 5 language sitemaps accessible
+- [ ] Sitemaps are valid XML (validate with online tools)
+- [ ] URLs in sitemaps are working (spot-check 10 URLs)
+
+### 6. Monitor Production
+- [ ] Check server error logs: `tail -f /var/log/apache2/error.log`
+- [ ] Monitor application logs for errors
+- [ ] Check CPU, memory, disk usage
+- [ ] Monitor web requests and response times
+- [ ] Set up alerts for errors/downtime
+
+### 7. Update Search Engines
+- [ ] Submit sitemap to Google Search Console: `https://search.google.com/search-console`
+- [ ] Submit sitemap to Bing Webmaster Tools
+- [ ] Request reindex for homepage
+- [ ] Monitor search console for crawl errors
+
+**Production Deployment Status:** ☐ PASS / ☐ FAIL
+
+---
+
+## POST-DEPLOYMENT VALIDATION (24 Hours)
+
+### User-Facing Features
+- [ ] All pages load without timeout
+- [ ] Search functionality works correctly
+- [ ] Language switching functions properly
+- [ ] Mobile version displays correctly
+- [ ] Forms (if any) submit successfully
+- [ ] No visual regressions (compare with staging screenshots)
+- [ ] Performance acceptable (< 2s page load)
+
+### Backend Monitoring
+- [ ] No spike in error logs
+- [ ] Server resources within normal range
+- [ ] No database connection issues
+- [ ] Third-party API calls working (analytics, ads)
+- [ ] Email notifications (if any) sending correctly
+
+### SEO & Indexing
+- [ ] Google Search Console shows no critical errors
+- [ ] Bing Webmaster Tools shows no issues
+- [ ] Check Google Index for homepage in 24 hours
+- [ ] Monitor traffic changes (compare with baseline)
+
+### Analytics & Metrics
+- [ ] Google Analytics data flowing correctly
+- [ ] Traffic sources tracking properly
+- [ ] Goal conversions recording
+- [ ] User behavior looks normal
+
+**Post-Deployment Status:** ☐ PASS / ☐ FAIL
+
+---
+
+## KNOWN ISSUES & MITIGATIONS
+
+### Issue 1: Missing Breadcrumbs
+**Status:** ✅ RESOLVED (Fixed in templates)  
+**Mitigation:** If issue appears, check `src/templates/partials/breadcrumbs.njk` exists  
+**Fallback:** Revert to staging backup and investigate
+
+### Issue 2: Town Pages Not Working
+**Status:** 🟡 PARTIAL (Scaffolding exists, full functionality pending)  
+**Mitigation:** Town generation disabled, not critical for MVP  
+**Fallback:** Use safety pages instead, town pages can be added in Phase 2
+
+### Issue 3: Performance Degradation
+**Status:** 🟡 CONTINGENCY  
+**Mitigation:** Monitor response times, enable caching if needed  
+**Fallback:** Scale up server resources or enable CDN
+
+---
+
+## ROLLBACK PROCEDURE
+
+**IF DEPLOYMENT FAILS, FOLLOW THESE STEPS:**
+
+### Immediate Rollback
+1. **Restore from backup** (fastest option - < 5 minutes)
+   ```bash
+   # Stop web server
+   sudo systemctl stop apache2
+   
+   # Restore backup
+   tar -xzf backup_prod_20251121_143000.tar.gz -C /home/[user]/public_html
+   
+   # Restart web server
+   sudo systemctl start apache2
+   
+   # Verify old version is live
+   curl https://expiter.com/en/ | grep "<!-- Legacy version"
+   ```
+
+2. **Revert git commit** (if code change caused issue)
+   ```bash
+   cd /home/[user]/public_html
+   git revert HEAD
+   git push origin main
+   npm run generate
+   ```
+
+3. **Switch back to legacy branch** (if needed)
+   ```bash
+   git checkout legacy
+   npm run generate
+   ```
+
+### Rollback Validation
+- [ ] Old version is live (verify homepage)
+- [ ] All pages load
+- [ ] No error logs
+- [ ] Performance normal
+- [ ] Search engines reindexed (wait 24-48 hours)
+
+### Investigation & Root Cause Analysis
+- [ ] Document what went wrong
+- [ ] Collect error logs and screenshots
+- [ ] Review code changes
+- [ ] Create bug report with reproduction steps
+- [ ] Schedule post-mortem meeting if critical issue
+
+**Rollback Status:** ☐ SUCCESS / ☐ PARTIAL SUCCESS / ☐ REQUIRES MANUAL INTERVENTION
+
+---
+
+## SIGN-OFF
+
+### Deployment Team
+- [ ] **Deployed By:** _________________________ (Name/Date)
+- [ ] **Reviewed By:** _________________________ (Name/Date)
+- [ ] **Approved By:** _________________________ (Name/Date)
+
+### Sign-Off Confirmation
+- [ ] All checklist items completed
+- [ ] Production deployment successful
+- [ ] Monitoring enabled
+- [ ] Team notified of successful deployment
+- [ ] Documentation updated
+
+**Overall Deployment Status:** ☐ COMPLETE ☐ REQUIRES FOLLOW-UP
+
+### Notes & Comments
+```
+[Space for deployment notes, issues encountered, timeline, etc.]
+```
+
+---
+
+## Related Documentation
+
+- **Migration Complete:** `/docs/MIGRATION_COMPLETE.md`
+- **Migration Progress:** `/MIGRATION_PROGRESS.md`
+- **Rollback Backup Location:** [To be filled during deployment]
+- **Deployment Start Time:** [To be filled]
+- **Deployment End Time:** [To be filled]
+- **Total Downtime:** [To be filled]
+
+---
+
+**Last Updated:** November 21, 2025  
+**Next Review:** Post-deployment (within 7 days)  
+**Owner:** Engineering Team  
+**Status:** READY FOR DEPLOYMENT

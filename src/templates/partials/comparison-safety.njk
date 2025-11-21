@@ -1,0 +1,95 @@
+{# Comparison Safety - Crime rates and safety comparison #}
+
+<div class="columns is-multiline">
+  {%- for item in comparisonItems -%}
+  <div class="column is-full-mobile is-half-tablet">
+    <h4 class="title is-5 mb-4">{{ item.name }}</h4>
+    
+    <div class="card mb-3">
+      <div class="card-header has-background-success">
+        <p class="card-header-title has-text-white">
+          <span class="icon is-small"><i class="fas fa-shield-alt"></i></span>
+          <span>Safety Rating</span>
+        </p>
+      </div>
+      <div class="card-content">
+        <progress class="progress is-success mb-2" value="{{ item.safety }}" max="10"></progress>
+        <p class="title is-6">{{ item.safety }}/10</p>
+      </div>
+    </div>
+
+    {%- if item.safety_detail -%}
+    <div class="box mb-3">
+      <p class="heading is-size-7">Crime Rate per 100,000</p>
+      <p class="title is-6">{{ item.safety_detail.crimeRate }}</p>
+      <p class="is-size-7 has-text-grey">(lower is better)</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Violent Crime</p>
+      <p class="title is-6">{{ item.safety_detail.violentCrime }}</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Property Crime</p>
+      <p class="title is-6">{{ item.safety_detail.propertyCrime }}</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Police Stations</p>
+      <p class="is-size-7">{{ item.safety_detail.policeStations }}</p>
+    </div>
+    {%- else -%}
+    <div class="box">
+      <p class="is-size-7">Safety data based on official crime statistics and community feedback.</p>
+    </div>
+    {%- endif -%}
+  </div>
+  {%- endfor -%}
+</div>
+
+<div class="table-container mt-4">
+  <table class="table is-striped is-hoverable is-fullwidth is-size-7">
+    <thead>
+      <tr>
+        <th>Crime Type</th>
+        {%- for item in comparisonItems -%}
+        <th>{{ item.name }}</th>
+        {%- endfor -%}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Homicide Rate</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.crime_data.homicide | round(2) if item.crime_data else 'N/A' }}</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Robbery</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.crime_data.robbery | round(0) if item.crime_data else 'N/A' }}</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Theft</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.crime_data.theft | round(0) if item.crime_data else 'N/A' }}</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Drug Crimes</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.crime_data.drugs | round(0) if item.crime_data else 'N/A' }}</td>
+        {%- endfor -%}
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="notification is-warning mt-4">
+  <p class="is-size-7">
+    Crime statistics are based on official government data and may not capture all unreported incidents. 
+    Safety perceptions can vary by neighborhood.
+  </p>
+</div>

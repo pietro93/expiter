@@ -1,0 +1,55 @@
+{# Comparison Healthcare - Healthcare quality comparison #}
+
+<div class="columns is-multiline">
+  {%- for item in comparisonItems -%}
+  <div class="column is-full-mobile is-half-tablet">
+    <h4 class="title is-5 mb-4">{{ item.name }}</h4>
+    
+    <div class="card mb-3">
+      <div class="card-header has-background-info">
+        <p class="card-header-title has-text-white">
+          <span class="icon is-small"><i class="fas fa-hospital-user"></i></span>
+          <span>Overall Quality</span>
+        </p>
+      </div>
+      <div class="card-content">
+        <progress class="progress is-info mb-2" value="{{ item.healthcare }}" max="10"></progress>
+        <p class="title is-6">{{ item.healthcare }}/10</p>
+      </div>
+    </div>
+
+    {%- if item.healthcare_detail -%}
+    <div class="box mb-3">
+      <p class="heading is-size-7">Hospitals</p>
+      <p class="is-size-7">{{ item.healthcare_detail.hospitals }}</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Doctors per 1,000</p>
+      <p class="title is-6">{{ item.healthcare_detail.doctors }}</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Life Expectancy</p>
+      <p class="title is-6">{{ item.healthcare_detail.lifeExpectancy }} years</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Healthcare Coverage</p>
+      <p class="is-size-7">{{ item.healthcare_detail.coverage }}</p>
+    </div>
+    {%- else -%}
+    <div class="box">
+      <p class="is-size-7">Healthcare data includes public hospital availability, doctor accessibility, and health outcomes.</p>
+    </div>
+    {%- endif -%}
+  </div>
+  {%- endfor -%}
+</div>
+
+<div class="notification is-light mt-4">
+  <p class="is-size-7">
+    <strong>Note:</strong> All provinces in Italy have access to the national public healthcare system (Servizio Sanitario Nazionale). 
+    Quality may vary based on regional investment and local medical facilities.
+  </p>
+</div>

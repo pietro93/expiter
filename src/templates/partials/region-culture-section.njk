@@ -1,0 +1,91 @@
+{# Region Culture Section - Cultural heritage, traditions, cuisine #}
+
+<div class="content">
+  <h3 class="title is-4">Culture & Heritage</h3>
+  
+  {%- if region.culture -%}
+  <p>{{ region.culture.description }}</p>
+  {%- else -%}
+  <p>{{ region.name }} is known for its rich cultural heritage and distinct traditions passed down through generations.</p>
+  {%- endif -%}
+
+  <h4 class="title is-5 mt-5">Traditions & Customs</h4>
+  <div class="box has-background-light">
+    <p class="mb-3">
+      The people of {{ region.name }} have maintained strong cultural traditions that reflect the region's history 
+      and values. Local festivals, celebrations, and customs provide insight into the authentic character of the region.
+    </p>
+    {%- if region.culture and region.culture.traditions -%}
+    <ul>
+      {%- for tradition in region.culture.traditions -%}
+      <li>{{ tradition }}</li>
+      {%- endfor -%}
+    </ul>
+    {%- endif -%}
+  </div>
+
+  <h4 class="title is-5 mt-5">Cuisine & Gastronomy</h4>
+  <div class="columns">
+    <div class="column">
+      <p class="mb-3">
+        {{ region.name }}'s culinary tradition is a reflection of its geography, history, and agricultural heritage. 
+        Local dishes feature fresh, seasonal ingredients and time-honored preparation methods.
+      </p>
+      {%- if region.culture and region.culture.specialties -%}
+      <p class="heading is-size-7">Regional Specialties:</p>
+      <ul class="is-size-7">
+        {%- for specialty in region.culture.specialties -%}
+        <li>{{ specialty }}</li>
+        {%- endfor -%}
+      </ul>
+      {%- endif -%}
+    </div>
+    <div class="column">
+      {%- if region.culture and region.culture.wines -%}
+      <div class="box has-background-success-light">
+        <p class="heading has-text-success">Wines</p>
+        <ul class="is-size-7">
+          {%- for wine in region.culture.wines -%}
+          <li>{{ wine }}</li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <h4 class="title is-5 mt-5">Arts & Heritage Sites</h4>
+  <p class="mb-3">{{ region.name }} is home to numerous cultural and historical sites of significance:</p>
+  <div class="columns is-multiline">
+    {%- if region.culture and region.culture.sites -%}
+      {%- for site in region.culture.sites -%}
+      <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+        <div class="card">
+          <div class="card-content">
+            <p class="title is-6">{{ site.name }}</p>
+            <p class="is-size-7">{{ site.description }}</p>
+            {%- if site.type -%}
+            <p class="mt-2"><span class="tag is-small">{{ site.type }}</span></p>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+      {%- endfor -%}
+    {%- else -%}
+      <div class="column is-full-mobile">
+        <div class="notification is-info">
+          <p class="is-size-7">{{ region.name }} features several UNESCO World Heritage sites, museums, and historical landmarks.</p>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <h4 class="title is-5 mt-5">Festivals & Events</h4>
+  <p class="mb-3">The region celebrates its heritage through various cultural events and festivals throughout the year:</p>
+  <div class="box has-background-warning-light">
+    <p class="is-size-7">
+      Major festivals showcase traditional music, dance, crafts, and cuisine. These events bring together locals 
+      and visitors to celebrate {{ region.name }}'s unique identity and cultural pride.
+    </p>
+  </div>
+</div>

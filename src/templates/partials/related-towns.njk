@@ -1,0 +1,41 @@
+{# Related Towns Section - Carousel/grid of nearby towns #}
+
+{%- if relatedTowns and relatedTowns.length > 0 -%}
+<div class="columns is-multiline">
+  {%- for relatedTown in relatedTowns -%}
+  <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-5">
+              <a href="/town/{{ relatedTown.slug }}">{{ relatedTown.name }}</a>
+            </p>
+            <p class="subtitle is-6">{{ relatedTown.province }}</p>
+          </div>
+        </div>
+        <div class="content is-size-7">
+          <p>{{ relatedTown.description }}</p>
+          {%- if relatedTown.distance -%}
+          <p class="mt-2">
+            <small><strong>Distance:</strong> {{ relatedTown.distance | round(1) }} km</small>
+          </p>
+          {%- endif -%}
+        </div>
+      </div>
+      <footer class="card-footer">
+        <p class="card-footer-item">
+          <a href="/town/{{ relatedTown.slug }}">
+            <span>View</span> <span class="icon is-small"><i class="fas fa-arrow-right"></i></span>
+          </a>
+        </p>
+      </footer>
+    </div>
+  </div>
+  {%- endfor -%}
+</div>
+{%- else -%}
+<div class="notification is-info">
+  <p>No nearby towns data available. Check back soon for related towns information.</p>
+</div>
+{%- endif -%}

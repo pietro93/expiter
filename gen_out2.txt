@@ -1,0 +1,138 @@
+Initializing RegionGenerator...
+✓ Loaded 128 provinces
+
+🌍 Generating region pages for 5 languages (20 regions)...
+
+
+📄 Generating EN region pages...
+  ✓ 20/20 pages generated
+
+📄 Generating IT region pages...
+  ✓ 20/20 pages generated
+
+📄 Generating DE region pages...
+  ✓ 20/20 pages generated
+
+📄 Generating ES region pages...
+  ✓ 20/20 pages generated
+
+📄 Generating FR region pages...
+  ✓ 20/20 pages generated
+
+✓ Region generation complete!
+  Files: 100 (20 regions × 5 languages)
+  Total size: 2.17 MB
+  Time: 5.69s
+
+{
+  "filesGenerated": 100,
+  "totalSize": 2272650,
+  "languages": {
+    "en": {
+      "files": 20,
+      "size": 454318
+    },
+    "it": {
+      "files": 20,
+      "size": 454638
+    },
+    "de": {
+      "files": 20,
+      "size": 454458
+    },
+    "es": {
+      "files": 20,
+      "size": 454558
+    },
+    "fr": {
+      "files": 20,
+      "size": 454678
+    }
+  },
+  "regions": {
+    "Abruzzo": {
+      "files": 5,
+      "size": 108668
+    },
+    "Basilicata": {
+      "files": 5,
+      "size": 102408
+    },
+    "Calabria": {
+      "files": 5,
+      "size": 112323
+    },
+    "Campania": {
+      "files": 5,
+      "size": 112013
+    },
+    "Emilia-Romagna": {
+      "files": 5,
+      "size": 127008
+    },
+    "Friuli-Venezia Giulia": {
+      "files": 5,
+      "size": 111168
+    },
+    "Lazio": {
+      "files": 5,
+      "size": 111373
+    },
+    "Liguria": {
+      "files": 5,
+      "size": 108473
+    },
+    "Lombardia": {
+      "files": 5,
+      "size": 136248
+    },
+    "Marche": {
+      "files": 5,
+      "size": 111813
+    },
+    "Molise": {
+      "files": 5,
+      "size": 101738
+    },
+    "Piemonte": {
+      "files": 5,
+      "size": 122458
+    },
+    "Puglia": {
+      "files": 5,
+      "size": 115448
+    },
+    "Sardegna": {
+      "files": 5,
+      "size": 112403
+    },
+    "Sicilia": {
+      "files": 5,
+      "size": 125603
+    },
+    "Toscana": {
+      "files": 5,
+      "size": 128898
+    },
+    "Trentino-Alto Adige": {
+      "files": 5,
+      "size": 104233
+    },
+    "Umbria": {
+      "files": 5,
+      "size": 101553
+    },
+    "Valle d'Aosta": {
+      "files": 5,
+      "size": 100048
+    },
+    "Veneto": {
+      "files": 5,
+      "size": 118773
+    }
+  },
+  "startTime": 1763713215678,
+  "endTime": 1763713221371,
+  "totalSizeFormatted": "2.17 MB",
+  "duration": "5.69s"
+}

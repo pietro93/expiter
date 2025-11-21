@@ -1,0 +1,76 @@
+{# Region Quality Metrics Section - Comparative metrics across provinces #}
+
+{%- import "components/quality-score.njk" as qscore -%}
+
+<div class="box">
+  <p class="mb-4">How does {{ region.name }} fare across key quality metrics? Below is a summary of average ratings across the region:</p>
+  
+  <div class="columns is-multiline">
+    <div class="column is-full-mobile is-half-tablet">
+      <div class="card">
+        <div class="card-header has-background-info">
+          <p class="card-header-title has-text-white">
+            <span class="icon"><i class="fas fa-heartbeat"></i></span>
+            <span>Healthcare Quality</span>
+          </p>
+        </div>
+        <div class="card-content">
+          <progress class="progress is-info" value="{{ region.healthcare or 7 }}" max="10"></progress>
+          <p class="heading is-size-7 mt-2">Average: {{ region.healthcare or 7 }}/10</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-full-mobile is-half-tablet">
+      <div class="card">
+        <div class="card-header has-background-danger">
+          <p class="card-header-title has-text-white">
+            <span class="icon"><i class="fas fa-shield-alt"></i></span>
+            <span>Safety Rating</span>
+          </p>
+        </div>
+        <div class="card-content">
+          <progress class="progress is-danger" value="{{ region.safety or 7 }}" max="10"></progress>
+          <p class="heading is-size-7 mt-2">Average: {{ region.safety or 7 }}/10</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-full-mobile is-half-tablet">
+      <div class="card">
+        <div class="card-header has-background-warning">
+          <p class="card-header-title has-text-white">
+            <span class="icon"><i class="fas fa-graduation-cap"></i></span>
+            <span>Education Quality</span>
+          </p>
+        </div>
+        <div class="card-content">
+          <progress class="progress is-warning" value="{{ region.education or 7 }}" max="10"></progress>
+          <p class="heading is-size-7 mt-2">Average: {{ region.education or 7 }}/10</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-full-mobile is-half-tablet">
+      <div class="card">
+        <div class="card-header has-background-success">
+          <p class="card-header-title has-text-white">
+            <span class="icon"><i class="fas fa-wind"></i></span>
+            <span>Climate Quality</span>
+          </p>
+        </div>
+        <div class="card-content">
+          <progress class="progress is-success" value="{{ region.climate or 7 }}" max="10"></progress>
+          <p class="heading is-size-7 mt-2">Average: {{ region.climate or 7 }}/10</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification is-info mt-4">
+    <p class="is-size-7">
+      <strong>Note:</strong> These are regional averages calculated from all provinces. Individual provinces may have higher or lower ratings. 
+      Visit specific province pages for detailed metrics.
+    </p>
+  </div>
+</div>

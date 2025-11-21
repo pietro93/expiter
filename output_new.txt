@@ -1,0 +1,13 @@
+
+🌍 Expiter Migration - Province Page Generator
+   Languages: en
+   Environment: production
+✓ PageGenerator initialized
+
+📄 Generating province pages for en...
+  ✓ Generated 128/128 pages
+  📊 Total size: 3.05 MB
+  📏 Average size: 24.43 KB
+
+✅ Generation complete for en
+   Files: 128/128

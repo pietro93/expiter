@@ -1,0 +1,54 @@
+{# Region Overview Section - General regional information and geography #}
+
+<div class="content">
+  <h3 class="title is-4">{{ region.name }} Overview</h3>
+  <p>{{ region.description }}</p>
+
+  <h4 class="title is-5 mt-5">Geographic Information</h4>
+  <div class="table-container">
+    <table class="table is-striped is-narrow is-fullwidth">
+      <tbody>
+        <tr>
+          <td><strong>Capital:</strong></td>
+          <td>{{ region.capital }}</td>
+        </tr>
+        <tr>
+          <td><strong>Region Code:</strong></td>
+          <td>{{ region.code }}</td>
+        </tr>
+        <tr>
+          <td><strong>Area:</strong></td>
+          <td>{{ region.area | round(0) }} km²</td>
+        </tr>
+        <tr>
+          <td><strong>Population:</strong></td>
+          <td>{{ region.population | formatNumber }}</td>
+        </tr>
+        <tr>
+          <td><strong>Population Density:</strong></td>
+          <td>{{ (region.population / region.area) | round }} per km²</td>
+        </tr>
+        <tr>
+          <td><strong>Number of Provinces:</strong></td>
+          <td>{{ region.provinceCount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  {%- if region.geography -%}
+  <h4 class="title is-5 mt-5">Geography & Climate</h4>
+  <p>{{ region.geography }}</p>
+  {%- endif -%}
+
+  {%- if region.history -%}
+  <h4 class="title is-5 mt-5">History</h4>
+  <p>{{ region.history }}</p>
+  {%- endif -%}
+
+  <h4 class="title is-5 mt-5">Administration</h4>
+  <p>
+    {{ region.name }} is one of Italy's 20 administrative regions. The regional government is based in {{ region.capital }}, 
+    which serves as the political and administrative center of the region.
+  </p>
+</div>

@@ -1,0 +1,75 @@
+{# Comparison Cost of Living - Side-by-side cost comparison #}
+
+<div class="columns is-multiline">
+  {%- for item in comparisonItems -%}
+  <div class="column is-full-mobile is-half-tablet">
+    <h4 class="title is-5 mb-4">{{ item.name }}</h4>
+    
+    <div class="box mb-3">
+      <p class="heading is-size-7">Single Person Monthly</p>
+      <p class="title is-5">{{ item.costOfLiving.singlePerson | formatCurrency }}</p>
+      <p class="is-size-7 has-text-grey">rent, food, utilities</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Family of 4 Monthly</p>
+      <p class="title is-5">{{ item.costOfLiving.family | formatCurrency }}</p>
+      <p class="is-size-7 has-text-grey">rent, food, utilities, school</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Rent (1BR Center)</p>
+      <p class="title is-5">{{ item.costOfLiving.rent | formatCurrency }}/mo</p>
+      <p class="is-size-7 has-text-grey">average monthly</p>
+    </div>
+
+    {%- if item.costOfLiving.meal -%}
+    <div class="box mb-3">
+      <p class="heading is-size-7">Meal (Restaurant)</p>
+      <p class="title is-5">{{ item.costOfLiving.meal | formatCurrency }}</p>
+      <p class="is-size-7 has-text-grey">average price</p>
+    </div>
+    {%- endif -%}
+  </div>
+  {%- endfor -%}
+</div>
+
+<div class="table-container mt-4">
+  <table class="table is-striped is-hoverable is-fullwidth">
+    <thead>
+      <tr>
+        <th>Item</th>
+        {%- for item in comparisonItems -%}
+        <th>{{ item.name }}</th>
+        {%- endfor -%}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Groceries (Monthly)</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.costOfLiving.groceries | formatCurrency }}</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Utilities (Monthly)</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.costOfLiving.utilities | formatCurrency }}</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>Public Transport Pass</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.costOfLiving.transport | formatCurrency }}</td>
+        {%- endfor -%}
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="notification is-warning mt-4">
+  <p class="is-size-7">
+    Cost estimates are based on recent data and are subject to change. Actual costs may vary depending on 
+    lifestyle, neighborhood, and personal choices.
+  </p>
+</div>

@@ -1,0 +1,61 @@
+{# Region Provinces Section - List of all provinces in the region #}
+
+<div class="content">
+  <h3 class="title is-4">Provinces of {{ region.name }}</h3>
+
+  {%- if provinces and provinces.length > 0 -%}
+  <p class="mb-4">{{ region.name }} is comprised of {{ provinces.length }} province{{ 's' if provinces.length != 1 else '' }}:</p>
+  
+  <div class="columns is-multiline">
+    {%- for province in provinces -%}
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-5">
+                <a href="/province/{{ province.slug }}">{{ province.name }}</a>
+              </p>
+              {%- if province.code -%}
+              <p class="subtitle is-6">Code: {{ province.code }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+          <div class="content is-size-7">
+            {%- if province.population -%}
+            <p><strong>Population:</strong> {{ province.population | formatNumber }}</p>
+            {%- endif -%}
+            {%- if province.area -%}
+            <p><strong>Area:</strong> {{ province.area | round(0) }} km²</p>
+            {%- endif -%}
+            {%- if province.capital -%}
+            <p><strong>Capital:</strong> {{ province.capital }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <a href="/province/{{ province.slug }}">
+              <span>Explore</span> <span class="icon is-small"><i class="fas fa-arrow-right"></i></span>
+            </a>
+          </p>
+        </footer>
+      </div>
+    </div>
+    {%- endfor -%}
+  </div>
+  {%- else -%}
+  <div class="notification is-info">
+    <p>Province data for {{ region.name }} is being compiled. Please check back soon.</p>
+  </div>
+  {%- endif -%}
+
+  <h4 class="title is-5 mt-5">Province Summary</h4>
+  <div class="box has-background-white-bis">
+    <p>
+      The {{ provinces.length }} provinces that comprise {{ region.name }} each have their own unique character, 
+      history, and attractions. From major urban centers to charming rural areas, these provinces showcase 
+      the diversity of the region. Click on any province above to explore in detail.
+    </p>
+  </div>
+</div>

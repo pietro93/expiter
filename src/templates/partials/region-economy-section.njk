@@ -1,0 +1,67 @@
+{# Region Economy Section - Economic information and key industries #}
+
+<div class="content">
+  <h3 class="title is-4">Economy & Industries</h3>
+  
+  {%- if region.economy -%}
+  <p>{{ region.economy.description }}</p>
+  {%- else -%}
+  <p>{{ region.name }} has a diverse economy with multiple key industries contributing to regional prosperity.</p>
+  {%- endif -%}
+
+  <h4 class="title is-5 mt-5">Major Industries</h4>
+  <div class="columns is-multiline">
+    {%- if region.economy and region.economy.industries -%}
+      {%- for industry in region.economy.industries -%}
+      <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+        <div class="box has-background-info-light">
+          <p class="heading has-text-info">{{ industry.name }}</p>
+          <p class="is-size-7">{{ industry.description }}</p>
+        </div>
+      </div>
+      {%- endfor -%}
+    {%- else -%}
+      <div class="column is-full-mobile">
+        <div class="box has-background-info-light">
+          <p class="is-size-7">{{ region.name }} economy includes agriculture, manufacturing, services, and tourism sectors.</p>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if region.economy and region.economy.statistics -%}
+  <h4 class="title is-5 mt-5">Economic Statistics</h4>
+  <div class="table-container">
+    <table class="table is-striped is-narrow is-fullwidth">
+      <tbody>
+        {%- for stat in region.economy.statistics -%}
+        <tr>
+          <td><strong>{{ stat.label }}</strong></td>
+          <td>{{ stat.value }}</td>
+        </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+  {%- endif -%}
+
+  <h4 class="title is-5 mt-5">Employment & Opportunities</h4>
+  <p class="mb-3">
+    {{ region.name }} offers diverse employment opportunities across multiple sectors. The region's strategic location, 
+    infrastructure, and workforce make it an attractive destination for both established businesses and startups.
+  </p>
+  <div class="columns">
+    <div class="column">
+      <div class="box">
+        <p class="heading is-size-7">Unemployment Rate</p>
+        <p class="title is-5">{{ region.economy.unemploymentRate or 'Data pending' }}</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="box">
+        <p class="heading is-size-7">Key Export Sectors</p>
+        <p class="is-size-7">Manufacturing, fashion, automotive, agriculture</p>
+      </div>
+    </div>
+  </div>
+</div>

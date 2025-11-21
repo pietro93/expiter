@@ -1,0 +1,66 @@
+{# Town Overview Section - General information and statistics #}
+
+<div class="content">
+  <h3 class="title is-4">{{ town.name }} Overview</h3>
+  <p>{{ town.longDescription }}</p>
+
+  <h4 class="title is-5 mt-5">Geographic Information</h4>
+  <div class="table-container">
+    <table class="table is-striped is-narrow is-fullwidth">
+      <tbody>
+        <tr>
+          <td><strong>Province:</strong></td>
+          <td><a href="/province/{{ town.province | toSlug }}">{{ town.province }}</a></td>
+        </tr>
+        <tr>
+          <td><strong>Region:</strong></td>
+          <td><a href="/region/{{ town.region | toSlug }}">{{ town.region }}</a></td>
+        </tr>
+        <tr>
+          <td><strong>Latitude:</strong></td>
+          <td>{{ town.latitude | round(4) }}</td>
+        </tr>
+        <tr>
+          <td><strong>Longitude:</strong></td>
+          <td>{{ town.longitude | round(4) }}</td>
+        </tr>
+        <tr>
+          <td><strong>Elevation:</strong></td>
+          <td>{{ town.elevation | round }} meters</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4 class="title is-5 mt-5">Demographic Data</h4>
+  <div class="columns">
+    <div class="column">
+      <div class="box has-background-white-bis">
+        <p class="heading is-size-7">Total Population</p>
+        <p class="title is-5">{{ town.population | formatNumber }}</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="box has-background-white-bis">
+        <p class="heading is-size-7">Area</p>
+        <p class="title is-5">{{ town.area | round(2) }} km²</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="box has-background-white-bis">
+        <p class="heading is-size-7">Population Density</p>
+        <p class="title is-5">{{ (town.population / town.area) | round }} per km²</p>
+      </div>
+    </div>
+  </div>
+
+  {%- if town.history -%}
+  <h4 class="title is-5 mt-5">History</h4>
+  <p>{{ town.history }}</p>
+  {%- endif -%}
+
+  {%- if town.culture -%}
+  <h4 class="title is-5 mt-5">Culture & Traditions</h4>
+  <p>{{ town.culture }}</p>
+  {%- endif -%}
+</div>

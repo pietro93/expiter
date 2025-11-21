@@ -1,0 +1,43 @@
+{# Related Regions Section - Similar regions by geography or characteristics #}
+
+{%- if relatedRegions and relatedRegions.length > 0 -%}
+<p class="mb-4">Based on geography, climate, and characteristics, you might also be interested in:</p>
+
+<div class="columns is-multiline">
+  {%- for region in relatedRegions -%}
+  <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-5">
+              <a href="/region/{{ region.slug }}">{{ region.name }}</a>
+            </p>
+            <p class="subtitle is-6">{{ region.tagline }}</p>
+          </div>
+        </div>
+        <div class="content is-size-7">
+          <p>{{ region.description }}</p>
+          {%- if region.similarity -%}
+          <p class="mt-2">
+            <span class="tag is-small is-info">{{ region.similarity }}% match</span>
+          </p>
+          {%- endif -%}
+        </div>
+      </div>
+      <footer class="card-footer">
+        <p class="card-footer-item">
+          <a href="/region/{{ region.slug }}">
+            <span>Explore</span> <span class="icon is-small"><i class="fas fa-arrow-right"></i></span>
+          </a>
+        </p>
+      </footer>
+    </div>
+  </div>
+  {%- endfor -%}
+</div>
+{%- else -%}
+<div class="notification is-info">
+  <p>Related regions data is being compiled. Please check back soon.</p>
+</div>
+{%- endif -%}

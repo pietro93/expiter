@@ -1,0 +1,237 @@
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+<div class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-1">
+        {{ t('common.welcome') | default('Explore Italy\'s Provinces') }}
+      </h1>
+      <p class="subtitle is-4">
+        {{ t('common.subtitle') | default('Discover quality of life, cost of living, and lifestyle insights for every Italian province') }}
+      </p>
+      <div class="field has-addons mt-4">
+        <div class="control is-expanded">
+          <input class="input is-medium" id="search-input" type="text" placeholder="{{ t('common.search') | default('Search provinces...') }}">
+        </div>
+        <div class="control">
+          <button class="button is-medium is-primary" id="search-btn">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="level mb-5">
+      <div class="level-left">
+        <h2 class="title is-3">{{ t('common.allProvinces') | default('All Provinces') }}</h2>
+      </div>
+      <div class="level-right">
+        <div class="field has-addons">
+          <p class="control">
+            <span class="select">
+              <select id="region-filter">
+                <option value="">{{ t('common.allRegions') | default('All Regions') }}</option>
+                {% for region in regions %}
+                <option value="{{ region }}">{{ region }}</option>
+                {% endfor %}
+              </select>
+            </span>
+          </p>
+          <p class="control">
+            <span class="select">
+              <select id="sort-filter">
+                <option value="name">{{ t('common.sortByName') | default('Sort by Name') }}</option>
+                <option value="population">{{ t('common.sortByPopulation') | default('Sort by Population') }}</option>
+                <option value="quality">{{ t('common.sortByQuality') | default('Sort by Quality') }}</option>
+                <option value="safety">{{ t('common.sortBySafety') | default('Sort by Safety') }}</option>
+              </select>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="provinces-grid" class="columns is-multiline">
+      {% for province in provinces %}
+      <div class="column is-one-third-desktop is-half-tablet is-full-mobile province-card" data-region="{{ province.Region }}" data-name="{{ province.Name | lower }}" data-population="{{ province.Population }}" data-quality="{{ province['Overall Score'] or 0 }}" data-safety="{{ province.Safety or 0 }}">
+        <div class="card is-fullheight">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="https://via.placeholder.com/400x300?text={{ province.Name }}" alt="{{ province.Name }}" loading="lazy">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4">{{ province.Name }}</p>
+                <p class="subtitle is-6">
+                  <span class="tag is-light">{{ province.Region }}</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="content">
+              <div class="columns is-multiline is-gapless mb-3">
+                <div class="column is-half">
+                  <div class="has-text-centered">
+                    <p class="heading">{{ t('metrics.population') | default('Population') }}</p>
+                    <p class="title is-6">{{ province.Population | formatNumber }}</p>
+                  </div>
+                </div>
+                <div class="column is-half">
+                  <div class="has-text-centered">
+                    <p class="heading">{{ t('metrics.area') | default('Area (km²)') }}</p>
+                    <p class="title is-6">{{ province.Size | round(0) }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="columns is-multiline is-gapless">
+                <div class="column is-half">
+                  <div class="has-text-centered">
+                    <p class="heading">{{ t('metrics.quality') | default('Quality') }}</p>
+                    <p class="title is-6 has-text-success">{{ (province['Overall Score'] or 0) | round(1) }}/10</p>
+                  </div>
+                </div>
+                <div class="column is-half">
+                  <div class="has-text-centered">
+                    <p class="heading">{{ t('metrics.safety') | default('Safety') }}</p>
+                    <p class="title is-6 has-text-info">{{ (province.Safety or 0) | round(1) }}/10</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="card-footer">
+            <a href="{{ language | default('en') }}/province/{{ province.Name | toSlug }}.html" class="card-footer-item has-text-primary">
+              <span class="icon">
+                <i class="fas fa-arrow-right"></i>
+              </span>
+              <span>{{ t('buttons.viewDetails') | default('View Details') }}</span>
+            </a>
+          </footer>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- No results message -->
+    <div id="no-results" class="has-text-centered is-hidden">
+      <p class="title is-5">{{ t('common.noResults') | default('No provinces found') }}</p>
+      <p class="subtitle">{{ t('common.tryDifferentSearch') | default('Try adjusting your search or filter criteria') }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Related Regions Section -->
+<section class="section has-background-light">
+  <div class="container">
+    <h2 class="title is-3 mb-5">{{ t('sections.exploreRegions') | default('Explore Italian Regions') }}</h2>
+    <div class="columns is-multiline">
+      {% for region in regionsList %}
+      <div class="column is-one-quarter-desktop is-one-third-tablet is-half-mobile">
+        <div class="box has-text-centered">
+          <p class="title is-5">{{ region }}</p>
+          <p class="subtitle is-7 mb-3">{{ regionProvinceCount[region] or 0 }} {{ t('common.provinces') | default('provinces') }}</p>
+          <a href="{{ language | default('en') }}/region/{{ region | toSlug }}.html" class="button is-small is-light">
+            {{ t('buttons.explore') | default('Explore') }}
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section">
+  <div class="container">
+    <div class="box has-background-primary has-text-white">
+      <div class="columns is-vcentered">
+        <div class="column">
+          <h3 class="title is-4 has-text-white">{{ t('common.compareProvinces') | default('Compare Multiple Provinces') }}</h3>
+          <p>{{ t('common.compareDescription') | default('Use our comparison tool to analyze side-by-side metrics for multiple Italian provinces') }}</p>
+        </div>
+        <div class="column is-narrow">
+          <a href="{{ language | default('en') }}/compare.html" class="button is-light is-large">
+            {{ t('buttons.startCompare') | default('Start Comparing') }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('search-input');
+  const searchBtn = document.getElementById('search-btn');
+  const regionFilter = document.getElementById('region-filter');
+  const sortFilter = document.getElementById('sort-filter');
+  const cards = document.querySelectorAll('.province-card');
+  const noResults = document.getElementById('no-results');
+  const grid = document.getElementById('provinces-grid');
+
+  function filterAndSort() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedRegion = regionFilter.value;
+    const sortBy = sortFilter.value;
+
+    let visibleCards = Array.from(cards).filter(card => {
+      const name = card.dataset.name;
+      const region = card.dataset.region;
+      const matchesSearch = name.includes(searchTerm);
+      const matchesRegion = !selectedRegion || region === selectedRegion;
+      return matchesSearch && matchesRegion;
+    });
+
+    // Sorting
+    visibleCards.sort((a, b) => {
+      switch(sortBy) {
+        case 'population':
+          return parseInt(b.dataset.population) - parseInt(a.dataset.population);
+        case 'quality':
+          return parseFloat(b.dataset.quality) - parseFloat(a.dataset.quality);
+        case 'safety':
+          return parseFloat(b.dataset.safety) - parseFloat(a.dataset.safety);
+        default: // name
+          return a.dataset.name.localeCompare(b.dataset.name);
+      }
+    });
+
+    // Hide all cards
+    cards.forEach(card => card.classList.add('is-hidden'));
+
+    // Show filtered/sorted cards
+    visibleCards.forEach(card => card.classList.remove('is-hidden'));
+
+    // Show/hide no results message
+    if (visibleCards.length === 0) {
+      noResults.classList.remove('is-hidden');
+      grid.classList.add('is-hidden');
+    } else {
+      noResults.classList.add('is-hidden');
+      grid.classList.remove('is-hidden');
+    }
+  }
+
+  searchInput.addEventListener('input', filterAndSort);
+  searchBtn.addEventListener('click', filterAndSort);
+  regionFilter.addEventListener('change', filterAndSort);
+  sortFilter.addEventListener('change', filterAndSort);
+
+  // Allow Enter key in search
+  searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') filterAndSort();
+  });
+});
+</script>
+{% endblock %}

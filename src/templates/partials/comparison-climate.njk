@@ -1,0 +1,84 @@
+{# Comparison Climate - Climate data comparison #}
+
+<div class="columns is-multiline">
+  {%- for item in comparisonItems -%}
+  <div class="column is-full-mobile is-half-tablet">
+    <h4 class="title is-5 mb-4">{{ item.name }}</h4>
+    
+    <div class="box mb-3">
+      <p class="heading is-size-7">Average Temperature</p>
+      <p class="title is-5">{{ item.climate.avgTemp }}&deg;C</p>
+      <p class="is-size-7 has-text-grey">year-round average</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Warmest Month</p>
+      <p class="title is-5">{{ item.climate.maxTemp }}&deg;C</p>
+      <p class="is-size-7 has-text-grey">{{ item.climate.warmestMonth }}</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Coldest Month</p>
+      <p class="title is-5">{{ item.climate.minTemp }}&deg;C</p>
+      <p class="is-size-7 has-text-grey">{{ item.climate.coldestMonth }}</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Annual Rainfall</p>
+      <p class="title is-5">{{ item.climate.rainfall | round }} mm</p>
+      <p class="is-size-7 has-text-grey">per year</p>
+    </div>
+
+    <div class="box mb-3">
+      <p class="heading is-size-7">Sunshine Hours</p>
+      <p class="title is-5">{{ item.climate.sunshine | round(0) }}</p>
+      <p class="is-size-7 has-text-grey">per year</p>
+    </div>
+  </div>
+  {%- endfor -%}
+</div>
+
+<div class="table-container mt-4">
+  <table class="table is-striped is-hoverable is-fullwidth is-size-7">
+    <thead>
+      <tr>
+        <th>Month</th>
+        {%- for item in comparisonItems -%}
+        <th>{{ item.name }}</th>
+        {%- endfor -%}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>January</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.climate.jan | round }}&deg;C</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>April</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.climate.apr | round }}&deg;C</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>July</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.climate.jul | round }}&deg;C</td>
+        {%- endfor -%}
+      </tr>
+      <tr>
+        <td><strong>October</strong></td>
+        {%- for item in comparisonItems -%}
+        <td>{{ item.climate.oct | round }}&deg;C</td>
+        {%- endfor -%}
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="notification is-info mt-4">
+  <p class="is-size-7">
+    Climate data represents long-term averages. Individual years may vary from these historical norms.
+  </p>
+</div>
