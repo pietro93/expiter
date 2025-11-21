@@ -5,7 +5,9 @@ import nunjucks from 'nunjucks';
 import { setupNunjucks } from '../config/template-engine.js';
 import { setupI18n } from '../config/i18n-config.js';
 import DataLoader from '../utils/data-loader.js';
+import ProvinceFormatter from '../utils/formatter.js';
 import SEOBuilder from '../utils/seo-builder.js';
+import UrlHelper from '../utils/url-helper.js';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -109,7 +111,11 @@ class TownGenerator {
    * @param {string} language - Language code
    */
   ensureOutputDirectories(language) {
-    const townDir = path.join(this.outputDir, language, 'town');
+    // For English, use root-level comuni directory
+    // For other languages, use language-specific directory
+    const townDir = language === 'en' 
+      ? path.join(this.outputDir, 'comuni')
+      : path.join(this.outputDir, language, 'comuni');
 
     if (!fs.existsSync(townDir)) {
       fs.mkdirSync(townDir, { recursive: true });
@@ -165,6 +171,10 @@ class TownGenerator {
         Province: formattedTown.province,
       });
 
+      // Update canonical URL to match legacy structure
+      const townSlug = UrlHelper.formatTownSlug(formattedTown.province, formattedTown.name);
+      seoTags.canonical = UrlHelper.getCanonicalUrl('town', townSlug, language);
+
       const t = (key) => {
         const translations = {
           en: {
@@ -219,6 +229,12 @@ class TownGenerator {
         throw renderError;
       }
 
+      // Ensure output directory exists
+      const outputDirectory = path.dirname(outputPath);
+      if (!fs.existsSync(outputDirectory)) {
+        fs.mkdirSync(outputDirectory, { recursive: true });
+      }
+
       fs.writeFileSync(outputPath, html, 'utf8');
 
       return {
@@ -241,9 +257,10 @@ class TownGenerator {
   /**
    * Generate all town pages for a specific language
    * @param {string} language - Language code
+   * @param {number} limit - Optional limit on number of towns to generate (for testing)
    * @returns {object} Generation statistics
    */
-  async generateTownPages(language) {
+  async generateTownPages(language, limit = null) {
     if (!this.initialized) {
       await this.initialize();
     }
@@ -265,22 +282,49 @@ class TownGenerator {
     }
 
     const { townDir } = this.ensureOutputDirectories(language);
-    const limit = pLimit(this.concurrency);
+    const limiter = pLimit(this.concurrency);
 
-    // Generate pages in parallel (limit to first 50 towns for now)
-    const generateTasks = comuni.slice(0, 50).map((town) => {
-      return limit(async () => {
+    // Use limit parameter if provided, otherwise use all comuni
+    const townsToGenerate = limit ? comuni.slice(0, limit) : comuni;
+    if (limit) {
+      console.log(`  ⚠️  Limited to first ${limit} towns for testing`);
+    }
+
+    // Load provinces dataset to map towns to provinces
+    const provinces = await this.dataLoader.loadDataset();
+    
+    // Create a reverse mapping of province names (handles case variations)
+    const provinceMap = new Map();
+    if (Array.isArray(provinces)) {
+      provinces.forEach(p => {
+        provinceMap.set((p.name || p.Name || '').toLowerCase(), p);
+      });
+    } else {
+      Object.values(provinces).forEach(p => {
+        provinceMap.set((p.name || p.Name || '').toLowerCase(), p);
+      });
+    }
+
+    // Generate pages in parallel with proper hierarchy
+    const generateTasks = townsToGenerate.map((town) => {
+      return limiter(async () => {
         const townName = town.name || town.Name || '';
-        const slug = townName
-          .toLowerCase()
-          .trim()
-          .replace(/\s+/g, '-')
-          .replace(/[^\w-]/g, '');
+        let provinceName = town.province || town.Province || '';
         
-        if (!slug) return { success: false, town: townName, error: 'Invalid town name' };
+        if (!townName) {
+          return { success: false, town: townName, error: 'Missing town name' };
+        }
 
-        const filename = `${slug}.html`;
-        const outputPath = path.join(townDir, filename);
+        // If province not provided, try to infer from province data or use a default
+        if (!provinceName) {
+          // Try to find province by looking for known province names
+          // For now, use 'Lazio' as default for unspecified towns (since major cities like Roma are there)
+          provinceName = 'Lazio';
+        }
+
+        // Create slug for town in hierarchy: [province]/[town]
+        const townSlug = UrlHelper.formatTownSlug(provinceName, townName);
+        const outputPath = UrlHelper.getOutputPath('town', townSlug, language, this.outputDir);
 
         return this.generateTownPage(town, language, outputPath);
       });
@@ -323,9 +367,10 @@ class TownGenerator {
   /**
    * Generate town pages for multiple languages
    * @param {array} languages - Array of language codes
+   * @param {number} limit - Optional limit on number of towns to generate (for testing)
    * @returns {object} Combined statistics
    */
-  async generateAllLanguages(languages = ['en', 'it', 'de', 'es', 'fr']) {
+  async generateAllLanguages(languages = ['en', 'it', 'de', 'es', 'fr'], limit = null) {
     if (!this.initialized) {
       await this.initialize();
     }
@@ -335,7 +380,7 @@ class TownGenerator {
 
     const results = {};
     for (const language of languages) {
-      results[language] = await this.generateTownPages(language);
+      results[language] = await this.generateTownPages(language, limit);
     }
 
     const totalTime = ((Date.now() - startTime) / 1000).toFixed(2);

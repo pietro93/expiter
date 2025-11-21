@@ -7,6 +7,7 @@ import { setupI18n } from '../config/i18n-config.js';
 import DataLoader from '../utils/data-loader.js';
 import ProvinceFormatter from '../utils/formatter.js';
 import SEOBuilder from '../utils/seo-builder.js';
+import UrlHelper from '../utils/url-helper.js';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -117,18 +118,25 @@ class PageGenerator {
    * @param {string} language - Language code
    */
   ensureOutputDirectories(language) {
-    const provinceDir = path.join(this.outputDir, language, 'province');
-    const indexDir = path.join(this.outputDir, language);
+    // For English, use root-level province directory
+    // For other languages, use language-specific directory
+    const baseProvDir = language === 'en' 
+      ? path.join(this.outputDir, 'province')
+      : path.join(this.outputDir, language, 'province');
+    
+    const indexDir = language === 'en'
+      ? this.outputDir
+      : path.join(this.outputDir, language);
 
-    if (!fs.existsSync(provinceDir)) {
-      fs.mkdirSync(provinceDir, { recursive: true });
+    if (!fs.existsSync(baseProvDir)) {
+      fs.mkdirSync(baseProvDir, { recursive: true });
     }
 
     if (!fs.existsSync(indexDir)) {
       fs.mkdirSync(indexDir, { recursive: true });
     }
 
-    return { provinceDir, indexDir };
+    return { provinceDir: baseProvDir, indexDir };
   }
 
   /**
@@ -144,11 +152,15 @@ class PageGenerator {
       // console.log(`Rendering template for ${provinceData.Name} to ${outputPath}`);
 
       // Format the province data
-      const formattedProvince = ProvinceFormatter.formatProvince(provinceData);
+       const formattedProvince = ProvinceFormatter.formatProvince(provinceData);
 
-      // Generate SEO tags
-      const seoBuilder = new SEOBuilder('https://expiter.com', language);
-      const seoTags = seoBuilder.buildMetaTags(formattedProvince);
+       // Generate SEO tags with correct canonical URL
+       const seoBuilder = new SEOBuilder('https://expiter.com', language);
+       const seoTags = seoBuilder.buildMetaTags(formattedProvince);
+       
+       // Update canonical URL to match legacy structure (directory-style with trailing slash)
+       const slug = ProvinceFormatter.toSlug(provinceData.Name);
+       seoTags.canonical = UrlHelper.getCanonicalUrl('province', slug, language);
 
       // Create translation function for template
       const t = (key) => {
@@ -194,17 +206,23 @@ class PageGenerator {
       };
 
       // Render template
-      let html;
-      try {
-        html = this.nunjucksEnv.render('layouts/province-detail.njk', context);
-      } catch (renderError) {
-        // Provide more detailed error info
-        console.error(`  Template error for ${provinceData.Name}: ${renderError.message}`);
-        throw renderError;
-      }
+       let html;
+       try {
+         html = this.nunjucksEnv.render('layouts/province-detail.njk', context);
+       } catch (renderError) {
+         // Provide more detailed error info
+         console.error(`  Template error for ${provinceData.Name}: ${renderError.message}`);
+         throw renderError;
+       }
 
-      // Write output file
-      fs.writeFileSync(outputPath, html, 'utf8');
+       // Ensure output directory exists
+       const outputDirectory = path.dirname(outputPath);
+       if (!fs.existsSync(outputDirectory)) {
+         fs.mkdirSync(outputDirectory, { recursive: true });
+       }
+
+       // Write output file
+       fs.writeFileSync(outputPath, html, 'utf8');
 
       return {
         success: true,
@@ -245,15 +263,15 @@ class PageGenerator {
     const limit = pLimit(this.concurrency);
 
     // Generate pages in parallel
-    const generateTasks = dataset.map((province) => {
-      return limit(async () => {
-        const slug = ProvinceFormatter.toSlug(province.Name);
-        const filename = `${slug}.html`;
-        const outputPath = path.join(provinceDir, filename);
+     const generateTasks = dataset.map((province) => {
+       return limit(async () => {
+         const slug = ProvinceFormatter.toSlug(province.Name);
+         // Use directory structure: /province/[slug]/index.html
+         const outputPath = UrlHelper.getOutputPath('province', slug, language, this.outputDir);
 
-        return this.generateProvincePage(province, language, outputPath);
-      });
-    });
+         return this.generateProvincePage(province, language, outputPath);
+       });
+     });
 
     // Wait for all tasks to complete
     const results = await Promise.all(generateTasks);

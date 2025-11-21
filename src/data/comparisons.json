@@ -1,0 +1,32 @@
+[
+  {
+    "id": "roma-vs-milano",
+    "province1": "Roma",
+    "province2": "Milano",
+    "title": "Roma vs Milano"
+  },
+  {
+    "id": "napoli-vs-torino",
+    "province1": "Napoli",
+    "province2": "Torino",
+    "title": "Napoli vs Torino"
+  },
+  {
+    "id": "firenze-vs-venezia",
+    "province1": "Firenze",
+    "province2": "Venezia",
+    "title": "Firenze vs Venezia"
+  },
+  {
+    "id": "bologna-vs-genova",
+    "province1": "Bologna",
+    "province2": "Genova",
+    "title": "Bologna vs Genova"
+  },
+  {
+    "id": "palermo-vs-bari",
+    "province1": "Palermo",
+    "province2": "Bari",
+    "title": "Palermo vs Bari"
+  }
+]

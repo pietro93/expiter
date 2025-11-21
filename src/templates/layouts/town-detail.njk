@@ -6,7 +6,7 @@
 <main role="main" aria-label="Town content">
   
   {# Breadcrumbs Navigation #}
-  {% include "breadcrumbs.njk" %}
+  {% include "partials/breadcrumbs.njk" %}
   
   {# Hero Section #}
   <section class="hero is-light" aria-label="Town hero section">
@@ -81,22 +81,22 @@
 
       {# Overview Tab #}
       <div id="overview" class="tab-content is-active" role="tabpanel" aria-labelledby="tab-overview">
-        {% include "town-overview-section.njk" %}
+        {% include "partials/town-overview-section.njk" %}
       </div>
 
       {# Attractions Tab #}
       <div id="attractions" class="tab-content" role="tabpanel" aria-labelledby="tab-attractions">
-        {% include "town-attractions-section.njk" %}
+        {% include "partials/town-attractions-section.njk" %}
       </div>
 
       {# Services Tab #}
       <div id="services" class="tab-content" role="tabpanel" aria-labelledby="tab-services">
-        {% include "town-services-section.njk" %}
+        {% include "partials/town-services-section.njk" %}
       </div>
 
       {# Events Tab #}
       <div id="events" class="tab-content" role="tabpanel" aria-labelledby="tab-events">
-        {% include "town-events-section.njk" %}
+        {% include "partials/town-events-section.njk" %}
       </div>
     </div>
   </section>
@@ -105,7 +105,7 @@
   <section class="section has-background-light" aria-labelledby="related-towns">
     <div class="container">
       <h2 id="related-towns" class="title is-3">Nearby Towns</h2>
-      {% include "related-towns.njk" %}
+      {% include "partials/related-towns.njk" %}
     </div>
   </section>
 

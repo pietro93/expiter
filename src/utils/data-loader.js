@@ -45,8 +45,8 @@ class DataLoader {
   }
 
   /**
-   * Load comuni (towns) data
-   * @returns {Promise<Array>} Array of all comuni
+   * Load comuni (towns) data from individual province files
+   * @returns {Promise<Array>} Array of all comuni merged from province files
    */
   async loadComuni() {
     if (this.cache.comuni) {
@@ -54,15 +54,110 @@ class DataLoader {
     }
 
     try {
-      const comuniPath = path.join(ROOT_DIR, 'comuni.json');
-      const rawData = await fs.readFile(comuniPath, 'utf8');
-      this.cache.comuni = JSON.parse(rawData);
+      const dataset = await this.loadDataset();
+      const comuniList = [];
+      
+      // Get list of province directories
+      const provinceDir = ROOT_DIR;
+      const dirents = await fs.readdir(provinceDir, { withFileTypes: true });
+      
+      // For each province directory, try to load province-specific data
+      for (const dirent of dirents) {
+        if (!dirent.isDirectory()) continue;
+        
+        const provinceName = dirent.name;
+        
+        // Try to load JSON files from the province directory
+        const jsonFiles = [];
+        try {
+          const provinceFiles = await fs.readdir(path.join(provinceDir, provinceName));
+          
+          // Look for .json files that might contain comuni data
+          for (const file of provinceFiles) {
+            if (file.endsWith('.json') && !file.includes('index')) {
+              jsonFiles.push(path.join(provinceDir, provinceName, file));
+            }
+          }
+        } catch (err) {
+          // Directory might not exist or be readable
+          continue;
+        }
+        
+        // Also check for temp directory pattern (used by legacy generator)
+        const tempPath = path.join(ROOT_DIR, 'temp', `${this.normalizeName(provinceName)}-comuni.json`);
+        try {
+          const stat = await fs.stat(tempPath);
+          if (stat.isFile()) {
+            jsonFiles.push(tempPath);
+          }
+        } catch (err) {
+          // File doesn't exist, that's ok
+        }
+        
+        // Load and merge all found JSON files
+        for (const jsonFile of jsonFiles) {
+          try {
+            const rawData = await fs.readFile(jsonFile, 'utf8');
+            const data = JSON.parse(rawData);
+            
+            if (Array.isArray(data)) {
+              // If it's an array, add all items
+              data.forEach(item => {
+                if (item.Name || item.name) {
+                  item.Province = item.Province || provinceName;
+                  comuniList.push(item);
+                }
+              });
+            } else if (typeof data === 'object') {
+              // If it's an object with town data, convert to array
+              Object.values(data).forEach(item => {
+                if (item && (item.Name || item.name)) {
+                  item.Province = item.Province || provinceName;
+                  comuniList.push(item);
+                }
+              });
+            }
+          } catch (parseErr) {
+            // Invalid JSON file, skip
+            continue;
+          }
+        }
+      }
+      
+      // If no province-specific data found, fall back to single comuni.json
+      if (comuniList.length === 0) {
+        const comuniPath = path.join(ROOT_DIR, 'comuni.json');
+        try {
+          const rawData = await fs.readFile(comuniPath, 'utf8');
+          this.cache.comuni = JSON.parse(rawData);
+        } catch (fallbackErr) {
+          console.warn('Could not load comuni from comuni.json:', fallbackErr.message);
+          this.cache.comuni = [];
+        }
+      } else {
+        this.cache.comuni = comuniList;
+      }
+      
       this.loadedAt.comuni = new Date();
       return this.cache.comuni;
     } catch (error) {
       console.error('Error loading comuni:', error.message);
-      throw new Error(`Failed to load comuni: ${error.message}`);
+      // Return fallback empty array instead of throwing
+      this.cache.comuni = [];
+      return this.cache.comuni;
     }
+  }
+
+  /**
+   * Normalize province name for file matching
+   * @param {string} name - Province or directory name
+   * @returns {string} Normalized name
+   */
+  normalizeName(name) {
+    return name
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/'/g, '');
   }
 
   /**
