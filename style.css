@@ -1649,6 +1649,7 @@ figure.related a{font-weight:600}
   overflow-y: none;
   width: 26vw;
   max-width: 360px;
+  min-width: 326px;
   top: 44vh;
   bottom: 0;
   right: -2vw;
