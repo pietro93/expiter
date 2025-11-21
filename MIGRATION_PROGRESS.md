@@ -1,11 +1,14 @@
 # Expiter Nunjucks Migration - Progress Tracker
 
 **Project Start Date:** November 21, 2025  
-**Overall Status:** 🟡 NOT STARTED  
+**Overall Status:** 🟡 IN PROGRESS  
 **Total Tasks:** 24  
-**Completed:** 0  
+**Completed:** 1 (Setup)  
 **In Progress:** 0  
 **Blocked:** 0  
+
+**Git Branch:** `nunjucks-migration` ([PR](https://github.com/pietro93/expiter/pull/new/nunjucks-migration))  
+**Cloudways Staging:** Ready  
 
 ---
 
@@ -512,7 +515,8 @@
 
 | Timestamp | Task | Status | Notes |
 |-----------|------|--------|-------|
-| 2025-11-21 | Migration started | 🟡 IN PROGRESS | Initial kanban created |
+| 2025-11-21 12:00 | Git setup | ✅ DONE | Created nunjucks-migration branch, pushed to origin |
+| 2025-11-21 11:50 | Migration started | 🟡 IN PROGRESS | Initial kanban created, progress tracker added |
 
 ---
 
