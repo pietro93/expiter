@@ -3,3 +3,10 @@ node_modules/*
 temp/
 temp/*
 sitemap/rawlist.txt
+
+# Nunjucks migration build artifacts
+output/
+dist_preview/
+legacy_backup/
+coverage/
+tests/snapshots/
