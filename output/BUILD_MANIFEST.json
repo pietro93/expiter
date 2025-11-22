@@ -1,0 +1,38 @@
+{
+  "timestamp": "2025-11-21T11:12:10.680Z",
+  "duration": "54m 39s",
+  "totalFiles": 92851,
+  "actualFilesCreated": {
+    "html": 48200,
+    "json": 7,
+    "xml": 6
+  },
+  "totalSize": "834.77 MB",
+  "outputDirectory": "C:\\Users\\Pietro\\Desktop\\Github\\expiter\\output",
+  "breakdown": {
+    "provinces": {
+      "files": 640,
+      "time": 9701
+    },
+    "regions": {
+      "files": 100,
+      "time": 21
+    },
+    "towns": {
+      "files": 92075,
+      "time": 3267757
+    },
+    "comparisons": {
+      "files": 25,
+      "time": 782
+    },
+    "search": {
+      "files": 5,
+      "time": 875
+    },
+    "sitemaps": {
+      "files": 6,
+      "time": 46
+    }
+  }
+}

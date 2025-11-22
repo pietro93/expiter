@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://expiter.com/en/sitemap.xml</loc>
+    <lastmod>2025-11-21</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://expiter.com/it/sitemap.xml</loc>
+    <lastmod>2025-11-21</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://expiter.com/de/sitemap.xml</loc>
+    <lastmod>2025-11-21</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://expiter.com/es/sitemap.xml</loc>
+    <lastmod>2025-11-21</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://expiter.com/fr/sitemap.xml</loc>
+    <lastmod>2025-11-21</lastmod>
+  </sitemap>
+</sitemapindex>

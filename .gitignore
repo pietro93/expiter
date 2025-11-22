@@ -5,8 +5,8 @@ temp/*
 sitemap/rawlist.txt
 
 # Nunjucks migration build artifacts
-output/
 dist_preview/
 legacy_backup/
 coverage/
 tests/snapshots/
+node_modules

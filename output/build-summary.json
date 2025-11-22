@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-11-21T09:56:25.936Z",
+  "status": "success",
+  "duration": "10.10",
+  "phases": [
+    {
+      "name": "Project Setup",
+      "status": "success",
+      "duration": "1.72"
+    },
+    {
+      "name": "Province Pages Generation",
+      "status": "success",
+      "duration": "2.09"
+    },
+    {
+      "name": "Region Pages Generation",
+      "status": "success",
+      "duration": "1.30"
+    },
+    {
+      "name": "Town/Comune Pages Generation",
+      "status": "success",
+      "duration": "1.09"
+    },
+    {
+      "name": "Comparison Pages Generation",
+      "status": "success",
+      "duration": "0.68"
+    },
+    {
+      "name": "Search Index Generation",
+      "status": "success",
+      "duration": "1.90"
+    },
+    {
+      "name": "XML Sitemap Generation",
+      "status": "success",
+      "duration": "1.27"
+    }
+  ]
+}
