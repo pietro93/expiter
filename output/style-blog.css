@@ -1,0 +1,274 @@
+#FAQs {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom:14px;
+  }
+
+  #FAQs .question {
+  font-weight: normal;
+  position: relative;
+  background: var(--dark);
+  margin: 0 auto;
+  opacity: .9;
+  padding: 10px 10px 10px 50px;
+  display: block;
+  cursor: pointer;
+}
+#FAQs .question h3{
+    color:var(--invert-color);
+    font-size:20px;
+    margin: 0 auto;
+    padding: 0;
+
+}
+#FAQs .answers {
+  overflow:hidden;
+  height:0;
+  opacity:0;
+  -webkit-transition: .7s ease;
+  -moz-transition: .7s ease;
+  -o-transition: .7s ease;
+  transition: .7s ease;
+  background-color:var(--invert-color);
+  color:var(--text-color);
+}
+
+#FAQs .questions:checked ~ .answers{
+  height: auto;
+  display:block;
+  opacity: 1;
+  padding: 0 15px 15px 15px;
+}
+
+#FAQs div.plus {
+  position: absolute;
+  color:var(--lightest);
+  margin-left: 10px;
+  margin-top:2px;
+  z-index: 1;
+  font-size: 1.8em;
+  line-height: 100%;
+  -webkit-user-select: none;    
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-transition: .3s ease;
+  -moz-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: .3s ease;
+}
+
+#FAQs .questions:checked ~ div.plus {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  font-size:2.2em;
+}
+
+#FAQs .questions {
+  display: none;
+}
+
+p{text-align:justify}
+
+#info {
+  text-align:justify;
+  font-size:20px;
+}
+
+.res{
+  width:100%;
+  border-bottom: 2px double var(--medium-2);
+  display:flex;
+  flex-flow:wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:14px;
+  margin-top:14px;
+}
+.res > div {
+  max-width:78%;
+  padding-bottom:28px;
+  padding-right:2%;
+}
+.res > a {
+  max-width:19%;
+  margin-top:0;
+  height:max-content;
+  padding-bottom:14px;
+  float:right;
+}
+
+.res > div > h3{
+  margin-top:0;
+  margin: 0 auto;
+  width:100%;
+  padding-bottom:0;
+  text-decoration: underline;
+}
+.res > div > h3+span{
+  font-size:14px;
+  margin: 0 auto;
+}
+.res > div > p{
+  font-size:14px;
+  margin: 0 auto;
+  margin-top:10px;
+  text-align:justify;
+}
+
+.cta{
+  height:30px;
+  width:auto;
+  opacity:.85;
+  margin-top:14px;
+  padding:5px 8px 5px 8px;
+  background-color:var(--natural-yellow);
+  color:rgba(0,0,0,0.8);
+  border-color:var(--natural-yellow)
+}
+
+section#footer {
+  padding-top:12px;
+  width:100%;
+  font-size:12px;
+  opacity:.7;
+  line-height:15px;
+  letter-spacing:-0.6px;
+  padding-bottom:20%;
+}
+
+.quicklink{
+  color:var(--medium-1);
+  border-bottom: 3px dashed var(--medium-1);
+  padding:0;
+  border-left: 6px solid var(--medium-1);
+  border-top:none;border-right:none;
+}
+.quicklink:hover{
+  border-color:var(--darkest);
+  color:var(--darkest);
+}
+
+
+
+#table-four{width:100vw;} 
+#table-four td{width:25vw;} 
+#table-four th{width:25vw;} 
+
+.center{
+  margin: auto;
+  width: 100%;
+  padding: 25%;}
+
+hr{  
+  border-top: 3px dashed rgba(0, 255, 193, .24);
+  border-radius: 6px;
+}
+
+  .articlecard {
+    padding:0;
+    opacity:0.9;
+    max-height:300px;
+  }
+  .articlecard:hover{
+    opacity:1;
+  }
+
+
+    .articlecard  {
+opacity:0.9;
+border-radius:15px
+}
+.articlecard:hover {
+  opacity:1
+  }
+
+  .articlecard > a > img {
+    filter: opacity(90%);
+    filter: saturate(90%);
+    filter: contrast(80%);
+    filter: brightness(90%);
+  }
+
+  .articlecard > a:hover > img{
+    filter: brightness(98%);
+    filter: opacity(99%);
+    filter:saturate(99%)}
+
+
+  .articlecard > a > figcaption {
+      margin-top:-10px;
+  }
+
+  .articlecard > a > figcaption > h3 {
+    font-size:17px;
+    letter-spacing:-.71px;
+    line-height:21px;
+}
+
+
+  a,  a > *{color:var(--darkest)}
+
+  a:hover,   a:hover>*{
+    color:var(--natural-yellow)
+  }
+
+  
+  img .inarticle {
+    width:100vw;
+    max-height:33vh;
+    object-fit:cover
+  }
+
+
+  figure.image > img{
+    width:100%;
+    border-radius:15px;
+    padding-top:10px;
+    max-height:160px;
+  }
+
+  @media (max-width: 768px){
+
+    .articlecard{
+      width:92vw;
+    }
+    #FAQs {
+        width: 96%;
+        margin: 0 auto;
+      }
+      .res > a {
+        min-width:50vw;
+      } 
+      
+      .res > div{
+        max-width:98%;
+      }
+      .res > div > h3{
+        font-size:24px;
+        letter-spacing: .51px;
+        padding-bottom: 10px;
+        font-weight:900
+      }
+      .res > div > h3+span{
+        font-size:18px;
+        opacity:.8;
+      }
+      .res > div > p{
+        font-size:20px;
+        line-height:28px;
+      }
+
+      .res > div > center > a{
+        text-transform: uppercase;
+        font-size:20px;
+        padding: 20px 20px 20px 20px;
+
+      }
+
+    
+}
+
