@@ -739,6 +739,7 @@ function appendProvinceData(province){
 
 // add trackers to <head>
 $(document).ready(function(){
+let adSense = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0087385699618984" crossorigin="anonymous"></script>'
 let analytics = '<!-- Google tag (gtag.js) -->'+
 '<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEX5VTPVLL"></script>'+
 '<script>'+
@@ -761,7 +762,7 @@ let hotJar = '<!-- Hotjar Tracking Code for https://expiter.com -->'+
 '</script>'
 let GSC = '<!-- Google Search Console Tracker -->'+
 '<meta name="google-site-verification" content="4sOxlmGkQBkLLrrnRU2a4dAKUnhKxU3-VzFaRrfvGwk" />'
-$('head').append(GSC+analytics+hotJar)
+$('head').append(GSC+analytics+adSense+hotJar)
 
 }
 )
