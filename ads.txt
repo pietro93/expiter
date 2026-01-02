@@ -6,6 +6,7 @@ journeymv.com, 1cce7071-25c6-48c1-b7ee-1da5674b8bfd, DIRECT, 1363c924529b3998
 
 google.com, pub-1601477034266482, DIRECT, f08c47fec0942fa0
 google.com, pub-1601477034266482, RESELLER, f08c47fec0942fa0
+
 media.net, 8CU41446D, DIRECT
 pubmatic.com, 159463, RESELLER, 5d62403b186f2ace
 openx.com, 537100188, RESELLER, 6a698e2ec38604c6
