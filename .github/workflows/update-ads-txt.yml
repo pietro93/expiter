@@ -1,0 +1,28 @@
+name: Update ads.txt
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight UTC
+  workflow_dispatch:     # Allow manual trigger
+
+jobs:
+  update-ads:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Download ads.txt
+        run: |
+          curl -o ads.txt https://adstxt.journeymv.com/sites/1cce7071-25c6-48c1-b7ee-1da5674b8bfd/ads.txt
+      
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add ads.txt
+          if git diff --quiet --cached; then
+            echo "No changes to ads.txt"
+          else
+            git commit -m "chore: update ads.txt from external source"
+            git push
+          fi
