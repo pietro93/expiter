@@ -181,7 +181,7 @@ fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent);
 				'</section>'+
 			'</div>'+
 		'</div></div>'+
-            '<div id="info" class="columns is-multiline is-mobile">'+
+            '<div id="info" class="columns is-multiline is-mobile blog-main-content entry-content journey-content">'+
             '<section id="Overview"><h2>Overview</h2><span id="overview"></span></section>'+
             '<section id="Crime and Safety"><h3>Crime and Safety</h3><span id="crimeandsafety"></span></section>'+
             '<section id="Thefts and Robberies"><h3>Thefts and Robberies</h3><span id="theftsandrobberies"></span></section>'+
