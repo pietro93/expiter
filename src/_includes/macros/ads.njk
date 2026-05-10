@@ -1,0 +1,7 @@
+{% macro ad_placeholder(label="sidebar", width=300, height=250) %}
+<div class="trellis-ad-placeholder ad-{{ label }}" 
+     style="min-width: {{ width }}px; min-height: {{ height }}px; display: block; margin: 20px auto;">
+    <span class="ad-label">Advertisement</span>
+    <!-- Mediavine ad script hook will inject here -->
+</div>
+{% endmacro %}

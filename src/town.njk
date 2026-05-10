@@ -1,0 +1,75 @@
+---
+layout: base.njk
+pagination:
+  data: towns
+  size: 1
+  alias: town
+permalink: comuni/{{ town.provinceName | lower | replace(" ", "-") | replace("'", "-") }}/{{ town.Name | replace("(*)", "") | lower | replace(" ", "-") | replace("'", "-") }}/
+eleventyComputed:
+  seoTitle: "{{ town.Name }} - Quality of Life and Info Sheet for Expats"
+  seoDescription: "Information about living in {{ town.Name }}, Italy for expats and digital nomads. {{ town.Name }} quality of life, cost of living, safety and more."
+  seoKeywords: "{{ town.Name }} italy, {{ town.Name }} expat, {{ town.Name }} life, {{ town.Name }} digital nomad"
+  heroImage: "https://expiter.com/img/{{ town.provinceAbbreviation }}.webp"
+---
+{% import "macros/ads.njk" as ads %}
+{% block content %}
+<div class="toc container collapsed" >
+    <i class="arrow left" onclick="$('.toc').toggleClass('collapsed')"></i>
+    <div class="row">
+        <div class="col-sm-3">
+            <nav id="toc" data-toggle="toc"></nav>
+            <div class="col-sm-9"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hero" style="background-image:url('https://expiter.com/img/{{ town.provinceAbbreviation }}.webp')" title="{{ town.Name }}, {{ town.provinceName }}, Italy">
+</div><h1 class="title">{{ town.Name }}, {{ town.provinceRegion }}, Italy</h1>
+
+<section id="{{ town.Name }} Info Sheet" class="infosheet">
+    <center><table id="list" class="table">
+        <tr><th><b>Name</b></th><th>{{ town.Name }}</th></tr>
+        <tr><th><b>Province</b></th><th>{{ town.provinceName }}</th></tr>
+        <tr><th><b>Region</b></th><th>{{ town.provinceRegion }}</th></tr>
+        <tr><th><b>Population</b></th><th>{{ town.Population }}</th></tr>
+        <tr><th><b>Density</b></th><th>{{ town.Density }}pp/km²</th></tr>
+        <tr><th><b>Altitude</b></th><th>{{ town.Altitude }}m</th></tr>
+        <tr><th><b>Climate Zone</b></th><th>{{ town.ClimateZone | default("?") }}</th></tr>
+    </table></center><br>
+    
+    <span id="info">
+        <p><b>{{ town.Name }} is a municipality of {{ town.Population }} inhabitants located in the <a href='/province/{{ town.provinceName | lower | replace(" ", "-") | replace("'", "-") }}/'>{{ town.provinceName }} province</a></b> in the Italian region of {{ town.provinceRegion }}.</p>
+        <p>It has a <b>population density of {{ town.Density }} people per km²</b> and an <b>altitude of {{ town.Altitude }} metres</b> above the sea level.</p>
+        
+        {% if town.History or town.Landmarks %}
+            <h2>About {{ town.Name }}</h2>
+            <p>{{ town.Landmarks | safe }}</p>
+            <br><br>
+            <p>{{ town.History | safe }}</p>
+        {% endif %}
+        
+        <br><h3>Climate</h3>
+        <p style="font-size:21px; line-height:42px">
+            <b>{{ town.Name }}</b> is classified as a <b>Climate Zone {{ town.ClimateZone }}</b>.
+        </p>
+        
+        </br></br><center><span id="disclaimer">This page contains affiliate links. As part of the Amazon Associates and Viator Partner programmes, we may earn a commission on qualified purchases.</span></center>
+        
+        <h2>Map of {{ town.Name }}</h2>
+        <center class="map">
+            <iframe id="ggmap" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q={{ town.Name }}+Province+Of+{{ town.provinceName }}&output=embed" width="80%" height="250" style="border:0;border-radius:25px;" allowfullscreen="" loading="lazy"></iframe>
+        </center>
+    </span>
+    
+    <!-- More sections (Experiences, Hotels, Province Tabs) can be appended here similarly -->
+    
+</section>
+{% endblock %}
+
+{% block sidebar %}
+<aside class="menu sb">
+    {{ ads.ad_placeholder("sidebar-top", 300, 250) }}
+    <!-- Sidebar Content -->
+    {{ ads.ad_placeholder("sidebar-bottom", 300, 600) }}
+</aside>
+{% endblock %}

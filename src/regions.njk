@@ -1,0 +1,69 @@
+---
+layout: base.njk
+permalink: region/regions-of-italy/index.html
+seoTitle: "Regions in Italy"
+seoDescription: "List of all 20 regions in Italy with information about size, population, provinces, towns and more."
+seoKeywords: "regions of Italy, Italy regions, list of regions in italy, Italian regions, regions in Italy by population"
+heroImage: "https://expiter.com/img/regions.webp"
+---
+{% import "macros/ads.njk" as ads %}
+{% block content %}
+<div class="toc container collapsed" >
+    <i class="arrow left" onclick="$('.toc').toggleClass('collapsed')"></i>
+    <div class="row">
+        <div class="col-sm-3">
+            <nav id="toc" data-toggle="toc"></nav>
+            <div class="col-sm-9"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hero" style="top:68px;max-height:238px;z-index:-1;background-image:url('https://expiter.com/img/regions.webp')" title="Regions of Italy">
+</div><h1 class="title">Regions of Italy </h1>
+
+<section id="List of Regions in Italy" style="z-index:2;margin-top:48px">
+    <center>
+        <div style="overflow-x: auto;margin-top:20px">
+            <table id="list" class="table">
+                <tr id="header">
+                    <th>Name</th>
+                    <th>Population</th>
+                    <th>Size</th>
+                    <th>Density</th>
+                    <th>Provinces</th>
+                    <th>Towns</th>
+                    <th>Capital</th>
+                </tr>
+                {% for region in dataset.regions %}
+                <tr>
+                    <th><h2>{{ region.Name }}</h2></th>
+                    <th>{{ region.Population }}</th>
+                    <th>{{ region.Size }}</th>
+                    <th>{{ region.Density }}</th>
+                    <th>{{ region.Provinces }}</th>
+                    <th>{{ region.Towns }}</th>
+                    <th><a href="/province/{{ region.Capital | lower | replace(' ', '-') | replace('\'', '-') }}/">{{ region.Capital }}</a></th>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </center>
+</section>
+
+<section>
+    <p id="info" style="text-alignment:justify">
+        There are 20 regions in Italy. The region of <b>Lombardia</b> is the largest by population with a total of 9.965.046 inhabitants, whereas <b>Sicily</b> is the largest by size with a territory of 25.832,55 km².<br><br>
+        The <b>Lombardia</b> region also contains the greatest number of Italian towns and provinces, with a total of 1506 municipalities.<br><br>
+        The smallest and least populated region is <b>Aosta Valley</b> with an area of 3.260,85km², 74 towns and a population of 123.337.<br><br>
+        The Capital of Italy, <b><a href='/province/roma/'>Rome</a></b>, is located in the <b>Lazio</b> region.
+    </p>
+</section>
+{% endblock %}
+
+{% block sidebar %}
+<aside class="menu sb">
+    {{ ads.ad_placeholder("sidebar-top", 300, 250) }}
+    <!-- Sidebar Content -->
+    {{ ads.ad_placeholder("sidebar-bottom", 300, 600) }}
+</aside>
+{% endblock %}

@@ -1,0 +1,84 @@
+---
+layout: base.njk
+pagination:
+  data: dataset.provinces
+  size: 1
+  alias: province
+permalink: province/{{ province.Name | lower | replace(" ", "-") | replace("'", "-") }}/
+eleventyComputed:
+  seoTitle: "{{ province.Name }} - Quality of Life and Info Sheet for Expats"
+  seoDescription: "Information about living in {{ province.Name }}, Italy for expats and digital nomads. {{ province.Name }} quality of life, cost of living, safety and more."
+  heroImage: "https://expiter.com/img/{{ province.Abbreviation }}.webp"
+---
+{% import "macros/ads.njk" as ads %}
+{% block content %}
+<div class="toc container collapsed" >
+    <i class="arrow left" onclick="$('.toc').toggleClass('collapsed')"></i>
+    <div class="row">
+        <div class="col-sm-3">
+            <nav id="toc" data-toggle="toc"></nav>
+            <div class="col-sm-9"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hero" style="background-image:url('https://expiter.com/img/{{ province.Abbreviation }}.webp')" title="{{ province.Name }} Province"></div>
+<h1 data-toc-skip id="title" class="title column is-12">{{ province.Name }} for Expats and Nomads</h1>
+
+<div class="tabs effect-3">
+    <input type="radio" id="tab-1" name="tab-effect-3" checked="checked">
+    <span>Quality of Life</span>
+    <input type="radio" id="tab-2" name="tab-effect-3">
+    <span>Cost of Living</span>
+    <input type="radio" id="tab-3" name="tab-effect-3">
+    <span>Digital Nomads</span>
+    <div class="line ease"></div>
+    <!-- tab-content -->
+    <div class="tab-content">
+        <section id="Quality-of-Life" class="columns is-mobile is-multiline">
+            <div class="column">
+                <p><ej>👥</ej>Population: <b>{{ province.Population }}</b></p>
+                <p><ej>🚑</ej>Healthcare: {{ province.Healthcare | qualityScore("Healthcare", dataset.avg) | safe }}</p>
+                <p><ej>📚</ej>Education: {{ province.Education | qualityScore("Education", dataset.avg) | safe }}</p>
+                <p><ej>👮🏽‍♀️</ej>Safety: {{ province.Safety | qualityScore("Safety", dataset.avg) | safe }}</p>
+                <p><ej>🚨</ej>Crime: {{ province.Crime | qualityScore("Crime", dataset.avg) | safe }}</p>
+                <p><ej>🚌</ej>Transport: {{ province["PublicTransport"] | qualityScore("PublicTransport", dataset.avg) | safe }}</p>
+            </div>
+            <div class="column">
+                <p><ej>🌦️</ej>Climate: {{ province.Climate | qualityScore("Climate", dataset.avg) | safe }}</p>
+                <p><ej>☀️</ej>Sunshine: {{ province.SunshineHours | qualityScore("SunshineHours", dataset.avg) | safe }}</p>
+                <p><ej>🥵</ej>Summers: {{ province.HotDays | qualityScore("HotDays", dataset.avg) | safe }}</p>
+                <p><ej>🥶</ej>Winters: {{ province.ColdDays | qualityScore("ColdDays", dataset.avg) | safe }}</p>
+            </div>
+        </section>
+        <!-- other sections omitted for brevity but represent the structure -->
+    </div>
+</div>
+
+<div id="info" class="columns is-multiline is-mobile">
+    <section id="Overview">
+        <h2>Overview</h2>
+        <div style="display: inline;" id="overview">
+            <p>The province of {{ province.Name }} is the <b>{{ province.SizeByPopulation }} largest Italian province by population</b> with <b>{{ province.Population }} people</b>, located in the <b>{{ province.Region }}</b> region.</p>
+            <p>{{ facts[province.Name].overview | safe }}</p>
+        </div>
+    </section>
+    
+    <section id="Climate">
+        <h2>Climate</h2>
+        <div style="display: inline;" id="climate">
+            <!-- climate facts -->
+        </div>
+    </section>
+    
+    <!-- and so on... -->
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<aside class="menu sb">
+    {{ ads.ad_placeholder("sidebar-top", 300, 250) }}
+    <!-- Sidebar Content would go here, imported or constructed -->
+    {{ ads.ad_placeholder("sidebar-bottom", 300, 600) }}
+</aside>
+{% endblock %}

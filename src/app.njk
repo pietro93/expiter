@@ -1,0 +1,56 @@
+---
+layout: base.njk
+permalink: /app/index.html
+seoTitle: "Italy Expats and Nomads"
+---
+{% block content %}
+<row class="whitespace columns"></row>
+<row class="columns is-multiline is-mobile">
+    <section id="Most Expat-friendly Provinces in Italy">
+        <h1 id="title" class="title column is-12">
+            <span class='bestorworst'>Best</span> <span class='smallorlarge'></span> Provinces in 
+            <span class='chosenArea'>Italy</span> <span class='sortBy'>for Expats</span>
+        </h1>
+    </section>
+</row>
+
+<row id="sorting" class="columns is-multiline is-mobile">
+    <!-- Filtering and sorting injected by JS or statically rendered here -->
+    <p class="column is-12"></p>
+</row>
+
+<section id="output">
+    <center>
+        <p>Based on our data, the <span class='bestorworst'>Best</span> province in <span class='chosenArea'>Italy</span> for Expats is...</p>
+    </center>
+</section>
+
+<row>
+    <div id="app" class="container columns is-multiline is-mobile">
+    {% for province in dataset.provinces %}
+        <div class='column'>
+            <a href='/province/{{ province.Name | lower | replace(" ", "-") | replace("\'", "-") }}/'>
+            <card id="{{ province.Name }}" class="{% if province.Name == 'Aosta' %}Aosta Valley{% else %}{{ province.Region }}{% endif %} paracard" title="{{ province.Name }}, {{ province.Region }}">
+                <img title="{{ province.Name }}" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/{{ province.Abbreviation }}.webp?tr=w-180,h-240,c-at_least,q-1,bl-1" width="180" height="240" alt="Provincia di {{ province.Name }}, {{ province.Region }}"></img>
+                <div class="frame">
+                    <center><h3 class="header" {% if province.Name.length > 14 %}style="font-size:24px"{% endif %}>{{ province.Name }}</h3></center>
+                </div>
+                <p class="region">{{ province.Region }}</p>
+                <p class="population"><ej>👥</ej>Population: <b style="color:white">{{ province.Population }}</b></p>
+                <p>&#128184Cost: {{ province.CostOfLiving | qualityScore("CostOfLiving", dataset.avg) | safe }}</p>
+                <p><ej>💰</ej>Expenses: {{ province["Cost of Living (Individual)"] | qualityScore("Cost of Living (Individual)", dataset.avg) | safe }}</p>
+                <p><ej>☀️</ej>Climate: {{ province.Climate | qualityScore("Climate", dataset.avg) | safe }}</p>
+                <p><ej>🚑</ej>Healthcare: {{ province.Healthcare | qualityScore("Healthcare", dataset.avg) | safe }}</p>
+                <p><ej>🚌</ej>Transport: {{ province["PublicTransport"] | qualityScore("PublicTransport", dataset.avg) | safe }}</p>
+                <p><ej>👮🏽‍♀️</ej>Safety: {{ province.Safety | qualityScore("Safety", dataset.avg) | safe }}</p>
+                <p><ej>📚</ej>Education: {{ province.Education | qualityScore("Education", dataset.avg) | safe }}</p>
+                <p><ej>🏛️</ej>Culture: {{ province.Culture | qualityScore("Culture", dataset.avg) | safe }}</p>
+                <p><ej>🍸</ej>Nightlife: {{ province.Nightlife | qualityScore("Nightlife", dataset.avg) | safe }}</p>
+                <button class="more" style="font-size:large;"> More>> </button>
+            </card>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+</row>
+{% endblock %}
