@@ -11,7 +11,17 @@
       "Bash(taskkill /PID 3748 /F)",
       "PowerShell(Stop-Process -Id 28628 -Force -ErrorAction SilentlyContinue)",
       "PowerShell(Stop-Process -Id 3748 -Force -ErrorAction SilentlyContinue)",
-      "Bash(node CaSGenerator.js)"
+      "Bash(node CaSGenerator.js)",
+      "Bash(curl -s https://expiter.com/script.js)",
+      "Bash(grep -o '</head>.\\\\{0,30\\\\}' c:/Users/Pietro/Desktop/Github/expiter/province/bologna.html)",
+      "Bash(grep -Po '</head>.{0,100}' c:/Users/Pietro/Desktop/Github/expiter/province/bologna.html)",
+      "Bash(node -e \"const fs=require\\('fs'\\); const t=fs.readFileSync\\('province/bologna.html','utf8'\\); const i=t.indexOf\\('</head>'\\); console.log\\(JSON.stringify\\(t.slice\\(i, i+100\\)\\)\\);\")",
+      "PowerShell($pid = \\(Get-NetTCPConnection -LocalPort 8080 -ErrorAction SilentlyContinue | Select-Object -First 1\\).OwningProcess; if \\($pid\\) { Stop-Process -Id $pid -Force; \"Killed PID $pid\" } else { \"No process on 8080\" })",
+      "PowerShell($proc = \\(Get-NetTCPConnection -LocalPort 8080 -ErrorAction SilentlyContinue | Select-Object -First 1\\).OwningProcess; if \\($proc\\) { Stop-Process -Id $proc -Force; \"Killed PID $proc\" } else { \"No process on 8080\" })",
+      "PowerShell($proc = \\(Get-NetTCPConnection -LocalPort 8080 -ErrorAction SilentlyContinue | Select-Object -First 1\\).OwningProcess; if \\($proc\\) { Stop-Process -Id $proc -Force; \"Killed PID $proc\" } else { \"Port 8080 is free\" })",
+      "Bash(tee /tmp/gen_output.txt)",
+      "Bash(node -e \"const fs=require\\('fs'\\),t=fs.readFileSync\\('province/bologna.html','utf8'\\),i=t.indexOf\\('</head>'\\);console.log\\(JSON.stringify\\(t.slice\\(i,i+60\\)\\)\\)\")",
+      "PowerShell($proc = \\(Get-NetTCPConnection -LocalPort 8080 -ErrorAction SilentlyContinue | Select-Object -First 1\\).OwningProcess; if \\($proc\\) { Stop-Process -Id $proc -Force; \"Killed $proc\" } else { \"free\" })"
     ]
   }
 }
