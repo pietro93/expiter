@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='{{ lang | default("en") }}'>
+<head><meta charset="utf-8">
+<link rel="canonical" href="{{canonicalUrl}}"/>
+<link rel="alternate" hreflang="en" href="{{canonicalUrl}}" />
+<link rel="alternate" hreflang="it" href="{{hreflangIt}}" />
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">
+<script type="text/javascript" src="https://expiter.com/jquery3.6.0.js" defer></script>
+<script type="text/json" src="https://expiter.com/dataset.json"></script>
+<script type="text/javascript" src="https://expiter.com/script.js" defer></script>
+<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>
+<script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="//scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js"></script>
+<script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZToxY2NlNzA3MS0yNWM2LTQ4YzEtYjdlZS0xZGE1Njc0YjhiZmQ=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
+<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media='all'"></link>
+<link rel="stylesheet" href="https://expiter.com/bulma.min.css">
+<link rel="stylesheet" href="https://expiter.com/style.css?v=1.1">
+<meta property="og:title" content="{{seoTitle}}" />
+<meta property="og:description" content="{{seoDescription}}" />
+<meta property="og:image" content="{{heroImage}}" />
+<meta name="description" content="{{seoDescription}}" />
+<meta name="keywords" content="{{seoKeywords}}" />
+<title>{{seoTitle}}</title>
+<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>
+{% block extra_head %}{% endblock %}
+</head>
+<aside class="menu sb higher">{{sidebar | safe}}</aside>
+<body data-spy="scroll" data-target="#toc">
+<div class="toc container collapsed" >
+<i class="arrow left" onclick="$('.toc').toggleClass('collapsed')"></i>
+<div class="row">
+<div class="col-sm-3">
+<nav id="toc" data-toggle="toc"></nav>
+<div class="col-sm-9"></div>
+</div>
+</div>
+</div>
+
+{{navbar | safe}}
+
+<div class="hero" style="background-image:url('{{heroImage}}')" title="{{heroAlt}}"></div>
+<h1 data-toc-skip id="title" class="title column is-12">{{pageTitle}}</h1>
+
+{% block tabs %}{% endblock %}
+
+<div id="info" class="columns is-multiline is-mobile{% block infoClass %}{% endblock %}">
+{% block infoSections %}{% endblock %}
+</div>
+
+<aside class="menu sb mobileonly">{{sidebar | safe}}</aside>
+</body>
+</html>

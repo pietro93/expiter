@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk 'NR>=638' c:/Users/Pietro/Desktop/Github/expiter/CaSGenerator.js)",
+      "Bash(node --check pageGeneratorSSR.js)",
+      "Bash(node --check CaSGenerator.js)",
+      "Bash(node -e ' *)",
+      "Bash(node pageGeneratorSSR.js)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill /PID 28628 /F)",
+      "Bash(taskkill /PID 3748 /F)",
+      "PowerShell(Stop-Process -Id 28628 -Force -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Id 3748 -Force -ErrorAction SilentlyContinue)",
+      "Bash(node CaSGenerator.js)"
+    ]
+  }
+}

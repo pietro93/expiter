@@ -1,0 +1,18 @@
+{% extends "layouts/base.njk" %}
+
+{% block infoClass %} blog-main-content entry-content journey-content{% endblock %}
+
+{% block tabs %}
+{% include "partials/tabs.njk" %}
+{% endblock %}
+
+{% block infoSections %}
+<section id="Overview"><h2>Overview</h2><span id="overview">{{overview | safe}}</span></section>
+<section id="Crime and Safety"><h3>Crime and Safety</h3><span id="crimeandsafety">{{crimeandsafety | safe}}</span></section>
+<section id="Thefts and Robberies"><h3>Thefts and Robberies</h3><span id="theftsandrobberies">{{theftsandrobberies | safe}}</span></section>
+<section id="Violence"><h3>Violent Crimes</h3><span id="violentcrimes">{{violentcrimes | safe}}</span></section>
+<section id="Organized Crime"><h3>Organized Crime & Drug-related Crimes</h3><span id="organizedcrime">{{organizedcrime | safe}}</span></section>
+<section id="Accidents"><h3>Accidents</h3><span id="accidents">{{accidents | safe}}</span></section>
+<section id="FAQs"><h3>Frequently Asked Questions</h3><span id="faqs">{{faqs | safe}}</span></section>
+<section id="Discover"><h2>Discover</h2><span id="promo">{{promo | safe}}</span></section>
+{% endblock %}

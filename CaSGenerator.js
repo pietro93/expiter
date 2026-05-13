@@ -2,12 +2,10 @@ import * as pb from './js/pageBuilder.js';
 import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
-import { createRequire } from 'module';
 import path from 'path';
-const require = createRequire(import.meta.url);
-const jsdom = require('jsdom');
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { nunjucks } from './js/nunjucksEnv.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -17,6 +15,21 @@ createServer(function (req, res) {
   res.writeHead(200, { 'Content-Type': 'text/html' });
   res.end('Hello World!');
 }).listen(8080);
+
+const NAVBAR = '<nav id="navbar"><div class="navbar-container">'+
+'<input type="checkbox" name="navbar" id="nbar">'+
+'<div class="hamburger-lines"><span class="line line1"></span><span class="line line2"></span><span class="line line3"></span></div>'+
+'<ul class="menu-items">'+
+'<li><a href="/">Home</a></li>'+
+'<li><a href="https://expiter.com/resources/">Resources</a></li>'+
+'<li><a href="https://expiter.com/tools/codice-fiscale-generator/">Tools</a></li>'+
+'<li><a href="https://expiter.com/blog/articles/">Blog</a></li>'+
+'<li><a href="https://expiter.com/app/#About">About</a></li>'+
+'<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
+'</ul>'+
+'<label class="switch" id="switch"><input type="checkbox"><span class="slider round"></span></label>'+
+'<a href="/"><div class="logo">Italy Expats & Nomads</div></a>'+
+'</div></nav>';
 
 var dataset;
 var provinces = {};
@@ -96,156 +109,50 @@ fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent);
 
 
       var fileName = ''+dirName+'/crime-and-safety';
-            let seoTitle=en(province.Name)+" - Crime and Safety Info Sheet";
-            let seoDescription='Information about crime and safety in '+en(province.Name)+', Italy. '+en(province.Name)+' crime index, mafia activity, safety and more.'
-            let heroImage='https://expiter.com/img/safety/'+province.Abbreviation+'.webp'
-            let sidebar=pb.setSideBar(province)
-
-            const dom = new jsdom.JSDOM(
-            "<!DOCTYPE html>"+
-            "<html lang='en'>"+
-            '<head><meta charset="utf-8">'+
-            '<link rel="canonical" href="https://expiter.com/'+fileName+'/"/>'+
-            '<link rel="alternate" hreflang="en" href="https://expiter.com/'+fileName+'/" />'+
-            '<link rel="alternate" hreflang="it" href="https://expiter.com/it/'+fileName+'/" />'+
-            '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
-            '<script type="text/javascript" src="https://expiter.com/jquery3.6.0.js" defer></script>'+
-            '<script type="text/json" src="https://expiter.com/dataset.json"></script>'+
-            '<script type="text/javascript" src="https://expiter.com/script.js" defer></script>'+
-            '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
-            '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
-            '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.1">'+
-            
-            '<meta property="og:title" content="'+seoTitle+'" />'+
-            '<meta property="og:description" content="'+seoDescription+'" />'+
-            '<meta property="og:image" content="'+heroImage+'" />'+
-            '<meta name="description" content="'+seoDescription+'" />'+
-	          '<meta name="keywords" content="'+en(province.Name)+' italy, '+en(province.Name)+' is it safe,'+en(province.Name)+' crime,'+en(province.Name)+' mafia" />'+
-            "<title>"+seoTitle+"</title>"+
-            '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'           
-            +'    <!-- Journey by Mediavine -->'+
-           '<script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="//scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js"></script>'+
-            "</head>"+
-            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
-            '<body data-spy="scroll" data-target="#toc">'+
-
-            '<div class="toc container collapsed" >'+
-			'<i class="arrow left" onclick="$(\'.toc\').toggleClass(\'collapsed\')"></i>'+
-			'<div class="row">'+
-			  '<div class="col-sm-3">'+
-				'<nav id="toc" data-toggle="toc"></nav>'+
-                '<div class="col-sm-9"></div>'+
-			  '</div>'+
-			'</div>'+
-		'</div>'+
-
-        '<nav id="navbar"></nav>'+
-
-            '<div class="hero" style="background-image:url(\'https://expiter.com/img/safety/'+province.Abbreviation+'.webp\')" '+'title="'+province.Name+' Province"'+'></div>'+
-            '<h1 data-toc-skip id="title" class="title column is-12">  </h1></row>'+
-            '<div class="tabs effect-3">'+
-			'<input type="radio" id="tab-1" name="tab-effect-3" checked="checked">'+
-			'<span>Quality of Life</span>'+
-			'<input type="radio" id="tab-2" name="tab-effect-3">'+
-			'<span>Cost of Living</span>'+
-			'<input type="radio" id="tab-3" name="tab-effect-3">'+
-			'<span>Digital Nomads</span>'+
-			'<input type="radio" id="tab-4" name="tab-effect-3" disabled>'+
-			'<span></span>'+
-			'<input type="radio" id="tab-5" name="tab-effect-3" disabled>'+
-			'<span></span>'+
-			'<div class="line ease"></div>'+
-			'<!-- tab-content -->'+
-			'<div class="tab-content">'+
-				'<section id="Quality-of-Life" class="columns is-mobile is-multiline">'+
-                    '<div class="column">'+                    
-               '<!--script.js adds content here-->'+
-                    '</div>'+
-                '<div class="column" >'+
-              '<!--script.js adds content here-->'+
-                '</div>'+
-				'</section>'+
-				'<section id="Cost-of-Living" class="columns is-mobile is-multiline">'+
-				    '<div class="column">'+
-                        '<!--script.js adds content here-->'+
-                             '</div>'+
-                         '<div class="column" >'+
-                         '</div>'+
-				'</section>'+
-				'<section id="Digital-Nomads" class="columns is-mobile is-multiline">'+
-				    '<div class="column">'+
-                             '</div>'+
-                         '<div class="column" >'+
-                         '</div>'+
-				'</section>'+
-			'</div>'+
-		'</div></div>'+
-            '<div id="info" class="columns is-multiline is-mobile blog-main-content entry-content journey-content">'+
-            '<section id="Overview"><h2>Overview</h2><span id="overview"></span></section>'+
-            '<section id="Crime and Safety"><h3>Crime and Safety</h3><span id="crimeandsafety"></span></section>'+
-            '<section id="Thefts and Robberies"><h3>Thefts and Robberies</h3><span id="theftsandrobberies"></span></section>'+
-            '<section id="Violence"><h3>Violent Crimes</h3><span id="violentcrimes"></span></section>'+
-            '<section id="Organized Crime"><h3>Organized Crime & Drug-related Crimes</h3><span id="organizedcrime"></span></section>'+
-            '<section id="Accidents"><h3>Accidents</h3><span id="accidents"></span></section>'+
-            '<section id="FAQs"><h3>Frequently Asked Questions</h3><span id="faqs"></span></section>'+
-            '<section id="Discover"><h2>Discover</h2><span id="promo"></span></section>'+
-            '</div>'+
-            '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
-            '</body></html>'
-                    )
-
-      /*let parsedData = fs.readFileSync('temp/parsedDataAbout' + province.Name + '.txt', 'utf8');
-      let provinceData = parsedData.split('%%%')[0];
-      provinceData = provinceData === 'undefined' ? '' : provinceData;
-      let transportData = parsedData.split('%%%')[1];
-      transportData = transportData === 'undefined' ? '' : transportData;
-      facts[province.Name]['provinceData'] = provinceData;
-      facts[province.Name]['transportData'] = transportData;*/
-
-      console.log(facts[province.Name])
-         const $ = require('jquery')(dom.window)
-         newPage(province, $)
-        
-         let html = dom.window.document.documentElement.outerHTML;
-         fs.writeFile(fileName+".html", html, function (err, file) {
-            if (err) throw err;
-            console.log(dataset[i].Name+".html"+' Saved!');
-        });
+      let html = renderPage(province, fileName);
+      fs.writeFile(fileName+".html", html, function (err, file) {
+         if (err) throw err;
+         console.log(dataset[i].Name+".html"+' Saved!');
+     });
     }
   })
   .catch(function (err) {
     console.log('error: ' + err);
   });
 
-  function newPage(province, $){
+  function renderPage(province, fileName){
     let info = getInfo(province)
     let separator='</br><span class="separator"></span></br>'
-    appendProvinceData(province, $);
-    pb.setNavBar($);
-        
-    $(".title").text("Crime and Safety in "+en(province.Name)+'');
+    const tabs = buildTabContent(province)
+    const seoTitle = en(province.Name)+" - Crime and Safety Info Sheet"
+    const seoDescription = 'Information about crime and safety in '+en(province.Name)+', Italy. '+en(province.Name)+' crime index, mafia activity, safety and more.'
+    const seoKeywords = en(province.Name)+' italy, '+en(province.Name)+' is it safe,'+en(province.Name)+' crime,'+en(province.Name)+' mafia'
 
-    $("#overview").append(pb.addBreaks(info.overview))
-    $("#crimeandsafety").append(pb.addBreaks(info.crimeandsafety))
-    $("#crimeandsafety").append(separator)
-    $("#theftsandrobberies").append(info.theftsandrobberies)
-    $("#theftsandrobberies").append(separator)
-    $("#violentcrimes").append(pb.addBreaks(info.violentcrimes))
-    $("#violentcrimes").append(separator)
-    $("#organizedcrime").append(pb.addBreaks(info.organizedcrime))
-    $("#organizedcrime").append(separator)
-    $("#accidents").append(pb.addBreaks(info.accidents))
-    $("#accidents").append(separator)
-    $("#faqs").append(pb.addBreaks(info.faqs))
-    $("#faqs").append(separator)
-    $("#promo").append(info.viator)
-        $("#promo").append(separator)
-        $("#promo").append(info.getyourguide)
-        $("#promo").append(separator)
-        $("#promo").append(info.related)
+    return nunjucks.render('pages/crime-safety.njk', {
+        lang: 'en',
+        seoTitle,
+        seoDescription,
+        seoKeywords,
+        canonicalUrl: 'https://expiter.com/'+fileName+'/',
+        hreflangIt: 'https://expiter.com/it/'+fileName+'/',
+        heroImage: 'https://expiter.com/img/safety/'+province.Abbreviation+'.webp',
+        heroAlt: province.Name+' Province',
+        pageTitle: 'Crime and Safety in '+en(province.Name),
+        sidebar: pb.setSideBar(province),
+        navbar: NAVBAR,
+        ...tabs,
+        overview: pb.addBreaks(info.overview||''),
+        crimeandsafety: pb.addBreaks(info.crimeandsafety) + separator,
+        theftsandrobberies: info.theftsandrobberies + separator,
+        violentcrimes: pb.addBreaks(info.violentcrimes) + separator,
+        organizedcrime: pb.addBreaks(info.organizedcrime) + separator,
+        accidents: pb.addBreaks(info.accidents) + separator,
+        faqs: pb.addBreaks(info.faqs) + separator,
+        promo: (info.viator||'') + separator + (info.getyourguide||'') + separator + (info.related||'')
+    })
+}
 
-}function getInfo(province){
+function getInfo(province){
   populateFacts()
 
   console.log("Getting info on "+province.Name)
@@ -409,63 +316,64 @@ function en(word){
   }
 }
 
-function appendProvinceData(province, $){
-  
-  let tab1=$("#Quality-of-Life > .column");
-  let tab2=$("#Cost-of-Living > .column"); 
-  let tab3=$("#Digital-Nomads > .column"); 
-  tab1[0].innerHTML+=('<p><ej>👥</ej>Population: <b>'+province.Population.toLocaleString('en', {useGrouping:true}) +'</b>');
-  tab1[0].innerHTML+=('<p><ej>🚑</ej>Healthcare: '+ qualityScore("Healthcare",province.Healthcare));
-  tab1[0].innerHTML+=('<p><ej>📚</ej>Education: '+ qualityScore("Education",province.Education));
-  tab1[0].innerHTML+=('<p><ej>👮🏽‍♀️</ej>Safety: '+ qualityScore("Safety",province.Safety));
-  tab1[0].innerHTML+=('<p><ej>🚨</ej>Crime: '+ qualityScore("Crime",province.Crime));
-  
-  tab1[0].innerHTML+=('<p><ej>🚌</ej>Transport: '+ qualityScore("PublicTransport",province["PublicTransport"]));
-  tab1[0].innerHTML+=('<p><ej>🚥</ej>Traffic: '+ qualityScore("Traffic",province["Traffic"]));
-  tab1[0].innerHTML+=('<p><ej>🚴‍♂️</ej>Cyclable: '+ qualityScore('CyclingLanes',province['CyclingLanes']));
-  tab1[0].innerHTML+=('<p><ej>🏛️</ej>Culture: '+ qualityScore("Culture",province.Culture));
-  tab1[0].innerHTML+=('<p><ej>🍸</ej>Nightlife: '+ qualityScore("Nightlife",province.Nightlife));
-  tab1[0].innerHTML+=('<p><ej>⚽</ej>Recreation: '+ qualityScore("Sports & Leisure",province["Sports & Leisure"]));
+function buildTabContent(province){
+  let tab1col1 = '';
+  tab1col1 += '<p><ej>👥</ej>Population: <b>'+province.Population.toLocaleString('en', {useGrouping:true}) +'</b>';
+  tab1col1 += '<p><ej>🚑</ej>Healthcare: '+ qualityScore("Healthcare",province.Healthcare);
+  tab1col1 += '<p><ej>📚</ej>Education: '+ qualityScore("Education",province.Education);
+  tab1col1 += '<p><ej>👮🏽‍♀️</ej>Safety: '+ qualityScore("Safety",province.Safety);
+  tab1col1 += '<p><ej>🚨</ej>Crime: '+ qualityScore("Crime",province.Crime);
+  tab1col1 += '<p><ej>🚌</ej>Transport: '+ qualityScore("PublicTransport",province["PublicTransport"]);
+  tab1col1 += '<p><ej>🚥</ej>Traffic: '+ qualityScore("Traffic",province["Traffic"]);
+  tab1col1 += '<p><ej>🚴‍♂️</ej>Cyclable: '+ qualityScore('CyclingLanes',province['CyclingLanes']);
+  tab1col1 += '<p><ej>🏛️</ej>Culture: '+ qualityScore("Culture",province.Culture);
+  tab1col1 += '<p><ej>🍸</ej>Nightlife: '+ qualityScore("Nightlife",province.Nightlife);
+  tab1col1 += '<p><ej>⚽</ej>Recreation: '+ qualityScore("Sports & Leisure",province["Sports & Leisure"]);
 
-  tab1[1].innerHTML+=('<p><ej>🌦️</ej>Climate: '+ qualityScore("Climate",province.Climate));
-  tab1[1].innerHTML+=('<p><ej>☀️</ej>Sunshine: '+ qualityScore("SunshineHours",province.SunshineHours));
-  tab1[1].innerHTML+=('<p><ej>🥵</ej>Summers: '+ qualityScore("HotDays",province.HotDays));
-  tab1[1].innerHTML+=('<p><ej>🥶</ej>Winters: '+ qualityScore("ColdDays",province.ColdDays));
-  tab1[1].innerHTML+=('<p><ej>🌧️</ej>Rain: '+ qualityScore("RainyDays",province.RainyDays));
-  tab1[1].innerHTML+=('<p><ej>🌫️</ej>Fog: '+ qualityScore("FoggyDays",province.FoggyDays));
-  tab1[1].innerHTML+=('<p><ej>🍃</ej>Air quality: '+ qualityScore("AirQuality",province["AirQuality"]));
+  let tab1col2 = '';
+  tab1col2 += '<p><ej>🌦️</ej>Climate: '+ qualityScore("Climate",province.Climate);
+  tab1col2 += '<p><ej>☀️</ej>Sunshine: '+ qualityScore("SunshineHours",province.SunshineHours);
+  tab1col2 += '<p><ej>🥵</ej>Summers: '+ qualityScore("HotDays",province.HotDays);
+  tab1col2 += '<p><ej>🥶</ej>Winters: '+ qualityScore("ColdDays",province.ColdDays);
+  tab1col2 += '<p><ej>🌧️</ej>Rain: '+ qualityScore("RainyDays",province.RainyDays);
+  tab1col2 += '<p><ej>🌫️</ej>Fog: '+ qualityScore("FoggyDays",province.FoggyDays);
+  tab1col2 += '<p><ej>🍃</ej>Air quality: '+ qualityScore("AirQuality",province["AirQuality"]);
+  tab1col2 += '<p><ej>👪</ej>For family: '+ qualityScore("Family-friendly",province["Family-friendly"]);
+  tab1col2 += '<p><ej>👩</ej>For women: '+ qualityScore("Female-friendly",province["Female-friendly"]);
+  tab1col2 += '<p><ej>🏳️‍🌈</ej>LGBTQ+: '+ qualityScore("LGBT-friendly",province["LGBT-friendly"]);
+  tab1col2 += '<p><ej>🥗</ej>For vegans: '+ qualityScore("Veg-friendly",province["Veg-friendly"]);
 
-  tab1[1].innerHTML+=('<p><ej>👪</ej>For family: '+ qualityScore("Family-friendly",province["Family-friendly"]));
-  tab1[1].innerHTML+=('<p><ej>👩</ej>For women: '+ qualityScore("Female-friendly",province["Female-friendly"]));
-  tab1[1].innerHTML+=('<p><ej>🏳️‍🌈</ej>LGBTQ+: '+ qualityScore("LGBT-friendly",province["LGBT-friendly"]));
-  tab1[1].innerHTML+=('<p><ej>🥗</ej>For vegans: '+ qualityScore("Veg-friendly",province["Veg-friendly"]));
-  
+  let tab2col1 = '';
+  tab2col1 += '<p><ej>📈</ej>Cost of Living: '+ qualityScore("CostOfLiving",province["CostOfLiving"]);
+  tab2col1 += '<p><ej>🧑🏻</ej>Expenses (single person): '+ qualityScore("Cost of Living (Individual)",province["Cost of Living (Individual)"]);
+  tab2col1 += '<p><ej>👩🏽‍🏫</ej>Expenses (tourist): '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]);
+  tab2col1 += '<p><ej>🏠</ej>Rental (studio apt.): '+ qualityScore("StudioRental",province["StudioRental"]);
+  tab2col1 += '<p><ej>🏘️</ej>Rental (2-room apt.): '+ qualityScore("BilocaleRent",province["BilocaleRent"]);
+  tab2col1 += '<p><ej>🏰</ej>Rental (3-room apt.): '+ qualityScore("TrilocaleRent",province["TrilocaleRent"]);
 
-  tab2[0].innerHTML+=('<p><ej>📈</ej>Cost of Living: '+ qualityScore("CostOfLiving",province["CostOfLiving"]));
-  tab2[0].innerHTML+=('<p><ej>🧑🏻</ej>Expenses (single person): '+ qualityScore("Cost of Living (Individual)",province["Cost of Living (Individual)"]))
-  tab2[0].innerHTML+=('<p><ej>👩🏽‍🏫</ej>Expenses (tourist): '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
-  tab2[0].innerHTML+=('<p><ej>🏠</ej>Rental (studio apt.): '+ qualityScore("StudioRental",province["StudioRental"]))
-  tab2[0].innerHTML+=('<p><ej>🏘️</ej>Rental (2-room apt.): '+ qualityScore("BilocaleRent",province["BilocaleRent"]))
-  tab2[0].innerHTML+=('<p><ej>🏰</ej>Rental (3-room apt.): '+ qualityScore("TrilocaleRent",province["TrilocaleRent"]))
+  let tab2col2 = '';
+  tab2col2 += '<p><ej>🏙️</ej>Housing Cost: '+ qualityScore("HousingCost",province["HousingCost"]);
+  tab2col2 += '<p><ej>💵</ej>Local Income: '+ qualityScore("MonthlyIncome",province["MonthlyIncome"]);
+  tab2col2 += '<p><ej>👪</ej>Expenses (small family): '+ qualityScore("Cost of Living (Family)",province["Cost of Living (Family)"]);
+  tab2col2 += '<p><ej>🏠</ej>Sale (studio apt.): '+ qualityScore("StudioSale",province["StudioSale"]);
+  tab2col2 += '<p><ej>🏘️</ej>Sale (2-room apt.): '+ qualityScore("BilocaleSale",province["BilocaleSale"]);
+  tab2col2 += '<p><ej>🏰</ej>Sale (3-room apt.): '+ qualityScore("TrilocaleSale",province["TrilocaleSale"]);
 
-  tab2[1].innerHTML+=('<p><ej>🏙️</ej>Housing Cost: '+ qualityScore("HousingCost",province["HousingCost"]));
-  tab2[1].innerHTML+=('<p><ej>💵</ej>Local Income: '+ qualityScore("MonthlyIncome",province["MonthlyIncome"]));
-  tab2[1].innerHTML+=('<p><ej>👪</ej>Expenses (small family): '+ qualityScore("Cost of Living (Family)",province["Cost of Living (Family)"]))
-  tab2[1].innerHTML+=('<p><ej>🏠</ej>Sale (studio apt.): '+ qualityScore("StudioSale",province["StudioSale"]))
-  tab2[1].innerHTML+=('<p><ej>🏘️</ej>Sale (2-room apt.): '+ qualityScore("BilocaleSale",province["BilocaleSale"]))
-  tab2[1].innerHTML+=('<p><ej>🏰</ej>Sale (3-room apt.): '+ qualityScore("TrilocaleSale",province["TrilocaleSale"]))
- 
-  tab3[0].innerHTML+=('<p><ej>👩‍💻</ej>Nomad-friendly: '+qualityScore("DN-friendly",province["DN-friendly"]))
-  tab3[0].innerHTML+=('<p><ej>💃</ej>Fun: '+qualityScore("Fun",province["Fun"]));
-  tab3[0].innerHTML+=('<p><ej>🤗</ej>Friendliness: '+qualityScore("Friendliness",province["Friendliness"]));
-  tab3[0].innerHTML+=('<p><ej>🤐</ej>English-speakers: '+qualityScore("English-speakers",province["English-speakers"]));
-  tab3[0].innerHTML+=('<p><ej>😊</ej>Happiness: '+qualityScore("Antidepressants",province["Antidepressants"]));
- 
-  tab3[1].innerHTML+=('<p><ej>💸</ej>Nomad cost: '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]))
-  tab3[1].innerHTML+=('<p><ej>📡</ej>High-speed Internet: '+qualityScore("HighSpeedInternetCoverage",province["HighSpeedInternetCoverage"]));
-  tab3[1].innerHTML+=('<p><ej>📈</ej>Innovation: '+qualityScore("Innovation",province["Innovation"]));
-  tab3[1].innerHTML+=('<p><ej>🏖️</ej>Beach: '+qualityScore("Beach",province["Beach"]));
-  tab3[1].innerHTML+=('<p><ej>⛰️</ej>Hiking: '+qualityScore("Hiking",province["Hiking"]));
+  let tab3col1 = '';
+  tab3col1 += '<p><ej>👩‍💻</ej>Nomad-friendly: '+qualityScore("DN-friendly",province["DN-friendly"]);
+  tab3col1 += '<p><ej>💃</ej>Fun: '+qualityScore("Fun",province["Fun"]);
+  tab3col1 += '<p><ej>🤗</ej>Friendliness: '+qualityScore("Friendliness",province["Friendliness"]);
+  tab3col1 += '<p><ej>🤐</ej>English-speakers: '+qualityScore("English-speakers",province["English-speakers"]);
+  tab3col1 += '<p><ej>😊</ej>Happiness: '+qualityScore("Antidepressants",province["Antidepressants"]);
+
+  let tab3col2 = '';
+  tab3col2 += '<p><ej>💸</ej>Nomad cost: '+ qualityScore("Cost of Living (Nomad)",province["Cost of Living (Nomad)"]);
+  tab3col2 += '<p><ej>📡</ej>High-speed Internet: '+qualityScore("HighSpeedInternetCoverage",province["HighSpeedInternetCoverage"]);
+  tab3col2 += '<p><ej>📈</ej>Innovation: '+qualityScore("Innovation",province["Innovation"]);
+  tab3col2 += '<p><ej>🏖️</ej>Beach: '+qualityScore("Beach",province["Beach"]);
+  tab3col2 += '<p><ej>⛰️</ej>Hiking: '+qualityScore("Hiking",province["Hiking"]);
+
+  return { tab1col1, tab1col2, tab2col1, tab2col2, tab3col1, tab3col2 };
 }
 
 

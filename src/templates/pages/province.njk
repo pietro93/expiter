@@ -1,0 +1,24 @@
+{% extends "layouts/base.njk" %}
+
+{% block extra_head %}
+<!-- GetYourGuide Analytics -->
+<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>
+{% endblock %}
+
+{% block tabs %}
+{% include "partials/tabs.njk" %}
+{% endblock %}
+
+{% block infoSections %}
+<section id="Overview"><h2>Overview</h2><div style="display: inline;" id="overview">{{overview | safe}}</div></section>
+<section id="Climate"><h2>Climate</h2><div style="display: inline;" id="climate">{{climate | safe}}</div></section>
+<section id="Cost of Living"><h2>Cost of Living</h2><div style="display: inline;" id="CoL">{{col | safe}}</div></section>
+<section id="Quality of Life"><h2>Quality of Life</h2>
+<section id="Healthcare"><h3>Healthcare</h3><div style="display: inline;" id="healthcare">{{healthcare | safe}}</div></section>
+<section id="Education"><h3>Education</h3><div style="display: inline;" id="education">{{education | safe}}</div></section>
+<section id="Leisure"><h3>Leisure</h3><div style="display: inline;" id="leisure">{{leisure | safe}}</div></section>
+<section id="Crime and Safety"><h3><a href="{{crimeUrl}}">Crime and Safety</a></h3><div style="display: inline;" id="crimeandsafety">{{crimeandsafety | safe}}</div></section>
+<section id="Transport"><h3>Transport</h3><div style="display: inline;" id="transport">{{transport | safe}}</div></section>
+</section>
+<section id="Discover"><h2>Discover</h2><div style="display: inline;" id="promo">{{promo | safe}}</div></section>
+{% endblock %}
