@@ -1,18 +1,12 @@
 {% extends "layouts/base.njk" %}
 
-{% block infoClass %} blog-main-content entry-content journey-content{% endblock %}
-
-{% block tabs %}
-{% include "partials/tabs.njk" %}
-{% endblock %}
-
 {% block infoSections %}
-<section id="Overview"><h2>Overview</h2><span id="overview">{{overview | safe}}</span></section>
-<section id="Crime and Safety"><h3>Crime and Safety</h3><span id="crimeandsafety">{{crimeandsafety | safe}}</span></section>
-<section id="Thefts and Robberies"><h3>Thefts and Robberies</h3><span id="theftsandrobberies">{{theftsandrobberies | safe}}</span></section>
-<section id="Violence"><h3>Violent Crimes</h3><span id="violentcrimes">{{violentcrimes | safe}}</span></section>
-<section id="Organized Crime"><h3>Organized Crime & Drug-related Crimes</h3><span id="organizedcrime">{{organizedcrime | safe}}</span></section>
-<section id="Accidents"><h3>Accidents</h3><span id="accidents">{{accidents | safe}}</span></section>
-<section id="FAQs"><h3>Frequently Asked Questions</h3><span id="faqs">{{faqs | safe}}</span></section>
-<section id="Discover"><h2>Discover</h2><span id="promo">{{promo | safe}}</span></section>
+<section id="Overview"><h2>Overview</h2><div id="overview">{{overview | safe}}</div></section>
+<section id="Crime-and-Safety"><h2>Crime and Safety</h2><div id="crimeandsafety">{{crimeandsafety | safe}}</div></section>
+<section id="Thefts-and-Robberies"><h2>Thefts and Robberies</h2><div id="theftsandrobberies">{{theftsandrobberies | safe}}</div></section>
+<section id="Violence"><h2>Violent Crimes</h2><div id="violentcrimes">{{violentcrimes | safe}}</div></section>
+<section id="Organized-Crime"><h2>Organized Crime &amp; Drug-related Crimes</h2><div id="organizedcrime">{{organizedcrime | safe}}</div></section>
+<section id="Accidents"><h2>Accidents</h2><div id="accidents">{{accidents | safe}}</div></section>
+<section id="FAQs"><h2>Frequently Asked Questions</h2><div id="faqs">{{faqs | safe}}</div></section>
+<section id="Discover"><h2>Discover</h2><div id="promo">{{promo | safe}}</div></section>
 {% endblock %}

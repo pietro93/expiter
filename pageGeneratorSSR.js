@@ -1,13 +1,7 @@
 import * as pb from './js/pageBuilder.js'
-import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
 import { nunjucks } from './js/nunjucksEnv.js'
-
-createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.end('Hello World!');
-}).listen(8080);
 
 const NAVBAR = '<nav id="navbar"><div class="navbar-container">'+
 '<input type="checkbox" name="navbar" id="nbar">'+
@@ -70,14 +64,31 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         let separator='</br><div class="separator"></div></br>'
 
         let map =
-        '<figure>'+
-        '<img alt="Map of the '+en(province.Name)+' province in '+en(province.Region)+'"'+
-        'src="https://ik.imagekit.io/cfkgj4ulo/map/'+province["Region"].replace(/\s+/g,"-").replace("'","-")+'-provinces.webp?tr=w-340,'+
-        'loading="lazy"></img>'+
+        '<figure class="province-map">'+
+        '<img alt="Map of the '+en(province.Name)+' province in '+en(province.Region)+'" '+
+        'loading="lazy" '+
+        'src="https://ik.imagekit.io/cfkgj4ulo/map/'+province["Region"].replace(/\s+/g,"-").replace("'","-")+'-provinces.webp?tr=w-340">'+
         '<figcaption>Map of the provinces of '+en(province.Region)+' including '+en(province.Name)+'</figcaption>'+
         '</figure>'
 
         const tabs = buildTabContent(province)
+        const tabRows = buildTabRows(province)
+        const toc =
+          '<ul>'+
+            '<li><a href="#Overview">Overview</a></li>'+
+            '<li><a href="#Climate">Climate</a></li>'+
+            '<li><a href="#Cost-of-Living">Cost of Living</a></li>'+
+            '<li><a href="#Quality-of-Life">Quality of Life</a>'+
+              '<ul>'+
+                '<li><a href="#Healthcare">Healthcare</a></li>'+
+                '<li><a href="#Education">Education</a></li>'+
+                '<li><a href="#Leisure">Leisure</a></li>'+
+                '<li><a href="#Crime-and-Safety">Crime &amp; Safety</a></li>'+
+                '<li><a href="#Transport">Transport</a></li>'+
+              '</ul>'+
+            '</li>'+
+            '<li><a href="#Discover">Discover</a></li>'+
+          '</ul>'
         const seoTitle = en(province.Name)+" - Quality of Life and Info Sheet for Expats"
         const seoDescription = 'Information about living in '+en(province.Name)+', Italy for expats and digital nomads. '+en(province.Name)+' quality of life, cost of living, safety and more.'
         const seoKeywords = en(province.Name)+' italy, '+en(province.Name)+' expat,'+en(province.Name)+' life,'+en(province.Name)+' digital nomad'
@@ -91,12 +102,15 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             hreflangIt: 'https://expiter.com/it/'+fileName+'/',
             heroImage: 'https://expiter.com/img/'+province.Abbreviation+'.webp',
             heroAlt: province.Name+' Province',
+            eyebrow: en(province.Region) + ' · Province',
             pageTitle: en(province.Name)+' for Expats and Nomads',
             sidebar: pb.setSideBar(province),
             navbar: NAVBAR,
             crimeUrl: 'https://expiter.com/'+fileName+'/crime-and-safety/',
             ...tabs,
-            overview: map + pb.addBreaks(info.overview) + (info.disclaimer||'') + (info.map||''),
+            tabRows,
+            toc,
+            overview: '<div class="province-hero" role="img" aria-label="'+en(province.Name)+' Province" style="background-image:url(\''+'https://expiter.com/img/'+province.Abbreviation+'.webp\')"></div>' + map + pb.addBreaks(info.overview) + (info.disclaimer||'') + (info.map||''),
             climate: pb.addBreaks(info.climate) + separator + pb.addBreaks(info.weather||''),
             col: pb.addBreaks(info.CoL),
             healthcare: pb.addBreaks(info.healthcare) + separator,
@@ -147,8 +161,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         +"<p>Living in "+en(province.Name)+" is around "+(province['Cost of Living (Individual)']>avg["Cost of Living (Individual)"]?"<b class='red'>"+(province['Cost of Living (Individual)']/avg["Cost of Living (Individual)"]*100-100).toFixed(2)+"% more expensive than the average</b> of all Italian provinces":"<b class='green'>"+(100-province['Cost of Living (Individual)']/avg["Cost of Living (Individual)"]*100).toFixed(2)+"% cheaper than the average</b> of all Italian provinces")
         +".</p>";
       
-        info.climate="<p>The province of "+en(province.Name)+" receives on average <b>"+province.SunshineHours+" hours of sunshine</b> per month, or "+province.SunshineHours/30+" hours of sunshine per day."+
-        +"<br><br>"+
+        info.climate="<p>The province of "+en(province.Name)+" receives on average <b>"+province.SunshineHours+" hours of sunshine</b> per month, or "+(province.SunshineHours/30).toFixed(1)+" hours of sunshine per day."+
+        "<br><br>"+
         " This is "+(province.SunshineHours>236?"<b class='green'>"+(province.SunshineHours/236*100-100).toFixed(2)+"% more</b> than the average for Italy":"<b class='red'>"+(100-(province.SunshineHours/236)*100).toFixed(2)+"% less</b> than the average for Italy")+" and "+
         (province.SunshineHours>region.SunshineHours?"<b class='green'>"+(province.SunshineHours/region.SunshineHours*100-100).toFixed(2)+"% more</b> than the average for the region of ":"<b class='red'>"+(100-(province.SunshineHours/region.SunshineHours)*100).toFixed(2)+"% less</b> than the average for the region of ")+en(province.Region)+"."+
         "</br></br></p>"
@@ -166,8 +180,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         province.Bars+" bars and "+province.Restaurants+" restaurants per 10k inhabitants. </p>"
        
         info.healthcare="<p><b>Healthcare in "+en(province.Name)+" is "+(province.Healthcare>6.74?"<b class='green'>above average":"<b class='red'>below average")+"</b></b>. "+
-        "For every 10k inhabitants, there are around "+province.pharmacies+" pharmacies, "+province.GeneralPractitioners+" general practitioners and "+province.SpecializedDoctors+" specialized doctors per 10k inhabitants. "+
-        +"<br><br>"+
+        "For every 10k inhabitants, there are around "+province.Pharmacies+" pharmacies, "+province.GeneralPractitioners+" general practitioners and "+province.SpecializedDoctors+" specialized doctors per 10k inhabitants. "+
+        "<br><br>"+
         "<b>Average life expectancy in "+en(province.Name)+" is "+(province.LifeExpectancy>82.05?" very high at ":"")+province.LifeExpectancy+" years of age.</b></p>"
         
         info.crimeandsafety="<p>The province of "+en(province.Name)+" is overall "+(province.Safety>7.33?"<b class='green'>very safe for expats":(province.Safety>6?"<b class='green'>moderately safe for expats":"<b class='red'>less safe than other Italian provinces for expats"))+"</b>. "+
@@ -178,25 +192,21 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         (province.RoadFatalities>12.90?"<b class='red'>"+(((province.WorkAccidents/12.90)*100-100).toFixed(2))+"% more work accidents than average":"<b class='green'>"+(((100-(province.WorkAccidents/12.90)*100).toFixed(2))+"% less work accidents than average"))+"</b>."+
         "<br><br></p><p>"
         info.crimeandsafety+=(province.CarTheft>70.53?"Car theft is reportedly <b class='red'>"+(((province.CarTheft/70.53)*100)-100).toFixed(2)+"% higher than average</b> with "+province.CarTheft+" cases per 100k inhabitants.":"Car theft is reportedly <b class='green'>"+((100-(province.CarTheft/70.53)*100)).toFixed(2)+"% lower than average</b> with only "+province.CarTheft+" cases per 100k inhabitants.")+" "+
-        +"<br><br>"+
+        "<br><br>"+
         (province.HouseTheft>175.02?"Reports of house thefts are <b class='red'>"+(((province.HouseTheft/175.02)*100)-100).toFixed(2)+"% higher than average</b> with "+province.HouseTheft+" cases per 100k inhabitants.":"Reports of house thefts are <b class='green'>"+((100-(province.HouseTheft/175.02)*100)).toFixed(2)+"% lower</b> than average with "+province.HouseTheft+" cases per 100k inhabitants.")+" "+
-        +"<br><br>"+
+        "<br><br>"+
         (province.Robberies>22.14?"Cases of robbery are not totally uncommon, around <b class='red'>"+(((province.Robberies/22.14)*100)-100).toFixed(2)+"% higher than average</b> with "+province.Robberies+" reports per 100k inhabitants":"Cases of robbery are uncommon with "+province.HouseTheft+" reported cases per 100k inhabitants, about <b class='green'>"+((100-(province.Robberies/22.14)*100)).toFixed(2)+"% less the national average</b>")+". "
       
       info.crimeandsafety+="<br><br>"+(facts[name].safety?facts[name].safety:"Overall, "+en(province.Name)+" is "+(province.Safety>7.33?"<b class='green'>a very safe place to visit and live in":(province.Safety>6?"<b class='green'>quite safe to live and travel to":"<b class='red'>somewhat unsafe compared to other cities in Italy"))+"</b>. </p>");
 
-        info.education="<p>"+en(province.Name)+" has a "+(province.HighSchoolGraduates>avg.HighSchoolGraduates?"<b class='green'>higher-than-average percentage of high school graduates":"<b class='red'>lower-than-average percentage of high school graduates")+"</b>, around "+province.HighSchoolGraduates+"%; and a "+(province.UniversityGraduates>avg.UniversityGraduates?"<b class='green'>higher-than-average percentage of university graduates":"<b class='red'>lower-than-average percentage of university graduates")+"</b>, around "+province.UniversityGraduates+"%."+
-        +"<br><br></p>"+
-        "<p>The average number of completed <b>years of schooling</b> for people over 25 is "+province.YearsOfEducation+", which is "+(province.YearsOfEducation>avg.YearsOfEducation*1.05?"<b class='green'>above the national average</b>":(province.YearsOfEducation<avg.YearsOfEducation*.95?"<b class='red'>lower than the national average</b>":"not far from the national average"))+" of "+avg.YearsOfEducation+". "+
-        +"<br><br></p>"+
-        (province.Universities>1?"<p> There are <b>"+province.Universities+" universities</b> within the province":(province.Universities==1?"<p> There is <b>one university</b> in the province":" There are <b>no universities</b> in this province"))+".</p>"
+        info.education="<p>"+en(province.Name)+" has a "+(province.HighSchoolGraduates>avg.HighSchoolGraduates?"<b class='green'>higher-than-average percentage of high school graduates":"<b class='red'>lower-than-average percentage of high school graduates")+"</b>, around "+province.HighSchoolGraduates+"%; and a "+(province.UniversityGraduates>avg.UniversityGraduates?"<b class='green'>higher-than-average percentage of university graduates":"<b class='red'>lower-than-average percentage of university graduates")+"</b>, around "+province.UniversityGraduates+"%.</p>"+
+        "<p>The average number of completed <b>years of schooling</b> for people over 25 is "+province.YearsOfEducation+", which is "+(province.YearsOfEducation>avg.YearsOfEducation*1.05?"<b class='green'>above the national average</b>":(province.YearsOfEducation<avg.YearsOfEducation*.95?"<b class='red'>lower than the national average</b>":"not far from the national average"))+" of "+avg.YearsOfEducation+".</p>"+
+        (province.Universities>1?"<p>There are <b>"+province.Universities+" universities</b> within the province.</p>":(province.Universities==1?"<p>There is <b>one university</b> in the province.</p>":"<p>There are <b>no universities</b> in this province.</p>"))
       
         info.transport="<p><b>Public transport in "+en(name)+"</b> is "+(province.PublicTransport<avg.PublicTransport*.9?"<b class='red'>lacking":(province.PublicTransport>avg.PublicTransport*1.1?"<b class='green'>quite good":"<b class='green'>fairly decent"))+"</b>, and "+
-        (province.Traffic<avg.Traffic*.85?"<b class='green'>traffic is low":(province.Traffic<avg.Traffic?"<b class='green'>traffic is below average":(province.Traffic>avg.Traffic*1.1?"<b class='red'>traffic is very high":"<b class='red'>traffic is somewhat high")))+"</b>. "+
-        +"<br><br></p>"+
-        "<p>There are on average "+province.VehiclesPerPerson+" active vehicles per person, against a national average of "+avg.VehiclesPerPerson+". "+(province.Subway>0?"The city of "+name+" is one of the very few places in Italy with an urban metro system, the <b>Metropolitana di "+name+"</b>. ":"")+
-        "<br><br>"+
-        "Around "+(province.CyclingLanes/10).toFixed(2)+"km per 10k inhabitants of the main city in "+name+" consist of bicycle lanes. This makes "+name+" "+(province.CyclingLanes>avg.CyclingLanes*.8?"<b class='green'>somewhat bike-friendly by Italian standards":(province.CyclingLanes>avg.CyclingLanes*1.2?"<b class='green'>very bike-friendly by Italian standards":"<b class='red'>not very bike-friendly"))+"</b>. </p>";
+        (province.Traffic<avg.Traffic*.85?"<b class='green'>traffic is low":(province.Traffic<avg.Traffic?"<b class='green'>traffic is below average":(province.Traffic>avg.Traffic*1.1?"<b class='red'>traffic is very high":"<b class='red'>traffic is somewhat high")))+"</b>.</p>"+
+        "<p>There are on average "+province.VehiclesPerPerson+" active vehicles per person, against a national average of "+avg.VehiclesPerPerson+". "+(province.Subway>0?"The city of "+name+" is one of the very few places in Italy with an urban metro system, the <b>Metropolitana di "+name+"</b>. ":"")+"</p>"+
+        "<p>Around "+(province.CyclingLanes/10).toFixed(2)+"km per 10k inhabitants of the main city in "+name+" consist of bicycle lanes. This makes "+name+" "+(province.CyclingLanes>avg.CyclingLanes*.8?"<b class='green'>somewhat bike-friendly by Italian standards":(province.CyclingLanes>avg.CyclingLanes*1.2?"<b class='green'>very bike-friendly by Italian standards":"<b class='red'>not very bike-friendly"))+"</b>.</p>";
         
         (facts[name]["transportData"]!=""?(info.transport+='</br></br>'+facts[name]["transportData"])
         :"")
@@ -215,11 +225,11 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         '<a href="https://www.amazon.it/ulp/view?&linkCode=ll2&tag=expiter-21&linkId=5824e12643c8300394b6ebdd10b7ba3c&language=it_IT&ref_=as_li_ss_tl" target="_blank"><b><ej>📦</ej>Amazon Pickup Locations</b></a> '+
         '</center>'
       
-        info.weather=(province.WeatherWidget?'<center><h3>Weather Now</h3><a class="weatherwidget-io" href="https://forecast7.com/en/'+province.WeatherWidget+'" data-label_1="'+name+'" data-label_2="'+region.Name+'"'+
-        'data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="clear"  data-basecolor="rgba(155, 205, 245, 0.59)" data-textcolor="#000441" >name Region.Name</a>'+
+        info.weather=(province.WeatherWidget?'<div class="weather-block"><h3>Weather Now</h3><a class="weatherwidget-io" href="https://forecast7.com/en/'+province.WeatherWidget+'" data-label_1="'+name+'" data-label_2="'+region.Name+'" '+
+        'data-font="Roboto" data-icons="Climacons Animated" data-mode="Forecast" data-theme="clear" data-basecolor="rgba(155, 205, 245, 0.59)" data-textcolor="#000441">'+name+', '+region.Name+'</a>'+
         '<script>'+
         "!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');"+
-        '</script>':"")
+        '</script></div>':"")
       
         info.viator='<center><h3>Recommended Tours in '+(province.Viator?name:region.Name)+'</h3></center>'+
         '<div data-vi-partner-id=P00045447 data-vi-language=en data-vi-currency=EUR data-vi-partner-type="AFFILIATE" data-vi-url="'+
@@ -262,12 +272,12 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         target=target.filter(item => item !== related3)
         related4=target[Math.floor(Math.random()*target.length)]
 
-        info.related='<h2>Provinces Nearby</h2> '+
-        '<row class="columns is-multiline is-mobile"> '+        
+        info.related='<h2>Provinces Nearby</h2>'+
+        '<ul class="nearby-pills">'+
         facts[related1].snippet+
         facts[related2].snippet+
         facts[related3].snippet+
-        facts[related4].snippet+'</row>'
+        facts[related4].snippet+'</ul>'
        
         return info;
       }
@@ -290,15 +300,128 @@ function populateData(data){
       facts[province["Region"]].provinces.push(province.Name) //add province to region dictionary
      
       facts[province["Name"]]={}; //initialize "facts" dictionary with each province
+      const slug = province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase();
       facts[province["Name"]].snippet=
-      '<figure class="column is-3 related"><a href="https://expiter.com/province/'+province.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
-      '<img title="'+en(province.Name)+'" loading="lazy" src="'+
-      'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
-      'alt="Province of '+en(data[i].Name)+', '+en(data[i].Region)+'"></img>'+
-      '<figcaption>'+en(province.Name)+", "+en(province.Region)+"</figcaption></a></figure>";
+      '<li><a href="https://expiter.com/province/'+slug+'/" title="'+en(province.Name)+', '+en(province.Region)+'">'+
+      '<img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+province.Abbreviation+'.webp?tr=w-56,h-56,fo-auto,q-60" '+
+      'alt="'+en(province.Name)+'" width="28" height="28">'+
+      '<span>'+en(province.Name)+'</span></a></li>';
     }
     avg=data[107];
     
+  }
+
+  // Returns { tier: 'excellent|great|good|average|poor', text: '...', isAmount: bool }
+  function qualityScoreData(quality, score){
+    let expenses=["Cost of Living (Individual)","Cost of Living (Family)","Cost of Living (Nomad)",
+      "StudioRental","BilocaleRent","TrilocaleRent","MonthlyIncome",
+      "StudioSale","BilocaleSale","TrilocaleSale"];
+
+    if (quality=="CostOfLiving"||quality=="HousingCost"){
+      if (score<avg[quality]*.8)             return {tier:'excellent', text:'cheap'};
+      if (score<avg[quality]*.95)            return {tier:'great',     text:'affordable'};
+      if (score<avg[quality]*1.05)           return {tier:'good',      text:'average'};
+      if (score<avg[quality]*1.2)            return {tier:'average',   text:'high'};
+      return {tier:'poor', text:'expensive'};
+    }
+    if (expenses.includes(quality)){
+      let tier;
+      if (score<avg[quality]*.95)            tier='great';
+      else if (score<avg[quality]*1.05)      tier='average';
+      else                                   tier='poor';
+      return {tier, text: score+'€/m', isAmount:true};
+    }
+    if (quality=="HotDays"||quality=="ColdDays"){
+      const w = (quality=="HotDays"?"hot":"cold");
+      if (score<avg[quality]*.8)             return {tier:'excellent', text:'not '+w};
+      if (score<avg[quality]*.95)            return {tier:'great',     text:'not very '+w};
+      if (score<avg[quality]*1.05)           return {tier:'good',      text:'a bit '+w};
+      if (score<avg[quality]*1.2)            return {tier:'average',   text:w};
+      return {tier:'poor', text:'very '+w};
+    }
+    if (quality=="RainyDays"){
+      if (score<avg[quality]*.8)             return {tier:'excellent', text:'very little'};
+      if (score<avg[quality]*.95)            return {tier:'great',     text:'little'};
+      if (score<avg[quality]*1.05)           return {tier:'good',      text:'average'};
+      if (score<avg[quality]*1.2)            return {tier:'average',   text:'rainy'};
+      return {tier:'poor', text:'a lot'};
+    }
+    if (quality=="FoggyDays"){
+      if (score<avg[quality]*.265)           return {tier:'excellent', text:'no fog'};
+      if (score<avg[quality]*.6)             return {tier:'great',     text:'little'};
+      if (score<avg[quality]*1.00)           return {tier:'good',      text:'average'};
+      if (score<avg[quality]*3)              return {tier:'average',   text:'foggy'};
+      return {tier:'poor', text:'a lot'};
+    }
+    if (quality=="Crime"||quality=="Traffic"){
+      if (score<avg[quality]*.8)             return {tier:'excellent', text:'very low'};
+      if (score<avg[quality]*.95)            return {tier:'great',     text:'low'};
+      if (score<avg[quality]*1.05)           return {tier:'good',      text:'average'};
+      if (score<avg[quality]*1.2)            return {tier:'average',   text:'high'};
+      return {tier:'poor', text:'too much'};
+    }
+    // default: higher = better
+    if (score<avg[quality]*.8)               return {tier:'poor',      text:'poor'};
+    if (score<avg[quality]*.95)              return {tier:'average',   text:'okay'};
+    if (score<avg[quality]*1.05)             return {tier:'good',      text:'good'};
+    if (score<avg[quality]*1.2)              return {tier:'great',     text:'great'};
+    return {tier:'excellent', text:'excellent'};
+  }
+
+  function buildTabRows(province){
+    const q = (k, prop) => qualityScoreData(k, province[prop !== undefined ? prop : k]);
+    return {
+      qualityOfLife: [
+        {emoji:'👥', label:'Population', raw: province.Population.toLocaleString('en', {useGrouping:true})},
+        {emoji:'🚑', label:'Healthcare', ...q('Healthcare')},
+        {emoji:'📚', label:'Education', ...q('Education')},
+        {emoji:'👮', label:'Safety', ...q('Safety')},
+        {emoji:'🚨', label:'Crime', ...q('Crime')},
+        {emoji:'🚌', label:'Transport', ...q('PublicTransport')},
+        {emoji:'🚥', label:'Traffic', ...q('Traffic')},
+        {emoji:'🚴', label:'Cyclable', ...q('CyclingLanes')},
+        {emoji:'🏛️', label:'Culture', ...q('Culture')},
+        {emoji:'🍸', label:'Nightlife', ...q('Nightlife')},
+        {emoji:'⚽', label:'Recreation', ...q('Sports & Leisure')},
+        {emoji:'🌦️', label:'Climate', ...q('Climate')},
+        {emoji:'☀️', label:'Sunshine', ...q('SunshineHours')},
+        {emoji:'🥵', label:'Summers', ...q('HotDays')},
+        {emoji:'🥶', label:'Winters', ...q('ColdDays')},
+        {emoji:'🌧️', label:'Rain', ...q('RainyDays')},
+        {emoji:'🌫️', label:'Fog', ...q('FoggyDays')},
+        {emoji:'🍃', label:'Air quality', ...q('AirQuality')},
+        {emoji:'👪', label:'For family', ...q('Family-friendly')},
+        {emoji:'👩', label:'For women', ...q('Female-friendly')},
+        {emoji:'🏳️‍🌈', label:'LGBTQ+', ...q('LGBT-friendly')},
+        {emoji:'🥗', label:'For vegans', ...q('Veg-friendly')},
+      ],
+      costOfLiving: [
+        {emoji:'📈', label:'Cost of Living', ...q('CostOfLiving')},
+        {emoji:'🏙️', label:'Housing Cost', ...q('HousingCost')},
+        {emoji:'💵', label:'Local Income', ...q('MonthlyIncome')},
+        {emoji:'🧑', label:'Expenses (single)', ...q('Cost of Living (Individual)')},
+        {emoji:'👪', label:'Expenses (family)', ...q('Cost of Living (Family)')},
+        {emoji:'🎒', label:'Expenses (tourist)', ...q('Cost of Living (Nomad)')},
+        {emoji:'🏠', label:'Rental (studio)', ...q('StudioRental')},
+        {emoji:'🏘️', label:'Rental (2-room)', ...q('BilocaleRent')},
+        {emoji:'🏰', label:'Rental (3-room)', ...q('TrilocaleRent')},
+        {emoji:'🏠', label:'Sale (studio)', ...q('StudioSale')},
+        {emoji:'🏘️', label:'Sale (2-room)', ...q('BilocaleSale')},
+        {emoji:'🏰', label:'Sale (3-room)', ...q('TrilocaleSale')},
+      ],
+      digitalNomads: [
+        {emoji:'👩‍💻', label:'Nomad-friendly', ...q('DN-friendly')},
+        {emoji:'💸', label:'Nomad cost', ...q('Cost of Living (Nomad)')},
+        {emoji:'📡', label:'High-speed Internet', ...q('HighSpeedInternetCoverage')},
+        {emoji:'💃', label:'Fun', ...q('Fun')},
+        {emoji:'🤗', label:'Friendliness', ...q('Friendliness')},
+        {emoji:'🤐', label:'English-speakers', ...q('English-speakers')},
+        {emoji:'😊', label:'Happiness', ...q('Antidepressants')},
+        {emoji:'📈', label:'Innovation', ...q('Innovation')},
+        {emoji:'🏖️', label:'Beach', ...q('Beach')},
+        {emoji:'⛰️', label:'Hiking', ...q('Hiking')},
+      ],
+    };
   }
 
   function buildTabContent(province){

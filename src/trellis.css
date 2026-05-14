@@ -1,56 +1,282 @@
-/* Trellis DOM Architecture Rules */
+/* =============================================================
+   Trellis-style layout — Mediavine-compatible DOM architecture
+   ============================================================= */
 
+/* --- Reset & Base ------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+
+body.trellis-framework {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+               Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #222;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* --- Skip link -------------------------------------------- */
+.screen-reader-text {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.screen-reader-text:focus {
+  left: 6px;
+  top: 6px;
+  width: auto;
+  height: auto;
+  padding: 8px 16px;
+  background: #fff;
+  border: 2px solid #333;
+  z-index: 9999;
+  font-size: 14px;
+}
+
+/* --- Site header ------------------------------------------ */
+.site-header {
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+/* --- Outer wrapper: centres and constrains width ---------- */
 .site-container {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  gap: 32px;
 }
 
+/* --- Main content area ------------------------------------ */
 .content-area {
-    flex: 1 1 0;
-    min-width: 0;
-    padding: 0 15px;
+  flex: 1 1 0;
+  min-width: 0;          /* prevent flex blowout */
 }
 
+/* Trellis/WordPress class aliases — Mediavine looks for these */
+.trellis-content  { }  /* outer main wrapper  */
+.entry-content    { }  /* article body        */
+
+/* --- Sidebar ---------------------------------------------- */
+/* IAB standard units: 300×250 (MR), 300×600 (HPA), 160×600 */
 .sidebar-primary {
-    flex: 0 0 300px;
-    width: 300px;
-    min-width: 300px;
-    padding: 0 15px;
-    box-sizing: border-box;
+  flex: 0 0 336px;       /* 336 px fits the 300 px ad + padding */
+  width: 336px;
+  min-width: 300px;
+  position: sticky;
+  top: 72px;             /* clears sticky header */
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.sidebar-primary:empty {
-    display: none;
-}
+/* Trellis class alias for the sidebar */
+.trellis-sidebar { }
 
+/* Hide sidebar when completely empty */
+.sidebar-primary:empty { display: none; }
+
+/* --- Ad placeholders — reserve space to prevent CLS ------- */
+/*
+  Mediavine injects into .trellis-ad-placeholder children.
+  Reserving fixed min-height prevents layout shift.
+*/
 .trellis-ad-placeholder {
-    background-color: #f4f4f4;
-    border: 1px solid #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: block;
+  margin: 20px auto;
+  background: #f9f9f9;
+  border: 1px dashed #ddd;
+  text-align: center;
+}
+
+/* Medium Rectangle 300×250 */
+.trellis-ad-placeholder.ad-sidebar,
+.trellis-ad-placeholder.ad-sidebar-top {
+  min-width: 300px;
+  min-height: 250px;
+}
+
+/* Half-Page / Large Rectangle 300×600 */
+.trellis-ad-placeholder.ad-sidebar-bottom,
+.trellis-ad-placeholder.ad-sidebar-sticky {
+  min-width: 300px;
+  min-height: 600px;
+}
+
+/* Leaderboard 728×90 / Mobile Banner 320×50 */
+.trellis-ad-placeholder.ad-leaderboard {
+  min-width: 320px;
+  min-height: 90px;
+  max-width: 100%;
+}
+
+/* In-content 336×280 */
+.trellis-ad-placeholder.ad-incontent {
+  min-width: 300px;
+  min-height: 280px;
+  max-width: 336px;
 }
 
 .trellis-ad-placeholder .ad-label {
-    font-size: 10px;
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  display: block;
+  padding-top: 8px;
+  font-size: 10px;
+  color: #bbb;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-@media only screen and (max-width: 900px) {
-    .site-container {
-        flex-direction: column;
-    }
-    
-    .sidebar-primary {
-        flex: auto;
-        width: 100%;
-        min-width: auto;
-        margin-top: 40px;
-    }
+/* --- Hero image ------------------------------------------- */
+.hero-image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.hero-image-wrap .hero {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* --- Trellis image component ------------------------------ */
+.trellis-image-wrap {
+  margin: 0 0 20px;
+}
+
+.trellis-image-wrap img {
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* --- Typography ------------------------------------------- */
+.entry-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 20px;
+}
+
+.entry-content h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 32px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.entry-content h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 24px 0 8px;
+}
+
+.entry-content p { margin: 0 0 16px; }
+
+.entry-content a {
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.entry-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.entry-content th,
+.entry-content td {
+  padding: 8px 12px;
+  border: 1px solid #e5e5e5;
+  text-align: left;
+}
+
+.entry-content th { background: #f5f5f5; font-weight: 600; }
+
+/* --- TOC panel ------------------------------------------- */
+.toc-panel {
+  background: #f5f5f5;
+  border-left: 3px solid #2563eb;
+  border-radius: 0 4px 4px 0;
+  padding: 12px 16px;
+  margin-bottom: 28px;
+  font-size: 0.9rem;
+}
+
+.toc-panel summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  user-select: none;
+}
+
+.toc-panel summary::-webkit-details-marker { display: none; }
+.toc-panel summary::before { content: "▶ "; font-size: 0.7em; }
+details[open] .toc-panel summary::before,
+.toc-panel[open] summary::before { content: "▼ "; }
+
+.toc-panel nav { margin-top: 8px; }
+
+/* --- Footer ----------------------------------------------- */
+.site-footer {
+  margin-top: 48px;
+  padding: 28px 16px;
+  background: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.site-footer a { color: #2563eb; }
+
+/* --- Responsive ------------------------------------------- */
+@media (max-width: 900px) {
+  .site-container {
+    flex-direction: column;
+    padding: 16px 12px 32px;
+    gap: 0;
+  }
+
+  /* Content first, sidebar below */
+  .content-area    { order: 1; }
+  .sidebar-primary {
+    order: 2;
+    flex: none;
+    width: 100%;
+    min-width: 0;
+    position: static;
+    max-height: none;
+    overflow: visible;
+    margin-top: 32px;
+  }
+
+  .trellis-ad-placeholder.ad-sidebar,
+  .trellis-ad-placeholder.ad-sidebar-top,
+  .trellis-ad-placeholder.ad-sidebar-bottom,
+  .trellis-ad-placeholder.ad-sidebar-sticky {
+    /* let Mediavine serve appropriate mobile sizes */
+    min-height: 250px;
+  }
+
+  .trellis-ad-placeholder.ad-leaderboard {
+    min-height: 50px;
+  }
+
+  .entry-title { font-size: 1.5rem; }
 }

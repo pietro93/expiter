@@ -1,7 +1,41 @@
+{#
+  Mediavine-compatible ad placeholder macros.
+  Each macro reserves IAB-standard space to prevent CLS.
+  Mediavine's script discovers and fills these containers.
+#}
+
+{# Medium Rectangle 300×250 or Half-Page 300×600 — for sidebar #}
 {% macro ad_placeholder(label="sidebar", width=300, height=250) %}
-<div class="trellis-ad-placeholder ad-{{ label }}" 
-     style="min-width: {{ width }}px; min-height: {{ height }}px; display: block; margin: 20px auto;">
+<div class="trellis-ad-placeholder ad-{{ label }}"
+     style="min-width:{{ width }}px; min-height:{{ height }}px;"
+     aria-hidden="true">
     <span class="ad-label">Advertisement</span>
-    <!-- Mediavine ad script hook will inject here -->
+</div>
+{% endmacro %}
+
+{# Leaderboard 728×90 / responsive — above content or below header #}
+{% macro ad_leaderboard() %}
+<div class="trellis-ad-placeholder ad-leaderboard"
+     style="min-width:320px; min-height:90px; max-width:100%;"
+     aria-hidden="true">
+    <span class="ad-label">Advertisement</span>
+</div>
+{% endmacro %}
+
+{# In-content 336×280 — drop between article sections #}
+{% macro ad_incontent() %}
+<div class="trellis-ad-placeholder ad-incontent"
+     style="min-width:300px; min-height:280px; max-width:336px; margin:28px auto;"
+     aria-hidden="true">
+    <span class="ad-label">Advertisement</span>
+</div>
+{% endmacro %}
+
+{# Sticky sidebar 300×600 — bottom of sidebar rail #}
+{% macro ad_sidebar_sticky() %}
+<div class="trellis-ad-placeholder ad-sidebar-sticky"
+     style="min-width:300px; min-height:600px;"
+     aria-hidden="true">
+    <span class="ad-label">Advertisement</span>
 </div>
 {% endmacro %}

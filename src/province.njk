@@ -75,9 +75,6 @@ eleventyComputed:
 {% endblock %}
 
 {% block sidebar %}
-<aside class="menu sb">
-    {{ ads.ad_placeholder("sidebar-top", 300, 250) }}
-    <!-- Sidebar Content would go here, imported or constructed -->
-    {{ ads.ad_placeholder("sidebar-bottom", 300, 600) }}
-</aside>
+{{ ads.ad_placeholder("sidebar-top", 300, 250) }}
+{{ ads.ad_sidebar_sticky() }}
 {% endblock %}

@@ -1,27 +1,59 @@
-<div class="tabs effect-3">
-<input type="radio" id="tab-1" name="tab-effect-3" checked="checked">
-<span>Quality of Life</span>
-<input type="radio" id="tab-2" name="tab-effect-3">
-<span>Cost of Living</span>
-<input type="radio" id="tab-3" name="tab-effect-3">
-<span>Digital Nomads</span>
-<input type="radio" id="tab-4" name="tab-effect-3" disabled>
-<span></span>
-<input type="radio" id="tab-5" name="tab-effect-3" disabled>
-<span></span>
-<div class="line ease"></div>
-<div class="tab-content">
-<section id="Quality-of-Life" class="columns is-mobile is-multiline">
-<div class="column">{{tab1col1 | safe}}</div>
-<div class="column">{{tab1col2 | safe}}</div>
+<section class="scorecard" aria-label="Province scorecard">
+  <input type="radio" id="tab-ql"  name="sc-tab" checked>
+  <input type="radio" id="tab-col" name="sc-tab">
+  <input type="radio" id="tab-dn"  name="sc-tab">
+
+  <div class="tab-strip">
+    <label for="tab-ql">Quality of Life</label>
+    <label for="tab-col">Cost of Living</label>
+    <label for="tab-dn">Digital Nomads</label>
+  </div>
+
+  <div class="tab-bodies">
+    <div id="panel-ql" class="tab-panel">
+      <div class="score-grid">
+        <div>{{ tab1col1 | safe }}</div>
+        <div>{{ tab1col2 | safe }}</div>
+      </div>
+    </div>
+    <div id="panel-col" class="tab-panel">
+      <div class="score-grid">
+        <div>{{ tab2col1 | safe }}</div>
+        <div>{{ tab2col2 | safe }}</div>
+      </div>
+    </div>
+    <div id="panel-dn" class="tab-panel">
+      <div class="score-grid">
+        <div>{{ tab3col1 | safe }}</div>
+        <div>{{ tab3col2 | safe }}</div>
+      </div>
+    </div>
+  </div>
 </section>
-<section id="Cost-of-Living" class="columns is-mobile is-multiline">
-<div class="column">{{tab2col1 | safe}}</div>
-<div class="column">{{tab2col2 | safe}}</div>
-</section>
-<section id="Digital-Nomads" class="columns is-mobile is-multiline">
-<div class="column">{{tab3col1 | safe}}</div>
-<div class="column">{{tab3col2 | safe}}</div>
-</section>
-</div>
-</div>
+
+<style>
+/* Style the existing <p><ej>…</ej>Label: <score>…</score></p> rows as flex rows.
+   The legacy content is preserved verbatim — we just restyle the <p> as a row. */
+.score-grid > div > p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  margin: 0;
+  border-bottom: 1px solid var(--c-border);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.score-grid > div > p:last-child { border-bottom: none; }
+.score-grid > div > p > ej {
+  font-style: normal;
+  display: inline-block;
+  width: 1.4em;
+  text-align: center;
+  margin-right: 6px;
+  line-height: 1;
+}
+.score-grid > div > p > b { font-weight: 600; }
+.score-grid > div > p > score { margin-left: auto; }
+</style>

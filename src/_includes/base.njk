@@ -3,38 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link rel="canonical" href="{{ canonicalUrl | default('https://expiter.com/') }}"/>
-    
+
     <title>{{ seoTitle | default('Italy Expats and Nomads') }}</title>
     <meta name="description" content="{{ seoDescription | default('Best Italian Cities to Live as an Expat or Digital Nomad. Provinces in Italy ranked by quality of life, cost of living, safety and more.') }}" />
     <meta name="keywords" content="{{ seoKeywords | default('italy, italian cities, best city in italy, italy digital nomad, italy expat') }}" />
-    <link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="/img/expiter-favicon.ico"></link>
-    
+    <link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="/img/expiter-favicon.ico">
+
     <meta property="og:title" content="{{ seoTitle | default('Expiter - Italy Expats and Nomads') }}">
-    <meta property="og:description" content="{{ seoDescription | default('Italy Expat Resources - Best Italian Cities to Live as an Expat or Digital Nomad. Provinces in Italy ranked by quality of life, cost of living, safety and more.') }}">
+    <meta property="og:description" content="{{ seoDescription | default('Italy Expat Resources - Best Italian Cities to Live as an Expat or Digital Nomad.') }}">
     <meta property="og:image" content="{{ heroImage | default('https://expiter.com/img/expiter-italy-expats-and-nomads.webp') }}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{ canonicalUrl | default('https://expiter.com/') }}" />
     <meta name="twitter:card" content="summary_large_image">
 
-    <script type="text/javascript" src="/jquery3.6.0.js"></script>
-    <script type="text/json" src="/dataset.json"></script>
-    <script type="text/javascript" src="/script.js"></script>
-    <link rel="stylesheet" href="/bulma.min.css">
-    <link rel="stylesheet" href="/fonts.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/trellis.css">
-    
-    {% block extra_head %}{% endblock %}
-
-    <!-- Journey by Mediavine -->
+    <!-- Mediavine / Grow — must load before render-blocking CSS -->
     <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="//scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js"></script>
     <script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZToxY2NlNzA3MS0yNWM2LTQ4YzEtYjdlZS0xZGE1Njc0YjhiZmQ=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
+
+    <!-- Styles — trellis.css owns layout; bulma provides utility classes -->
+    <link rel="stylesheet" href="/fonts.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/bulma.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/trellis.css">
+
+    <!-- Deferred scripts -->
+    <script src="/jquery3.6.0.js" defer></script>
+    <script src="/script.js" defer></script>
+    <script src="/bootstrap-toc.js" defer></script>
+
+    {% block extra_head %}{% endblock %}
 </head>
-<body>
+
+<body class="trellis-framework">
 {% import "macros/ads.njk" as ads %}
-    <a class="screen-reader-text" href="#content" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
+
+    <a class="screen-reader-text" href="#main-content">Skip to content</a>
+
     <header class="site-header" role="banner">
         <nav id="navbar">
             <div class="navbar-container">
@@ -52,58 +58,66 @@
                     <li><a href="/app/#About">About</a></li>
                     <li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>
                 </ul>
-                <label class="switch" id="switch">
+                <label class="switch" id="switch" aria-label="Toggle dark mode">
                     <input type="checkbox">
                     <span class="slider round"></span>
                 </label>
-                <a href="/"><p class="logo">Italy Expats & Nomads</p></a>
+                <a href="/"><p class="logo">Italy Expats &amp; Nomads</p></a>
             </div>
         </nav>
     </header>
-    
-    <div class="site-container" id="content">
-        <main class="content-area entry-content trellis-content" role="main">
+
+    <!-- Leaderboard ad above the main content grid -->
+    <div class="leaderboard-wrap" style="max-width:1200px;margin:0 auto;padding:0 16px;">
+        {{ ads.ad_placeholder("leaderboard", 728, 90) }}
+    </div>
+
+    <div class="site-container" id="main-content">
+
+        <main class="content-area trellis-content entry-content" role="main" id="content">
             {% block content %}
             {% endblock %}
         </main>
-        
-        <aside class="sidebar-primary trellis-sidebar" role="complementary">{%- block sidebar -%}{%- endblock -%}</aside>
+
+        <aside class="sidebar-primary trellis-sidebar" role="complementary" aria-label="Sidebar">
+            {%- block sidebar -%}{%- endblock -%}
+        </aside>
+
     </div>
-    
-    </br><span class="separator"></span></br>
+
+    <span class="separator"></span>
+
     <footer class="site-footer" role="contentinfo" id="footer">
         <div class="columns is-multiline is-mobile">
             <div class="column is-4">
-                <b>Discover</b></br>
-                <a href="/app/?sort=Expat-friendly&filter=Pop500k+,Pop1m+">Best Large Cities in Italy for Expats</a></br>
-                <a href="/app/?sort=CostOfLiving">Cheapest Places to Live in Italy</a></br>
-                <a href="/app/?sort=DN-friendly">Best Cities in Italy for Digital Nomads</a></br>
-                <a href="/app/?sort=Family-friendly">Most family-friendly Italian provinces</a></br>
-                <a href="/app/?sort=Beach&region=South">Best Beach Destinations in Southern Italy</a></br>
-                <a href="/app/?sort=WinterSports&region=North">Best Winter Destinations in Northern Italy</a></br>
-                <a href="/app/?sort=Hiking&region=Center">Best Hiking Destinations in Central Italy</a></br>
-            </div> 
-            <div class="column is-4">
-                <b>Inspire</b></br>
-                <a href="/app/?sort=Expat-friendly&region=South">Expat-friendly cities in Southern Italy</a></br>
-                <a href="/app/?sort=Expat-friendly&region=North">Sunniest cities in Northern Italy</a></br>
-                <a href="/app/?sort=Name&filter=Pop300k+,Pop500k+,HasUni">Mid-sized Italian provinces with a university</a></br>
-                <a href="/app/?sort=Name&filter=HasMetro">All Italian cities with a subway system</a></br>
-                <a href="/app/?sort=Region&filter=HasBeach,HasSkiing">Italian cities with both a beach and winter sports facilities</a></br>
-                <a href="/app/?sort=WinterSports&region=South&filter=HasSkiing">Southern Italian provinces where you can ski</a></br>
-                </br>
-                <a href="/region/regions-of-italy/">Regions of Italy</a></br>
+                <b>Discover</b><br>
+                <a href="/app/?sort=Expat-friendly&filter=Pop500k+,Pop1m+">Best Large Cities in Italy for Expats</a><br>
+                <a href="/app/?sort=CostOfLiving">Cheapest Places to Live in Italy</a><br>
+                <a href="/app/?sort=DN-friendly">Best Cities in Italy for Digital Nomads</a><br>
+                <a href="/app/?sort=Family-friendly">Most family-friendly Italian provinces</a><br>
+                <a href="/app/?sort=Beach&region=South">Best Beach Destinations in Southern Italy</a><br>
+                <a href="/app/?sort=WinterSports&region=North">Best Winter Destinations in Northern Italy</a><br>
+                <a href="/app/?sort=Hiking&region=Center">Best Hiking Destinations in Central Italy</a><br>
             </div>
-            <div class="column is-4">   
-                <b>Expiter</b> © Copyright 2024 </br>
-                <a href="/resources/">Expat Recommendations</a></br>
-                <a href="/tools/codice-fiscale-generator/">Codice Fiscale Generator</a></br>
-                <a href="/privacy-policy/">Privacy Policy</a></br>
+            <div class="column is-4">
+                <b>Inspire</b><br>
+                <a href="/app/?sort=Expat-friendly&region=South">Expat-friendly cities in Southern Italy</a><br>
+                <a href="/app/?sort=Expat-friendly&region=North">Sunniest cities in Northern Italy</a><br>
+                <a href="/app/?sort=Name&filter=Pop300k+,Pop500k+,HasUni">Mid-sized Italian provinces with a university</a><br>
+                <a href="/app/?sort=Name&filter=HasMetro">All Italian cities with a subway system</a><br>
+                <a href="/app/?sort=Region&filter=HasBeach,HasSkiing">Italian cities with both a beach and winter sports</a><br>
+                <a href="/app/?sort=WinterSports&region=South&filter=HasSkiing">Southern Italian provinces where you can ski</a><br>
+                <br>
+                <a href="/region/regions-of-italy/">Regions of Italy</a><br>
+            </div>
+            <div class="column is-4">
+                <b>Expiter</b> &copy; Copyright 2024<br>
+                <a href="/resources/">Expat Recommendations</a><br>
+                <a href="/tools/codice-fiscale-generator/">Codice Fiscale Generator</a><br>
+                <a href="/privacy-policy/">Privacy Policy</a><br>
             </div>
         </div>
-    </section>
+    </footer>
 
-    </br></br>
-    <span style="height:150px"></span>
 </body>
 </html>

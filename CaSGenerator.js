@@ -1,5 +1,4 @@
 import * as pb from './js/pageBuilder.js';
-import { createServer } from 'http';
 import fetch from 'node-fetch';
 import fs from 'fs';
 import path from 'path';
@@ -9,12 +8,6 @@ import { nunjucks } from './js/nunjucksEnv.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
-
-createServer(function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.end('Hello World!');
-}).listen(8080);
 
 const NAVBAR = '<nav id="navbar"><div class="navbar-container">'+
 '<input type="checkbox" name="navbar" id="nbar">'+
@@ -124,6 +117,18 @@ fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent);
     let info = getInfo(province)
     let separator='</br><span class="separator"></span></br>'
     const tabs = buildTabContent(province)
+    const tabRows = buildTabRows(province)
+    const toc =
+      '<ul>'+
+        '<li><a href="#Overview">Overview</a></li>'+
+        '<li><a href="#Crime-and-Safety">Crime and Safety</a></li>'+
+        '<li><a href="#Thefts-and-Robberies">Thefts &amp; Robberies</a></li>'+
+        '<li><a href="#Violence">Violent Crimes</a></li>'+
+        '<li><a href="#Organized-Crime">Organized Crime</a></li>'+
+        '<li><a href="#Accidents">Accidents</a></li>'+
+        '<li><a href="#FAQs">FAQs</a></li>'+
+        '<li><a href="#Discover">Discover</a></li>'+
+      '</ul>'
     const seoTitle = en(province.Name)+" - Crime and Safety Info Sheet"
     const seoDescription = 'Information about crime and safety in '+en(province.Name)+', Italy. '+en(province.Name)+' crime index, mafia activity, safety and more.'
     const seoKeywords = en(province.Name)+' italy, '+en(province.Name)+' is it safe,'+en(province.Name)+' crime,'+en(province.Name)+' mafia'
@@ -138,9 +143,12 @@ fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent);
         heroImage: 'https://expiter.com/img/safety/'+province.Abbreviation+'.webp',
         heroAlt: province.Name+' Province',
         pageTitle: 'Crime and Safety in '+en(province.Name),
+        eyebrow: en(province.Region) + ' · Crime & Safety',
         sidebar: pb.setSideBar(province),
         navbar: NAVBAR,
         ...tabs,
+        tabRows,
+        toc,
         overview: pb.addBreaks(info.overview||''),
         crimeandsafety: pb.addBreaks(info.crimeandsafety) + separator,
         theftsandrobberies: info.theftsandrobberies + separator,
@@ -167,7 +175,22 @@ function getInfo(province){
     let name=province.Name;
         let region=regions[province.Region];
 
-    info.overview=""
+    // Synthesize a non-empty Overview so the crime page opens with hero + lede,
+    // matching the layout of the main province page.
+    let safetyVerdict;
+    if (province.SafetyRank <= 27)       safetyVerdict = "<b class='green'>one of the safer Italian provinces</b>";
+    else if (province.SafetyRank <= 53)  safetyVerdict = "<b class='green'>moderately safe</b> compared to other Italian provinces";
+    else if (province.SafetyRank <= 79)  safetyVerdict = "<b class='orange'>about average</b> compared to other Italian provinces in terms of safety";
+    else                                  safetyVerdict = "<b class='red'>one of the less safe</b> Italian provinces";
+    info.overview =
+      '<div class="province-hero" role="img" aria-label="' + en(province.Name) + ' Province" '+
+      'style="background-image:url(\'https://expiter.com/img/safety/' + province.Abbreviation + '.webp\')"></div>'+
+      '<p class="lede">This page provides a data-driven overview of <b>crime and safety in ' + en(province.Name) + '</b>'+
+      (province.Region ? ', in the ' + en(province.Region) + ' region' : '') + '. '+
+      'Based on official 2023 statistics, ' + en(province.Name) + ' is ' + safetyVerdict + ', '+
+      'ranking <b>' + province.SafetyRank + ' out of 106</b> with a safety score of <b>' + province.SafetyScore + '/10</b>.</p>'+
+      '<p>Below you will find details on thefts, violent crimes, organized crime, drug-related offenses, and accidents, '+
+      'along with answers to common questions about safety in ' + en(province.Name) + '.</p>'
 
     info.crimeandsafety="The province of "+en(province.Name)+" ranks <b>"+province.SafetyRank+" out of 106 for safety</b> according to our data, with a <b>safety score of "+province.SafetyScore+"</b>. "+
     "There were a total of " + province.IndiceCriminalita + " official reports of crime per 100,000 inhabitants in the province in 2023. This is " + 
@@ -314,6 +337,116 @@ function en(word){
     case "Napoli":return"Naples";case "Genova":return"Genoa";
     default: return word;
   }
+}
+
+function qualityScoreData(quality, score){
+  let expenses=["Cost of Living (Individual)","Cost of Living (Family)","Cost of Living (Nomad)",
+    "StudioRental","BilocaleRent","TrilocaleRent","MonthlyIncome",
+    "StudioSale","BilocaleSale","TrilocaleSale"];
+  if (quality=="CostOfLiving"||quality=="HousingCost"){
+    if (score<avg[quality]*.8)   return {tier:'excellent', text:'cheap'};
+    if (score<avg[quality]*.95)  return {tier:'great',     text:'affordable'};
+    if (score<avg[quality]*1.05) return {tier:'good',      text:'average'};
+    if (score<avg[quality]*1.2)  return {tier:'average',   text:'high'};
+    return {tier:'poor', text:'expensive'};
+  }
+  if (expenses.includes(quality)){
+    let tier;
+    if (score<avg[quality]*.95)        tier='great';
+    else if (score<avg[quality]*1.05)  tier='average';
+    else                               tier='poor';
+    return {tier, text: score+'€/m', isAmount:true};
+  }
+  if (quality=="HotDays"||quality=="ColdDays"){
+    const w=(quality=="HotDays"?"hot":"cold");
+    if (score<avg[quality]*.8)   return {tier:'excellent', text:'not '+w};
+    if (score<avg[quality]*.95)  return {tier:'great',     text:'not very '+w};
+    if (score<avg[quality]*1.05) return {tier:'good',      text:'a bit '+w};
+    if (score<avg[quality]*1.2)  return {tier:'average',   text:w};
+    return {tier:'poor', text:'very '+w};
+  }
+  if (quality=="RainyDays"){
+    if (score<avg[quality]*.8)   return {tier:'excellent', text:'very little'};
+    if (score<avg[quality]*.95)  return {tier:'great',     text:'little'};
+    if (score<avg[quality]*1.05) return {tier:'good',      text:'average'};
+    if (score<avg[quality]*1.2)  return {tier:'average',   text:'rainy'};
+    return {tier:'poor', text:'a lot'};
+  }
+  if (quality=="FoggyDays"){
+    if (score<avg[quality]*.265) return {tier:'excellent', text:'no fog'};
+    if (score<avg[quality]*.6)   return {tier:'great',     text:'little'};
+    if (score<avg[quality]*1.00) return {tier:'good',      text:'average'};
+    if (score<avg[quality]*3)    return {tier:'average',   text:'foggy'};
+    return {tier:'poor', text:'a lot'};
+  }
+  if (quality=="Crime"||quality=="Traffic"){
+    if (score<avg[quality]*.8)   return {tier:'excellent', text:'very low'};
+    if (score<avg[quality]*.95)  return {tier:'great',     text:'low'};
+    if (score<avg[quality]*1.05) return {tier:'good',      text:'average'};
+    if (score<avg[quality]*1.2)  return {tier:'average',   text:'high'};
+    return {tier:'poor', text:'too much'};
+  }
+  if (score<avg[quality]*.8)   return {tier:'poor',    text:'poor'};
+  if (score<avg[quality]*.95)  return {tier:'average', text:'okay'};
+  if (score<avg[quality]*1.05) return {tier:'good',    text:'good'};
+  if (score<avg[quality]*1.2)  return {tier:'great',   text:'great'};
+  return {tier:'excellent', text:'excellent'};
+}
+
+function buildTabRows(province){
+  const q=(k,prop)=>qualityScoreData(k, province[prop!==undefined?prop:k]);
+  return {
+    qualityOfLife: [
+      {emoji:'👥', label:'Population', raw: province.Population.toLocaleString('en',{useGrouping:true})},
+      {emoji:'🚑', label:'Healthcare', ...q('Healthcare')},
+      {emoji:'📚', label:'Education', ...q('Education')},
+      {emoji:'👮', label:'Safety', ...q('Safety')},
+      {emoji:'🚨', label:'Crime', ...q('Crime')},
+      {emoji:'🚌', label:'Transport', ...q('PublicTransport')},
+      {emoji:'🚥', label:'Traffic', ...q('Traffic')},
+      {emoji:'🚴', label:'Cyclable', ...q('CyclingLanes')},
+      {emoji:'🏛️', label:'Culture', ...q('Culture')},
+      {emoji:'🍸', label:'Nightlife', ...q('Nightlife')},
+      {emoji:'⚽', label:'Recreation', ...q('Sports & Leisure')},
+      {emoji:'🌦️', label:'Climate', ...q('Climate')},
+      {emoji:'☀️', label:'Sunshine', ...q('SunshineHours')},
+      {emoji:'🥵', label:'Summers', ...q('HotDays')},
+      {emoji:'🥶', label:'Winters', ...q('ColdDays')},
+      {emoji:'🌧️', label:'Rain', ...q('RainyDays')},
+      {emoji:'🌫️', label:'Fog', ...q('FoggyDays')},
+      {emoji:'🍃', label:'Air quality', ...q('AirQuality')},
+      {emoji:'👪', label:'For family', ...q('Family-friendly')},
+      {emoji:'👩', label:'For women', ...q('Female-friendly')},
+      {emoji:'🏳️‍🌈', label:'LGBTQ+', ...q('LGBT-friendly')},
+      {emoji:'🥗', label:'For vegans', ...q('Veg-friendly')},
+    ],
+    costOfLiving: [
+      {emoji:'📈', label:'Cost of Living', ...q('CostOfLiving')},
+      {emoji:'🏙️', label:'Housing Cost', ...q('HousingCost')},
+      {emoji:'💵', label:'Local Income', ...q('MonthlyIncome')},
+      {emoji:'🧑', label:'Expenses (single)', ...q('Cost of Living (Individual)')},
+      {emoji:'👪', label:'Expenses (family)', ...q('Cost of Living (Family)')},
+      {emoji:'🎒', label:'Expenses (tourist)', ...q('Cost of Living (Nomad)')},
+      {emoji:'🏠', label:'Rental (studio)', ...q('StudioRental')},
+      {emoji:'🏘️', label:'Rental (2-room)', ...q('BilocaleRent')},
+      {emoji:'🏰', label:'Rental (3-room)', ...q('TrilocaleRent')},
+      {emoji:'🏠', label:'Sale (studio)', ...q('StudioSale')},
+      {emoji:'🏘️', label:'Sale (2-room)', ...q('BilocaleSale')},
+      {emoji:'🏰', label:'Sale (3-room)', ...q('TrilocaleSale')},
+    ],
+    digitalNomads: [
+      {emoji:'👩‍💻', label:'Nomad-friendly', ...q('DN-friendly')},
+      {emoji:'💸', label:'Nomad cost', ...q('Cost of Living (Nomad)')},
+      {emoji:'📡', label:'High-speed Internet', ...q('HighSpeedInternetCoverage')},
+      {emoji:'💃', label:'Fun', ...q('Fun')},
+      {emoji:'🤗', label:'Friendliness', ...q('Friendliness')},
+      {emoji:'🤐', label:'English-speakers', ...q('English-speakers')},
+      {emoji:'😊', label:'Happiness', ...q('Antidepressants')},
+      {emoji:'📈', label:'Innovation', ...q('Innovation')},
+      {emoji:'🏖️', label:'Beach', ...q('Beach')},
+      {emoji:'⛰️', label:'Hiking', ...q('Hiking')},
+    ],
+  };
 }
 
 function buildTabContent(province){
