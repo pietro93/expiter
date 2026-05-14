@@ -1,0 +1,11 @@
+{% extends "layouts/base-de.njk" %}
+
+{% block infoSections %}
+<section id="Ueberblick"><h2>Überblick</h2><div id="overview">{{overview | safe}}</div></section>
+<section id="Kriminalitaet-und-Sicherheit"><h2>Kriminalität und Sicherheit</h2><div id="crimeandsafety">{{crimeandsafety | safe}}</div></section>
+<section id="Diebstaehle-und-Raubueberfaelle"><h2>Diebstähle und Raubüberfälle</h2><div id="theftsandrobberies">{{theftsandrobberies | safe}}</div></section>
+<section id="Gewaltverbrechen"><h2>Gewaltverbrechen</h2><div id="violentcrimes">{{violentcrimes | safe}}</div></section>
+<section id="Organisierte-Kriminalitaet"><h2>Organisierte Kriminalität und Drogenkriminalität</h2><div id="organizedcrime">{{organizedcrime | safe}}</div></section>
+<section id="Unfaelle"><h2>Unfälle</h2><div id="accidents">{{accidents | safe}}</div></section>
+<section id="Entdecken"><h2>Entdecken</h2><div id="promo">{{promo | safe}}</div></section>
+{% endblock %}
