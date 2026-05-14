@@ -1,0 +1,15 @@
+{% extends "layouts/base-fr.njk" %}
+
+{% block infoSections %}
+<section id="Informations-Generales"><h2>Informations Générales</h2><div id="overview">{{overview | safe}}</div></section>
+<section id="Climat"><h2>Climat</h2><div id="climate">{{climate | safe}}</div></section>
+<section id="Cout-de-la-Vie"><h2>Coût de la Vie</h2><div id="CoL">{{col | safe}}</div></section>
+<section id="Qualite-de-Vie"><h2>Qualité de Vie</h2>
+  <section id="Sante"><h3>Santé</h3><div id="healthcare">{{healthcare | safe}}</div></section>
+  <section id="Education"><h3>Éducation</h3><div id="education">{{education | safe}}</div></section>
+  <section id="Loisirs"><h3>Loisirs</h3><div id="leisure">{{leisure | safe}}</div></section>
+  <section id="Criminalite-et-Securite"><h3><a href="{{crimeUrl}}">Criminalité et Sécurité</a></h3><div id="crimeandsafety">{{crimeandsafety | safe}}</div></section>
+  <section id="Transports"><h3>Transports</h3><div id="transport">{{transport | safe}}</div></section>
+</section>
+<section id="Tourisme"><h2>Tourisme</h2><div id="promo">{{promo | safe}}</div></section>
+{% endblock %}
