@@ -13,7 +13,7 @@ var regionParams=["All"];
 var sortParams=["Expat-friendly"];
 
 
-fetch('https://expiter.com/dataset.json', {method:"Get"})
+fetch('/dataset.json', {method:"Get"})
     .then(function (response) {
         return response.json();
     })
@@ -24,11 +24,9 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
         if (location.search!=""){
           searchParams();
         }
-        //setTimeout(function(){
-        //if (document.title=="Italy Expats and Nomads")
-        //filterDataByRegion("All")
-        //else if (location.href.includes("/province/")) //newPage()
-      //},100)
+        else {
+          filterDataByRegion("All");
+        }
     })
     .catch(function (err) {
         console.log('error: ' + err);  
@@ -299,7 +297,7 @@ function populateData(data){
       
       sortParams=[sortBy]
       console.log("appending searchParams...")
-      let newHref="https://expiter.com/app/"+
+      let newHref=location.origin+"/app/"+
       "?sort="+sortParams[0]+
       (regionParams.length===0?"":"&region="+regionParams)+
       (filterParams.length===0?"":"&filter="+filterParams);
@@ -549,76 +547,60 @@ function appendData(data) {
     else if (colFilters=="Mid-cost") $(".costofliving").text("Medium Cost-of-Living")
     else if (colFilters=="High-cost") $(".costofliving").text("High Cost-of-Living")
 
+    let activeSort = sortParams[0] || "Expat-friendly";
+
     for (let i = 0; i < Math.min(data.length,30); i++) {
+        let p = data[i];
         let card = document.createElement("card");
         let col = document.createElement("div");
 
-        let img;
-        switch(data[i].Region){
-          case "Abruzzo": img="AQ"; break;
-          case "Basilicata": img="MT"; break;
-          case "Calabria": img="RC"; break;
-          case "Campania": img="NA"; break;
-          case "Emilia-Romagna": img="BO"; break;
-          case "Friuli-Venezia Giulia": img="TS"; break;
-          case "Lazio": img="ROMA"; break;
-          case "Liguria": img="GE"; break;
-          case "Lombardia": img="MI";break;
-          case "Marche": img="AN"; break;
-          case "Molise": img="CB"; break;
-          case "Piemonte": img="TO"; break;
-          case "Puglia": img="BA"; break;
-          case "Sardegna": img="CA"; break;
-          case "Sicilia": img="PA"; break;
-          case "Toscana": img="FI"; break;
-          case "Trentino-Alto Adige": img="TR"; break;
-          case "Umbria": img="PE"; break;
-          case "Valle d'Aosta": img="AO"; break;
-          case "Veneto": img="VE"; break;
-        }
+        let slug = p.Name.replace(/\s+/g, '-').replace("'","-").toLowerCase();
+        let imgUrl = 'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+p.Abbreviation+'.webp?tr=w-560,h-315,c-at_least,q-70';
+        let popLabel = p.Population >= 1000000 ? "Large city"
+                    : p.Population >= 300000 ? "Medium city"
+                    : "Small city";
 
-        if ($(window).width() > 765) {
-        card.innerHTML ='<img title="'+data[i].Name+'" '+(i>4?'loading="lazy"':"")+' src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+data[i].Abbreviation+'.webp?tr=w-190,h-250,c-at_least" alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'
-        }
-        else{
-          card.innerHTML ='<img title="'+data[i].Name+'" '+(i>2?'loading="lazy"':"")+' src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+img+'.webp?tr=w-180,h-240,c-at_least,q-1,bl-1" alt="Provincia di '+data[i].Name+', '+data[i].Region+'"></img>'
-        }
+        // ---- Image + overlay (top) ----
+        let html = '<div class="card-image">';
+        html += '<img '+(i>4?'loading="lazy"':"")+' src="'+imgUrl+'" alt="Provincia di '+p.Name+', '+p.Region+'">';
+        html += '<div class="card-rank">#'+(i+1)+'</div>';
+        html += '<div class="card-overlay">';
+        html += '<h3 class="card-name">'+p.Name+'</h3>';
+        html += '<div class="card-region">'+p.Region+' · '+popLabel+'</div>';
+        html += '</div>';
+        html += '</div>';
 
-        if (data[i].Name.length>14){card.innerHTML += '<div class="frame"><center><h3 class="header" style="font-size:24px" >' + data[i].Name + '</h3> '}
-        else card.innerHTML += '<div class="frame" ><center><h3 class="header">' + data[i].Name + '</h3> ';
-        card.innerHTML += '<p class="region">' + data[i]["Region"];
-        card.innerHTML += '<p class="population"><ej>👥</ej>Population: <b style="color:white">'+data[i].Population.toLocaleString('en', {useGrouping:true}) +'</b>';
-        card.innerHTML += '<p><ej>&#128184</ej>Cost: '+ qualityScore("CostOfLiving",data[i].CostOfLiving) +'';
-        card.innerHTML += '<p><ej>💰</ej>Expenses: '+ qualityScore("Cost of Living (Individual)",data[i]["Cost of Living (Individual)"])+'';
-        card.innerHTML += '<p><ej>☀️</ej>Climate: '+ qualityScore("Climate",data[i].Climate) +'';
-        card.innerHTML += '<p><ej>🚑</ej>Healthcare: '+ qualityScore("Healthcare",data[i].Healthcare) +'';
-        card.innerHTML += '<p><ej>🚌</ej>Transport: '+ qualityScore("PublicTransport",data[i]["PublicTransport"]) +'';
-        card.innerHTML += '<p><ej>👮🏽‍♀️</ej>Safety: '+ qualityScore("Safety",data[i]["Safety"]) +'';
-        card.innerHTML += '<p><ej>📚</ej>Education: '+ qualityScore("Education",data[i]["Education"]) +'';
-        card.innerHTML += '<p><ej>🏛️</ej>Culture: '+ qualityScore("Culture",data[i].Culture) +'';
-        card.innerHTML += '<p><ej>🍸</ej>Nightlife: '+ qualityScore("Nightlife",data[i].Nightlife) +'';
-        card.innerHTML += '<p class="opacity6"><ej>⚽</ej>Recreation: '+ qualityScore("Sports & Leisure",data[i]["Sports & Leisure"])+'';
-        card.innerHTML += '<p class="opacity6"><ej>🍃</ej>Air quality: '+ qualityScore("AirQuality",data[i]["AirQuality"]) +'';
-        card.innerHTML += '<p class="opacity6"><ej>🏳️‍🌈</ej>LGBTQ+: '+ qualityScore("LGBT-friendly",data[i]["LGBT-friendly"]) +'';
-        card.innerHTML += '<p class="opacity4"><ej>👩</ej>For women: '+ qualityScore("Female-friendly",data[i]["Female-friendly"]) +'';
-        card.innerHTML += '<p class="opacity4"><ej>👪</ej>For family: '+ qualityScore("Family-friendly",data[i]["Family-friendly"]) +'';
-        card.innerHTML += '<p class="opacity4"><ej>🥗</ej>For vegans: '+ qualityScore("Veg-friendly",data[i]["Veg-friendly"]) +'';
-        card.innerHTML += '<p class="opacity4"><ej>🧳</ej>For nomads: '+ qualityScore("DN-friendly",data[i]["DN-friendly"]) +'';
-        card.innerHTML += '<button class="more" style="font-size:large;" onclick="location.href=\'./province/'+data[i].Name+'.html\';"> More>> </button>';
+        // ---- Compact metric row (default visible) ----
+        html += '<div class="card-compact">';
+        html += '<span class="m"><ej>💸</ej>Cost '+ qualityScore("CostOfLiving",p.CostOfLiving) +'</span>';
+        html += '<span class="m"><ej>👮</ej>Safety '+ qualityScore("Safety",p.Safety) +'</span>';
+        html += '<span class="m"><ej>☀️</ej>Climate '+ qualityScore("Climate",p.Climate) +'</span>';
+        html += '</div>';
+
+        // ---- Expanded metric grid (revealed on hover/focus) ----
+        html += '<div class="card-detail">';
+        html += '<div class="card-detail-grid">';
+        html += '<div class="row"><span class="lbl"><ej>💰</ej>Expenses</span>'+ qualityScore("Cost of Living (Individual)",p["Cost of Living (Individual)"]) +'</div>';
+        html += '<div class="row"><span class="lbl"><ej>🚑</ej>Healthcare</span>'+ qualityScore("Healthcare",p.Healthcare) +'</div>';
+        html += '<div class="row"><span class="lbl"><ej>🚌</ej>Transport</span>'+ qualityScore("PublicTransport",p.PublicTransport) +'</div>';
+        html += '<div class="row"><span class="lbl"><ej>📚</ej>Education</span>'+ qualityScore("Education",p.Education) +'</div>';
+        html += '<div class="row"><span class="lbl"><ej>🏛️</ej>Culture</span>'+ qualityScore("Culture",p.Culture) +'</div>';
+        html += '<div class="row"><span class="lbl"><ej>🍸</ej>Nightlife</span>'+ qualityScore("Nightlife",p.Nightlife) +'</div>';
+        html += '<div class="row"><span class="lbl"><ej>🍃</ej>Air quality</span>'+ qualityScore("AirQuality",p.AirQuality) +'</div>';
+        html += '<div class="row"><span class="lbl"><ej>👪</ej>Family</span>'+ qualityScore("Family-friendly",p["Family-friendly"]) +'</div>';
+        html += '</div>';
+        html += '<div class="card-detail-foot">👥 '+ p.Population.toLocaleString('en') +' residents · View profile →</div>';
+        html += '</div>';
+
+        card.innerHTML = html;
+        card.classList = p.Region + ' paracard';
+        card.title = p.Name+', '+p.Region;
+        card.id = p.Name;
         col.classList = 'column';
+        col.innerHTML = "<a href='./province/"+slug+"/'>"+card.outerHTML+"</a>";
 
-        //let image = 'img/'+data[i].Abbreviation+'.webp';
-        card.classList = data[i].Region + ' paracard';
-        
-        card.title=data[i].Name+', '+data[i].Region;
-        //card.style.backgroundImage = 'url('+image+')';
-        card.id = data[i].Name;
-        col.innerHTML = "<a href='./province/"+data[i].Name.replace(/\s+/g, '-').replace("'","-").toLowerCase()+"\''>"+card.outerHTML+"</a>";
-        
         mainContainer.appendChild(col);
-        
     }
-    
 }
 
 function resizeFilterMenu(){
@@ -849,7 +831,7 @@ function searchParams(){
     }
     filterDataByRegion();
     console.log("making url more human-friendly...");
-    let newHref="https://expiter.com/app/"+
+    let newHref=location.origin+"/app/"+
     $("#title").text().replace(/\s+/g,"-").toLowerCase()
     $('link[rel="canonical"]').attr('href', newHref);
     //document.location.href=newHref

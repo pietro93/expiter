@@ -1,0 +1,20 @@
+{% extends "layouts/base.njk" %}
+
+{# Simple static-page layout — extends base.njk but skips the scorecard and
+   uses a flat Home > {eyebrow} breadcrumb. Content goes in {% block content %}. #}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb" class="breadcrumb-mini">
+  <a href="/">Home</a>
+  {% if breadcrumbParent %}
+    <span class="sep">/</span>
+    <a href="{{ breadcrumbParent.href }}">{{ breadcrumbParent.label }}</a>
+  {% endif %}
+  {% if eyebrow %}
+    <span class="sep">/</span>
+    <span>{{ eyebrow }}</span>
+  {% endif %}
+</nav>
+{% endblock %}
+
+{% block infoSections %}{% block content %}{% endblock %}{% endblock %}

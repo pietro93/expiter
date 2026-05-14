@@ -32,6 +32,8 @@
 <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="//scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js"></script>
 <script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZToxY2NlNzA3MS0yNWM2LTQ4YzEtYjdlZS0xZGE1Njc0YjhiZmQ=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
 
+<link rel="stylesheet" href="/style-v2.css">
+
 <style>
   :root {
     --bs-body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -155,53 +157,113 @@
   #app .column { margin: 0; padding: 0; }
   #app .column > a { display: block; text-decoration: none; color: inherit; }
 
+  #app .column { position: relative; }
+  #app .column > a { position: relative; display: block; }
   #app card {
-    display: block; background: #fff; border: 1px solid #e5e7eb; border-radius: 0.75rem;
-    overflow: hidden; transition: box-shadow .15s, border-color .15s, transform .15s;
+    display: block; background: #fff; border: 1px solid #e5e7eb; border-radius: 0.85rem;
+    transition: box-shadow .2s, border-color .2s, transform .2s;
     position: relative;
   }
-  #app .column > a:hover card {
-    border-color: #c7d2fe; box-shadow: 0 6px 20px rgba(37,99,235,0.08); transform: translateY(-2px);
+  /* keep the top image's top corners rounded without overflow:hidden on the card
+     (which would clip the absolutely-positioned hover detail panel) */
+  #app card .card-image { border-radius: 0.85rem 0.85rem 0 0; }
+  #app card .card-compact:last-child { border-radius: 0 0 0.85rem 0.85rem; }
+  #app .column > a:hover card,
+  #app .column > a:focus-visible card {
+    border-color: #c7d2fe; box-shadow: 0 14px 36px rgba(37,99,235,0.18); transform: translateY(-2px);
   }
-  #app card > img {
-    display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
-    background: #f3f4f6;
+  #app .column > a:hover { z-index: 5; }
+
+  /* Image with overlaid province name */
+  #app card .card-image {
+    position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #f3f4f6;
   }
-  #app card .frame {
-    padding: 0.85rem 1rem 0.25rem; border-bottom: 1px solid #f1f5f9;
+  #app card .card-image img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform .4s ease;
   }
-  #app card .frame h3.header {
-    margin: 0; font-size: 1.15rem; font-weight: 700; color: #111827; letter-spacing: -0.01em;
-    text-align: left;
+  #app .column > a:hover .card-image img { transform: scale(1.04); }
+  #app card .card-image::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0) 70%);
+    pointer-events: none;
   }
-  #app card .frame center { text-align: left; }
-  #app card .region {
-    margin: 0.85rem 1rem 0.25rem; font-size: 0.85rem; color: #6b7280; font-weight: 500;
+  #app card .card-rank {
+    position: absolute; top: 0.65rem; left: 0.65rem; z-index: 2;
+    background: rgba(15,23,42,0.78); color: #fff; backdrop-filter: blur(4px);
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em;
+    padding: 0.2rem 0.55rem; border-radius: 999px;
   }
-  #app card .population {
-    margin: 0 1rem 0.6rem; font-size: 0.85rem; color: #6b7280;
+  #app card .card-overlay {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+    padding: 0.85rem 1rem 0.9rem; color: #fff;
   }
-  #app card .population b { color: #1f2937; font-weight: 600; }
-  #app card > p {
-    margin: 0; padding: 0.45rem 1rem; font-size: 0.88rem; color: #374151;
-    display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
-    border-top: 1px solid #f8fafc;
+  #app card .card-name {
+    margin: 0; font-size: 1.35rem; font-weight: 700; line-height: 1.1;
+    letter-spacing: -0.01em; color: #fff;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
   }
-  #app card > p ej {
-    font-style: normal; width: 1.5em; display: inline-block; text-align: center; margin-right: 0.35rem;
+  #app card .card-region {
+    margin-top: 0.2rem; font-size: 0.82rem; color: rgba(255,255,255,0.88);
+    font-weight: 500; text-shadow: 0 1px 4px rgba(0,0,0,0.4);
   }
-  /* Trim card density: hide lowest-priority metrics (keep top ~10). */
-  #app card > p.opacity4 { display: none; }
-  #app card > p.opacity6 { display: none; }
-  @media (min-width: 1200px) {
-    #app card > p.opacity6 { display: flex; }
+
+  /* Compact 3-chip metric row (default state) */
+  #app card .card-compact {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    padding: 0.75rem 0.9rem 0.85rem;
   }
-  #app card button.more {
-    display: block; margin: 0.75rem 1rem 1rem auto; padding: 0.35rem 0.85rem;
-    background: #f3f4f6; color: #1f2937; border: 1px solid #e5e7eb; border-radius: 999px;
-    font-size: 0.85rem; font-weight: 500; cursor: pointer;
+  #app card .card-compact .m {
+    flex: 1 1 auto; display: inline-flex; align-items: center; gap: 0.3rem;
+    font-size: 0.78rem; color: #4b5563; white-space: nowrap;
   }
-  #app card button.more:hover { background: var(--bs-primary); color: #fff; border-color: var(--bs-primary); }
+  #app card .card-compact ej { font-style: normal; font-size: 0.9rem; }
+  #app card .card-compact score { font-size: 0.72rem; padding: 0.1rem 0.45rem; }
+
+  /* Expanded detail — overlay so siblings don't reflow */
+  #app card .card-detail {
+    position: absolute; left: -1px; right: -1px; top: 100%;
+    background: #fff;
+    border: 1px solid #c7d2fe; border-top: 1px solid #f1f5f9;
+    border-radius: 0 0 0.85rem 0.85rem;
+    box-shadow: 0 14px 36px rgba(37,99,235,0.18);
+    padding: 0.75rem 0.9rem 0.85rem;
+    opacity: 0; visibility: hidden; transform: translateY(-6px);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+    z-index: 6;
+  }
+  /* Stitch the overlay seamlessly to the card */
+  #app .column > a:hover card { border-bottom-color: transparent; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+  #app .column > a:hover .card-detail,
+  #app .column > a:focus-visible .card-detail {
+    opacity: 1; visibility: visible; transform: translateY(0);
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  #app card .card-detail-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 0.85rem;
+  }
+  #app card .card-detail-grid .row {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.4rem;
+    font-size: 0.78rem; color: #374151; padding: 0.18rem 0;
+  }
+  #app card .card-detail-grid .lbl { display: inline-flex; align-items: center; gap: 0.25rem; color: #4b5563; }
+  #app card .card-detail-grid ej { font-style: normal; }
+  #app card .card-detail-grid score { font-size: 0.7rem; padding: 0.08rem 0.4rem; }
+  #app card .card-detail-foot {
+    margin-top: 0.55rem; padding-top: 0.55rem; border-top: 1px solid #e5e7eb;
+    font-size: 0.78rem; color: #6b7280; display: flex; justify-content: space-between; gap: 0.5rem;
+  }
+
+  /* Mobile/touch: no hover, fold the detail back inline so the card is self-contained */
+  @media (hover: none) {
+    #app card { overflow: visible; }
+    #app card .card-detail {
+      position: static; opacity: 1; visibility: visible; transform: none;
+      box-shadow: none; border: 0; border-top: 1px solid #f1f5f9;
+      border-radius: 0;
+      transition: none;
+    }
+  }
 
   /* ---------- Score / tier chips (used inline by qualityScore()) ---------- */
   score {

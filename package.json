@@ -32,6 +32,9 @@
     "build": "node pageGeneratorSSR.js",
     "build:it": "node pageGeneratorSSRItaly.js",
     "build:cas": "node CaSGenerator.js",
+    "build:provinces": "node provincesGeneratorSSR.js",
+    "build:regions": "node regionGeneratorSSR.js",
+    "build:static": "node staticPageGenerator.js",
     "build:all": "node pageGeneratorSSR.js"
   },
   "repository": {

@@ -1,0 +1,136 @@
+{% extends "layouts/simple-page.njk" %}
+
+{% block content %}
+<style>
+  /* ---------- City-card grid (same design as /app.html) ---------- */
+  #provinces-app { display: grid; gap: 1.25rem; grid-template-columns: 1fr; margin: 0 0 2rem; }
+  @media (min-width: 576px) { #provinces-app { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 992px) { #provinces-app { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1400px){ #provinces-app { grid-template-columns: repeat(4, 1fr); } }
+
+  .region-block { margin: 1.5rem 0 0.5rem; }
+  .region-block > h2 {
+    font-size: 1.4rem; font-weight: 700; margin: 1.75rem 0 0.85rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid #e5e7eb; color: #0f172a;
+    scroll-margin-top: 1rem;
+  }
+
+  .pcard-wrap { position: relative; }
+  .pcard-wrap > a { position: relative; display: block; text-decoration: none; color: inherit; }
+  .pcard-wrap > a:hover { z-index: 5; }
+
+  pcard {
+    display: block; background: #fff; border: 1px solid #e5e7eb; border-radius: 0.85rem;
+    transition: box-shadow .2s, border-color .2s, transform .2s; position: relative;
+  }
+  .pcard-wrap > a:hover pcard,
+  .pcard-wrap > a:focus-visible pcard {
+    border-color: #c7d2fe; box-shadow: 0 14px 36px rgba(37,99,235,0.18); transform: translateY(-2px);
+  }
+  .pcard-wrap > a:hover pcard { border-bottom-color: transparent; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+
+  pcard .card-image { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #f3f4f6; border-radius: 0.85rem 0.85rem 0 0; }
+  pcard .card-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+  .pcard-wrap > a:hover .card-image img { transform: scale(1.04); }
+  pcard .card-image::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0) 70%);
+    pointer-events: none;
+  }
+  pcard .card-overlay { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 0.85rem 1rem 0.9rem; color: #fff; }
+  pcard .card-name { margin: 0; font-size: 1.35rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
+  pcard .card-region { margin-top: 0.2rem; font-size: 0.82rem; color: rgba(255,255,255,0.88); font-weight: 500; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+
+  pcard .card-compact { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0.75rem 0.9rem 0.85rem; }
+  pcard .card-compact .m { flex: 1 1 auto; display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; color: #4b5563; white-space: nowrap; }
+  pcard .card-compact ej { font-style: normal; font-size: 0.9rem; }
+  pcard .card-compact score { font-size: 0.72rem; padding: 0.1rem 0.45rem; }
+
+  pcard .card-detail {
+    position: absolute; left: -1px; right: -1px; top: 100%;
+    background: #fff; border: 1px solid #c7d2fe; border-top: 1px solid #f1f5f9;
+    border-radius: 0 0 0.85rem 0.85rem;
+    box-shadow: 0 14px 36px rgba(37,99,235,0.18);
+    padding: 0.75rem 0.9rem 0.85rem;
+    opacity: 0; visibility: hidden; transform: translateY(-6px);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+    z-index: 6;
+  }
+  .pcard-wrap > a:hover .card-detail,
+  .pcard-wrap > a:focus-visible .card-detail {
+    opacity: 1; visibility: visible; transform: translateY(0);
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  pcard .card-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 0.85rem; }
+  pcard .card-detail-grid .row { display: flex; align-items: center; justify-content: space-between; gap: 0.4rem; font-size: 0.78rem; color: #374151; padding: 0.18rem 0; }
+  pcard .card-detail-grid .lbl { display: inline-flex; align-items: center; gap: 0.25rem; color: #4b5563; }
+  pcard .card-detail-grid ej { font-style: normal; }
+  pcard .card-detail-grid score { font-size: 0.7rem; padding: 0.08rem 0.4rem; }
+  pcard .card-detail-foot { margin-top: 0.55rem; padding-top: 0.55rem; border-top: 1px solid #e5e7eb; font-size: 0.78rem; color: #6b7280; display: flex; justify-content: space-between; gap: 0.5rem; }
+
+  @media (hover: none) {
+    pcard .card-detail {
+      position: static; opacity: 1; visibility: visible; transform: none;
+      box-shadow: none; border: 0; border-top: 1px solid #f1f5f9; border-radius: 0; transition: none;
+    }
+  }
+
+  /* Region tile rail */
+  .region-jump { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0 1.5rem; }
+  .region-jump a {
+    background: #f8fafc; border: 1px solid #e5e7eb; color: #1f2937;
+    border-radius: 999px; padding: 0.3rem 0.75rem; font-size: 0.85rem; font-weight: 500;
+    text-decoration: none;
+  }
+  .region-jump a:hover { background: #eef2ff; border-color: #c7d2fe; color: var(--bs-primary); }
+</style>
+
+<p class="lede" style="font-size:1.05rem;color:#374151;line-height:1.7;margin:0 0 1rem;">
+  Browse all <b>107 Italian provinces</b> grouped by region. Each card surfaces the headline metrics expats ask first — Cost of Living, Safety and Climate — and reveals the full quality-of-life breakdown on hover.
+</p>
+
+<nav class="region-jump" aria-label="Jump to region">
+  {% for r in regions %}<a href="#{{ r.id }}">{{ r.name }}</a>{% endfor %}
+</nav>
+
+{% for r in regions %}
+<section class="region-block" id="{{ r.id }}">
+  <h2>{{ r.name }}</h2>
+  <div id="provinces-app">
+    {% for p in r.provinces %}
+    <div class="pcard-wrap">
+      <a href="/province/{{ p.slug }}/">
+        <pcard>
+          <div class="card-image">
+            <img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/{{ p.Abbreviation }}.webp?tr=w-560,h-315,c-at_least,q-70" alt="Provincia di {{ p.Name }}, {{ p.Region }}">
+            <div class="card-overlay">
+              <h3 class="card-name">{{ p.Name }}</h3>
+              <div class="card-region">{{ p.Region }} · {{ p.popLabel }}</div>
+            </div>
+          </div>
+          <div class="card-compact">
+            <span class="m"><ej>💸</ej>Cost {{ p.cost | safe }}</span>
+            <span class="m"><ej>👮</ej>Safety {{ p.safety | safe }}</span>
+            <span class="m"><ej>☀️</ej>Climate {{ p.climate | safe }}</span>
+          </div>
+          <div class="card-detail">
+            <div class="card-detail-grid">
+              <div class="row"><span class="lbl"><ej>💰</ej>Expenses</span>{{ p.expenses | safe }}</div>
+              <div class="row"><span class="lbl"><ej>🚑</ej>Healthcare</span>{{ p.healthcare | safe }}</div>
+              <div class="row"><span class="lbl"><ej>🚌</ej>Transport</span>{{ p.transport | safe }}</div>
+              <div class="row"><span class="lbl"><ej>📚</ej>Education</span>{{ p.education | safe }}</div>
+              <div class="row"><span class="lbl"><ej>🏛️</ej>Culture</span>{{ p.culture | safe }}</div>
+              <div class="row"><span class="lbl"><ej>🍸</ej>Nightlife</span>{{ p.nightlife | safe }}</div>
+              <div class="row"><span class="lbl"><ej>🍃</ej>Air quality</span>{{ p.air | safe }}</div>
+              <div class="row"><span class="lbl"><ej>👪</ej>Family</span>{{ p.family | safe }}</div>
+            </div>
+            <div class="card-detail-foot">👥 {{ p.populationFmt }} residents · View profile →</div>
+          </div>
+        </pcard>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+{% endblock %}

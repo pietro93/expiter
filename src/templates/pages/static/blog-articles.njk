@@ -1,0 +1,14 @@
+{% extends "layouts/simple-page.njk" %}
+
+{% block content %}
+<p class="lede">All our long-form guides on living in Italy as an expat, exchange student, remote worker or digital nomad &mdash; province by province.</p>
+
+<div class="article-grid">
+  {% for a in articles %}
+    <a class="article-card" href="{{ a.href }}">
+      <div class="article-card-img" style="background-image:url('{{ a.img }}')"></div>
+      <h3 class="article-card-title">{{ a.title }}</h3>
+    </a>
+  {% endfor %}
+</div>
+{% endblock %}
