@@ -31,312 +31,8 @@
 <script src="https://expiter.com/script.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
-<style>
-  :root {
-    --bs-body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --bs-body-color: #1f2937;
-    --bs-body-bg: #ffffff;
-    --bs-primary: #2563eb;
-    --tier-excellent: #15803d;
-    --tier-great:     #16a34a;
-    --tier-good:      #84cc16;
-    --tier-average:   #d97706;
-    --tier-poor:      #dc2626;
-    --tier-neutral:   #475569;
-    --tier-bg-excellent: #dcfce7;
-    --tier-bg-great:     #ecfccb;
-    --tier-bg-good:      #f7fee7;
-    --tier-bg-average:   #fef3c7;
-    --tier-bg-poor:      #fee2e2;
-    --tier-bg-neutral:   #f1f5f9;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--bs-body-font-family); -webkit-font-smoothing: antialiased; color: #1f2937; background:#fafbfc; }
-  .container { max-width: 1200px; }
-  a { color: var(--bs-primary); }
-  a:hover { color: #1d4ed8; }
+<link rel="stylesheet" href="/style-v2.css">
 
-  /* ---------- Navbar (Bootstrap-based, replaces legacy hamburger markup) ---------- */
-  .site-navbar { background: #fff; border-bottom: 1px solid #e5e7eb; }
-  .site-navbar .navbar-brand { font-weight: 700; letter-spacing: -0.01em; color: #1f2937; }
-  .site-navbar .navbar-brand:hover { color: var(--bs-primary); }
-  .site-navbar .nav-link { color: #4b5563; font-weight: 500; padding: 0.5rem 0.85rem; }
-  .site-navbar .nav-link:hover { color: var(--bs-primary); }
-  .site-navbar .nav-link.active { color: var(--bs-primary); }
-
-  /* ---------- Page header ---------- */
-  .breadcrumb-mini { font-size: 0.85rem; margin-bottom: 0.75rem; color: #6b7280; }
-  .breadcrumb-mini a { color: #6b7280; text-decoration: none; }
-  .breadcrumb-mini a:hover { color: var(--bs-primary); text-decoration: underline; }
-  .breadcrumb-mini .sep { margin: 0 0.4rem; color: #d1d5db; }
-
-  h1.entry-title {
-    font-size: 2.25rem; font-weight: 800; line-height: 1.15;
-    margin: 0 0 1.25rem; letter-spacing: -0.02em; color: #0f172a;
-  }
-  @media (max-width: 600px) {
-    h1.entry-title { font-size: 1.75rem; }
-  }
-
-  /* ---------- Hero image (inside Overview, SEO-friendly position) ---------- */
-  .province-hero {
-    width: 100%; aspect-ratio: 21 / 9;
-    background-size: cover; background-position: center;
-    border-radius: 0.75rem; margin: 0 0 1.5rem;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  }
-  @media (max-width: 600px) {
-    .province-hero { aspect-ratio: 16 / 9; border-radius: 0.5rem; }
-  }
-  /* Main content card wrapper — gives the body a subtle elevated feel */
-  main.col-12 { background: #fff; padding: 1.5rem 1.75rem; border-radius: 0.75rem; border: 1px solid #e5e7eb; }
-  @media (max-width: 600px) {
-    main.col-12 { padding: 1rem 1.1rem; border-radius: 0.5rem; }
-  }
-  aside.sidebar-primary { background: #fff; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid #e5e7eb; align-self: start; }
-  @media (max-width: 991px) {
-    aside.sidebar-primary { margin-top: 1rem; }
-  }
-
-  /* ---------- Scorecard (Bootstrap tabs) ---------- */
-  .scorecard { background: #fff; border: 1px solid #e5e7eb; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
-  .scorecard .nav-tabs {
-    padding: 0 0.5rem; background: #f8fafc; border-bottom: 1px solid #e5e7eb;
-    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin;
-  }
-  .scorecard .nav-tabs::-webkit-scrollbar { height: 4px; }
-  .scorecard .nav-tabs .nav-link {
-    color: #6b7280; font-weight: 600; border: none; padding: 0.9rem 1.1rem;
-    border-bottom: 2px solid transparent; white-space: nowrap;
-    background: transparent; border-radius: 0;
-    transition: color .15s, border-color .15s;
-  }
-  .scorecard .nav-tabs .nav-link:hover { color: #1f2937; background: transparent; }
-  .scorecard .nav-tabs .nav-link.active {
-    color: var(--bs-primary); background: transparent; border-bottom-color: var(--bs-primary);
-  }
-  .scorecard .tab-content { padding: 0.5rem 1.25rem 0.75rem; }
-  .score-row {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0.55rem 0; border-bottom: 1px solid #f1f5f9; gap: 1rem;
-  }
-  .score-row:last-child { border-bottom: none; }
-  .score-row .label { display: flex; align-items: center; gap: 0.5rem; color: #1f2937; font-weight: 500; font-size: 0.95rem; }
-  .score-row .label .emoji { font-size: 1rem; width: 1.4em; text-align: center; display: inline-block; }
-  .score-row .value { font-weight: 600; white-space: nowrap; font-size: 0.92rem; }
-  .score-row .value.raw { color: #1f2937; }
-  .tier-chip {
-    display: inline-block; padding: 0.18rem 0.65rem; border-radius: 999px;
-    font-size: 0.78rem; font-weight: 600; line-height: 1.35;
-  }
-  .tier-chip.excellent { background: var(--tier-bg-excellent); color: var(--tier-excellent); }
-  .tier-chip.great     { background: var(--tier-bg-great);     color: var(--tier-great); }
-  .tier-chip.good      { background: var(--tier-bg-good);      color: var(--tier-good); }
-  .tier-chip.average   { background: var(--tier-bg-average);   color: var(--tier-average); }
-  .tier-chip.poor      { background: var(--tier-bg-poor);      color: var(--tier-poor); }
-
-  /* Legacy <score> tag inside long-form content */
-  score {
-    display: inline-block; padding: 0.12rem 0.55rem; border-radius: 999px;
-    font-size: 0.8rem; font-weight: 600; line-height: 1.4;
-  }
-  score.excellent { background: var(--tier-bg-excellent); color: var(--tier-excellent); }
-  score.great     { background: var(--tier-bg-great);     color: var(--tier-great); }
-  score.good      { background: var(--tier-bg-good);      color: var(--tier-good); }
-  score.average   { background: var(--tier-bg-average);   color: var(--tier-average); }
-  score.poor      { background: var(--tier-bg-poor);      color: var(--tier-poor); }
-  score.green     { background: var(--tier-bg-great);     color: var(--tier-great); }
-  score.orange    { background: var(--tier-bg-average);   color: var(--tier-average); }
-  score.red       { background: var(--tier-bg-poor);      color: var(--tier-poor); }
-
-  /* Tier chip "neutral" variant — for raw amounts and "in line with average" */
-  .tier-chip.neutral { background: var(--tier-bg-neutral); color: var(--tier-neutral); }
-
-  /* Raw amount values (eg. 2,549.55 €/m) — render as quiet pill, not red */
-  .score-row .value.raw {
-    background: var(--tier-bg-neutral); color: var(--tier-neutral);
-    padding: 0.18rem 0.65rem; border-radius: 999px;
-    font-size: 0.78rem; font-weight: 600;
-  }
-  /* Force raw-amount tier chips inside the scorecard to use the neutral palette
-     so income/expenses don't all look "poor". The qualityScoreData isAmount flag
-     isn't surfaced as a class yet, so we detect via parent .value containing €/m. */
-  .scorecard .tier-chip[class*="poor"]:not(:empty) {
-    /* keep poor styling — generator decides; only neutralize via .raw above */
-  }
-
-  /* ---------- Article body ---------- */
-  .entry-content { font-size: 1.02rem; line-height: 1.75; }
-  .entry-content > section { margin-bottom: 0.5rem; }
-  .entry-content > section > h2:first-child { margin-top: 1.75rem; }
-  .entry-content > section:first-child > h2:first-child { margin-top: 0.25rem; }
-  .entry-content p.lede {
-    font-size: 1.08rem; line-height: 1.7; color: #374151;
-    margin-bottom: 1rem;
-  }
-  .entry-content p.lede b { color: #1f2937; }
-  .entry-content h2 {
-    font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.9rem;
-    padding-bottom: 0.5rem; border-bottom: 1px solid #e5e7eb;
-    scroll-margin-top: 1rem;
-  }
-  .entry-content h3 { font-size: 1.18rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.6rem; scroll-margin-top: 1rem; }
-  .entry-content p  { margin-bottom: 0.9rem; }
-  .entry-content b.green,  .entry-content .green  { color: var(--tier-great); }
-  .entry-content b.red,    .entry-content .red    { color: var(--tier-poor); }
-  .entry-content b.orange, .entry-content .orange { color: var(--tier-average); }
-  .entry-content b.yellow, .entry-content .yellow { color: #b45309; }
-  .entry-content figure.province-map {
-    float: right; max-width: 260px; margin: 0 0 1rem 1.25rem;
-  }
-  .entry-content figure img { border-radius: 0.5rem; max-width: 100%; height: auto; }
-  .entry-content figcaption { font-size: 0.85rem; color: #6b7280; text-align: center; margin-top: 0.3rem; }
-  .entry-content #disclaimer {
-    display: inline-block; padding: 0.5rem 0.85rem; background: #f8fafc; color: #6b7280;
-    border-radius: 0.5rem; font-size: 0.82rem; margin: 0.75rem 0;
-  }
-  .entry-content #ggmap, .entry-content .map iframe {
-    width: 100%; border-radius: 0.75rem; border: 0;
-  }
-  .entry-content .separator,
-  .entry-content span.separator,
-  .entry-content div.separator { display:block; height: 1px; background: #e5e7eb; margin: 1.5rem 0; border: 0; }
-  /* Trim stray legacy <br>/</br> tags so spacing stays tight */
-  .entry-content br + br { display: none; }
-  @media (max-width: 600px) {
-    .entry-content figure.province-map { float: none; max-width: 100%; margin: 0 0 1rem; }
-  }
-
-  /* ---------- Legacy tags used by generators ---------- */
-  .entry-content center { display: block; text-align: center; margin: 1rem 0; }
-  .entry-content center h3 {
-    text-align: center; margin-top: 0.5rem; margin-bottom: 0.85rem;
-    font-size: 1.18rem; font-weight: 700;
-  }
-  /* <row> tags (non-standard, used for related-crime grid). Make it a flex grid. */
-  .entry-content row {
-    display: grid; gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    margin: 0.75rem 0 1.5rem;
-  }
-  .entry-content row figure.related {
-    margin: 0; width: 100%; max-width: 100%;
-    border: 1px solid #e5e7eb; border-radius: 0.6rem; overflow: hidden;
-    background: #fff; transition: box-shadow .15s, transform .15s;
-  }
-  .entry-content row figure.related:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.07); transform: translateY(-1px); }
-  .entry-content row figure.related a { display: block; text-decoration: none; color: #1f2937; }
-  .entry-content row figure.related img {
-    width: 100%; height: 120px; object-fit: cover; display: block;
-    border-radius: 0; margin: 0;
-  }
-  .entry-content row figure.related figcaption {
-    text-align: left; padding: 0.55rem 0.75rem 0.7rem; font-size: 0.92rem;
-    color: #1f2937; font-weight: 600; margin: 0;
-  }
-
-  /* Transport / Discover figcaptions stranded outside a <figure>: tame their look */
-  .entry-content > section figcaption {
-    font-size: 0.85rem; color: #6b7280; margin-top: 0.25rem; margin-bottom: 1rem;
-  }
-
-  /* Disclaimer should also work as a div */
-  .entry-content #disclaimer,
-  .entry-content div#disclaimer {
-    display: inline-block; padding: 0.5rem 0.85rem; background: #f8fafc; color: #6b7280;
-    border-radius: 0.5rem; font-size: 0.82rem; margin: 0.75rem 0; max-width: 100%;
-  }
-
-  /* "Search for:" link row under the Google Maps embed */
-  .entry-content center.map { display: block; margin: 1rem 0 1.5rem; }
-  .entry-content center.map a {
-    display: inline-block; margin: 0.25rem 0.35rem;
-    padding: 0.3rem 0.7rem; background: #f8fafc; border: 1px solid #e5e7eb;
-    border-radius: 999px; font-size: 0.88rem; text-decoration: none; color: #1f2937;
-  }
-  .entry-content center.map a:hover { background: #eef2ff; border-color: #c7d2fe; color: var(--bs-primary); }
-
-  /* Tame stray inline images in long-form content (eg Wikivoyage thumbs in Transport) */
-  .entry-content img:not(.mw-file-element-allow):not([class]) {
-    max-width: 100%; height: auto; border-radius: 0.5rem;
-  }
-  .entry-content a.mw-file-description img {
-    border-radius: 0.5rem; max-width: 100%; height: auto;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-
-  /* Weather widget block — gentle card framing */
-  .entry-content .weather-block {
-    background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 0.6rem;
-    padding: 1rem 1.25rem; margin: 1rem 0;
-  }
-  .entry-content .weather-block h3 { margin-top: 0; }
-
-  /* ---------- Provinces Nearby — inline pills ---------- */
-  .nearby-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0 1.5rem; padding: 0; list-style: none; }
-  .nearby-pills a {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.35rem 0.85rem 0.35rem 0.4rem;
-    background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 999px;
-    text-decoration: none; color: #1f2937; font-size: 0.9rem; font-weight: 500;
-    transition: background .15s, border-color .15s;
-  }
-  .nearby-pills a:hover { background: #eef2ff; border-color: #c7d2fe; color: var(--bs-primary); }
-  .nearby-pills img {
-    width: 28px; height: 28px; border-radius: 999px; object-fit: cover;
-  }
-
-  /* ---------- TOC (server-rendered, clean card) ---------- */
-  .toc-card { border: 1px solid #e5e7eb; border-radius: 0.6rem; background: #fafbfc; margin-bottom: 1.5rem; }
-  .toc-card > summary {
-    cursor: pointer; font-weight: 600; padding: 0.75rem 1rem;
-    list-style: none; display: flex; align-items: center; gap: 0.5rem;
-    color: #1f2937;
-  }
-  .toc-card > summary::-webkit-details-marker { display: none; }
-  .toc-card > summary::before {
-    content: "▸"; display:inline-block; transition: transform .15s; color:#6b7280;
-  }
-  .toc-card[open] > summary::before { transform: rotate(90deg); }
-  .toc-card nav { padding: 0 1rem 0.85rem; }
-  .toc-card nav ul { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 1.5rem; }
-  .toc-card nav ul ul { columns: 1; padding-left: 1rem; margin-top: 0.2rem; }
-  .toc-card nav li { break-inside: avoid; padding: 0.18rem 0; }
-  .toc-card nav a {
-    color: #374151; text-decoration: none; font-size: 0.92rem;
-    display: inline-block; padding: 0.05rem 0; border-bottom: 1px solid transparent;
-  }
-  .toc-card nav a:hover { color: var(--bs-primary); border-bottom-color: currentColor; }
-  @media (max-width: 600px) { .toc-card nav ul { columns: 1; } }
-
-  /* ---------- Sidebar ---------- */
-  .sidebar-primary .menu-label {
-    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em;
-    font-weight: 700; color: #6b7280; margin: 1.25rem 0 0.5rem;
-  }
-  .sidebar-primary .menu-label:first-child { margin-top: 0; }
-  .sidebar-primary .menu-list { list-style: none; padding: 0; margin: 0 0 0.5rem; }
-  .sidebar-primary .menu-list a {
-    display: block; padding: 0.5rem 0.65rem; color: #1f2937; text-decoration: none;
-    border-radius: 0.4rem; font-size: 0.92rem;
-  }
-  .sidebar-primary .menu-list a:hover { background: #f3f4f6; color: var(--bs-primary); }
-  .sidebar-primary p.about, .sidebar-primary p.disclaimer {
-    font-size: 0.82rem; color: #6b7280; line-height: 1.55; margin: 0 0 0.5rem;
-  }
-  /* Tame the legacy <br> spam used as spacers inside the sidebar */
-  .sidebar-primary > br { display: none; }
-  .sidebar-primary .menu-list li { margin: 0; }
-  .sidebar-primary [data-gyg-widget] { margin: 0.5rem 0 0.75rem; }
-
-  /* ---------- Footer ---------- */
-  .site-footer {
-    border-top: 1px solid #e5e7eb; padding: 1.75rem 0;
-    margin-top: 3rem; font-size: 0.88rem; color: #6b7280; background: #fff;
-  }
-  .site-footer a { color: #6b7280; text-decoration: none; }
-  .site-footer a:hover { color: var(--bs-primary); }
-</style>
 </head>
 
 <body>
@@ -346,7 +42,7 @@
 <!-- Clean Bootstrap navbar -->
 <nav class="navbar navbar-expand-lg site-navbar sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="/">Italy Expats &amp; Nomads</a>
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/"><img src="/img/expiter.png" alt="Expiter logo" height="32" width="32">Italy Expats &amp; Nomads</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -368,6 +64,7 @@
 
     <main class="col-12 col-lg-8 col-xl-9 order-1">
 
+      
       <nav aria-label="breadcrumb" class="breadcrumb-mini">
         <a href="/">Home</a>
         <span class="sep">/</span>
@@ -375,6 +72,7 @@
         <span class="sep">/</span>
         <span>Piedmont · Crime & Safety</span>
       </nav>
+      
 
       <h1 class="entry-title" data-toc-skip id="title">Crime and Safety in Turin</h1>
 
@@ -674,7 +372,7 @@
 <section id="Organized-Crime"><h2>Organized Crime &amp; Drug-related Crimes</h2><div id="organizedcrime">In the province of Turin, there were 25.975 instances of extortions, 2.047 instances of money laundering, and 62.732 drug-related crimes (such as dealing, production, etc.) per 100,000 inhabitants in 2023. <br><br><b class='yellow'>Extortions are in line with the average for provinces in Italy</b>. This suggests that the rate of extortions in Turin is typical for Italian provinces.<br><br><b class='yellow'>Money laundering instances are in line with the national average</b>. This suggests that the rate of money laundering in Turin is typical for Italian provinces.<br><br><b class='yellow'>Drug-related crimes are in line with the average amongst Italian provinces</b>. This suggests that the rate of drug-related crimes in Turin is typical for Italian provinces.<br><br><h3>Mafia Activity</h3>There is evidence of mafia presence and activity in Turin and the Piedmont region. Investigations have revealed mafia infiltration into the legal economy, particularly related to construction projects and public contracts. Criminal groups like the 'Ndrangheta from Calabria and Nigerian mafia organizations have established a foothold in Turin, engaging in activities such as drug trafficking, extortion, and money laundering. While the extent of the mafia's influence in the city is not fully clear from the available information, it is evident that organized crime groups have managed to gain a presence and exert their power in Turin.</br><span class="separator"></span></br></div></section>
 <section id="Accidents"><h2>Accidents</h2><div id="accidents">In the province of Turin, there were 6.4 instances of fatal and permanent disability accidents per 10,000 employees, and 2.072 road accident deaths per 10,000 residents in 2023. <b class='yellow'>Workplace accidents are in line with the national average average</b>. This suggests that the rate of workplace accidents in Turin is typical for Italian provinces.<br><br><b class='yellow'>Road accident deaths are in line with the national average</b>. This suggests that the rate of road accident deaths in Turin is typical for Italian provinces.</br><span class="separator"></span></br></div></section>
 <section id="FAQs"><h2>Frequently Asked Questions</h2><div id="faqs"><h3>Is Torino safe to live?</h3>Turin is generally considered a safe city to live in, with low crime rates compared to other cities in Italy. The city's strong economy, developed infrastructure, and quality of life attract people from all over the world. While Turin is generally safe, it is advisable to take basic precautions, such as avoiding dark and isolated areas at night and keeping valuables out of sight. Petty theft can occur in busy tourist areas, so it's best to be vigilant and aware of your surroundings. The city excels in safety with its excellent healthcare system, boasting some of the best hospitals in Italy, and efficient emergency services. Overall, Turin is a fantastic place to live, with its rich history, stunning architecture, delicious cuisine, and proximity to the mountains. Safety should not be a significant concern when considering living in Turin, as long as you exercise common sense and take precautions like in any other city.</br><span class="separator"></span></br></div></section>
-<section id="Discover"><h2>Discover</h2><div id="promo"><center><h3>Recommended Tours in Torino</h3></center><div data-vi-partner-id=P00045447 data-vi-language=en data-vi-currency=EUR data-vi-partner-type="AFFILIATE" data-vi-url="https://www.viator.com/Turin/d802-ttd" data-vi-total-products=6  data-vi-campaign="Torino" ></div><script async src="https://www.viator.com/orion/partner/widget.js"></script></br><span class="separator"></span></br><div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div></br><span class="separator"></span></br><h2>Crime and Safety of Provinces Nearby</h2> <row class="columns is-multiline is-mobile"> <figure class="column is-3 related"><a href="https://expiter.com/province/asti/crime-and-safety/"><img title="Asti" loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/AT.webp?tr=w-280,h-140,c-at_least,q-5" alt="Crime and safety in Asti, Piedmont"></img><figcaption>Asti, Piedmont</figcaption></a></figure><figure class="column is-3 related"><a href="https://expiter.com/province/lecco/crime-and-safety/"><img title="Lecco" loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/LC.webp?tr=w-280,h-140,c-at_least,q-5" alt="Crime and safety in Lecco, Lombardy"></img><figcaption>Lecco, Lombardy</figcaption></a></figure><figure class="column is-3 related"><a href="https://expiter.com/province/novara/crime-and-safety/"><img title="Novara" loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/NO.webp?tr=w-280,h-140,c-at_least,q-5" alt="Crime and safety in Novara, Piedmont"></img><figcaption>Novara, Piedmont</figcaption></a></figure><figure class="column is-3 related"><a href="https://expiter.com/province/milano/crime-and-safety/"><img title="Milan" loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/MI.webp?tr=w-280,h-140,c-at_least,q-5" alt="Crime and safety in Milan, Lombardy"></img><figcaption>Milan, Lombardy</figcaption></a></figure></row></div></section>
+<section id="Discover"><h2>Discover</h2><div id="promo"><center><h3>Recommended Tours in Torino</h3></center><div data-vi-partner-id=P00045447 data-vi-language=en data-vi-currency=EUR data-vi-partner-type="AFFILIATE" data-vi-url="https://www.viator.com/Turin/d802-ttd" data-vi-total-products=6  data-vi-campaign="Torino" ></div><script async src="https://www.viator.com/orion/partner/widget.js"></script></br><span class="separator"></span></br><div data-gyg-widget="auto" data-gyg-partner-id="56T9R2T"></div></br><span class="separator"></span></br><h2>Crime and Safety of Provinces Nearby</h2> <row class="columns is-multiline is-mobile"> <figure class="column is-3 related"><a href="https://expiter.com/province/mantova/crime-and-safety/"><img title="Mantua" loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/MN.webp?tr=w-280,h-140,c-at_least,q-5" alt="Crime and safety in Mantua, Lombardy"></img><figcaption>Mantua, Lombardy</figcaption></a></figure><figure class="column is-3 related"><a href="https://expiter.com/province/sondrio/crime-and-safety/"><img title="Sondrio" loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/SO.webp?tr=w-280,h-140,c-at_least,q-5" alt="Crime and safety in Sondrio, Lombardy"></img><figcaption>Sondrio, Lombardy</figcaption></a></figure><figure class="column is-3 related"><a href="https://expiter.com/province/como/crime-and-safety/"><img title="Como" loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/CO.webp?tr=w-280,h-140,c-at_least,q-5" alt="Crime and safety in Como, Lombardy"></img><figcaption>Como, Lombardy</figcaption></a></figure><figure class="column is-3 related"><a href="https://expiter.com/province/biella/crime-and-safety/"><img title="Biella" loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/BI.webp?tr=w-280,h-140,c-at_least,q-5" alt="Crime and safety in Biella, Piedmont"></img><figcaption>Biella, Piedmont</figcaption></a></figure></row></div></section>
 
       </article>
 

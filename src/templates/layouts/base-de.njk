@@ -1,0 +1,15 @@
+{% extends "layouts/base.njk" %}
+
+{% block breadcrumbProvinces %}<a href="/de/provinz/">Provinzen</a>{% endblock %}
+
+{% block tabLabels %}
+<li class="nav-item" role="presentation">
+  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#panel-ql" type="button" role="tab">Lebensqualität</button>
+</li>
+<li class="nav-item" role="presentation">
+  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-col" type="button" role="tab">Lebenshaltungskosten</button>
+</li>
+<li class="nav-item" role="presentation">
+  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-dn" type="button" role="tab">Digitale Nomaden</button>
+</li>
+{% endblock %}
