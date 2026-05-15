@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base href="/">
+<link rel="canonical" href="https://expiter.com/app/">
+<link rel="alternate" hreflang="en" href="https://expiter.com/app/">
+<link rel="alternate" hreflang="it" href="https://expiter.com/it/app/">
+<link rel="alternate" hreflang="fr" href="https://expiter.com/fr/app/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Italy Expats and Nomads</title>
+<link rel="icon" type="image/x-icon" href="/img/expiter-favicon.ico">
+<meta name="description" content="Best Italian Cities to Live as an Expat or Digital Nomad. Provinces in Italy ranked by quality of life, cost of living, safety and more.">
+<meta name="keywords" content="italy, italian cities, best city in italy, italy digital nomad, italy expat">
+<meta property="og:title" content="Expiter - Italy Expats and Nomads">
+<meta property="og:description" content="Italy Expat Resources - Best Italian Cities to Live as an Expat or Digital Nomad. Provinces in Italy ranked by quality of life, cost of living, safety and more.">
+<meta property="og:image" content="https://expiter.com/img/expiter-italy-expats-and-nomads.webp">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://expiter.com/app/">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Bootstrap 5.3.3 + Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- App scripts (jQuery + dataset + client logic) -->
+<script src="/jquery3.6.0.js"></script>
+<script src="/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+
+<link rel="stylesheet" href="/style-v2.css">
+
+<style>
+  :root {
+    --bs-body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --bs-body-color: #1f2937;
+    --bs-body-bg: #ffffff;
+    --bs-primary: #2563eb;
+    --tier-excellent: #15803d;
+    --tier-great:     #16a34a;
+    --tier-good:      #84cc16;
+    --tier-average:   #d97706;
+    --tier-poor:      #dc2626;
+    --tier-bg-excellent: #dcfce7;
+    --tier-bg-great:     #ecfccb;
+    --tier-bg-good:      #f7fee7;
+    --tier-bg-average:   #fef3c7;
+    --tier-bg-poor:      #fee2e2;
+  }
+  body { font-family: var(--bs-body-font-family); -webkit-font-smoothing: antialiased; color: #1f2937; background: #fff; }
+
+  /* ---------- Navbar ---------- */
+  .site-navbar { background: #fff; border-bottom: 1px solid #e5e7eb; }
+  .site-navbar .navbar-brand { font-weight: 700; letter-spacing: -0.01em; color: #1f2937; }
+  .site-navbar .navbar-brand:hover { color: var(--bs-primary); }
+  .site-navbar .nav-link { color: #4b5563; font-weight: 500; padding: 0.5rem 0.85rem; }
+  .site-navbar .nav-link:hover { color: var(--bs-primary); }
+
+  /* ---------- Page header ---------- */
+  h1.entry-title {
+    font-size: 2rem; font-weight: 700; line-height: 1.2;
+    margin: 0 0 0.75rem; letter-spacing: -0.01em; color: #111827;
+  }
+  h1.entry-title span:empty { display: none; }
+  #output { color: #6b7280; font-size: 1rem; line-height: 1.6; margin: 0 0 1.25rem; }
+  #output p { margin-bottom: 0.5rem; }
+  #output center { text-align: left; }
+  #output a { color: var(--bs-primary); text-decoration: none; font-weight: 600; }
+  #output a:hover { text-decoration: underline; }
+
+  /* ---------- Sort pill row (replaces filter wall) ---------- */
+  .sort-toolbar { margin-bottom: 0.75rem; }
+  .sort-toolbar .sort-label {
+    display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+    font-weight: 700; color: #6b7280; margin-bottom: 0.5rem;
+  }
+  #sorting {
+    display: flex; flex-wrap: nowrap; gap: 0.5rem; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    padding: 0.25rem 0 0.5rem; margin: 0;
+    scrollbar-width: thin;
+  }
+  #sorting::-webkit-scrollbar { height: 6px; }
+  #sorting::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 999px; }
+  #sorting .button.radio {
+    flex: 0 0 auto; position: relative; cursor: pointer;
+    background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 999px;
+    padding: 0.4rem 0.9rem; font-size: 0.88rem; font-weight: 500; color: #374151;
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    transition: background .15s, border-color .15s, color .15s;
+    margin: 0; white-space: nowrap;
+  }
+  #sorting .button.radio:hover { background: #eef2ff; border-color: #c7d2fe; color: var(--bs-primary); }
+  #sorting .button.radio input { position: absolute; opacity: 0; pointer-events: none; }
+  #sorting .button.radio:has(input:checked) {
+    background: var(--bs-primary); border-color: var(--bs-primary); color: #fff;
+  }
+  #sorting .button.radio ej { font-style: normal; }
+  @media (min-width: 992px) {
+    #sorting { flex-wrap: wrap; overflow-x: visible; }
+  }
+
+  /* ---------- Region / More filters toolbar ---------- */
+  .filter-toolbar {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
+    padding: 0.5rem 0 1rem; border-bottom: 1px solid #e5e7eb; margin-bottom: 1.25rem;
+  }
+  .filter-toolbar .toolbar-spacer { flex: 1 1 auto; }
+  .filter-toolbar .btn-outline-toolbar {
+    background: #fff; border: 1px solid #e5e7eb; color: #1f2937;
+    border-radius: 999px; padding: 0.4rem 0.9rem; font-size: 0.88rem; font-weight: 500;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+  }
+  .filter-toolbar .btn-outline-toolbar:hover { background: #f3f4f6; border-color: #d1d5db; }
+  .filter-toolbar .btn-outline-toolbar .bi { font-size: 0.95rem; }
+
+  /* ---------- Region + Additional filter buttons (used inside offcanvas) ---------- */
+  #regionfilters, #additionalfilters {
+    display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1rem;
+  }
+  #regionfilters .button, #additionalfilters .button {
+    background: #fff; border: 1px solid #e5e7eb; color: #374151;
+    border-radius: 999px; padding: 0.35rem 0.85rem; font-size: 0.85rem; font-weight: 500;
+    cursor: pointer; line-height: 1.4; transition: background .15s, border-color .15s, color .15s;
+  }
+  #regionfilters .button:hover, #additionalfilters .button:hover {
+    background: #eef2ff; border-color: #c7d2fe; color: var(--bs-primary);
+  }
+  #regionfilters .regionfilter.selected,
+  #additionalfilters .additionalfilter.selected {
+    background: var(--bs-primary); border-color: var(--bs-primary); color: #fff;
+  }
+  #regionfilters .specialfilter,
+  #regionfilters .clearfilter,
+  #regionfilters .allfilter {
+    background: #f8fafc;
+  }
+  .offcanvas .filter-group-label {
+    display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+    font-weight: 700; color: #6b7280; margin: 0.75rem 0 0.5rem;
+  }
+  .offcanvas .filter-group-label:first-child { margin-top: 0; }
+
+  /* ---------- Province card grid ---------- */
+  #app {
+    display: grid; gap: 1.25rem;
+    grid-template-columns: 1fr;
+    margin: 0 0 2rem;
+  }
+  @media (min-width: 576px) { #app { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 992px) { #app { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1400px){ #app { grid-template-columns: repeat(4, 1fr); } }
+
+  #app .column { margin: 0; padding: 0; }
+  #app .column > a { display: block; text-decoration: none; color: inherit; }
+
+  #app .column { position: relative; }
+  #app .column > a { position: relative; display: block; }
+  #app card {
+    display: block; background: #fff; border: 1px solid #e5e7eb; border-radius: 0.85rem;
+    transition: box-shadow .2s, border-color .2s, transform .2s;
+    position: relative;
+  }
+  /* keep the top image's top corners rounded without overflow:hidden on the card
+     (which would clip the absolutely-positioned hover detail panel) */
+  #app card .card-image { border-radius: 0.85rem 0.85rem 0 0; }
+  #app card .card-compact:last-child { border-radius: 0 0 0.85rem 0.85rem; }
+  #app .column > a:hover card,
+  #app .column > a:focus-visible card {
+    border-color: #c7d2fe; box-shadow: 0 14px 36px rgba(37,99,235,0.18); transform: translateY(-2px);
+  }
+  #app .column > a:hover { z-index: 5; }
+
+  /* Image with overlaid province name */
+  #app card .card-image {
+    position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #f3f4f6;
+  }
+  #app card .card-image img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform .4s ease;
+  }
+  #app .column > a:hover .card-image img { transform: scale(1.04); }
+  #app card .card-image::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0) 70%);
+    pointer-events: none;
+  }
+  #app card .card-rank {
+    position: absolute; top: 0.65rem; left: 0.65rem; z-index: 2;
+    background: rgba(15,23,42,0.78); color: #fff; backdrop-filter: blur(4px);
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em;
+    padding: 0.2rem 0.55rem; border-radius: 999px;
+  }
+  #app card .card-overlay {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+    padding: 0.85rem 1rem 0.9rem; color: #fff;
+  }
+  #app card .card-name {
+    margin: 0; font-size: 1.35rem; font-weight: 700; line-height: 1.1;
+    letter-spacing: -0.01em; color: #fff;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+  }
+  #app card .card-region {
+    margin-top: 0.2rem; font-size: 0.82rem; color: rgba(255,255,255,0.88);
+    font-weight: 500; text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+
+  /* Compact 3-chip metric row (default state) */
+  #app card .card-compact {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    padding: 0.75rem 0.9rem 0.85rem;
+  }
+  #app card .card-compact .m {
+    flex: 1 1 auto; display: inline-flex; align-items: center; gap: 0.3rem;
+    font-size: 0.78rem; color: #4b5563; white-space: nowrap;
+  }
+  #app card .card-compact ej { font-style: normal; font-size: 0.9rem; }
+  #app card .card-compact score { font-size: 0.72rem; padding: 0.1rem 0.45rem; }
+
+  /* Expanded detail — overlay so siblings don't reflow */
+  #app card .card-detail {
+    position: absolute; left: -1px; right: -1px; top: 100%;
+    background: #fff;
+    border: 1px solid #c7d2fe; border-top: 1px solid #f1f5f9;
+    border-radius: 0 0 0.85rem 0.85rem;
+    box-shadow: 0 14px 36px rgba(37,99,235,0.18);
+    padding: 0.75rem 0.9rem 0.85rem;
+    opacity: 0; visibility: hidden; transform: translateY(-6px);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+    z-index: 6;
+  }
+  /* Stitch the overlay seamlessly to the card */
+  #app .column > a:hover card { border-bottom-color: transparent; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+  #app .column > a:hover .card-detail,
+  #app .column > a:focus-visible .card-detail {
+    opacity: 1; visibility: visible; transform: translateY(0);
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  #app card .card-detail-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 0.85rem;
+  }
+  #app card .card-detail-grid .row {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.4rem;
+    font-size: 0.78rem; color: #374151; padding: 0.18rem 0;
+  }
+  #app card .card-detail-grid .lbl { display: inline-flex; align-items: center; gap: 0.25rem; color: #4b5563; }
+  #app card .card-detail-grid ej { font-style: normal; }
+  #app card .card-detail-grid score { font-size: 0.7rem; padding: 0.08rem 0.4rem; }
+  #app card .card-detail-foot {
+    margin-top: 0.55rem; padding-top: 0.55rem; border-top: 1px solid #e5e7eb;
+    font-size: 0.78rem; color: #6b7280; display: flex; justify-content: space-between; gap: 0.5rem;
+  }
+
+  /* Mobile/touch: no hover, fold the detail back inline so the card is self-contained */
+  @media (hover: none) {
+    #app card { overflow: visible; }
+    #app card .card-detail {
+      position: static; opacity: 1; visibility: visible; transform: none;
+      box-shadow: none; border: 0; border-top: 1px solid #f1f5f9;
+      border-radius: 0;
+      transition: none;
+    }
+  }
+
+  /* ---------- Score / tier chips (used inline by qualityScore()) ---------- */
+  score {
+    display: inline-block; padding: 0.14rem 0.6rem; border-radius: 999px;
+    font-size: 0.78rem; font-weight: 600; line-height: 1.4; white-space: nowrap;
+  }
+  score.excellent { background: var(--tier-bg-excellent); color: var(--tier-excellent); }
+  score.great     { background: var(--tier-bg-great);     color: var(--tier-great); }
+  score.good      { background: var(--tier-bg-good);      color: var(--tier-good); }
+  score.average   { background: var(--tier-bg-average);   color: var(--tier-average); }
+  score.poor      { background: var(--tier-bg-poor);      color: var(--tier-poor); }
+  score.green     { background: var(--tier-bg-great);     color: var(--tier-great); }
+  score.orange    { background: var(--tier-bg-average);   color: var(--tier-average); }
+  score.red       { background: var(--tier-bg-poor);      color: var(--tier-poor); }
+
+  /* ---------- Legacy bits we keep so script.js doesn't break ---------- */
+  #floatBottom { display: none; } /* hidden — replaced by offcanvas, but kept in DOM */
+
+  /* ---------- About / FAQ section ---------- */
+  #About-section h2 {
+    font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.9rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid #e5e7eb;
+  }
+  #About-section p { line-height: 1.7; color: #1f2937; }
+  .faq-item {
+    border: 1px solid #e5e7eb; border-radius: 0.6rem; margin-bottom: 0.6rem; overflow: hidden;
+    background: #fff;
+  }
+  .faq-item input.questions { display: none; }
+  .faq-item .question {
+    display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1rem;
+    cursor: pointer; margin: 0; user-select: none;
+  }
+  .faq-item .question h3 { margin: 0; font-size: 1rem; font-weight: 600; color: #1f2937; }
+  .faq-item .plus {
+    width: 1.4rem; height: 1.4rem; display: inline-flex; align-items: center; justify-content: center;
+    background: #f3f4f6; color: #6b7280; border-radius: 999px; font-weight: 700; font-size: 1.1rem;
+    transition: transform .15s, background .15s, color .15s;
+  }
+  .faq-item input.questions:checked ~ .question .plus { transform: rotate(45deg); background: var(--bs-primary); color: #fff; }
+  .faq-item .answers {
+    max-height: 0; overflow: hidden; padding: 0 1rem;
+    color: #374151; font-size: 0.95rem; line-height: 1.7;
+    transition: max-height .25s ease, padding .15s ease;
+  }
+  .faq-item input.questions:checked ~ .answers {
+    max-height: 600px; padding: 0 1rem 1rem;
+  }
+  .faq-item .answers a { color: var(--bs-primary); }
+
+  /* ---------- Footer (multi-column SEO) ---------- */
+  .site-footer {
+    border-top: 1px solid #e5e7eb; padding: 2rem 0 1.5rem; margin-top: 3rem;
+    font-size: 0.9rem; color: #6b7280; background: #fafbfc;
+  }
+  .site-footer h4 {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+    font-weight: 700; color: #6b7280; margin: 0 0 0.75rem;
+  }
+  .site-footer a { display: block; color: #374151; text-decoration: none; padding: 0.25rem 0; }
+  .site-footer a:hover { color: var(--bs-primary); }
+  .site-footer .footer-copy {
+    border-top: 1px solid #e5e7eb; margin-top: 1.5rem; padding-top: 1rem;
+    text-align: center; font-size: 0.82rem;
+  }
+
+  /* ---------- Misc legacy spans inside the title ---------- */
+  h1.entry-title span { font-weight: inherit; }
+</style>
+</head>
+<body>
+
+<a class="visually-hidden-focusable" href="#main-content">Skip to content</a>
+
+<nav class="navbar navbar-expand-lg site-navbar sticky-top" id="navbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/"><img src="/img/expiter.png" alt="Expiter logo" height="28" style="width:auto">Italy Expats &amp; Nomads</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="main-nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/provinces/">Provinces</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://expiter.com/resources/">Resources</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://expiter.com/tools/codice-fiscale-generator/">Tools</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://expiter.com/blog/articles/">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#About">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-4" id="main-content">
+
+  <section id="Most Expat-friendly Provinces in Italy">
+
+    <h1 id="title" class="entry-title">
+      <span class="bestorworst">Best</span>
+      <span class="smallorlarge"></span>
+      <span class="hotorcold"></span>
+      <span class="costofliving"></span>
+      <span class="provinces">Provinces</span>
+      in <span class="chosenArea">Italy</span>
+      <span class="withthings"></span>
+      <span class="sortBy">for Expats</span>
+    </h1>
+
+    <section id="output">
+      <p>
+        Based on our data, the <span class="bestorworst">Best</span>
+        <span class="smallorlarge"></span> <span class="hotorcold"></span>
+        <span class="costofliving"></span>
+        province in <span class="chosenArea">Italy</span>
+        <span class="withthings"></span> <span class="sortBy">for Expats</span>
+        is <b><a class="province1st" href="https://expiter.com/province/milano/">Milano</a></b>,
+        with a score of <span id="score1">9.6</span>/10.<br>
+        <b><a class="province2" href="https://expiter.com/province/roma/">Roma</a></b> ranks 2nd with a score of <span id="score2">9.6</span>/10
+        and <b><a class="province3" href="https://expiter.com/province/bologna/">Bologna</a></b> ranks 3rd with a score of <span id="score3">9.5</span>/10.
+      </p>
+      <span id="extra"></span>
+    </section>
+
+    <!-- Sort by (pill row) -->
+    <div class="sort-toolbar">
+      <span class="sort-label">Sort by</span>
+      <row id="sorting">
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Expat-friendly" checked><span><ej>👍</ej>Expat-friendly</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Name"><span><ej>🔠</ej>A-Z</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Random"><span><ej>🔀</ej>Random</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Region"><span><ej>🌍</ej>Region</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Population"><span><ej>👥</ej>Population</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Climate"><span><ej>🌦️</ej>Climate</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="CostOfLiving"><span><ej>🤑</ej>Cheapest</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Safety"><span><ej>👮</ej>Safety</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Crime"><span><ej>🚨</ej>Lack of Crime</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Nightlife"><span><ej>🍸</ej>Nightlife</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Education"><span><ej>📚</ej>Education</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="SunshineHours"><span><ej>☀️</ej>Sunshine</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="HotDays"><span><ej>♨️</ej>Hottest</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="ColdDays"><span><ej>❄️</ej>Coldest</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="RainyDays"><span><ej>☔</ej>Wettest</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="DN-friendly"><span><ej>🧳</ej>Nomad-friendly</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="LGBT-friendly"><span><ej>🏳️‍🌈</ej>LGBTQ+-friendly</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Female-friendly"><span><ej>👩</ej>Women-friendly</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Family-friendly"><span><ej>👩‍👦</ej>Family-friendly</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Veg-friendly"><span><ej>🥙</ej>Vegan-friendly</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Density"><span><ej>🌆</ej>Pop. Density</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Beach"><span><ej>🏖️</ej>Best Beaches</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="Hiking"><span><ej>⛰️</ej>Best Hikes</span></label>
+        <label class="button radio"><input type="radio" name="sortBy" onclick="filterBy()" value="WinterSports"><span><ej>⛷️</ej>Best Skiing</span></label>
+      </row>
+    </div>
+
+    <!-- Region / More filters toolbar -->
+    <div class="filter-toolbar">
+      <button class="btn-outline-toolbar" type="button" data-bs-toggle="offcanvas" data-bs-target="#regionPanel" aria-controls="regionPanel">
+        <i class="bi bi-geo-alt"></i> Region
+      </button>
+      <button class="btn-outline-toolbar" type="button" data-bs-toggle="offcanvas" data-bs-target="#filtersPanel" aria-controls="filtersPanel">
+        <i class="bi bi-sliders"></i> More filters
+      </button>
+    </div>
+
+    <!-- Region offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="regionPanel" aria-labelledby="regionPanelLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="regionPanelLabel">Filter by region</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <span class="filter-group-label">Quick select</span>
+        <row id="regionfilters-quick">
+          <button class="button clearfilter" title="Clear Selection" onclick='filterDataByRegion("Clear")'>🧹 Clear</button>
+          <button class="button allfilter" title="Select All" onclick='filterDataByRegion("All")'>➕ All</button>
+          <button class="button specialfilter" id="North" onclick='filterDataByRegion("North");$(this).toggleClass("selected")'>🍹🏔️ North</button>
+          <button class="button specialfilter" id="Center" onclick='filterDataByRegion("Center");$(this).toggleClass("selected")'>🍷🏛️ Center</button>
+          <button class="button specialfilter" id="South" onclick='filterDataByRegion("South");$(this).toggleClass("selected")'>🍕🏖️ South</button>
+        </row>
+        <span class="filter-group-label">Regions</span>
+        <row id="regionfilters">
+          <button class="button regionfilter selected" id="Abr" onclick='filterDataByRegion("Abruzzo");'>Abruzzo</button>
+          <button class="button regionfilter selected" id="Bas" onclick='filterDataByRegion("Basilicata");'>Basilicata</button>
+          <button class="button regionfilter selected" id="Cal" onclick='filterDataByRegion("Calabria");'>Calabria</button>
+          <button class="button regionfilter selected" id="Cam" onclick='filterDataByRegion("Campania");'>Campania</button>
+          <button class="button regionfilter selected" id="Emi" onclick='filterDataByRegion("Emilia-Romagna");'>Emilia-Romagna</button>
+          <button class="button regionfilter selected" id="Fri" onclick='filterDataByRegion("Friuli-Venezia Giulia");'>Friuli-Venezia Giulia</button>
+          <button class="button regionfilter selected" id="Laz" onclick='filterDataByRegion("Lazio");'>Lazio</button>
+          <button class="button regionfilter selected" id="Lig" onclick='filterDataByRegion("Liguria");'>Liguria</button>
+          <button class="button regionfilter selected" id="Lom" onclick='filterDataByRegion("Lombardia");'>Lombardia</button>
+          <button class="button regionfilter selected" id="Mar" onclick='filterDataByRegion("Marche");'>Marche</button>
+          <button class="button regionfilter selected" id="Mol" onclick='filterDataByRegion("Molise");'>Molise</button>
+          <button class="button regionfilter selected" id="Pie" onclick='filterDataByRegion("Piemonte");'>Piemonte</button>
+          <button class="button regionfilter selected" id="Pug" onclick='filterDataByRegion("Puglia");'>Puglia</button>
+          <button class="button regionfilter selected" id="Sar" onclick='filterDataByRegion("Sardegna");'>Sardegna</button>
+          <button class="button regionfilter selected" id="Sic" onclick='filterDataByRegion("Sicilia");'>Sicilia</button>
+          <button class="button regionfilter selected" id="Tos" onclick='filterDataByRegion("Toscana");'>Toscana</button>
+          <button class="button regionfilter selected" id="Tre" onclick='filterDataByRegion("Trentino-Alto Adige");'>Trentino-Alto Adige</button>
+          <button class="button regionfilter selected" id="Umb" onclick='filterDataByRegion("Umbria");'>Umbria</button>
+          <button class="button regionfilter selected" id="Val" onclick="filterDataByRegion(&quot;Valle d'Aosta&quot;);">Valle d'Aosta</button>
+          <button class="button regionfilter selected" id="Ven" onclick='filterDataByRegion("Veneto");'>Veneto</button>
+        </row>
+      </div>
+    </div>
+
+    <!-- More filters offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="filtersPanel" aria-labelledby="filtersPanelLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="filtersPanelLabel">Additional filters</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <row id="additionalfilters">
+          <span class="filter-group-label">Population</span>
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;width:100%;">
+            <button value="Pop300k-" class="button additionalfilter pop" onclick='$(this).toggleClass("selected");filterBy("Pop300k-");'>👤 &lt;300k</button>
+            <button value="Pop300k+" class="button additionalfilter pop" onclick='$(this).toggleClass("selected");filterBy("Pop300k+")'>👤👤 300k–500k</button>
+            <button value="Pop500k+" class="button additionalfilter pop" onclick='$(this).toggleClass("selected");filterBy("Pop500k+")'>👤👤👤 500k–1m</button>
+            <button value="Pop1m+" class="button additionalfilter pop" onclick='$(this).toggleClass("selected");filterBy("Pop1m+")'>👥👥 &gt;1m</button>
+          </div>
+          <span class="filter-group-label">Cost of living</span>
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;width:100%;">
+            <button value="Low-cost" class="button additionalfilter col" onclick='$(this).toggleClass("selected");filterBy("Low-cost")'>💰 Low</button>
+            <button value="Mid-cost" class="button additionalfilter col" onclick='$(this).toggleClass("selected");filterBy("Mid-cost")'>💰💰 Mid</button>
+            <button value="High-cost" class="button additionalfilter col" onclick='$(this).toggleClass("selected");filterBy("High-cost")'>💰💰💰 High</button>
+          </div>
+          <span class="filter-group-label">Climate</span>
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;width:100%;">
+            <button value="Hot" class="button additionalfilter clim" onclick='$(this).toggleClass("selected");filterBy("Hot")'>🥵 Hot</button>
+            <button value="Cold" class="button additionalfilter clim" onclick='$(this).toggleClass("selected");filterBy("Cold")'>🥶 Cold</button>
+            <button value="Temperate" class="button additionalfilter clim" onclick='$(this).toggleClass("selected");filterBy("Temperate")'>😎 Temperate</button>
+          </div>
+          <span class="filter-group-label">Features</span>
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;width:100%;">
+            <button value="HasBeach" class="button additionalfilter has" onclick='$(this).toggleClass("selected");filterBy("HasBeach")'>⛱️ Beach</button>
+            <button value="HasSkiing" class="button additionalfilter has" onclick='$(this).toggleClass("selected");filterBy("HasSkiing")'>🏂🏻 Winter Sports</button>
+            <button value="HasUni" class="button additionalfilter has" onclick='$(this).toggleClass("selected");filterBy("HasUni")'>👩‍🎓 University</button>
+            <button value="HasMetro" class="button additionalfilter has" onclick='$(this).toggleClass("selected");filterBy("HasMetro")'>🚇 Metro</button>
+          </div>
+        </row>
+      </div>
+    </div>
+
+    <!-- Province cards grid (populated by script.js appendData) -->
+    <div id="app"></div>
+
+    <!-- Legacy floating filter panel — preserved hidden so resizeFilterMenu() doesn't break -->
+    <div id="floatBottom" aria-hidden="true">
+      <row id="header" onclick="resizeFilterMenu()"><i class="arrow up"></i><p></p></row>
+      <row id="filters"></row>
+    </div>
+
+  </section>
+
+  <section id="About-section">
+    <h2 id="About">About Expiter</h2>
+    <p>
+      Expiter is a data visualization tool for researching and comparing different quality of life factors in Italian cities and provinces.
+      It is mainly aimed at expats, exchange students, full-time travellers, remote workers and digital nomads who are living in (or planning to move to) Italy.
+    </p>
+
+    <h2>FAQs</h2>
+
+    <div class="faq-item">
+      <input type="checkbox" id="question1" name="q" class="questions">
+      <label for="question1" class="question">
+        <span class="plus">+</span>
+        <h3>What is expiter?</h3>
+      </label>
+      <div class="answers">
+        Expiter is a tool aimed at helping those who live or are planning to move to Italy make more informed decisions. <b>We help expats and travellers access and digest information about the "best" places to live in Italy</b>.
+        <br><br>
+        We collect and display data about different Italian cities and provinces, including but not limited to: climate data, cost of living, healthcare, transport, safety, nightlife and so on; with a special attention to feedback from expats, exchange students, and digital nomads.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="question2" name="q" class="questions">
+      <label for="question2" class="question">
+        <span class="plus">+</span>
+        <h3>Where does your data come from?</h3>
+      </label>
+      <div class="answers">
+        We collect and combine data from different sources, such as the open-source yearly <a href="https://lab24.ilsole24ore.com/qualita-della-vita/">Quality of Life Rankings from IlSole24Ore</a>, housing price indexes from <a href="https://www.immobiliare.it/">Immobiliare.it</a>, user reviews from <a href="https://www.tripadvisor.com/">TripAdvisor</a>, as well as our own surveys and feedback collected directly from expats and nomads in Italy.
+        <br><br>
+        When creating our city rankings for Expiter, we weight our data in order to make feedback from expats and those who moved to Italy from other countries have a higher impact on our scores compared to data sourced from people who were born and raised in Italy.
+        <br><br>
+        This means that our data more closely reflects the experience and feedback of expats in Italy compared to that of locals, and our results may be substantially different from those of the sources we partially rely on.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="question3" name="q" class="questions">
+      <label for="question3" class="question">
+        <span class="plus">+</span>
+        <h3>How accurate is your data?</h3>
+      </label>
+      <div class="answers">
+        The information displayed on this website is sourced from different databases, research studies, surveys and user-generated (often subjective) content. Because of the nature of this data, <b>you should not deem it as 100% accurate</b>.
+        <br><br>
+        The tool is updated regularly as new data is collected, so that the information stays more up-to-date and increasingly accurate.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="question4" name="q" class="questions">
+      <label for="question4" class="question">
+        <span class="plus">+</span>
+        <h3>Why do you show data for Provinces and not Cities?</h3>
+      </label>
+      <div class="answers">
+        Italy is divided in 107 provinces (large metropolitan areas), which are generally named after their largest city (<i>comune</i>). For instance: the province of Milano includes the city of Milan (the capital or "<i>capoluogo</i>" of the Province) as well as 133 smaller <i>comuni</i> nearby.
+        <br><br>
+        Because of their proximity, these towns tend to share similar climate, economy, infrastructure and culture — although cost of living is often much lower the farther you are from the Province's capital.
+        <br><br>
+        For simplicity, we collect and display data about the province as a whole, which includes both its <i>capoluogo</i> and <i>comuni</i> nearby.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="question5" name="q" class="questions">
+      <label for="question5" class="question">
+        <span class="plus">+</span>
+        <h3>Is expiter free? How do you make money?</h3>
+      </label>
+      <div class="answers">
+        At present, expiter is 100% free to browse. We do not have a paid subscription plan and we do not charge for any product or service.
+        <br><br>
+        We may earn from partnerships, display advertisement or affiliate commissions for external products and services offered by third parties. This is however at no additional cost to you as a user.
+        <br><br>
+        We currently have no plans to implement paid features in the near future. If you want to help expiter grow, please consider sharing it with your network and talk about it on social media.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="question6" name="q" class="questions">
+      <label for="question6" class="question">
+        <span class="plus">+</span>
+        <h3>I want to partner up / advertise my product</h3>
+      </label>
+      <div class="answers">
+        Please only get in touch if you have a product or service aimed at expiter's target audience (expats or digital nomads in Italy).
+        <br><br>
+        I only accept communication via email. Write your proposal to <b>contact@expiter.com</b> and cut the formalities if possible :)
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <h4>Discover</h4>
+        <a href="https://expiter.com/app/?sort=Expat-friendly&amp;filter=Pop500k+,Pop1m+">Best Large Cities in Italy for Expats</a>
+        <a href="https://expiter.com/app/?sort=CostOfLiving">Cheapest Places to Live in Italy</a>
+        <a href="https://expiter.com/app/?sort=DN-friendly">Best Cities in Italy for Digital Nomads</a>
+        <a href="https://expiter.com/app/?sort=Family-friendly">Most family-friendly Italian provinces</a>
+        <a href="https://expiter.com/app/?sort=Beach&amp;region=South">Best Beach Destinations in Southern Italy</a>
+        <a href="https://expiter.com/app/?sort=WinterSports&amp;region=North">Best Winter Destinations in Northern Italy</a>
+        <a href="https://expiter.com/app/?sort=Hiking&amp;region=Center">Best Hiking Destinations in Central Italy</a>
+      </div>
+      <div class="col-12 col-md-4">
+        <h4>Inspire</h4>
+        <a href="https://expiter.com/app/?sort=Expat-friendly&amp;region=South">Expat-friendly cities in Southern Italy</a>
+        <a href="https://expiter.com/app/?sort=Expat-friendly&amp;region=North">Best cities in Northern Italy</a>
+        <a href="https://expiter.com/app/?sort=Name&amp;filter=Pop300k+,Pop500k+,HasUni">Mid-sized Italian provinces with a university</a>
+        <a href="https://expiter.com/app/?sort=Name&amp;filter=HasMetro">All Italian cities with a subway system</a>
+        <a href="https://expiter.com/app/?sort=Region&amp;filter=HasBeach,HasSkiing">Italian cities with both a beach and winter sports</a>
+        <a href="https://expiter.com/app/?sort=WinterSports&amp;region=South&amp;filter=HasSkiing">Southern Italian provinces where you can ski</a>
+        <a href="https://expiter.com/region/regions-of-italy/">Regions of Italy</a>
+      </div>
+      <div class="col-12 col-md-4">
+        <h4>Expiter</h4>
+        <a href="https://expiter.com/resources/">Expat Recommendations</a>
+        <a href="https://expiter.com/tools/codice-fiscale-generator/">Codice Fiscale Generator</a>
+        <a href="https://expiter.com/privacy-policy/">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-copy">© Expiter. Data for informational purposes only.</div>
+  </div>
+</footer>
+
+</body>
+</html>
