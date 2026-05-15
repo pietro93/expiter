@@ -279,7 +279,7 @@ function getInfo(comune,province){
     for (let p in province.Comuni){
         if (province.Comuni[p].Name!=comune.Name)
             info.nearby+='<b><a href="https://expiter.com/fr/municipalites/'+handle(fr(province.Name))+'/'+
-                handle(province.Comuni[p])+'/">'+province.Comuni[p].Name+'</a></b>'+' '
+                handle(province.Comuni[p].Name)+'/">'+province.Comuni[p].Name+'</a></b>'+' '
     }
 
     return info;
