@@ -57,28 +57,28 @@ Hard-refresh (Ctrl+Shift+R) to bust cache. Watch console for fetch errors.
 Approach: pick A (copy-and-translate, matches repo style) unless time allows B (parameterize).
 
 ### IT (highest non-EN traffic)
-- [ ] 2.1 Migrate `pageGeneratorSSRItaly.js` → NJK pipeline (mirror `pageGeneratorSSR.js`)
-- [ ] 2.2 Ensure `temp/parsedDataAbout{Name}.txt` wires into `info.overview` + `info.transport`
-- [ ] 2.3 Confirm `qualityScore()` (FoggyDays non-linear thresholds .265 / .6 / 1.00 / 3x) copied verbatim
-- [ ] 2.4 `populateFacts`, `populateNightlifeFacts`, `populateSafetyFacts` copied verbatim
-- [ ] 2.5 Migrate `CaSGeneratorIT.js` → NJK pipeline (mirror `CaSGenerator.js`)
-- [ ] 2.6 Verify `.htaccess` still written by CaS generator
-- [ ] 2.7 Visual parity vs torino.html on Milano IT page
+- [x] 2.1 Migrate `pageGeneratorSSRItaly.js` → NJK pipeline — already done; 107 IT province pages confirmed new chrome
+- [x] 2.2 `temp/parsedDataAbout{Name}.txt` wired — confirmed in generator
+- [x] 2.3 `qualityScore()` FoggyDays thresholds verified verbatim
+- [x] 2.4 `populateFacts`, `populateNightlifeFacts`, `populateSafetyFacts` present
+- [x] 2.5 Migrate `CaSGeneratorIT.js` → NJK pipeline — done; 107 IT CaS pages confirmed new chrome
+- [x] 2.6 `.htaccess` written by CaS generator — confirmed in code
+- [!] 2.7 Visual parity vs torino.html on Milano IT page — needs browser
 
 ### FR
-- [ ] 2.8 Migrate `pageGeneratorSSRFrench.js`
-- [ ] 2.9 Migrate FR crime generator (if exists; else add)
-- [ ] 2.10 Verify Milano FR
+- [x] 2.8 Migrate `pageGeneratorSSRFrench.js` — done; 107 FR province pages new chrome
+- [x] 2.9 `CaSGeneratorFR.js` exists and migrated — 107 FR CaS pages new chrome
+- [!] 2.10 Verify Milano FR — needs browser
 
 ### DE
-- [ ] 2.11 Migrate `pageGeneratorSSRGerman.js`
-- [ ] 2.12 Migrate DE crime generator
-- [ ] 2.13 Verify Milano DE
+- [x] 2.11 Migrate `pageGeneratorSSRGerman.js` — done; 107 DE province pages new chrome
+- [x] 2.12 `CaSGeneratorDE.js` exists and migrated — 107 DE CaS pages new chrome
+- [!] 2.13 Verify Milano DE — needs browser
 
 ### ES
-- [ ] 2.14 Migrate `pageGeneratorSSRSpanish.js`
-- [ ] 2.15 Migrate ES crime generator
-- [ ] 2.16 Verify Milano ES
+- [x] 2.14 Migrate `pageGeneratorSSRSpanish.js` — done; 107 ES province pages new chrome
+- [x] 2.15 `CaSGeneratorES.js` exists and migrated — 107 ES CaS pages new chrome
+- [!] 2.16 Verify Milano ES — needs browser
 
 ---
 
