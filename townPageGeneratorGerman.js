@@ -99,8 +99,6 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
             '<title>' + comune.Name + ' - Informationen über die Gemeinde in der Provinz ' + de(province.Name) + ', ' + de(province.Region) + '</title>' +
             '<link rel="icon" type="image/x-icon" title="Expiter - Auswanderer und digitale Nomaden in Italien" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
             
-            '<!-- GetYourGuide Analytics -->'+
-            '<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>'+
             "</head>"+
             '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
             '<body data-spy="scroll" data-target="#toc">'+

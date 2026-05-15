@@ -99,8 +99,6 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
 '<link rel="icon" type="image/x-icon" title="Expiter - Expatriados y nómadas en Italia" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
 
             
-            '<!-- GetYourGuide Analytics -->'+
-            '<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="56T9R2T"></script>'+
             "</head>"+
             '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
 
