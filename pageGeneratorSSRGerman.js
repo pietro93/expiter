@@ -4,6 +4,10 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 import { nunjucks } from './js/nunjucksEnv.js';
 
+function slug(s) {
+    return s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+}
+
 var dataset;
 var provinces = {};
 var facts = {};
@@ -19,7 +23,7 @@ fetch('https://expiter.com/dataset.json', { method: 'Get' })
         for (let i = 0; i < 107; i++) {
             let province = dataset[i];
 
-            var fileName = 'de/provinz/' + de(province.Name).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+            var fileName = 'de/provinz/' + slug(de(province.Name));
 
             let parsedData = '';
             try { parsedData = fs.readFileSync('temp/de-parsedDataAbout' + province.Name + '.txt', 'utf8'); } catch (e) { parsedData = ''; }
@@ -78,7 +82,7 @@ function renderPage(province, fileName) {
         seoDescription,
         seoKeywords,
         canonicalUrl: 'https://expiter.com/' + fileName + '/',
-        hreflangIt: 'https://expiter.com/it/province/' + province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase() + '/',
+        hreflangIt: 'https://expiter.com/it/province/' + slug(province.Name) + '/',
         heroImage: 'https://expiter.com/img/' + province.Abbreviation + '.webp',
         heroAlt: 'Provinz ' + de(province.Name),
         eyebrow: de(province.Region) + ' · Provinz',
@@ -111,7 +115,7 @@ function getInfo(province) {
     info.overview = 'Die Provinz ' + de(province.Name) + ' ist die <b>' + province.SizeByPopulation + '. größte italienische Provinz nach Bevölkerung</b> mit <b>' + province.Population.toLocaleString('de') + ' Einwohnern</b> in der Region <b>' + de(province.Region) + '</b>. ' +
         (facts[name].overview ? facts[name].overview : '') +
         '</br></br>' +
-        "<a href='https://expiter.com/de/gemeinden/provinz-" + de(province.Name).replace(/\s+/g, '-').replace("'", '-').toLowerCase() + "/'>Das Ballungsgebiet von " + de(province.Name) + ' umfasst <b>' + province.Towns + ' Gemeinden</b></a> und erstreckt sich über eine Fläche von ' + province.Size.toLocaleString('de') + ' km<sup>2</sup>. ' +
+        "<a href='https://expiter.com/de/gemeinden/provinz-" + slug(de(province.Name)) + "/'>Das Ballungsgebiet von " + de(province.Name) + ' umfasst <b>' + province.Towns + ' Gemeinden</b></a> und erstreckt sich über eine Fläche von ' + province.Size.toLocaleString('de') + ' km<sup>2</sup>. ' +
         'Die <b>Bevölkerungsdichte beträgt ' + province.Density + ' Einwohner pro km<sup>2</sup></b>, was sie ' +
         (province.Density < 100 ? 'wenig bevölkert macht.' : (province.Density > 500 ? 'sehr dicht besiedelt macht.' : 'ziemlich dicht besiedelt macht.')) +
         ' Das Verhältnis zwischen Männern und Frauen beträgt ' + ratio + '.';
@@ -255,9 +259,9 @@ function populateData(data) {
         facts[province['Region']].provinces.push(province.Name);
 
         facts[province['Name']] = {};
-        const slug = de(province.Name).replace(/\s+/g, '-').replace("'", '-').toLowerCase();
+        const sl = slug(de(province.Name));
         facts[province['Name']].snippet =
-            '<li><a href="https://expiter.com/de/provinz/' + slug + '/" title="' + de(province.Name) + ', ' + de(province.Region) + '">' +
+            '<li><a href="https://expiter.com/de/provinz/' + sl + '/" title="' + de(province.Name) + ', ' + de(province.Region) + '">' +
             '<img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/' + province.Abbreviation + '.webp?tr=w-56,h-56,fo-auto,q-60" ' +
             'alt="' + de(province.Name) + '" width="28" height="28">' +
             '<span>' + de(province.Name) + '</span></a></li>';

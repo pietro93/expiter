@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteRule ^$ /de/provinz/la-spezia.html [L]
+RewriteRule ^([a-zA-Z0-9-]+)/$ $1.html [L]

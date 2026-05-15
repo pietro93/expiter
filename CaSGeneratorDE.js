@@ -10,6 +10,10 @@ import { nunjucks } from './js/nunjucksEnv.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+function slug(s) {
+    return s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+}
+
 var dataset;
 var provinces = {};
 var facts = {};
@@ -31,9 +35,9 @@ function populateData(data) {
         facts[province['Region']].provinces.push(province.Name);
 
         facts[province['Name']] = {};
-        const slug = de(province.Name).replace(/\s+/g, '-').replace("'", '-').toLowerCase();
+        const sl = slug(de(province.Name));
         facts[province['Name']].snippet =
-            '<li><a href="https://expiter.com/de/provinz/' + slug + '/kriminalitaet-und-sicherheit/" title="Kriminalität und Sicherheit in ' + de(province.Name) + ', ' + de(province.Region) + '">' +
+            '<li><a href="https://expiter.com/de/provinz/' + sl + '/kriminalitaet-und-sicherheit/" title="Kriminalität und Sicherheit in ' + de(province.Name) + ', ' + de(province.Region) + '">' +
             '<img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/' + province.Abbreviation + '.webp?tr=w-56,h-56,fo-auto,q-60" ' +
             'alt="' + de(province.Name) + '" width="28" height="28">' +
             '<span>' + de(province.Name) + '</span></a></li>';
@@ -58,7 +62,7 @@ fetch('https://expiter.com/dataset.json', { method: 'Get' })
 
         for (let i = 0; i < 107; i++) {
             let province = combinedData[i];
-            let dirName = 'de/provinz/' + de(province.Name).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+            let dirName = 'de/provinz/' + slug(de(province.Name));
             let dir = path.join(__dirname, dirName);
             if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 
@@ -101,7 +105,7 @@ function renderPage(province, fileName) {
         seoDescription,
         seoKeywords,
         canonicalUrl: 'https://expiter.com/' + fileName + '/',
-        hreflangIt: 'https://expiter.com/it/province/' + province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase() + '/sicurezza-e-criminalita/',
+        hreflangIt: 'https://expiter.com/it/province/' + slug(province.Name) + '/sicurezza-e-criminalita/',
         heroImage: 'https://expiter.com/img/safety/' + province.Abbreviation + '.webp',
         heroAlt: 'Provinz ' + de(province.Name),
         pageTitle: 'Kriminalität und Sicherheit in ' + de(province.Name),

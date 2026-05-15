@@ -4,6 +4,10 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 import { nunjucks } from './js/nunjucksEnv.js';
 
+function slug(s) {
+    return s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+}
+
 var dataset;
 var provinces = {};
 var facts = {};
@@ -19,7 +23,7 @@ fetch('https://expiter.com/dataset.json', { method: 'Get' })
         for (let i = 0; i < 107; i++) {
             let province = dataset[i];
 
-            var fileName = 'es/provincia/' + es(province.Name).replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
+            var fileName = 'es/provincia/' + slug(es(province.Name));
 
             let parsedData = '';
             try { parsedData = fs.readFileSync('temp/es-parsedDataAbout' + province.Name + '.txt', 'utf8'); } catch (e) { parsedData = ''; }
@@ -78,7 +82,7 @@ function renderPage(province, fileName) {
         seoDescription,
         seoKeywords,
         canonicalUrl: 'https://expiter.com/' + fileName + '/',
-        hreflangIt: 'https://expiter.com/it/province/' + province.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase() + '/',
+        hreflangIt: 'https://expiter.com/it/province/' + slug(province.Name) + '/',
         heroImage: 'https://expiter.com/img/' + province.Abbreviation + '.webp',
         heroAlt: 'Provincia de ' + es(province.Name),
         eyebrow: es(province.Region) + ' · Provincia',
@@ -111,7 +115,7 @@ function getInfo(province) {
     info.overview = 'La provincia de ' + es(province.Name) + ' es la <b>' + province.SizeByPopulation + 'ª más grande de Italia por población</b> con <b>' + province.Population.toLocaleString('es') + ' habitantes</b>, en la región de <b>' + es(province.Region) + '</b>. ' +
         (facts[name].overview ? facts[name].overview : '') +
         '</br></br>' +
-        "<a href='https://expiter.com/es/municipios/provincia-de-" + es(province.Name).replace(/\s+/g, '-').replace("'", '-').toLowerCase() + "/'>El área metropolitana de " + es(province.Name) + ' incluye <b>' + province.Towns + ' municipios</b></a> y cubre una superficie de ' + province.Size.toLocaleString('es') + ' km<sup>2</sup>. ' +
+        "<a href='https://expiter.com/es/municipios/provincia-de-" + slug(es(province.Name)) + "/'>El área metropolitana de " + es(province.Name) + ' incluye <b>' + province.Towns + ' municipios</b></a> y cubre una superficie de ' + province.Size.toLocaleString('es') + ' km<sup>2</sup>. ' +
         'La <b>densidad de población es de ' + province.Density + ' habitantes por km<sup>2</sup></b>, lo que la hace ' +
         (province.Density < 100 ? 'poco poblada.' : (province.Density > 500 ? 'muy densamente poblada.' : 'moderadamente poblada.')) +
         ' La proporción de hombres a mujeres es de ' + ratio + '.';
@@ -264,9 +268,9 @@ function populateData(data) {
         facts[province['Region']].provinces.push(province.Name);
 
         facts[province['Name']] = {};
-        const slug = es(province.Name).replace(/\s+/g, '-').replace("'", '-').toLowerCase();
+        const sl = slug(es(province.Name));
         facts[province['Name']].snippet =
-            '<li><a href="https://expiter.com/es/provincia/' + slug + '/" title="' + es(province.Name) + ', ' + es(province.Region) + '">' +
+            '<li><a href="https://expiter.com/es/provincia/' + sl + '/" title="' + es(province.Name) + ', ' + es(province.Region) + '">' +
             '<img loading="lazy" src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/' + province.Abbreviation + '.webp?tr=w-56,h-56,fo-auto,q-60" ' +
             'alt="' + es(province.Name) + '" width="28" height="28">' +
             '<span>' + es(province.Name) + '</span></a></li>';
