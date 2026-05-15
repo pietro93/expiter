@@ -1,3 +1,11 @@
+# Redirects for DE Monza e Brianza → Monza und Brianza (slug updated when de() translation was added)
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^de/provinz/monza-e-brianza/?(.*)?$ /de/provinz/monza-und-brianza/$1 [R=301,L]
+RewriteRule ^de/gemeinden/provinz-monza-e-brianza/?(.*)?$ /de/gemeinden/provinz-monza-und-brianza/$1 [R=301,L]
+RewriteRule ^de/gemeinden/monza-e-brianza/?(.*)?$ /de/gemeinden/monza-und-brianza/$1 [R=301,L]
+</IfModule>
+
 # SGS XMLRPC Disable Service
 <Files xmlrpc.php>
 	order deny,allow
