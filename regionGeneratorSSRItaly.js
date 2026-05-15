@@ -1,253 +1,47 @@
-import * as pb from './js/pageBuilder.js'
-import { createServer } from 'http';
+import * as pb from './js/pageBuilder.js';
 import fetch from 'node-fetch';
 import fs from 'fs';
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const jsdom = require('jsdom')
+import { nunjucks } from './js/nunjucksEnv.js';
 
-createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.end('Hello World!');
-}).listen(8080);
-
-var dataset;
-var regions = {};
-var facts={};
-var selection = [];
-var region_filters = [];
-var additionalFilters=[];
-var dataset;
-var avg;
-let sidebar=pb.setSideBarIT()
-
-
-
-fetch('https://expiter.com/dataset.json', {method:"Get"})
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        //console.log(dom.window.document.querySelector("body").textContent)
-        dataset=data;  
-        populateData(data);
-        //generateSiteMap(dataset);
-       
-            
-            var dirName = 'it/regioni/';
-            var fileName = 'regioni-italiane.html';
-            
-            const dom = new jsdom.JSDOM(
-            "<!DOCTYPE html>\n<html lang='it'>"+
-            '<head><meta charset="utf-8">'+
-            '<link rel="canonical" href="https://expiter.com/it/'+fileName+'/"/>'+
-            '<link rel="alternate" hreflang="en" href="https://expiter.com/regions-of-italy/" />'+
-            '<link rel="alternate" hreflang="it" href="https://expiter.com/it/'+fileName+'/" />'+
-            '<link rel="alternate" hreflang="fr" href="https://expiter.com/fr/regions-italiennes/" />'+
-            '<link rel="alternate" hreflang="de" href="https://expiter.com/de/italienische-regionen/" />'+
-            '<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale-1,user-scalable=0">'+
-            '<script type="text/javascript" src="https://expiter.com/jquery3.6.0.js" defer></script>'+
-            '<script type="text/json" src="https://expiter.com/dataset.json"></script>'+
-            '<script type="text/javascript" src="https://expiter.com/script.js" defer></script>'+
-            '<script type="text/javascript" src="https://expiter.com/bootstrap-toc.js" defer></script>'+
-            pb.headerScripts()+
-            '<link rel="stylesheet" href="https://expiter.com/fonts.css" media="print" onload="this.media=\'all\'"></link>'+
-            '<link rel="stylesheet" href="https://expiter.com/bulma.min.css">'+
-            '<link rel="stylesheet" href="https://expiter.com/style.css?v=1.2">'+
-            '<link rel="stylesheet" href="https://expiter.com/comuni/comuni-style.css">'+
-            
-            '<meta name="description" content="Lista delle 20 regioni d\'Italia - popolazione, superficie, capoluogo e altre info." />'+
-	        '<meta name="keywords" content="'+'regioni dell\'Italia, Italia regioni, lista delle regioni, regioni italiane, regioni per popolazione" />'+
-            "<title> Regioni Italiane </title>"+
-            '<link rel="icon" type="image/x-icon" title="Expiter - Italy Expats and Nomads" href="https://expiter.com/img/expiter-favicon.ico"></link>'+
-            "</head>"+
-            '<aside class="menu sb higher">'+sidebar+'</aside>\n'+
-            '<body data-spy="scroll" data-target="#toc">'+
-
-            '<div class="toc container collapsed" >'+
-			'<i class="arrow left" onclick="$(\'.toc\').toggleClass(\'collapsed\')"></i>'+
-			'<div class="row">'+
-			  '<div class="col-sm-3">'+
-				'<nav id="toc" data-toggle="toc"></nav>'+
-                '<div class="col-sm-9"></div>'+
-			  '</div>'+
-			'</div>'+
-		'</div>'+
-
-        '<nav id="navbar"></nav>'+
-        '<div class="hero" style="background-image:url(\'https://expiter.com/img/regions.webp\')" '+'title="Regions of Italy"'+'>'+
-        '</div><h1 class="title">Regioni Italiane </h1>'+
-        '<section id="Lista delle Regioni Italiane">'+
-        '<center><table id="list">'+
-        '<tr id="header">'+
-        '<th>Nome</th>'+
-        '<th>Popolazione</th>'+
-        '<th>Superficie</th>'+
-        '<th>Densità</th>'+
-        '<th>Province</th>'+
-        '<th>Comuni</th>'+
-        '<th>Capoluogo</th>'+
-        '</tr>'+
-        '</table>'+
-        '<p id="info"></p></center>'+
-        '</section>'+
-        '<aside class="menu sb mobileonly">'+sidebar+'</aside>\n'+
-        '</body></html>'
-        )
-
-        const $ = require('jquery')(dom.window)
-        let list=$("#list").html();
-        
-        for (let i = 108; i < dataset.length; i++){
-            list+="<tr>"+
-            '<th><h2>'+dataset[i]["Name"]+'</h2></th>'+
-            '<th>'+dataset[i]["Population"]+'</th>'+
-            '<th>'+dataset[i]["Size"]+'</th>'+
-            '<th>'+dataset[i]["Density"]+'</th>'+
-            '<th>'+dataset[i]["Provinces"]+'</th>'+
-            '<th>'+dataset[i]["Towns"]+'</th>'+
-            '<th>'+'<a href="https://expiter.com/it/province/'+dataset[i]["Capital"].replace(/\s+/g,"-").replace("'","-").toLowerCase()+
-            '/">'+dataset[i]["Capital"]+'</a>'+'</th>'+
-            "</tr>"
-        }
-        
-        $("#list").html(list);
-        
-        let info="Ci sono 20 regioni in Italia. La <b>Lombardia</b> è la regione più grande per popolazione con un totale di 9.965.046 abitanti, mentre la "+
-        "<b>Sicilia</b> è la più grande per estensione con una superficie di 25.832,55 km²."+
-        "</br></br>La regione col maggior numero di centri abitati è la <b>Lombardia</b>, con 1506 comuni."+
-        "</br></br>La regione più piccola e meno popolata è la <b>Valle d'Aosta</b> con un territorio di soli 3.260,85km² di superficie, 74 comuni e una popolazione di 123.337 abitanti."+
-        "</br></br>La capitale d'Italia, <b><a href='https://expiter.com/it/province/roma/'>Roma</a></b>, si trova nella regione del <b>Lazio</b>."
-       
-        $("#info").html(info)
-
-        //var info=getInfo(region)
-        
-       // $("#info").append(info.related)
-        setNavBar($)
-        
-        
-        let html = dom.window.document.documentElement.outerHTML;
-      
-        if (!fs.existsSync(dirName)) {
-            fs.mkdirSync(dirName);
-            }
-
-        fs.writeFile(dirName+fileName, html, function (err, file) {
-           if (err) throw err;
-           console.log(dirName+fileName+' Saved!');
-       });
-    }
-    )
-
-
-    
-function setNavBar($){
-    $("#navbar").append(
-    '<div class="navbar-container">'+
-    '<input type="checkbox" name="navbar" id="nbar">'+
-    '<div class="hamburger-lines">'+
-        '<span class="line line1"></span>'+
-        '<span class="line line2"></span>'+
-        '<span class="line line3"></span>'+
-    '</div>'+
-    '<ul class="menu-items">'+
-        '<li><a href="https://expiter.com">Home</a></li>'+
-        '<li><a href="https://expiter.com/resources/">Resources</a></li>'+
-        '<li><a href="https://expiter.com/tools/codice-fiscale-generator/">Tools</a></li>'+
-        '<li><a href="https://expiter.com/app/#About">About</a></li>'+
-        '<li><a href="https://forms.gle/WiivbZg8336TmeUPA" target="_blank">Take Survey</a></li>'+
-        '</ul>'+
-        '  <label class="switch" id="switch">'+
-        '<input type="checkbox">'+
-        '<span class="slider round"></span>'+
-      '</label>'+
-   '<a href="/"><p class="logo">Italy Expats & Nomads</p></a>'+
-  '</div>')
-  }
-
-    
-function populateData(data){
-    for (let i = 108; i < data.length; i++) {
-     let region = data[i];
-     regions[region["Name"]]=region;
-     regions[region["Name"]].index=i;
-     facts[region["Name"]]={}; //initialize "facts" dictionary with each region
-     facts[region["Name"]].snippet=
-     '<figure class="column is-3 related"><a href="https://expiter.com/it/regioni/'+region.Name.replace(/\s+/g,"-").replace("'","-").toLowerCase()+'/">'+
-     '<img title="'+region.Name+'" load="lazy" src="'+
-     'https://ik.imagekit.io/cfkgj4ulo/italy-cities/'+region.Name+'.webp?tr=w-280,h-140,c-at_least,q-5" '+
-     'alt="Regione di '+data[i].Name+', Italia"></img>'+
-     '<figcaption>'+region.Name+", Italia</figcaption></a></figure>";
-   }
-   avg=data[107];
-   
- }
-
-function getInfo(region){
-    let name=region.Name;
-    
-    let info = {}
-
-
-  let target, related1, related2, related3, related4;
-       
-        (region.Name=="Valle d'Aosta"?target=["Piemonte","Lombardia","Liguria","Trentino-Alto Adige"]:
-        (region.Name=="Trentino-Alto Adige"?target=["Veneto","Lombardia","Emilia-Romagna","Friuli-Venezia Giulia"]:
-        (region.Name=="Molise"?target=["Abruzzo","Marche","Lazio","Umbria","Emilia-Romagna"]:
-        (region.Name=="Abruzzo"?target=["Molise","Marche","Lazio","Umbria"]:
-        (region.Name=="Emilia-Romagna"?target=["Toscana","Lombardia","Veneto","Marche"]:
-        (region.Name=="Liguria"?target=["Piemonte","Toscana","Valle d'Aosta","Lombardia","Emilia-Romagna"]:
-        (region.Name=="Piemonte"?target=["Lombardia","Valle d'Aosta","Liguria","Emilia-Romagna"]:
-        (region.Name=="Lombardia"?target=["Piemonte","Valle d'Aosta","Trentino-Alto Adige","Emilia-Romagna","Veneto"]:
-        (region.Name=="Friuli-Venezia Giulia"?target=["Veneto","Trentino-Alto Adige","Lombardia","Emilia-Romagna"]:
-        (region.Name=="Basilicata"?target=["Campania","Puglia","Calabria","Lazio","Molise"]:
-        (region.Name=="Puglia"?target=["Basilicata","Campania","Calabria","Lazio","Molise"]:
-        (region.Name=="Umbria"?target=["Marche","Toscana","Lazio","Emilia-Romagna","Abruzzo"]:
-        (region.Name=="Sicilia"?target=["Calabria","Sardegna","Campania","Basilicata"]:
-        (region.Name=="Sardegna"?target=["Sicilia","Toscana","Campania","Lazio"]:
-        (region.Name=="Calabria"?target=["Sicilia","Puglia","Campania","Basilicata"]:
-        (region.Name=="Campania"?target=["Basilicata","Puglia","Calabria","Lazio","Molise"]:
-        (region.Name=="Toscana"?target=["Emilia-Romagna","Liguria","Umbria","Marche","Lazio"]:
-        (region.Name=="Lazio"?target=["Toscana","Campania","Umbria","Abruzzo","Marche","Molise","Basilicata"]:
-        (region.Name=="Marche"?target=["Abruzzo","Molise","Lazio","Umbria","Emilia-Romagna"]:
-        (region.Name=="Veneto"?target=["Piemonte","Valle d'Aosta","Trentino-Alto Adige","Emilia-Romagna","Lombardia"]:
-        ""))))))))))))))))))));
-        
-        target=target.filter(item => item !== name)
-        related1=target[Math.floor(Math.random()*target.length)]
-        target=target.filter(item => item !== related1)
-        related2=target[Math.floor(Math.random()*target.length)]
-        target=target.filter(item => item !== related2)
-        related3=target[Math.floor(Math.random()*target.length)]
-        target=target.filter(item => item !== related3)
-        related4=target[Math.floor(Math.random()*target.length)]
-
-        info.related='<h2>Provinces Nearby</h2> '+
-        '<row class="columns is-multiline is-mobile"> '+        
-        facts[related1].snippet+
-        facts[related2].snippet+
-        facts[related3].snippet+
-        facts[related4].snippet+'</row>'
-       
-        return info;
-      }
-
-function generateSiteMap(dataset){
-  let comuniSiteMap='<?xml version="1.0" encoding="UTF-8"?> '+'\n'+
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '+'\n';
-        for (let i = 0; i < 107; i++){
-          let region = dataset[i];
-          let urlPath = 'regioni/'+region.Name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
-          urlPath = "https://expiter.com/"+urlPath+"/"
-          comuniSiteMap+='<url>'+
-          '<loc>'+urlPath+'</loc>'+
-          '</url>'+'\n'
-        }
-  comuniSiteMap+='</urlset>'
-  fs.writeFile("sitemap/region-sitemap.xml", comuniSiteMap, function (err, file) {
-    if (err) throw err;
-    console.log("region-sitemap.xml"+' Saved!');
-});
+function handle(name) {
+  return name.replace(/'/g, '-').replace(/\s+/g, '-').toLowerCase();
 }
 
+fetch('https://expiter.com/dataset.json', { method: 'Get', headers: { 'Cache-Control': 'no-cache' } })
+  .then(r => r.json())
+  .then(dataset => {
+    const regions = [];
+    for (let i = 108; i < dataset.length; i++) {
+      const r = dataset[i];
+      regions.push({
+        Name: r.Name,
+        populationFmt: Number(r.Population).toLocaleString('it'),
+        Size: r.Size,
+        Density: r.Density,
+        Provinces: r.Provinces,
+        Towns: r.Towns,
+        capitalName: r.Capital,
+        capitalSlug: handle(r.Capital),
+      });
+    }
+
+    const html = nunjucks.render('pages/regions-list-it.njk', {
+      lang: 'it',
+      seoTitle: 'Regioni d\'Italia — Le 20 Regioni Italiane per Expat',
+      seoDescription: 'Panoramica delle 20 regioni d\'Italia. Popolazione, superficie, densità, province e capoluoghi — tutto quello che gli expat devono sapere sulle regioni italiane.',
+      seoKeywords: 'regioni italiane, regioni d\'Italia, lista regioni italia, expat regioni italia',
+      canonicalUrl: 'https://expiter.com/it/regioni/regioni-italiane/',
+      hreflangEn: 'https://expiter.com/region/regions-of-italy/',
+      heroImage: 'https://expiter.com/img/expiter-italy-expats-and-nomads.webp',
+      eyebrow: 'Regioni d\'Italia',
+      pageTitle: 'Le 20 Regioni d\'Italia',
+      breadcrumbParent: { href: '/it/app/', label: 'Province' },
+      sidebar: pb.setSideBarIT(),
+      regions,
+    });
+
+    if (!fs.existsSync('it/regioni')) fs.mkdirSync('it/regioni', { recursive: true });
+    fs.writeFileSync('it/regioni/regioni-italiane.html', html);
+    console.log('it/regioni/regioni-italiane.html saved!');
+  })
+  .catch(err => { console.error('error:', err); process.exit(1); });

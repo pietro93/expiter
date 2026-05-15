@@ -1,0 +1,59 @@
+{% extends "layouts/simple-page.njk" %}
+
+{% block content %}
+<style>
+  .regions-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; }
+  .regions-table th, .regions-table td {
+    padding: 0.65rem 0.85rem; text-align: left; border-bottom: 1px solid #f1f5f9; font-size: 0.92rem;
+  }
+  .regions-table thead th {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em;
+    color: #6b7280; background: #fafbfc; border-bottom: 1px solid #e5e7eb; font-weight: 700;
+  }
+  .regions-table tbody tr:hover { background: #f8fafc; }
+  .regions-table .region-name { font-weight: 600; color: #0f172a; }
+  .regions-table .num { text-align: right; color: #374151; font-variant-numeric: tabular-nums; }
+  .regions-table .capital a { color: var(--bs-primary); text-decoration: none; }
+  .regions-table .capital a:hover { text-decoration: underline; }
+  @media (max-width: 600px) {
+    .regions-table { font-size: 0.85rem; }
+    .regions-table th, .regions-table td { padding: 0.5rem 0.45rem; }
+    .regions-table .col-density, .regions-table .col-size { display: none; }
+  }
+</style>
+
+<p class="lede" style="font-size:1.05rem;color:#374151;line-height:1.7;margin:0 0 1rem;">
+  L'Italie est divisée en <b>20 régions</b>, chacune avec sa propre culture, son dialecte et son profil économique.
+  La <b>Lombardie</b> est la plus peuplée, la <b>Sicile</b> est la plus grande en superficie et la <b>Vallée d'Aoste</b> est la plus petite à tous égards.
+  La capitale, <a href="/fr/province/rome/">Rome</a>, se trouve dans le <b>Lazio</b>.
+</p>
+
+<div style="overflow-x:auto;">
+<table class="regions-table">
+  <thead>
+    <tr>
+      <th>Région</th>
+      <th class="num">Population</th>
+      <th class="num col-size">Superficie (km²)</th>
+      <th class="num col-density">Densité</th>
+      <th class="num">Provinces</th>
+      <th class="num">Communes</th>
+      <th>Chef-lieu</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in regions %}
+    <tr>
+      <td class="region-name">{{ r.Name }}</td>
+      <td class="num">{{ r.populationFmt }}</td>
+      <td class="num col-size">{{ r.Size }}</td>
+      <td class="num col-density">{{ r.Density }}</td>
+      <td class="num">{{ r.Provinces }}</td>
+      <td class="num">{{ r.Towns }}</td>
+      <td class="capital"><a href="/fr/province/{{ r.capitalSlug }}/">{{ r.capitalName }}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

@@ -89,7 +89,7 @@ Approach: pick A (copy-and-translate, matches repo style) unless time allows B (
 - [x] 4.3 Created `src/templates/pages/regions-list.njk` — clean responsive `<table>` of the 20 regions
 - [x] 4.4 EN: Rewrote `regionGeneratorSSR.js` → NJK render. Added `npm run build:regions`. **IT/FR/DE variants still pending** ↓
 - [x] 4.5 `indexGeneratorSSR.js` — confirmed superseded by current `app.html` (the redesign that just landed). **Recommend deleting it + the 4 language variants** after smoke-testing prod.
-- [ ] 4.6 Migrate `regionGeneratorSSRItaly.js`, `regionGeneratorSSRFrench.js`, `regionGeneratorSSRGerman.js` (no `*Spanish.js` exists) — same pattern, just translate strings + change canonical URL + slug
+- [x] 4.6 Migrate `regionGeneratorSSRItaly.js`, `regionGeneratorSSRFrench.js`, `regionGeneratorSSRGerman.js` — rewrote all three (jsdom → NJK); created `regions-list-it/fr/de.njk`; all three pages new chrome confirmed
 - [x] 4.7 `sitemapGenerator.js` / `sitemapGeneratorItaly.js` — left alone
 
 ---
