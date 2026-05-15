@@ -182,14 +182,16 @@ function renderTown(comune, province, dirName, fileName, sidebar, ci, comdata){
         density: comune.Density,
         altitude: comune.Altitude,
         climateZone: comune.ClimateZone ? comune.ClimateZone : "?",
-        intro: pb.addBreaks(intro),
-        climate: climate,
+        intro: pb.wrapParagraphs(intro),
+        climate: pb.wrapParagraphs(climate),
         map: info.map,
         getyourguide,
         expedia,
         nearby: info.nearby,
         related: info.related,
         disclaimer,
+        articleSection: 'Commune',
+        buildDate: new Date().toISOString()
     });
 }
 

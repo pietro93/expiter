@@ -860,3 +860,69 @@ export function addBreaks(inputString) {
     .replace(/<p>\s*\.\s*<\/p>/g, '')
     .replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
 }
+
+const BLOCK_START_RE = /^\s*<(?:center|div|table|ul|ol|h[1-6]|section|figure|iframe|aside|nav|blockquote|pre|form|header|footer|article|main|p)\b/i;
+
+// Convert prose using <br><br> separators (and stray </br></br>) into clean <p> blocks.
+// - Strips inline styles on <p>
+// - Splits paragraphs at double-breaks while preserving inline tags (<b>, <a>, etc.)
+// - Wraps bare-text segments outside <p> in <p> (skips segments that start with a block tag)
+export function wrapParagraphs(html) {
+  if (!html) return '';
+  let s = String(html);
+  s = s.replace(/<\/?br\s*\/?>/gi, '<br>');
+  s = s.replace(/<p\s+[^>]*>/gi, '<p>');
+  s = s.replace(/<p>(\s*<br>\s*)+/gi, '<p>');
+  s = s.replace(/(\s*<br>\s*)+<\/p>/gi, '</p>');
+
+  const tokens = s.split(/(<\/?p>)/i);
+  let inP = false;
+  let out = '';
+  for (let i = 0; i < tokens.length; i++) {
+    const tok = tokens[i];
+    if (/^<p>$/i.test(tok)) {
+      if (inP) out += '</p>';
+      out += '<p>';
+      inP = true;
+    } else if (/^<\/p>$/i.test(tok)) {
+      if (inP) { out += '</p>'; inP = false; }
+    } else {
+      const parts = tok.split(/(?:<br>\s*){2,}/);
+      if (inP) {
+        for (let j = 0; j < parts.length; j++) {
+          if (j === 0) {
+            out += parts[j];
+          } else {
+            out += '</p>';
+            inP = false;
+            const trimmed = parts[j].trim();
+            if (trimmed) {
+              if (BLOCK_START_RE.test(parts[j])) {
+                out += parts[j];
+              } else {
+                out += '<p>' + parts[j];
+                inP = true;
+              }
+            }
+          }
+        }
+      } else {
+        for (let j = 0; j < parts.length; j++) {
+          const part = parts[j];
+          const trimmed = part.trim();
+          if (!trimmed) continue;
+          if (BLOCK_START_RE.test(part)) {
+            out += part;
+          } else {
+            out += '<p>' + part + '</p>';
+          }
+        }
+      }
+    }
+  }
+  if (inP) out += '</p>';
+  out = out.replace(/<p>\s*<\/p>/g, '');
+  out = out.replace(/<p>(\s*<br>\s*)+/gi, '<p>');
+  out = out.replace(/(\s*<br>\s*)+<\/p>/gi, '</p>');
+  return out;
+}

@@ -149,14 +149,16 @@ fs.writeFileSync(path.join(dir, '.htaccess'), htaccessContent);
         ...tabs,
         tabRows,
         toc,
-        overview: pb.addBreaks(info.overview||''),
-        crimeandsafety: pb.addBreaks(info.crimeandsafety) + separator,
-        theftsandrobberies: info.theftsandrobberies + separator,
-        violentcrimes: pb.addBreaks(info.violentcrimes) + separator,
-        organizedcrime: pb.addBreaks(info.organizedcrime) + separator,
-        accidents: pb.addBreaks(info.accidents) + separator,
-        faqs: pb.addBreaks(info.faqs) + separator,
-        promo: (info.viator||'') + separator + (info.getyourguide||'') + separator + (info.related||'')
+        overview: pb.wrapParagraphs(info.overview||''),
+        crimeandsafety: pb.wrapParagraphs(info.crimeandsafety) + separator,
+        theftsandrobberies: pb.wrapParagraphs(info.theftsandrobberies) + separator,
+        violentcrimes: pb.wrapParagraphs(info.violentcrimes) + separator,
+        organizedcrime: pb.wrapParagraphs(info.organizedcrime) + separator,
+        accidents: pb.wrapParagraphs(info.accidents) + separator,
+        faqs: pb.wrapParagraphs(info.faqs) + separator,
+        promo: (info.viator||'') + separator + (info.getyourguide||'') + separator + (info.related||''),
+        articleSection: 'Crime & Safety',
+        buildDate: new Date().toISOString()
     })
 }
 

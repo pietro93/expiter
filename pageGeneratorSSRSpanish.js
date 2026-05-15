@@ -91,15 +91,17 @@ function renderPage(province, fileName) {
         crimeUrl: 'https://expiter.com/' + fileName + '/criminalidad-y-seguridad/',
         tabRows,
         toc,
-        overview: '<div class="province-hero" role="img" aria-label="Provincia de ' + es(province.Name) + '" style="background-image:url(\'https://expiter.com/img/' + province.Abbreviation + '.webp\')"></div>' + map + pb.addBreaks(info.overview) + (info.disclaimer || '') + (info.map || ''),
-        climate: pb.addBreaks(info.climate) + separator + pb.addBreaks(info.weather || ''),
-        col: pb.addBreaks(info.CoL),
-        healthcare: pb.addBreaks(info.healthcare) + separator,
-        education: pb.addBreaks(info.education) + separator,
-        leisure: pb.addBreaks(info.leisure) + separator,
-        crimeandsafety: pb.addBreaks(info.crimeandsafety) + separator,
-        transport: pb.addBreaks(info.transport) + separator,
-        promo: (info.viator || '') + separator + (info.getyourguide || '') + separator + (info.related || '')
+        overview: '<div class="province-hero" role="img" aria-label="Provincia de ' + es(province.Name) + '" style="background-image:url(\'https://expiter.com/img/' + province.Abbreviation + '.webp\')"></div>' + map + pb.wrapParagraphs(info.overview) + (info.disclaimer || '') + (info.map || ''),
+        climate: pb.wrapParagraphs(info.climate) + separator + pb.addBreaks(info.weather || ''),
+        col: pb.wrapParagraphs(info.CoL),
+        healthcare: pb.wrapParagraphs(info.healthcare) + separator,
+        education: pb.wrapParagraphs(info.education) + separator,
+        leisure: pb.wrapParagraphs(info.leisure) + separator,
+        crimeandsafety: pb.wrapParagraphs(info.crimeandsafety) + separator,
+        transport: pb.wrapParagraphs(info.transport) + separator,
+        promo: (info.viator || '') + separator + (info.getyourguide || '') + separator + (info.related || ''),
+        articleSection: 'Provincia',
+        buildDate: new Date().toISOString()
     });
 }
 
