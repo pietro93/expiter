@@ -67,9 +67,8 @@ fetch('https://expiter.com/dataset.json', {method:"Get"})
                         fs.mkdirSync(dirName, {recursive:true});
                     }
 
-                    fs.writeFile(dirName+fileName+".html", html, function (err) {
-                        if (err) throw err;
-                    });
+                    try { fs.writeFileSync(dirName+fileName+".html", html); }
+                    catch (e) { console.log("write error: "+dirName+fileName+".html — "+e.message); }
                 }
             }
             console.log(dataset[i].Name+" Comuni Saved!");
