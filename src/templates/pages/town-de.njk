@@ -1,0 +1,38 @@
+{% extends "layouts/base-de.njk" %}
+
+{% block breadcrumbProvinces %}<a href="/de/provinz/">Provinzen</a> <span class="sep">/</span> <a href="{{ provinceUrl }}">{{ provinceName }}</a>{% endblock %}
+
+{% block infoSections %}
+<section id="Info-Sheet">
+  <h2>Steckbrief</h2>
+  <div class="table-responsive">
+    <table class="table info-table">
+      <tbody>
+        <tr><th>Name</th><td>{{ townName }}</td></tr>
+        <tr><th>Provinz</th><td><a href="{{ provinceUrl }}">{{ provinceName }}</a></td></tr>
+        <tr><th>Region</th><td>{{ regionName }}</td></tr>
+        <tr><th>Einwohner</th><td>{{ population }}</td></tr>
+        <tr><th>Dichte</th><td>{{ density }} Einw/km²</td></tr>
+        <tr><th>Höhe</th><td>{{ altitude }} m</td></tr>
+        <tr><th>Klimazone</th><td>{{ climateZone }}</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="Overview"><h2>Über {{ townName }}</h2><div id="overview">{{ intro | safe }}</div></section>
+
+<section id="Climate"><h2>Klima</h2><div id="climate">{{ climate | safe }}</div></section>
+
+<section id="Map"><h2>Karte von {{ townName }}</h2><div id="map">{{ map | safe }}</div></section>
+
+<section id="Tours"><h2>Erlebnisse und Touren rund um {{ townName }}</h2><div id="getyourguide">{{ getyourguide | safe }}</div></section>
+
+<section id="Hotels"><h2>Hotels und Reisemöglichkeiten in {{ townName }}</h2><div id="expedia">{{ expedia | safe }}</div></section>
+
+<section id="Nearby"><h2>Gemeinden in der Provinz {{ provinceName }}</h2><div id="nearby">{{ nearby | safe }}</div></section>
+
+<section id="Related"><h2>Benachbarte Provinzen</h2><div id="related">{{ related | safe }}</div></section>
+
+<div id="disclaimer-block">{{ disclaimer | safe }}</div>
+{% endblock %}

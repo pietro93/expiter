@@ -1,0 +1,92 @@
+{% extends "layouts/simple-page.njk" %}
+
+{# Per-province town listing — table of all comuni in a single province (French). #}
+
+{% block content %}
+<style>
+  .comuni-table-wrap { margin: 1rem 0 1.5rem; }
+  .comuni-table-wrap table.comuni-table {
+    width: 100%; border-collapse: collapse; background: #fff;
+    border: 1px solid #e5e7eb; border-radius: 0.75rem; overflow: hidden;
+    font-size: 0.95rem;
+  }
+  .comuni-table thead th {
+    background: #f8fafc; color: #0f172a; font-weight: 600;
+    text-align: left; padding: 0.65rem 0.85rem;
+    border-bottom: 1px solid #e5e7eb; font-size: 0.85rem;
+    text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .comuni-table tbody td {
+    padding: 0.55rem 0.85rem; border-bottom: 1px solid #f1f5f9;
+    color: #374151;
+  }
+  .comuni-table tbody tr:last-child td { border-bottom: 0; }
+  .comuni-table tbody tr:hover { background: #f8fafc; }
+  .comuni-table .town-link {
+    color: var(--bs-primary, #2563eb); font-weight: 600; text-decoration: none;
+  }
+  .comuni-table .town-link:hover { text-decoration: underline; }
+  .comuni-table td.num { text-align: right; font-variant-numeric: tabular-nums; color: #4b5563; }
+
+  .comuni-intro { font-size: 1.05rem; color: #374151; line-height: 1.7; margin: 0 0 1rem; }
+
+  .nearby-provinces { margin-top: 2rem; }
+  .nearby-provinces h2 { font-size: 1.4rem; font-weight: 700; margin: 1.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e5e7eb; }
+  .nearby-grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 768px) { .nearby-grid { grid-template-columns: repeat(4, 1fr); } }
+  .nearby-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 0.75rem; overflow: hidden; transition: box-shadow .2s, transform .2s, border-color .2s; }
+  .nearby-card:hover { border-color: #c7d2fe; box-shadow: 0 10px 24px rgba(37,99,235,0.15); transform: translateY(-2px); }
+  .nearby-card a { display: block; text-decoration: none; color: inherit; }
+  .nearby-card img { width: 100%; aspect-ratio: 2/1; object-fit: cover; display: block; background: #f3f4f6; }
+  .nearby-card figcaption { padding: 0.55rem 0.75rem; font-size: 0.9rem; font-weight: 600; color: #0f172a; }
+</style>
+
+<p class="comuni-intro">
+  {% if townCount == 1 %}Il y a <b>1 commune</b>{% else %}Il y a <b>{{ townCount }} communes</b>{% endif %}
+  dans la province de <a href="{{ provinceUrl }}">{{ provinceName }}</a> en {{ regionName }}.
+  {% if largestTown %}
+  <b><a href="{{ largestTown.url }}">{{ largestTown.name }}</a></b> est la plus grande ville par population avec un total de {{ largestTown.population }} habitants.
+  {% endif %}
+</p>
+
+<div class="comuni-table-wrap">
+  <table class="comuni-table">
+    <thead>
+      <tr>
+        <th>Commune</th>
+        <th>Population</th>
+        <th>Densité</th>
+        <th>Altitude</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in towns %}
+      <tr>
+        <td><a class="town-link" href="{{ c.url }}">{{ c.name }}</a></td>
+        <td class="num">{{ c.population }}</td>
+        <td class="num">{{ c.density }}</td>
+        <td class="num">{{ c.altitude }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% if nearbyProvinces and nearbyProvinces.length %}
+<section class="nearby-provinces">
+  <h2>Provinces à Proximité</h2>
+  <div class="nearby-grid">
+    {% for n in nearbyProvinces %}
+    <figure class="nearby-card">
+      <a href="{{ n.url }}" title="{{ n.name }}, {{ n.region }}">
+        <img loading="lazy"
+             src="https://ik.imagekit.io/cfkgj4ulo/italy-cities/{{ n.abbr }}.webp?tr=w-560,h-280,c-at_least,q-60"
+             alt="Province de {{ n.name }}, {{ n.region }}">
+        <figcaption>{{ n.name }}, {{ n.region }}</figcaption>
+      </a>
+    </figure>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endblock %}
