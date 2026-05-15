@@ -96,16 +96,16 @@ Approach: pick A (copy-and-translate, matches repo style) unless time allows B (
 
 ## Task 3 — Comuni listing + town pages (biggest blast radius — last)
 
-- [ ] 3.1 Confirm whether `townPageGenerator.js` only iterates provinces 27–30 or full 107
-- [ ] 3.2 Create `src/templates/pages/comuni-list.njk` (use `{% for comune in comuni %}` — replaces jQuery `<tr>` append)
-- [ ] 3.3 Migrate `comuniGenerator.js` (EN)
-- [ ] 3.4 Create `src/templates/pages/town.njk` (extends base.njk, town-card layout)
-- [ ] 3.5 Migrate `townPageGenerator.js` (EN, ~9,800 files)
-- [ ] 3.6 Migrate `comuniGeneratorItaly.js` + `townPageGeneratorItaly.js`
-- [ ] 3.7 Migrate FR variants
-- [ ] 3.8 Migrate DE variants
-- [ ] 3.9 Migrate ES variants
-- [ ] 3.10 Visual parity check
+- [x] 3.1 Confirm whether `townPageGenerator.js` only iterates provinces 27–30 or full 107 — confirmed full 107
+- [x] 3.2 Create `src/templates/pages/comuni-list.njk` (use `{% for comune in comuni %}` — replaces jQuery `<tr>` append)
+- [x] 3.3 Migrate `comuniGenerator.js` (EN)
+- [x] 3.4 Create `src/templates/pages/town.njk` (extends base.njk, town-card layout)
+- [x] 3.5 Migrate `townPageGenerator.js` (EN, ~9,800 files)
+- [x] 3.6 Migrate `comuniGeneratorItaly.js` + `townPageGeneratorItaly.js` — both rewritten + run; all IT pages new chrome
+- [x] 3.7 Migrate FR variants — `townPageGeneratorFrench.js` was already rewritten; `comuniGeneratorFrench.js` rewritten (was still jsdom) + both run; all FR pages new chrome. Fixed `handle(province.Comuni[p])` → `.Name` bug in nearby links (also fixed in DE/ES).
+- [x] 3.8 Migrate DE variants — same pattern; both run; all DE pages new chrome
+- [x] 3.9 Migrate ES variants — same pattern; both run; all ES pages new chrome
+- [ ] 3.10 Visual parity check — browser smoke test pending
 
 ---
 
