@@ -6,7 +6,8 @@
       "PowerShell(Stop-Process -Id 16684 -Force)",
       "PowerShell(Stop-Process -Id 31708 -Force)",
       "Bash(tasklist /FI \"PID eq 8400\")",
-      "Bash(cmd /c \"tasklist\")"
+      "Bash(cmd /c \"tasklist\")",
+      "Bash(git ls-tree *)"
     ]
   }
 }

@@ -98,6 +98,9 @@ function extractBody(html) {
   // Remove leftover data-vi- Viator widget divs
   body = body.replace(/<div[^>]+data-vi-partner-id[^>]*>[\s\S]*?<\/div>/gi, '');
 
+  // Strip orphaned closing </div> tags left behind by removed legacy containers
+  body = body.replace(/^(\s*<\/div>\s*)+/, '');
+
   body = body.trim();
 
   return heroHtml + body;
