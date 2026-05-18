@@ -156,7 +156,7 @@
     </main>
 
     <aside class="col-12 col-lg-4 col-xl-3 order-2 sidebar-primary" aria-label="Sidebar">
-      {{ sidebar | safe }}
+      {% block sidebar %}{% if sidebar %}{{ sidebar | safe }}{% endif %}{% endblock %}
     </aside>
 
   </div>

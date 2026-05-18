@@ -70,9 +70,9 @@ body.trellis-framework {
 /* --- Sidebar ---------------------------------------------- */
 /* IAB standard units: 300×250 (MR), 300×600 (HPA), 160×600 */
 .sidebar-primary {
-  flex: 0 0 336px;       /* 336 px fits the 300 px ad + padding */
-  width: 336px;
-  min-width: 300px;
+  flex: 0 0 360px;       /* 360 px = 300 px ad + 40 px padding + 20 px buffer */
+  width: 360px;
+  min-width: 340px;      /* 300 px content + 40 px padding (border-box) */
   position: sticky;
   top: 72px;             /* clears sticky header */
   max-height: calc(100vh - 80px);
@@ -259,7 +259,8 @@ details[open] .toc-panel summary::before,
     order: 2;
     flex: none;
     width: 100%;
-    min-width: 0;
+    min-width: 300px;     /* Mediavine requires 300 px content area at all breakpoints */
+    padding: 0;           /* drop inner padding so the 300 px ad fits on narrow viewports */
     position: static;
     max-height: none;
     overflow: visible;

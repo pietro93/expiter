@@ -59,9 +59,18 @@ main.col-12 { background: #fff; padding: 1.5rem 1.75rem; border-radius: 0.75rem;
 @media (max-width: 600px) {
   main.col-12 { padding: 1rem 1.1rem; border-radius: 0.5rem; }
 }
-aside.sidebar-primary { background: #fff; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid #e5e7eb; align-self: start; }
+aside.sidebar-primary { background: #fff; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid #e5e7eb; align-self: start; min-height: 250px; }
 @media (max-width: 991px) {
-  aside.sidebar-primary { margin-top: 1rem; }
+  /* Drop side padding on mobile so the 300 px ad fits on narrow viewports (Mediavine requirement) */
+  aside.sidebar-primary { margin-top: 1rem; padding: 1.25rem 0; }
+}
+@media (min-width: 992px) {
+  /* Mediavine requires the sidebar content area to be ≥ 300 px wide excluding padding.
+     Override Bootstrap col-lg-4 / col-xl-3 (which yield only 245-280 px inner) and
+     pin the sidebar to 380 px → 340 px inner after the 40 px horizontal padding. */
+  aside.sidebar-primary { flex: 0 0 380px; max-width: 380px; min-width: 340px; }
+  main.col-12.col-lg-8,
+  main.col-12.col-xl-9 { flex: 1 1 0; max-width: none; }
 }
 
 /* ---------- Scorecard (Bootstrap tabs) ---------- */
