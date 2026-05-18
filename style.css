@@ -1,6 +1,7 @@
 /*@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Noto+Color+Emoji');
 */
+/* Last updated: 2026-05-18 — Sidebar width fix for Mediavine (300px minimum content area) */
 :root{
   --lightest:rgb(213,243,254);
   --light:rgb(183,213,234);
