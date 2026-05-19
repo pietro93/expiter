@@ -1,6 +1,7 @@
 /*@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Noto+Color+Emoji');
 */
+/* Last updated: 2026-05-18 — Sidebar width fix for Mediavine (300px minimum content area) */
 :root{
   --lightest:rgb(213,243,254);
   --light:rgb(183,213,234);
@@ -1647,7 +1648,9 @@ figure.related a{font-weight:600}
   position: relative;
   vertical-align: top;
   overflow-y: none;
-  width: 26vw;
+  /* Mediavine requires the sidebar content area to be ≥ 300 px wide. With 15 px + 25 px horizontal padding (40 px total), the box itself must be ≥ 340 px. */
+  width: 340px;
+  min-width: 340px;
   max-width: 360px;
   top: 44vh;
   bottom: 0;
@@ -1660,6 +1663,7 @@ figure.related a{font-weight:600}
   border: 0px ridge rgba(33, 133, 255, 0.6);
   border-left: 2px ridge var(--medium-dark);
   background: linear-gradient(to bottom, var(--light), var(--lighter), var(--lightest), rgba(255,255,255,0));
+  box-sizing: border-box;
 }
 
 .sb .menu-label {
@@ -1686,12 +1690,13 @@ figure.related a{font-weight:600}
 .sb.higher{margin-top:-1.5vh;
 z-index:3;
 top:77px;left:4vw;float:right;
-width:20vw;max-width:70vw;
+/* Keep ≥ 340 px so the inner content area satisfies Mediavine's 300 px requirement. */
+width:340px;min-width:340px;max-width:360px;
 border-right:15px;
 background-color:var(--bg2);
 border-right: 2px ridge var(--medium-dark);
 padding-top:35vh;
-height:100%; 
+height:100%;
 background: linear-gradient(to bottom, var(--bg1), var(--bg2), transparent)
 }
 
@@ -1707,12 +1712,14 @@ background: linear-gradient(to bottom, var(--bg1), var(--bg2), transparent)
   }
 
   .mobileonly {
-    width: 98vw; 
+    width: 98vw;
+    min-width: 340px;     /* 300 px content + 40 px horizontal padding (Mediavine requirement) */
     top: 2vh;
     max-width: 98vw;
     left: -1vw;
     display: inline-block;
     border-left:0px;
     border-top:2px;
+    box-sizing: border-box;
   }
 }
