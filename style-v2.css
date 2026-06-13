@@ -323,7 +323,7 @@ score.red       { background: var(--tier-bg-poor);      color: var(--tier-poor);
   border-color: #c7d2fe; color: inherit;
 }
 .article-card-img {
-  width: 100%; aspect-ratio: 16 / 10;
+  display: block; width: 100%; aspect-ratio: 16 / 10;
   background-size: cover; background-position: center;
   background-color: #f1f5f9;
 }
