@@ -1,0 +1,245 @@
+- generic [ref=e1]:
+  - dialog "Consenso ai cookie e al trattamento dei dati" [ref=e2]:
+    - document [ref=e3]:
+      - generic [ref=e5]:
+        - heading "Consenso ai cookie e al trattamento dei dati" [level=1] [ref=e6]
+        - generic [ref=e7]:
+          - text: Per offrire un'esperienza utente più personalizzata, noi e i nostri
+          - link "315 partner" [ref=e8] [cursor=pointer]:
+            - /url: "#"
+          - text: utilizziamo tecnologie come i cookie per archiviare e/o accedere alle informazioni del dispositivo. Cliccando su "Accetta tutto", acconsenti all'utilizzo di queste tecnologie, che consentiranno a noi e ai nostri partner di elaborare dati personali come indirizzo IP, ID univoco e dati di navigazione su questo sito.
+          - text: Puoi revocare o aggiornare le tue preferenze di consenso in qualsiasi momento cliccando sul link "Aggiorna impostazioni privacy". Questo link si trova nel piè di pagina o su entrambi i lati della pagina.
+          - text: "Utilizziamo i tuoi dati per: Archiviare informazioni su dispositivo e/o accedervi, Misurazione, Essenziale, Dati di geolocalizzazione precisi e identificazione attraverso la scansione del dispositivo, Pubblicità e contenuti personalizzati, misurazione delle prestazioni dei contenuti e degli annunci, ricerche sul pubblico, sviluppo di servizi"
+      - form [ref=e9]:
+        - button "Impostazioni" [ref=e11] [cursor=pointer]
+        - button "Accetta tutto" [ref=e13] [cursor=pointer]:
+          - generic [ref=e14]: Accetta tutto
+        - link "Informativa sulla privacy" [ref=e16] [cursor=pointer]:
+          - /url: https://expiter.com/privacy-policy
+    - generic [ref=e17]:
+      - text: Cookie Banner powered by
+      - link "consentmanager.net" [ref=e18] [cursor=pointer]:
+        - /url: https://www.consentmanager.net/en/cookie-banner/?utm_source=cmplogo2A&utm_medium=banner&utm_campaign=cmplogo2A&utm_term=134349&utm_content=expiter.com
+        - img "consentmanager.net" [ref=e19]
+    - 'button "Lingua: it" [ref=e20] [cursor=pointer]':
+      - img [ref=e21]
+  - link "Skip to content" [ref=e23] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation [ref=e24]:
+    - generic [ref=e25]:
+      - link "Italy Expats & Nomads" [ref=e26] [cursor=pointer]:
+        - /url: /
+      - list [ref=e28]:
+        - listitem [ref=e29]:
+          - link "Home" [ref=e30] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e31]:
+          - link "Provinces" [ref=e32] [cursor=pointer]:
+            - /url: /provinces/
+        - listitem [ref=e33]:
+          - link "Resources" [ref=e34] [cursor=pointer]:
+            - /url: https://expiter.com/resources/
+        - listitem [ref=e35]:
+          - link "Tools" [ref=e36] [cursor=pointer]:
+            - /url: https://expiter.com/tools/codice-fiscale-generator/
+        - listitem [ref=e37]:
+          - link "Blog" [ref=e38] [cursor=pointer]:
+            - /url: https://expiter.com/blog/articles/
+        - listitem [ref=e39]:
+          - link "About" [ref=e40] [cursor=pointer]:
+            - /url: https://expiter.com/app/#About
+  - generic [ref=e42]:
+    - main [ref=e43]:
+      - navigation "breadcrumb" [ref=e44]:
+        - link "Home" [ref=e45] [cursor=pointer]:
+          - /url: /
+        - text: / Blog
+      - heading "Latest Articles" [level=1] [ref=e46]
+      - generic [ref=e47]:
+        - link "What is it like to live in Caserta? What is it like to live in Caserta?" [ref=e48] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-caserta/
+          - img "What is it like to live in Caserta?"
+          - heading "What is it like to live in Caserta?" [level=3] [ref=e49]
+        - link "What is it like to live in Pisa? What is it like to live in Pisa?" [ref=e50] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-pisa/
+          - img "What is it like to live in Pisa?"
+          - heading "What is it like to live in Pisa?" [level=3] [ref=e51]
+        - link "What is it like to live in Caserma Ederle? What is it like to live in Caserma Ederle?" [ref=e52] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-caserma-ederle/
+          - img "What is it like to live in Caserma Ederle?"
+          - heading "What is it like to live in Caserma Ederle?" [level=3] [ref=e53]
+        - link "What is it like to live in Vicenza? What is it like to live in Vicenza?" [ref=e54] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-vicenza/
+          - img "What is it like to live in Vicenza?"
+          - heading "What is it like to live in Vicenza?" [level=3] [ref=e55]
+        - link "What is it like to live in Siena? What is it like to live in Siena?" [ref=e56] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-siena/
+          - img "What is it like to live in Siena?"
+          - heading "What is it like to live in Siena?" [level=3] [ref=e57]
+        - link "What is it like to live in Cagliari? What is it like to live in Cagliari?" [ref=e58] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-cagliari/
+          - img "What is it like to live in Cagliari?"
+          - heading "What is it like to live in Cagliari?" [level=3] [ref=e59]
+        - link "What is it like to live in Lucca? What is it like to live in Lucca?" [ref=e60] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-lucca/
+          - img "What is it like to live in Lucca?"
+          - heading "What is it like to live in Lucca?" [level=3] [ref=e61]
+        - link "What is it like to live in Livorno? What is it like to live in Livorno?" [ref=e62] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-livorno/
+          - img "What is it like to live in Livorno?"
+          - heading "What is it like to live in Livorno?" [level=3] [ref=e63]
+        - link "What is it like to live in Trieste? What is it like to live in Trieste?" [ref=e64] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-trieste/
+          - img "What is it like to live in Trieste?"
+          - heading "What is it like to live in Trieste?" [level=3] [ref=e65]
+        - link "What is it like to live in Catania? What is it like to live in Catania?" [ref=e66] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-catania/
+          - img "What is it like to live in Catania?"
+          - heading "What is it like to live in Catania?" [level=3] [ref=e67]
+        - link "What is it like to live in Padua? What is it like to live in Padua?" [ref=e68] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-padua/
+          - img "What is it like to live in Padua?"
+          - heading "What is it like to live in Padua?" [level=3] [ref=e69]
+        - link "What is it like to live in Bologna? What is it like to live in Bologna?" [ref=e70] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-bologna/
+          - img "What is it like to live in Bologna?"
+          - heading "What is it like to live in Bologna?" [level=3] [ref=e71]
+        - link "What is it like to live in Turin? What is it like to live in Turin?" [ref=e72] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-turin/
+          - img "What is it like to live in Turin?"
+          - heading "What is it like to live in Turin?" [level=3] [ref=e73]
+        - link "What is it like to live in Reggio Calabria? What is it like to live in Reggio Calabria?" [ref=e74] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-reggio-calabria/
+          - img "What is it like to live in Reggio Calabria?"
+          - heading "What is it like to live in Reggio Calabria?" [level=3] [ref=e75]
+        - link "What is it like to live in Palermo? What is it like to live in Palermo?" [ref=e76] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-palermo/
+          - img "What is it like to live in Palermo?"
+          - heading "What is it like to live in Palermo?" [level=3] [ref=e77]
+        - link "What is it like to live in Genoa? What is it like to live in Genoa?" [ref=e78] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-genoa/
+          - img "What is it like to live in Genoa?"
+          - heading "What is it like to live in Genoa?" [level=3] [ref=e79]
+        - link "What is it like to live in Sigonella? What is it like to live in Sigonella?" [ref=e80] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-sigonella/
+          - img "What is it like to live in Sigonella?"
+          - heading "What is it like to live in Sigonella?" [level=3] [ref=e81]
+        - link "What is it like to live in Venice? What is it like to live in Venice?" [ref=e82] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-venice/
+          - img "What is it like to live in Venice?"
+          - heading "What is it like to live in Venice?" [level=3] [ref=e83]
+        - link "What is it like to live in Florence? What is it like to live in Florence?" [ref=e84] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-florence/
+          - img "What is it like to live in Florence?"
+          - heading "What is it like to live in Florence?" [level=3] [ref=e85]
+        - link "What is it like to live in Bari? What is it like to live in Bari?" [ref=e86] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-bari/
+          - img "What is it like to live in Bari?"
+          - heading "What is it like to live in Bari?" [level=3] [ref=e87]
+        - link "What is it like to live in Naples? What is it like to live in Naples?" [ref=e88] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-naples/
+          - img "What is it like to live in Naples?"
+          - heading "What is it like to live in Naples?" [level=3] [ref=e89]
+        - link "What is it like to live in Rome? What is it like to live in Rome?" [ref=e90] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-rome/
+          - img "What is it like to live in Rome?"
+          - heading "What is it like to live in Rome?" [level=3] [ref=e91]
+        - link "What is it like to live in Milan? What is it like to live in Milan?" [ref=e92] [cursor=pointer]:
+          - /url: https://expiter.com/blog/living-in-milan/
+          - img "What is it like to live in Milan?"
+          - heading "What is it like to live in Milan?" [level=3] [ref=e93]
+        - link "Udine Ranks 1st for Quality of Life in Italy in 2023 Udine Ranks 1st for Quality of Life in Italy in 2023" [ref=e94] [cursor=pointer]:
+          - /url: https://expiter.com/blog/italy-quality-of-life-2023/
+          - img "Udine Ranks 1st for Quality of Life in Italy in 2023"
+          - heading "Udine Ranks 1st for Quality of Life in Italy in 2023" [level=3] [ref=e95]
+        - link "The Best 10 Places to Live as a Digital Nomad in Italy The Best 10 Places to Live as a Digital Nomad in Italy" [ref=e96] [cursor=pointer]:
+          - /url: https://expiter.com/blog/best-cities-for-digital-nomads-in-italy/
+          - img "The Best 10 Places to Live as a Digital Nomad in Italy"
+          - heading "The Best 10 Places to Live as a Digital Nomad in Italy" [level=3] [ref=e97]
+    - complementary "Sidebar" [ref=e98]:
+      - paragraph [ref=e99]: Start Here
+      - list [ref=e100]:
+        - listitem [ref=e101]:
+          - link "Italy Expat Resources" [ref=e102] [cursor=pointer]:
+            - /url: https://expiter.com/resources/
+        - listitem [ref=e103]:
+          - link "Codice Fiscale Generator" [ref=e104] [cursor=pointer]:
+            - /url: https://expiter.com/tools/codice-fiscale-generator/
+        - listitem [ref=e105]:
+          - link "Regions of Italy" [ref=e106] [cursor=pointer]:
+            - /url: https://expiter.com/region/regions-of-italy/
+      - paragraph [ref=e107]: Get Inspired
+      - list [ref=e108]:
+        - listitem [ref=e109]:
+          - link "Province Comparison Tool" [ref=e110] [cursor=pointer]:
+            - /url: https://expiter.com/
+        - listitem [ref=e111]:
+          - link "Cheapest Italian Provinces" [ref=e112] [cursor=pointer]:
+            - /url: https://expiter.com/app/?sort=Cheapest&region=All
+        - listitem [ref=e113]:
+          - link "Sunniest Provinces in Northern Italy" [ref=e114] [cursor=pointer]:
+            - /url: https://expiter.com/app/?sort=SunshineHours&region=North
+        - listitem [ref=e115]:
+          - link "Best Places to Live in Souhtern Italy" [ref=e116] [cursor=pointer]:
+            - /url: https://expiter.com/app/?sort=Expat-friendly&region=South
+        - listitem [ref=e117]:
+          - link "Best Digital Nomad Destinations in Italy" [ref=e118] [cursor=pointer]:
+            - /url: https://expiter.com/app/?sort=DN-friendly&region=All
+      - paragraph [ref=e119]: Experience
+      - iframe [ref=e121]:
+        - generic [ref=f4e3]:
+          - list [ref=f4e4]:
+            - listitem [ref=f4e5]:
+              - link "View further details about this activity at GetYourGuide" [ref=f4e6] [cursor=pointer]:
+                - /url: https://www.getyourguide.com/s/?et=153354&psrc=widget&partner_id=56T9R2T&utm_medium=online_publisher&currency=EUR&q=Italy&queryMatch=all&cmp=auto-widget&widget=activities-auto&wid=70b3662f-ab16-56d0-82d9-a19393ddc1e3&page_id=beccc368-fb1e-5492-8cf1-b0388254e7f5&visitor_id=6DE347B33B1B42708AE085B2ADCE4125
+                - generic [ref=f4e7]: View details
+              - 'img "Milan: Cathedral and Duomo''s Terraces Entrance Ticket" [ref=f4e11]'
+              - generic [ref=f4e12]:
+                - generic [ref=f4e13]: Cathedral and Duomo's Terraces Entrance Ticket
+                - generic [ref=f4e15]:
+                  - img [ref=f4e17]
+                  - generic [ref=f4e19]: "4.6"
+                  - generic [ref=f4e20]: (67673)
+            - listitem [ref=f4e21]:
+              - link "View further details about this activity at GetYourGuide" [ref=f4e22] [cursor=pointer]:
+                - /url: https://www.getyourguide.com/s/?et=397679&psrc=widget&partner_id=56T9R2T&utm_medium=online_publisher&currency=EUR&q=Italy&queryMatch=all&cmp=auto-widget&widget=activities-auto&wid=70b3662f-ab16-56d0-82d9-a19393ddc1e3&page_id=beccc368-fb1e-5492-8cf1-b0388254e7f5&visitor_id=6DE347B33B1B42708AE085B2ADCE4125
+                - generic [ref=f4e23]: View details
+              - 'img "Sardinia: La Maddalena Archipelago Full-Day Boat Tour" [ref=f4e27]'
+              - generic [ref=f4e28]:
+                - generic [ref=f4e29]: La Maddalena Archipelago Full-Day Boat Tour
+                - generic [ref=f4e30]:
+                  - img [ref=f4e32]
+                  - generic [ref=f4e34]: "Duration: 6 - 7 hours"
+                - generic [ref=f4e35]:
+                  - img [ref=f4e37]
+                  - generic [ref=f4e39]: "4.6"
+                  - generic [ref=f4e40]: (5241)
+            - listitem [ref=f4e41]:
+              - link "View further details about this activity at GetYourGuide" [ref=f4e42] [cursor=pointer]:
+                - /url: https://www.getyourguide.com/s/?et=62214&psrc=widget&partner_id=56T9R2T&utm_medium=online_publisher&currency=EUR&q=Italy&queryMatch=all&cmp=auto-widget&widget=activities-auto&wid=70b3662f-ab16-56d0-82d9-a19393ddc1e3&page_id=beccc368-fb1e-5492-8cf1-b0388254e7f5&visitor_id=6DE347B33B1B42708AE085B2ADCE4125
+                - generic [ref=f4e43]: View details
+              - 'img "Rome: Museums & Sistine Chapel Entrance Ticket" [ref=f4e47]'
+              - generic [ref=f4e48]:
+                - generic [ref=f4e49]: Museums & Sistine Chapel Entrance Ticket
+                - generic [ref=f4e51]:
+                  - img [ref=f4e53]
+                  - generic [ref=f4e55]: "4.5"
+                  - generic [ref=f4e56]: (151000)
+          - contentinfo [ref=f4e57]:
+            - generic [ref=f4e58]:
+              - link "Powered by GetYourGuide." [ref=f4e59] [cursor=pointer]:
+                - /url: https://getyourguide.com/milan-l139/?partner_id=56T9R2T
+              - link "Join our travel affiliate program" [ref=f4e60] [cursor=pointer]:
+                - /url: https://partner.getyourguide.com/
+      - paragraph [ref=e122]: About
+      - paragraph [ref=e123]:
+        - text: Expiter is a data visualization tool for researching and comparing different quality of life factors in Italian cities and provinces.
+        - text: We provide valuable information for expats, exchange students, full-time travelers, remote workers and digital nomads who are living in (or planning to move to) Italy.
+      - paragraph [ref=e124]: Disclaimer
+      - paragraph [ref=e125]:
+        - text: The information on this website is for educational purposes only. We collect data from different sources including internal surveys and publicly available databases from external sources.
+        - text: Expiter.com does not endorse or guarantee the accuracy, reliability, or completeness of any products, services, or information mentioned on this website.
+        - text: Expiter.com participates in affiliate programs, including the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.
+        - text: This means that we may earn a commission if you click on or purchase products through our links, at no extra cost to you.
+  - contentinfo [ref=e126]:
+    - generic [ref=e127]: © Expiter. Data for informational purposes only.
