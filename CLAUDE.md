@@ -2,7 +2,7 @@
 
 ## Architecture
 
-The live site at **expiter.com** is served directly from the **repo root** via GitHub Pages. The workflow at `.github/workflows/static.yml` uploads the entire repo root as a static artifact — there is no build step in CI. All HTML files must be generated locally and committed.
+The live site at **expiter.com** is hosted on **Cloudways**, which pulls directly from this GitHub repository. There is no build step — all HTML files must be generated locally and committed. The `.github/workflows/static.yml` file exists in the repo but the live site is served via Cloudways pulling from GitHub, not GitHub Pages.
 
 There is also an Eleventy setup (`_site/`) that is **not deployed** — it's a migration artifact. Ignore it for deployment purposes.
 
