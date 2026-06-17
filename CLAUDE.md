@@ -68,28 +68,23 @@ All page templates are in `src/templates/`:
 
 ### Critical: `journey-content` class placement
 
-Mediavine Journey uses `journey-content` to locate the main content area for sidebar ad injection. It **must** be on `<main>`, not on `<div class="entry-content">`.
+Mediavine Journey uses `journey-content` to locate the main content area for sidebar ad injection. For Journey to resolve the sidebar relationship, the `<main>` and `<aside>` must **each be wrapped in their own Bootstrap grid column `<div>`**. The grid classes (`col-*`, `order-*`) live on the wrapper divs; the semantic classes (`journey-content`, `sidebar-primary`) live on the inner `<main>`/`<aside>`.
 
-In `base.njk` line 86:
+Correct structure (`base.njk` lines ~84-164):
 ```html
-<main class="col-12 col-lg-8 col-xl-9 order-1 journey-content">
+<div class="row g-4">
+  <div class="col-12 col-lg-8 col-xl-9 order-1">
+    <main class="journey-content"> ... </main>
+  </div>
+  <div class="col-12 col-lg-4 col-xl-3 order-2">
+    <aside class="sidebar-primary" aria-label="Sidebar"> ... </aside>
+  </div>
+</div>
 ```
 
-The inner div must NOT have this class:
-```html
-<div class="entry-content">   <!-- correct — no journey-content here -->
-```
+Do **not** put grid classes directly on `<main>` (the old `<main class="col-... journey-content">` form). When `<main>` sat as a direct grid child of `.row.g-4` next to `<aside>`, Journey couldn't resolve the sidebar and injected `sidebar_btf_placeholder` as a 3rd sibling column — the ad rendered below/outside the sidebar instead of inside it. The inner `<div class="entry-content">` must NOT carry `journey-content` either.
 
-If you ever regenerate HTML and ads go back to the top-left of the page, run this fix:
-
-```powershell
-# PowerShell — run from repo root
-Get-ChildItem -Recurse -Filter "*.html" -Path comuni,province,it,de,fr,es | ForEach-Object {
-    $c = Get-Content $_.FullName -Raw -Encoding UTF8
-    $c = $c -replace '<main class="col-12 col-lg-8 col-xl-9 order-1">', '<main class="col-12 col-lg-8 col-xl-9 order-1 journey-content">'
-    $c = $c -replace '<div class="entry-content journey-content">', '<div class="entry-content">'
-    Set-Content $_.FullName $c -Encoding UTF8 -NoNewline
-}
+If the sidebar ad escapes the sidebar column, the canonical fix is to confirm `base.njk` has the wrapped structure above and **regenerate** the affected pages with the build scripts below — a regex find/replace is unreliable here because the wrappers require inserting matching closing `</div>`s in two places per page.
 ```
 
 ## Deploying
@@ -100,7 +95,7 @@ git commit -m "Regenerate pages"
 git push origin main
 ```
 
-GitHub Actions deploys automatically on push to `main`. The deploy takes ~1–2 minutes.
+Cloudways pulls from GitHub on push to `main` and serves the static files directly — there is no GitHub Pages / GitHub Actions build step in the live path. The deploy takes ~1–2 minutes.
 
 ## Blog posts
 
