@@ -1,0 +1,236 @@
+[     958ms] [LOG] error: TypeError: Cannot read properties of null (reading 'value') @ https://expiter.com/script.js:31
+[    1575ms] [LOG] OipFallbackToCookie @ https://b.travel-assets.com/dctk/2/js/uis-dctk-core-bundle-min.js:22
+[    1575ms] [LOG] undefined @ https://b.travel-assets.com/dctk/2/js/uis-dctk-core-bundle-min.js:22
+[    1586ms] [LOG] Typeahead is now included in the UITK so you no longer need to load it manually @ https://www.expedia.com/static/default/default/scripts/exp/typeahead/Typeahead.v2.js:12
+[    2059ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://oms.expedia.com/b/ss/expediaglobal/10/JS-1.9.0/s02385682482429?AQB=1&ndh=1&pf=1&callback=s_c_il[0].doPostbacks&et=1&t=17%2F5%2F2026%208%3A29%3A20%203%20-120&ce=UTF-8&cdp=2&fpCookieDomainPeriods=2&pageName=page.Marketing.Widgets.Searchform.Widget&g=https%3A%2F%2Fwww.expedia.com%2Fmarketing%2Fwidgets%2Fsearchform%2Fwidget%3Fwtt%3D5%26tp1%3D1101l3BUi9%26tp2%3Dexpiter%26lob%3DH%2CFH%2CCA%2CCR%2CA%26des%3DAgrigento%26wbi%3D13%26olc%3D000000%26whf%3D4%26hfc%3DC7C7C7%26wif%3D4%26ifc%3D000000%26wbc%3DFFCC00%26wbf%3D4%26bfc%3D3D3100%26wws%3D2%26sfs%3DH550FW98R%26langid%3D1033&r=https%3A%2F%2Fexpiter.com%2F&server=www.expedia.com&v0=NA&events=event200%2Cevent464%2Cevent223%2Cevent224%3D1.58%2Cevent103&l1=28095.1%7C47568.0%7C26334.0%7C30251.1%7C30442.0%7C28693.1%7C35737.1%7C26153.1%7C26017.0%7C99991.0%7C56343.1%7C13722.0%7C57725.0%7C14991.0%7C25350.1%7C26391.0%7C25374.0&c10=27a996ea-5d2e-355f-8d30-84ba1f38347e%7Cab1b3154-ad4f-487e-a40c-9dff90c3b360&v10=NA&c11=-1&c12=dd70ccd98bfb425ab2100e855c9d918b&c13=-1&v13=NA&v14=NA&v15=NA&v16=NA&v17=page.Marketing.Widgets.Searchform.Widget&v18=D%3DpageName&v19=NA&v21=NA&v23=1&v26=NA&v27=D%3Dv22&c30=1033&v33=D%3Dv22&v36=NA&v40=NoPartnerTier&c41=2.249.2&c50=DCTK%202.246.0%2B%7CSharedMappers%201.0.77&v50=desktop&v54=1033&v55=anonymous%20%7C%20&v56=notRewardsMember&c60=726-959&v60=Wed%7C8%3A29AM&v61=expedia.com&v76=true%7CGDPR%7Cset%3Dfalse%7CyesSelected%3Dfalse&s=1536x960&c=32&j=1.6&v=N&k=N&bw=747&bh=550&AQE=1:0
+[    2132ms] Uncaught Error: Launcher already executed.
+    at <anonymous> (https://scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js:6:44440)
+    at <anonymous> (https://scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js:6:48927)
+    at <anonymous> (https://scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js:6:48931)
+[    2167ms] Uncaught Error: Launcher already executed.
+    at <anonymous> (https://scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js:6:44440)
+    at <anonymous> (https://scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js:6:48927)
+    at <anonymous> (https://scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js:6:48931)
+[    2171ms] Uncaught Error: Launcher already executed.
+    at <anonymous> (https://scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js:6:44440)
+    at <anonymous> (https://scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js:6:48927)
+    at <anonymous> (https://scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js:6:48931)
+[    2190ms] Uncaught Error: Launcher already executed.
+    at <anonymous> (https://scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js:6:44440)
+    at <anonymous> (https://scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js:6:48927)
+    at <anonymous> (https://scripts.scriptwrapper.com/tags/1cce7071-25c6-48c1-b7ee-1da5674b8bfd.js:6:48931)
+[    2382ms] [ERROR] Failed to load resource: the server responded with a status of 429 () @ https://widget.getyourguide.com/auto-widget-context:0
+[    2411ms] [ERROR] Access to fetch at 'https://www.hotels.com/trvl-px/v2/get' from origin 'https://www.expedia.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://www.expedia.com/marketing/widgets/searchform/widget?wtt=5&tp1=1101l3BUi9&tp2=expiter&lob=H,FH,CA,CR,A&des=Agrigento&wbi=13&olc=000000&whf=4&hfc=C7C7C7&wif=4&ifc=000000&wbc=FFCC00&wbf=4&bfc=3D3100&wws=2&sfs=H550FW98R&langid=1033:0
+[    2412ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://www.hotels.com/trvl-px/v2/get:0
+[    2412ms] [ERROR] TypeError: Failed to fetch
+    at https://www.expedia.com/HGFCbi/iA5C/hhsjl/woSqb8b/V2saM/ScutGwmO3L/Gx99AQ/QBxl/Zn1nMlFQ?v=1dad591f-6f77-a422-071f-42991bb317d8:1:91588
+    at Sr.PK.window.fetch (https://www.expedia.com/HGFCbi/iA5C/hhsjl/woSqb8b/V2saM/ScutGwmO3L/Gx99AQ/QBxl/Zn1nMlFQ?v=1dad591f-6f77-a422-071f-42991bb317d8:1:91759)
+    at i.value (https://b.travel-assets.com/travel-pixel-js/1.0.0/app.js:9:19116)
+    at https://b.travel-assets.com/travel-pixel-js/1.0.0/app.js:9:14987 @ https://b.travel-assets.com/travel-pixel-js/1.0.0/app.js:8
+[    2465ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://www.expedia.com/cl/data/omniture.json?persist=true:0
+[    2514ms] [ERROR] Access to fetch at 'https://www.hotels.com/trvl-px/v2/get' from origin 'https://www.expedia.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://www.expedia.com/marketing/widgets/searchform/widget?wtt=5&tp1=1101l3BUi9&tp2=expiter&lob=H,FH,CA,CR,A&des=Agrigento&wbi=13&olc=000000&whf=4&hfc=C7C7C7&wif=4&ifc=000000&wbc=FFCC00&wbf=4&bfc=3D3100&wws=2&sfs=H550FW98R&langid=1033:0
+[    2514ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://www.hotels.com/trvl-px/v2/get:0
+[    2514ms] [ERROR] TypeError: Failed to fetch
+    at https://www.expedia.com/HGFCbi/iA5C/hhsjl/woSqb8b/V2saM/ScutGwmO3L/Gx99AQ/QBxl/Zn1nMlFQ?v=1dad591f-6f77-a422-071f-42991bb317d8:1:91588
+    at Sr.PK.window.fetch (https://www.expedia.com/HGFCbi/iA5C/hhsjl/woSqb8b/V2saM/ScutGwmO3L/Gx99AQ/QBxl/Zn1nMlFQ?v=1dad591f-6f77-a422-071f-42991bb317d8:1:91759)
+    at i.value (https://b.travel-assets.com/travel-pixel-js/1.0.0/app.js:9:19116)
+    at https://b.travel-assets.com/travel-pixel-js/1.0.0/app.js:9:14987 @ https://b.travel-assets.com/travel-pixel-js/1.0.0/app.js:8
+[    3567ms] [ERROR] Access to fetch at 'https://www.homeaway.com/trvl-px/v2/get' from origin 'https://www.expedia.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://www.expedia.com/marketing/widgets/searchform/widget?wtt=5&tp1=1101l3BUi9&tp2=expiter&lob=H,FH,CA,CR,A&des=Agrigento&wbi=13&olc=000000&whf=4&hfc=C7C7C7&wif=4&ifc=000000&wbc=FFCC00&wbf=4&bfc=3D3100&wws=2&sfs=H550FW98R&langid=1033:0
+[    3567ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://www.homeaway.com/trvl-px/v2/get:0
+[    3567ms] [ERROR] TypeError: Failed to fetch
+    at https://www.expedia.com/HGFCbi/iA5C/hhsjl/woSqb8b/V2saM/ScutGwmO3L/Gx99AQ/QBxl/Zn1nMlFQ?v=1dad591f-6f77-a422-071f-42991bb317d8:1:91588
+    at Sr.PK.window.fetch (https://www.expedia.com/HGFCbi/iA5C/hhsjl/woSqb8b/V2saM/ScutGwmO3L/Gx99AQ/QBxl/Zn1nMlFQ?v=1dad591f-6f77-a422-071f-42991bb317d8:1:91759)
+    at i.value (https://b.travel-assets.com/travel-pixel-js/1.0.0/app.js:9:19116)
+    at https://b.travel-assets.com/travel-pixel-js/1.0.0/app.js:9:14987 @ https://b.travel-assets.com/travel-pixel-js/1.0.0/app.js:8
+[    3573ms] [ERROR] Access to fetch at 'https://www.homeaway.com/trvl-px/v2/get' from origin 'https://www.expedia.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://www.expedia.com/marketing/widgets/searchform/widget?wtt=5&tp1=1101l3BUi9&tp2=expiter&lob=H,FH,CA,CR,A&des=Agrigento&wbi=13&olc=000000&whf=4&hfc=C7C7C7&wif=4&ifc=000000&wbc=FFCC00&wbf=4&bfc=3D3100&wws=2&sfs=H550FW98R&langid=1033:0
+[    3573ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://www.homeaway.com/trvl-px/v2/get:0
+[    3573ms] [ERROR] TypeError: Failed to fetch
+    at https://www.expedia.com/HGFCbi/iA5C/hhsjl/woSqb8b/V2saM/ScutGwmO3L/Gx99AQ/QBxl/Zn1nMlFQ?v=1dad591f-6f77-a422-071f-42991bb317d8:1:91588
+    at Sr.PK.window.fetch (https://www.expedia.com/HGFCbi/iA5C/hhsjl/woSqb8b/V2saM/ScutGwmO3L/Gx99AQ/QBxl/Zn1nMlFQ?v=1dad591f-6f77-a422-071f-42991bb317d8:1:91759)
+    at i.value (https://b.travel-assets.com/travel-pixel-js/1.0.0/app.js:9:19116)
+    at https://b.travel-assets.com/travel-pixel-js/1.0.0/app.js:9:14987 @ https://b.travel-assets.com/travel-pixel-js/1.0.0/app.js:8
+[    6844ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    6869ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    6876ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    6899ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    6906ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    6909ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    6925ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    6984ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    6981ms] [WARNING] Timer 'Hints time' already exists @ https://scripts.journeymv.com/tags/iiqMatch/b966bc0af1418e4e991e.min.js:0
+[    6998ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at c (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:37761)
+    at k (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:180693)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:52142)
+    at J (https://scripts.journeymv.com/tags/optable/f02eb7cc324e84beef4a.min.js:0:39879)
+    at <anonymous> (https://scripts.journeymv.com/tags/optable/f02eb7cc324e84beef4a.min.js:0:46182)
+    at <anonymous> (https://scripts.journeymv.com/tags/optable/f02eb7cc324e84beef4a.min.js:0:53275)
+    at 4226 (https://scripts.journeymv.com/tags/optable/f02eb7cc324e84beef4a.min.js:0:53279)
+    at a (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:290713)
+[    7051ms] [TIMEEND] Hints time: 72.430908203125 ms @ https://scripts.journeymv.com/tags/iiqMatch/b966bc0af1418e4e991e.min.js:0
+[    7051ms] [WARNING] Timer 'Hints time' does not exist @ https://scripts.journeymv.com/tags/iiqMatch/b966bc0af1418e4e991e.min.js:0
+[    7063ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://id.crwdcntrl.net/id?gdpr_applies=true&gdpr_consent=CQl5JrAQl5JrAAfFdGITCjFsAP_gAEPgAAYgLdtR9G9fbSFj8DZ3YbokYIwPxVho6sAhBgCAkmgFCLuELIwEhWEQIAyCIiACGBIAODQAIAEgGAgQQUAgIIABLADMYEAQYCBKICBAABIRIkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAGEXAgKAAAAACQAQAIACEAQAEAAAAAQCgAgAAAgAAAAAAAABAIAAAAAAAAACAAAAAAAAAAAAAABAAAAICAACAAAAAAAAAAQiAAAAAAAACC3YAJBoVEEBZEAgQCAgBAAAEEQQAECAIAAAgIIAAAgYACQMABVhEgAAAgAAAAAAAAAAAAAACAAIAABAAACAACAQKAAAACAACAAgQAAwAUIAEAAICgAAIEAAAAAARAAAAIAAAAAQAEhAAAAAIAAQIAiAAAAAkAAAAAAAAAABAAAgAAAAAIAAAIAAAAAAAAAACBAAAAEAAAAgAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAEAgAAAAAAAAgAAA.ILdtR9G9fbSFn8DZ3YbokYIwfxVho6sAhBgCAkmgFCLuELIwElWESIAyCIiACGBIAODQAIAEoGAgQQUAgIIABLBDsYEAQYCBKICBAADIRYkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAmEXAgKIAAAACQAQAIACEAQAEAACAAQCgAgAAAgAAAAAAAABAIEAAAAQAAACAAAAAAAAAAAAAABAAAAICAACAAAAAEAAAAQiAAAAAAAAC&c=18338:0
+[    7070ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    7123ms] Uncaught (in promise) TypeError: Cannot read properties of undefined (reading '2')
+    at F.window.optable.getGeoConfig (https://scripts.journeymv.com/tags/optable/f02eb7cc324e84beef4a.min.js:0:36009)
+    at F (https://scripts.journeymv.com/tags/optable/f02eb7cc324e84beef4a.min.js:0:36388)
+    at H.init (https://scripts.journeymv.com/tags/optable/f02eb7cc324e84beef4a.min.js:0:50215)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:50646)
+    at o (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:49247)
+[    7125ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    7233ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    7391ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    7418ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    7437ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    7547ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    7630ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://eu-eb2.3lift.com/getuid?gdpr=1&cmp_cs=CQl5JrAQl5JrAAfFdGITCjFsAP_gAEPgAAYgLdtR9G9fbSFj8DZ3YbokYIwPxVho6sAhBgCAkmgFCLuELIwEhWEQIAyCIiACGBIAODQAIAEgGAgQQUAgIIABLADMYEAQYCBKICBAABIRIkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAGEXAgKAAAAACQAQAIACEAQAEAAAAAQCgAgAAAgAAAAAAAABAIAAAAAAAAACAAAAAAAAAAAAAABAAAAICAACAAAAAAAAAAQiAAAAAAAACC3YAJBoVEEBZEAgQCAgBAAAEEQQAECAIAAAgIIAAAgYACQMABVhEgAAAgAAAAAAAAAAAAAACAAIAABAAACAACAQKAAAACAACAAgQAAwAUIAEAAICgAAIEAAAAAARAAAAIAAAAAQAEhAAAAAIAAQIAiAAAAAkAAAAAAAAAABAAAgAAAAAIAAAIAAAAAAAAAACBAAAAEAAAAgAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAEAgAAAAAAAAgAAA.ILdtR9G9fbSFn8DZ3YbokYIwfxVho6sAhBgCAkmgFCLuELIwElWESIAyCIiACGBIAODQAIAEoGAgQQUAgIIABLBDsYEAQYCBKICBAADIRYkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAmEXAgKIAAAACQAQAIACEAQAEAACAAQCgAgAAAgAAAAAAAABAIEAAAAQAAACAAAAAAAAAAAAAABAAAAICAACAAAAAEAAAAQiAAAAAAAAC&us_privacy=&redir=https%3A%2F%2Fexchange.journeymv.com%2Fusersync%2Fredirect%3Fpartner%3Dtriplelift%26uuid%3D562306f7-69bf-11f1-8000-0123456789ab%26s2sVersion%3Dproduction%26partnerId%3D%24UID:0
+[    7630ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://eu-eb2.3lift.com/getuid?gdpr=1&cmp_cs=CQl5JrAQl5JrAAfFdGITCjFsAP_gAEPgAAYgLdtR9G9fbSFj8DZ3YbokYIwPxVho6sAhBgCAkmgFCLuELIwEhWEQIAyCIiACGBIAODQAIAEgGAgQQUAgIIABLADMYEAQYCBKICBAABIRIkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAGEXAgKAAAAACQAQAIACEAQAEAAAAAQCgAgAAAgAAAAAAAABAIAAAAAAAAACAAAAAAAAAAAAAABAAAAICAACAAAAAAAAAAQiAAAAAAAACC3YAJBoVEEBZEAgQCAgBAAAEEQQAECAIAAAgIIAAAgYACQMABVhEgAAAgAAAAAAAAAAAAAACAAIAABAAACAACAQKAAAACAACAAgQAAwAUIAEAAICgAAIEAAAAAARAAAAIAAAAAQAEhAAAAAIAAQIAiAAAAAkAAAAAAAAAABAAAgAAAAAIAAAIAAAAAAAAAACBAAAAEAAAAgAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAEAgAAAAAAAAgAAA.ILdtR9G9fbSFn8DZ3YbokYIwfxVho6sAhBgCAkmgFCLuELIwElWESIAyCIiACGBIAODQAIAEoGAgQQUAgIIABLBDsYEAQYCBKICBAADIRYkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAmEXAgKIAAAACQAQAIACEAQAEAACAAQCgAgAAAgAAAAAAAABAIEAAAAQAAACAAAAAAAAAAAAAABAAAAICAACAAAAAEAAAAQiAAAAAAAAC&us_privacy=&redir=https%3A%2F%2Fexchange.journeymv.com%2Fusersync%2Fredirect%3Fpartner%3Dtriplelift%26uuid%3D562306f7-69bf-11f1-8000-0123456789ab%26s2sVersion%3Dproduction%26partnerId%3D%24UID:0
+[    7667ms] [ERROR] Cannot read properties of undefined (reading 'version') @ https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1
+[    7668ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://eu-eb2.3lift.com/getuid?gdpr=1&cmp_cs=CQl5JrAQl5JrAAfFdGITCjFsAP_gAEPgAAYgLdtR9G9fbSFj8DZ3YbokYIwPxVho6sAhBgCAkmgFCLuELIwEhWEQIAyCIiACGBIAODQAIAEgGAgQQUAgIIABLADMYEAQYCBKICBAABIRIkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAGEXAgKAAAAACQAQAIACEAQAEAAAAAQCgAgAAAgAAAAAAAABAIAAAAAAAAACAAAAAAAAAAAAAABAAAAICAACAAAAAAAAAAQiAAAAAAAACC3YAJBoVEEBZEAgQCAgBAAAEEQQAECAIAAAgIIAAAgYACQMABVhEgAAAgAAAAAAAAAAAAAACAAIAABAAACAACAQKAAAACAACAAgQAAwAUIAEAAICgAAIEAAAAAARAAAAIAAAAAQAEhAAAAAIAAQIAiAAAAAkAAAAAAAAAABAAAgAAAAAIAAAIAAAAAAAAAACBAAAAEAAAAgAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAEAgAAAAAAAAgAAA.ILdtR9G9fbSFn8DZ3YbokYIwfxVho6sAhBgCAkmgFCLuELIwElWESIAyCIiACGBIAODQAIAEoGAgQQUAgIIABLBDsYEAQYCBKICBAADIRYkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAmEXAgKIAAAACQAQAIACEAQAEAACAAQCgAgAAAgAAAAAAAABAIEAAAAQAAACAAAAAAAAAAAAAABAAAAICAACAAAAAEAAAAQiAAAAAAAAC&us_privacy=&redir=https%3A%2F%2Fexchange.journeymv.com%2Fusersync%2Fredirect%3Fpartner%3Dtriplelift%26uuid%3D562306f7-69bf-11f1-8000-0123456789ab%26s2sVersion%3Dproduction%26partnerId%3D%24UID:0
+[    7677ms] [ERROR] Cannot read properties of undefined (reading 'version') @ https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1
+[    7696ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    7764ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    8125ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    8203ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[    9112ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://sync.search.spotxchange.com/partner?adv_id=7715&uid=3731308869579613393:0
+[    7630ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://eu-eb2.3lift.com/getuid?gdpr=1&cmp_cs=CQl5JrAQl5JrAAfFdGITCjFsAP_gAEPgAAYgLdtR9G9fbSFj8DZ3YbokYIwPxVho6sAhBgCAkmgFCLuELIwEhWEQIAyCIiACGBIAODQAIAEgGAgQQUAgIIABLADMYEAQYCBKICBAABIRIkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAGEXAgKAAAAACQAQAIACEAQAEAAAAAQCgAgAAAgAAAAAAAABAIAAAAAAAAACAAAAAAAAAAAAAABAAAAICAACAAAAAAAAAAQiAAAAAAAACC3YAJBoVEEBZEAgQCAgBAAAEEQQAECAIAAAgIIAAAgYACQMABVhEgAAAgAAAAAAAAAAAAAACAAIAABAAACAACAQKAAAACAACAAgQAAwAUIAEAAICgAAIEAAAAAARAAAAIAAAAAQAEhAAAAAIAAQIAiAAAAAkAAAAAAAAAABAAAgAAAAAIAAAIAAAAAAAAAACBAAAAEAAAAgAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAEAgAAAAAAAAgAAA.ILdtR9G9fbSFn8DZ3YbokYIwfxVho6sAhBgCAkmgFCLuELIwElWESIAyCIiACGBIAODQAIAEoGAgQQUAgIIABLBDsYEAQYCBKICBAADIRYkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAmEXAgKIAAAACQAQAIACEAQAEAACAAQCgAgAAAgAAAAAAAABAIEAAAAQAAACAAAAAAAAAAAAAABAAAAICAACAAAAAEAAAAQiAAAAAAAAC&us_privacy=&redir=https%3A%2F%2Fexchange.journeymv.com%2Fusersync%2Fredirect%3Fpartner%3Dtriplelift%26uuid%3D562306f7-69bf-11f1-8000-0123456789ab%26s2sVersion%3Dproduction%26partnerId%3D%24UID:0
+[    7668ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://eu-eb2.3lift.com/getuid?gdpr=1&cmp_cs=CQl5JrAQl5JrAAfFdGITCjFsAP_gAEPgAAYgLdtR9G9fbSFj8DZ3YbokYIwPxVho6sAhBgCAkmgFCLuELIwEhWEQIAyCIiACGBIAODQAIAEgGAgQQUAgIIABLADMYEAQYCBKICBAABIRIkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAGEXAgKAAAAACQAQAIACEAQAEAAAAAQCgAgAAAgAAAAAAAABAIAAAAAAAAACAAAAAAAAAAAAAABAAAAICAACAAAAAAAAAAQiAAAAAAAACC3YAJBoVEEBZEAgQCAgBAAAEEQQAECAIAAAgIIAAAgYACQMABVhEgAAAgAAAAAAAAAAAAAACAAIAABAAACAACAQKAAAACAACAAgQAAwAUIAEAAICgAAIEAAAAAARAAAAIAAAAAQAEhAAAAAIAAQIAiAAAAAkAAAAAAAAAABAAAgAAAAAIAAAIAAAAAAAAAACBAAAAEAAAAgAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAEAgAAAAAAAAgAAA.ILdtR9G9fbSFn8DZ3YbokYIwfxVho6sAhBgCAkmgFCLuELIwElWESIAyCIiACGBIAODQAIAEoGAgQQUAgIIABLBDsYEAQYCBKICBAADIRYkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAmEXAgKIAAAACQAQAIACEAQAEAACAAQCgAgAAAgAAAAAAAABAIEAAAAQAAACAAAAAAAAAAAAAABAAAAICAACAAAAAEAAAAQiAAAAAAAAC&us_privacy=&redir=https%3A%2F%2Fexchange.journeymv.com%2Fusersync%2Fredirect%3Fpartner%3Dtriplelift%26uuid%3D562306f7-69bf-11f1-8000-0123456789ab%26s2sVersion%3Dproduction%26partnerId%3D%24UID:0
+[   12207ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://cs.admanmedia.com/c899400112bd5b9243b3993d9a074653.gif?puid=[UID]&redir=https%3A%2F%2Fcsync.smilewanted.com%2Fset_partner_userid_get%2Fillumin%2F%5BUID%5D&gdpr=1&gdpr_consent=CQl5JrAQl5JrAAfFdGITCjFsAP_gAEPgAAYgLdtR9G9fbSFj8DZ3YbokYIwPxVho6sAhBgCAkmgFCLuELIwEhWEQIAyCIiACGBIAODQAIAEgGAgQQUAgIIABLADMYEAQYCBKICBAABIRIkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAGEXAgKAAAAACQAQAIACEAQAEAAAAAQCgAgAAAgAAAAAAAABAIAAAAAAAAACAAAAAAAAAAAAAABAAAAICAACAAAAAAAAAAQiAAAAAAAACC3YAJBoVEEBZEAgQCAgBAAAEEQQAECAIAAAgIIAAAgYACQMABVhEgAAAgAAAAAAAAAAAAAACAAIAABAAACAACAQKAAAACAACAAgQAAwAUIAEAAICgAAIEAAAAAARAAAAIAAAAAQAEhAAAAAIAAQIAiAAAAAkAAAAAAAAAABAAAgAAAAAIAAAIAAAAAAAAAACBAAAAEAAAAgAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAEAgAAAAAAAAgAAA.ILdtR9G9fbSFn8DZ3YbokYIwfxVho6sAhBgCAkmgFCLuELIwElWESIAyCIiACGBIAODQAIAEoGAgQQUAgIIABLBDsYEAQYCBKICBAADIRYkAQCAgKAAAgUAAAgmBGAgQAiASNAZIASMwAgQAmEXAgKIAAAACQAQAIACEAQAEAACAAQCgAgAAAgAAAAAAAABAIEAAAAQAAACAAAAAAAAAAAAAABAAAAICAACAAAAAEAAAAQiAAAAAAAAC:0
+[   16992ms] [WARNING] using deprecated parameters for the initialization function; pass a single object instead @ https://api.receptivity.io/v1/prebid/1Pw320cuJVXnYuFXFZ0eoE11G/connector/rxConnector.js?tl=true:9
+[   21679ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0
+[   25892ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0
+[   36796ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[   38779ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[   41781ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0
+[   65100ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0
+[   65836ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[   69790ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[   70007ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[   73563ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0
+[   94044ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0
+[   94821ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[   95101ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[   95103ms] Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at B (https://scripts.journeymv.com/tags/7715/85cff9f42eb57203ada9.min.js:0:1036)
+    at O (https://scripts.journeymv.com/tags/7715/85cff9f42eb57203ada9.min.js:0:1551)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:156779)
+[   98995ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[  100789ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[  103789ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0
+[  123163ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0
+[  123830ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[  124066ms] Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at B (https://scripts.journeymv.com/tags/7715/85cff9f42eb57203ada9.min.js:0:1036)
+    at O (https://scripts.journeymv.com/tags/7715/85cff9f42eb57203ada9.min.js:0:1551)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:156779)
+[  127253ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0
+[  128010ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[  131009ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0
+[  131799ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[  134801ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0
+[  152098ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0
+[  152837ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[  156247ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0
+[  157036ms] Uncaught TypeError: Cannot read properties of undefined (reading 'version')
+    at b (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:286832)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94567)
+    at <anonymous> (https://scripts.journeymv.com/tags/3.51.1__cgroup3.51.1-3684-at-TTDC/wrapper.min.js?bust=-1250252273:1:94207)
+[  160038ms] [WARNING] The resource https://securepubads.g.doubleclick.net/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://expiter.com/comuni/agrigento/agrigento.html:0

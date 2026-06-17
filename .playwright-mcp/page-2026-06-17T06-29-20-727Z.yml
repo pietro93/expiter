@@ -1,0 +1,583 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "Expiter logo Italy Expats & Nomads" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "Expiter logo" [ref=e6]
+        - text: Italy Expats & Nomads
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - link "Home" [ref=e10] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e11]:
+          - link "Provinces" [ref=e12] [cursor=pointer]:
+            - /url: /provinces/
+        - listitem [ref=e13]:
+          - link "Resources" [ref=e14] [cursor=pointer]:
+            - /url: https://expiter.com/resources/
+        - listitem [ref=e15]:
+          - link "Tools" [ref=e16] [cursor=pointer]:
+            - /url: https://expiter.com/tools/codice-fiscale-generator/
+        - listitem [ref=e17]:
+          - link "Blog" [ref=e18] [cursor=pointer]:
+            - /url: https://expiter.com/blog/articles/
+        - listitem [ref=e19]:
+          - link "About" [ref=e20] [cursor=pointer]:
+            - /url: https://expiter.com/app/#About
+  - generic [ref=e22]:
+    - main [ref=e23]:
+      - navigation "breadcrumb" [ref=e24]:
+        - link "Home" [ref=e25] [cursor=pointer]:
+          - /url: /
+        - text: /
+        - link "Provinces" [ref=e26] [cursor=pointer]:
+          - /url: /provinces/
+        - text: /
+        - link "Agrigento" [ref=e27] [cursor=pointer]:
+          - /url: https://expiter.com/province/agrigento/
+        - text: / Sicily · Agrigento · Town
+      - heading "Agrigento, Sicily, Italy" [level=1] [ref=e28]
+      - group [ref=e29]:
+        - generic "▸ Table of Contents" [ref=e30] [cursor=pointer]
+        - navigation [ref=e31]:
+          - list [ref=e32]:
+            - listitem [ref=e33]:
+              - link "Info Sheet" [ref=e34] [cursor=pointer]:
+                - /url: "#Info-Sheet"
+            - listitem [ref=e35]:
+              - link "About Agrigento" [ref=e36] [cursor=pointer]:
+                - /url: "#Overview"
+            - listitem [ref=e37]:
+              - link "Climate" [ref=e38] [cursor=pointer]:
+                - /url: "#Climate"
+            - listitem [ref=e39]:
+              - link "Map" [ref=e40] [cursor=pointer]:
+                - /url: "#Map"
+            - listitem [ref=e41]:
+              - link "Experiences & Tours" [ref=e42] [cursor=pointer]:
+                - /url: "#Tours"
+            - listitem [ref=e43]:
+              - link "Hotels" [ref=e44] [cursor=pointer]:
+                - /url: "#Hotels"
+            - listitem [ref=e45]:
+              - link "Nearby Towns" [ref=e46] [cursor=pointer]:
+                - /url: "#Nearby"
+            - listitem [ref=e47]:
+              - link "Provinces Nearby" [ref=e48] [cursor=pointer]:
+                - /url: "#Related"
+      - region "Province scorecard" [ref=e49]:
+        - tablist [ref=e50]:
+          - tab "Quality of Life" [selected] [ref=e51] [cursor=pointer]
+          - tab "Cost of Living" [ref=e52] [cursor=pointer]
+          - tab "Digital Nomads" [ref=e53] [cursor=pointer]
+        - tabpanel [ref=e55]:
+          - generic [ref=e56]:
+            - generic [ref=e57]:
+              - generic [ref=e58]:
+                - generic [ref=e59]:
+                  - generic [ref=e60]: 👥
+                  - text: Population
+                - generic [ref=e61]: 434,870
+              - generic [ref=e62]:
+                - generic [ref=e63]:
+                  - generic [ref=e64]: 🚑
+                  - text: Healthcare
+                - generic [ref=e66]: good
+              - generic [ref=e67]:
+                - generic [ref=e68]:
+                  - generic [ref=e69]: 📚
+                  - text: Education
+                - generic [ref=e71]: okay
+              - generic [ref=e72]:
+                - generic [ref=e73]:
+                  - generic [ref=e74]: 👮
+                  - text: Safety
+                - generic [ref=e76]: great
+              - generic [ref=e77]:
+                - generic [ref=e78]:
+                  - generic [ref=e79]: 🚨
+                  - text: Crime
+                - generic [ref=e81]: very low
+              - generic [ref=e82]:
+                - generic [ref=e83]:
+                  - generic [ref=e84]: 🚌
+                  - text: Transport
+                - generic [ref=e86]: poor
+              - generic [ref=e87]:
+                - generic [ref=e88]:
+                  - generic [ref=e89]: 🚥
+                  - text: Traffic
+                - generic [ref=e91]: high
+              - generic [ref=e92]:
+                - generic [ref=e93]:
+                  - generic [ref=e94]: 🚴
+                  - text: Cyclable
+                - generic [ref=e96]: poor
+              - generic [ref=e97]:
+                - generic [ref=e98]:
+                  - generic [ref=e99]: 🏛️
+                  - text: Culture
+                - generic [ref=e101]: poor
+              - generic [ref=e102]:
+                - generic [ref=e103]:
+                  - generic [ref=e104]: 🍸
+                  - text: Nightlife
+                - generic [ref=e106]: poor
+              - generic [ref=e107]:
+                - generic [ref=e108]:
+                  - generic [ref=e109]: ⚽
+                  - text: Recreation
+                - generic [ref=e111]: poor
+            - generic [ref=e112]:
+              - generic [ref=e113]:
+                - generic [ref=e114]:
+                  - generic [ref=e115]: 🌦️
+                  - text: Climate
+                - generic [ref=e117]: great
+              - generic [ref=e118]:
+                - generic [ref=e119]:
+                  - generic [ref=e120]: ☀️
+                  - text: Sunshine
+                - generic [ref=e122]: great
+              - generic [ref=e123]:
+                - generic [ref=e124]:
+                  - generic [ref=e125]: 🥵
+                  - text: Summers
+                - generic [ref=e127]: very hot
+              - generic [ref=e128]:
+                - generic [ref=e129]:
+                  - generic [ref=e130]: 🥶
+                  - text: Winters
+                - generic [ref=e132]: not cold
+              - generic [ref=e133]:
+                - generic [ref=e134]:
+                  - generic [ref=e135]: 🌧️
+                  - text: Rain
+                - generic [ref=e137]: little
+              - generic [ref=e138]:
+                - generic [ref=e139]:
+                  - generic [ref=e140]: 🌫️
+                  - text: Fog
+                - generic [ref=e142]: no fog
+              - generic [ref=e143]:
+                - generic [ref=e144]:
+                  - generic [ref=e145]: 🍃
+                  - text: Air quality
+                - generic [ref=e147]: poor
+              - generic [ref=e148]:
+                - generic [ref=e149]:
+                  - generic [ref=e150]: 👪
+                  - text: For family
+                - generic [ref=e152]: okay
+              - generic [ref=e153]:
+                - generic [ref=e154]:
+                  - generic [ref=e155]: 👩
+                  - text: For women
+                - generic [ref=e157]: poor
+              - generic [ref=e158]:
+                - generic [ref=e159]:
+                  - generic [ref=e160]: 🏳️‍🌈
+                  - text: LGBTQ+
+                - generic [ref=e162]: okay
+              - generic [ref=e163]:
+                - generic [ref=e164]:
+                  - generic [ref=e165]: 🥗
+                  - text: For vegans
+                - generic [ref=e167]: okay
+      - article [ref=e168]:
+        - generic [ref=e169]:
+          - generic [ref=e170]:
+            - heading "Info Sheet" [level=2] [ref=e171]
+            - table [ref=e173]:
+              - rowgroup [ref=e174]:
+                - row "Name Agrigento" [ref=e175]:
+                  - rowheader "Name" [ref=e176]
+                  - cell "Agrigento" [ref=e177]
+                - row "Province Agrigento" [ref=e178]:
+                  - rowheader "Province" [ref=e179]
+                  - cell "Agrigento" [ref=e180]:
+                    - link "Agrigento" [ref=e181] [cursor=pointer]:
+                      - /url: https://expiter.com/province/agrigento/
+                - row "Region Sicily" [ref=e182]:
+                  - rowheader "Region" [ref=e183]
+                  - cell "Sicily" [ref=e184]
+                - row "Population 55.636" [ref=e185]:
+                  - rowheader "Population" [ref=e186]
+                  - cell "55.636" [ref=e187]
+                - row "Density 228pp/km² pp/km²" [ref=e188]:
+                  - rowheader "Density" [ref=e189]
+                  - cell "228pp/km² pp/km²" [ref=e190]
+                - row "Altitude 230m m" [ref=e191]:
+                  - rowheader "Altitude" [ref=e192]
+                  - cell "230m m" [ref=e193]
+                - row "Climate Zone B" [ref=e194]:
+                  - rowheader "Climate Zone" [ref=e195]
+                  - cell "B" [ref=e196]
+          - generic [ref=e197]:
+            - heading "About Agrigento" [level=2] [ref=e198]
+            - generic [ref=e199]:
+              - paragraph [ref=e200]:
+                - generic [ref=e201]:
+                  - text: Agrigento is a municipality of 55.636 inhabitants located in the
+                  - link "Agrigento province" [ref=e202] [cursor=pointer]:
+                    - /url: https://expiter.com/comuni/province-of-agrigento
+                - text: in the Italian region of Sicily in Southern Italy.
+              - paragraph [ref=e203]: It has a population density of 228pp/km² people per km² and an altitude of 230m metres above the sea level.
+              - paragraph [ref=e204]: Agrigento accounts for about 12.79% of the total population in the province of Agrigento and about 0.09233% of the overall population of Italy as of 2022.
+              - heading "About Agrigento" [level=3] [ref=e205]
+              - text: Bari is the capital of Apulia and a major commercial and cultural center. Some of its landmarks are the Basilica of San Nicola, the Castello Normanno-Svevo, the Petruzzelli Theatre, and the Pinacoteca Provinciale.
+              - paragraph
+              - paragraph [ref=e206]: Bari also has a lively waterfront, a modern city center, and a historic core, known as Bari Vecchia.
+              - paragraph [ref=e207]: Some of the most characteristic aspects of Bari are the cult of Saint Nicholas, the patron saint of the city, the tradition of the orecchiette pasta, and the dialect of the Barese people.
+              - paragraph [ref=e208]: Bari was founded by the Peucetians in the 8th century BC. It was conquered by the Romans, the Byzantines, the Lombards, the Saracens, the Normans, the Swabians, the Angevins, the Aragonese, and the Bourbons.
+              - paragraph [ref=e209]: Bari was the seat of the Kingdom of Naples, the Kingdom of the Two Sicilies, and the Kingdom of Italy. It was also a strategic port for trade and commerce in the Mediterranean.
+              - paragraph [ref=e210]: Bari was bombed by the Allies, liberated by the Polish Army, and rebuilt after World War II. It is now a thriving city and a popular tourist destination.
+          - generic [ref=e211]:
+            - heading "Climate" [level=2] [ref=e212]
+            - generic [ref=e213]:
+              - paragraph [ref=e214]: Agrigento is classified as a Climate Zone B, which means it is one of the warmest and sunniest locations in Italy. The local climate is characterized by short, mild winters and long, hot and dry summers. Rainfall is mostly concentrated to the winter period.
+              - paragraph [ref=e215]: The province of Agrigento experiences on average 95.21 days of hot temperatures (over 30°C) and 0.00 cold temperature days (<5°C) per year.
+              - paragraph [ref=e216]: Precipitation in the form of rain or snow occurs around 70.32 days per year. Fog is rarely an issue, with little to no foggy days throughout the year.
+              - paragraph [ref=e217]: The municipality of Agrigento enjoys approximately 9.1 hours of sunshine per day. This means that the town experiences an average of 369.06 sunny days in a year.
+          - generic [ref=e218]:
+            - heading "Map of Agrigento" [level=2] [ref=e219]
+            - generic [ref=e221]:
+              - iframe [ref=e222]:
+                - link "Open in Maps (opens in new tab)" [ref=f1e4] [cursor=pointer]:
+                  - /url: about:invalid#zClosurez
+                  - text: Open in Maps
+                  - img [ref=f1e6]
+              - text: "Search for:"
+              - generic [ref=e224]: 🎭Attractions
+              - generic [ref=e226]: 🏺Museums
+              - generic [ref=e228]: 🍕Restaurants
+              - generic [ref=e230]: 🍺Bars
+              - generic [ref=e232]: 🏖️Beaches
+              - generic [ref=e234]: ⛰️Hikes
+              - link "📦Amazon Pickup Locations" [ref=e235] [cursor=pointer]:
+                - /url: https://www.amazon.it/ulp/view?&linkCode=ll2&tag=expiter-21&linkId=5824e12643c8300394b6ebdd10b7ba3c&language=it_IT&ref_=as_li_ss_tl
+                - generic [ref=e236]: 📦Amazon Pickup Locations
+          - generic [ref=e237]:
+            - heading "Experiences and tours near Agrigento" [level=2] [ref=e238]
+            - iframe [ref=e241]:
+              - generic [ref=f12e3]:
+                - list [ref=f12e4]:
+                  - listitem [ref=f12e5]:
+                    - link "View further details about this activity at GetYourGuide" [ref=f12e6] [cursor=pointer]:
+                      - /url: https://www.getyourguide.com/s/?et=1256009&psrc=widget&partner_id=56T9R2T&utm_medium=online_publisher&currency=EUR&q=Agrigento&queryMatch=all&cmp=auto-widget&widget=activities-auto&wid=70b3662f-ab16-56d0-82d9-a19393ddc1e3&page_id=2c39db22-870c-53e9-8788-e8e67256f507&visitor_id=6DE347B33B1B42708AE085B2ADCE4125
+                      - generic [ref=f12e7]: View details
+                    - 'img "Agrigento: Immersive Dinner Show at Valley of the Temples" [ref=f12e11]'
+                    - generic [ref=f12e12]:
+                      - generic [ref=f12e13]: Immersive Dinner Show at Valley of the Temples
+                      - generic [ref=f12e14]:
+                        - img [ref=f12e16]
+                        - generic [ref=f12e18]: "Duration: 3 hours"
+                      - generic [ref=f12e19]:
+                        - img [ref=f12e21]
+                        - generic [ref=f12e23]: "4"
+                        - generic [ref=f12e24]: (2)
+                  - listitem [ref=f12e25]:
+                    - link "View further details about this activity at GetYourGuide" [ref=f12e26] [cursor=pointer]:
+                      - /url: https://www.getyourguide.com/s/?et=418623&psrc=widget&partner_id=56T9R2T&utm_medium=online_publisher&currency=EUR&q=Agrigento&queryMatch=all&cmp=auto-widget&widget=activities-auto&wid=70b3662f-ab16-56d0-82d9-a19393ddc1e3&page_id=2c39db22-870c-53e9-8788-e8e67256f507&visitor_id=6DE347B33B1B42708AE085B2ADCE4125
+                      - generic [ref=f12e27]: View details
+                    - 'img "Agrigento: Private Torre Salsa Natural Reserve Boat Tour" [ref=f12e31]'
+                    - generic [ref=f12e32]:
+                      - generic [ref=f12e33]: Private Torre Salsa Natural Reserve Boat Tour
+                      - generic [ref=f12e34]:
+                        - img [ref=f12e36]
+                        - generic [ref=f12e38]: "Duration: 4.5 hours"
+                  - listitem [ref=f12e39]:
+                    - link "View further details about this activity at GetYourGuide" [ref=f12e40] [cursor=pointer]:
+                      - /url: https://www.getyourguide.com/s/?et=497050&psrc=widget&partner_id=56T9R2T&utm_medium=online_publisher&currency=EUR&q=Agrigento&queryMatch=all&cmp=auto-widget&widget=activities-auto&wid=70b3662f-ab16-56d0-82d9-a19393ddc1e3&page_id=2c39db22-870c-53e9-8788-e8e67256f507&visitor_id=6DE347B33B1B42708AE085B2ADCE4125
+                      - generic [ref=f12e41]: View details
+                    - 'img "San Leone: Private aperitif on boat tour" [ref=f12e45]'
+                    - generic [ref=f12e46]:
+                      - generic [ref=f12e47]: Private aperitif on boat tour
+                      - generic [ref=f12e48]:
+                        - img [ref=f12e50]
+                        - generic [ref=f12e52]: "Duration: 4 hours"
+                      - generic [ref=f12e53]:
+                        - img [ref=f12e55]
+                        - generic [ref=f12e57]: "4.8"
+                        - generic [ref=f12e58]: (14)
+                - contentinfo [ref=f12e59]:
+                  - generic [ref=f12e60]:
+                    - link "Powered by GetYourGuide." [ref=f12e61] [cursor=pointer]:
+                      - /url: https://getyourguide.com/agrigento-l1158/?partner_id=56T9R2T
+                    - link "Join our travel affiliate program" [ref=f12e62] [cursor=pointer]:
+                      - /url: https://partner.getyourguide.com/
+          - generic [ref=e242]:
+            - heading "Hotels and travel options in Agrigento" [level=2] [ref=e243]
+            - generic [ref=e244]:
+              - iframe [ref=e246]:
+                - article [ref=f2e3]:
+                  - generic [ref=f2e4]:
+                    - generic [ref=f2e5]: SEARCH Hotel
+                    - generic [ref=f2e11]:
+                      - tablist [ref=f2e12]:
+                        - tab "" [ref=f2e13] [cursor=pointer]:
+                          - generic [ref=f2e14]: 
+                        - tab "" [ref=f2e15] [cursor=pointer]:
+                          - generic [ref=f2e16]: 
+                        - tab "" [ref=f2e17] [cursor=pointer]:
+                          - generic [ref=f2e18]: 
+                        - tab "" [ref=f2e19] [cursor=pointer]:
+                          - generic [ref=f2e20]: 
+                        - tab "" [ref=f2e21] [cursor=pointer]:
+                          - generic [ref=f2e22]: 
+                      - generic [ref=f2e23]:
+                        - tabpanel [ref=f2e24]:
+                          - group [ref=f2e25]:
+                            - generic [ref=f2e27] [cursor=pointer]:
+                              - generic [ref=f2e28]: Destination
+                              - textbox "Destination" [ref=f2e29]: Agrigento
+                              - generic [ref=f2e30]: 
+                            - generic [ref=f2e32] [cursor=pointer]:
+                              - generic [ref=f2e33]: Check in
+                              - textbox "Check in" [ref=f2e34]:
+                                - /placeholder: mm/dd/yyyy
+                              - generic [ref=f2e35]: 
+                            - generic [ref=f2e37] [cursor=pointer]:
+                              - generic [ref=f2e38]: Check out
+                              - textbox "Check out" [ref=f2e39]:
+                                - /placeholder: mm/dd/yyyy
+                              - generic [ref=f2e40]: 
+                            - generic [ref=f2e41] [cursor=pointer]:
+                              - generic [ref=f2e42]: Adults (18+)
+                              - combobox "Adults (18+)" [ref=f2e43]:
+                                - option "1"
+                                - option "2" [selected]
+                                - option "3"
+                                - option "4"
+                                - option "5"
+                                - option "6"
+                            - generic [ref=f2e44] [cursor=pointer]:
+                              - generic [ref=f2e45]: Children (0-17)
+                              - combobox "Children (0-17)" [ref=f2e46]:
+                                - option "0" [selected]
+                                - option "1"
+                                - option "2"
+                                - option "3"
+                                - option "4"
+                                - option "5"
+                                - option "6"
+                            - button "Search" [ref=f2e49] [cursor=pointer]:
+                              - generic: Search
+                        - text:           
+              - generic [ref=e247]:
+                - text: "Search for:"
+                - link "Hotels" [ref=e248] [cursor=pointer]:
+                  - /url: https://www.expedia.com/Hotel-Search?lodging=HOTEL&destination=Agrigento&camref=1101l3BUi9&creativeref=1100l68075
+                - text: "|"
+                - link "Apartments" [ref=e249] [cursor=pointer]:
+                  - /url: https://www.expedia.com/Hotel-Search?lodging=APARTMENT&destination=Agrigento&camref=1101l3BUi9&creativeref=1100l68075
+                - text: "|"
+                - link "Bed & Breakfasts" [ref=e250] [cursor=pointer]:
+                  - /url: https://www.expedia.com/Hotel-Search?lodging=BED_AND_BREAKFAST&destination=Agrigento&camref=1101l3BUi9&creativeref=1100l68075
+                - text: "|"
+                - link "Villas" [ref=e251] [cursor=pointer]:
+                  - /url: https://www.expedia.com/Hotel-Search?lodging=VILLA&destination=Agrigento&camref=1101l3BUi9&creativeref=1100l68075
+          - generic [ref=e252]:
+            - heading "Towns in the Province of Agrigento" [level=2] [ref=e253]
+            - generic [ref=e254]:
+              - link "Alessandria della rocca" [ref=e256] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/alessandria-della-rocca/
+              - link "Aragona" [ref=e258] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/aragona/
+              - link "Bivona" [ref=e260] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/bivona/
+              - link "Burgio" [ref=e262] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/burgio/
+              - link "Calamonaci" [ref=e264] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/calamonaci/
+              - link "Caltabellotta" [ref=e266] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/caltabellotta/
+              - link "Camastra" [ref=e268] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/camastra/
+              - link "Cammarata" [ref=e270] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/cammarata/
+              - link "Campobello di licata" [ref=e272] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/campobello-di-licata/
+              - link "Canicattì" [ref=e274] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/canicattì/
+              - link "Casteltermini" [ref=e276] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/casteltermini/
+              - link "Castrofilippo" [ref=e278] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/castrofilippo/
+              - link "Cattolica eraclea" [ref=e280] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/cattolica-eraclea/
+              - link "Cianciana" [ref=e282] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/cianciana/
+              - link "Comitini" [ref=e284] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/comitini/
+              - link "Favara" [ref=e286] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/favara/
+              - link "Grotte" [ref=e288] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/grotte/
+              - link "Joppolo giancaxio" [ref=e290] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/joppolo-giancaxio/
+              - link "Lampedusa e linosa" [ref=e292] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/lampedusa-e-linosa/
+              - link "Licata" [ref=e294] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/licata/
+              - link "Lucca sicula" [ref=e296] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/lucca-sicula/
+              - link "Menfi" [ref=e298] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/menfi/
+              - link "Montallegro" [ref=e300] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/montallegro/
+              - link "Montevago" [ref=e302] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/montevago/
+              - link "Naro" [ref=e304] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/naro/
+              - link "Palma di montechiaro" [ref=e306] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/palma-di-montechiaro/
+              - link "Porto empedocle" [ref=e308] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/porto-empedocle/
+              - link "Racalmuto" [ref=e310] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/racalmuto/
+              - link "Raffadali" [ref=e312] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/raffadali/
+              - link "Ravanusa" [ref=e314] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/ravanusa/
+              - link "Realmonte" [ref=e316] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/realmonte/
+              - link "Ribera" [ref=e318] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/ribera/
+              - link "Sambuca di sicilia" [ref=e320] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/sambuca-di-sicilia/
+              - link "San biagio platani" [ref=e322] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/san-biagio-platani/
+              - link "San giovanni gemini" [ref=e324] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/san-giovanni-gemini/
+              - link "Sant'angelo muxaro" [ref=e326] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/sant-angelo-muxaro/
+              - link "Santa elisabetta" [ref=e328] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/santa-elisabetta/
+              - link "Santa margherita di b." [ref=e330] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/santa-margherita-di-b./
+              - link "Santo stefano quisquina" [ref=e332] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/santo-stefano-quisquina/
+              - link "Sciacca" [ref=e334] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/sciacca/
+              - link "Siculiana" [ref=e336] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/siculiana/
+              - link "Villafranca sicula" [ref=e338] [cursor=pointer]:
+                - /url: https://expiter.com/comuni/agrigento/villafranca-sicula/
+          - generic [ref=e339]:
+            - heading "Provinces Nearby" [level=2] [ref=e340]
+            - list [ref=e342]:
+              - listitem [ref=e343]:
+                - link "Caltanissetta Caltanissetta, Sicily" [ref=e344] [cursor=pointer]:
+                  - /url: https://expiter.com/province/caltanissetta/
+                  - img "Caltanissetta" [ref=e345]
+                  - generic [ref=e346]: Caltanissetta, Sicily
+              - listitem [ref=e347]:
+                - link "Trapani Trapani, Sicily" [ref=e348] [cursor=pointer]:
+                  - /url: https://expiter.com/province/trapani/
+                  - img "Trapani" [ref=e349]
+                  - generic [ref=e350]: Trapani, Sicily
+              - listitem [ref=e351]:
+                - link "Ragusa Ragusa, Sicily" [ref=e352] [cursor=pointer]:
+                  - /url: https://expiter.com/province/ragusa/
+                  - img "Ragusa" [ref=e353]
+                  - generic [ref=e354]: Ragusa, Sicily
+              - listitem [ref=e355]:
+                - link "Siracusa Siracusa, Sicily" [ref=e356] [cursor=pointer]:
+                  - /url: https://expiter.com/province/siracusa/
+                  - img "Siracusa" [ref=e357]
+                  - generic [ref=e358]: Siracusa, Sicily
+          - generic [ref=e360]: This page contains affiliate links. As part of the Amazon Associates and Viator Partner programmes, we may earn a commission on qualified purchases.
+    - complementary "Sidebar" [ref=e361]:
+      - paragraph [ref=e362]: Province Overview
+      - list [ref=e363]:
+        - listitem [ref=e364]:
+          - link "Agrigento Province Overview" [ref=e365] [cursor=pointer]:
+            - /url: https://expiter.com/province/agrigento/
+        - listitem [ref=e366]:
+          - link "Municipalities in Agrigento" [ref=e367] [cursor=pointer]:
+            - /url: https://expiter.com/comuni/province-of-agrigento/
+        - listitem [ref=e368]:
+          - link "Provinces in Sicily" [ref=e369] [cursor=pointer]:
+            - /url: https://expiter.com/app/?sort=Name&region=Sicilia
+      - paragraph [ref=e370]: Get Inspired
+      - list [ref=e371]:
+        - listitem [ref=e372]:
+          - link "Province Comparison Tool" [ref=e373] [cursor=pointer]:
+            - /url: https://expiter.com/
+        - listitem [ref=e374]:
+          - link "Best Places to Live in Sicily" [ref=e375] [cursor=pointer]:
+            - /url: https://expiter.com/app/?sort=Expat-friendly&region=Sicilia
+        - listitem [ref=e376]:
+          - link "Cheapest Provinces in Sicily" [ref=e377] [cursor=pointer]:
+            - /url: https://expiter.com/app/?sort=Cheapest&region=Sicilia
+        - listitem [ref=e378]:
+          - link "Provinces in Sicily with the best climate" [ref=e379] [cursor=pointer]:
+            - /url: https://expiter.com/app/?sort=Climate&region=Sicilia
+        - listitem [ref=e380]:
+          - link "Safest provinces in Sicily" [ref=e381] [cursor=pointer]:
+            - /url: https://expiter.com/app/?sort=Safety&region=Sicilia
+      - paragraph [ref=e382]: Experience
+      - iframe [ref=e384]:
+        - generic [ref=f7e3]:
+          - list [ref=f7e4]:
+            - listitem [ref=f7e5]:
+              - link "View further details about this activity at GetYourGuide" [ref=f7e6] [cursor=pointer]:
+                - /url: https://www.getyourguide.com/s/?et=480838&psrc=widget&partner_id=56T9R2T&utm_medium=online_publisher&currency=EUR&q=Agrigento&queryMatch=all&cmp=auto-widget&widget=activities-auto&wid=70b3662f-ab16-56d0-82d9-a19393ddc1e3&page_id=2c39db22-870c-53e9-8788-e8e67256f507&visitor_id=6DE347B33B1B42708AE085B2ADCE4125
+                - generic [ref=f7e7]: View details
+              - 'img "Agrigento: Valley of the Temples Skip-the-Line Sunset Tour" [ref=f7e11]'
+              - generic [ref=f7e12]:
+                - generic [ref=f7e13]: Valley of the Temples Skip-the-Line Sunset Tour
+                - generic [ref=f7e14]:
+                  - img [ref=f7e16]
+                  - generic [ref=f7e18]: "Duration: 2 hours"
+                - generic [ref=f7e19]:
+                  - img [ref=f7e21]
+                  - generic [ref=f7e23]: "4.5"
+                  - generic [ref=f7e24]: (1552)
+            - listitem [ref=f7e25]:
+              - link "View further details about this activity at GetYourGuide" [ref=f7e26] [cursor=pointer]:
+                - /url: https://www.getyourguide.com/s/?et=232892&psrc=widget&partner_id=56T9R2T&utm_medium=online_publisher&currency=EUR&q=Agrigento&queryMatch=all&cmp=auto-widget&widget=activities-auto&wid=70b3662f-ab16-56d0-82d9-a19393ddc1e3&page_id=2c39db22-870c-53e9-8788-e8e67256f507&visitor_id=6DE347B33B1B42708AE085B2ADCE4125
+                - generic [ref=f7e27]: View details
+              - 'img "Agrigento: Valley of the Temples Ticket & App Audioguide" [ref=f7e31]'
+              - generic [ref=f7e32]:
+                - generic [ref=f7e33]: Valley of the Temples Ticket & App Audioguide
+                - generic [ref=f7e35]:
+                  - img [ref=f7e37]
+                  - generic [ref=f7e39]: "4.1"
+                  - generic [ref=f7e40]: (2285)
+            - listitem [ref=f7e41]:
+              - link "View further details about this activity at GetYourGuide" [ref=f7e42] [cursor=pointer]:
+                - /url: https://www.getyourguide.com/s/?et=427954&psrc=widget&partner_id=56T9R2T&utm_medium=online_publisher&currency=EUR&q=Agrigento&queryMatch=all&cmp=auto-widget&widget=activities-auto&wid=70b3662f-ab16-56d0-82d9-a19393ddc1e3&page_id=2c39db22-870c-53e9-8788-e8e67256f507&visitor_id=6DE347B33B1B42708AE085B2ADCE4125
+                - generic [ref=f7e43]: View details
+              - 'img "Agrigento: Valley of the Temples Sunset Tour Skip-the-Line Entry" [ref=f7e47]'
+              - generic [ref=f7e48]:
+                - generic [ref=f7e49]: Valley of the Temples Sunset Tour Skip-the-Line Entry
+                - generic [ref=f7e50]:
+                  - img [ref=f7e52]
+                  - generic [ref=f7e54]: "Duration: 2 hours"
+                - generic [ref=f7e55]:
+                  - img [ref=f7e57]
+                  - generic [ref=f7e59]: "4.7"
+                  - generic [ref=f7e60]: (222)
+          - contentinfo [ref=f7e61]:
+            - generic [ref=f7e62]:
+              - link "Powered by GetYourGuide." [ref=f7e63] [cursor=pointer]:
+                - /url: https://getyourguide.com/agrigento-l1158/?partner_id=56T9R2T
+              - link "Join our travel affiliate program" [ref=f7e64] [cursor=pointer]:
+                - /url: https://partner.getyourguide.com/
+      - paragraph [ref=e385]: About
+      - paragraph [ref=e386]:
+        - text: Expiter is a data visualization tool for researching and comparing different quality of life factors in Italian cities and provinces.
+        - text: We provide valuable information for expats, exchange students, full-time travelers, remote workers and digital nomads who are living in (or planning to move to) Italy.
+      - paragraph [ref=e387]: Disclaimer
+      - paragraph [ref=e388]:
+        - text: The information on this website is for educational purposes only. We collect data from different sources including internal surveys and publicly available databases from external sources.
+        - text: Expiter.com does not endorse or guarantee the accuracy, reliability, or completeness of any products, services, or information mentioned on this website.
+        - text: Expiter.com participates in affiliate programs, including the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.
+        - text: This means that we may earn a commission if you click on or purchase products through our links, at no extra cost to you.
+  - contentinfo [ref=e389]:
+    - generic [ref=e390]: © Expiter. Data for informational purposes only.
+  - button "Aggiorna le impostazioni sulla privacy" [ref=e392] [cursor=pointer]

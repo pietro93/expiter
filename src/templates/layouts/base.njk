@@ -83,7 +83,8 @@
 <div class="container py-4" id="main-content">
   <div class="row g-4">
 
-    <main class="col-12 col-lg-8 col-xl-9 order-1 journey-content">
+    <div class="col-12 col-lg-8 col-xl-9 order-1">
+    <main class="journey-content">
 
       {% block breadcrumb %}
       <nav aria-label="breadcrumb" class="breadcrumb-mini">
@@ -154,10 +155,13 @@
       </article>
 
     </main>
+    </div>
 
-    <aside class="col-12 col-lg-4 col-xl-3 order-2 sidebar-primary" aria-label="Sidebar">
+    <div class="col-12 col-lg-4 col-xl-3 order-2">
+    <aside class="sidebar-primary" aria-label="Sidebar">
       {% block sidebar %}{% if sidebar %}{{ sidebar | safe }}{% endif %}{% endblock %}
     </aside>
+    </div>
 
   </div>
 </div>
